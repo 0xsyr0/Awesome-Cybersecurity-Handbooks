@@ -26,7 +26,7 @@ A huge chunk of my personal notes since i started playing CTFs and working as a 
 - [Exploitation]()
 - [IoT]()
 - [Mobile]()
-- [OpSec]()
+- [Operational Security]()
 - [OSINT]()
 - [Payloads]()
 - [Templates]()
