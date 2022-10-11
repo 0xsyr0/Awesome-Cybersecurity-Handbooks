@@ -18,7 +18,7 @@ A huge chunk of my personal notes since i started playing CTFs and working as a 
 - [13 Social Engineering Tools]()
 - [Basics]()
 - [Blue Teaming]()
-- [C2]()
+- [Command and Control]()
 - [Cloud]()
 - [Container]()
 - [Cryptography]()
