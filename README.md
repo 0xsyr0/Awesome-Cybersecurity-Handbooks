@@ -23,7 +23,6 @@ A huge chunk of my personal notes since i started playing CTFs and working as a 
 - [Container]()
 - [Cryptography]()
 - [CVE]()
-- [Development]()
 - [Exploitation]()
 - [IoT]()
 - [Mobile]()
