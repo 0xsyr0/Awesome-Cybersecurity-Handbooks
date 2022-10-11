@@ -5,7 +5,7 @@ A huge chunk of my personal notes since i started playing CTFs and working as a 
 
 - [01 Information Gathering]()
 - [02 Vulnerability Analysis]()
-- [03 Web Analysis]()
+- [03 Web Application Analysis]()
 - [04 Database Assessment]()
 - [05 Password Attacks]()
 - [06 Wireless Attacks]()
