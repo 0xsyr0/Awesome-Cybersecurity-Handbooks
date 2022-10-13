@@ -1,6 +1,16 @@
 # Awesome Cybersecurity Handbooks [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 A huge chunk of my personal notes since i started playing CTFs and working as a Red Teamer.
 
+These are living documents and i updated/add to it relatively often and release an updated version from time to time.
+
+DISCLAIMER: Please note that these documents are `only` provided only for `legal purposes`. Please do `not` use the content for illigal purposes.
+
+HOW TO USE: I designed the structure of the handbooks, related to the `Kali Linux` menu structure. All content is written in `Markdown` which means you can open them with any tool who redenders the syntax correctly.
+
+I highly recomment to work with them on a command line or shell, by using grep to get it's content from every file. Neither if you are doing reconnaissance or post exploitation.
+
+EXAMPLE: `grep 'BloodHound' *.md -n -A 3 -B 3`
+
 ## Table of Contents
 
 - [01 Information Gathering](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md)
