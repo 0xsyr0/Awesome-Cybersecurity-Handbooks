@@ -1,5 +1,27 @@
 # Cryptography
 
+## Table of Contents
+
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#Resources)
+- [Base64](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#Base64)
+- [bcrypt](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#bcrypt)
+- [Creating Password Hashes](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#Creating-Password-Hashes)
+- [EncFS/6](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#EncFS6)
+- [Featherduster](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#Featherduster)
+- [hash-identifier](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#hash-identifier)
+- [hashID](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#hashID)
+- [Magic Function](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#Magic-Function)
+- [MD5](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#MD5)
+- [OpenSSL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#OpenSSL)
+- [PuTTY Tools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#PuTTY-Tools)
+- [Python Pickle](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#(Python-Pickle)
+- [ROT13](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#ROT13)
+- [RSA](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#RSA)
+- [SHA256](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#SHA256)
+- [XOR](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md#XOR)
+
+## Resources
+
 | Name | Description | URL |
 | --- | --- | --- |
 | FeatherDuster | An automated, modular cryptanalysis tool; i.e., a Weapon of Math Destruction. | https://github.com/nccgroup/featherduster |
