@@ -40,7 +40,7 @@
 - [subfinder](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#subfinder)
 - [tcpdump](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#tcpdump)
 
-## Tooling
+## Resources
 
 | Name | Description | URL |
 | --- | --- | --- |
