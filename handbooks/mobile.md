@@ -1,5 +1,9 @@
 # Mobile
 
+## Table of Contents
+
+- [Apktool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/mobile.md#Apktool)
+
 ## Apktool
 
 > https://github.com/iBotPeaches/Apktool
