@@ -1,5 +1,12 @@
 # Command and Control
 
+## Table of Contents
+
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Resources)
+- [Empire](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Empire)
+
+## Resources
+
 | Name | Description | URL |
 | --- | --- | --- |
 | Havoc | The Havoc Framework | https://github.com/HavocFramework/Havoc |
