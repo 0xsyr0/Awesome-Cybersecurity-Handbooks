@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Tooling](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Tooling)
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Resources)
 - [Amass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Amass)
 - [Banner Grabbing](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Banner-Grabbing)
 - [BloodHound](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#BloodHound)
