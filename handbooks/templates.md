@@ -1,5 +1,23 @@
 # Templates
 
+## Table of Contents
+
+- [01 Information Gathering](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#01-Information-Gathering)
+- [02 Vulnerability Analysis](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#02-Vulnerability-Analysis)
+- [03 Web Application Analysis](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#03-Web-Application-Analysis)
+- [04 Database Assessment](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#04-Database-Assessment)
+- [05 Password Attacks](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#05-Password-Attacks)
+- [06 Wireless Attacks](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#06-Wireless-Attacks)
+- [07 Reverse Engineering](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#07-Reverse-Engineering)
+- [08 Exploitation Tools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#08-Exploitation-Tools)
+- [09 Sniffing & Spoofing](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#09-Sniffing--Spoofing)
+- [10 Post Exploitation](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#10-Post-Exploitation)
+- [11 Forensics](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#11-Forensics)
+- [12 Reporting Tools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#12-Reporting-Tools)
+- [13 Social Engineering Tools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#13-Social-Engineering-Tools)
+- [Basics](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#Basics)
+- [Exploiting](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/templates.md#Exploiting)
+
 ## 01 Information Gathering
 ## 02 Vulnerability Analysis
 ## 03 Web Application Analysis
