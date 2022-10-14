@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Tooling](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Tooling)
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Resources)
 - [403 Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#403-Bypass)
 - [Asset Discovery](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Asset-Discovery)
 - [Burp Suite](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Burp-Suite)
@@ -47,7 +47,7 @@
 - [XSRFProbe (Cross-Site Request Forgery / CSRF / XSRF)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#XSRFProbe-Cross-Site-Request-Forgery--CSRF--XSRF)
 - [Cross-Site Scripting (XSS)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Cross-Site-Scripting-XSS)
 
-## Tooling
+## Resources
 
 | Name | Description | URL |
 | --- | --- | --- |
