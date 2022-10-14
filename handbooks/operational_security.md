@@ -1,5 +1,10 @@
 # Operational Security
 
+## Table of Contents
+
+- [Clear History](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#Clear-History)
+- [ProxyChains](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#ProxyChains)
+
 ## Clear History
 
 ```c
