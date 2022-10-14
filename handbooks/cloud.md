@@ -1,5 +1,13 @@
 # Cloud
 
+## Table of Contents
+
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cloud.md#Resources)
+- [AWS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cloud.md#AWS)
+- [lazys3](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cloud.md#lazys3)
+
+## Resources
+
 | Name | Description | URL |
 | --- | --- | --- |
 | lazys3 | A Ruby script to bruteforce for AWS s3 buckets using different permutations. | https://github.com/nahamsec/lazys3 |
