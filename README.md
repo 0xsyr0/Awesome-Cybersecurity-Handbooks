@@ -12,7 +12,7 @@ EXAMPLE: `grep 'BloodHound' *.md -n -A 3 -B 3`
 
 END NOTE: As always, it is pretty hard to point out every source for different tools or payloads. If i used your payload anywhere in my notes and you wanted to be mentioned, feel free to reach out to me on [Twitter](https://twitter.com/syr0_) and i will add you asap.
 
-If you like the project, give it a :star: or share it on various platforms. My goal is to build resources for people to help them on their career.
+If you like the project, give it a :star: or share it on various platforms. My goal is to create and to gather resources for people to help them on their career.
 
 Thank you for reading.
 
