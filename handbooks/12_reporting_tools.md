@@ -1,5 +1,16 @@
 # Reporting Tools
 
+## Table of Contents
+
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/12_reporting_tools.md#Resources)
+- [Folder Structure on Operations Server](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/12_reporting_tools.md#Folder Structure-on-Operations-Server)
+- [Logging](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/12_reporting_tools.md#Logging)
+- [Markdown](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/12_reporting_tools.md#Markdown)
+- [Meetings](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/12_reporting_tools.md#Meetings)
+- [Obsidian](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/12_reporting_tools.md#Obsidian)
+
+## Resources
+
 | Name | Description | URL |
 | --- | --- | --- |
 | Atomic Red Team | Atomic Red Team™ is a library of tests mapped to the MITRE ATT&CK® framework. Security teams can use Atomic Red Team to quickly, portably, and reproducibly test their environments. | https://github.com/redcanaryco/atomic-red-team |
@@ -11,7 +22,7 @@
 | Ghostwriter | Ghostwriter is a Django-based web application designed to be used by an individual or a team of red team operators. | https://github.com/GhostManager/Ghostwriter |
 | Awesome Markdown | A collection of awesome markdown goodies (libraries, services, editors, tools, cheatsheets, etc.) | https://github.com/mundimark/awesome-markdown |
 
-## Folder Structure on operations server
+## Folder Structure on Operations Server
 
 ```c
 assessment_name
@@ -31,7 +42,7 @@ assessment_name
 └── README.md
 ```
 
-### Examples of screenshots
+### Examples of Screenshots
 
 - 20220801_1508_10.10.1.106_nmap_tcp445.png
 - 20220801_1508_10.10.1.106_smb_enumeration.png
