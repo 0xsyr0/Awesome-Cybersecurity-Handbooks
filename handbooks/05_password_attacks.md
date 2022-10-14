@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Tooling](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Tooling)
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Resources)
 - [AES](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#AES)
 - [bkcrack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#bgcrack)
 - [CrackMapExec](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#CrackMapExec)
@@ -24,7 +24,7 @@
 - [SprayingToolkit](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#SprayingToolkit)
 - [VNC Password Recovery](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#VNC-Password-Recovery)
 
-## Tooling
+## Resources
 
 | Name | Description | URL |
 | --- | --- | --- |
