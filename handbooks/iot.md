@@ -1,5 +1,9 @@
 # IoT
 
+## Table of Contents
+
+- [SirepRAT](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/iot.md#SirepRAT)
+
 ## SirepRAT
 
 > https://github.com/SafeBreach-Labs/SirepRAT
