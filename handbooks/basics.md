@@ -2,6 +2,7 @@
 
 ## Table of Contents
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Resources)
 - [7z](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#7z)
 - [adb (Andoid Debug Bridge)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#adb-Andoid-Debug-Bridge)
 - [ar](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#ar)
