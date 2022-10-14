@@ -1,5 +1,31 @@
 # Password Attacks
 
+## Table of Contents
+
+- [Tooling](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Tooling)
+- [AES](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#AES)
+- [bkcrack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#bgcrack)
+- [CrackMapExec](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#CrackMapExec)
+- [fcrack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#fcrack)
+- [GPG](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#GPG)
+- [Hash-Buster](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Hash-Buster)
+- [hashcat](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#hashcat)
+- [Hydra](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Hydra)
+- [John](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#John)
+- [Kerbrute](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Kerbrute)
+- [LaZagne](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#LaZagne)
+- [LUKS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#LUKS)
+- [Medusa](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Medusa)
+- [mimikatz](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#mimikatz)
+- [Patator](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Patator)
+- [PDFCrack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#PDFCrack)
+- [pypykatz](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#pypykatz)
+- [RsaCtfTool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#RsaCtfTool)
+- [SprayingToolkit](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#SprayingToolkit)
+- [VNC Password Recovery](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#VNC-Password-Recovery)
+
+## Tooling
+
 | Name | Description | URL |
 | --- | --- | --- |
 | Hydra | Password Brute Force | https://github.com/vanhauser-thc/thc-hydra |
