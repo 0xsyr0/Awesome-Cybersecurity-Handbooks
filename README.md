@@ -1,6 +1,6 @@
 # Awesome Cybersecurity Handbooks [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
-A huge chunk of my personal notes since i started playing CTFs and working as a Red Teamer. These are living documents and i updated or add to them relatively often.
+A huge chunk of my personal notes since I started playing CTFs and working as a red teamer. These are living documents and I updated or add to them relatively often.
 
 DISCLAIMER: Please note that these documents are `only` provided for `legal purposes`. Please do `not` use the content for illigal actions.
 
@@ -10,7 +10,7 @@ I highly recomment to work with them on a command line or shell, by using grep t
 
 EXAMPLE: `grep 'BloodHound' *.md -n -A 3 -B 3`
 
-END NOTE: As always, it is pretty hard to point out every source for different tools or payloads. If i used your payload anywhere in my notes and you wanted to be mentioned, feel free to reach out to me on [Twitter](https://twitter.com/syr0_) and i will add you asap.
+END NOTE: As always, it is pretty hard to point out every source for different tools or payloads. If I used your payload anywhere in my notes and you wanted to be mentioned, feel free to reach out to me on [Twitter](https://twitter.com/syr0_) and I will add you asap.
 
 If you like the project, give it a :star: or share it on various platforms. My goal is to create and to gather resources for people to help them on their career.
 
