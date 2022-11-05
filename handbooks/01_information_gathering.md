@@ -70,6 +70,7 @@
 | Jackdaw | Jackdaw is here to collect all information in your domain, store it in a SQL database and show you nice graphs on how your domain objects interact with each-other an how a potential attacker may exploit these interactions. | https://github.com/skelsec/jackdaw |
 | BloodHound | BloodHound uses graph theory to reveal the hidden and often unintended relationships within an Active Directory or Azure environment. | https://github.com/BloodHoundAD/BloodHound |
 | BloodHound Python | BloodHound.py is a Python based ingestor for BloodHound, based on Impacket. | https://github.com/fox-it/BloodHound.py |
+| RustHound | Active Directory data collector for BloodHound written in rust. | https://github.com/OPENCYBER-FR/RustHound |
 | SharpHound | C# Data Collector for BloodHound | https://github.com/BloodHoundAD/SharpHound |
 | Ping Castle | Ping Castle is a tool designed to assess quickly the Active Directory security level with a methodology based on risk assessment and a maturity framework. | https://github.com/vletoux/pingcastle |
 | Minimalistic Offensive Security Tools | Minimalistic TCP and UDP port scanners. | https://github.com/InfosecMatter/Minimalistic-offensive-security-tools |
