@@ -5,7 +5,7 @@
 - [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Resources)
 - [Apache (CVE-2021-41773)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Apache-CVE-2021-41773)
 - [Dirty Pipe (CVE-2022-0847)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Dirty-Pipe-CVE-2022-0847)
-- [Juicy Potato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato)
+- [Juicy Potato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#-Potato)
 - [Log4j / Log4Shell (CVE-2021-44228)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Log4j--Log4Shell-CVE-2021-44228)
 - [SharpEfsPotato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#SharpEfsPotato)
 - [Shocker](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shocker)
@@ -67,8 +67,8 @@
 | n/a | RoguePotato | https://github.com/antonioCoco/RoguePotato |
 | n/a | RottenPotatoNG | https://github.com/breenmachine/RottenPotatoNG |
 | n/a | GenericPotato | https://github.com/micahvandeusen/GenericPotato |
-| n/a | JuicyPotato | https://github.com/ohpe/juicy-potato |
-| n/a | Juice-PotatoNG | https://github.com/antonioCoco/JuicyPotatoNG |
+| n/a | Juicy Potato | https://github.com/ohpe/juicy-potato |
+| n/a | Juice-PotatoNG | https://github.com/antonioCoco/PotatoNG |
 | n/a | MultiPotato | https://github.com/S3cur3Th1sSh1t/MultiPotato |
 | n/a | SharpEfsPotato | https://github.com/bugch3ck/SharpEfsPotato |
 | n/a | PrintSpoofer (1) | https://github.com/dievus/printspoofer |
