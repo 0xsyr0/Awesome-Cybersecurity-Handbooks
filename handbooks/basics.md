@@ -123,6 +123,7 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| Chisel | A fast TCP/UDP tunnel over HTTP | https://github.com/jpillora/chisel |
 | Swaks | Swiss Army Knife for SMTP | https://github.com/jetmore/swaks |
 | MailHog | Web and API based SMTP testing | https://github.com/mailhog/MailHog |
 | up-http-tool | Simple HTTP listener for security testing | https://github.com/MuirlandOracle/up-http-tool |
