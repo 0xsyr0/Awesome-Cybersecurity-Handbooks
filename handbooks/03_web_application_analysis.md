@@ -76,6 +76,7 @@
 | reNgine | The only web application recon tool you will ever need! | https://github.com/yogeshojha/rengine |
 | WPScan | WordPress Security Scanner | https://github.com/wpscanteam/wpscan |
 | WhatWeb | Next generation web scanner | https://github.com/urbanadventurer/WhatWeb |
+| katana | A next-generation crawling and spidering framework. | https://github.com/projectdiscovery/katana |
 | NtHiM | Super Fast Sub-domain Takeover Detection | https://github.com/TheBinitGhimire/NtHiM |
 | ipsourcebypass | This Python script can be used to bypass IP source restrictions using HTTP headers. | https://github.com/p0dalirius/ipsourcebypass |
 | JSON Web Tokens | JSON Web Token Debugger | https://jwt.io |
