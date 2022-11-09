@@ -17,6 +17,7 @@
 - [ltrace](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#ltrace)
 - [memdump](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#memdump)
 - [Microsoft Windows](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#Microsoft-Windows)
+- [oletools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#oletools)
 - [pngcheck](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#pngcheck)
 - [steg_brute](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#steg_brute)
 - [Steghide](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#Steghide)
@@ -29,6 +30,8 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| scdbg | Visual Studio 2008 port of the libemu library that includes scdbg.exe, a modification of the sctest project, that includes more hooks, interactive debugging, reporting features, and ability to work with file format exploit shellcode. Will run under WINE | https://github.com/dzzie/VS_LIBEMU |
+| oletools | python tools to analyze MS OLE2 files (Structured Storage, Compound File Binary Format) and MS Office documents, for malware analysis, forensics and debugging. | https://github.com/decalage2/oletools |
 | FOREMOST | Foremost is a console program to recover files based on their headers, footers, and internal data structures. | https://github.com/korczis/foremost |
 | Steghide | Execute a brute force attack with Steghide to file with hide information and password established. | https://github.com/Va5c0/Steghide-Brute-Force-Tool |
 | Volatility | An advanced memory forensics framework | https://github.com/volatilityfoundation/volatility |
@@ -198,6 +201,32 @@ cat /proc/$1/maps | grep "rw-p" | awk '{print $1}' | ( IFS="-"
 ```c
 <user_profile>\NTUSER.DAT
 <user_profile>\AppData\Local\Microsoft\Windows\UsrClass.dat
+```
+
+## oletools
+
+> https://github.com/decalage2/oletools
+
+### Installation
+
+```c
+$ sudo -H pip install -U oletools[full]
+```
+
+### Forensic Chain
+
+```c
+$ olevba <FILE>
+$ mraptor <FILE>
+$ msodde -l debug <FILE>
+$ pyxswf <FILE>
+$ oleobj -l debug <FILE>
+$ rtfobj -l debug <FILE>
+$ olebrowse <FILE>
+$ olemeta <FILE>
+$ oletimes <FILE>
+$ oledir <FILE>
+$ olemap <FILE>
 ```
 
 ## pngcheck
