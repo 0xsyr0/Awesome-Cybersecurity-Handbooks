@@ -7,8 +7,8 @@
 - [impacket-mssqlclient](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#impacket-mssqlclient)
 - [MongoDB](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MongoDB)
 - [MDB Tools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MDB-Tools)
-- [MySQL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MySQL)
 - [MSSQL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MSSQL)
+- [MySQL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MySQL)
 - [mysqldump](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#mysqldump)
 - [NoSQL Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#NoSQL-Injection)
 - [Redis](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#Redis)
@@ -93,6 +93,34 @@ $ mongo "mongodb://localhost:27017"
 
 ```c
 $ mdb-sql <FILE>
+```
+
+## MSSQL
+
+### Show Database Content
+
+```c
+1> SELECT name FROM master.sys.databases
+2> go
+```
+
+### OPENQUERY
+
+```c
+1> select * from openquery("web\clients", 'select name from master.sys.databases');
+2> go
+```
+
+```c
+1> select * from openquery("web\clients", 'select name from clients.sys.objects');
+2> go
+```
+
+### Binary Extraction as Base64
+
+```c
+1> select cast((select content from openquery([web\clients], 'select * from clients.sys.assembly_files') where assembly_id = 65536) as varbinary(max)) for xml path(''), binary base64;
+2> go > export.txt
 ```
 
 ## MySQL
@@ -272,34 +300,6 @@ SQL> xp_cmdshell powershell -c import-module C:\PATH\TO\FILE\<FILE>.ps1; <FILE> 
 
 ```c
 SQL> xp_cmdshell "powershell $cred = New-Object System.Management.Automation.PSCredential(\"<USERNAME>\",\"<PASSWORD>\");Import-Module C:\PATH\TO\FILE\<FILE>.ps1;<FILE> <OPTIONS>
-```
-
-## MSSQL
-
-### Show Database Content
-
-```c
-1> SELECT name FROM master.sys.databases
-2> go
-```
-
-### OPENQUERY
-
-```c
-1> select * from openquery("web\clients", 'select name from master.sys.databases');
-2> go
-```
-
-```c
-1> select * from openquery("web\clients", 'select name from clients.sys.objects');
-2> go
-```
-
-### Binary Extraction as Base64
-
-```c
-1> select cast((select content from openquery([web\clients], 'select * from clients.sys.assembly_files') where assembly_id = 65536) as varbinary(max)) for xml path(''), binary base64;
-2> go > export.txt
 ```
 
 ## mysqldump
