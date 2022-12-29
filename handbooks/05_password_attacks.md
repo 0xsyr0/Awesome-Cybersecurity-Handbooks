@@ -217,7 +217,7 @@ $ unset HYDRA_PROXY
 ### Common Protocols
 
 ```c
-hydra <RHOST> -l <USERNAME> -P /usr/share/wordlists/list ftp|ssh|smb://<RHOST>
+$ hydra <RHOST> -l <USERNAME> -P /usr/share/wordlists/list ftp|ssh|smb://<RHOST>
 ```
 
 ### SSH
@@ -281,10 +281,7 @@ $ hydra -l admin -P /usr/share/wordlists/rockyou.txt <RHOST> http-post-form "/Ac
 
 > https://github.com/openwall/john
 
-### Show cracked Password
-
 ```c
-$ sudo john --show <FILE>
 $ sudo john md5 --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-md5
 $ sudo john sha-1 --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-sha1
 $ sudo john sha256 --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-sha256
@@ -325,6 +322,12 @@ $ keepass2john <FILE>.kdbx
 
 ```c
 $ zip2john <FILE> > output.hash
+```
+
+### Show cracked Password
+
+```c
+$ sudo john --show <FILE>
 ```
 
 ## Kerbrute
