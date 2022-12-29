@@ -34,7 +34,7 @@ uid=x' OR SUBSTRING(username,1,1)='m' and ''='&auth_primary=x&auth_secondary=962
 
 ## impacket-mssqlclient
 
-> https://github.com/SecureAuthCorp/impacket
+> https://github.com/fortra/impacket
 
 ```c
 $ impacket-mssqlclient <USERNAME>@<RHOST>
