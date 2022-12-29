@@ -245,9 +245,9 @@ SQL> sp_configure;
 SQL> EXEC sp_configure 'xp_cmdshell', 1;
 SQL> reconfigure
 SQL> xp_cmdshell "whoami"
-```c
+```
 
-### Alternative Start xp_cmdshell
+##### Alternative Way to start xp_cmdshell
 
 ```c
 SQL> enable_xp_cmdshell
