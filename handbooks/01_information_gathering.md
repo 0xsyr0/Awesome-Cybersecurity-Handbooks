@@ -72,6 +72,7 @@
 | BloodHound Python | BloodHound.py is a Python based ingestor for BloodHound, based on Impacket. | https://github.com/fox-it/BloodHound.py |
 | RustHound | Active Directory data collector for BloodHound written in rust. | https://github.com/OPENCYBER-FR/RustHound |
 | SharpHound | C# Data Collector for BloodHound | https://github.com/BloodHoundAD/SharpHound |
+| SMBeagle | SMBeagle - Fileshare auditing tool. | https://github.com/punk-security/smbeagle |
 | Ping Castle | Ping Castle is a tool designed to assess quickly the Active Directory security level with a methodology based on risk assessment and a maturity framework. | https://github.com/vletoux/pingcastle |
 | Minimalistic Offensive Security Tools | Minimalistic TCP and UDP port scanners. | https://github.com/InfosecMatter/Minimalistic-offensive-security-tools |
 
@@ -137,17 +138,17 @@ $ cd BloodHound-linux-x64
 $ sudo ./BloodHound --no-sandbox
 ```
 
-### Collection Method All
-
-```c
-$ bloodhound-python -d <TARGET_DOMAIN> -u <USERNAME> -p "<PASSWORD>" -gc <TARGET_DOMAIN> -c all -ns <RHOST>
-```
-
 ### Custom Queries
 
 > https://github.com/mgeeky/Penetration-Testing-Tools/blob/master/red-teaming/bloodhound/Handy-BloodHound-Cypher-Queries.md
 
 ## BloodHound Python
+
+### Collection Method All
+
+```c
+$ bloodhound-python -d <TARGET_DOMAIN> -u <USERNAME> -p "<PASSWORD>" -gc <TARGET_DOMAIN> -c all -ns <RHOST>
+```
 
 ### LDAP Dumping
 
@@ -218,6 +219,14 @@ $ dnsrecon -d <TARGET_DOMAIN> -t axfr @ns2.<TARGET_DOMAIN>
 
 ```c
 $ enum4linux -a <RHOST>
+```
+
+## enum4linux-ng
+
+> https://github.com/cddmp/enum4linux-ng
+
+```c
+$ enum4linux-ng -a <RHOST>
 ```
 
 ## Enyx
@@ -554,7 +563,7 @@ $ sudo vi /etc/snmp/snmp.conf
 ### Full Enumeration
 
 ```c
-$ snmpwalk -c public -v1 <RHOST> > snmpout.txt
+$ snmpwalk -c public -v1 <RHOST>
 ```
 
 ### Network Addresses
