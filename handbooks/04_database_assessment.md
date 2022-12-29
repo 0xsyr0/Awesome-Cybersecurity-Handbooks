@@ -99,11 +99,17 @@ $ mdb-sql <FILE>
 
 ```c
 $ mysql -u root -p
+$ mysql -u <USERNAME> -h <RHOST> -p
+```
+
+### Basic Commands
+
+```c
 > show databases;
 > use <DATABASE>;
 > show tables;
 > describe <TABLE>;
-> SELECT ## FROM Users;
+> SELECT * FROM Users;
 > SELECT Username,Password FROM Users;
 ```
 
