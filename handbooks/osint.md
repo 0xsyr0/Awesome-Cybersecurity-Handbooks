@@ -19,7 +19,9 @@
 | NerdyData | Get a list of websites that use certain technologies, plus their company and spend data. | https://www.nerdydata.com |
 | GHunt |  GHunt is a modulable OSINT tool designed to evolve over the years, and incorporates many techniques to investigate Google accounts, or objects. | https://github.com/mxrch/GHunt |
 | hunter | Hunter lets you find professional email addresses in seconds and connect with the people that matter for your business. | https://hunter.io |
+| GitFive | Track down GitHub users. | https://github.com/mxrch/GitFive |
 | Sherlock | Hunt down social media accounts by username across social networks. | https://github.com/sherlock-project/sherlock |
+| osintui | Open Source Intelligence Terminal User Interface | https://github.com/wssheldon/osintui |
 | Osintgram | Osintgram is a OSINT tool on Instagram. It offers an interactive shell to perform analysis on Instagram account of any users by its nickname. | https://github.com/Datalux/Osintgram |
 | tweets_analyzer | Tweets metadata scraper & activity analyzer | https://github.com/x0rz/tweets_analyzer |
 | linkedin2username | Generate username lists from companies on LinkedIn. | https://github.com/initstring/linkedin2username |
@@ -40,15 +42,48 @@ $ proxychains bash ./FGDS.sh <TARGET_DOMAIN>
 
 ### Google Dorks
 
+> https://cheatsheet.haax.fr/open-source-intelligence-osint/dorks/google_dorks/
+
+> https://www.searchenginejournal.com/google-search-operators-commands/215331/
+
 ```c
 intitle:index.of <TEXT>    // open directory listings
+```
+
+```c
+ext:php
+inurl:%3F
+site:*.*.*.<domain>
+filetype:txt
+```
+
+#### Example
+
+```c
+site:tesla.com ext:php
+```
+
+### Leaks
+
+```c
+site:http://jsfiddle.net "<DOMAIN>"
+site:http://codebeautify.org "<DOMAIN>"
+site:http://codepen.io "<DOMAIN>"
+site:http://pastebin.com "<DOMAIN>"
+```
+
+#### Example
+
+```c
+site:http://jsfiddle.net | site:http://codebeautify.org | site:http://codepen.io | site:http://pastebin.com "<DOMAIN>"
+site:http://jsfiddle.net | site:http://codebeautify.org | site:http://codepen.io | site:http://pastebin.com "<DOMAIN>" "demo" "test" "api"
 ```
 
 ### Abusing Google ID
 
 > https://medium.com/week-in-osint/getting-a-grasp-on-googleids-77a8ab707e43
 
-### Setup
+#### Setup
 
 1. Add a new contact to you google account (email address required)
 2. Open developer tools and select the network tab
@@ -56,13 +91,13 @@ intitle:index.of <TEXT>    // open directory listings
 4. Set the right pane to request
 5. Check all batchexecute packets
 
-#### Example
+##### Example
 
 > https://contacts.google.com/_/ContactsUi/data/batchexecute?rpcids=OSOtuf&f.sid=-916332265175998083&bl=boq_contactsuiserver_20200707.13_p0&hl=en&soc-app=527&soc-platform=1&soc-device=1&_reqid=765234&rt=c
 
 6. Watch out for a string like the following one
 
-#### Example
+##### Example
 
 ```c
 [[["OSOtuf","[\"55fa738b0a752dc5\",\"117395327982835488254\"]",null,"generic"]]]
@@ -70,10 +105,9 @@ intitle:index.of <TEXT>    // open directory listings
 
 The Google ID's are always `21` characters long and starting with `10` or `11`.
 
-```c
-$ https://get.google.com/albumarchive/<userID>
-$ https://www.google.com/maps/contrib/<userID>
-```
+> https://get.google.com/albumarchive/<userID>
+
+> https://www.google.com/maps/contrib/<userID>
 
 ## h8mail
 
