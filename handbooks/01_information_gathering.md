@@ -566,6 +566,10 @@ $ sudo vi /etc/snmp/snmp.conf
 $ snmpwalk -c public -v1 <RHOST>
 ```
 
+```c
+$ snmpwalk -c internal -v2c <RHOST>
+```
+
 ### Network Addresses
 
 ```c
