@@ -219,6 +219,20 @@ $ awk '{print "http://<LHOST>/documents/" $0;}' ../files.txt | xargs -n 1 -P 16 
 $ bash -p
 ```
 
+### Bash Scripting
+
+#### Create Files with Date in the Name
+
+```c
+for year in {2019..2021}; do
+  for month in {01..12}; do
+    for day in {01..31}; do
+      echo "$year-$month-$day-upload.pdf" >> dates.txt
+    done
+  done
+done
+```
+
 ## Bash POSIX
 
 ```c
