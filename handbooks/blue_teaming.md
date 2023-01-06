@@ -102,6 +102,36 @@ $ Get-WinEvent -FilterHashtable @{Logname='Security';ID=4672} -MaxEvents 1 |Form
 $ Get-WinEvent -FilterHashtable @{Logname='System';ID=7045} | ?{$_.message -like "*Kernel Mode Driver*"}
 ```
 
+## Detect hidden Windows Services via Access Control Lists (ACLs)
+
+> https://twitter.com/0gtweet/status/1610545641284927492?s=09
+
+> https://github.com/gtworek/PSBits/blob/master/Services/Get-ServiceDenyACEs.ps1
+
+```c
+$keys = Get-ChildItem "HKLM:\SYSTEM\CurrentControlSet\Services\"
+
+foreach ($key in $keys)
+{
+    if (Test-Path ($key.pspath+"\Security"))
+    {
+        $sd = (Get-ItemProperty -Path ($key.pspath+"\Security") -Name "Security" -ErrorAction SilentlyContinue).Security 
+        if ($sd -eq $null)
+        {
+            continue
+        }
+        $o = New-Object -typename System.Security.AccessControl.FileSecurity
+        $o.SetSecurityDescriptorBinaryForm($sd)
+        $sddl = $o.Sddl
+        $sddl1 = $sddl.Replace('(D;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BG)','') #common deny ACE, not suspicious at all
+        if ($sddl1.Contains('(D;'))
+        {
+            Write-Host $key.PSChildName ' ' $sddl
+        }
+    }
+}
+```
+
 ## Device Guard
 
 * Hardens against malware
