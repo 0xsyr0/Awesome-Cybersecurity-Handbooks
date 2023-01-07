@@ -54,60 +54,65 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| AllThingsSSRF | This is a collection of writeups, cheatsheets, videos, related to SSRF in one single location. | https://github.com/jdonsec/AllThingsSSRF |
 | Arjun | HTTP Parameter Discovery Suite | https://github.com/s0md3v/Arjun |
+| Awesome API Security | A collection of awesome API Security tools and resources. | https://github.com/arainho/awesome-api-security |
 | cariddi | Take a list of domains, crawl urls and scan for endpoints, secrets, api keys, file extensions, tokens and more. | https://github.com/edoardottt/cariddi |
-| Hakrawler | Fast golang web crawler for gathering URLs and JavaScript file locations. | https://github.com/hakluke/hakrawler |
-| httpx | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. | https://github.com/projectdiscovery/httpx |
-| ngrok | ngrok is the programmable network edge that adds connectivity, security, and observability to your apps with no code changes. | https://ngrok.com |
-| pingb | HTTP Request & Response Service | http://pingb.in |
-| httpbin | A simple HTTP Request & Response Service. | https://httpbin.org/#/ |
-| interact.sh | HTTP Request & Response Service | https://app.interactsh.com/#/ |
-| Request Catcher | Request Catcher will create a subdomain on which you can test an application. | https://requestcatcher.com |
-| Webhook.site | Webhook.site lets you easily inspect, test and automate (with the visual Custom Actions builder, or WebhookScript) any incoming HTTP request or e-mail. | https://webhook.site |
-| grayhatwarfare shorteners | Search Shortener Urls | https://shorteners.grayhatwarfare.com |
-| WhatWeb | Next generation web scanner | https://github.com/urbanadventurer/WhatWeb |
-| WPScan | WordPress Security Scanner | https://github.com/wpscanteam/wpscan |
-| Gobuster | Gobuster is a tool used to brute-force URIs, DNS subdomains, Virtual Host names and open Amazon S3 buckets | https://github.com/OJ/gobuster |
-| feroxbuster | A simple, fast, recursive content discovery tool written in Rust. | https://github.com/epi052/feroxbuster |
-| ffuf | A fast web fuzzer written in Go. | https://github.com/ffuf/ffuf |
-| Wfuzz | Wfuzz - The Web Fuzzer | https://github.com/xmendez/wfuzz |
 | CipherScan | Cipherscan tests the ordering of the SSL/TLS ciphers on a given target, for all major versions of SSL and TLS. | https://github.com/mozilla/cipherscan |
-| DS_Walk | Python tool for enumerating directories and files on web servers that contain a publicly readable .ds_store file. | https://github.com/Keramas/DS_Walk |
-| GitDorker | GitDorker is a tool that utilizes the GitHub Search API and an extensive list of GitHub dorks that I've compiled from various sources to provide an overview of sensitive information stored on github given a search query. | https://github.com/obheda12/GitDorker |
-| truffleHog | Find leaked credentials. | https://github.com/trufflesecurity/truffleHog |
-| GitTools | This repository contains three small python/bash scripts used for the Git research. | https://github.com/internetwache/GitTools |
-| EarlyBird | EarlyBird is a sensitive data detection tool capable of scanning source code repositories for clear text password violations, PII, outdated cryptography methods, key files and more. | https://github.com/americanexpress/earlybird |
-| DumpsterDiver | DumpsterDiver is a tool, which can analyze big volumes of data in search of hardcoded secrets like keys (e.g. AWS Access Key, Azure Share Key or SSH keys) or passwords. | https://github.com/securing/DumpsterDiver |
-| reNgine | The only web application recon tool you will ever need! | https://github.com/yogeshojha/rengine |
-| katana | A next-generation crawling and spidering framework. | https://github.com/projectdiscovery/katana |
-| NtHiM | Super Fast Sub-domain Takeover Detection | https://github.com/TheBinitGhimire/NtHiM |
-| ipsourcebypass | This Python script can be used to bypass IP source restrictions using HTTP headers. | https://github.com/p0dalirius/ipsourcebypass |
-| JSON Web Tokens | JSON Web Token Debugger | https://jwt.io |
-| JWT_Tool | The JSON Web Token Toolkit v2 | https://github.com/ticarpi/jwt_tool |
-| JSFuck | JSFuck is an esoteric and educational programming style based on the atomic parts of JavaScript. It uses only six different characters to write and execute code. | http://www.jsfuck.com |
-| JSFuck []()!+ | Write any JavaScript with 6 Characters: []()!+ | https://github.com/aemkei/jsfuck |
+| Client-Side Prototype Pollution | In this repository, I am trying to collect examples of libraries that are vulnerable to Prototype Pollution due to document.location parsing and useful script gadgets that can be used to demonstrate the impact. | https://github.com/BlackFan/client-side-prototype-pollution |
 | Commix | Commix (short for [comm]and [i]njection e[x]ploiter) is an open source penetration testing tool. | https://github.com/commixproject/commix |
-| x8 | Hidden parameters discovery suite written in Rust. | https://github.com/Sh1Yo/x8 |
-| Recox | The script aims to help in classifying vulnerabilities in web applications. | https://github.com/samhaxr/recox |
-| ezXSS | ezXSS is an easy way for penetration testers and bug bounty hunters to test (blind) Cross Site Scripting. | https://github.com/ssl/ezXSS |
-| XSStrike | Most advanced XSS scanner. | https://github.com/s0md3v/XSStrike |
 | DalFox | DalFox is an powerful open source XSS scanning tool and parameter analyzer and utility that fast the process of detecting and verify XSS flaws. | https://github.com/hahwul/dalfox |
 | DOMXSS Wiki | The DOMXSS Wiki is a Knowledge Base for defining sources of attacker controlled inputs and sinks which potentially could introduce DOM Based XSS issues. | https://github.com/wisec/domxsswiki/wiki |
-| Oralyzer | Oralyzer, a simple python script that probes for Open Redirection vulnerability in a website. | https://github.com/r0075h3ll/Oralyzer |
-| Client-Side Prototype Pollution | In this repository, I am trying to collect examples of libraries that are vulnerable to Prototype Pollution due to document.location parsing and useful script gadgets that can be used to demonstrate the impact. | https://github.com/BlackFan/client-side-prototype-pollution |
-| Tplmap | Server-Side Template Injection and Code Injection Detection and Exploitation Tool | https://github.com/epinna/tplmap |
-| XSRFProbe | The Prime Cross Site Request Forgery Audit & Exploitation Toolkit. | https://github.com/0xInfection/XSRFProbe |
-| SSRFmap | SSRF are often used to leverage actions on other services, this framework aims to find and exploit these services easily. | https://github.com/swisskyrepo/SSRFmap |
-| AllThingsSSRF | This is a collection of writeups, cheatsheets, videos, related to SSRF in one single location. | https://github.com/jdonsec/AllThingsSSRF |
-| SSRF testing resources | SSRF (Server Side Request Forgery) testing resources | https://github.com/cujanovic/SSRF-Testing |
+| DS_Walk | Python tool for enumerating directories and files on web servers that contain a publicly readable .ds_store file. | https://github.com/Keramas/DS_Walk |
+| DumpsterDiver | DumpsterDiver is a tool, which can analyze big volumes of data in search of hardcoded secrets like keys (e.g. AWS Access Key, Azure Share Key or SSH keys) or passwords. | https://github.com/securing/DumpsterDiver |
+| EarlyBird | EarlyBird is a sensitive data detection tool capable of scanning source code repositories for clear text password violations, PII, outdated cryptography methods, key files and more. | https://github.com/americanexpress/earlybird |
+| ezXSS | ezXSS is an easy way for penetration testers and bug bounty hunters to test (blind) Cross Site Scripting. | https://github.com/ssl/ezXSS |
+| feroxbuster | A simple, fast, recursive content discovery tool written in Rust. | https://github.com/epi052/feroxbuster |
+| ffuf | A fast web fuzzer written in Go. | https://github.com/ffuf/ffuf |
+| gf | A wrapper around grep, to help you grep for things | https://github.com/tomnomnom/gf |
+| GitDorker | GitDorker is a tool that utilizes the GitHub Search API and an extensive list of GitHub dorks that I've compiled from various sources to provide an overview of sensitive information stored on github given a search query. | https://github.com/obheda12/GitDorker |
+| GitTools | This repository contains three small python/bash scripts used for the Git research. | https://github.com/internetwache/GitTools |
+| Gobuster | Gobuster is a tool used to brute-force URIs, DNS subdomains, Virtual Host names and open Amazon S3 buckets | https://github.com/OJ/gobuster |
+| grayhatwarfare shorteners | Search Shortener Urls | https://shorteners.grayhatwarfare.com |
+| gron | Make JSON greppable! | https://github.com/tomnomnom/gron |
+| Hakrawler | Fast golang web crawler for gathering URLs and JavaScript file locations. | https://github.com/hakluke/hakrawler |
+| httpbin | A simple HTTP Request & Response Service. | https://httpbin.org/#/ |
+| httprobe | Take a list of domains and probe for working HTTP and HTTPS servers | https://github.com/tomnomnom/httprobe |
+| httpx | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. | https://github.com/projectdiscovery/httpx |
+| interact.sh | HTTP Request & Response Service | https://app.interactsh.com/#/ |
+| ipsourcebypass | This Python script can be used to bypass IP source restrictions using HTTP headers. | https://github.com/p0dalirius/ipsourcebypass |
+| JSFuck | JSFuck is an esoteric and educational programming style based on the atomic parts of JavaScript. It uses only six different characters to write and execute code. | http://www.jsfuck.com |
+| JSFuck []()!+ | Write any JavaScript with 6 Characters: []()!+ | https://github.com/aemkei/jsfuck |
+| JSON Web Tokens | JSON Web Token Debugger | https://jwt.io |
+| JWT_Tool | The JSON Web Token Toolkit v2 | https://github.com/ticarpi/jwt_tool |
+| katana | A next-generation crawling and spidering framework. | https://github.com/projectdiscovery/katana |
 | KeyHacks | KeyHacks shows ways in which particular API keys found on a Bug Bounty Program can be used, to check if they are valid. | https://github.com/streaak/keyhacks |
-| Awesome API Security | A collection of awesome API Security tools and resources. | https://github.com/arainho/awesome-api-security |
 | Leaky Paths | A collection of special paths linked to major web CVEs, known misconfigurations, juicy APIs ..etc. It could be used as a part of web content discovery, to scan passively for high-quality endpoints and quick-wins. | https://github.com/ayoubfathi/leaky-paths |
-| Weird Proxies | It's a cheat sheet about behaviour of various reverse proxies and related attacks. | https://github.com/GrrrDog/weird_proxies |
 | Lodash | The Lodash library exported as a UMD module. | https://github.com/lodash/lodash |
-| PHPGGC | PHPGGC: PHP Generic Gadget Chains | https://github.com/ambionics/phpggc |
-| ysoserial | A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization. | https://github.com/frohoff/ysoserial |
+| ngrok | ngrok is the programmable network edge that adds connectivity, security, and observability to your apps with no code changes. | https://ngrok.com |
+| NtHiM | Super Fast Sub-domain Takeover Detection | https://github.com/TheBinitGhimire/NtHiM |
+| Oralyzer | Oralyzer, a simple python script that probes for Open Redirection vulnerability in a website. | https://github.com/r0075h3ll/Oralyzer |
 | PayloadsAllTheThings | A list of useful payloads and bypasses for Web Application Security. | https://github.com/swisskyrepo/PayloadsAllTheThings |
+| PHPGGC | PHPGGC: PHP Generic Gadget Chains | https://github.com/ambionics/phpggc |
+| pingb | HTTP Request & Response Service | http://pingb.in |
+| Recox | The script aims to help in classifying vulnerabilities in web applications. | https://github.com/samhaxr/recox |
+| reNgine | The only web application recon tool you will ever need! | https://github.com/yogeshojha/rengine |
+| Request Catcher | Request Catcher will create a subdomain on which you can test an application. | https://requestcatcher.com |
+| SSRFmap | SSRF are often used to leverage actions on other services, this framework aims to find and exploit these services easily. | https://github.com/swisskyrepo/SSRFmap |
+| SSRF testing resources | SSRF (Server Side Request Forgery) testing resources | https://github.com/cujanovic/SSRF-Testing |
+| Tplmap | Server-Side Template Injection and Code Injection Detection and Exploitation Tool | https://github.com/epinna/tplmap |
+| truffleHog | Find leaked credentials. | https://github.com/trufflesecurity/truffleHog |
+| unfurl | Pull out bits of URLs provided on stdin | https://github.com/tomnomnom/unfurl |
+| waybackurls | Fetch all the URLs that the Wayback Machine knows about for a domain | https://github.com/tomnomnom/waybackurls |
+| Webhook.site | Webhook.site lets you easily inspect, test and automate (with the visual Custom Actions builder, or WebhookScript) any incoming HTTP request or e-mail. | https://webhook.site |
+| Weird Proxies | It's a cheat sheet about behaviour of various reverse proxies and related attacks. | https://github.com/GrrrDog/weird_proxies |
+| Wfuzz | Wfuzz - The Web Fuzzer | https://github.com/xmendez/wfuzz |
+| WhatWeb | Next generation web scanner | https://github.com/urbanadventurer/WhatWeb |
+| WPScan | WordPress Security Scanner | https://github.com/wpscanteam/wpscan |
+| x8 | Hidden parameters discovery suite written in Rust. | https://github.com/Sh1Yo/x8 |
+| XSRFProbe | The Prime Cross Site Request Forgery Audit & Exploitation Toolkit. | https://github.com/0xInfection/XSRFProbe |
+| XSStrike | Most advanced XSS scanner. | https://github.com/s0md3v/XSStrike |
+| ysoserial | A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization. | https://github.com/frohoff/ysoserial |
 
 ## 403 Bypass
 
