@@ -26,20 +26,21 @@
 | Name | Description | URL |
 | --- | --- | --- |
 | Azure Hunter | A Cloud Forensics Powershell module to run threat hunting playbooks on data from Azure and O365. | https://github.com/darkquasar/AzureHunter |
-| HoneyCreds | HoneyCreds network credential injection to detect responder and other network poisoners. | https://github.com/Ben0xA/HoneyCreds |
-| packetSifter | PacketSifter is a tool/script that is designed to aid analysts in sifting through a packet capture (pcap) to find noteworthy traffic. Packetsifter accepts a pcap as an argument and outputs several files. | https://github.com/packetsifter/packetsifterTool |
-| STACS | Static Token And Credential Scanner | https://github.com/stacscan/stacs |
-| sshgit | Ah shhgit! Find secrets in your code. Secrets detection for your GitHub, GitLab and Bitbucket repositories. | https://github.com/eth0izzle/shhgit |
-| GitMonitor | One way to continuously monitor sensitive information that could be exposed on Github. | https://github.com/Talkaboutcybersecurity/GitMonitor |
-| Loki | Loki - Simple IOC and Incident Response Scanner | https://github.com/Neo23x0/Loki |
-| Fenrir | Simple Bash IOC Scanner | https://github.com/Neo23x0/Fenrir |
-| Laurel | Transform Linux Audit logs for SIEM usage | https://github.com/threathunters-io/laurel |
 | BlueHound | BlueHound is an open-source tool that helps blue teams pinpoint the security issues that actually matter. | https://github.com/zeronetworks/BlueHound
-| PersistenceSniper | Powershell script that can be used by Blue Teams, Incident Responders and System Administrators to hunt persistences implanted in Windows machines. | https://github.com/last-byte/PersistenceSniper |
-| YARA | The pattern matching swiss knife | https://github.com/VirusTotal/yara |
-| SIGMA | Generic Signature Format for SIEM Systems | https://github.com/SigmaHQ/sigma |
+| Blue Team Notes | You didn't think I'd go and leave the blue team out, right? | https://github.com/Purp1eW0lf/Blue-Team-Notes |
 | CrowdSec | Open-source and participative IPS able to analyze visitor behavior & provide an adapted response to all kinds of attacks. | https://github.com/crowdsecurity/crowdsec |
+| Fenrir | Simple Bash IOC Scanner | https://github.com/Neo23x0/Fenrir |
+| GitMonitor | One way to continuously monitor sensitive information that could be exposed on Github. | https://github.com/Talkaboutcybersecurity/GitMonitor |
+| HoneyCreds | HoneyCreds network credential injection to detect responder and other network poisoners. | https://github.com/Ben0xA/HoneyCreds |
+| Laurel | Transform Linux Audit logs for SIEM usage | https://github.com/threathunters-io/laurel |
+| Loki | Loki - Simple IOC and Incident Response Scanner | https://github.com/Neo23x0/Loki |
+| packetSifter | PacketSifter is a tool/script that is designed to aid analysts in sifting through a packet capture (pcap) to find noteworthy traffic. Packetsifter accepts a pcap as an argument and outputs several files. | https://github.com/packetsifter/packetsifterTool |
+| PersistenceSniper | Powershell script that can be used by Blue Teams, Incident Responders and System Administrators to hunt persistences implanted in Windows machines. | https://github.com/last-byte/PersistenceSniper |
+| SIGMA | Generic Signature Format for SIEM Systems | https://github.com/SigmaHQ/sigma |
+| sshgit | Ah shhgit! Find secrets in your code. Secrets detection for your GitHub, GitLab and Bitbucket repositories. | https://github.com/eth0izzle/shhgit |
+| STACS | Static Token And Credential Scanner | https://github.com/stacscan/stacs |
 | Windows Hardening Script | Windows 10 Hardening Script | https://gist.github.com/mackwage/08604751462126599d7e52f233490efe |
+| YARA | The pattern matching swiss knife | https://github.com/VirusTotal/yara |
 
 ## Advanced Threat Analytics
 
