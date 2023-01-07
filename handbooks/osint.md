@@ -14,20 +14,20 @@
 
 | Name | Description | URL |
 | --- | --- | --- | 
-| Intelligence X | OSINT Search Engine | https://intelx.io |
-| DorkSearch | Faster Google Dorking | https://dorksearch.com |
-| NerdyData | Get a list of websites that use certain technologies, plus their company and spend data. | https://www.nerdydata.com |
-| GHunt |  GHunt is a modulable OSINT tool designed to evolve over the years, and incorporates many techniques to investigate Google accounts, or objects. | https://github.com/mxrch/GHunt |
-| hunter | Hunter lets you find professional email addresses in seconds and connect with the people that matter for your business. | https://hunter.io |
-| GitFive | Track down GitHub users. | https://github.com/mxrch/GitFive |
-| Sherlock | Hunt down social media accounts by username across social networks. | https://github.com/sherlock-project/sherlock |
-| osintui | Open Source Intelligence Terminal User Interface | https://github.com/wssheldon/osintui |
-| Osintgram | Osintgram is a OSINT tool on Instagram. It offers an interactive shell to perform analysis on Instagram account of any users by its nickname. | https://github.com/Datalux/Osintgram |
-| tweets_analyzer | Tweets metadata scraper & activity analyzer | https://github.com/x0rz/tweets_analyzer |
-| linkedin2username | Generate username lists from companies on LinkedIn. | https://github.com/initstring/linkedin2username |
 | DeHashed | Breach Monitoring  | https://dehashed.com |
-| OSINT Recon Tool | OSINT Mindmap Tool | https://recontool.org/#mindmap |
+| DorkSearch | Faster Google Dorking | https://dorksearch.com |
 | Exploit-DB - Google Hacking Database | Exploit Database Google Dorks | https://www.exploit-db.com/google-hacking-database |
+| GHunt |  GHunt is a modulable OSINT tool designed to evolve over the years, and incorporates many techniques to investigate Google accounts, or objects. | https://github.com/mxrch/GHunt |
+| GitFive | Track down GitHub users. | https://github.com/mxrch/GitFive |
+| hunter | Hunter lets you find professional email addresses in seconds and connect with the people that matter for your business. | https://hunter.io |
+| Intelligence X | OSINT Search Engine | https://intelx.io |
+| linkedin2username | Generate username lists from companies on LinkedIn. | https://github.com/initstring/linkedin2username |
+| NerdyData | Get a list of websites that use certain technologies, plus their company and spend data. | https://www.nerdydata.com |
+| Osintgram | Osintgram is a OSINT tool on Instagram. It offers an interactive shell to perform analysis on Instagram account of any users by its nickname. | https://github.com/Datalux/Osintgram |
+| OSINT Recon Tool | OSINT Mindmap Tool | https://recontool.org/#mindmap |
+| osintui | Open Source Intelligence Terminal User Interface | https://github.com/wssheldon/osintui |
+| Sherlock | Hunt down social media accounts by username across social networks. | https://github.com/sherlock-project/sherlock |
+| tweets_analyzer | Tweets metadata scraper & activity analyzer | https://github.com/x0rz/tweets_analyzer |
 
 ## Fast Google Dorks Scan
 
