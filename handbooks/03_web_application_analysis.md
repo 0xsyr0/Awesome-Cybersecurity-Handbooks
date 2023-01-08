@@ -2431,9 +2431,9 @@ Accept: ../../../../.././../../../../etc/passwd{%00{{
 /var/run/utmp
 /var/spool/cron/crontabs/root
 /var/webmin/miniserv.log
-/var/www/<VHOST>/__init__.py
-/var/www/<VHOST>/db_connect.php
-/var/www/<VHOST>/utils.php
+/var/www/html<VHOST>/__init__.py
+/var/www/html/db_connect.php
+/var/www/html/utils.php
 /var/www/log/access_log
 /var/www/log/error_log
 /var/www/logs/access_log
