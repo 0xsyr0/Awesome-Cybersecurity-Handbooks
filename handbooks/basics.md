@@ -1232,6 +1232,12 @@ $ sudo /usr/bin/perl -e 'exec "cat /root/root.txt"'
 
 ## PHP
 
+### Interactive Shell
+
+```c
+$ php -a
+```
+
 ### Perl HTTP Server (Important Note! Every Script there get's executed!)
 
 ```c
