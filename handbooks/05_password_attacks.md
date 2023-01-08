@@ -292,6 +292,12 @@ $ sudo john ntlm --wordlist=/usr/share/wordlists/rockyou.txt --format=nt
 $ sudo john sha512 --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
+### Using Salt
+
+```c
+$ sudo john <FILE> --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-md5 --mask='<SALT>?w'
+```
+
 ### Cracking RSA
 
 ```c
