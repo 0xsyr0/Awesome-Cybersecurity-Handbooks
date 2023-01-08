@@ -347,6 +347,27 @@ while not done:
   pos += 1
 ```
 
+## PostgreSQL
+
+```c
+$ psql
+$ psql -h <RHOST> -p 5432 -U <USERNAME> -d <DATABASE>
+$ psql -h <RHOST> -p 5432 -U <USERNAME> -d <DATABASE>
+```
+
+### Common Commands
+
+```c
+postgres=# \c
+postgres=# \list
+postgres=# \c  <DATABASE>
+<DATABASE>=# \dt
+<DATABASE>=# \du
+<DATABASE>=# TABLE <TABLE>;
+<DATABASE>=# SELECT * FROM users;
+<DATABASE>=# \q
+```
+
 ## Redis
 
 ### Enter own SSH Key
