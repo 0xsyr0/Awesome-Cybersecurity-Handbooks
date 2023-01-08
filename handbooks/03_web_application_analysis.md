@@ -22,6 +22,7 @@
 - [GIXY](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#GIXY)
 - [Gobuster](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Gobuster)
 - [gron](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#gron)
+- [hakcheckurl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#hakcheckurl)
 - [Hakrawler](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Hakrawler)
 - [Host Header Regex Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Host-Header-Regex-Bypass)
 - [HTML Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#HTML-Injection)
@@ -514,6 +515,14 @@ $ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -
 
 ```c
 $ go install github.com/tomnomnom/gron@latest
+```
+
+## hakcheckurl
+
+> https://github.com/hakluke/hakcheckurl
+
+```c
+$ go install github.com/hakluke/hakcheckurl@latest
 ```
 
 ## Hakrawler
