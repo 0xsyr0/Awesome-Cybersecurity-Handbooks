@@ -65,6 +65,7 @@
 | CVE-2022-30190 | MS-MSDT Follina Exploit PoC | https://github.com/onecloudemoji/CVE-2022-30190 |
 | CVE-2022-30190 | MS-MSDT Follina Exploit Python Implementation | https://github.com/chvancooten/follina.py |
 | CVE-2022-34918 | LPE Netfilter Kernel Exploit | https://github.com/randorisec/CVE-2022-34918-LPE-PoC |
+| CVE-2023-21746 | Windows NTLM EoP (LocalPotato) | Waiting for PoC Release (https://twitter.com/decoder_it/status/1612883878322278402?s=09) |
 | n/a | SeBackupPrivilege | https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug |
 | n/a | RoguePotato | https://github.com/antonioCoco/RoguePotato |
 | n/a | RottenPotatoNG | https://github.com/breenmachine/RottenPotatoNG |
