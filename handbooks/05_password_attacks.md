@@ -93,7 +93,7 @@ $ ./bkcrack -c tmp/fd734d942c6f729a36606b16a3ef17f8/<FILE>.txt -C <FILE>.zip -p 
 
 ```c
 $ crackmapexec smb <RHOST> -u '' -p '' --shares
-$ crackmapexec smb <RHOST> -u '' -p '' --shares -m spider_plus
+$ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus
 $ crackmapexec smb <RHOST> -u <USERNAME> -p <PASSWORD> --shares
 $ crackmapexec winrm -u usernames.txt -p '<PASSWORD>' -d <TARGET_DOMAIN> <RHOST>
 $ crackmapexec winrm <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt
