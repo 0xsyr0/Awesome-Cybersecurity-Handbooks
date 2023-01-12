@@ -227,7 +227,7 @@ $ enum4linux -a <RHOST>
 > https://github.com/cddmp/enum4linux-ng
 
 ```c
-$ enum4linux-ng -a <RHOST>
+$ enum4linux-ng -A <RHOST>
 ```
 
 ## Enyx
