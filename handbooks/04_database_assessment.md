@@ -125,6 +125,8 @@ $ mdb-sql <FILE>
 
 ## MySQL
 
+> https://www.mysqltutorial.org/mysql-cheat-sheet.aspx
+
 ```c
 $ mysql -u root -p
 $ mysql -u <USERNAME> -h <RHOST> -p
@@ -403,6 +405,7 @@ $ sqlcmd -S <RHOST> -U <USERNAME>
 
 ## SQL Injection
 
+> https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet
 
 ### Master List
 
