@@ -128,6 +128,12 @@ $ echo 85f3980654g59sif | md5sum
 
 ## OpenSSL
 
+### Create password for /etc/passwd
+
+```c
+$ openssl passwd '<PASSWORD>'
+```
+
 ### Create Password for /etc/shadow
 
 ```c
