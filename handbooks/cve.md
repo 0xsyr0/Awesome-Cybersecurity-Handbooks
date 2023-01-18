@@ -67,12 +67,13 @@
 | CVE-2022-34918 | LPE Netfilter Kernel Exploit | https://github.com/randorisec/CVE-2022-34918-LPE-PoC |
 | CVE-2023-21746 | Windows NTLM EoP (LocalPotato) | Waiting for PoC Release (https://twitter.com/decoder_it/status/1612883878322278402?s=09) |
 | n/a | SeBackupPrivilege | https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug |
+| n/a | GenericPotato | https://github.com/micahvandeusen/GenericPotato |
+| n/a | JuicyPotato | https://github.com/ohpe/juicy-potato |
+| n/a | Juice-PotatoNG | https://github.com/antonioCoco/JuicyPotatoNG |
+| n/a | MultiPotato | https://github.com/S3cur3Th1sSh1t/MultiPotato |
+| n/a | RemotePotato0 | https://github.com/antonioCoco/RemotePotato0 |
 | n/a | RoguePotato | https://github.com/antonioCoco/RoguePotato |
 | n/a | RottenPotatoNG | https://github.com/breenmachine/RottenPotatoNG |
-| n/a | GenericPotato | https://github.com/micahvandeusen/GenericPotato |
-| n/a | Juicy Potato | https://github.com/ohpe/juicy-potato |
-| n/a | Juice-PotatoNG | https://github.com/antonioCoco/PotatoNG |
-| n/a | MultiPotato | https://github.com/S3cur3Th1sSh1t/MultiPotato |
 | n/a | SharpEfsPotato | https://github.com/bugch3ck/SharpEfsPotato |
 | n/a | PrintSpoofer (1) | https://github.com/dievus/printspoofer |
 | n/a | PrintSpoofer (2) | https://github.com/itm4n/PrintSpoofer |
