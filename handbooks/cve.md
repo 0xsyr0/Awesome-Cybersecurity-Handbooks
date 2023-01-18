@@ -75,6 +75,7 @@
 | n/a | RoguePotato | https://github.com/antonioCoco/RoguePotato |
 | n/a | RottenPotatoNG | https://github.com/breenmachine/RottenPotatoNG |
 | n/a | SharpEfsPotato | https://github.com/bugch3ck/SharpEfsPotato |
+| n/a | SweetPotato | https://github.com/CCob/SweetPotato |
 | n/a | PrintSpoofer (1) | https://github.com/dievus/printspoofer |
 | n/a | PrintSpoofer (2) | https://github.com/itm4n/PrintSpoofer |
 | n/a | Shocker (1) | https://github.com/gabrtv/shocker |
