@@ -235,6 +235,14 @@ $ olemap <FILE>
 $ pngcheck -vtp7f <FILE>
 ```
 
+## scdbg
+
+> http://sandsprite.com/blogs/index.php?uid=7&pid=152
+
+```c
+PS C:\> .\scdbg.exe -findsc /f \PATH\TO\FILE\<FILE>.sc
+```
+
 ## steg_brute
 
 ```c
