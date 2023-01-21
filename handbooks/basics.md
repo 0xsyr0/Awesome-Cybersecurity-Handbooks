@@ -1030,6 +1030,10 @@ PROMPT="%F{white,bold}%W %* $(ip a | grep -A 1 eth0 | grep inet | awk '{ print $
 
 ### PowerShell
 
+```c
+PS C:\> type <FILE> | findstr /l <STRING>
+```
+
 For `PowerShell` paste it into the open terminal.
 
 ```c
