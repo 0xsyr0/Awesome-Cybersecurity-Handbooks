@@ -16,6 +16,7 @@
 | COOK | An overpower wordlist generator, splitter, merger, finder, saver, create words permutation and combinations, apply different encoding/decoding and everything you need. | https://github.com/giteshnxtlvl/cook |
 | CUPP | Common User Passwords Profiler (CUPP) | https://github.com/Mebus/cupp |
 | Kerberos Username Enumeration | Collection of username lists for enumerating kerberos domain users | https://github.com/attackdebris/kerberos_enum_userlists |
+| pseudohash | Password list generator that focuses on keywords mutated by commonly used password creation patterns | https://github.com/t3l3machus/psudohash |
 | SecLists | A collection of multiple types of lists used during security assessments, collected in one place. | https://github.com/danielmiessler/SecLists |
 
 ## CeWL
