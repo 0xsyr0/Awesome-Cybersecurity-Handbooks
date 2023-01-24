@@ -58,13 +58,13 @@ site:*.*.*.<domain>
 filetype:txt
 ```
 
-#### Example
+##### Example
 
 ```c
-site:tesla.com ext:php
+site:<DOMAIN> ext:php
 ```
 
-### Leaks
+#### Leaks
 
 ```c
 site:http://jsfiddle.net "<DOMAIN>"
@@ -73,11 +73,20 @@ site:http://codepen.io "<DOMAIN>"
 site:http://pastebin.com "<DOMAIN>"
 ```
 
-#### Example
+##### Example
 
 ```c
 site:http://jsfiddle.net | site:http://codebeautify.org | site:http://codepen.io | site:http://pastebin.com "<DOMAIN>"
 site:http://jsfiddle.net | site:http://codebeautify.org | site:http://codepen.io | site:http://pastebin.com "<DOMAIN>" "demo" "test" "api"
+```
+
+#### Cloud Environments
+
+```c
+site:http://s3.amazonaws.com "<DOMAIN>"
+site:http://blob.core.windows.net "<DOMAIN>"
+site:http://googleapis.com "<DOMAIN>"
+site:http://drive.google.com "<DOMAIN>"
 ```
 
 ### Abusing Google ID
