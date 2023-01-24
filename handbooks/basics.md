@@ -126,6 +126,7 @@
 | Chisel | A fast TCP/UDP tunnel over HTTP | https://github.com/jpillora/chisel |
 | CyberChef | The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis. | https://gchq.github.io/CyberChef |
 | MailHog | Web and API based SMTP testing | https://github.com/mailhog/MailHog |
+| Modlishka | Modlishka. Reverse Proxy. | https://github.com/drk1wi/Modlishka |
 | searchcode | Search 75 billion lines of code from 40 million projects | https://searchcode.com |
 | Swaks | Swiss Army Knife for SMTP | https://github.com/jetmore/swaks |
 | up-http-tool | Simple HTTP listener for security testing | https://github.com/MuirlandOracle/up-http-tool |
