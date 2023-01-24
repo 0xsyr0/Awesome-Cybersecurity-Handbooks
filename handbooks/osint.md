@@ -13,7 +13,8 @@
 ## Resources
 
 | Name | Description | URL |
-| --- | --- | --- | 
+| --- | --- | --- |
+| cloud_enum | Multi-cloud OSINT tool. Enumerate public resources in AWS, Azure, and Google Cloud. | https://github.com/initstring/cloud_enum |
 | DeHashed | Breach Monitoring  | https://dehashed.com |
 | DorkSearch | Faster Google Dorking | https://dorksearch.com |
 | Exploit-DB - Google Hacking Database | Exploit Database Google Dorks | https://www.exploit-db.com/google-hacking-database |
