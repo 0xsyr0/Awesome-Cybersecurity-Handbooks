@@ -176,5 +176,5 @@ $ python3 app.py --cli --mode "fast" --username "<GIVENNAME> <SURNAME>" --websit
 > https://github.com/laramies/theHarvester
 
 ```c
-$ theHarvester -d <TARGET_DOMAIN> -l 500 -b google -f myresults.html
+$ theHarvester -d <DOMAIN> -l 500 -b google -f myresults.html
 ```
