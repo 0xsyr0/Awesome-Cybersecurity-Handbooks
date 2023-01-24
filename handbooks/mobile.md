@@ -2,7 +2,14 @@
 
 ## Table of Contents
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/mobile.md#Resource)
 - [Apktool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/mobile.md#Apktool)
+
+## Resources
+
+| Name | Description | URL |
+| --- | --- | --- |
+| PhoneSploit Pro | An All-In-One hacking tool to remotely exploit Android devices using ADB and Metasploit-Framework to get a Meterpreter session. | https://github.com/AzeemIdrisi/PhoneSploit-Pro |
 
 ## Apktool
 
