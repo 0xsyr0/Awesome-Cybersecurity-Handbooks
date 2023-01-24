@@ -88,6 +88,7 @@
 | httpx | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. | https://github.com/projectdiscovery/httpx |
 | interact.sh | HTTP Request & Response Service | https://app.interactsh.com/#/ |
 | ipsourcebypass | This Python script can be used to bypass IP source restrictions using HTTP headers. | https://github.com/p0dalirius/ipsourcebypass |
+| Java-Deserialization-Cheat-Sheet | The cheat sheet about Java Deserialization vulnerabilities | https://github.com/GrrrDog/Java-Deserialization-Cheat-Sheet |
 | JSFuck | JSFuck is an esoteric and educational programming style based on the atomic parts of JavaScript. It uses only six different characters to write and execute code. | http://www.jsfuck.com |
 | JSFuck []()!+ | Write any JavaScript with 6 Characters: []()!+ | https://github.com/aemkei/jsfuck |
 | JSON Web Tokens | JSON Web Token Debugger | https://jwt.io |
