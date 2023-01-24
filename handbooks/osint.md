@@ -26,6 +26,7 @@
 | Osintgram | Osintgram is a OSINT tool on Instagram. It offers an interactive shell to perform analysis on Instagram account of any users by its nickname. | https://github.com/Datalux/Osintgram |
 | OSINT Recon Tool | OSINT Mindmap Tool | https://recontool.org/#mindmap |
 | osintui | Open Source Intelligence Terminal User Interface | https://github.com/wssheldon/osintui |
+| Recon-ng | Open Source Intelligence gathering tool aimed at reducing the time spent harvesting information from open sources. | https://github.com/lanmaster53/recon-ng |
 | Sherlock | Hunt down social media accounts by username across social networks. | https://github.com/sherlock-project/sherlock |
 | tweets_analyzer | Tweets metadata scraper & activity analyzer | https://github.com/x0rz/tweets_analyzer |
 
@@ -124,6 +125,34 @@ $ h8mail -t <EMAIL>
 ```c
 $ python3 photon.py -u https://<TARGET_URL> -l 3 -t 100 --wayback
 ```
+
+## Recon-ng
+
+### Basic Commands
+
+```c
+$ recon-ng
+$ recon-ng -w <WORKSPACE>
+[recon-ng][default] > workspaces create <WORKSPACE>
+[recon-ng][default] > db schema
+[recon-ng][default] > db insert domains
+[recon-ng][default] > marketplace search
+[recon-ng][default] > marketplace search <NAME>
+[recon-ng][default] > marketplace info <NAME>
+[recon-ng][default] > marketplace install <NAME>
+[recon-ng][default] > marketplace remove <NAME>
+[recon-ng][default] > modules search
+[recon-ng][default] > modules load <MODULE>
+[recon-ng][default][<MODULE>] > info
+[recon-ng][default][<MODULE>] > options list
+[recon-ng][default][<MODULE>] > options set <VALUE>
+[recon-ng][default][<MODULE>] > run
+[recon-ng][default] > keys list
+[recon-ng][default] > keys add <KEY> <VALUE>
+[recon-ng][default] > keys remove <KEY>
+```
+
+`Ctrl+c` unloads a module.
 
 ## Social Analyzer
 
