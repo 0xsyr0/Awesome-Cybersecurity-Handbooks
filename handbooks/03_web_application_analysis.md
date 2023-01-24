@@ -166,6 +166,12 @@ Ctrl+Shift+u    // URL decoding
 
 ## curl
 
+### Basic Commands
+
+```c
+$ curl --trace - http://<RHOST>
+```
+
 ### Uploading Files through Upload Forms
 
 #### POST File
