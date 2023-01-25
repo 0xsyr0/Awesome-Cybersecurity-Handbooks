@@ -108,5 +108,5 @@ $ aws --endpoint-url http://127.0.0.1:4566 kms decrypt --ciphertext-blob mXMs+8Z
 > https://github.com/nahamsec/lazys3
 
 ```c
-$ ruby lazys3.rb <TARGET_DOMAIN>
+$ ruby lazys3.rb <DOMAIN>
 ```
