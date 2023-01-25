@@ -236,13 +236,13 @@ bash-4.3$
 $ nsupdate -k /etc/bind/infra.key
 update add foobar.infra.dyna.htb 86400 A 10.10.14.135
 
-update add 135.14.10.10.in-addr.arpa 86400 PTR foobar.<TARGET_DOMAIN>
+update add 135.14.10.10.in-addr.arpa 86400 PTR foobar.<DOMAIN>
 show
 Outgoing update query:
 ;; ->>HEADER<<- opcode: UPDATE, status: NOERROR, id:      0
 ;; flags:; ZONE: 0, PREREQ: 0, UPDATE: 0, ADDITIONAL: 0
 ;; UPDATE SECTION:
-135.14.10.10.in-addr.arpa. 86400 IN     PTR     foobar.<TARGET_DOMAIN>.
+135.14.10.10.in-addr.arpa. 86400 IN     PTR     foobar.<DOMAIN>.
 
 send
 quit
@@ -417,12 +417,12 @@ $ apport-unpack /var/crash/_<PATH/TO/CRASHED/PROCESS>_<PROCESS>.1000.crash /PATH
 ## curl
 
 ```c
-$ curl -v http://<TARGET_DOMAIN>
-$ curl -X POST http://<TARGET_DOMAIN>
-$ curl -I POST http://<TARGET_DOMAIN>
-$ curl -X PUT http://<TARGET_DOMAIN>
-$ curl --path-as-is http://<TARGET_DOMAIN>/../../../../../../etc/passwd
-$ curl -s "http://<TARGET_DOMAIN>/reports.php?report=2589" | grep Do -A8 | html2text
+$ curl -v http://<DOMAIN>
+$ curl -X POST http://<DOMAIN>
+$ curl -I POST http://<DOMAIN>
+$ curl -X PUT http://<DOMAIN>
+$ curl --path-as-is http://<DOMAIN>/../../../../../../etc/passwd
+$ curl -s "http://<DOMAIN>/reports.php?report=2589" | grep Do -A8 | html2text
 ```
 
 ### Headers
@@ -434,7 +434,7 @@ $ curl -vvv <RHOST>
 or
 
 ```c
-$ curl -s -q -v -H 'Origin: http://<RHOST>' <TARGET_DOMAIN>/api/auth
+$ curl -s -q -v -H 'Origin: http://<RHOST>' <DOMAIN>/api/auth
 ```
 
 ### Use SSL
@@ -499,12 +499,12 @@ $ curl --head http://<RHOST>/
 
 ```c
 $ dig version.bind CHAOS TXT @<RHOST>
-$ dig ANY @<RHOST> <TARGET_DOMAIN>
-$ dig A @<RHOST> <TARGET_DOMAIN>
-$ dig AAAA @<RHOST> <TARGET_DOMAIN>
-$ dig TXT @<RHOST> <TARGET_DOMAIN>
-$ dig MX @<RHOST> <TARGET_DOMAIN>
-$ dig NS @<RHOST> <TARGET_DOMAIN>
+$ dig ANY @<RHOST> <DOMAIN>
+$ dig A @<RHOST> <DOMAIN>
+$ dig AAAA @<RHOST> <DOMAIN>
+$ dig TXT @<RHOST> <DOMAIN>
+$ dig MX @<RHOST> <DOMAIN>
+$ dig NS @<RHOST> <DOMAIN>
 $ dig -x <RHOST> @<RHOST>
 ```
 
@@ -512,7 +512,7 @@ $ dig -x <RHOST> @<RHOST>
 
 ```c
 $ dig axfr @<RHOST>
-$ dig axfr @<RHOST> <TARGET_DOMAIN>
+$ dig axfr @<RHOST> <DOMAIN>
 ```
 
 ### Dir
@@ -815,7 +815,7 @@ $ grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b|<search_parameter_2>"
 ### Enumerate JavaScript Files
 
 ```c
-$ curl http://<TARGET_DOMAIN>/js/chunk-vendors~03631906.67e21e66.js | grep -oP '/api/[^"]*'
+$ curl http://<DOMAIN>/js/chunk-vendors~03631906.67e21e66.js | grep -oP '/api/[^"]*'
 ```
 
 ## grpc
@@ -831,15 +831,15 @@ $ pip3 install grpc-tools
 syntax = "proto3";
 
 message Content {
-	    string data = 1;
+        string data = 1;
 }
 
 message Data {
-	    string feed = 1;
+        string feed = 1;
 }
 
 service Print {
-	    rpc Feed(Content) return (Data) {}
+        rpc Feed(Content) return (Data) {}
 }
 
 $ python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. file.proto
@@ -849,8 +849,8 @@ $ python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. file.proto
 
 ```c
 $ host <RHOST>
-$ host <TARGET_DOMAIN>
-$ host -l <TARGET_DOMAIN> <RHOST>
+$ host <DOMAIN>
+$ host -l <DOMAIN> <RHOST>
 ```
 
 ## icacls
@@ -1397,7 +1397,7 @@ PS C:\> net users <USERNAME>
 #### Get User List
 
 ```c
-PS C:\> Get-ADUser -Filter * -SearchBase "DC=<TARGET_DOMAIN>,DC=LOCAL"
+PS C:\> Get-ADUser -Filter * -SearchBase "DC=<DOMAIN>,DC=LOCAL"
 ```
 
 #### Invoke-Expression File Transfer
@@ -1615,7 +1615,7 @@ $ python -c 'print "\x41"'
 ### Testing Web Sockets
 
 ```c
-$ python3 -m websockets ws://<TARGET_DOMAIN>
+$ python3 -m websockets ws://<DOMAIN>
 ```
 
 ### Fixing Crypto Error
@@ -1707,7 +1707,7 @@ $ rsync -av rsync://<RHOST>/<FILE>/<REMOTE_DIRECTORY> <LOCAL_DIRECTORY>
 ## sendemail
 
 ```c
-sendemail -f foobar@<TARGET_DOMAIN> -t nico@<TARGET_DOMAIN> -u "Invoice Attached" -m "You are overdue payment" -a invoice.rtf -s 10.10.10.77 -v
+sendemail -f foobar@<DOMAIN> -t nico@<DOMAIN> -u "Invoice Attached" -m "You are overdue payment" -a invoice.rtf -s 10.10.10.77 -v
 ```
 
 ## seq
