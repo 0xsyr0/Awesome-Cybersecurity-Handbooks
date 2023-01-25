@@ -128,7 +128,7 @@ $ foremost -i <FILE>
 > https://github.com/arthaud/git-dumper
 
 ```c
-$ ./git-dumper.py http://<TARGET_DOMAIN>/<repo>
+$ ./git-dumper.py http://<DOMAIN>/<repo>
 ```
 
 ## Git
