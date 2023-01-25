@@ -38,6 +38,7 @@
 - [Log Poisoning](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Log-Poisoning)
 - [mitmproxy](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#mitmproxy)
 - [ngrok](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#ngrok)
+- [OpenSSL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#OpenSSL)
 - [PadBuster](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#PadBuster)
 - [PDF PHP Inclusion](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#PDF-PHP-Inclusion)
 - [PHP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#PHP)
@@ -2624,6 +2625,12 @@ $ mitmproxy
 
 ```c
 $ ngrok tcp 9001
+```
+
+## OpenSSL
+
+```c
+$ openssl s_client -connect <RHOST>:<RPORT> < /dev/null | openssl x509 -noout -text | grep -C3 -i dns
 ```
 
 ## PadBuster
