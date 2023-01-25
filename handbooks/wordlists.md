@@ -24,7 +24,7 @@
 > https://github.com/digininja/cewl
 
 ```c
-$ cewl -d 5 -m 3 -w wordlist http://<TARGET_URL>/index.htm --with-numbers
+$ cewl -d 5 -m 3 -w wordlist http://<DOMAIN>/index.htm --with-numbers
 ```
 
 ## CUPP
