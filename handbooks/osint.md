@@ -36,8 +36,8 @@
 > https://github.com/IvanGlinkin/Fast-Google-Dorks-Scan
 
 ```c
-$ ./FGDS.sh <TARGET_DOMAIN>
-$ proxychains bash ./FGDS.sh <TARGET_DOMAIN>
+$ ./FGDS.sh <DOMAIN>
+$ proxychains bash ./FGDS.sh <DOMAIN>
 ```
 
 ## Google
@@ -133,7 +133,7 @@ $ h8mail -t <EMAIL>
 > https://github.com/s0md3v/Photon
 
 ```c
-$ python3 photon.py -u https://<TARGET_URL> -l 3 -t 100 --wayback
+$ python3 photon.py -u https://<DOMAIN> -l 3 -t 100 --wayback
 ```
 
 ## Recon-ng
