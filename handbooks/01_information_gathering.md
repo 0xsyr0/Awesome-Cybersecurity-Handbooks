@@ -427,7 +427,7 @@ $ nmap $TARGET -p 88 --script krb5-enum-users --script-args krb5-enum-users.real
 ### File transfer (PUT)
 
 ```c
-$ nmap -p 80 <RHOST> --script http-put --script-args http-put.url='<TARGET_URL>',http-put.file='<FILE>'
+$ nmap -p 80 <RHOST> --script http-put --script-args http-put.url='<DOMAIN>',http-put.file='<FILE>'
 ```
 
 ## onesixtyone
