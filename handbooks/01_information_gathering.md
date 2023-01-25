@@ -82,9 +82,10 @@
 > https://github.com/OWASP/Amass
 
 ```c
+$ amass enum -d <DOMAIN>
 $ amass intel --asn <ASN>
 $ amass intel --asn <ASN> -list
-$ amass enum -active -d <TARGET_DOMAIN> -p 80,443,8080
+$ amass enum -active -d <DOMAIN> -p 80,443,8080
 ```
 
 ## Banner Grabbing
@@ -148,13 +149,13 @@ $ sudo ./BloodHound --no-sandbox
 ### Collection Method All
 
 ```c
-$ bloodhound-python -d <TARGET_DOMAIN> -u <USERNAME> -p "<PASSWORD>" -gc <TARGET_DOMAIN> -c all -ns <RHOST>
+$ bloodhound-python -d <DOMAIN> -u <USERNAME> -p "<PASSWORD>" -gc <DOMAIN> -c all -ns <RHOST>
 ```
 
 ### LDAP Dumping
 
 ```c
-$ bloodhound-python -u <USERNAME> -p '<PASSWORD>' -ns <RHOST> -d <TARGET_DOMAIN> -c All
+$ bloodhound-python -u <USERNAME> -p '<PASSWORD>' -ns <RHOST> -d <DOMAIN> -c All
 ```
 
 ### Parsing
@@ -180,29 +181,29 @@ $ dmitry -p <RHOST>
 ## DMARC
 
 ```c
-$ dig txt _dmarc.<TARGET_DOMAIN> | grep dmarc
+$ dig txt _dmarc.<DOMAIN> | grep dmarc
 ```
 
 ## DNS
 
 ```c
-$ whois <TARGET_DOMAIN>
-$ dig @<RHOST> -x <TARGET_DOMAIN>
-$ dig {a|txt|ns|mx} <TARGET_DOMAIN>
-$ dig {a|txt|ns|mx} <TARGET_DOMAIN> @ns1.<TARGET_DOMAIN>
-$ dig axfr @<RHOST> <TARGET_DOMAIN>    // zone transfer - needs 53/TCP
-$ host -t {a|txt|ns|mx} <TARGET_DOMAIN>
-$ host -a <TARGET_DOMAIN>
-$ host -l <TARGET_DOMAIN> ns1.<TARGET_DOMAIN>
-$ nslookup -> set type=any -> ls -d <TARGET_DOMAIN>
-$ for sub in $(cat subTARGET_DOMAINs.txt);do host $sub.<TARGET_DOMAIN:|grep "has.address";done
+$ whois <DOMAIN>
+$ dig @<RHOST> -x <DOMAIN>
+$ dig {a|txt|ns|mx} <DOMAIN>
+$ dig {a|txt|ns|mx} <DOMAIN> @ns1.<DOMAIN>
+$ dig axfr @<RHOST> <DOMAIN>    // zone transfer - needs 53/TCP
+$ host -t {a|txt|ns|mx} <DOMAIN>
+$ host -a <DOMAIN>
+$ host -l <DOMAIN> ns1.<DOMAIN>
+$ nslookup -> set type=any -> ls -d <DOMAIN>
+$ for sub in $(cat subDOMAINs.txt);do host $sub.<DOMAIN:|grep "has.address";done
 ```
 
 ## dnsenum
 
 ```c
-$ dnsenum <TARGET_DOMAIN>
-$ dnsenum --threads 64 --dnsserver <RHOST> -f /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt <TARGET_DOMAIN>
+$ dnsenum <DOMAIN>
+$ dnsenum --threads 64 --dnsserver <RHOST> -f /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt <DOMAIN>
 ```
 
 ## dnsrecon
@@ -211,7 +212,7 @@ $ dnsenum --threads 64 --dnsserver <RHOST> -f /usr/share/seclists/Discovery/DNS/
 $ sudo vi /etc/hosts
 $ dnsrecon -r 127.0.0.0/24 -n <RHOST>
 $ dnsrecon -r 127.0.1.0/24 -n <RHOST>
-$ dnsrecon -d <TARGET_DOMAIN> -t axfr @ns2.<TARGET_DOMAIN>
+$ dnsrecon -d <DOMAIN> -t axfr @ns2.<DOMAIN>
 ```
 
 ## enum4linux
@@ -262,10 +263,10 @@ $ ./finger-user-enum.pl -U users.txt -t <RHOST>
 ```c
 $ ldapsearch -x -h <RHOST> -s base namingcontexts
 $ ldapsearch -D <USERNAME> -H ldap://<RHOST> -w "<PASSWORD>" -b "CN=Users,DC=contoso,DC=local" | grep info
-$ ldapsearch -x -b "dc=<TARGET_DOMAIN>,dc=local" "*" -h <RHOST> | awk '/dn: / {print $2}'
-$ ldapsearch -x -D "cn=admin,dc=<TARGET_DOMAIN>,dc=local" -s sub "cn=*" -h <RHOST> | awk '/uid: /{print $2}' | nl
+$ ldapsearch -x -b "dc=<DOMAIN>,dc=local" "*" -h <RHOST> | awk '/dn: / {print $2}'
+$ ldapsearch -x -D "cn=admin,dc=<DOMAIN>,dc=local" -s sub "cn=*" -h <RHOST> | awk '/uid: /{print $2}' | nl
 $ ldapsearch -D "cn=admin,dc=acme,dc=com" "(objectClass=*)" -w ldapadmin -h ldap.acme.com
-$ ldapsearch -x -h <RHOST> -D "<USERNAME>"  -b "dc=<TARGET_DOMAIN>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
+$ ldapsearch -x -h <RHOST> -D "<USERNAME>"  -b "dc=<DOMAIN>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
 $ ldapsearch -x -w <PASSWORD>
 ```
 
@@ -634,7 +635,7 @@ $ snmpwalk -c public -v1 <RHOST> 1.3.6.1.2.1.25.6.3.1.2
 ## SPF
 
 ```c
-$ dig txt <TARGET_DOMAIN> | grep spf
+$ dig txt <DOMAIN> | grep spf
 ```
 
 ## sslscan
