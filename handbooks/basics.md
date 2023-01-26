@@ -2171,7 +2171,7 @@ $ sudo guestmount --add /PATH/TO/MOUNTPOINT/9b9cfbc4-369e-11e9-a17c-806e6f6e6963
 ## vim
 
 ```c
-$ :w !sudo %tee    // write to file without opening it
+$ :w !sudo tee %   // write to file without opening it
 $ :w <FILE>        // save output into a file
 $ :sh              // put vim into the background and opens a new shell
 $ :%!sort -u       // use a command and pipe the output back to vim
