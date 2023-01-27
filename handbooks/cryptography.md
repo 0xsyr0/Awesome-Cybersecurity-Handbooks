@@ -143,7 +143,8 @@ $ openssl passwd -6 -salt xyz  <PASSWORD>
 ### Read a Certificate
 
 ```c
-$ openssl req -in req.txt -noout -text
+$ openssl req -in <FILE>.txt -noout -text
+$ openssl req -text -noout -verify -in <FILE>.req
 ```
 
 ### Extracting Certificate
