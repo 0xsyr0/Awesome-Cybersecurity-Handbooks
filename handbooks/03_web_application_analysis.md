@@ -143,6 +143,13 @@ $ curl -s -k "https://jldc.me/anubis/subdomains/example.com" | grep -Po "((http|
 
 > https://portswigger.net/burp
 
+### Filter Options
+
+- Proxy > Options > Intercept Client Requets > Is in target scope
+- Proxy > Options > Intercept Server Responses > Is in target scope
+
+### Shortcuts
+
 ```c
 Ctrl+r          // Sending request to repeater
 Ctrl+i          // Sending request to intruder
