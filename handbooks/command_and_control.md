@@ -4,7 +4,8 @@
 
 - [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Resources)
 - [Empire](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Empire)
-- [Sliver](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Sliver)]
+- [Havoc](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Havoc)
+- [Sliver](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Sliver)
 
 ## Resources
 
@@ -104,6 +105,59 @@
 (Empire: <NAME>) > usemodule powershell/persistence/elevated/registry
 (Empire: <NAME>/powershell/persistence/elevated/registry) > set Listener <NAME>
 (Empire: <NAME>/powershell/persistence/elevated/registry) > run
+```
+
+## Havoc
+
+> https://github.com/HavocFramework/Havoc
+
+### Python Environment
+
+```c
+$ sudo apt-get install build-essential
+$ sudo add-apt-repository ppa:deadsnakes/ppa
+$ sudo apt-get update
+$ sudo apt-get install python3.10 python3.10-dev
+```
+
+### Pre-requisites
+
+```c
+$ sudo apt-get install -y git build-essential apt-utils cmake libfontconfig1 libglu1-mesa-dev libgtest-dev libspdlog-dev libboost-all-dev libncurses5-dev libgdbm-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev mesa-common-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5websockets5 libqt5websockets5-dev qtdeclarative5-dev golang-go qtbase5-dev libqt5websockets5-dev libspdlog-dev python3-dev libboost-all-dev mingw-w64 nasm
+```
+
+### Installation
+
+#### Building Client
+
+```c
+user@host:/opt$ sudo git clone https://github.com/HavocFramework/Havoc.git
+user@host:/opt$ cd Havoc/Client
+user@host:/opt/Havoc/Client$ make 
+user@host:/opt/Havoc/Client$ ./Havoc
+```
+
+#### Building Teamserver
+
+```c
+user@host:/opt/Havoc/Teamserver$ go mod download golang.org/x/sys
+user@host:/opt/Havoc/Teamserver$ go mod download github.com/ugorji/go
+user@host:/opt/Havoc/Teamserver$ ./Install.sh
+user@host:/opt/Havoc/Teamserver$ make
+user@host:/opt/Havoc/Teamserver$ ./teamserver -h
+user@host:/opt/Havoc/Teamserver$ sudo ./teamserver server --profile ./profiles/havoc.yaotl -v --debug
+```
+
+### Start Teamserver
+
+```c
+user@host:/opt/Havoc/Teamserver$ sudo ./teamserver server --profile ./profiles/havoc.yaotl -v --debug
+```
+
+### Start Client
+
+```c
+user@host:/opt/Havoc/Client$ ./Havoc
 ```
 
 ## Sliver
