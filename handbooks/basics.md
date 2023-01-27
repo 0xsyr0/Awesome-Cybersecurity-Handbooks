@@ -1043,7 +1043,7 @@ $IPv4 = Test-Connection -ComputerName (hostname) -Count 1  | Select -ExpandPrope
 
 ## Microsoft Windows
 
-### Command Format
+### Command Format for PowerShell
 
 ```c
 $ echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
