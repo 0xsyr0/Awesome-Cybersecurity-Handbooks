@@ -81,6 +81,12 @@ site:http://jsfiddle.net | site:http://codebeautify.org | site:http://codepen.io
 site:http://jsfiddle.net | site:http://codebeautify.org | site:http://codepen.io | site:http://pastebin.com "<DOMAIN>" "demo" "test" "api"
 ```
 
+#### Open Redirects
+
+```c
+inurl:page= | inurl:url= | inurl:return= | inurl:next= | inurl:redir= | inurl:redirect= | inurl:target= | inurl:page= inurl:& inurl:http site:http://<DOMAIN>
+```
+
 #### Cloud Environments
 
 ```c
