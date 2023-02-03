@@ -1341,6 +1341,12 @@ PS C:\> Start-Process powershell.exe -Credential $credential
 PS C:\> powershell -c "$cred = Import-CliXml -Path cred.xml; $cred.GetNetworkCredential() | Format-List *"
 ```
 
+### Scheduled Tasks
+
+```c
+PS C:\> Start-Job -ScriptBlock { C:\Windows\Tasks\<FILE>.exe }
+```
+
 ### AntiVirus Handling
 
 #### AntiVirus Bypass for Invoke-Expression (IEX)
