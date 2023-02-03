@@ -1268,6 +1268,10 @@ $ sudo apt-get install powershell
 
 ### General Usage
 
+```c
+PS C:\> Get-Help <COMMAND>
+```
+
 #### Search for Files
 
 ```c
