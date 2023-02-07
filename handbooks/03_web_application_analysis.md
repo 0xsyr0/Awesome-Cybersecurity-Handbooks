@@ -2260,6 +2260,7 @@ Accept: ../../../../.././../../../../etc/passwd{%00{{
 /etc/inetd.conf
 /etc/inittab
 /etc/issue
+/etc/knockd.conf
 /etc/lighttpd.conf
 /etc/lilo.conf
 /etc/logrotate.d/ftp
