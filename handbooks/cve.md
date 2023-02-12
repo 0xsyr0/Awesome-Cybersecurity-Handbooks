@@ -67,6 +67,8 @@
 | CVE-2022-34918 | LPE Netfilter Kernel Exploit | https://github.com/randorisec/CVE-2022-34918-LPE-PoC |
 | CVE-2023-21746 | Windows NTLM EoP (LocalPotato) | https://www.localpotato.com/localpotato_html/LocalPotato.html |
 | CVE-2023-22809 | sudoedit Privilege Escalation | https://github.com/n3m1dotsys/CVE-2023-22809-sudoedit-privesc |
+| n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
+| n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | SeBackupPrivilege | https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug |
 | n/a | GenericPotato | https://github.com/micahvandeusen/GenericPotato |
 | n/a | JuicyPotato | https://github.com/ohpe/juicy-potato |
