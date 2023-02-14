@@ -18,6 +18,7 @@
 | Gophish | Open-Source Phishing Toolkit | https://github.com/gophish/gophish |
 | Nexphisher | Advanced Phishing tool for Linux & Termux | https://github.com/htr-tech/nexphisher |
 | SocialFish | Phishing Tool & Information Collector  | https://github.com/UndeadSec/SocialFish |
+| SniperPhish | SniperPhish - The Web-Email Spear Phishing Toolkit | https://github.com/GemGeorge/SniperPhish |
 | The Social-Engineer Toolkit (SET) | The Social-Engineer Toolkit is an open-source penetration testing framework designed for social engineering. | https://github.com/trustedsec/social-engineer-toolkit |
 
 ## Gophish
