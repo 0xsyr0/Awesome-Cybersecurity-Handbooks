@@ -8,7 +8,7 @@
 - [Dirty Pipe (CVE-2022-0847)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Dirty-Pipe-CVE-2022-0847)
 - [Juicy Potato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#juicy-potato)
 - [Log4j / Log4Shell (CVE-2021-44228)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Log4j--Log4Shell-CVE-2021-44228)
-- [MS-MSDT "Follina"](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/edit/main/handbooks/cve.md#MS-MSDT-Follina)
+- [MS-MSDT "Follina"](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#MS-MSDT-Follina)
 - [SharpEfsPotato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#SharpEfsPotato)
 - [Shellshock](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shellshock)
 - [Shocker](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shocker)
