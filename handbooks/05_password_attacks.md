@@ -34,6 +34,7 @@
 | DeHashed | Breach Database | https://dehashed.com |
 | DomainPasswordSpray | DomainPasswordSpray is a tool written in PowerShell to perform a password spray attack against users of a domain. By default it will automatically generate the userlist from the domain. BE VERY CAREFUL NOT TO LOCKOUT ACCOUNTS! | https://github.com/dafthack/DomainPasswordSpray |
 | hashcat | Password Cracking | https://hashcat.net/hashcat |
+| Hob0Rules | Password cracking rules for Hashcat based on statistics and industry patterns | https://github.com/praetorian-inc/Hob0Rules |
 | Hydra | Password Brute Force | https://github.com/vanhauser-thc/thc-hydra |
 | John | Password Cracking | https://github.com/openwall/john |
 | Kerbrute | A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication. | https://github.com/ropnop/kerbrute |
