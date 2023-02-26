@@ -65,7 +65,7 @@
 - [Perl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Perl)
 - [PHP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PHP)
 - [PNG](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PNG)
-- [PowerShell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PowerShell)
+- [PowerShell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PowerShell-1)
 - [proc](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#proc)
 - [proftp](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#proftp)
 - [Python2](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Python2)
