@@ -150,7 +150,8 @@ $ sudo ./BloodHound --no-sandbox
 ### Collection Method All
 
 ```c
-$ bloodhound-python -d <DOMAIN> -u <USERNAME> -p "<PASSWORD>" -gc <DOMAIN> -c all -ns <RHOST>
+$ bloodhound-python -u <USERNAME> -p "<PASSWORD>" -d <DOMAIN> -gc <DOMAIN> -c all -ns <RHOST>
+$ bloodhound-python -u <USERNAME> -p '<PASSWORD>' -d <DOMAIN> -dc <RHOST> -ns <RHOST> --dns-tcp -no-pass -c ALL --zip
 ```
 
 ### LDAP Dumping
