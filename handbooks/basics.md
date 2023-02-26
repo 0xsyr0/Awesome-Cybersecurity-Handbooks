@@ -1792,14 +1792,17 @@ $ sudo apt-get install libguestfs-tools
 ### Common Commands
 
 ```c
+$ smbclient -L \\<RHOST>\ -N
+$ smbclient -L //<RHOST>/ -N
 $ smbclient -L ////<RHOST>/ -N
 $ smbclient -U "<USERNAME>" -L \\\\<RHOST>\\
 $ smbclient -L //<RHOST>// -U <USERNAME>%<PASSWORD>
 $ smbclient //<RHOST>/SYSVOL -U <USERNAME>%<PASSWORD>
-$ mount.cifs //<RHOST>/Backups /mnt/remote
-$ guestmount --add '/<MOUNTPOINT>/<DIRECTORY/FILE>' --inspector --ro /mnt/<MOUNT> -v
 $ smbclient "\\\\<RHOST>\<SHARE>"
 $ smbclient \\\\<RHOST>\\<SHARE> -U '<USERNAME>' --socket-options='TCP_NODELAY IPTOS_LOWDELAY SO_KEEPALIVE SO_RCVBUF=131072 SO_SNDBUF=131072' -t 40000
+$ smbclient --no-pass //<RHOST>/<SHARE>
+$ mount.cifs //<RHOST>/<SHARE> /mnt/remote
+$ guestmount --add '/<MOUNTPOINT>/<DIRECTORY/FILE>' --inspector --ro /mnt/<MOUNT> -v
 ```
 
 ### Usage
