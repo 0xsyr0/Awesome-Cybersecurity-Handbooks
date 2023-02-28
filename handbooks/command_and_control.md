@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Resources)
+- [Covenant]
 - [Empire](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Empire)
 - [Havoc](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Havoc)
 - [Sliver](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Sliver)
@@ -28,6 +29,51 @@
 | Sliver | Sliver is an open source cross-platform adversary emulation/red team framework, it can be used by organizations of all sizes to perform security testing. | https://github.com/BishopFox/sliver |
 | SharpLAPS | Retrieve LAPS password from LDAP | https://github.com/swisskyrepo/SharpLAPS |
 | SPAWN | Cobalt Strike BOF that spawns a sacrificial process, injects it with shellcode, and executes payload. Built to evade EDR/UserLand hooks by spawning sacrificial process with Arbitrary Code Guard (ACG), BlockDll, and PPID spoofing. | https://github.com/boku7/SPAWN |
+
+## Covenant
+
+> https://github.com/cobbr/Covenant
+
+> https://github.com/cobbr/Covenant/wiki/Installation-And-Startup
+
+### Pre-requisites
+
+```c
+$ sudo apt-get install docker docker-compose
+```
+
+### Installation
+
+```c
+$ git clone --recurse-submodules https://github.com/cobbr/Covenant
+$ cd Covenant/Covenant
+$ docker build -t covenant .
+```
+
+```c
+$ docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name covenant -v /PATH/TO/Covenant/Covenant/Data:/app/Data covenant
+```
+
+> https://127.0.0.1:7443/covenantuser/login
+
+### Stop Covenant
+
+```c
+$ docker stop covenant
+```
+
+### Restart Covenant
+
+```c
+$ docker start covenant -ai
+```
+
+### Remove and Restart Covenant
+
+```c
+$ ~/Covenant/Covenant > docker rm covenant
+$ ~/Covenant/Covenant > docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name covenant -v /PATH/TO/Covenant/Covenant/Data:/app/Data covenant --username AdminUser --computername 0.0.0.0
+```
 
 ## Empire
 
