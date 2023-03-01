@@ -66,7 +66,7 @@
 | CVE-2022-30190 | MS-MSDT Follina Exploit PoC | https://github.com/onecloudemoji/CVE-2022-30190 |
 | CVE-2022-30190 | MS-MSDT Follina Exploit Python Implementation | https://github.com/chvancooten/follina.py |
 | CVE-2022-34918 | LPE Netfilter Kernel Exploit | https://github.com/randorisec/CVE-2022-34918-LPE-PoC |
-| CVE-2023-21746 | Windows NTLM EoP (LocalPotato) | https://www.localpotato.com/localpotato_html/LocalPotato.html |
+| CVE-2023-21746 | Windows NTLM EoP (LocalPotato) | https://github.com/decoder-it/LocalPotato |
 | CVE-2023-22809 | sudoedit Privilege Escalation | https://github.com/n3m1dotsys/CVE-2023-22809-sudoedit-privesc |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
