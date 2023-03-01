@@ -70,6 +70,7 @@
 | CVE-2023-22809 | sudoedit Privilege Escalation | https://github.com/n3m1dotsys/CVE-2023-22809-sudoedit-privesc |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
+| n/a | LPE via StorSvc | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
 | n/a | SeBackupPrivilege | https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug |
 | n/a | GenericPotato | https://github.com/micahvandeusen/GenericPotato |
 | n/a | JuicyPotato | https://github.com/ohpe/juicy-potato |
