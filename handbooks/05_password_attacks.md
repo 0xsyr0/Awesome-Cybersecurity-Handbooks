@@ -4,7 +4,7 @@
 
 - [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Resources)
 - [AES](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#AES)
-- [bkcrack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#bgcrack)
+- [bkcrack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#bkcrack)
 - [CrackMapExec](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#CrackMapExec)
 - [fcrack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#fcrack)
 - [GPG](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#GPG)
@@ -28,6 +28,7 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| bkcrack | Crack legacy zip encryption with Biham and Kocher's known plaintext attack. | https://github.com/kimci86/bkcrack |
 | CrackMapExec | CrackMapExec (a.k.a CME) is a post-exploitation tool that helps automate assessing the security of large Active Directory networks. | https://github.com/byt3bl33d3r/CrackMapExec |
 | CredMaster | Refactored & improved CredKing password spraying tool, uses FireProx APIs to rotate IP addresses, stay anonymous, and beat throttling | https://github.com/knavesec/CredMaster |
 | Default Credentials Cheat Sheet | One place for all the default credentials to assist the pentesters during an engagement, this document has a several products default credentials that are gathered from several sources. | https://github.com/ihebski/DefaultCreds-cheat-sheet |
