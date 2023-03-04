@@ -270,6 +270,7 @@ $ ldapsearch -x -D "cn=admin,dc=<DOMAIN>,dc=local" -s sub "cn=*" -h <RHOST> | aw
 $ ldapsearch -D "cn=admin,dc=acme,dc=com" "(objectClass=*)" -w ldapadmin -h ldap.acme.com
 $ ldapsearch -x -h <RHOST> -D "<USERNAME>"  -b "dc=<DOMAIN>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
 $ ldapsearch -x -w <PASSWORD>
+$ ldapsearch -H ldap://<DOMAIN> -b "DC=<DOMAIN>,DC=local" > <FILE>.txt
 ```
 
 ## MASSCAN
