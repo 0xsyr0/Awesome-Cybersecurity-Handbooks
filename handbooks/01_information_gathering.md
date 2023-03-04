@@ -25,6 +25,7 @@
 - [NetBIOS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#NetBIOS)
 - [Nmap](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Nmap)
 - [onesixtyone](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#onesixtyone)
+- [Port Scanning](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Port-Scanning)
 - [PoshADCS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#PoshADCS)
 - [pspy](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#pspy)
 - [rpclient](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#rpclient)
@@ -441,6 +442,18 @@ $ nmap -p 80 <RHOST> --script http-put --script-args http-put.url='<DOMAIN>',htt
 
 ```c
 $ onesixtyone -i snmp-ips.txt -c community.txt
+```
+
+## Port Scanning
+
+```c
+$ for p in {1..65535}; do nc -vn <RHOST> $p -w 1 -z & done 2> <FILE>.txt
+```
+
+> https://github.com/AlexRandomed/One-Liner-Bash-Scanner
+
+```c
+$ export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/tcp/$ip/$port && echo The port $port is open || echo The Port $port is closed > /dev/null" 2>/dev/null || echo Connection Timeout > /dev/null; done
 ```
 
 ## PoshADCS
