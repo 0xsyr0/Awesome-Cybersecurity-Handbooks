@@ -6,7 +6,7 @@
 - [CVE-2014-6271: Shellshock RCE PoC](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2014-6271-Shellshock-RCE-PoC)
 - [CVE-2020-1472: ZeroLogon PE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2020-1472-ZeroLogon-PE)
 - [CVE-2021-41773, CVE-2021-42013, CVE-2020-17519: Simples Apache Path Traversal (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-41773-CVE-2021-42013-CVE-2020-17519-Simples-Apache-Path-Traversal-0-day)
-- [CVE-2021-44228: Log4Shell RCE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#cCVE-2021-44228-Log4Shell-RCE-0-day)
+- [CVE-2021-44228: Log4Shell RCE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-44228-Log4Shell-RCE-0-day)
 - [CVE-2022-0847: Dirty Pipe LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-0847-Dirty-Pipe-LPE)
 - [CVE-2022-30190: MS-MSDT Follina RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-30190-MS-MSDT-Follina-RCE)
 - [CVE-2023-21746: Windows NTLM EoP LocalPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-21746-Windows-NTLM-EoP-LocalPotato-LPE)
