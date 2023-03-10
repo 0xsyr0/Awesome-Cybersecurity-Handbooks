@@ -13,7 +13,7 @@
 - [Juicy Potato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato-LPE)
 - [SharpEfsPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#SharpEfsPotato-LPE)
 - [Shocker Container Escape](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shocker-Container-Escape)
-- [ThinkPHP < 6.0.14 Remote Code Execution RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#ThinkPHP-6.0.14-Remote-Code-Execution-RCE]
+- [ThinkPHP < 6.0.14 Remote Code Execution RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#ThinkPHP--6014-Remote-Code-Execution-RCE]
 
 ## Resources
 
