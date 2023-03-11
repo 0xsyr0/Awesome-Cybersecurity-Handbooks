@@ -880,6 +880,14 @@ $ javac -d . <FILE>.java
 
 ### Ticket Handling with krb5
 
+#### Installation
+
+```c
+$ sudo apt-get install krb5-kdc
+```
+
+#### Common Information & Commands
+
 ```c
 /etc/krb5.conf                   // kerberos configuration file location
 kinit <USERNAME>                 // creating ticket request
