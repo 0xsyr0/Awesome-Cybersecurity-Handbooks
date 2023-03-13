@@ -270,12 +270,18 @@ $ sudo usbrip events violations <FILE>.json -f syslog
 
 ## Volatility
 
+> https://www.volatilityfoundation.org/releases
+
 > https://github.com/volatilityfoundation/volatility
 
 ```c
-$ volatility -f <FILE>.elf --profile=Win7SP1x64 psscan --output=dot --output-file=memdump.dot_
-$ volatility -f <FILE>.elf --profile=Win7SP1x64 filescan | grep <NAME>
-$ volatility -f <FILE>.elf --profile=Win7SP1x64 dumpfiles -Q 0x000000001e8feb70 -D .
+$ volatility -f <FILE> imageinfo
+$ volatility -f <FILE> --profile=Win7SP1x86 filescan
+$ volatility -f <FILE> --profile=Win7SP1x64 filescan | grep <NAME>
+$ volatility -f <FILE> --profile=Win7SP1x86 truecryptsummary
+$ volatility -f <FILE> --profile=Win7SP1x64 psscan --output=dot --output-file=memdump.dot_
+$ volatility -f <FILE> --profile=Win7SP1x64 dumpfiles -Q 0x000000001e8feb70 -D .
+$ volatility -f <FILE> --profile=Win7SP1x86 dumpfiles -Q 0x000000000bbc7166 --name file -D . -vvv
 ```
 
 ## xxd
