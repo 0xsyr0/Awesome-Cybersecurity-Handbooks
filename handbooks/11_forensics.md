@@ -274,8 +274,23 @@ $ sudo usbrip events violations <FILE>.json -f syslog
 
 > https://github.com/volatilityfoundation/volatility
 
+### Basic Commands
+
 ```c
 $ volatility -f <FILE> imageinfo
+$ volatility -f <FILE> filescan
+$ volatility -f <FILE> psscan
+$ volatility -f <FILE> dumpfiles
+$ volatility -f <FILE>.vmem <FILE>.info
+$ volatility -f <FILE>.vmem <FILE>.pslist
+$ volatility -f <FILE>.vmem <FILE>.psscan
+$ volatility -f <FILE>.vmem <FILE>.dumpfiles
+$ volatility -f <FILE>.vmem <FILE>.dumpfiles --pid <ID>
+```
+
+### Examples
+
+```c
 $ volatility -f <FILE> --profile=Win7SP1x86 filescan
 $ volatility -f <FILE> --profile=Win7SP1x64 filescan | grep <NAME>
 $ volatility -f <FILE> --profile=Win7SP1x86 truecryptsummary
