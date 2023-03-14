@@ -34,6 +34,7 @@ $ mosquitto_pub -h <RHOST> -t XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub -m 'eyAiaWQiO
 
 ```c
 $ python mqtt_client_shell.py
+> host=<RHOST>
 > host <RHOST>
 > connect
 > subscribe
