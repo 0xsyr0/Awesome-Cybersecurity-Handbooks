@@ -39,6 +39,7 @@ Thank you for reading.
 - [Cryptography](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cryptography.md)
 - [CVE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md)
 - [Exploitation](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/exploitation.md)
+- [Hardware](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/hardware.md)
 - [IoT](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/iot.md)
 - [Malware Development](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/malware_development.md)
 - [Mobile](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/mobile.md)
