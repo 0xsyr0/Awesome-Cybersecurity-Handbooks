@@ -1,5 +1,12 @@
 # Hardware
 
+## Table of Contents
+
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/hardware.md#Resources)
+- [Signal Decoding](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/hardware.md#Signal-Decoding)
+
+## Resources
+
 | Name | Description | URL |
 | --- | --- | --- |
 | Bash-RF PI | Script with several tools to brute force garages, hack radio stations and capture and analyze radio signals with Raspberry Pi | https://github.com/Lucstay11/Brute-force-garage-and-hack-rf |
