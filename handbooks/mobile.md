@@ -9,6 +9,7 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| APKLeak | Scanning APK file for URIs, endpoints & secrets. | https://github.com/dwisiswant0/apkleaks |
 | PhoneSploit Pro | An All-In-One hacking tool to remotely exploit Android devices using ADB and Metasploit-Framework to get a Meterpreter session. | https://github.com/AzeemIdrisi/PhoneSploit-Pro |
 
 ## Apktool
