@@ -2259,8 +2259,9 @@ C:\Windows\System32> venv\Scripts\activate
 ## wget
 
 ```c
+$ wget -r --no-parent <RHOST>/<DIRECTORY>              // recursive download of all files and structure
+$ wget -m ftp://anonymous:anonymous@<RHOST>            // ftp download
 $ wget -N -r -l inf <RHOST>/PATH/TO/REPOSITORY/.git    // reverse download of a git repository
-$ wget -m ftp://anonymous:anonymous@<RHOST>
 ```
 
 ## while loop
