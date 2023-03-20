@@ -159,6 +159,18 @@ Ctrl+Shift+b    // base64 encoding
 Ctrl+Shift+u    // URL decoding
 ```
 
+### Tweaks
+
+Burp Suite > Proxy > Proxy settings > TLS pass through
+
+```c
+.*\.google\.com 
+.*\.gstatic\.com
+.*\.mozilla\.com
+.*\.googleapis\.com
+.*\.pki\.goog
+```
+
 ### Set Proxy Environment Variables
 
 ```c
