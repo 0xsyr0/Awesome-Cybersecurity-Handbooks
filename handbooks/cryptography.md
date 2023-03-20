@@ -24,6 +24,7 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| Ciphey | Automatically decrypt encryptions without knowing the key or cipher, decode encodings, and crack hashes | https://github.com/Ciphey/Ciphey |
 | FeatherDuster | An automated, modular cryptanalysis tool; i.e., a Weapon of Math Destruction. | https://github.com/nccgroup/featherduster |
 | RsaCtfTool | RSA attack tool (mainly for ctf) - retreive private key from weak public key and/or uncipher data. | https://github.com/Ganapati/RsaCtfTool |
 
