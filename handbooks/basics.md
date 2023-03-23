@@ -55,6 +55,7 @@
 - [mp64](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#mp64)
 - [msg](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#msg)
 - [nc / Ncat / netcat](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#nc--Ncat--netcat)
+- [Network File System (NFS)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Network-File-System-NFS)
 - [NetworkManager](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#NetworkManager)
 - [nfsshell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#nfsshell)
 - [npx](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#npx)
@@ -65,6 +66,7 @@
 - [Perl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Perl)
 - [PHP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PHP)
 - [PNG](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PNG)
+- [POP3](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#POP3)
 - [PowerShell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PowerShell-1)
 - [proc](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#proc)
 - [proftp](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#proftp)
@@ -116,6 +118,7 @@
 - [while loop](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#while-loop)
 - [Writeable Directories](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Writeable-Directories)
 - [Windows Subsystem for Linux (WSL)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Windows-Subsystem-for-Linux-WSL)
+- [X](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#X)
 - [xfreerdp](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#xfreerdp)
 - [Zip](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Zip)
 
@@ -1136,6 +1139,14 @@ $ nc -zv <RHOST> <RPORT>
 $ nc -nvlkp <LPORT> -c "cat /PATH/TO/FILE/<FILE>"
 ```
 
+## Network File System (NFS)
+
+```c
+$ sudo useradd <USERNAME>
+$ sudo usermod -u <ID> <USERNAME>
+$ sudo su <USERNAME>
+```
+
 ## NetworkManager
 
 ```c
@@ -1261,6 +1272,16 @@ $ sudo php -S 127.0.0.1:80
 
 ```c
 $ printf '\x89\x50\x4e\x47' | dd conv=notrunc of=8.png bs=1
+```
+
+## POP3
+
+```c
+USER <USERNAME>
+PASS <PASSWORD>
+STAT
+LIST
+RETR <NUMBER>
 ```
 
 ## PowerShell
@@ -2303,6 +2324,15 @@ PS C:\> wsl --set-default-version 1
 ```
 
 Open Microsoft App Store and get Kali/Ubuntu.
+
+## X
+
+```c
+$ xdpyinfo -display :0
+$ xwininfo -root -tree -display :0
+$ XAUTHORITY=/home/<USERNAME>/.Xauthority xdpyinfo -display :0
+$ XAUTHORITY=/home/<USERNAME>/.Xauthority xwd -root -screen -silent -display :0 > /tmp/screenshot.xwd
+```
 
 ## xfreerdp
 
