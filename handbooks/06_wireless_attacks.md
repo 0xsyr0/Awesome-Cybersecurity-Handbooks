@@ -22,6 +22,12 @@
 | WEF | A fully offensive framework to the 802.11 networks and protocols with different types of attacks for WPA/WPA2 and WEP, automated hash cracking, bluetooth hacking and much more. | https://github.com/D3Ext/WEF |
 | Wifite | This repo is a complete re-write of wifite, a Python script for auditing wireless networks. | https://github.com/derv82/wifite2 |
 
+## ALFA AWUS036ACH
+
+```c
+$ sudo apt-get install realtek-rtl88xxau-dkms
+```
+
 ## airodump-ng
 
 ```c
