@@ -10,6 +10,7 @@
 | Name | Description | URL |
 | --- | --- | --- |
 | APKLeak | Scanning APK file for URIs, endpoints & secrets. | https://github.com/dwisiswant0/apkleaks |
+| Mobile Security Framework (MobSF) | Mobile Security Framework (MobSF) is an automated, all-in-one mobile application (Android/iOS/Windows) pen-testing, malware analysis and security assessment framework capable of performing static and dynamic analysis.  | https://github.com/MobSF/Mobile-Security-Framework-MobSF |
 | PhoneSploit Pro | An All-In-One hacking tool to remotely exploit Android devices using ADB and Metasploit-Framework to get a Meterpreter session. | https://github.com/AzeemIdrisi/PhoneSploit-Pro |
 
 ## Apktool
