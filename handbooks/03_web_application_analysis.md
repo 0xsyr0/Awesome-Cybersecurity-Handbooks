@@ -18,6 +18,7 @@
 - [ffuf](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#ffuf)
 - [Flask-Unsign](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Flask-Unsign)
 - [gf](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#gf)
+- [GitHub](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#GitHub)
 - [GitTools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#GitTools)
 - [GIXY](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#GIXY)
 - [Gobuster](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Gobuster)
@@ -461,6 +462,14 @@ $ flask-unsign --sign --cookie "{'cart_items': ["2" , "5" , "6"], 'uuid': 'e9e62
 
 ```c
 $ go install github.com/tomnomnom/gf@latest
+```
+
+## GitHub
+
+### OpenAI API Key Code Search
+
+```c
+https://github.com/search?q=%2F%22sk-%5Ba-zA-Z0-9%5D%7B20%2C50%7D%22%2F&ref=simplesearch&type=code
 ```
 
 ## GitTools
