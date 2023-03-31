@@ -17,7 +17,7 @@
 - [CVE-2023-22809: Sudo Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-22809-Sudo-Bypass)
 - [CVE-2023-23397: Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-23397-Microsoft-Outlook-Click-to-Run-PE-0-day-PowerShell-Implementation)
 - [Juicy Potato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato-LPE)
-- [MySQL 4.x/5.0 User-Defined Function (UDF) Dynamic Library (2) LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/edit/main/handbooks/cve.md#MySQL-4x50-User-Defined-Function-UDF-Dynamic-Library-2-LPE)
+- [MySQL 4.x/5.0 User-Defined Function (UDF) Dynamic Library (2) LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#MySQL-4x50-User-Defined-Function-UDF-Dynamic-Library-2-LPE)
 - [SharpEfsPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#SharpEfsPotato-LPE)
 - [Shocker Container Escape](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shocker-Container-Escape)
 - [ThinkPHP < 6.0.14 Remote Code Execution RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#ThinkPHP--6014-Remote-Code-Execution-RCE)
