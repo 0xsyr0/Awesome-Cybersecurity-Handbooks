@@ -52,6 +52,7 @@
 - [Logfiles](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Logfiles)
 - [Logging](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Logging)
 - [Microsoft Windows](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Microsoft-Windows)
+- [mkpasswd](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#mkpasswd)
 - [mp64](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#mp64)
 - [msg](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#msg)
 - [nc / Ncat / netcat](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#nc--Ncat--netcat)
@@ -3589,6 +3590,12 @@ Ctrl+v+m
 
 ```c
 $ sed -i -e "s/^M//" <FILE>
+```
+
+## mkpasswd
+
+```c
+$ mkpasswd -m sha-512 <PASSWORD>
 ```
 
 ## mp64
