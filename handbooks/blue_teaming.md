@@ -4,12 +4,8 @@
 
 - [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Resources)
 - [Advanced Threat Analytics](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Advanced-Threat-Analytics)
-- [Detect ACL Scan](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Detect-ACL-Scan)
-- [Detect Dsrm](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Detect-Dsrm)
-- [Detect Golden Ticket](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Detect-Golden-Ticket)
-- [Detect Kerberoast](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Detect-Kerberoast)
-- [Detect Malicious SSP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Detect-Malicious-SSP)
-- [Detect Skeleton Key](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Detect-Skeleton-Key)
+- [Atomic Red Team](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Atomic-Red-Team)
+- [Event Log Analysis](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Event-Log-Analysis)
 - [Device Guard](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Devoice-Guard)
 - [General](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Generall)
 - [LAPS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#LAPS)
@@ -20,6 +16,7 @@
 - [Privileged Administrative Workstations](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Privileged-Administrative-Workstations)
 - [Protected Users Group](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Protected-Users-Group)
 - [Red Forest](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Red-Forest)
+- [Sniffing SSH Sessions](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Sniffing-SSH-Sessions)
 
 ## Resources
 
@@ -44,14 +41,72 @@
 
 ## Advanced Threat Analytics
 
-* Traffic for DCs is mirrored to ATA Sensors (or installed on dc as service), activity profile is build
-* Collects 4776 (credential validation of a user) to detect replay attacks, detects behavioral anomalies
-* Detects: account enumeration, netsession enumeration, Brute Force, exposed cleartext credentials, honey tokens, unusual protocols, credential attacks (pth,ptt,ticket replay)
-* Will NOT detect non existent users for golden ticket
-* Detects DCSync, but not DCShadow
+- Traffic for DCs is mirrored to ATA Sensors (or installed on dc as service), activity profile is build
+- Collects 4776 (credential validation of a user) to detect replay attacks, detects behavioral anomalies
+- Detects: account enumeration, netsession enumeration, Brute Force, exposed cleartext credentials, honey tokens, unusual protocols, credential attacks (pth,ptt,ticket replay)
+- Will NOT detect non existent users for golden ticket
+- Detects DCSync, but not DCShadow
 
+## Atomic Red Team
 
-## Detect ACL Scan
+> https://github.com/redcanaryco/atomic-red-team
+
+> https://github.com/redcanaryco/invoke-atomicredteam
+
+### Invoke-AtomicRedTeam
+
+```c
+PC C:\> PowerShell -ExecutionPolicy bypass
+PC C:\> Import-Module "C:\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
+PC C:\> $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="C:\AtomicRedTeam\atomics"}
+PC C:\> help Invoke-AtomicTest
+PC C:\> Invoke-AtomicTest T1127 -ShowDetailsBrief
+PC C:\> Invoke-AtomicTest T1127 -ShowDetails
+PC C:\> Invoke-AtomicTest T1127 -CheckPrereqs
+PC C:\> Invoke-AtomicTest T1127 -GetPrereqs
+PC C:\> Invoke-AtomicTest T1053.005 -ShowDetailsBrief
+PC C:\> Invoke-AtomicTest T1053.005 -TestNumbers 1,2
+PC C:\> schtasks /tn T1053_005_OnLogon
+```
+
+### Emulation
+
+```c
+PC C:\> ls C:\AtomicRedTeam\atomics | Where-Object Name -Match "T1566.001|T1203|T1059.003|T1083|T1082|T1016|T1049|T1007|T1087.001"
+PC C:\> 'T1566.001','T1059.003','T1083','T1082','T1016','T1049','T1007','T1087.001' | ForEach-Object {echo "Enumerating $_"; Invoke-AtomicTest $_ -ShowDetailsBrief }
+PC C:\> 'T1566.001','T1059.003','T1083','T1082','T1016','T1049','T1007','T1087.001' | ForEach-Object {echo "Enumerating $_"; Invoke-AtomicTest $_ -CheckPrereqs }
+PC C:\> Invoke-AtomicTest T1059.003-3
+```
+
+### Emulation to Detection
+
+```c
+PC C:\> Invoke-AtomicTest T1547.001 -CheckPrereqs
+PC C:\> Invoke-AtomicTest T1547.001 -TestNumbers 2
+```
+
+### Customising
+
+```c
+PC C:\> cat T1136.001/T1136.001.yaml
+PC C:\> Invoke-AtomicTest T1136.001 -TestNumbers 3
+PC C:\> net user
+PC C:\> Invoke-AtomicTest T1136.001 -TestNumbers 3 -PromptForInputArgs
+PC C:\> net user
+PC C:\> Invoke-AtomicTest T1136.001 -TestNumbers 3 -PromptForInputArgs -Cleanup
+```
+
+### Creating new Atomic Tests by using the GUI
+
+```c
+PC C:\> Start-AtomicGui
+```
+
+> http://localhost:8487/home
+
+## Event Log Analysis
+
+### Detect ACL Scan
 
 Requires enabled audit policy.
 
@@ -61,13 +116,13 @@ Requires enabled audit policy.
 4670: permissions on an object were changed
 ```
 
-## Detect Dsrm
+### Detect Dsrm
 
 ```c
 4657: Audit creating/Change of HKLM:\System\CurrentControlSet\Control\Lsa\DsrmAdminLogonBehaviour
 ```
 
-## Detect Golden Ticket
+### Detect Golden Ticket
 
 ```c
 4624: Account Logon
@@ -79,19 +134,19 @@ Requires enabled audit policy.
 $ Get-WinEvent -FilterHashtable @{Logname='Security';ID=4672} -MaxEvents 1 |Format-List -Property *
 ```
 
-## Detect Kerberoast
+### Detect Kerberoast
 
 ```c
 4769: A Kerberos ticket as requested, Filter: Name != krbtgt, does not end with $, not machine@domain, Failure code is 0x0 (success), ticket encryption is 0x17 (rc4-hmac)
 ```
 
-## Detect Malicious SSP
+### Detect Malicious SSP
 
 ```c
 4657: Audit/creation of HKLM:\System\CurrentControlSet\Control\Lsa\SecurityPackages
 ```
 
-## Detect Skeleton Key
+### Detect Skeleton Key
 
 ```c
 7045: A Service was installed in the system.
@@ -103,7 +158,7 @@ $ Get-WinEvent -FilterHashtable @{Logname='Security';ID=4672} -MaxEvents 1 |Form
 $ Get-WinEvent -FilterHashtable @{Logname='System';ID=7045} | ?{$_.message -like "*Kernel Mode Driver*"}
 ```
 
-## Detect hidden Windows Services via Access Control Lists (ACLs)
+### Detect hidden Windows Services via Access Control Lists (ACLs)
 
 > https://twitter.com/0gtweet/status/1610545641284927492?s=09
 
@@ -135,16 +190,16 @@ foreach ($key in $keys)
 
 ## Device Guard
 
-* Hardens against malware
-* Run trusted code only, enforced in Kernel and Userspace (CCI, UMCI, KMCI)
-* UEFI SEcure Boot protects bios and firmware
+- Hardens against malware
+- Run trusted code only, enforced in Kernel and Userspace (CCI, UMCI, KMCI)
+- UEFI SEcure Boot protects bios and firmware
 
 ## General
 
-* limit login of DAs to DCs only
-* never run a service with DA privileges
-* check out temporary group memberships (Can have TTL)
-* disable account delegation for sensitive accounts (in ad usersettings)
+- Limit login of DAs to DCs only
+- Never run a service with DA privileges
+- Check out temporary group memberships (Can have TTL)
+- Disable account delegation for sensitive accounts (in ad usersettings)
 
 
 ## LAPS
@@ -153,9 +208,9 @@ Centralized password storage with periodic randomization, stored in computer obj
 
 ## Layered Architecture
 
-* Tier0: Domain Admins/Enterprise Admins
-* Tier1: Significant Resource Access
-* Tier2: Administrator for Workstations / Support etc.
+- Tier0: Domain Admins/Enterprise Admins
+- Tier1: Significant Resource Access
+- Tier2: Administrator for Workstations / Support etc.
 
 ## Mitigate Kerberoast
 
@@ -177,8 +232,8 @@ $ Get-WinEvent -FilterHashtable @{Logname='System';ID=12} | ?{$_.message -like "
 
 ## Mitigate Trust Attack
 
-* Enable SID Filtering
-* Enable Selective Authentication (access between forests not automated)
+- Enable SID Filtering
+- Enable Selective Authentication (access between forests not automated)
 
 ## Privileged Administrative Workstations
 
@@ -186,12 +241,18 @@ Use hardened workstation for performing sensitive task.
 
 ## Protected Users Group
 
-* Cannot use CredSSP & Wdigest (no more cleartext creds)
-* NTLM Hash not cached
-* Kerberos does not use DES or RC4
-* Requires at least server 2008, need to test impact, no offline sign-on (no caching), useless for computers and service accounts
+- Cannot use CredSSP & Wdigest (no more cleartext creds)
+- NTLM Hash not cached
+- Kerberos does not use DES or RC4
+- Requires at least server 2008, need to test impact, no offline sign-on (no caching), useless for computers and service accounts
 
 ## Red Forest
 
-* ESAE Enhanced Security Admin Environment
-* Dedicated administrative forest for managing critical assets (forests are security boundaries)
+- ESAE Enhanced Security Admin Environment
+- Dedicated administrative forest for managing critical assets (forests are security boundaries)
+
+## Sniffing SSH Sessions
+
+```c
+$ strace -e trace=read -p <PID> 2>&1 | while read x; do echo "$x" | grep '^read.*= [1-9]$' | cut -f2 -d\"; done
+```
