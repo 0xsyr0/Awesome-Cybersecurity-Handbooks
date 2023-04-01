@@ -1,8 +1,9 @@
 # Reporting Tools
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/12_reporting_tools.md#Resources)
+
 ## Table of Contents
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/12_reporting_tools.md#Resources)
 - [Folder Structure on Operations Server](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/12_reporting_tools.md#Folder-Structure-on-Operations-Server)
 - [Logging](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/12_reporting_tools.md#Logging)
 - [Markdown](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/12_reporting_tools.md#Markdown)
