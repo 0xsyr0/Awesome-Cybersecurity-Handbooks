@@ -1,8 +1,9 @@
 # Social Engineering Tools
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Resources)
+
 ## Table of Contents
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Resources)
 - [Gophish](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Gophish)
 - [Metasploit](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Metasploit)
 
