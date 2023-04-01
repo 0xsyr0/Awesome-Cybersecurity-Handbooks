@@ -1,8 +1,9 @@
 # Password Attacks
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Resources)
+
 ## Table of Contents
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Resources)
 - [AES](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#AES)
 - [bkcrack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#bkcrack)
 - [CrackMapExec](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#CrackMapExec)
