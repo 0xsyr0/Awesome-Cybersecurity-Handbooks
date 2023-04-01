@@ -1,7 +1,7 @@
 # CVE
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Resources)
 - [Databases](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Databases)
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Resources)
 
 ## Table of Contents
 
@@ -24,6 +24,15 @@
 - [SharpEfsPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#SharpEfsPotato-LPE)
 - [Shocker Container Escape](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shocker-Container-Escape)
 - [ThinkPHP < 6.0.14 Remote Code Execution RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#ThinkPHP--6014-Remote-Code-Execution-RCE)
+
+## Databases
+
+| Database | URL |
+| --- | --- |
+| Exploit Database | https://www.exploit-db.com |
+| Sploitus | https://sploitus.com |
+| Packet Storm | https://packetstormsecurity.com |
+| 0day.today Exploit Database | https://0day.today |
 
 ## Resources
 
@@ -113,15 +122,6 @@
 | n/a | Kernelhub | https://github.com/Ascotbe/Kernelhub |
 | n/a | Windows Exploits | https://github.com/SecWiki/windows-kernel-exploits |
 | n/a | Pre-compiled Windows Exploits | https://github.com/abatchy17/WindowsExploits |
-
-## Databases
-
-| Database | URL |
-| --- | --- |
-| Exploit Database | https://www.exploit-db.com |
-| Sploitus | https://sploitus.com |
-| Packet Storm | https://packetstormsecurity.com |
-| 0day.today Exploit Database | https://0day.today |
 
 ## CVE-2014-6271: Shellshock RCE PoC
 
