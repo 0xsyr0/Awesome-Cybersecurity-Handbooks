@@ -1,8 +1,9 @@
 # Blue Teaming
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Resources)
+
 ## Table of Contents
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Resources)
 - [Advanced Threat Analytics](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Advanced-Threat-Analytics)
 - [Atomic Red Team](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Atomic-Red-Team)
 - [Event Log Analysis](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Event-Log-Analysis)
