@@ -1,6 +1,6 @@
 # CVE
 
-- [Databases](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Databases)
+- [Exploit Databases](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Exploit-Databases)
 - [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Resources)
 
 ## Table of Contents
@@ -25,7 +25,7 @@
 - [Shocker Container Escape](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shocker-Container-Escape)
 - [ThinkPHP < 6.0.14 Remote Code Execution RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#ThinkPHP--6014-Remote-Code-Execution-RCE)
 
-## Databases
+## Exploit Databases
 
 | Database | URL |
 | --- | --- |
