@@ -1,8 +1,9 @@
 # OSINT
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/osint.md#Resources)
+
 ## Table of Contents
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/osint.md#Resources)
 - [Fast Google Dorks Scan](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/osint.md#Fast-Google-Dorks-Scan)
 - [Google](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/osint.md#Google)
 - [h8mail](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/osint.md#h8mail)
