@@ -1,8 +1,9 @@
 # Database Assessment
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#Resources)
+
 ## Table of Contents
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#Resources)
 - [Hibernate Query Language Injection (HQLi)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#Hibernate-Query-Language-Injection-HQLi)
 - [impacket-mssqlclient](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#impacket-mssqlclient)
 - [MongoDB](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MongoDB)
