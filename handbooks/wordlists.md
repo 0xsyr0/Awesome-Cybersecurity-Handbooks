@@ -1,8 +1,9 @@
 # Wordlists
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#Resources)
+
 ## Table of Contents
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#Resources)
 - [CeWL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#CeWL)
 - [CUPP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#CUPP)
 
