@@ -118,7 +118,10 @@
 
 | Database | URL |
 | --- | --- |
-| | |
+| Exploit Database | https://www.exploit-db.com |
+| Sploitus | https://sploitus.com |
+| Packet Storm | https://packetstormsecurity.com |
+| 0day.today Exploit Database | https://0day.today |
 
 ## CVE-2014-6271: Shellshock RCE PoC
 
