@@ -1,5 +1,8 @@
 # CVE
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Resources)
+- [Databases](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Databases)
+
 ## Table of Contents
 
 - [CVE-2014-6271: Shellshock RCE PoC](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2014-6271-Shellshock-RCE-PoC)
@@ -110,6 +113,12 @@
 | n/a | Kernelhub | https://github.com/Ascotbe/Kernelhub |
 | n/a | Windows Exploits | https://github.com/SecWiki/windows-kernel-exploits |
 | n/a | Pre-compiled Windows Exploits | https://github.com/abatchy17/WindowsExploits |
+
+## Databases
+
+| Database | URL |
+| --- | --- |
+| | |
 
 ## CVE-2014-6271: Shellshock RCE PoC
 
