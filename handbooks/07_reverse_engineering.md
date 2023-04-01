@@ -1,8 +1,9 @@
 # Reverse Engineering
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#Resources)
+
 ## Table of Contents
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#Resources)
 - [Assembly Instructions](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#Assembly-Instructions)
 - [AvalonialLSpy](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#AvalonialLSpy)
 - [Basic Block in angr](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#Basic-Block-in-angr)
