@@ -1,8 +1,9 @@
 # Cloud
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cloud.md#Resources)
+
 ## Table of Contents
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cloud.md#Resources)
 - [AWS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cloud.md#AWS)
 - [lazys3](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cloud.md#lazys3)
 
