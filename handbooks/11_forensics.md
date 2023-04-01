@@ -1,8 +1,9 @@
 # Forensics
 
+- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#Resources)
+
 ## Table of Contents
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#Resources)
 - [Android](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#Android)
 - [bc](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#bc)
 - [binwalk](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#binwalk)
