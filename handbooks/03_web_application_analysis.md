@@ -331,6 +331,12 @@ $ ffuf -w /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://<R
 $ ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-small.txt  -u "http://<RHOST>/admin/FUZZ.php" -b "PHPSESSID=a0mjo6ukbkq271nb2rkb1joamp" -fw 2644
 ```
 
+### Fuzzing with HTTP Request File
+
+```c
+$ ffuf -w /usr/share/seclists/Fuzzing/6-digits-000000-999999.txt -request <FILE> -request-proto "https" -mc 302 -t 150 | tee progress
+```
+
 ### Testing
 
 > http://fuff.me
