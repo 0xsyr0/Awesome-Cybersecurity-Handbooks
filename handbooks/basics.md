@@ -4442,23 +4442,19 @@ $ smbclient \\\\<RHOST>/<FOLDER> -N
 ### Download multiple Files at once
 
 ```c
-$ smbclient -Udomainname/fordodone //<RHOST>/<SHARE>
-smb: \> cd testdir
-smb: \testdir\> get C
-NT_STATUS_FILE_IS_A_DIRECTORY opening remote file \testdir\C
-smb: \testdir\> prompt
-smb: \testdir\> recurse
-smb: \testdir\> mget C
-getting file ...
-```
-
-### Alternatively
-
-```c
-smb: \> mask""
+$ smbclient '\\<RHOST>\<SHARE>'
+smb: \> mask ""
 smb: \> recurse ON
 smb: \> prompt OFF
+smb: \> cd 'PATH\TO\REMOTE\DIRECTORY\'
+smb: \> lcd '/PATH/TO/LOCAL/DIRECTORY'
 smb: \> mget *
+```
+
+### One-liner
+
+```c
+$ smbclient '\\<RHOST>\<SHARE>' -N -c 'prompt OFF;recurse ON;cd 'PATH\TO\REMOTE\DIRECTORY';lcd '/PATH/TO/LOCAL/DIRECTORY';mget *'`
 ```
 
 ## smbget
