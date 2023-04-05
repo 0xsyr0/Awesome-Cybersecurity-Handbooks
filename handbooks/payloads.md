@@ -50,6 +50,7 @@
 | PHP-Reverse-Shell | PHP shells that work on Linux OS, macOS, and Windows OS. | https://github.com/ivan-sincek/php-reverse-shell |
 | PSByPassCLM | Bypass for PowerShell Constrained Language Mode | https://github.com/padovah4ck/PSByPassCLM |
 | PySoSerial | PySoSerial is a tool for identification and exploitation of insecure deserialization vulnerabilities in python. | https://github.com/burw0r/PySoSerial |
+| SharpEvader | This is a python script which automatically generates metepreter tcp or https shellcode encodes it and slaps some Behavioural detection in a c# Project for you to build and run | https://github.com/Xyan1d3/SharpEvader |
 | SharpPyShell | SharPyShell - tiny and obfuscated ASP.NET webshell for C# web applications | https://github.com/antonioCoco/SharPyShell |
 | unicorn | Unicorn is a simple tool for using a PowerShell downgrade attack and inject shellcode straight into memory. Based on Matthew Graeber's powershell attacks and the powershell bypass technique presented by David Kennedy (TrustedSec) and Josh Kelly at Defcon 18. | https://github.com/trustedsec/unicorn |
 | Veil | Veil is a tool designed to generate metasploit payloads that bypass common anti-virus solutions. | https://github.com/Veil-Framework/Veil |
