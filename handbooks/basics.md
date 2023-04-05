@@ -3844,6 +3844,12 @@ $ sudo apt-get install powershell
 PS C:\> Get-Help <COMMAND>
 ```
 
+#### Create a .zip File
+
+```c
+PS C:\> Compress-Archive -LiteralPath C:\PATH\TO\FOLDER\<FOLDER> -DestinationPath C:\PATH\TO\FILE<FILE>.zip
+```
+
 #### Unzip a File
 
 ```c
