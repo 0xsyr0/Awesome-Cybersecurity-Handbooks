@@ -29,7 +29,7 @@
 - [Port Scanning](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Port-Scanning)
 - [PoshADCS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#PoshADCS)
 - [pspy](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#pspy)
-- [rpclient](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#rpclient)
+- [rpcclient](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#rpcclient)
 - [SharpHound](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#SharpHound)
 - [SMTP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#SMTP)
 - [SNMP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#SNMP)
@@ -476,7 +476,7 @@ $ pspy64 -f
 $ pspy64 -pf -i 1000
 ```
 
-## rpclient
+## rpcclient
 
 ### LDAP
 
