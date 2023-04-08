@@ -8,7 +8,6 @@
 - [Banner Grabbing](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Banner-Grabbing)
 - [BloodHound](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#BloodHound)
 - [BloodHound Python](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#BloodHound-Python)
-- [Certify](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Certify)
 - [dmitry](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#dmitry)
 - [DMARC](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#DMARC)
 - [DNS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#DNS)
@@ -70,7 +69,6 @@
 | Minimalistic Offensive Security Tools | Minimalistic TCP and UDP port scanners. | https://github.com/InfosecMatter/Minimalistic-offensive-security-tools |
 | naabu | Naabu is a port scanning tool written in Go that allows you to enumerate valid ports for hosts in a fast and reliable manner. | https://github.com/projectdiscovery/naabu |
 | Nmap | Network Scanner | https://github.com/nmap/nmap |
-| Ping Castle | Ping Castle is a tool designed to assess quickly the Active Directory security level with a methodology based on risk assessment and a maturity framework. | https://github.com/vletoux/pingcastle |
 | proxify | Swiss Army Knife Proxy for rapid deployments. | https://github.com/projectdiscovery/proxify |
 | pspy | pspy is a command line tool designed to snoop on processes without need for root permissions. | https://github.com/DominicBreuker/pspy |
 | reconFTW | Reconnaissance Automation | https://github.com/six2dez/reconftw |
@@ -166,14 +164,6 @@ $ bloodhound-python -u <USERNAME> -p '<PASSWORD>' -ns <RHOST> -d <DOMAIN> -c All
 
 ```c
 $ cat 20220629013701_users.json | jq | grep \"name\"
-```
-
-## Certify
-
-> https://github.com/GhostPack/Certify
-
-```c
-PS C:\> .\Certify.exe find /vulnerable /currentuser
 ```
 
 ## dmitry
