@@ -715,6 +715,33 @@ $ sqlmap http://<RHOST>/ --eval="FROM flask_unsign import session as s; session 
 $ sqlmap --url "ws://<DOMAIN>" --data='{"params":"help","token":"<TOKEN>"}'
 ```
 
+#### Fix Websocket Errors (sqlmap requires third-party module 'websocket-client' in order to use WebSocket functionality)
+
+> https://stackoverflow.com/questions/40212252/python-websockets-module-has-no-attribute/40212593#40212593
+
+> https://pypi.org/project/websocket-client-py3/
+
+Try to install potentially missing modules first.
+
+```c
+$ pip install websocket-client
+$ pip3 install websocket-client
+$ pip install websocket-client-py3
+$ pip3 install websocket-client-py3
+$ pip install sqlmap-websocket-proxy
+$ pip3 install sqlmap-websocket-proxy
+```
+
+If this does not help, uninstall the modules manually
+and re-install them afterwards.
+
+```c
+$ pip install websocket-client
+$ pip3 install websocket-client
+$ pip uninstall websocket-client-py3
+$ pip3 uninstall websocket-client-py3
+```
+
 ### Getting Shell
 
 ```c
