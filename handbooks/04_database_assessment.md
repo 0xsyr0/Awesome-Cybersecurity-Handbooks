@@ -171,6 +171,12 @@ $ sudo systemctl start mysql.service
 mysql> update user set password = '37b08599d3f323491a66feabbb5b26af' where user_id = 1;
 ```
 
+### Update User Privileges
+
+```c
+mysql> UPDATE user set is_admin = 1 where name = "<USERNAME>";
+```
+
 ### Base64 Encoding
 
 ```c
