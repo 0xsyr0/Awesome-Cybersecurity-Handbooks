@@ -110,7 +110,7 @@
 - [tftp](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#tftp)
 - [timedatectl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#timedatectl)
 - [Time and Date](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Time-and-Date)
-- [tmux](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#tmux)
+- [Tmux](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Tmux)
 - [TTL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#TTL)
 - [utf8cleaner](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#utf8cleaner)
 - [VDH](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#VDH)
@@ -4899,6 +4899,22 @@ ctrl b + ]
 ctrl b + [    // enter copy
 ctrl + s      // enter search from copy mode
 ctrl + r      // search reverse direction
+```
+
+### Logging
+
+```c
+ctrl b
+shift + P    // start / stop
+```
+
+### Save Output
+
+```c
+ctrl b + :
+capture-pane -S -
+ctrl b + :
+save-buffer <FILE>.txt
 ```
 
 ## TTL
