@@ -42,6 +42,7 @@
 | GadgetToJScript | A tool for generating .NET serialized gadgets that can trigger .NET assembly load/execution when deserialized using BinaryFormatter from JS/VBS/VBA based scripts. | https://github.com/med0x2e/GadgetToJScript |
 | hoaxshell | An unconventional Windows reverse shell, currently undetected by Microsoft Defender and various other AV solutions, solely based on http(s) traffic. | https://github.com/t3l3machus/hoaxshell |
 | Intruder Payloads | A collection of Burpsuite Intruder payloads, BurpBounty payloads, fuzz lists, malicious file uploads and web pentesting methodologies and checklists. | https://github.com/1N3/IntruderPayloads |
+| Ivy | Ivy is a payload creation framework for the execution of arbitrary VBA (macro) source code directly in memory. Ivy’s loader does this by utilizing programmatical access in the VBA object environment to load, decrypt and execute shellcode. | https://github.com/optiv/Ivy |
 | marshalsec | Java Unmarshaller Security | https://github.com/mbechler/marshalsec |
 | Nishang | Offensive PowerShell for red team, penetration testing and offensive security. | https://github.com/samratashok/nishang |
 | Payload Box | Payload Collection | https://github.com/payloadbox |
