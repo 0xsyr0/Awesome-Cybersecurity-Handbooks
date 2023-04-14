@@ -3423,7 +3423,7 @@ $ user <USERNAME>
 $ ls
 ```
 
-## Ligolo
+## Ligolo-ng
 
 > https://github.com/nicocha30/ligolo-ng
 
