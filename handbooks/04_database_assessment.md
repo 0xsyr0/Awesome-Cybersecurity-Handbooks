@@ -144,12 +144,13 @@ $ mysql -u <USERNAME> -h <RHOST> -p
 ### Basic Commands
 
 ```c
-> show databases;
-> use <DATABASE>;
-> show tables;
-> describe <TABLE>;
-> SELECT * FROM Users;
-> SELECT Username,Password FROM Users;
+mysql> show databases;
+mysql> use <DATABASE>;
+mysql> show tables;
+mysql> describe <TABLE>;
+mysql> SELECT * FROM Users;
+mysql> SELECT * FROM users \G;
+mysql> SELECT Username,Password FROM Users;
 ```
 
 ### Password Reset
