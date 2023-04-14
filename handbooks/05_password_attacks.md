@@ -231,7 +231,7 @@ $ unset HYDRA_PROXY
 ### Common Protocols
 
 ```c
-$ hydra <RHOST> -l <USERNAME> -P /usr/share/wordlists/list ftp|ssh|smb://<RHOST>
+$ hydra <RHOST> -l <USERNAME> -P /usr/share/wordlists/<FILE> ftp|ssh|smb://<RHOST>
 ```
 
 ### SSH
