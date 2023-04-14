@@ -70,6 +70,7 @@
 - [PNG](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PNG)
 - [POP3](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#POP3)
 - [PowerShell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PowerShell-1)
+- [printf](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#printf)
 - [proc](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#proc)
 - [proftp](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#proftp)
 - [Python2](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Python2)
@@ -4206,6 +4207,12 @@ PS C:\> type C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Windows\PowerShell\PS
 PS C:\> $WScript = New-Object -ComObject WScript.Shell
 PS C:\> $shortcut = Get-ChildItem *.lnk
 PS C:\> $WScript.CreateShortcut($shortcut)
+```
+
+## printf
+
+```c
+$ printf '<LINE1>\n<LINE2>'
 ```
 
 ## proc
