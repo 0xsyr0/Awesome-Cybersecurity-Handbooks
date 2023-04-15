@@ -5007,6 +5007,15 @@ $ :sh              // put vim into the background and opens a new shell
 $ :%!sort -u       // use a command and pipe the output back to vim
 ```
 
+### Spawning a Shell
+
+Especially in hardened environments where basic commands like `ls`, `dir` etc. not work.
+
+```c
+:set shell=/bin/sh
+:shell
+```
+
 ## VirtualBox
 
 ### Fix Copy-and-Paste Issue
