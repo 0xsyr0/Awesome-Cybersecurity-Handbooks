@@ -2265,6 +2265,7 @@ Accept: ../../../../.././../../../../etc/passwd{%00{{
 /etc/anacrontab
 /etc/apache2/apache2.conf
 /etc/apache2/httpd.conf
+/etc/apache2/sites-available/000-default.conf
 /etc/apache2/sites-enabled/000-default.conf
 /etc/at.allow
 /etc/at.deny
