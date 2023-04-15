@@ -5117,6 +5117,22 @@ $ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore /drive:/PATH/TO/F
 $ xfreerdp /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /v:<RHOST> /h:1010 /w:1920
 ```
 
+### Fix Error Message transport_connect_tls:freerdp_set_last_error_ex ERRCONNECT_TLS_CONNECT_FAILED
+
+#### Example
+
+```c
+[16:46:07:882] [87307:87308] [ERROR][com.freerdp.core] - transport_connect_tls:freerdp_set_last_error_ex ERRCONNECT_TLS_CONNECT_FAILED [0x00020008]
+```
+
+#### Fix
+
+Add `/tls-seclevel:0 /timeout:80000` to the command.
+
+```c
+FIX: $ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:<RHOST> /tls-seclevel:0 /timeout:80000 +clipboard
+```
+
 ## Zip
 
 ### Extracing Excel Sheets
