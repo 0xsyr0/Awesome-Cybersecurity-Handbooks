@@ -4704,10 +4704,16 @@ $ squidclient -h <RHOST> -w '<PASSWORD>' mgr:fqdncache
 
 ## SSH
 
+### Code Execution
+
+```c
+$ ssh <USERNAME>@<RHOST> "<COMMAND>"
+```
+
 ### Outdated Ciphers
 
 ```c
-$ ssh user@<RHOST> -oKexAlgorithms=+diffie-hellman-group1-sha1
+$ ssh <USERNAME>@<RHOST> -oKexAlgorithms=+diffie-hellman-group1-sha1
 ```
 
 ### SSH Shell
@@ -4751,6 +4757,13 @@ $ ssh -N -L 1234:127.0.0.1:1234 <USERNAME>@<RHOST>
 $ ssh -L 80:<LHOST>:80 <RHOST>
 $ ssh -L 127.0.0.1:80:<LHOST>:80 <RHOST>
 $ ssh -L 80:localhost:80 <RHOST>
+```
+
+## sshpass
+
+```c
+$ sshpass -p "<PASSWORD>" ssh <USERNAME>@<RHOST>
+$ sshpass -p "<PASSWORD>" ssh <USERNAME>@<RHOST> "<COMMAND>"
 ```
 
 ## stat
