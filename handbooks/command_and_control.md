@@ -258,6 +258,12 @@ sliver > armory install all
 $ ./sliver-client import ./<USERNAME>_example.com.cfg
 ```
 
+#### Kick Operator
+
+```c
+[server] sliver > kick-operator -n <USERNAME>
+```
+
 ### Implant and Beacon Creation 
 
 ```
