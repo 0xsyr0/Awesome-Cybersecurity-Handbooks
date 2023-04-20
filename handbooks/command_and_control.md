@@ -228,14 +228,34 @@ $ sudo systemctl start sliver.service
 $ sliver
 ```
 
-## Administration
+### Administration
 
 ```c
 sliver > version
-sliver > multiplayer
-sliver > new-player --operator <USERNAME> --lhost <LHOST>
 sliver > players
+sliver > armory
 sliver > armory install all
+```
+
+### Multiplayer
+
+#### Directory for Server Binary
+
+```c
+/root/sliver-server
+```
+
+#### Register a new Operator
+
+```c
+[server] sliver > multiplayer
+[server] sliver > new-operator --name <USERNAME> --lhost <LHOST>
+```
+
+#### Access with Custom Configuration File
+
+```c
+$ ./sliver-client import ./<USERNAME>_example.com.cfg
 ```
 
 ### Implant and Beacon Creation 
@@ -300,4 +320,11 @@ sliver (NEARBY_LANGUAGE) > portfwd add --remote <RHOST>:<RPORT>
 ```c
 sliver (NEARBY_LANGUAGE) > socks5 start
 sliver (NEARBY_LANGUAGE) > socks5 stop -i 1
+```
+
+### Pivoting
+
+```c
+sliver (NEARBY_LANGUAGE) > pivots tcp
+sliver (NEARBY_LANGUAGE) > pivvots
 ```
