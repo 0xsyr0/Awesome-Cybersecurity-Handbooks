@@ -318,7 +318,10 @@ sliver (NEARBY_LANGUAGE) > background                                     // bac
 ### Port Forwarding
 
 ```c
-sliver (NEARBY_LANGUAGE) > portfwd add --remote <RHOST>:<RPORT>
+sliver (NEARBY_LANGUAGE) > portfwd
+sliver (NEARBY_LANGUAGE) > portfwd add -r <RHOST>:<RPORT>
+sliver (NEARBY_LANGUAGE) > portfwd add --bind 127.0.0.1:<RPORT> -r <RHOST>:<RPORT>
+sliver (NEARBY_LANGUAGE) > portfwd rm -i <ID>
 ```
 
 ### SOCKS Proxy
@@ -332,5 +335,6 @@ sliver (NEARBY_LANGUAGE) > socks5 stop -i 1
 
 ```c
 sliver (NEARBY_LANGUAGE) > pivots tcp
+sliver (NEARBY_LANGUAGE) > generate --tcp-pivot <RHOST>:9898
 sliver (NEARBY_LANGUAGE) > pivots
 ```
