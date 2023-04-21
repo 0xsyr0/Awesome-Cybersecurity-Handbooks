@@ -4710,6 +4710,12 @@ $ squidclient -h <RHOST> -w '<PASSWORD>' mgr:fqdncache
 $ ssh <USERNAME>@<RHOST> "<COMMAND>"
 ```
 
+### Force Password Authentication
+
+```c
+$ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no <USERNAME>@<RHOST>
+```
+
 ### Outdated Ciphers
 
 ```c
