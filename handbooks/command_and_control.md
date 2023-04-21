@@ -332,5 +332,5 @@ sliver (NEARBY_LANGUAGE) > socks5 stop -i 1
 
 ```c
 sliver (NEARBY_LANGUAGE) > pivots tcp
-sliver (NEARBY_LANGUAGE) > pivvots
+sliver (NEARBY_LANGUAGE) > pivots
 ```
