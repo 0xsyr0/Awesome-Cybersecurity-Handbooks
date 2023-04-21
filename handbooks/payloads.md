@@ -51,6 +51,7 @@
 | phpgcc | PHPGGC is a library of PHP unserialize() payloads along with a tool to generate them, from command line or programmatically. | https://github.com/ambionics/phpggc |
 | PHP-Reverse-Shell | PHP shells that work on Linux OS, macOS, and Windows OS. | https://github.com/ivan-sincek/php-reverse-shell |
 | pixload | Image Payload Creating/Injecting tools | https://github.com/sighook/pixload |
+| PowerShell Encoder (CyberChef) | Receipe for encoding PowerShell Payloads for Windows | https://cyberchef.io/#recipe=Encode_text('UTF-16LE%20(1200)')To_Base64('A-Za-z0-9%2B/%3D') |
 | PSByPassCLM | Bypass for PowerShell Constrained Language Mode | https://github.com/padovah4ck/PSByPassCLM |
 | PySoSerial | PySoSerial is a tool for identification and exploitation of insecure deserialization vulnerabilities in python. | https://github.com/burw0r/PySoSerial |
 | SharpEvader | This is a python script which automatically generates metepreter tcp or https shellcode encodes it and slaps some Behavioural detection in a c# Project for you to build and run | https://github.com/Xyan1d3/SharpEvader |
