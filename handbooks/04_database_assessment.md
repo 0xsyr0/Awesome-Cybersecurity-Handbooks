@@ -26,7 +26,7 @@
 | Name | Description | URL |
 | --- | --- | --- |
 | Advanced SQL Injection Cheatsheet | A cheat sheet that contains advanced queries for SQL Injection of all types. | https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet |
-| Cypher Injection Cheat Sheet | /na | https://pentester.land/blog/cypher-injection-cheatsheet/#cypher-queries |
+| Cypher Injection Cheat Sheet | n/a | https://pentester.land/blog/cypher-injection-cheatsheet/#cypher-queries |
 | NoSQLMap | NoSQLMap is an open source Python tool designed to audit for as well as automate injection attacks and exploit default configuration weaknesses in NoSQL databases and web applications using NoSQL in order to disclose or clone data from the database. | https://github.com/codingo/NoSQLMap |
 | SQL injection cheat sheet | This SQL injection cheat sheet contains examples of useful syntax that you can use to perform a variety of tasks that often arise when performing SQL injection attacks. | https://portswigger.net/web-security/sql-injection/cheat-sheet |
 | sqlmap | sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database servers. | https://github.com/sqlmapproject/sqlmap |
