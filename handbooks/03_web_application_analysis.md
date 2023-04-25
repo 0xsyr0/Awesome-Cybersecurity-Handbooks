@@ -95,6 +95,7 @@
 | Java-Deserialization-Cheat-Sheet | The cheat sheet about Java Deserialization vulnerabilities | https://github.com/GrrrDog/Java-Deserialization-Cheat-Sheet |
 | JSFuck | JSFuck is an esoteric and educational programming style based on the atomic parts of JavaScript. It uses only six different characters to write and execute code. | http://www.jsfuck.com |
 | JSFuck []()!+ | Write any JavaScript with 6 Characters: []()!+ | https://github.com/aemkei/jsfuck |
+| jsleak | jsleak is a tool to find secret , paths or links in the source code during the recon. | https://github.com/channyein1337/jsleak |
 | JSON Web Tokens | JSON Web Token Debugger | https://jwt.io |
 | JWT_Tool | The JSON Web Token Toolkit v2 | https://github.com/ticarpi/jwt_tool |
 | katana | A next-generation crawling and spidering framework. | https://github.com/projectdiscovery/katana |
