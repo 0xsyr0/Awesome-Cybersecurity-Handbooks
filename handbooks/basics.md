@@ -33,6 +33,7 @@
 - [file](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#file)
 - [File Transfer](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#File-Transfer)
 - [find](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#find)
+- [findmnt](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#findmnt)
 - [for loop](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#for-loop)
 - [FTP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#FTP)
 - [getent](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#getent)
@@ -3164,6 +3165,12 @@ $ find results -not -empty -ls
 
 ```c
 $ find . -type d -ls
+```
+
+## findmnt
+
+```c
+$ findmnt
 ```
 
 ## for loop
