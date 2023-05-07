@@ -13,7 +13,6 @@
 - [awk](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#awk)
 - [Bash](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Bash)
 - [Bash POSIX](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Bash-POSIX)
-- [BIND](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#BIND)
 - [cadaver](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#cadaver)
 - [certutil](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#certutil)
 - [changelist](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#changelist)
@@ -63,6 +62,7 @@
 - [NetworkManager](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#NetworkManager)
 - [nfsshell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#nfsshell)
 - [npx](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#npx)
+- [nsupdate](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#nsupdate)
 - [objectdump](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#objectdump)
 - [OpenBSD](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#OpenBSD)
 - [Outlook](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Outlook)
@@ -236,26 +236,6 @@ $ bash -p
 $ sls -b '
 > bash -p'
 bash-4.3$
-```
-
-## BIND
-
-### Update Records using BIND Console
-
-```c
-$ nsupdate -k /etc/bind/infra.key
-update add foobar.infra.dyna.htb 86400 A 10.10.14.135
-
-update add 135.14.10.10.in-addr.arpa 86400 PTR foobar.<DOMAIN>
-show
-Outgoing update query:
-;; ->>HEADER<<- opcode: UPDATE, status: NOERROR, id:      0
-;; flags:; ZONE: 0, PREREQ: 0, UPDATE: 0, ADDITIONAL: 0
-;; UPDATE SECTION:
-135.14.10.10.in-addr.arpa. 86400 IN     PTR     foobar.<DOMAIN>.
-
-send
-quit
 ```
 
 ## cadaver
@@ -3796,6 +3776,25 @@ nfs> ls
 
 ```c
 $ npx asar extract <FILE>.asar /PATH/TO/FOLDER/
+```
+
+## nsupdate
+
+### Zone Update
+
+```c
+$ nsupdate -k key
+> server <RHOST>
+> zone <DOMAIN>
+> update add <DOMAIN> 86400 A <LHOST>
+> send
+> quit
+```
+
+### Read Commands from File
+
+```c
+nsupdate -k < <FILE>
 ```
 
 ## objectdump
