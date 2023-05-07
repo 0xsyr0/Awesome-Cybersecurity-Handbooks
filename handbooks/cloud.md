@@ -11,6 +11,7 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| AWS Security Checklist | Made by Bour Abdelhadi | https://awscheck.fyi |
 | BARK | BloodHound Attack Research Kit | https://github.com/BloodHoundAD/BARK |
 | HacktricksCloud | Welcome to the page where you will find each hacking trick/technique/whatever related to Infrastructure. | https://github.com/carlospolop/hacktricks-cloud |
 | lazys3 | A Ruby script to bruteforce for AWS s3 buckets using different permutations. | https://github.com/nahamsec/lazys3 |
