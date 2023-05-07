@@ -4315,14 +4315,14 @@ $ curl https://bootstrap.pypa.io/get-pip.py | python
 ### Python HTTP Server
 
 ```c
-$ sudo python -m SimpleHTTPServer 80
-$ sudo python3 -m http.server 80
+$ python -m SimpleHTTPServer 80
+$ python3 -m http.server 80
 ```
 
 ### Python SMTP Server
 
 ```c
-$ sudo python3 -m smtpd -n -c DebuggingServer <LHOST>:25
+$ python3 -m smtpd -c DebuggingServer -n <LHOST>:25
 ```
 
 ### Script Conversion
