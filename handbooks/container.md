@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [Docker](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#Docker)
+- [Docker-Compose](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#Docker-Compose)
 - [Kubernetes](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#Kubernetes)
 - [LXD](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#LXD)
 
@@ -24,6 +25,28 @@
 
 ## Docker
 
+### Basic Commands
+
+```c
+$ docker pull <IMAGE>                  // pull image
+$ docker pull <IMAGE>:latest           // pull image with latest version
+$ docker pull <IMAGE>:<VERSION>        // pull image with specific version
+$ docker image ls                      // list images
+$ docker image rm <IMAGE>              // remove image
+$ docker image rm <IMAGE>:latest       // remove image with latest version
+$ docker image rm <IMAGE>:<VERSION>    // remove image with specific version
+$ docker run --name <IMAGE>            // use a memorable name
+$ docker run -it <IMAGE> /bin/bash     // interact with image
+$ docker run -it -v /PATH/TO/DIRECTORY:/PATH/TO/DIRECTORY <IMAGE> /bin/bash   // run image and mount specific directory
+$ docker run -d <IMAGE>                // run image in background
+$ docker run -p 80:80 <IMAGE>          // bind port on the host
+$ docker ps                            // list running containers
+$ docker ps -a                         // list all containers
+$ docker stop <ID>                     // stops a specific container
+$ docker rm <ID>                       // delete a specific container
+$ docker exec -it <ID> /bin/bash       // enter a running container
+```
+
 ```c
 $ docker -H <RHOST>:2375 info
 $ docker -H <RHOST>:2375 images
@@ -32,10 +55,45 @@ $ docker -H <RHOST>:2375 ps -a
 $ docker -H <RHOST>:2375 exec -it 01ca084c69b7 /bin/sh
 ```
 
-### Privilege Escalation
+### Dockerfiles
+
+- FROM       // build from a specific base image
+- RUN        // execute command in the container within a new layer
+- COPY       // copy files from the host filesystem
+- WORKDIR    // set the root file system of the container
+- CMD        // determines what command is run when the container starts (Example: CMD /bin/sh -c <FILE>.sh)
+- EXPOSE     // publishes a port in the users context
+
+#### Example Dockerfile
 
 ```c
-$ docker run -v /:/mnt --rm -it alpine chroot /mnt sh
+# Example Dockerfile
+FROM ubuntu:22.04
+
+# Set working directory
+WORKDIR /
+
+# Create a file inside of the root directory
+RUN touch <FILE>
+
+# Perform updates
+RUN apt-get update -y
+
+# Install apache2
+RUN apt-get install apache2 -y
+
+# Expose port 80/TCP
+EXPOSE 80
+
+# Start the service
+CMD ["apache2ctl", "-D","FOREGROUND"]
+```
+
+#### Build Example Dockerfile
+
+```c
+$ docker build -t <NAME> .
+$ docker run -d --name <NAME> -p 80:80 <NAME>
 ```
 
 ### Attacking Docker API
@@ -93,7 +151,69 @@ sh -c "echo \$\$ > /tmp/exploit/x/cgroup.procs"
 ### Privilege Escalation
 
 ```c
+$ docker run -v /:/mnt --rm -it alpine chroot /mnt sh
 $ docker run -v /:/mnt --rm -it ubuntu chroot /mnt sh
+```
+  
+## Docker-Compose
+
+### Basic Commands
+
+```c
+$ docker-compose up       // (re)create/build and start containers specified in the compose file
+$ docker-compose start    // start specific containers from compose file
+$ docker-compose down     // stop and delete containers from the compose file
+$ docker-compose stop     // stop (not delete) containers from the compose file
+$ docker-compose build    // build (not start) containers from the compose file
+```
+
+### Create Networks and run Containers
+
+```c
+$ docker network create <NETWORK>
+$ docker run -p 80:80 --name <NAME> --net <NETWORK> <NAME>
+$ docker run --name <NAME> --net <NETWORK> <NAME>
+$ docker-compose up
+```
+
+### docker-compose.yml Files
+
+| Instruction | Explanation | Example |
+| --- | --- | --- |
+| version | Placed on top of the file to identify the version of docker-compose the file is written for. | 3.3 |
+| services | Marks the beginning of the containers to be managed. | services: |
+| name | Define the container and its configuration. | webserver |
+| build | Defines the directory containing the Dockerfile for this container/service. | ./<NAME> |
+| ports | Publishes ports to the exposed ports (this depends on the image/Dockerfile). | '80:80' |
+| volumes | Lists the directories that should be mounted into the container from the host operating system. | './home/<USERNAME>/webserver/:/var/www/html' |
+| environment | Pass environment variables (not secure), i.e. passwords, usernames, timezone configurations, etc. | MYSQL_ROOT_PASSWORD=<PASSWORD> |
+| image | Defines what image the container should be built with. | mysql:latest |
+| networks | Defines what networks the containers will be a part of. Containers can be part of multiple networks. | <NETWORK> |
+
+#### Example docker-compose.yml
+
+```c
+version: '3.3'
+services:
+  web:
+    build: ./web
+    networks:
+      - <NETWORK>
+    ports:
+      - '80:80'
+
+
+  database:
+    image: mysql:latest
+    networks:
+      - <NETWORK>
+    environment:
+      - MYSQL_DATABASE=<DATABASE>
+      - MYSQL_USERNAME=root
+      - MYSQL_ROOT_PASSWORD=<PASSWORD>
+    
+networks:
+  <NETWORK>:
 ```
 
 ## Kubernetes
