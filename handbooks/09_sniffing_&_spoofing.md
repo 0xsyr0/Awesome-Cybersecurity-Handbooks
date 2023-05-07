@@ -16,6 +16,7 @@
 | mitmproxy | mitmproxy is an interactive, SSL/TLS-capable intercepting proxy with a console interface for HTTP/1, HTTP/2, and WebSockets. | https://github.com/mitmproxy/mitmproxy |
 | ntlm_theft | A tool for generating multiple types of NTLMv2 hash theft files. | https://github.com/Greenwolf/ntlm_theft |
 | Responder | IPv6/IPv4 LLMNR/NBT-NS/mDNS Poisoner and NTLMv1/2 Relay. | https://github.com/lgandx/Responder |
+| SSH-MITM | ssh mitm server for security audits supporting public key authentication, session hijacking and file manipulation | https://github.com/ssh-mitm/ssh-mitm |
 
 ## FakeDns
 
@@ -63,4 +64,12 @@ Address: <LHOST>
 
 ```c
 $ sudo responder -I <INTERFACE>
+```
+
+## tshark
+
+### Capturing SMTP Traffic
+
+```c
+$ tshark -i <INTERFACE> -Y 'smtp.data.fragments' -T fields -e 'text'
 ```
