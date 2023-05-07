@@ -304,7 +304,13 @@ $ volatility -f <FILE> --profile=Win7SP1x86 dumpfiles -Q 0x000000000bbc7166 --na
 ## xxd
 
 ```c
-$ xxd exploit.py
+$ xxd <FILE>
+```
+
+### Output in hexdump
+
+```c
+$ printf <VALUE> | xxd -p
 ```
 
 ### HEX to ASCII
