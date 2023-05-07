@@ -20,6 +20,7 @@
 | Ghostwriter | Ghostwriter is a Django-based web application designed to be used by an individual or a team of red team operators. | https://github.com/GhostManager/Ghostwriter |
 | Obsidian | Obsidian is a powerful knowledge base on top of a local folder of plain text Markdown files. | https://obsidian.md |
 | OWASP Threat Dragon | Threat Dragon is a free, open-source, cross-platform threat modeling application including system diagramming and a rule engine to auto-generate threats/mitigations. | https://github.com/mike-goodwin/owasp-threat-dragon-desktop |
+| SysReptor | Pentest Reporting Easy As Pie | https://github.com/Syslifters/sysreptor |
 | VECTR | VECTR is a tool that facilitates tracking of your red and blue team testing activities to measure detection and prevention capabilities across different attack scenarios. | https://github.com/SecurityRiskAdvisors/VECTR |
 | WriteHat | A pentest reporting tool written in Python. Free yourself from Microsoft Word. | https://github.com/blacklanternsecurity/writehat |
 | XMind | Full-featured mind mapping and brainstorming app. | https://www.xmind.net |
