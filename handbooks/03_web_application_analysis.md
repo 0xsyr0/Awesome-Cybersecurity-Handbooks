@@ -112,9 +112,11 @@
 | Recox | The script aims to help in classifying vulnerabilities in web applications. | https://github.com/samhaxr/recox |
 | reNgine | The only web application recon tool you will ever need! | https://github.com/yogeshojha/rengine |
 | Request Catcher | Request Catcher will create a subdomain on which you can test an application. | https://requestcatcher.com |
+| SSRFIRE | An automated SSRF finder. Just give the domain name and your server and chill! ;) Also has options to find XSS and open redirects | https://github.com/ksharinarayanan/SSRFire |
 | SSRFmap | SSRF are often used to leverage actions on other services, this framework aims to find and exploit these services easily. | https://github.com/swisskyrepo/SSRFmap |
 | SSRF testing resources | SSRF (Server Side Request Forgery) testing resources | https://github.com/cujanovic/SSRF-Testing |
 | SSTImap | Automatic SSTI detection tool with interactive interface | https://github.com/vladko312/SSTImap |
+| toxssin | An XSS exploitation command-line interface and payload generator. | https://github.com/t3l3machus/toxssin |
 | Tplmap | Server-Side Template Injection and Code Injection Detection and Exploitation Tool | https://github.com/epinna/tplmap |
 | truffleHog | Find leaked credentials. | https://github.com/trufflesecurity/truffleHog |
 | unfurl | Pull out bits of URLs provided on stdin | https://github.com/tomnomnom/unfurl |
