@@ -3903,6 +3903,13 @@ $ sudo apt-get install gss-ntlmssp
 $ sudo apt-get install powershell
 ```
 
+### Abbreviations
+
+```c
+ipmo    // Import-Module
+-wi     // WindowStyle Hidden
+```
+
 ### General Usage
 
 ```c
@@ -4516,6 +4523,16 @@ $ simpleproxy -L <LPORT> -R <RHOST>:<RPORT>
 
 ```c
 $ smb:\> allinfo <FILE>
+```
+
+## smbcacls
+
+```c
+$ smcbcacls -N "//<RHOST>/<SHARE>" ''
+```
+
+```c
+$ for i in $(ls); do echo $i; smbcacls -N "//<RHOST>/<SHARE>" '$i';done >&1 > <FILE>
 ```
 
 ## smbclient
