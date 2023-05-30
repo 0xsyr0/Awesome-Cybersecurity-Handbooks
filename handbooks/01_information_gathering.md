@@ -51,6 +51,7 @@
 | Hardenize | Network Perimeter Monitoring | https://www.hardenize.com |
 | IPinfo | Accurate IP address data that keeps pace with secure, specific, and forward-looking use cases. | https://ipinfo.io |
 | Jackdaw | Jackdaw is here to collect all information in your domain, store it in a SQL database and show you nice graphs on how your domain objects interact with each-other an how a potential attacker may exploit these interactions. | https://github.com/skelsec/jackdaw |
+| katana | A next-generation crawling and spidering framework. | https://github.com/projectdiscovery/katana |
 | Knock Subdomain Scan | Knockpy is a python3 tool designed to quickly enumerate subdomains on a target domain through dictionary attack. | https://github.com/guelfoweb/knock |
 | Minimalistic Offensive Security Tools | Minimalistic TCP and UDP port scanners. | https://github.com/InfosecMatter/Minimalistic-offensive-security-tools |
 | naabu | Naabu is a port scanning tool written in Go that allows you to enumerate valid ports for hosts in a fast and reliable manner. | https://github.com/projectdiscovery/naabu |
