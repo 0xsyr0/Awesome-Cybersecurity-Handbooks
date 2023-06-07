@@ -8,6 +8,8 @@
 - [Asset Discovery](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Asset-Discovery)
 - [Burp Suite](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Burp-Suite)
 - [Bypassing File Upload Restrictions](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Bypassing-File-Upload-Restrictions)
+- [Command Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Command-Injection)
+- [commix](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#commix)
 - [curl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#curl)
 - [DirBuster](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#DirBuster)
 - [Directory Traversal Attack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Directory-Traversal-Attack)
@@ -198,6 +200,30 @@ $ export HTTPS_PROXY=https://localhost:8080
 * 00%
 * file.jpg with php backdoor in exif (see below)
 * .jpg -> proxy intercept -> rename to .php
+
+## Command Injection
+
+### Vulnerable Functions in PHP
+
+* Exec
+* Passthru
+* System
+
+### Input Sanitisation
+
+* filter_input
+
+### Filter Bypass
+
+```c
+$payload = "\x2f\x65\x74\x63\x2f\x70\x61\x73\x73\x77\x64"
+```
+
+## commix
+
+```c
+$ python3 commix.py --url="http://<RHOST>:5013/graphql" --data='{"query":"query{systemDebug(arg:\"test \")}"}' -p arg
+```
 
 ## curl
 
