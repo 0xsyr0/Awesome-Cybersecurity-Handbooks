@@ -177,7 +177,7 @@ PERL5LIB=/tmp PERL5OPT=-Mroot /usr/exim/bin/exim -ps
 
 > https://www.exploit-db.com/exploits/47502
 
-### Pre-requisites
+### Prerequisites
 
 - Sudo version < 1.8.28
 
@@ -194,7 +194,7 @@ $ sudo -u#-1 /bin/bash
 
 > https://raw.githubusercontent.com/SecuraBV/CVE-2020-1472/master/zerologon_tester.py
 
-### Pre-requisites
+### Prerequisites
 
 ```c
 $ python3 -m pip install virtualenv
@@ -610,7 +610,7 @@ C:\> RpcClient.exe
 
 > https://medium.com/@dev.nest/how-to-bypass-sudo-exploit-cve-2023-22809-vulnerability-296ef10a1466
 
-### Pre-requisites
+### Prerequisites
 
 - Sudo version needs to be ≥ 1.8 and < 1.9.12p2.
 - Limited Sudo access to at least one file on the system that requires root access.
