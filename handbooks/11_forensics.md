@@ -7,7 +7,9 @@
 - [Android](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#Android)
 - [bc](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#bc)
 - [binwalk](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#binwalk)
+- [capa](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#capa)
 - [dd](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#dd)
+- [emlAnalyzer](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#emlAnalyzer)
 - [exiftool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#exiftool)
 - [file](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#file)
 - [FOREMOST](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#FOREMOST)
@@ -62,12 +64,24 @@ $ binwalk <FILE>
 $ binwalk -e <FILE>
 ```
 
+## capa
+
+```c
+C:\> capa <FILE> -vv
+```
+
 ## dd
 
 ### Remote Disk Dump
 
 ```c
 $ ssh root@<RHOST> "dd if=/dev/sda1 status=progress" | dd of=sda1.dmp
+```
+
+## emlAnalyzer
+
+```c
+$ emlAnalyzer -i <FILE>\:.eml --header --html -u --text --extract-all
 ```
 
 ## exiftool
