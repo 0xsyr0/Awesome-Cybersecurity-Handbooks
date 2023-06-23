@@ -7,6 +7,7 @@
 - [Android](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#Android)
 - [bc](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#bc)
 - [binwalk](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#binwalk)
+- [dd](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#dd)
 - [exiftool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#exiftool)
 - [file](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#file)
 - [FOREMOST](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#FOREMOST)
@@ -59,6 +60,14 @@ $ echo "obase=16; ibase=2; 00000000010...00000000000000" | bc | xxd -p -r
 ```c
 $ binwalk <FILE>
 $ binwalk -e <FILE>
+```
+
+## dd
+
+### Remote Disk Dump
+
+```c
+$ ssh root@<RHOST> "dd if=/dev/sda1 status=progress" | dd of=sda1.dmp
 ```
 
 ## exiftool
