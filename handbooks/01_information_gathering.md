@@ -6,6 +6,7 @@
 
 - [Amass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Amass)
 - [Banner Grabbing](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Banner-Grabbing)
+- [Common Ports](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Common-Ports)
 - [dmitry](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#dmitry)
 - [DMARC](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#DMARC)
 - [DNS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#DNS)
@@ -32,6 +33,7 @@
 - [sslyze](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#sslyze)
 - [subfinder](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#subfinder)
 - [tcpdump](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#tcpdump)
+- [Time To Live (TTL) and TCP Window Size Values](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Time-to-Live-TTL-and-TCP-Window-Size-Values)
 
 ## Resources
 
@@ -82,6 +84,33 @@ $ nc -v <RHOST> 80
 $ telnet <RHOST> 80
 $ curl -vX <RHOST>
 ```
+
+## Common Ports
+
+| Port | Service |
+| --- | --- |
+| 21/TCP | FTP |
+| 22/TCP | SSH |
+| 25/TCP | SMTP |
+| 53/TCP | DNS |
+| 53/UDP | DNS |
+| 80/TCP | HTTP |
+| 135/TCP | RPC |
+| 139/TCP | Netbios |
+| 443/TCP | HTTPS |
+| 445/TCP | SMB |
+| 1723/TCP | VPN |
+| 3389/TCP | RDP |
+| 5985/TCP | WinRM |
+
+### Domain Controller specific Ports
+
+| Port | Service |
+| --- | --- |
+| 88/TCP | Kerberos |
+| 389/TCP | LDAP |
+| 636/TCP | LDAPS |
+| 445/TCP | SMB |
 
 ## dmitry
 
