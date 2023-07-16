@@ -4932,6 +4932,12 @@ $ sudo dpkg-reconfigure tzdata
 $ sudo /etc/init.d/virtualbox-guest-utils stop
 ```
 
+### Stop systemd-timesyncd to sync Time manually
+
+```c
+$ sudo systemctl stop systemd-timesyncd
+```
+
 ### Options to set the Date and Time
 
 ```c
