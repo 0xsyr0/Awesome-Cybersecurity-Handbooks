@@ -5177,6 +5177,13 @@ $ XAUTHORITY=/home/<USERNAME>/.Xauthority xwd -root -screen -silent -display :0 
 $ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +clipboard
 ```
 
+### Resolution Handling
+
+```c
+$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /h:1010 /w:1920 +clipboard
+$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /dynamic-resolution +clipboard
+```
+
 ### Folder Sharing
 
 ```c
@@ -5186,7 +5193,7 @@ $ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore /drive:/PATH/TO/F
 ### Pass-the-Hash
 
 ```c
-$ xfreerdp /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /v:<RHOST> /h:1010 /w:1920
+$ xfreerdp /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /v:<RHOST> /dynamic-resolution +clipboard
 ```
 
 ### Fix Error Message transport_connect_tls:freerdp_set_last_error_ex ERRCONNECT_TLS_CONNECT_FAILED
