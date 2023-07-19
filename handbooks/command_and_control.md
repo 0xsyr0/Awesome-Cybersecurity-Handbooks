@@ -225,7 +225,6 @@ user@host:/opt/Havoc/Client$ ./Havoc
 $ git clone https://github.com/its-a-feature/Mythic
 $ cd Mythic
 $ sudo ./install_docker_ubuntu.sh
-$ cd Mythic_CLI
 $ sudo make
 ```
 
