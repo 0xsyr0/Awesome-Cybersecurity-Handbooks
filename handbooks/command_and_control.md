@@ -7,6 +7,7 @@
 - [Covenant](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Covenant)
 - [Empire](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Empire)
 - [Havoc](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Havoc)
+- [Mythic](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Mythic)
 - [Sliver](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Sliver)
 
 ## Resources
@@ -207,6 +208,47 @@ user@host:/opt/Havoc/Teamserver$ sudo ./teamserver server --profile ./profiles/h
 ```c
 user@host:/opt/Havoc/Client$ ./Havoc
 ```
+
+## Mythic
+
+> https://github.com/its-a-feature/Mythic
+
+> https://docs.mythic-c2.net/
+
+> https://github.com/MythicAgents
+
+> https://github.com/MythicC2Profiles
+
+### Installation
+
+```c
+$ git clone https://github.com/its-a-feature/Mythic
+$ cd Mythic
+$ sudo ./install_docker_ubuntu.sh
+$ cd Mythic_CLI
+$ sudo make
+```
+
+### Install Apollo
+
+```c
+$ sudo -E ./mythic-cli install github https://github.com/MythicAgents/Apollo.git
+```
+
+### Install HTTP C2 Profile
+
+```c
+$ sudo ./mythic-cli install github https://github.com/MythicC2Profiles/http
+```
+
+### Finalize the Installation
+
+```c
+$ sudo ./mythic-cli start
+$ cat .env
+```
+
+> https://127.0.0.1:7443
 
 ## Sliver
 
