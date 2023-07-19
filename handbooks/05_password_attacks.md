@@ -30,7 +30,7 @@
 | Name | Description | URL |
 | --- | --- | --- |
 | bkcrack | Crack legacy zip encryption with Biham and Kocher's known plaintext attack. | https://github.com/kimci86/bkcrack |
-| CrackMapExec | CrackMapExec (a.k.a CME) is a post-exploitation tool that helps automate assessing the security of large Active Directory networks. | https://github.com/byt3bl33d3r/CrackMapExec |
+| CrackMapExec | CrackMapExec (a.k.a CME) is a post-exploitation tool that helps automate assessing the security of large Active Directory networks. | https://github.com/Porchetta-Industries/CrackMapExec |
 | CredMaster | Refactored & improved CredKing password spraying tool, uses FireProx APIs to rotate IP addresses, stay anonymous, and beat throttling | https://github.com/knavesec/CredMaster |
 | Default Credentials Cheat Sheet | One place for all the default credentials to assist the pentesters during an engagement, this document has a several products default credentials that are gathered from several sources. | https://github.com/ihebski/DefaultCreds-cheat-sheet |
 | DeHashed | Breach Database | https://dehashed.com |
@@ -98,6 +98,18 @@ $ ./bkcrack -c tmp/fd734d942c6f729a36606b16a3ef17f8/<FILE>.txt -C <FILE>.zip -p 
 ## CrackMapExec
 
 > https://github.com/byt3bl33d3r/CrackMapExec
+
+### Installation via Poetry
+
+```c
+$ pipx install poetry
+$ git clone https://github.com/Porchetta-Industries/CrackMapExec
+$ cd CrackMapExec
+$ poetry install
+$ poetry run crackmapexec
+```
+
+### Common Commands
 
 ```c
 $ crackmapexec smb <RHOST> -u '' -p '' --shares
