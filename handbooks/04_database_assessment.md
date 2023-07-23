@@ -212,13 +212,13 @@ MariaDB [(none)]> CREATE DATABASE <DATABASE>;
 Query OK, 1 row affected (0.001 sec)
 
 MariaDB [(none)]> INSERT INTO mysql.user (User,Host,authentication_string,SSL_cipher,x509_issuer,x509_subject)
-    -> VALUES('demo','%',PASSWORD('<PASSWORD>'),'','','');
+    -> VALUES('<USERNAME>','%',PASSWORD('<PASSWORD>'),'','','');
 Query OK, 1 row affected (0.001 sec)
 
 MariaDB [(none)]> FLUSH PRIVILEGES;
 Query OK, 0 rows affected (0.000 sec)
 
-MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.## TO 'demo'@'%';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.## TO '<USERNAME>'@'%';
 Query OK, 0 rows affected (0.001 sec)
 
 MariaDB [(none)]> use <DATABASE>
@@ -239,6 +239,11 @@ $ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
 # localhost which is more compatible and is not less secure.
 #bind-address            = 127.0.0.1
 bind-address            = 0.0.0.0
+```
+
+```c
+MariaDB [mysql]> FLUSH PRIVILEGES;
+MariaDB [mysql]> GRANT ALL ON *.* TO 'root'@'%' IDENTIFIED BY '<PASSWORD>';
 ```
 
 ### Attach External Database
