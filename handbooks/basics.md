@@ -3378,6 +3378,52 @@ $ javac <FILE>.java
 $ javac -d . <FILE>.java
 ```
 
+### Install Java 8
+
+> https://www.java.com/de/download/manual.jsp
+
+```c
+$ sudo cp -R jre1.8.0_381 /usr/lib/jvm/
+```
+
+```c
+$ cat /etc/environment
+# START KALI-DEFAULTS CONFIG
+# Everything from here and until STOP KALI-DEFAULTS CONFIG
+# was installed by the kali-defaults package, and it will
+# be removed if ever the kali-defaults package is removed.
+# If you want to disable a line, please do NOT remove it,
+# as it would be added back when kali-defaults is upgraded.
+# Instead, comment the line out, and your change will be
+# preserved across upgrades.
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:/jvm/jdk1.8.0_321/bin:/usr/lib/jvm/jdk1.8.0_321/db/bin:/usr/lib/jvm/jdk1.8.0_321/jre/bin
+COMMAND_NOT_FOUND_INSTALL_PROMPT=1
+POWERSHELL_UPDATECHECK=Off
+POWERSHELL_TELEMETRY_OPTOUT=1
+DOTNET_CLI_TELEMETRY_OPTOUT=1
+# STOP KALI-DEFAULTS CONFIG
+```
+
+```c
+$ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jre1.8.0_381/bin/java" 0
+```
+
+```c
+$ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jre1.8.0_381/bin/javac" 0
+```
+
+```c
+$ sudo update-alternatives --set java /usr/lib/jvm/jre1.8.0_381/bin/java
+```
+
+```c
+$ sudo update-alternatives --set java /usr/lib/jvm/jre1.8.0_381/bin/javac
+```
+
+```c
+$ sudo update-alternatives --config java
+```
+
 ## Kerberos
 
 ### Ticket Handling with krb5
