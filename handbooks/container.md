@@ -16,6 +16,7 @@
 | Awesome Kubernetes (K8s) Security | A curated list for Kubernetes (K8s) Security resources such as articles, books, tools, talks and videos. | https://github.com/magnologan/awesome-k8s-security |
 | Bad Pods | A collection of manifests that will create pods with elevated privileges. | https://github.com/BishopFox/badPods |
 | Break out the Box (BOtB) | A container analysis and exploitation tool for pentesters and engineers. | https://github.com/brompwnie/botb |
+| CDK - Zero Dependency Container Penetration Toolkit | Make security testing of K8s, Docker, and Containerd easier. | https://github.com/cdk-team/CDK |
 | deepce | Docker Enumeration, Escalation of Privileges and Container Escapes (DEEPCE)  | https://github.com/stealthcopter/deepce |
 | Harpoon | A collection of scripts, and tips and tricks for hacking k8s clusters and containers. | https://github.com/ProfessionallyEvil/harpoon |
 | Krane | Kubernetes RBAC static analysis & visualisation tool | https://github.com/appvia/krane |
