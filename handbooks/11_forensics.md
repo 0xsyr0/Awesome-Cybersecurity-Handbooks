@@ -330,15 +330,17 @@ $ volatility -f <FILE> --profile=Win7SP1x86 dumpfiles -Q 0x000000000bbc7166 --na
 $ xxd <FILE>
 ```
 
-### Output in hexdump
+### Output in HEX
 
 ```c
+$ cat <FILE> | xxd -p
 $ printf <VALUE> | xxd -p
 ```
 
 ### HEX to ASCII
 
 ```c
+$ cat <FILE> | xxd -p -r
 $ curl http://<RHOST/file | xxd -r -p
 ```
 
