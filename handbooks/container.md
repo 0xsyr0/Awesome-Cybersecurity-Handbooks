@@ -20,6 +20,7 @@
 | deepce | Docker Enumeration, Escalation of Privileges and Container Escapes (DEEPCE)  | https://github.com/stealthcopter/deepce |
 | Harpoon | A collection of scripts, and tips and tricks for hacking k8s clusters and containers. | https://github.com/ProfessionallyEvil/harpoon |
 | Krane | Kubernetes RBAC static analysis & visualisation tool | https://github.com/appvia/krane |
+| Kubletctl | A client for kubelet | https://github.com/cyberark/kubeletctl |
 | Kubestriker | A Blazing fast Security Auditing tool for Kubernetes. | https://github.com/vchinnipilli/kubestriker |
 | Peirates | Peirates - Kubernetes Penetration Testing tool | https://github.com/inguardians/peirates |
 | ThreatMapper | Open source cloud native security observability platform. Linux, K8s, AWS Fargate and more. | https://github.com/deepfence/ThreatMapper |
