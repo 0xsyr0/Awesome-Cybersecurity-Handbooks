@@ -175,7 +175,7 @@ Burp Suite > Proxy > Proxy settings > TLS pass through
 .*\.gstatic\.com
 .*\.mozilla\.com
 .*\.googleapis\.com
-.*\.pki\.goog
+.*\.pki\.google\.com
 ```
 
 ### Set Proxy Environment Variables
