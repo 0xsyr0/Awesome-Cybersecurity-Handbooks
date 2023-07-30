@@ -294,12 +294,21 @@ Upgrade-Insecure-Requests: 1GET /../../../../../../../../etc/passwd HTTP/1.1
 
 > https://github.com/maurosoria/dirsearch
 
+### General Usage
+
 ```c
 -i    // includes specific status codes
 -e    // excludes specific status codes
+-m    // specifies HTTP method
+```
 
-$ ./dirsearch.py -u http://<RHOST>:<RPORT> -e *
-$ python3 dirsearch.py -u http://<RHOST>:<RPORT>/ -R 5 -e http,php,html,css /usr/share/wordlists/wfuzz/webservices/ws-dirs.txt
+### Common Commands
+
+```c
+$ dirsearch -u http://<RHOST>:<RPORT>
+$ dirsearch -u http://<RHOST>:<RPORT> -m POST
+$ dirsearch -u http://<RHOST>:<RPORT> -e *
+$ dirsearch -u http://<RHOST>:<RPORT>/ -R 5 -e http,php,html,css /usr/share/wordlists/wfuzz/webservices/ws-dirs.txt
 ```
 
 ## DNS Smuggling
