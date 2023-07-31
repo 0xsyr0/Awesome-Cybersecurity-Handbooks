@@ -109,6 +109,16 @@ $ poetry install
 $ poetry run crackmapexec
 ```
 
+### Modules
+
+```c
+$ crackmapexec ldap -L
+$ crackmapexec mysql -L
+$ crackmapexec smb -L
+$ crackmapexec ssh -L
+$ crackmapexec winrm -L
+```
+
 ### Common Commands
 
 ```c
