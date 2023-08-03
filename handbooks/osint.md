@@ -66,6 +66,15 @@ filetype:txt
 site:<DOMAIN> ext:php
 ```
 
+#### Cloud Environments
+
+```c
+site:http://s3.amazonaws.com "<DOMAIN>"
+site:http://blob.core.windows.net "<DOMAIN>"
+site:http://googleapis.com "<DOMAIN>"
+site:http://drive.google.com "<DOMAIN>"
+```
+
 #### Leaks
 
 ```c
@@ -88,16 +97,13 @@ site:http://jsfiddle.net | site:http://codebeautify.org | site:http://codepen.io
 inurl:page= | inurl:url= | inurl:return= | inurl:next= | inurl:redir= | inurl:redirect= | inurl:target= | inurl:page= inurl:& inurl:http site:http://<DOMAIN>
 ```
 
-#### Cloud Environments
+#### Server-Side Request Forgery (SSRF)
 
 ```c
-site:http://s3.amazonaws.com "<DOMAIN>"
-site:http://blob.core.windows.net "<DOMAIN>"
-site:http://googleapis.com "<DOMAIN>"
-site:http://drive.google.com "<DOMAIN>"
+inurl:http | inurl:proxy= | inurl:html= | inurl:data= | inurl:resource= inurl:& site:<DOMAIN>
 ```
 
-### Abusing Google ID
+### Google ID
 
 > https://medium.com/week-in-osint/getting-a-grasp-on-googleids-77a8ab707e43
 
@@ -123,9 +129,9 @@ site:http://drive.google.com "<DOMAIN>"
 
 The Google ID's are always `21` characters long and starting with `10` or `11`.
 
-> https://get.google.com/albumarchive/<userID>
+> https://get.google.com/albumarchive/<USERID>
 
-> https://www.google.com/maps/contrib/<userID>
+> https://www.google.com/maps/contrib/<USERID>
 
 ## h8mail
 
