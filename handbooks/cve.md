@@ -163,6 +163,10 @@ int main() {
 }
 ```
 
+```c
+$ gcc <FILE>.c -static
+```
+
 ## CVE-2014-6271: Shellshock RCE PoC
 
 ```c
