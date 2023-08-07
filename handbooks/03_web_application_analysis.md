@@ -30,7 +30,7 @@
 - [Hakrawler](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Hakrawler)
 - [Host Header Regex Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Host-Header-Regex-Bypass)
 - [HTML Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#HTML-Injection)
-- [HTTP Request Smuggling / HTTP Desync Attack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#HTTP-Request-Smuggling-HTTP-Desync-Attack)
+- [HTTP Request Smuggling / HTTP Desync Attack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#HTTP-Request-Smuggling--HTTP-Desync-Attack)
 - [httprobe](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#httprobe)
 - [httpx](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#httpx)
 - [Interactsh](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Interactsh)
