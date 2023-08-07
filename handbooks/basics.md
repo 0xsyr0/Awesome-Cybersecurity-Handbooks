@@ -3552,10 +3552,18 @@ $ groupmod -n <NEW_USERNAME> <OLD_USERNAME>
 $ ln -s /home/<NEW_USERNAME> /home/<OLDUSERNAME>
 ```
 
-##### Optional: Change Display Name
+###### Optional: Change Display Name
 
 ```c
 $ chfn -f "GIVENNAME SURNAME" <NEW_USERNAME>
+```
+
+#### User Profile Files for Execution on Login
+
+```c
+.bashrc
+.profile
+.bash_profile
 ```
 
 ### System Commands
