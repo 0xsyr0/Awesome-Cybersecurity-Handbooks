@@ -400,7 +400,7 @@ $ ./kerbrute passwordspray -d <DOMAIN> --dc <DOMAIN> /PATH/TO/FILE/<USERNAMES> <
 > https://github.com/AlessandroZ/LaZagne
 
 ```c
-$ laZagne.exe all
+C:\> laZagne.exe all
 ```
 
 ## LUKS
@@ -408,7 +408,7 @@ $ laZagne.exe all
 ### Extracting LUKS Header
 
 ```c
-dd if=backup.img of=header.luks bs=512 count=4097
+$ dd if=backup.img of=header.luks bs=512 count=4097
 ```
 
 ## Medusa
