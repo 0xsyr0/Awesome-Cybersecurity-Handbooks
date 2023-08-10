@@ -2901,6 +2901,15 @@ GIF8;
 GIF87a
 ```
 
+##### Example
+
+```c
+GIF89a;
+<?php
+  <PAYLOAD>
+?>
+```
+
 ### Java Server Pages (JSP) Upload Filter Bypasses
 
 ```c
