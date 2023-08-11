@@ -328,40 +328,40 @@ $ hydra -l admin -P /usr/share/wordlists/rockyou.txt <RHOST> http-post-form "/Ac
 > https://github.com/openwall/john
 
 ```c
-$ sudo john md5 --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-md5
-$ sudo john sha-1 --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-sha1
-$ sudo john sha256 --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-sha256
-$ sudo john bcrypt --wordlist=/usr/share/wordlists/rockyou.txt --format=bcrypt
-$ sudo john md4 --wordlist=/usr/share/wordlists/rockyou.txt --format=md4
-$ sudo john ntlm --wordlist=/usr/share/wordlists/rockyou.txt --format=nt
-$ sudo john sha512 --wordlist=/usr/share/wordlists/rockyou.txt
+$ john md5 --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-md5
+$ john sha-1 --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-sha1
+$ john sha256 --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-sha256
+$ john bcrypt --wordlist=/usr/share/wordlists/rockyou.txt --format=bcrypt
+$ john md4 --wordlist=/usr/share/wordlists/rockyou.txt --format=md4
+$ john ntlm --wordlist=/usr/share/wordlists/rockyou.txt --format=nt
+$ john sha512 --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
 ### Using Salt
 
 ```c
-$ sudo john <FILE> --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-md5 --mask='<SALT>?w'
+$ john <FILE> --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-md5 --mask='<SALT>?w'
 ```
 
 ### Cracking RSA
 
 ```c
 $ /usr/share/john/ssh2john.py id_rsa > id_rsa.hash
-$ sudo john id_rsa.hash --wordlist=/usr/share/wordlists/rockyou.txt --format=ssh
-$ sudo john <FILE> --wordlist=/usr/share/wordlists/rockyou.txt
+$ john id_rsa.hash --wordlist=/usr/share/wordlists/rockyou.txt --format=ssh
+$ john <FILE> --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
 ### Cracking Kerberoasting Password File
 
 ```c
-$ sudo john --format=krb5tgs --wordlist=<FILE> <FILE>
+$ john --format=krb5tgs --wordlist=<FILE> <FILE>
 ```
 
 ### Cracking EncFS/6
 
 ```c
 $ /usr/share/john/encfs2john.py directory/ > encfs6.xml.john
-$ sudo john encfs6.xml.john --wordlist=/usr/share/wordlists/rockyou.txt
+$ john encfs6.xml.john --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
 ### Extracting Hash from .kdbx File
@@ -379,7 +379,7 @@ $ zip2john <FILE> > output.hash
 ### Show cracked Password
 
 ```c
-$ sudo john --show <FILE>
+$ john --show <FILE>
 ```
 
 ## Kerbrute
