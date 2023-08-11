@@ -3189,50 +3189,49 @@ $ for i in `seq 1 100`; do echo $i; done
 
 ```c
 $ ftp <RHOST>
-$ wget -r ftp://anonymous:anonymous@<RHOST>
 ```
 
-### Testing for Files to Upload
+### Basic Commands
 
 ```c
-$ for type in $(cat filetypes.txt); do smbclient \\\\<RHOST>\\<SHARE> -U <USERNAME> --password='<PASSWORD>' -m smb2 -c "put <FILE>.url  <FILE>.$type";done | grep average
-```
-
-### Usage
-
-```c
-ftp
->anonymous
->anonymous
+>dir      // lsit all files and directories
 >ls -a    // list all files (even hidden) (yes, they could be hidden)
 >binary   // set transmission to binary instead of ascii
 >ascii    // set transmission to ascii instead of binary
 >bye      // exit
 ```
 
-### Example
+### Anonymous Login
+
+```c
+Username: anonymous
+Password: anonymous
+```
+
+### Browser Connection
+
+```c
+ftp://anonymous:anonymous@<RHOST>
+```
+
+### Passive Mode
 
 ```c
 $ ftp -p <RHOST>    // passive mode for firewall evasion
+```
+
+### Download all files from FTP
+
+```c
+$ wget -r ftp://anonymous:anonymous@<RHOST>
+$ wget -m ftp://anonymous:anonymous@<RHOST>
+$ wget -m --no-passive ftp://anonymous:anonymous@<RHOST>
 ```
 
 ### Scan for detailed Output
 
 ```c
 $ nmap -sC -sV -p 21 -vvv <RHOST>
-```
-
-### Browser Connection
-
-```c
-$ ftp://anonymous:anonymous@<RHOST>
-```
-
-### Download all files from FTP
-
-```c
-$ wget -m ftp://anonymous:anonymous@<RHOST>    // Download all
-$ wget -m --no-passive ftp://anonymous:anonymous@<RHOST>    // Download all
 ```
 
 ## getent
