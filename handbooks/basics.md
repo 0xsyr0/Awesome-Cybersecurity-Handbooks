@@ -3673,33 +3673,7 @@ C:\> attrib +h <FILE>
 ### Ping
 
 ```c
-& ping -n 1 <RHOST>
-```
-
-### Port Forwarding
-
-#### Check Port Forwardings
-
-```c
-C:\> netsh interface portproxy show all
-```
-
-#### Set Port Forwarding
-
-```c
-C:\> netsh interface portproxy add v4tov4 listenport=80 listenaddress=127.0.0.1 connectport=8443 connectaddress=<LHOST>
-```
-
-#### Delete specific Forwarding
-
-```c
-C:\> netsh interface portproxy delete v4tov4 listenport=80 listenaddress=127.0.0.1
-```
-
-#### Remove all existing Forwardings
-
-```c
-C:\> netsh interface portproxy reset
+C:\> ping -n 1 <RHOST>
 ```
 
 ### Microsoft Windows New Line
