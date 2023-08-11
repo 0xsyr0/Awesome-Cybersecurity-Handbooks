@@ -3189,6 +3189,7 @@ $ for i in `seq 1 100`; do echo $i; done
 
 ```c
 $ ftp <RHOST>
+$ wget -r ftp://anonymous:anonymous@<RHOST>
 ```
 
 ### Testing for Files to Upload
