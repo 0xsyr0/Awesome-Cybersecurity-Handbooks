@@ -4414,6 +4414,13 @@ $ 2to3 <OLD_PYTHON_SCRIPT>.py -w <NEW_PYTHON_SCRIPT>.py
 $ 2to3-2.7 <OLD_PYTHON_SCRIPT>.py -w <NEW_PYTHON_SCRIPT>.py
 ```
 
+### SyntaxError: invalid non-printable character U+200B
+
+```c
+$ sed -i 's/\xe2\x80\x8b//g'
+$ sed 's/\xe2\x80\x8b//g' <FILE> > <FILE>
+```
+
 ### Shell Code Conversion
 
 ```c
