@@ -184,8 +184,9 @@ Burp Suite > Proxy > Proxy settings > TLS pass through
 ### Set Proxy Environment Variables
 
 ```c
-$ export HTTP_PROXY=http://localhost:8080
-$ export HTTPS_PROXY=https://localhost:8080
+$ export http_proxy=http://localhost:8080
+$ export https_proxy=https://localhost:8080
+$ http_proxy=localhost:8080 https_proxy=localhost:8080 <COMMAND> <RHOST>
 ```
 
 ### Filter for SSRF (AutoRepeater)
