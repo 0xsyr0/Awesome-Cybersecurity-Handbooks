@@ -136,7 +136,7 @@ $ ~/Covenant/Covenant > docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name c
 (Empire: listeners/http) > info
 (Empire: listeners/http) > set Name <NAME>
 (Empire: listeners/http) > set Host <LHOST>
-(Empire: listeners/http) > set Port <Port>
+(Empire: listeners/http) > set Port <PORT>
 (Empire: listeners/http) > exeute
 ```
 
