@@ -23,21 +23,35 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| APT Simulator | A toolset to make a system look as if it was the victim of an APT attack | https://github.com/NextronSystems/APTSimulator |
 | Azure Hunter | A Cloud Forensics Powershell module to run threat hunting playbooks on data from Azure and O365. | https://github.com/darkquasar/AzureHunter |
-| BlueHound | BlueHound is an open-source tool that helps blue teams pinpoint the security issues that actually matter. | https://github.com/zeronetworks/BlueHound
+| BlueHound | BlueHound is an open-source tool that helps blue teams pinpoint the security issues that actually matter. | https://github.com/zeronetworks/BlueHound |
 | Blue Team Notes | You didn't think I'd go and leave the blue team out, right? | https://github.com/Purp1eW0lf/Blue-Team-Notes |
+| C2IntelFeeds | Automatically created C2 Feeds | https://github.com/drb-ra/C2IntelFeeds |
+| Canary Tokens | Generate canary tokens | https://canarytokens.org/generate |
 | CrowdSec | Open-source and participative IPS able to analyze visitor behavior & provide an adapted response to all kinds of attacks. | https://github.com/crowdsecurity/crowdsec |
+| CyberDefender | A blue team training platform. | https://cyberdefenders.org |
+| Cyber Threat Intelligence | Real-Time Threat Monitoring. | https://start.me/p/wMrA5z/cyber-threat-intelligence?s=09 |
 | Fenrir | Simple Bash IOC Scanner | https://github.com/Neo23x0/Fenrir |
+| Forest Druid | Stop chasing AD attack paths. Focus on your Tier 0 perimeter. | https://www.purple-knight.com/forest-druid |
 | GitMonitor | One way to continuously monitor sensitive information that could be exposed on Github. | https://github.com/Talkaboutcybersecurity/GitMonitor |
 | HoneyCreds | HoneyCreds network credential injection to detect responder and other network poisoners. | https://github.com/Ben0xA/HoneyCreds |
 | Laurel | Transform Linux Audit logs for SIEM usage | https://github.com/threathunters-io/laurel |
 | Loki | Loki - Simple IOC and Incident Response Scanner | https://github.com/Neo23x0/Loki |
+| Monkey365 | Monkey365 provides a tool for security consultants to easily conduct not only Microsoft 365, but also Azure subscriptions and Azure Active Directory security configuration reviews. | https://github.com/silverhack/monkey365 |
 | packetSifter | PacketSifter is a tool/script that is designed to aid analysts in sifting through a packet capture (pcap) to find noteworthy traffic. Packetsifter accepts a pcap as an argument and outputs several files. | https://github.com/packetsifter/packetsifterTool |
 | PersistenceSniper | Powershell script that can be used by Blue Teams, Incident Responders and System Administrators to hunt persistences implanted in Windows machines. | https://github.com/last-byte/PersistenceSniper |
+| Purple Knight | #1 Active Directory security assessment community tool | https://www.purple-knight.com |
+| Ransomware Simulator | Ransomware simulator written in Golang | https://github.com/NextronSystems/ransomware-simulator |
 | SIGMA | Generic Signature Format for SIEM Systems | https://github.com/SigmaHQ/sigma |
+| Simple Email Reputation | EmailRep Alpha Risk API | https://emailrep.io |
+| Slack Watchman | Slack enumeration and exposed secrets detection tool | https://github.com/PaperMtn/slack-watchman |
 | sshgit | Ah shhgit! Find secrets in your code. Secrets detection for your GitHub, GitLab and Bitbucket repositories. | https://github.com/eth0izzle/shhgit |
 | STACS | Static Token And Credential Scanner | https://github.com/stacscan/stacs |
-| Windows Hardening Script | Windows 10 Hardening Script | https://gist.github.com/mackwage/08604751462126599d7e52f233490efe |
+| TheHive | TheHive: a Scalable, Open Source and Free Security Incident Response Platform | https://github.com/TheHive-Project/TheHive |
+| ThePhish | ThePhish: an automated phishing email analysis tool | https://github.com/emalderson/ThePhish |
+| Thinkst Canary | Canary Tokens | https://canary.tools |
+| Wazuh | Wazuh - The Open Source Security Platform. Unified XDR and SIEM protection for endpoints and cloud workloads. | https://github.com/wazuh/wazuh |
 | YARA | The pattern matching swiss knife | https://github.com/VirusTotal/yara |
 
 ## Advanced Threat Analytics
