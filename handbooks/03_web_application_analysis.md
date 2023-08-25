@@ -189,6 +189,19 @@ $ export https_proxy=https://localhost:8080
 $ http_proxy=localhost:8080 https_proxy=localhost:8080 <COMMAND> <RHOST>
 ```
 
+### Extensions
+
+- Active Scan++
+- Autorize
+- Collaborator Everywhere
+- J2EEScan
+- JS Link Finder
+- JSON Web Tokens
+- Upload Scanner
+- SAML Raider
+- SQLiPy Sqlmap Integration
+- ViewState Editor
+
 ### Filter for SSRF (AutoRepeater)
 
 ```c
