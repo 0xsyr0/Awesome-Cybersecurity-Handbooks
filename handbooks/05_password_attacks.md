@@ -491,6 +491,7 @@ $ pdfcrack -f file.pdf -w /usr/share/wordlists/rockyou.txt
 
 ```c
 $ pypykatz lsa minidump lsass.dmp
+$ pypykatz registry --sam sam system
 ```
 
 ## RsaCtfTool
