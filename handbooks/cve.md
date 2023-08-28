@@ -413,7 +413,7 @@ $ cat <FILE>.txt | while read host do ; do curl --silent --path-as-is --insecure
 
 ### Pre-requisistes
 
-- Grafana 8.3.0
+- Grafana 8.0.0-beta1 > 8.3.0
 
 ### Execution
 
