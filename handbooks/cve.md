@@ -139,6 +139,7 @@
 | n/a | PrintSpoofer LPE (2) | https://github.com/itm4n/PrintSpoofer |
 | n/a | Shocker Container Escape | https://github.com/gabrtv/shocker |
 | n/a | SystemNightmare PE | https://github.com/GossiTheDog/SystemNightmare |
+| n/a | NoFilter LPE | https://github.com/deepinstinct/NoFilter |
 | n/a | OfflineSAM LPE | https://github.com/gtworek/PSBits/tree/master/OfflineSAM |
 | n/a | OfflineAddAdmin2 LPE | https://github.com/gtworek/PSBits/tree/master/OfflineSAM/OfflineAddAdmin2 |
 | n/a | Kernelhub | https://github.com/Ascotbe/Kernelhub |
