@@ -129,6 +129,7 @@
 - [X](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#X)
 - [xfreerdp](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#xfreerdp)
 - [Zip](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Zip)
+- [zipgrep](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#zipgrep)
 
 ## Resources
 
@@ -5291,4 +5292,10 @@ $ zip -r <FILE>.xls
 
 ```c
 $ zip -re <FILE>.zip <FOLDER>/
+```
+
+## zipgrep
+
+```c
+$ zipgrep password <FILE>.jar
 ```
