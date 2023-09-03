@@ -256,19 +256,19 @@ $ hashcat -m 3200 hash.txt -r /PATH/TO/FILE.rule
 
 > https://github.com/vanhauser-thc/thc-hydra
 
-### Proxy
-
-```c
-$ export HYDRA_PROXY=connect://127.0.0.1:8080
-$ unset HYDRA_PROXY
-```
-
 ### Common Commands
 
 ```c
 $ hydra <RHOST> -l <USERNAME> -p <PASSWORD> <PROTOCOL>
 $ hydra <RHOST> -L /PATH/TO/WORDLIST/<FILE> -P /PATH/TO/WORDLIST/<FILE> <PROTOCOL>
 $ hydra -C /PATH/TO/WORDLIST/<FILE> <RHOST> ftp
+```
+
+### Proxy
+
+```c
+$ export HYDRA_PROXY=connect://127.0.0.1:8080
+$ unset HYDRA_PROXY
 ```
 
 ### SSH
