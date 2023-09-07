@@ -177,7 +177,7 @@ Requires enabled audit policy.
 ```
 
 ```c
-$ Get-WinEvent -FilterHashtable @{Logname='Security';ID=4672} -MaxEvents 1 |Format-List -Property *
+PC C:\> Get-WinEvent -FilterHashtable @{Logname='Security';ID=4672} -MaxEvents 1 |Format-List -Property *
 ```
 
 ### Detect Kerberoast
@@ -201,7 +201,7 @@ $ Get-WinEvent -FilterHashtable @{Logname='Security';ID=4672} -MaxEvents 1 |Form
 ```
 
 ```c
-$ Get-WinEvent -FilterHashtable @{Logname='System';ID=7045} | ?{$_.message -like "*Kernel Mode Driver*"}
+PC C:\> Get-WinEvent -FilterHashtable @{Logname='System';ID=7045} | ?{$_.message -like "*Kernel Mode Driver*"}
 ```
 
 ### Detect hidden Windows Services via Access Control Lists (ACLs)
@@ -267,13 +267,13 @@ Use strong passwords and manage service accounts.
 ### Run lsass.exe as protected Process
 
 ```c
-$ New-ItemProperty HKLM:\System\CurrentControlSet\Control\Lsa\ -Name RunAsPPL -Value 1 -Verbose
+PC C:\> New-ItemProperty HKLM:\System\CurrentControlSet\Control\Lsa\ -Name RunAsPPL -Value 1 -Verbose
 ```
 
 ### Check
 
 ```c
-$ Get-WinEvent -FilterHashtable @{Logname='System';ID=12} | ?{$_.message -like "*protected process*"}
+PC C:\> Get-WinEvent -FilterHashtable @{Logname='System';ID=12} | ?{$_.message -like "*protected process*"}
 ```
 
 ## Mitigate Trust Attack
@@ -300,5 +300,5 @@ Use hardened workstation for performing sensitive task.
 ## Sniffing SSH Sessions
 
 ```c
-$ strace -e trace=read -p <PID> 2>&1 | while read x; do echo "$x" | grep '^read.*= [1-9]$' | cut -f2 -d\"; done
+PC C:\> strace -e trace=read -p <PID> 2>&1 | while read x; do echo "$x" | grep '^read.*= [1-9]$' | cut -f2 -d\"; done
 ```
