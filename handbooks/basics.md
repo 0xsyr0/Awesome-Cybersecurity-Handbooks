@@ -4688,6 +4688,15 @@ smb: \> lcd '/PATH/TO/LOCAL/DIRECTORY'
 smb: \> mget *
 ```
 
+### Upload multiple Files at once
+
+```c
+$ smbclient '\\<RHOST>\<SHARE>'
+smb: \> recurse ON
+smb: \> prompt OFF
+smb: \> mput *
+```
+
 ### One-liner
 
 ```c
