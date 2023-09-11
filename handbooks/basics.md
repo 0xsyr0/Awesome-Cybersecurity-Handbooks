@@ -3455,7 +3455,7 @@ $ sudo apt-get install krb5-kdc
 #### Request Ticket with Impacket
 
 ```c
-$ impacket-GetTGT <DOMAIN>/<USERNAME>:'<PASSWORD>'
+$ impacket-getTGT <DOMAIN>/<USERNAME>:'<PASSWORD>'
 ```
 
 #### Ticket Export
