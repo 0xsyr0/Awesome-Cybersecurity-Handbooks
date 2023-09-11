@@ -69,6 +69,7 @@
 - [paste](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#paste)
 - [Perl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Perl)
 - [PHP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PHP)
+- [pipenv](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#pipenv)
 - [PNG](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PNG)
 - [POP3](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#POP3)
 - [PowerShell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PowerShell-1)
@@ -3451,6 +3452,19 @@ $ sudo update-alternatives --config java
 $ sudo apt-get install krb5-kdc
 ```
 
+#### Request Ticket with Impacket
+
+```c
+$ impacket-GetTGT <DOMAIN>/<USERNAME>:'<PASSWORD>'
+```
+
+#### Ticket Export
+
+```c
+$ export KRB5CCNAME=<FILE>.ccache
+$ export KRB5CCNAME='realpath <FILE>.ccache'
+```
+
 #### Common Information & Commands
 
 ```c
@@ -3471,6 +3485,12 @@ kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the key
 
 ```c
 KRB5_TRACE=/dev/stdout kinit -X X509_user_identity=FILE:admin.cer,admin.key Administrator@<DOMAIN>
+```
+
+### Fix Error Message ldap3.core.exceptions.LDAPPackageUnavailableError: package gssapi (or winkerberos) missing
+
+```c
+$ sudo apt-get install heimdal-dev
 ```
 
 ## ldd
@@ -3930,6 +3950,12 @@ $ sudo /usr/bin/perl -e 'exec "cat /root/root.txt"'
 
 ```c
 $ php -a
+```
+
+## pipenv
+
+```c
+$ pipenv shell
 ```
 
 ### Perl HTTP Server (Important Note! Every Script there get's executed!)
