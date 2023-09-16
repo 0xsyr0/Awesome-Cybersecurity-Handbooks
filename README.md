@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="300" height="300" src="https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/images/awesome-cybersecurity-handbooks.svg">
+</p>
+
 # Awesome Cybersecurity Handbooks [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/0xsyr0/Awesome-Cybersecurity-Handbooks) ![GitHub contributors](https://img.shields.io/github/contributors/0xsyr0/Awesome-Cybersecurity-Handbooks)
