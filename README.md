@@ -1,16 +1,24 @@
 # Awesome Cybersecurity Handbooks [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/0xsyr0/Awesome-Cybersecurity-Handbooks) ![GitHub contributors](https://img.shields.io/github/contributors/0xsyr0/Awesome-Cybersecurity-Handbooks)
+
 A huge chunk of my personal notes since I started playing CTFs and working as a red teamer. These are living documents and I updated or add to them relatively often.
 
-DISCLAIMER: Please note that these documents are `only` provided for `legal purposes`. Please do `not` use the content for illigal actions.
+---
 
-HOW TO USE: I designed the structure of the handbooks based to the `Kali Linux` menu structure. All content is written in `Markdown` which means you can open them with any tool who redenders the syntax correctly.
+**DISCLAIMER**: Please note that these documents are `only` provided for `legal purposes`. Please do `not` use the content for illigal actions.
+
+---
+
+**HOW TO USE**: I designed the structure of the handbooks based to the `Kali Linux` menu structure. All content is written in `Markdown` which means you can open them with any tool who redenders the syntax correctly.
 
 I highly recomment to work with them on a command line or shell, by using grep to get it's content from every file. Neither if you are doing reconnaissance or post exploitation.
 
-EXAMPLE: `grep 'BloodHound' *.md -n -A 3 -B 3`
+**EXAMPLE**: `grep 'BloodHound' *.md -n -A 3 -B 3`
 
-END NOTE: As always, it is pretty hard to point out every source for different tools or payloads. If I used your payload anywhere in my notes and you wanted to be mentioned, feel free to reach out to me on [Twitter](https://twitter.com/syr0_) and I will add you asap.
+---
+
+**END NOTE**: As always, it is pretty hard to point out every source for different tools or payloads. If I used your payload anywhere in my notes and you wanted to be mentioned, feel free to reach out to me on [Twitter](https://twitter.com/syr0_) and I will add you asap.
 
 If you like the project, give it a :star: or share it on various platforms. My goal is to create and to gather resources for people to help them on their career.
 
