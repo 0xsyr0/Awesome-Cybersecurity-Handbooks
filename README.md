@@ -26,7 +26,11 @@ grep -R 'crackmapexec' * -n -A 3 -B 3
 
 If you like the project, give it a :star: or share it on various platforms. My goal is to create and to gather resources for people to help them on their career.
 
+---
+
 Thank you for reading.
+
+<br>
 
 ## Table of Contents
 
