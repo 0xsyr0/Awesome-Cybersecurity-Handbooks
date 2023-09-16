@@ -6,15 +6,19 @@ A huge chunk of my personal notes since I started playing CTFs and working as a 
 
 ---
 
-**DISCLAIMER**: Please note that these documents are `only` provided for `legal purposes`. Please do `not` use the content for illigal actions.
+**DISCLAIMER**: Please note that these documents are **only** provided for **legal purposes**. Please do **not** use the content for illigal actions.
 
 ---
 
-**HOW TO USE**: I designed the structure of the handbooks based to the `Kali Linux` menu structure. All content is written in `Markdown` which means you can open them with any tool who redenders the syntax correctly.
+**HOW TO USE**: I designed the structure of the handbooks based to the **Kali Linux** menu structure. All content is written in **Markdown** which means you can open them with any tool who redenders the syntax correctly.
 
 I highly recomment to work with them on a command line or shell, by using grep to get it's content from every file. Neither if you are doing reconnaissance or post exploitation.
 
-**EXAMPLE**: `grep 'BloodHound' *.md -n -A 3 -B 3`
+**EXAMPLE**: 
+
+```c
+grep -R 'crackmapexec' * -n -A 3 -B 3
+```
 
 ---
 
