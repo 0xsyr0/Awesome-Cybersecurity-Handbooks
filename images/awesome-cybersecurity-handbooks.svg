@@ -1,180 +1,174 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1024" height="1024" viewBox="0 0 1024 1024" xml:space="preserve">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="650" height="300" viewBox="0 0 650 300" xml:space="preserve">
 <desc>Created @ WordClouds.com</desc>
 <defs><style type="text/css"> @import url(https://fonts.googleapis.com/css2?family=Overpass&amp;display=swap) </style></defs>
-<g transform="matrix(0 -1 1 0 512 512)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="37.97436324217259" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-119.13" y="11.93" >Cybersecurity</tspan></text>
+<g transform="matrix(0 -1 1 0 325 150)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="24.176603479237464" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-75.84" y="7.59" >Cybersecurity</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 550 525)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="37.97436324217259" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-95.68" y="11.93" >Handbooks</tspan></text>
+<g transform="matrix(0 -1 1 0 346 151)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="24.176603479237464" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-60.91" y="7.59" >Handbooks</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 283 531)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="37.97436324217259" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-212.18" y="11.93" >Web Application Analysis</tspan></text>
+<g transform="matrix(1 0 0 1 181 151)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="24.176603479237464" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-135.09" y="7.59" >Web Application Analysis</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 581 524)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="22.784617945303555" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-99.12" y="7.16" >Penetration Testing</tspan></text>
+<g transform="matrix(0 -1 1 0 367 150)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="14.505962087542478" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-63.11" y="4.56" >Penetration Testing</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 601 525)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="18.987181621086297" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-91.38" y="5.96" >Vulnerability Analysis</tspan></text>
+<g transform="matrix(0 -1 1 0 379 132)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="12.088301739618732" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-58.17" y="3.8" >Vulnerability Analysis</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 622 512)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="18.987181621086297" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-93.78" y="5.96" >Information Gathering</tspan></text>
+<g transform="matrix(0 -1 1 0 394 150)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="12.088301739618732" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-59.7" y="3.8" >Information Gathering</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 314 488)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="45.56923589060711" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-187.22" y="14.32" >Offensive Security</tspan></text>
+<g transform="matrix(1 0 0 1 195 126)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="29.011924175084957" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-119.2" y="9.11" >Offensive Security</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 331 597)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="75.94872648434519" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-163.06" y="23.86" >Awesome</tspan></text>
+<g transform="matrix(1 0 0 1 207 185)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="48.35320695847493" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-103.81" y="15.19" >Awesome</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 642 512)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="18.987181621086297" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-93.1" y="5.96" >Database Assessment</tspan></text>
+<g transform="matrix(0 -1 1 0 406 145)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="12.088301739618732" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-59.27" y="3.8" >Database Assessment</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 356 445)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="37.97436324217259" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-144.72" y="11.93" >Post Exploitation</tspan></text>
+<g transform="matrix(1 0 0 1 213 99)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="24.176603479237464" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-92.14" y="7.59" >Post Exploitation</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 672 512)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="45.56923589060711" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-119.44" y="14.32" >Bug Bounty</tspan></text>
+<g transform="matrix(0 -1 1 0 427 151)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="29.011924175084957" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-76.04" y="9.11" >Bug Bounty</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 698 476)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="11.392308972651778" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-62.5" y="3.58" >Social Engineering Tools</tspan></text>
+<g transform="matrix(0 -1 1 0 451 150)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="7.252981043771239" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-39.79" y="2.28" >Social Engineering Tools</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 722 513)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="22.784617945303555" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-112.66" y="7.16" >Malware Development</tspan></text>
+<g transform="matrix(0 -1 1 0 466 150)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="14.505962087542478" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-71.72" y="4.56" >Malware Development</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 742 513)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="22.784617945303555" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-95.64" y="7.16" >Microsoft Windows</tspan></text>
+<g transform="matrix(0 -1 1 0 484 163)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="14.505962087542478" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-60.89" y="4.56" >Microsoft Windows</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 832 513)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="45.56923589060711" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-82.87" y="14.32" >Hacking</tspan></text>
+<g transform="matrix(1 0 0 1 526 89)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="29.011924175084957" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-52.76" y="9.11" >Hacking</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 932 526)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="22.784617945303555" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-90.68" y="7.16" >Exploitation Tools</tspan></text>
+<g transform="matrix(0 -1 1 0 499 164)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="14.505962087542478" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-57.73" y="4.56" >Exploitation Tools</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 117 449)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="11.392308972651778" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-57.08" y="3.58" >Command and Control</tspan></text>
+<g transform="matrix(0 -1 1 0 586 151)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="14.505962087542478" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-72.67" y="4.56" >Command and Control</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 373 567)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="30.379490593738073" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-120.01" y="9.54" >Password Attacks</tspan></text>
+<g transform="matrix(1 0 0 1 237 217)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="19.34128278338997" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-76.41" y="6.08" >Password Attacks</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 962 512)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="45.56923589060711" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-75.87" y="14.32" >InfoSec</tspan></text>
+<g transform="matrix(0 -1 1 0 517 151)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="29.011924175084957" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-48.3" y="9.11" >InfoSec</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 398 414)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="22.784617945303555" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-84.04" y="7.16" >Wireless Attacks</tspan></text>
+<g transform="matrix(1 0 0 1 233 167)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="14.505962087542478" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-53.51" y="4.56" >Wireless Attacks</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 62 531)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-70.05" y="4.77" >Operational Security</tspan></text>
+<g transform="matrix(0 -1 1 0 535 163)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-44.6" y="3.04" >Operational Security</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 772 439)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="45.56923589060711" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-40.52" y="14.32" >CTF</tspan></text>
+<g transform="matrix(0 -1 1 0 550 150)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="29.011924175084957" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-25.8" y="9.11" >CTF</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 42 518)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-61.73" y="4.77" >Lateral Movement</tspan></text>
+<g transform="matrix(0 -1 1 0 568 164)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-39.3" y="3.04" >Lateral Movement</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 867 575)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="22.784617945303555" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-49.96" y="7.16" >Kali Linux</tspan></text>
+<g transform="matrix(0 -1 1 0 95 194)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="14.505962087542478" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-31.8" y="4.56" >Kali Linux</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 295 551)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-67.72" y="4.77" >Siniffing &amp; Spoofing</tspan></text>
+<g transform="matrix(1 0 0 1 270 79)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-43.12" y="3.04" >Siniffing &amp; Spoofing</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 764 575)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-53.74" y="4.77" >Knowledgebase</tspan></text>
+<g transform="matrix(0 -1 1 0 83 194)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-34.21" y="3.04" >Knowledgebase</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 599 403)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-56.73" y="4.77" >Misconfiguration</tspan></text>
+<g transform="matrix(1 0 0 1 198 206)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-36.12" y="3.04" >Misconfiguration</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 706 563)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="7.594872648434518" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-31.83" y="2.39" >Social Engineering</tspan></text>
+<g transform="matrix(0 -1 1 0 600 175)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-40.53" y="3.04" >Social Engineering</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 335 399)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-53.7" y="4.77" >Reporting Tools</tspan></text>
+<g transform="matrix(1 0 0 1 176 81)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-34.19" y="3.04" >Reporting Tools</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 575 626)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-47.19" y="4.77" >Cryptography</tspan></text>
+<g transform="matrix(1 0 0 1 112 80)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-30.05" y="3.04" >Cryptography</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 237 419)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-66.38" y="4.77" >Privilege Escalation</tspan></text>
+<g transform="matrix(1 0 0 1 78 101)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-42.26" y="3.04" >Privilege Escalation</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 811 537)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-40.78" y="4.77" >Exploitation</tspan></text>
+<g transform="matrix(1 0 0 1 363 223)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-25.96" y="3.04" >Exploitation</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 808 563)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="22.784617945303555" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-32.98" y="7.16" >OSINT</tspan></text>
+<g transform="matrix(1 0 0 1 152 169)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="14.505962087542478" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-21" y="4.56" >OSINT</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 156 563)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-70.43" y="4.77" >Reverse Engineering</tspan></text>
+<g transform="matrix(0 -1 1 0 442 150)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-25.54" y="3.04" >Persistence</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 795 450)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-40.12" y="4.77" >Persistence</tspan></text>
+<g transform="matrix(1 0 0 1 541 213)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-31.96" y="3.04" >Authentication</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 191 402)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-50.2" y="4.77" >Authentication</tspan></text>
+<g transform="matrix(0 -1 1 0 69 182)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-22.26" y="3.04" >Templates</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 813 437)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-34.97" y="4.77" >Templates</tspan></text>
+<g transform="matrix(0 -1 1 0 57 182)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-21.35" y="3.04" >Container</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 879 413)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-55.02" y="4.77" >Active Directory</tspan></text>
+<g transform="matrix(0 -1 1 0 598 112)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-19.88" y="3.04" >Wordlists</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 841 600)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-33.54" y="4.77" >Container</tspan></text>
+<g transform="matrix(1 0 0 1 143 221)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="14.505962087542478" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-17.86" y="4.56" >Linux</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 887 575)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-31.23" y="4.77" >Wordlists</tspan></text>
+<g transform="matrix(1 0 0 1 68 89)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-29.58" y="3.04" >Attack Vector</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 332 513)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="22.784617945303555" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-28.06" y="7.16" >Linux</tspan></text>
+<g transform="matrix(1 0 0 1 46 135)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-26.7" y="3.04" >Cheat Sheet</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 569 419)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-46.46" y="4.77" >Attack Vector</tspan></text>
+<g transform="matrix(0 -1 1 0 46 194)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-19.67" y="3.04" >Payloads</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 167 457)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-41.93" y="4.77" >Cheat Sheet</tspan></text>
+<g transform="matrix(0 -1 1 0 610 145)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-18.73" y="3.04" >Phishing</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 868 463)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-30.9" y="4.77" >Payloads</tspan></text>
+<g transform="matrix(1 0 0 1 49 110)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-27.78" y="3.04" >Enumeration</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 846 451)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-29.42" y="4.77" >Phishing</tspan></text>
+<g transform="matrix(1 0 0 1 135 207)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-24.63" y="3.04" >Credentials</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 131 594)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-43.63" y="4.77" >Enumeration</tspan></text>
+<g transform="matrix(0 -1 1 0 449 90)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-17.85" y="3.04" >Pivoting</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 402 464)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-38.69" y="4.77" >Credentials</tspan></text>
+<g transform="matrix(1 0 0 1 552 107)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-18.87" y="3.04" >Injection</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 820 600)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,252,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-28.04" y="4.77" >Pivoting</tspan></text>
+<g transform="matrix(1 0 0 1 261 112)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-14.41" y="3.04" >Mobile</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 180 438)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-29.64" y="4.77" >Injection</tspan></text>
+<g transform="matrix(1 0 0 1 528 224)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-20.7" y="3.04" >Hardware</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 137 617)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,19,91); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-22.63" y="4.77" >Mobile</tspan></text>
+<g transform="matrix(1 0 0 1 137 113)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-15.52" y="3.04" >Bypass</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 117 576)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(44,66,126); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-32.51" y="4.77" >Hardware</tspan></text>
+<g transform="matrix(0 -1 1 0 614 189)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-20.27" y="3.04" >Forensics</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 906 625)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,0,153); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-24.38" y="4.77" >Bypass</tspan></text>
+<g transform="matrix(1 0 0 1 45 120)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-19.26" y="3.04" >Cracking</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 889 463)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-31.84" y="4.77" >Forensics</tspan></text>
+<g transform="matrix(0 -1 1 0 338 134)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-13.89" y="3.04" >Basics</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 81 425)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(39,16,83); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-30.25" y="4.77" >Cracking</tspan></text>
+<g transform="matrix(1 0 0 1 301 168)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-12.51" y="3.04" >Cloud</tspan></text>
 </g>
-<g transform="matrix(0 -1 1 0 532 491)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-21.82" y="4.77" >Basics</tspan></text>
+<g transform="matrix(1 0 0 1 285 206)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-9.03" y="3.04" >CVE</tspan></text>
 </g>
-<g transform="matrix(1 0 0 1 307 469)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(118,22,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-19.65" y="4.77" >Cloud</tspan></text>
-</g>
-<g transform="matrix(1 0 0 1 452 512)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(170,97,191); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-14.19" y="4.77" >CVE</tspan></text>
-</g>
-<g transform="matrix(0 -1 1 0 531 569)" style=""  >
-		<text xml:space="preserve" font-family="Overpass" font-size="15.189745296869036" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-10.11" y="4.77" >IoT</tspan></text>
+<g transform="matrix(0 -1 1 0 384 198)" style=""  >
+		<text xml:space="preserve" font-family="Overpass" font-size="9.670641391694986" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(59,15,93); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-6.44" y="3.04" >IoT</tspan></text>
 </g>
 </svg>
