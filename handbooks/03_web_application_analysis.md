@@ -8,10 +8,12 @@
 - [Asset Discovery](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Asset-Discovery)
 - [Burp Suite](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Burp-Suite)
 - [Bypassing File Upload Restrictions](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Bypassing-File-Upload-Restrictions)
+- [cadaver](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#cadaver)
 - [Command Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Command-Injection)
 - [commix](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#commix)
 - [Common File Extensions](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Common-File-Extensions)
 - [curl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#curl)
+- [davtest](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#davtest)
 - [DirBuster](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#DirBuster)
 - [Directory Traversal Attack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Directory-Traversal-Attack)
 - [dirsearch](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#dirsearch)
@@ -245,6 +247,22 @@ Replace the `X` with `Null Bytes (00)` and save it.
 
 After uploading you can remove the `space` and access the file.
 
+## cadaver
+
+### General Usage
+
+```c
+$ cadaver http://<RHOST>/<WEBDAV_DIRECTORY>/
+```
+
+### Basic Commands
+
+```c
+dav:/<WEBDAV_DIRECTORY>/> cd C
+dav:/<WEBDAV_DIRECTORY>/C/> ls
+dav:/<WEBDAV_DIRECTORY>/C/> put <FILE>
+```
+
 ## Command Injection
 
 ### Vulnerable Functions in PHP
@@ -299,6 +317,12 @@ $ curl -X POST -F "file=@/PATH/TO/FILE/<FILE>.php" http://<RHOST>/<FILE>.php --c
 
 ```c
 $ curl -F "field=<file.zip" http://<RHOST>/<FILE>.php -F 'k=v' --cookie "k=v;" -F "submit=true" -L -v
+```
+
+## davtest
+
+```c
+$ davtest -auth <USERNAME>:<FOOBAR> -sendbd auto -url http://<RHOST>/<WEBDAV_DIRECTORY>/
 ```
 
 ## DirBuster
