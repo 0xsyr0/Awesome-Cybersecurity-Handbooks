@@ -25,6 +25,7 @@
 | KillDefenderBOF | Beacon Object File PoC implementation of KillDefender | https://github.com/Cerbersec/KillDefenderBOF |
 | MoveKit | Cobalt Strike kit for Lateral Movement | https://github.com/0xthirteen/MoveKit |
 | Mythic | A cross-platform, post-exploit, red teaming framework built with python3, docker, docker-compose, and a web browser UI. It's designed to provide a collaborative and user friendly interface for operators, managers, and reporting throughout red teaming. | https://github.com/its-a-feature/Mythic |
+| Nightmangle | Nightmangle is post-exploitation Telegram Command and Control (C2/C&C) Agent, created by @1N73LL1G3NC3. | https://github.com/1N73LL1G3NC3x/Nightmangle |
 | NimPlant | A light-weight first-stage C2 implant written in Nim. | https://github.com/chvancooten/NimPlant |
 | Nuages | A modular C2 framework | https://github.com/p3nt4/Nuages |
 | PoshC2 | A proxy aware C2 framework used to aid red teamers with post-exploitation and lateral movement. | https://github.com/nettitude/PoshC2 |
