@@ -147,7 +147,7 @@ $ mysql -u root -p
 $ mysql -u <USERNAME> -h <RHOST> -p
 ```
 
-### Basic Commands
+### Common Commands
 
 ```c
 mysql> SHOW databases;
@@ -427,7 +427,7 @@ $ redis-cli -h <RHOST>
 $ redis-cli -s /run/redis/redis.sock
 ```
 
-### Basic Commands
+### Common Commands
 
 ```c
 > AUTH <PASSWORD>
