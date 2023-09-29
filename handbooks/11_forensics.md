@@ -299,7 +299,7 @@ $ sudo usbrip events violations <FILE>.json -f syslog
 
 > https://github.com/volatilityfoundation/volatility
 
-### Basic Commands
+### Common Commands
 
 ```c
 $ volatility -f <FILE> imageinfo
