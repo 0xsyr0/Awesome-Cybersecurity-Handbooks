@@ -418,7 +418,7 @@ $ apport-unpack /var/crash/_<PATH/TO/CRASHED/PROCESS>_<PROCESS>.1000.crash /PATH
 
 ## curl
 
-### Basic Commands
+### Common Commands
 
 ```c
 $ curl -v http://<DOMAIN>                                                        // verbose output
@@ -3201,7 +3201,7 @@ $ for i in `seq 1 100`; do echo $i; done
 $ ftp <RHOST>
 ```
 
-### Basic Commands
+### Common Commands
 
 ```c
 ftp> dir      // lsit all files and directories
