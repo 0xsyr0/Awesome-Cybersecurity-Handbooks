@@ -54,7 +54,7 @@ $ sudo apt-get update
 $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-### Basic Commands
+### Common Commands
 
 ```c
 $ docker pull <IMAGE>                  // pull image
@@ -202,7 +202,7 @@ $ docker run -v /:/mnt --rm -it ubuntu chroot /mnt sh
   
 ## Docker-Compose
 
-### Basic Commands
+### Common Commands
 
 ```c
 $ docker-compose up       // (re)create/build and start containers specified in the compose file
