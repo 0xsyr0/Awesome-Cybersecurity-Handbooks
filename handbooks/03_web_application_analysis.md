@@ -255,7 +255,7 @@ After uploading you can remove the `space` and access the file.
 $ cadaver http://<RHOST>/<WEBDAV_DIRECTORY>/
 ```
 
-### Basic Commands
+### Common Commands
 
 ```c
 dav:/<WEBDAV_DIRECTORY>/> cd C
@@ -299,7 +299,7 @@ $ python3 commix.py --url="http://<RHOST>:5013/graphql" --data='{"query":"query{
 
 ## curl
 
-### Basic Commands
+### Common Commands
 
 ```c
 $ curl --trace - http://<RHOST>
