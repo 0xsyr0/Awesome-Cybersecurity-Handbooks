@@ -151,7 +151,7 @@ $ python3 photon.py -u https://<DOMAIN> -l 3 -t 100 --wayback
 
 ## Recon-ng
 
-### Basic Commands
+### Common Commands
 
 ```c
 $ recon-ng
