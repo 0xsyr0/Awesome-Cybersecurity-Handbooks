@@ -417,6 +417,7 @@ b'P@ssw0rd@123!!123\x13\x91q\x81\x92"2Rbs\x03\x133CSs\x83\x94$4\x95\x05\x15Eu\x8
 
 ```c
 $ snmp-check <RHOST>
+$ snmp-check -t <RHOST> -c public
 ```
 
 ## SNMP-MIBS-Downloader
@@ -435,71 +436,68 @@ $ sudo vi /etc/snmp/snmp.conf
 
 ## snmpwalk
 
-### Full Enumeration
+### Common Commands
 
 ```c
 $ snmpwalk -c public -v1 <RHOST>
 $ snmpwalk -c internal -v2c <RHOST>
 ```
 
-### Network Addresses
+### Examples
 
-```c
-$ snmpwalk -v2c -c public <RHOST> 1.3.6.1.2.1.4.34.1.3
-```
-
-### Detailed Output
+#### Detailed Output
 
 ```c
 $ snmpwalk -v2c -c public <RHOST> .1
 ```
 
-### OS / User Details
-
-```c
-$ snmpwalk -v2c -c public <RHOST> nsExtendObjects
-```
-
-### Windows User Accounts
-
-```c
-$ snmpwalk -c public -v1 <RHOST> 1.3.6.1.4.1.77.1.2.25
-```
-
-### Windows Running Programs
-
-```c
-$ snmpwalk -c public -v1 <RHOST> 1.3.6.1.2.1.25.4.2.1.2
-```
-
-### Windows Hostname
+#### Windows Hostname
 
 ```c
 $ snmpwalk -c public -v1 <RHOST> .1.3.6.1.2.1.1.5
 ```
 
-### Windows Share Information
+#### OS / User Details
 
 ```c
-$ snmpwalk -c public -v1 <RHOST> 1.3.6.1.4.1.77.1.2.3.1.1
+$ snmpwalk -v2c -c public <RHOST> nsExtendObjects
 ```
 
-### Windows Share Information
+#### Windows User Enumeration
+
+```c
+$ snmpwalk -c public -v1 <RHOST> 1.3.6.1.4.1.77.1.2.25
+```
+
+#### Windows Process Enumeration
+
+```c
+$ snmpwalk -c public -v1 <RHOST> 1.3.6.1.2.1.25.4.2.1.2
+```
+
+#### Windows Share Information
 
 ```c
 $ snmpwalk -c public -v1 <RHOST> 1.3.6.1.4.1.77.1.2.27
+$ snmpwalk -c public -v1 <RHOST> 1.3.6.1.4.1.77.1.2.3.1.1
 ```
 
-### Windows TCP Ports
-
-```c
-$ snmpwalk -c public -v1 <RHOST> 1.3.6.1.2.1.6.13.1.3
-```
-
-### Software Names
+#### Installed Software
 
 ```c
 $ snmpwalk -c public -v1 <RHOST> 1.3.6.1.2.1.25.6.3.1.2
+```
+
+#### Network Addresses
+
+```c
+$ snmpwalk -v2c -c public <RHOST> 1.3.6.1.2.1.4.34.1.3
+```
+
+#### TCP Ports
+
+```c
+$ snmpwalk -c public -v1 <RHOST> 1.3.6.1.2.1.6.13.1.3
 ```
 
 ## SPF
