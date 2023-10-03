@@ -597,6 +597,22 @@ $ go install github.com/tomnomnom/gf@latest
 https://github.com/search?q=%2F%22sk-%5Ba-zA-Z0-9%5D%7B20%2C50%7D%22%2F&ref=simplesearch&type=code
 ```
 
+### GitHub Dorks
+
+> https://github.com/search?type=code
+
+```c
+/ftp:\/\/.*:.*@.*target\.com/
+/ftp:\/\/.*:.*@.*\.*\.br/
+/ftp:\/\/.*?@.*?\.com\.br/
+/ssh:\/\/.*:.*@.*target\.com/
+/ssh:\/\/.*:.*@.*\.*\.*\.br/
+/ldap:\/\/.*:.*@.*\.*\.*\.com/
+/mysql:\/\/.*:.*@.*\.*\.*\.com/
+/mongodb:\/\/.*:.*@.*\.*\.*\.com/
+/ldaps:\/\/.*:.*@.*\.*\.*\.com/
+```
+
 ## GitTools
 
 > https://github.com/internetwache/GitTools
