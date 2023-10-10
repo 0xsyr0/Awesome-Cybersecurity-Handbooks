@@ -281,19 +281,19 @@ $ sudo apt-get install -y kubectl
 ### Common Commands
 
 ```c
-$ ./kubectl get pods                                // list all available pods
-$ ./kubectl get services                            // list all services
-$ ./kubectl get serviceaccount                      // list all serviceaccounts
-$ ./kubectl auth can-i --list                       // check permissions
-$ ./kubectl get secrets                             // list secrets
-$ ./kubectl describe secret <SECRET>                // display secret
-$ ./kubectl get secret <SECRET> -o 'json'           // show in detail
-$ ./kubectl describe pod <CONTAINER>                // get container information
-$ ./kubectl delete pod <CONTAINER>                  // delete a specific container
-$ ./kubectl auth can-i --list --token=<TOKEN>       // check permissions with authentication
-$ ./kubectl apply -f privesc.yml --token=<TOKEN>    // apply pod configuration file
-$ ./kubectl exec -it <CONTAINER> --token=<TOKEN> -- /bin/bash                    // gain access to a container
-$ ./kubectl exec -it everything-allowed-exec-pod --token=<TOKEN> -- /bin/bash    // execute privileged container
+$ kubectl get pods                                // list all available pods
+$ kubectl get services                            // list all services
+$ kubectl get serviceaccount                      // list all serviceaccounts
+$ kubectl auth can-i --list                       // check permissions
+$ kubectl get secrets                             // list secrets
+$ kubectl describe secret <SECRET>                // display secret
+$ kubectl get secret <SECRET> -o 'json'           // show in detail
+$ kubectl describe pod <CONTAINER>                // get container information
+$ kubectl delete pod <CONTAINER>                  // delete a specific container
+$ kubectl auth can-i --list --token=<TOKEN>       // check permissions with authentication
+$ kubectl apply -f privesc.yml --token=<TOKEN>    // apply pod configuration file
+$ kubectl exec -it <CONTAINER> --token=<TOKEN> -- /bin/bash                    // gain access to a container
+$ kubectl exec -it everything-allowed-exec-pod --token=<TOKEN> -- /bin/bash    // execute privileged container
 ```
 
 ### Secret Location
