@@ -283,13 +283,13 @@ $ ./chisel server -p 9002 -reverse -v
 #### Client
 
 ```c
-$ ./chisel client <RHOST>:9002 R:9003:127.0.0.1:8888
+$ ./chisel client <LHOST>:9002 R:9003:127.0.0.1:8888
 ```
 
 #### Forwaord multiple Ports at once
 
 ```c
-$ ./chisel client <RHOST>:9002 R:8001:127.0.0.1:8001 R:8002:127.0.0.1:8002 R:8003:127.0.0.1:8003
+$ ./chisel client <LHOST>:9002 R:8001:127.0.0.1:8001 R:8002:127.0.0.1:8002 R:8003:127.0.0.1:8003
 ```
 
 ### SOCKS5 / Proxychains Configuration
@@ -303,7 +303,7 @@ $ ./chisel server -p 9002 -reverse -v
 #### Client
 
 ```c
-$ ./chisel client <RHOST>:9002 R:socks
+$ ./chisel client <LHOST>:9002 R:socks
 ```
 
 ## chmod
