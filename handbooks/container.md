@@ -366,7 +366,7 @@ $ kubeletctl -s <RHOST> exec "cat /var/run/secrets/kubernetes.io/serviceaccount/
 $ kubectl get namespaces
 $ kubectl get pods --all-namespaces -o wide
 $ kubectl get pods -n <NAMESPACE>
-$ kubectl describe pod <POD_ID> -n <NAMESPACE>
+$ kubectl describe pod <POD> -n <NAMESPACE>
 $ kubectl -n <NAMESPACE> --token=<TOKEN> auth can-i --list
 $ kubectl get secrets -n <NAMESPACE>
 $ kubectl describe secrets/<SECRET> -n <NAMESPACE>
