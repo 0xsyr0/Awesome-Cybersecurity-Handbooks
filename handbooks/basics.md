@@ -4444,6 +4444,12 @@ $ python3 -m http.server 80
 $ python3 -m smtpd -c DebuggingServer -n <LHOST>:25
 ```
 
+### Unzip .zip File
+
+```c
+$ import zipfile;zipfile.ZipFile('<FILE>.zip','r').extractall('.');
+```
+
 ### Script Conversion
 
 ```c
