@@ -142,6 +142,15 @@ $ proxychains <APPLICATION>
 ```c
 socks4 metasploit
 socks5 ssh
+socks4  127.0.0.1 1080
+socks5  127.0.0.1 1080
+```
+
+### Proxychain the whole Terminal Input
+
+```c
+$ proxychains zsh
+$ nmap -p 80 <RHOST>
 ```
 
 ## Save File Deletion
