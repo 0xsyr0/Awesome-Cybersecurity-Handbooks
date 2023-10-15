@@ -10,8 +10,10 @@
 - [Binwalk](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#Binwalk)
 - [CFR](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#CFR)
 - [file](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#file)
-- [GDB/GEF/peda](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#GDB--GEF--peda)
+- [GDB](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#GDB)
+- [GEF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#GEF)
 - [Ghidra](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#Ghidra)
+- [peda](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#peda)
 - [Radare2](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#Radare2)
 - [strings](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#strings)
 - [upx](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#upx)
@@ -97,48 +99,31 @@ $ java -jar cfr-0.151.jar --outputpath /PATH/TO/DIRECTORY/ /PATH/TO/FILE/<FILE>.
 $ file <FILE>
 ```
 
-## GDB/GEF/peda
-
-> https://github.com/longld/peda
-
-> https://github.com/hugsy/gef
-
-### Addons
-
-> https://github.com/longld/peda
-
-> https://github.com/hugsy/gef
-
-### Config File
-
-```c
-$ vi ~/.gdbinit
-source ~/peda/peda.py
-```
+## GDB
 
 ### Common Commands
 
 ```c
-gdb-peda$ b main                           // sets breakpoint to main function
-gdb-peda$ b *0x5655792b                    // sets breakpoint on specific address
-gdb-peda$ run                              // starts debugging
-gdb-peda$ r                                // starts debugging
-gdb-peda$ r `python -c 'print "A"*200'`    // rerun the program with a specific parameter
-gdb-peda$ c                                // continue
-gdb-peda$ r Aa0Aa---snip---g5Ag            // run custom strings on a binary
-gdb-peda$ si                               // switch to instructions
-gdb-peda$ si enter                         // step-wise debugging
-gdb-peda$ x/s 0x555555556004               // x/s conversion
-gdb-peda$ p system                         // print memory address of system
-gdb-peda$ searchmem /bin/sh                // search within the binary
-gdb-peda$ disas main                       // disassemble main function
-gdb-peda$ b*0x080484ca                     // add a specific breakpoint
-gdb-peda$ x/100x $esp                      // getting EIP register
-gdb-peda$ x/100x $esp-400                  // locate in EIP register
-gdb-peda$ pattern create 48                // creates 48 character long pattern
-gdb-peda$ x/wx $rsp                        // finding rsp offset
-gdb-peda$ pattern search                   // finding pattern
-gdb-peda$ info functions <FUNCTION>        // getting function information
+(gdb) b main                           // sets breakpoint to main function
+(gdb) b *0x5655792b                    // sets breakpoint on specific address
+(gdb) run                              // starts debugging
+(gdb) r                                // starts debugging
+(gdb) r `python -c 'print "A"*200'`    // rerun the program with a specific parameter
+(gdb) c                                // continue
+(gdb) r Aa0Aa---snip---g5Ag            // run custom strings on a binary
+(gdb) si                               // switch to instructions
+(gdb) si enter                         // step-wise debugging
+(gdb) x/s 0x555555556004               // x/s conversion
+(gdb) p system                         // print memory address of system
+(gdb) searchmem /bin/sh                // search within the binary
+(gdb) disas main                       // disassemble main function
+(gdb) b*0x080484ca                     // add a specific breakpoint
+(gdb) x/100x $esp                      // getting EIP register
+(gdb) x/100x $esp-400                  // locate in EIP register
+(gdb) pattern create 48                // creates 48 character long pattern
+(gdb) x/wx $rsp                        // finding rsp offset
+(gdb) pattern search                   // finding pattern
+(gdb) info functions <FUNCTION>        // getting function information
 ```
 
 ### Load a File
@@ -153,15 +138,12 @@ $ gdb -q <FILE>
 $ gdb --args ./<FILE> <LPORT>
 ```
 
-### Check File Properties
+## GEF
+
+> https://github.com/hugsy/gef
 
 ```c
-gdb-peda$ checksec
-CANARY    : disabled
-FORTIFY   : disabled
-NX        : ENABLED
-PIE       : disabled
-RELRO     : Partial
+$ bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 ```
 
 ## Ghidra
@@ -173,6 +155,28 @@ RELRO     : Partial
 ```c
 L    // rename variables
 ;    // add a comment
+```
+
+## peda
+
+> https://github.com/longld/peda
+
+### Config File
+
+```c
+$ vi ~/.gdbinit
+source ~/peda/peda.py
+```
+
+### Check File Properties
+
+```c
+gdb-peda$ checksec
+CANARY    : disabled
+FORTIFY   : disabled
+NX        : ENABLED
+PIE       : disabled
+RELRO     : Partial
 ```
 
 ## Radare2
