@@ -4925,7 +4925,8 @@ SSH>
 ### Create dynamic Port / Proxy
 
 ```c
-$ ssh -D1080 <RHOST>
+$ ssh -D 1080 <USERNAME>@<RHOST>
+$ ssh -NfD 1080 <USERNAME>@<RHOST>
 ```
 
 Then use Proxychains with `socks5` with port `1080/TCP` on localhost.
