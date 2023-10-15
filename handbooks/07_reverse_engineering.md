@@ -32,6 +32,8 @@
 | peda | PEDA - Python Exploit Development Assistance for GDB | https://github.com/longld/peda |
 | pwndbg | pwndbg is a GDB plug-in that makes debugging with GDB suck less, with a focus on features needed by low-level software developers, hardware hackers, reverse-engineers and exploit developers. | https://github.com/pwndbg/pwndbg |
 | Radare2 | Radare2: The Libre Unix-Like Reverse Engineering Framework | https://github.com/radareorg/radare2 |
+| Rizin | UNIX-like reverse engineering framework and command-line toolset. | https://github.com/rizinorg/rizin |
+| rz-ghidra | Deep ghidra decompiler and sleigh disassembler integration for rizin | https://github.com/rizinorg/rz-ghidra |
 
 ## Assembly Instructions
 
@@ -177,8 +179,9 @@ L    // rename variables
 
 > https://github.com/radareorg/radare2
 
+> https://r2wiki.readthedocs.io/en/latest/
 
-### Commands
+### Shortcuts
 
 ```c
 v + view mode
@@ -203,6 +206,7 @@ Enter
 r2 <FILE>         // load a file
 r2 -A ./<FILE>    // load a file
 aaa               // analyze it
+afl               // list all functions
 s main            // set breakpoint on main
 pdf               // start viewer
 pdf@main          // start viewer on main
@@ -257,6 +261,19 @@ $ r2 supershell
 0x004005f0    3 26           sym._init
 0x00400650    1 6            sym.imp.strlen
 0x00400690    1 6            sym.imp.strcspn
+```
+
+### Example
+
+```c
+$ $ r2 -d -A <FILE>                // -d run, -A analysis
+[0x080491ab]> s main; pdf          // disassemble main, pdf = Print Disassembly Function
+[0x080491ab]> db 0x080491bb        // db = debug breakpoint
+[0x080491ab]> dc                   // dc = debug continue
+[0x08049172]> pxw @ esp            // analyze top of the stack
+[0x08049172]> ds                   // ds = debug step
+[0x080491aa]> pxw @ 0xff984aec     // read a specific value
+[0x41414141]> dr eip               // dr = debug register
 ```
 
 ## strings
