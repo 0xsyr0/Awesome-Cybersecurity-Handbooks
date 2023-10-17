@@ -74,6 +74,7 @@
 | Name | Description | URL |
 | --- | --- | --- |
 | AllThingsSSRF | This is a collection of writeups, cheatsheets, videos, related to SSRF in one single location. | https://github.com/jdonsec/AllThingsSSRF |
+| anew | A tool for adding new lines to files, skipping duplicates. | https://github.com/tomnomnom/anew |
 | Arjun | HTTP Parameter Discovery Suite | https://github.com/s0md3v/Arjun |
 | Awesome API Security | A collection of awesome API Security tools and resources. | https://github.com/arainho/awesome-api-security |
 | cariddi | Take a list of domains, crawl urls and scan for endpoints, secrets, api keys, file extensions, tokens and more. | https://github.com/edoardottt/cariddi |
@@ -96,6 +97,7 @@
 | grayhatwarfare shorteners | Search Shortener Urls | https://shorteners.grayhatwarfare.com |
 | gron | Make JSON greppable! | https://github.com/tomnomnom/gron |
 | Hakrawler | Fast golang web crawler for gathering URLs and JavaScript file locations. | https://github.com/hakluke/hakrawler |
+| haktrails | Golang client for querying SecurityTrails API data. | https://github.com/hakluke/haktrails |
 | httpbin | A simple HTTP Request & Response Service. | https://httpbin.org/#/ |
 | httprobe | Take a list of domains and probe for working HTTP and HTTPS servers | https://github.com/tomnomnom/httprobe |
 | httpx | httpx is a fast and multi-purpose HTTP toolkit allow to run multiple probers using retryablehttp library, it is designed to maintain the result reliability with increased threads. | https://github.com/projectdiscovery/httpx |
@@ -111,6 +113,7 @@
 | Leaky Paths | A collection of special paths linked to major web CVEs, known misconfigurations, juicy APIs ..etc. It could be used as a part of web content discovery, to scan passively for high-quality endpoints and quick-wins. | https://github.com/ayoubfathi/leaky-paths |
 | Lodash | The Lodash library exported as a UMD module. | https://github.com/lodash/lodash |
 | ngrok | ngrok is the programmable network edge that adds connectivity, security, and observability to your apps with no code changes. | https://ngrok.com |
+| Notify | Notify is a Go-based assistance package that enables you to stream the output of several tools (or read from a file) and publish it to a variety of supported platforms. | https://github.com/projectdiscovery/notify |
 | NtHiM | Super Fast Sub-domain Takeover Detection | https://github.com/TheBinitGhimire/NtHiM |
 | Oralyzer | Oralyzer, a simple python script that probes for Open Redirection vulnerability in a website. | https://github.com/r0075h3ll/Oralyzer |
 | PayloadsAllTheThings | A list of useful payloads and bypasses for Web Application Security. | https://github.com/swisskyrepo/PayloadsAllTheThings |
@@ -119,7 +122,6 @@
 | Recox | The script aims to help in classifying vulnerabilities in web applications. | https://github.com/samhaxr/recox |
 | reNgine | The only web application recon tool you will ever need! | https://github.com/yogeshojha/rengine |
 | Request Catcher | Request Catcher will create a subdomain on which you can test an application. | https://requestcatcher.com |
-| Spose | Squid Pivoting Open Port Scanner | https://github.com/aancw/spose |
 | SSRFIRE | An automated SSRF finder. Just give the domain name and your server and chill! ;) Also has options to find XSS and open redirects | https://github.com/ksharinarayanan/SSRFire |
 | SSRFmap | SSRF are often used to leverage actions on other services, this framework aims to find and exploit these services easily. | https://github.com/swisskyrepo/SSRFmap |
 | SSRF testing resources | SSRF (Server Side Request Forgery) testing resources | https://github.com/cujanovic/SSRF-Testing |
