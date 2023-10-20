@@ -270,7 +270,7 @@ $ r2 supershell
 ### Example
 
 ```c
-$ $ r2 -d -A <FILE>                // -d run, -A analysis
+$ r2 -d -A <FILE>                // -d run, -A analysis
 [0x080491ab]> s main; pdf          // disassemble main, pdf = Print Disassembly Function
 [0x080491ab]> db 0x080491bb        // db = debug breakpoint
 [0x080491ab]> dc                   // dc = debug continue
