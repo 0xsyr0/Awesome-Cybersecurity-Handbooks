@@ -106,6 +106,12 @@ $ mdb-sql <FILE>
 
 ## MSSQL
 
+### Connection
+
+```c
+$ sudo mssqlclient.py <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
+```
+
 ### Show Database Content
 
 ```c
@@ -1095,6 +1101,7 @@ $ sqlmap -u 'http://localhost:8080/?param1=1'
 
 ```c
 $ sqsh -S <RHOST> -U <USERNAME>
+$ sqsh -S '<RHOST>' -U '<USERNAME>' -P '<PASSWORD>'
 ```
 
 ## xpath injection
