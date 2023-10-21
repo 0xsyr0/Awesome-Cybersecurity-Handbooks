@@ -3278,11 +3278,27 @@ $ git show <COMMIT>
 
 ## Go
 
-### Setting Environment Variables
+### How to update Go
+
+> https://gist.github.com/nikhita/432436d570b89cab172dcf2894465753
+
+```c
+$ sudo rm -rf /usr/local/go
+$ sudo tar -C /usr/local -xzf /PATH/TO/FILE/go1.21.3.linux-amd64.tar.gz
+$ echo $PATH | grep "/usr/local/go/bin"
+```
+
+### Environment Variables
 
 ```c
 $ export PATH=$PATH:/usr/local/go/bin
 $ export GO111MODULE=on
+```
+
+```c
+$ export GOROOT=/usr/local/go
+$ export GOPATH=$HOME/go
+$ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 ```
 
 ## grep
