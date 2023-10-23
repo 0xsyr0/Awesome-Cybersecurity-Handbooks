@@ -1102,6 +1102,13 @@ $ sqlmap -u 'http://localhost:8080/?param1=1'
 ```c
 $ sqsh -S <RHOST> -U <USERNAME>
 $ sqsh -S '<RHOST>' -U '<USERNAME>' -P '<PASSWORD>'
+$ sqsh -S '<RHOST>' -U '.\<USERNAME>' -P '<PASSWORD>'
+```
+
+### List Files and Folders with xp_dirtree
+
+```c
+1> EXEC master.sys.xp_dirtree N'C:\inetpub\wwwroot\',1,1;
 ```
 
 ## xpath injection
