@@ -266,6 +266,17 @@ $ cat .env
 $ curl https://sliver.sh/install | sudo bash
 ```
 
+#### Alternatively via Snapcraft
+
+```c
+$ sudo snap install sliver
+$ sliver.server
+```
+
+```c
+$ sliver
+```
+
 #### Start Sliver
 
 ```c
