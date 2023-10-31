@@ -3271,7 +3271,15 @@ $ getent passwd
 ### Read ACL Permissions
 
 ```c
-$ getfacl <LOCAL_DIRECTORY>
+$ getfacl <DIRECTORY>
+```
+
+## gin
+
+> https://github.com/sbp/gin
+
+```c
+$ ./gin /PATH/TO/REPOSITORY
 ```
 
 ## Git
@@ -3282,11 +3290,21 @@ $ git log <BRANCH> --oneline
 $ git show <COMMIT>
 ```
 
+## glab
+
+```c
+$ glab auth login
+```
+
 ## Go
 
 ### How to update Go
 
 > https://gist.github.com/nikhita/432436d570b89cab172dcf2894465753
+
+> https://go.dev/doc/install#install
+
+> https://go.dev/dl/
 
 ```c
 $ sudo rm -rf /usr/local/go
