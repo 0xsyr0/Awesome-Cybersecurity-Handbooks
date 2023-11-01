@@ -2935,8 +2935,30 @@ $ mitmproxy
 
 > https://ngrok.com/
 
+### Basic Commands
+
 ```c
 $ ngrok tcp 9001
+$ ngrok http http://localhost:8080
+$ ngrok http http://localhost:8080 --basic-auth '<USERNAME>:<PASSWORD>'
+$ ngrok http http://localhost:8080 --oauth=google --oauth-allow-email=<EMAIL>
+```
+
+### Example
+
+```c
+$ ngrok config add-authtoken <API_TOKEN>
+$ ngrok tcp <LHOST>:<LPORT>
+$ nc -v -nls 127.0.0.1 -p <LPORT>
+$ nc 1.tcp.ngrok.io 10133
+```
+
+### Docker Example
+
+```c
+$ sudo docker run -it -p80 -e NGROK_AUTHTOKEN='<API_TOKEN>' ngrok/ngrok tcp 172.17.0.1:<LPORT>
+$ nc -v -nls 172.17.0.1 -p <LPORT>
+$ nc 1.tcp.ngrok.io 10133
 ```
 
 ## OpenSSL
