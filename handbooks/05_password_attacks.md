@@ -47,6 +47,7 @@
 | Kerbrute | A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication. | https://github.com/ropnop/kerbrute |
 | LaZagne | The LaZagne project is an open source application used to retrieve lots of passwords stored on a local computer. | https://github.com/AlessandroZ/LaZagne |
 | mimikatz | Extract plaintexts passwords, hash, PIN code and kerberos tickets from memory. | https://github.com/gentilkiwi/mimikatz |
+| NetExec | The Network Execution Tool | https://github.com/Pennyw0rth/NetExec |
 | Patator | Password Brute Force | https://github.com/lanjelot/patator |
 | pypykatz | Mimikatz implementation in pure Python. | https://github.com/skelsec/pypykatz |
 | RsaCtfTool | RSA multi attacks tool : uncipher data from weak public key and try to recover private key Automatic selection of best attack for the given public key. | https://github.com/Ganapati/RsaCtfTool |
