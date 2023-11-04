@@ -9,6 +9,7 @@
 - [Basic Block in angr](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#Basic-Block-in-angr)
 - [Binwalk](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#Binwalk)
 - [CFR](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#CFR)
+- [dumpbin](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#dumpbin)
 - [file](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#file)
 - [GDB](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#GDB)
 - [GEF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/07_reverse_engineering.md#GEF)
@@ -31,6 +32,7 @@
 | ghidra | Ghidra is a software reverse engineering (SRE) framework created and maintained by the National Security Agency Research Directorate. | https://github.com/NationalSecurityAgency/ghidra |
 | ImHex | A Hex Editor for Reverse Engineers, Programmers and people who value their retinas when working at 3 AM. | https://github.com/WerWolv/ImHex |
 | JD-GUI | JD-GUI, a standalone graphical utility that displays Java sources from CLASS files. | https://github.com/java-decompiler/jd-gui |
+| PE-bear | Portable Executable reversing tool with a friendly GUI | https://github.com/hasherezade/pe-bear |
 | peda | PEDA - Python Exploit Development Assistance for GDB | https://github.com/longld/peda |
 | pwndbg | pwndbg is a GDB plug-in that makes debugging with GDB suck less, with a focus on features needed by low-level software developers, hardware hackers, reverse-engineers and exploit developers. | https://github.com/pwndbg/pwndbg |
 | Radare2 | Radare2: The Libre Unix-Like Reverse Engineering Framework | https://github.com/radareorg/radare2 |
@@ -91,6 +93,13 @@ $ binwalk -e <FILE>
 
 ```c
 $ java -jar cfr-0.151.jar --outputpath /PATH/TO/DIRECTORY/ /PATH/TO/FILE/<FILE>.jar
+```
+
+## dumpbin
+
+```c
+C:\>dumpbin /headers /PATH/TO/FILE/<FILE>.exe
+C:\>dumpbin /exports /PATH/TO/FILE/<FILE>.dll
 ```
 
 ## file
