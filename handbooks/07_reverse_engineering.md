@@ -29,7 +29,7 @@
 | cutter | Cutter is a free and open-source reverse engineering platform powered by rizin. | https://github.com/rizinorg/cutter |
 | CyberChef | The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis | https://github.com/gchq/CyberChef |
 | Decompiler Explorer | Interactive online decompiler which shows equivalent C-like output of decompiled programs from many popular decompilers. | https://dogbolt.org |
-| Detect-It-Easy | Program for determining types of files for Windows, Linux and MacOS. https://github.com/horsicq/Detect-It-Easy |
+| Detect-It-Easy | Program for determining types of files for Windows, Linux and MacOS. | https://github.com/horsicq/Detect-It-Easy |
 | dnSpy | dnSpy is a debugger and .NET assembly editor. You can use it to edit and debug assemblies even if you don't have any source code available. | https://github.com/dnSpy/dnSpy |
 | Exeinfo PE | exeinfo PE for Windows by A.S.L | https://github.com/ExeinfoASL/Exeinfo |
 | GEF | GEF is a set of commands for x86/64, ARM, MIPS, PowerPC and SPARC to assist exploit developers and reverse-engineers when using old school GDB. | https://github.com/hugsy/gef |
