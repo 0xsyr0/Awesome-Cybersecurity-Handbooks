@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [Advanced Threat Analytics](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Advanced-Threat-Analytics)
+- [API Security Tasks](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#API-Security-Tasks)
 - [Atomic Red Team](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Atomic-Red-Team)
 - [Event Log Analysis](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Event-Log-Analysis)
 - [Device Guard](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Devoice-Guard)
@@ -61,6 +62,23 @@
 - Detects: account enumeration, netsession enumeration, Brute Force, exposed cleartext credentials, honey tokens, unusual protocols, credential attacks (pth,ptt,ticket replay)
 - Will NOT detect non existent users for golden ticket
 - Detects DCSync, but not DCShadow
+
+## API Security Tasks
+
+Shoutout to `Tara Janca` from `We Hack Purple`!
+
+1. List all APIs (create an inventory)
+2. Put them behind a gateway
+3. Throttling and resource quotas
+4. Logging, monitoring and alerting
+5. Block all unused HTTP methods
+6. Use a service mesh for communication management
+7. Implement standards for your organisation / API definition documents
+8. Strict Linting
+9. Authenticate THEN authorize
+10. Avoid verbose error messages
+11. Decommission old or unused versions of APIs
+12. Do all the same secure coding practices you normally do; input validation using approved lists, parameterized queries, bounds checking, etc.
 
 ## Atomic Red Team
 
