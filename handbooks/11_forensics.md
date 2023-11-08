@@ -230,8 +230,8 @@ cat /proc/$1/maps | grep "rw-p" | awk '{print $1}' | ( IFS="-"
 ### Shell Bags
 
 ```c
-<user_profile>\NTUSER.DAT
-<user_profile>\AppData\Local\Microsoft\Windows\UsrClass.dat
+<USER_PROFILE>\NTUSER.DAT
+<USER_PROFILE>\AppData\Local\Microsoft\Windows\UsrClass.dat
 ```
 
 ## oletools
