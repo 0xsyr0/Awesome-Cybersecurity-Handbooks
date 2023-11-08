@@ -12,12 +12,18 @@
 | Name | Description | URL |
 | --- | --- | --- |
 | AWS Security Checklist | Made by Bour Abdelhadi | https://awscheck.fyi |
+| AzureHound | Azure Data Exporter for BloodHound | https://github.com/BloodHoundAD/AzureHound |
 | BARK | BloodHound Attack Research Kit | https://github.com/BloodHoundAD/BARK |
+| Bobber | Bounces when a fish bites - Evilginx database monitoring with exfiltration automation | https://github.com/Flangvik/Bobber |
+| GraphRunner | A Post-exploitation Toolset for Interacting with the Microsoft Graph API | https://github.com/dafthack/GraphRunner |
 | HacktricksCloud | Welcome to the page where you will find each hacking trick/technique/whatever related to Infrastructure. | https://github.com/carlospolop/hacktricks-cloud |
 | lazys3 | A Ruby script to bruteforce for AWS s3 buckets using different permutations. | https://github.com/nahamsec/lazys3 |
 | o365-attack-toolkit | A toolkit to attack Office365 | https://github.com/mdsecactivebreach/o365-attack-toolkit |
 | o365recon | retrieve information via O365 and AzureAD with a valid cred | https://github.com/nyxgeek/o365recon |
+| Power Pwn | An offensive and defensive security toolset for Microsoft 365 Power Platform | https://github.com/mbrg/power-pwn |
+| ROADtools | A collection of Azure AD tools for offensive and defensive security purposes | https://github.com/dirkjanm/ROADtools |
 | S3cret Scanner | Hunting For Secrets Uploaded To Public S3 Buckets | https://github.com/Eilonh/s3crets_scanner |
+| TeamFiltration | TeamFiltration is a cross-platform framework for enumerating, spraying, exfiltrating, and backdooring O365 AAD accounts | https://github.com/Flangvik/TeamFiltration |
 
 ## AWS
 
