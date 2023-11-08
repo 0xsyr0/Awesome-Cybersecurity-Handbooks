@@ -314,6 +314,12 @@ $ xsltproc nmap.xml -o nmap.html
 $ sudo nmap -iL /PATH/TO/FILE/<FILE> -p- -oG /PATH/TO/FILE/<FILE> | awk -v OFS=':' '/open/ {for (i=4;i<=NF;i++) {split($i,a,"/"); if (a[2]=="open") print $2, a[1]}}' | sort | uniq > /PATH/TO/FILE/<FILE>
 ```
 
+### ASN
+
+```c
+$ nmap --script targets-asn --script-args targets-asn.asn=<ASN>
+```
+
 ### SMB
 
 ```c
