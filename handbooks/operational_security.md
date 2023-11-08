@@ -67,7 +67,7 @@ C:\> set COMPlus_ETWEnabled=0
 * export HISTFILESIZE=0
 * export HISTSIZE=0
 * kill -9 $$
-* ln /dev/null ~/.bash_history -sf
+* ln -sf /dev/null ~/.bash_history
 * ln -sf /dev/null ~/.bash_history && history -c && exit
 ```
 
