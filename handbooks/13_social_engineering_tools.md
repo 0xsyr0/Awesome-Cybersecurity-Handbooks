@@ -38,6 +38,12 @@ $ sudo apt-get install golang
 $ git clone https://github.com/kgretzky/evilginx2.git
 $ cd evilginx2
 $ make
+$ sudo ./build/evilginx -p ./phishlets
+```
+
+#### Alternatively with Redirectors
+
+```c
 $ sudo ./build/evilginx -p ./phishlets -t ./redirectors -developer
 ```
 
