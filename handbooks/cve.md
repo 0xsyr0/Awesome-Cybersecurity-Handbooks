@@ -139,6 +139,7 @@
 | CVE-2023-36874 | Windows Error Reporting Service LPE (0-day) | https://github.com/Wh04m1001/CVE-2023-36874 |
 | CVE-2023-38146 | ThemeBleed RCE | https://github.com/gabe-k/themebleed |
 | CVE-2023-38831 | WinRAR Exploit (0-day) | https://github.com/b1tg/CVE-2023-38831-winrar-exploit |
+| CVE-2023-46604 | Apache ActiveMQ OpenWire Transport RCE | https://github.com/SaumyajeetDas/CVE-2023-46604-RCE-Reverse-Shell-Apache-ActiveMQ |
 | CVE-2023-4911 | Looney Tunables LPE | https://github.com/RickdeJager/CVE-2023-4911 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
