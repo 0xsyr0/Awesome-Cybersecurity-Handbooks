@@ -163,6 +163,7 @@ mysql> DESCRIBE <TABLE>;
 mysql> SELECT * FROM Users;
 mysql> SELECT * FROM users \G;
 mysql> SELECT Username,Password FROM Users;
+mysql> SHOW GRANTS FOR '<USERNAME>'@'localhost' \G;
 ```
 
 ### Password Reset
@@ -180,8 +181,11 @@ $ sudo systemctl start mysql.service
 
 ### Update User Password
 
+> https://bcrypt-generator.com/
+
 ```c
-mysql> update user set password = '37b08599d3f323491a66feabbb5b26af' where user_id = 1;
+mysql> UPDATE user SET password = '37b08599d3f323491a66feabbb5b26af' where user_id = 1;
+mysql> UPDATE users SET password = '$2a$12$QvOBZ0r4tDdDCib4p8RKGudMk0VZKWBX21Dxh292NwrXwzwiuRIoG';
 ```
 
 ### Update User Privileges
