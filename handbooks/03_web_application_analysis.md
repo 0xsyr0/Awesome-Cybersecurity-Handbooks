@@ -33,6 +33,7 @@
 - [Hakrawler](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Hakrawler)
 - [Host Header Regex Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Host-Header-Regex-Bypass)
 - [HTML Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#HTML-Injection)
+- [HTTP Request Methods](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#HTTP-Request-Methods)
 - [HTTP Request Smuggling / HTTP Desync Attack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#HTTP-Request-Smuggling--HTTP-Desync-Attack)
 - [httprobe](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#httprobe)
 - [httpx](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#httpx)
@@ -759,6 +760,187 @@ document.write(this.responseText)
 x.open("GET","file:///etc/passwd");
 x.send();
 </script>
+```
+
+## HTTP Request Methods
+
+### HTTP GET
+
+- Retrieve a single item or a list of items
+
+```c
+GET /v1/products/foobar
+```
+
+```c
+$ curl -v -X GET -k https://example.com 80
+```
+
+#### Response
+
+```c
+<HTML>
+  <HEAD>foobar</HEAD>
+  <BODY>
+    <H1>foobar</H1>
+    <P>This is foobar</P>
+  </BODY>
+</HTML>
+```
+ 
+### HTTP PUT
+
+- Update an item
+
+```c
+PUT /v1/users/123
+```
+
+#### Request Body
+
+```c
+{"name": "bob", "email": "bob@bob.com"}
+```
+
+#### Response
+
+```c
+HTTP/1.1 200 OK
+```
+ 
+### HTTP POST
+
+- Create an item
+
+```c
+POST /v1/users
+```
+
+#### Request Body
+
+```c
+{"firstname": "bob", "lastname": "bobber", "email": "bob@bob.com"}
+```
+
+#### Response
+
+```c
+HTTP/1.1 201 Created
+```
+ 
+### HTTP DELETE
+
+- Delete an item
+
+```c
+DELETE /v1/users/123
+```
+
+#### Response
+
+```c
+HTTP/1.1 200 OK
+HTTP/1.1 204 NO CONTENT
+```
+ 
+### HTTP PATCH
+
+- Partially modify an item
+
+```c
+PATCH /v1/users/123
+```
+
+#### Request Body
+
+```c
+{ 
+   "email": "bob@company.com"
+}
+```
+
+#### Response
+
+```c
+HTTP/1.1 200 OK
+```
+ 
+### HTTP HEAD
+
+- Identical to GET but no message body in the response
+
+```c
+HEAD /v1/products/iphone
+```
+
+```c
+$ curl -v -X HEAD -k https://example.com 80
+```
+
+#### Response
+
+```c
+HTTP/1.1 200 OK
+```
+ 
+### HTTP CONNECT
+
+- Create a two-way connection with a proxy server
+
+```c
+CONNECT <RHOST>:80
+```
+
+#### Request
+
+```c
+Host: <RHOST>
+Proxy-Authorization: basic UEBzc3dvcmQxMjM=
+```
+
+#### Response
+
+```c
+HTTP/1.1 200 OK
+```
+ 
+### HTTP OPTIONS
+
+- Return a list of supported HTTP methods
+
+```c
+OPTIONS /v1/users
+```
+
+```c
+$ curl -v -X OPTIONS -k https://example.com 80
+```
+
+#### Response
+
+```c
+HTTP/1.1 200 OK
+Allow: GET,POST,DELETE,HEAD,OPTIONS
+```
+ 
+### HTTP TRACE
+
+- Perform a message loop-back test, providing a debugging mechanism
+
+```c
+TRACE /index.html
+```
+
+```c
+$ curl -v -X TRACE -k https://example.com 80
+```
+
+#### Response
+
+```c
+Host: <RHOST>
+Via: <RHOST>
+X-Forwardet-For: <RHOST>
 ```
 
 ## HTTP Request Smuggling / HTTP Desync Attack
