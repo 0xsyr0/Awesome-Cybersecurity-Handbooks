@@ -96,6 +96,7 @@
 - [SetUID Bit](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#SetUID-Bit)
 - [sftp](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#sftp)
 - [showmount](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#showmount)
+- [SIGSEGV](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#SIGSEGV)
 - [simpleproxy](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#simpleproxy)
 - [SMB](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#SMB)
 - [smbcacls](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#smbcacls)
@@ -4701,6 +4702,15 @@ $ /usr/sbin/showmount -e <RHOST>
 $ sudo showmount -e <RHOST>
 
 $ chown root:root sid-shell; chmod +s sid-shell
+```
+
+## SIGSEGV
+
+### Create Crash Dump
+
+```c
+$ sleep 50 &
+$ killall -SIGSEGV sleep
 ```
 
 ## simpleproxy
