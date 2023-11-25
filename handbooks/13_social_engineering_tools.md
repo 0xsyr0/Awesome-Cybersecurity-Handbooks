@@ -7,6 +7,7 @@
 - [Evilginx2](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Evilginx2)
 - [Gophish](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Gophish)
 - [Metasploit](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Metasploit)
+- [Social Engineering Toolkit (SET)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Social-Engineering-Toolkit-SET)
 
 ## Resources
 
@@ -115,4 +116,18 @@ $ ssh -i ~/.ssh/<SSH_KEY> root@<RHOST> -p <RPORT> -L3333:localhost:3333 -N -f
 ```c
 msf6 > use auxiliary/server/capture/smb
 msf6 auxiliary(server/capture/smb) > run
+```
+
+## Social Engineering Toolkit (SET)
+
+### Credential Harvesting
+
+```c
+$ sudo setoolkit
+```
+
+Navigate to `Social-Engineering Attacks` > `Website Attack Vectors` > `Credential Harvester Attack` > `Site Cloner` == `1`, `2`, `3`, `2`.
+
+```c
+$ swaks --to <EMAIL> --from <EMAIL> --server <RHOST> --port 25 --body <FILE>.txt
 ```
