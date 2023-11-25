@@ -4706,8 +4706,6 @@ $ chown root:root sid-shell; chmod +s sid-shell
 
 ## SIGSEGV
 
-### Create Crash Dump
-
 ```c
 $ sleep 50 &
 $ killall -SIGSEGV sleep
