@@ -196,6 +196,7 @@ $ mysql -u <USERNAME> -h <RHOST> -p
 ### Common Commands
 
 ```c
+mysql> STATUS;
 mysql> SHOW databases;
 mysql> USE <DATABASE>;
 mysql> SHOW tables;
@@ -204,6 +205,12 @@ mysql> SELECT * FROM Users;
 mysql> SELECT * FROM users \G;
 mysql> SELECT Username,Password FROM Users;
 mysql> SHOW GRANTS FOR '<USERNAME>'@'localhost' \G;
+```
+
+### Enumerate Version
+
+```c
+$ mysql -u root -p -e 'select @@version;'
 ```
 
 ### Password Reset
