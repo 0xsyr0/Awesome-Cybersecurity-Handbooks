@@ -200,15 +200,31 @@ $ http_proxy=localhost:8080 https_proxy=localhost:8080 <COMMAND> <RHOST>
 
 ### Extensions
 
+- 5GC API Parser
+- 403 Bypasser
 - Active Scan++
+- Asset Discovery
 - Autorize
+- Backslash Powered Scanner
+- CO2
 - Collaborator Everywhere
+- Distribute Damage
+- Encode IP
+- GAP
+- IIS Tilde
+- IP Rotate
 - J2EEScan
 - JS Link Finder
+- JS Miner
 - JSON Web Tokens
-- Upload Scanner
+- Logger++
+- Log Viewer
+- Look Over There
+- Param Miner
 - SAML Raider
+- Software Vulnerability Scanner
 - SQLiPy Sqlmap Integration
+- Upload Scanner
 - ViewState Editor
 
 ### Filter for SSRF (AutoRepeater)
