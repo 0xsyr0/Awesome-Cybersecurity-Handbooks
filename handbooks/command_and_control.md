@@ -6,6 +6,7 @@
 
 - [Covenant](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Covenant)
 - [Empire](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Empire)
+- [Hak5 Cloud C2](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Hak5-Cloud-C2)
 - [Havoc](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Havoc)
 - [Mythic](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Mythic)
 - [Sliver](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Sliver)
@@ -161,6 +162,14 @@ $ ~/Covenant/Covenant > docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name c
 (Empire: <NAME>/powershell/persistence/elevated/registry) > set Listener <NAME>
 (Empire: <NAME>/powershell/persistence/elevated/registry) > run
 ```
+
+## Hak5 Cloud C2
+
+```c
+$ ./c2-3.3.0_amd64_linux -hostname 127.0.0.1 -listenip 127.0.0.1
+```
+
+> http://127.0.0.1:8080
 
 ## Havoc
 
