@@ -3137,7 +3137,11 @@ $ mitmproxy
 
 ```c
 $ ngrok tcp 9001
+$ ngrok http 8080 --authtoken <AUTH_TOKEN>
+$ ngrok http 8080 --basic-auth '<USERNAME>:<PASSWORD>'
+$ ngrok http 8080 --oauth=google --oauth-allow-email=<EMAIL>
 $ ngrok http http://localhost:8080
+$ ngrok http http://localhost:8080 --authtoken <AUTH_TOKEN>
 $ ngrok http http://localhost:8080 --basic-auth '<USERNAME>:<PASSWORD>'
 $ ngrok http http://localhost:8080 --oauth=google --oauth-allow-email=<EMAIL>
 ```
