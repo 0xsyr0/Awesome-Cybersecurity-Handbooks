@@ -3145,7 +3145,7 @@ $ ngrok http http://localhost:8080 --oauth=google --oauth-allow-email=<EMAIL>
 ### Example
 
 ```c
-$ ngrok authtoken <API_TOKEN>
+$ ngrok authtoken <AUTH_TOKEN>
 $ ngrok tcp <LHOST>:<LPORT>
 $ nc -v -nls 127.0.0.1 -p <LPORT>
 $ nc 1.tcp.ngrok.io 10133
