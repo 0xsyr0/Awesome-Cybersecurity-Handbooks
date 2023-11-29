@@ -51,6 +51,7 @@ Thank you for reading.
 - [11 Forensics](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md)
 - [12 Reporting Tools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/12_reporting_tools.md)
 - [13 Social Engineering Tools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md)
+- [AI](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/ai.md)
 - [Basics](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md)
 - [Blue Teaming](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md)
 - [Cloud](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cloud.md)
