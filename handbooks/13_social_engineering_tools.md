@@ -6,8 +6,8 @@
 
 - [Evilginx2](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Evilginx2)
 - [Gophish](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Gophish)
-- [Metasploit](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Metasploit)
-- [Social Engineering Toolkit (SET)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Social-Engineering-Toolkit-SET)
+- [Storm Breaker](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Storm-Breaker)
+- [The Social Engineering Toolkit (SET)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#The-Social-Engineering-Toolkit-SET)
 
 ## Resources
 
@@ -22,6 +22,7 @@
 | Nexphisher | Advanced Phishing tool for Linux & Termux | https://github.com/htr-tech/nexphisher |
 | SocialFish | Phishing Tool & Information Collector  | https://github.com/UndeadSec/SocialFish |
 | SniperPhish | SniperPhish - The Web-Email Spear Phishing Toolkit | https://github.com/GemGeorge/SniperPhish |
+| Storm Breaker | Social engineering tool [Access Webcam & Microphone & Location Finder] With {Py,JS,PHP} | https://github.com/ultrasecurity/Storm-Breaker |
 | The Social-Engineer Toolkit (SET) | The Social-Engineer Toolkit is an open-source penetration testing framework designed for social engineering. | https://github.com/trustedsec/social-engineer-toolkit |
 
 ## Evilginx2
@@ -109,16 +110,37 @@ $ sudo update-ca-certificates
 $ ssh -i ~/.ssh/<SSH_KEY> root@<RHOST> -p <RPORT> -L3333:localhost:3333 -N -f
 ```
 
-## Metasploit
+## Storm Breaker
 
-### NTLMv1 Hashes
+> https://medium.com/@frost1/access-location-camera-microphone-of-any-device-547c5b9907f3
+
+### Installation
 
 ```c
-msf6 > use auxiliary/server/capture/smb
-msf6 auxiliary(server/capture/smb) > run
+$ git clone https://github.com/ultrasecurity/Storm-Breaker.git
+$ cd Storm-Breaker
+$ sudo bash install.sh
+$ sudo python3 -m pip install -r requirements.txt
+$ sudo python3 st.py
 ```
 
-## Social Engineering Toolkit (SET)
+### Start ngrok Agent
+
+```c
+$ ngrok http 2525
+```
+
+> http://8d0b-92-180-8-97.ngrok-free.app -> http://localhost:2525
+
+| Username | Password |
+| --- | --- |
+| admin | admin |
+
+Chose a link to send to the target.
+
+> http://8d0b-92-180-8-97.ngrok-free.app/templates/nearyou/index.html
+
+## The Social Engineering Toolkit (SET)
 
 ### Credential Harvesting
 
