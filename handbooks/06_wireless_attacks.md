@@ -6,13 +6,16 @@
 
 - [airodump-ng](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#airodump-ng)
 - [airmon-ng](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#airmon-ng)
+- [ALFA AWUS036ACH](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#ALFA-AWUS036ACH)
 - [Apple Wi-Fi Evil SSID](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#Apple-Wi-Fi-Evil-SSID)
 - [mdk3](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#mdk3)
+- [Microsoft Windows](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#Microsoft-Windows)
 
 ## Resources
 
 | Name | Description | URL |
 | --- | --- | --- |
+| Aircrack-ng | WiFi security auditing tools suite | https://github.com/aircrack-ng/aircrack-ng |
 | airgeddon | This is a multi-use bash script for Linux systems to audit wireless networks. | https://github.com/v1s1t0r1sh3r3/airgeddon |
 | EAPHammer | EAPHammer is a toolkit for performing targeted evil twin attacks against WPA2-Enterprise networks. | https://github.com/s0lst1c3/eaphammer |
 | Flipper | Playground (and dump) of stuff I make or modify for the Flipper Zero | https://github.com/UberGuidoZ/Flipper |
@@ -23,10 +26,11 @@
 | WEF | A fully offensive framework to the 802.11 networks and protocols with different types of attacks for WPA/WPA2 and WEP, automated hash cracking, bluetooth hacking and much more. | https://github.com/D3Ext/WEF |
 | Wifite | This repo is a complete re-write of wifite, a Python script for auditing wireless networks. | https://github.com/derv82/wifite2 |
 
-## ALFA AWUS036ACH
+## Aircrack-ng
 
 ```c
-$ sudo apt-get install realtek-rtl88xxau-dkms
+$ tshark -F pcap -r <FILE>.pcapng -w <FILE>.pcap
+$ aircrack-ng -w /usr/share/wordlists/rockyou.txt <FILE>.pcap
 ```
 
 ## airodump-ng
@@ -41,6 +45,12 @@ $ sudo airodump-ng <INTERFACE>mon
 $ sudo airmon-ng check kill
 $ sudo airmon-ng start <INTERFACE>
 $ sudo airmon-ng stop <INTERFACE>
+```
+
+## ALFA AWUS036ACH
+
+```c
+$ sudo apt-get install realtek-rtl88xxau-dkms
 ```
 
 ## Apple Wi-Fi Evil SSID
