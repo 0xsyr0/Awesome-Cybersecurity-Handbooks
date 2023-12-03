@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-- [2FA Bypass techniques](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#2FA-Bypass-Techniques)
+- [2FA Bypass Techniques](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#2FA-Bypass-Techniques)
 - [403 Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#403-Bypass)
 - [Asset Discovery](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Asset-Discovery)
 - [Burp Suite](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Burp-Suite)
