@@ -4,6 +4,7 @@
 
 ## Table of Contents
 
+- [2FA Bypass techniques](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#2FA-Bypass-Techniques)
 - [403 Bypass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#403-Bypass)
 - [Asset Discovery](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Asset-Discovery)
 - [Burp Suite](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Burp-Suite)
@@ -143,6 +144,78 @@
 | XSRFProbe | The Prime Cross Site Request Forgery Audit & Exploitation Toolkit. | https://github.com/0xInfection/XSRFProbe |
 | XSStrike | Most advanced XSS scanner. | https://github.com/s0md3v/XSStrike |
 | ysoserial | A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization. | https://github.com/frohoff/ysoserial |
+
+## 2FA Bypass Techniques
+
+### 1. Response Manipulation
+
+If the value `"success":false` can be found in the response, change it to `"success":true`.
+
+### 2. Status Code Manipulation
+
+If theStatus Code is `4xx` try to change it to `200 OK` and see if it bypasses restrictions.
+
+### 3. 2FA Code Leakage in Response
+
+Check the response of the `2FA Code Triggering Request` to see if the code is leaked.
+
+### 4. JS File Analysis
+
+Rare but some `JS Files` may contain info about the `2FA Code`, worth giving a shot.
+
+### 5. 2FA Code Reusability
+
+Same code can be reused.
+
+### 6. Lack of Brute-Force Protection
+
+Possible to `Brute-Force` any length 2FA Code.
+
+### 7. Missing 2FA Code Integrity Validation
+
+Code for `any` user account can be used to bypass the 2FA.
+
+### 8. CSRF on 2FA Disabling
+
+No `CSRF Protection` on `Disable 2FA`, also there is no `Authentication Confirmation`.
+
+### 9. Password Reset Disable 2FA
+
+2FA gets disabled on `Password Change or Email Change`.
+
+### 10. Clickjacking on 2FA Disabling Page
+
+Put an `Iframe` on the `2FA Disabling Page` and use `Social Engineering` to trick the victim to disable 2FA.
+
+### 11. Bypass 2FA with null or 000000
+
+Enter the code `000000` or `null` to bypass 2FA protection.
+
+#### Steps:
+
+1. Enter `null` in 2FA code.
+2. Enter `000000` in 2FA code.
+3. Send empty code - Someone found this in Grammarly.
+4. Open a new tab in the same browser and check if other `API Endpoints` are accessible without entering 2FA.
+
+### 12. Google Authenticator Bypass
+
+#### Steps:
+
+1. Set-up Google Authenticator for 2FA.
+2. Now, 2FA is enabled.
+3. Go on the `Password Reset Page` and `change` your `password`.
+4. If your website redirects you to your dashboard then `2FA (Google Authenticator)` is bypassed.
+
+### 13. Bypassing OTP in Registration Forms by repeating the Form Eubmission multiple Times using Repeater
+
+#### Steps:
+
+1. Create an account with a `non-existing` phone number.
+2. Intercept the request in `Burp Suite`.
+3. Send the request to the repeater and forward.
+4. Go to the Repeater tab and `change` the `non-existent` phone number to your phone number.
+5. If you got an OTP to your phone, try using that OTP to register that non-existent number.
 
 ## 403 Bypass
 
