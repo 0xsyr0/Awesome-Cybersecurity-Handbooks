@@ -6,6 +6,7 @@
 
 - [CeWL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#CeWL)
 - [CUPP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#CUPP)
+- [crunch](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#crunch)
 
 ## Resources
 
@@ -35,4 +36,10 @@ $ cewl -d 5 -m 3 -w wordlist.txt http://<DOMAIN>/index.htm --with-numbers
 
 ```c
 $ ./cupp -i
+```
+
+## crunch
+
+```c
+$ crunch 5 5 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ -o <FILE>.txt
 ```
