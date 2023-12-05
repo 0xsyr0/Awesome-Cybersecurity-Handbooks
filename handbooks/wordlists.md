@@ -27,7 +27,8 @@
 > https://github.com/digininja/cewl
 
 ```c
-$ cewl -d 5 -m 3 -w wordlist.txt http://<DOMAIN>/index.htm --with-numbers
+$ cewl -d 0 -m 5 -w <FILE> http://<RHOST>/index.php --lowercase
+$ cewl -d 5 -m 3 -w <FILE> http://<RHOST>/index.php --with-numbers
 ```
 
 ## CUPP
