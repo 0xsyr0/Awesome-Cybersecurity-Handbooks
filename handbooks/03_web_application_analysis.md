@@ -4009,6 +4009,7 @@ $ wfuzz -w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-files
 ### Login
 
 ```c
+$ wfuzz -c -z file,usernames.txt -z file,passwords.txt -u http://<RHOST>/login.php -d "username=FUZZ&password=FUZ2Z" --hs "Login failed!"
 $ wfuzz -X POST -u "http://<RHOST>:<RPORT>/login.php" -d "email=FUZZ&password=<PASSWORD>" -w /PATH/TO/WORDLIST/<WORDLIST>.txt --hc 200 -c
 $ wfuzz -X POST -u "http://<RHOST>:<RPORT>/login.php" -d "username=FUZZ&password=<PASSWORD>" -w /PATH/TO/WORDLIST/<WORDLIST>.txt --ss "Invalid login"
 ```
