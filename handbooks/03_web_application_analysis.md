@@ -3625,6 +3625,14 @@ $ https://<RHOST>/item/2?server=server.<RHOST>/file?id=9&x=
 
 The payload ending in `&x=` is being used to stop the remaining path from being appended to the end of the attacker's URL and instead turns it into a parameter (?x=) on the query string.
 
+### 0-Cut Bypass
+
+```c
+http://1.1          // http://1.0.0.1
+http://127.0.0.1    // http://127.1.1
+http://192.168.1    // http://192.168.0.1
+```
+
 ### Bypass List
 
 ```c
