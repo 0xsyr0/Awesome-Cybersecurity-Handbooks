@@ -42,6 +42,7 @@
 | Monkey365 | Monkey365 provides a tool for security consultants to easily conduct not only Microsoft 365, but also Azure subscriptions and Azure Active Directory security configuration reviews. | https://github.com/silverhack/monkey365 |
 | packetSifter | PacketSifter is a tool/script that is designed to aid analysts in sifting through a packet capture (pcap) to find noteworthy traffic. Packetsifter accepts a pcap as an argument and outputs several files. | https://github.com/packetsifter/packetsifterTool |
 | PersistenceSniper | Powershell script that can be used by Blue Teams, Incident Responders and System Administrators to hunt persistences implanted in Windows machines. | https://github.com/last-byte/PersistenceSniper |
+| PlumHound | Bloodhound for Blue and Purple Teams | https://github.com/PlumHound/PlumHound |
 | Purple Knight | #1 Active Directory security assessment community tool | https://www.purple-knight.com |
 | Ransomware Simulator | Ransomware simulator written in Golang | https://github.com/NextronSystems/ransomware-simulator |
 | SIGMA | Generic Signature Format for SIEM Systems | https://github.com/SigmaHQ/sigma |
