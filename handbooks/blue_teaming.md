@@ -9,7 +9,7 @@
 - [Atomic Red Team](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Atomic-Red-Team)
 - [Event Log Analysis](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Event-Log-Analysis)
 - [Device Guard](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Devoice-Guard)
-- [General](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Generall)
+- [General Configuration](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#General-Configuration)
 - [LAPS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#LAPS)
 - [Layered Architecture](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Layered-Architecture)
 - [Mitigate Kerberoast](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Mitigate-Kerberoast)
@@ -259,7 +259,7 @@ foreach ($key in $keys)
 - Run trusted code only, enforced in Kernel and Userspace (CCI, UMCI, KMCI)
 - UEFI SEcure Boot protects bios and firmware
 
-## General
+## General Configuration
 
 - Limit login of DAs to DCs only
 - Never run a service with DA privileges
