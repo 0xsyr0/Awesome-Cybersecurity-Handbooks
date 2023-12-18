@@ -408,7 +408,7 @@ $ gcc -o shell shell.c
 from pwn import *
 
 s =  ssh(host='', user='', password='')
-p = s.run('cd <PATH> && ./<vuln>')
+p = s.run('cd <PATH> && ./<VULNERABILITY>')
 p.recv()
 p.sendline(<payload>)
 p.interactive()
