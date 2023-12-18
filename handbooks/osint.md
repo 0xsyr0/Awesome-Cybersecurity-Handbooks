@@ -56,14 +56,20 @@ intitle:index.of <TEXT>    // open directory listings
 ```c
 ext:php
 inurl:%3F
-site:*.*.*.<domain>
+site:*.*.*.<DOMAIN>
 filetype:txt
 ```
 
 ##### Example
 
 ```c
-site:<DOMAIN> ext:php
+ext:php inurl:? site:<DOMAIN>
+```
+
+#### Juicy Extensions
+
+```c
+ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess site:<DOMAIN>
 ```
 
 #### Cloud Environments
