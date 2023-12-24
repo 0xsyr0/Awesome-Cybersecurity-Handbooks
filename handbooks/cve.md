@@ -15,7 +15,7 @@
 - [CVE-2021-43798: Grafana Directory Traversal and Arbitrary File Read (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-43798-Grafana-Directory-Traversal-and-Arbitrary-File-Read-0-day)
 - [CVE-2021-44228: Log4Shell RCE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2021-44228-Log4Shell-RCE-0-day)
 - [CVE-2022-0847: Dirty Pipe LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-0847-Dirty-Pipe-LPE)
-- [CVE-2022-1040: Sophos XG Firewall Authentication Bypass RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-1040-Sophos-XG-Firewall-Authentication-Bypass-RCE)
+- [CVE-2022-1040: Sophos XG Firewall Authentication Bypass RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-1040-Sophos-XG-Authentication-Bypass-RCE)
 - [CVE-2022-21675: Zip Slip](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-21675-Zip-Slip)
 - [CVE-2022-22963: Spring4Shell RCE (0-day)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-22963-Spring4Shell-RCE-0-day)
 - [CVE-2022-30190: MS-MSDT Follina RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2022-30190-MS-MSDT-Follina-RCE)
