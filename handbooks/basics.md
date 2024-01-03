@@ -59,6 +59,7 @@
 - [mkpasswd](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#mkpasswd)
 - [mp64](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#mp64)
 - [msg](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#msg)
+- [Nano](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Nano)
 - [nc / Ncat / netcat](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#nc--Ncat--netcat)
 - [Network File System (NFS)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Network-File-System-NFS)
 - [NetworkManager](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#NetworkManager)
@@ -3791,6 +3792,14 @@ $ mp64 --custom-charset1=?l?u?d{}_ $pass?1$wildcard
 ```c
 $ sudo apt-get install libemail-outlook-message-perl libemail-sender-perl
 $ msgconvert *.msg
+```
+
+## Nano
+
+```c
+:Ex    // exit to folder structure
+:w!    // write content to a specific file
+:e!    // exit
 ```
 
 ## nc / Ncat / netcat
