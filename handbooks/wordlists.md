@@ -12,7 +12,7 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
-| bopscrk | Tool to generate smart and powerful wordlists | https://github.com/R3nt0n/bopscrk |
+| bopscrk | Tool to generate smart and powerful wordlists | https://github.com/r3nt0n/bopscrk |
 | CeWL | CeWL is a Custom Word List Generator. | https://github.com/digininja/cewl |
 | clem9669/wordlists | Various wordlists FR & EN - Cracking French passwords | https://github.com/clem9669/wordlists |
 | COOK | An overpower wordlist generator, splitter, merger, finder, saver, create words permutation and combinations, apply different encoding/decoding and everything you need. | https://github.com/glitchedgitz/cook |
