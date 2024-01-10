@@ -21,7 +21,7 @@ I highly recomment to work with them on a command line or shell, by using grep t
 **EXAMPLE**: 
 
 ```c
-grep -R 'crackmapexec' * -n -A 3 -B 3
+grep -R 'netexec' * -n -A 3 -B 3
 ```
 
 ---
