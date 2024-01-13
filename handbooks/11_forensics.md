@@ -25,6 +25,7 @@
 - [pngcheck](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#pngcheck)
 - [steg_brute](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#steg_brute)
 - [Steghide](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#Steghide)
+- [Sysinternals](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#Sysinternals)
 - [usbrip](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#usbrip)
 - [Volatility](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#Volatility)
 - [xxd](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/11_forensics.md#xxd)
@@ -45,6 +46,9 @@
 | Regshot | Regshot is a small, free and open-source registry compare utility that allows you to quickly take a snapshot of your registry and then compare it with a second one - done after doing system changes or installing a new software product | https://github.com/Seabreg/Regshot |
 | scdbg | Visual Studio 2008 port of the libemu library that includes scdbg.exe, a modification of the sctest project, that includes more hooks, interactive debugging, reporting features, and ability to work with file format exploit shellcode. Will run under WINE | https://github.com/dzzie/VS_LIBEMU |
 | Steghide | Execute a brute force attack with Steghide to file with hide information and password established. | https://github.com/Va5c0/Steghide-Brute-Force-Tool |
+| Sysinternals Live | live.sysinternals.com - / | https://live.sysinternals.com |
+| Sysinternals Suite | The Sysinternals Troubleshooting Utilities have been rolled up into a single Suite of tools. | https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite |
+| Sysinternals Utilities | Sysinternals Utilities Index | https://docs.microsoft.com/en-us/sysinternals/downloads |
 | Volatility | An advanced memory forensics framework | https://github.com/volatilityfoundation/volatility |
 
 ## Android
@@ -289,6 +293,18 @@ $ steghide info <FILE>
 $ steghide info <FILE> -p <PASSWORD>
 $ steghide extract -sf <FILE>
 $ steghide extract -sf <FILE> -p <PASSWORD>
+```
+
+## Sysinternals
+
+> https://docs.microsoft.com/en-us/sysinternals/downloads/
+
+> https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite
+
+> https://live.sysinternals.com/
+
+```c
+PS C:\> Download-SysInternalsTools C:\SysinternalsSuite
 ```
 
 ## usbrip
