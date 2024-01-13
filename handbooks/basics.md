@@ -3739,12 +3739,16 @@ $IPv4 = Test-Connection -ComputerName (hostname) -Count 1  | Select -ExpandPrope
 
 ## Microsoft Windows
 
-### Command Format for PowerShell
+### Ping
 
 ```c
-$ echo "<COMMAND>" | iconv -t UTF-16LE | base64 -w 0
-$ echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
-$ iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
+C:\> ping -n 1 <RHOST>
+```
+
+### Set Environment Variables
+
+```c
+C:\> sysdm.cpl
 ```
 
 ### Hide a File
@@ -3753,17 +3757,17 @@ $ iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
 C:\> attrib +h <FILE>
 ```
 
-### Ping
+### Command Format for PowerShell
 
 ```c
-C:\> ping -n 1 <RHOST>
+$ echo "<COMMAND>" | iconv -t UTF-16LE | base64 -w 0
+$ echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
+$ iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
 ```
 
-### Microsoft Windows New Line
+### New Line
 
-#### Shortcut
-
-Ctrl+v+m
+`Ctrl+v+m`
 
 #### File Cleanup
 
