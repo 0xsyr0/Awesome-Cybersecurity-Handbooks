@@ -308,7 +308,40 @@ $ locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|
 $ xsltproc nmap.xml -o nmap.html
 ```
 
-### Generate grepable Output for IP Addresses
+### Network Sweep Scan
+
+```c
+$ sudo nmap -sn <XXX.XXX.XXX>.1-253
+$ sudo nmap -sS <XXX.XXX.XXX>.1-253
+```
+
+#### Enable Monitoring with iptables
+
+```c
+$ sudo iptables -I INPUT 1 -s <RHOST> -j ACCEPT
+$ sudo iptables -I OUTPUT 1 -d <RHOST> -j ACCEPT
+$ sudo iptables -Z
+```
+
+#### Check for Connections
+
+```c
+$ sudo iptables -vn -L
+```
+
+### Generate grepable Output for IP Addresses and Ports
+
+```c
+$ sudo nmap <XXX.XXX.XXX>.1-253 -oG <FILE>
+$ sudo nmap -p <RPORT> <XXX.XXX.XXX>.1-253 -oG <FILE>
+```
+
+```c
+$ grep Up <FILE> | cut -d " " -f 2
+$ grep open <FILE> | cut -d " " -f2
+```
+
+#### Alternative
 
 ```c
 $ sudo nmap -iL /PATH/TO/FILE/<FILE> -p- -oG /PATH/TO/FILE/<FILE> | awk -v OFS=':' '/open/ {for (i=4;i<=NF;i++) {split($i,a,"/"); if (a[2]=="open") print $2, a[1]}}' | sort | uniq > /PATH/TO/FILE/<FILE>
