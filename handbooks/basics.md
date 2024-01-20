@@ -3808,9 +3808,18 @@ $ msgconvert *.msg
 
 ## nc / Ncat / netcat
 
+### Common Commands
+
 ```c
 $ nc <RHOST> <RPORT>
 $ nc -lvpn <LPORT>
+```
+
+### Port Scanning
+
+```c
+$ nc -nvv -w 1 -z <RHOSTS> <RPORT>-<RPORT>      // TCP
+$ nc -nv -u -z -w 1 <RHOSTS> <RPORT>-<RPORT>    // UDP
 ```
 
 ### Ncat with SSL
