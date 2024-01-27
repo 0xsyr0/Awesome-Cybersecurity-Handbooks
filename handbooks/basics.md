@@ -14,6 +14,7 @@
 - [Bash](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Bash)
 - [Bash POSIX](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Bash-POSIX)
 - [cadaver](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#cadaver)
+- [capsh](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#capsh)
 - [certutil](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#certutil)
 - [changelist](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#changelist)
 - [Chisel](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Chisel)
@@ -254,6 +255,12 @@ bash-4.3$
 
 ```c
 $ cadaver http://<RHOST>/webdav
+```
+
+## capsh
+
+```c
+$ capsh --print
 ```
 
 ## certutil
