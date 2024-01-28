@@ -39,7 +39,7 @@
 - [Cross-Site Scripting (XSS)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Cross-Site-Scripting-XSS)
 - [xterm Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#xterm-Reverse-Shell)
 - [ysoserial](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#ysoserial)
-- [ysoserial.net](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#ysoserial.net)
+- [ysoserial.net](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#ysoserialnet)
 
 ## Resources
 
