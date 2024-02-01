@@ -133,6 +133,7 @@
 - [while loop](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#while-loop)
 - [Writeable Directories](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Writeable-Directories)
 - [Windows Subsystem for Linux (WSL)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Windows-Subsystem-for-Linux-WSL)
+- [Wine](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Wine)
 - [X](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#X)
 - [xfreerdp](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#xfreerdp)
 - [Zip](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Zip)
@@ -5382,6 +5383,18 @@ PS C:\> wsl --set-default-version 1
 ```
 
 Open Microsoft App Store and get Kali/Ubuntu.
+
+## Wine
+
+### Winetricks .Net Setup
+
+```c
+$ sudo apt-get install -y mono-complete wine winetricks
+```
+
+```c
+$ winetricks dotnet48
+```
 
 ## X
 
