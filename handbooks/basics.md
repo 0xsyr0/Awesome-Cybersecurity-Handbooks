@@ -5002,34 +5002,41 @@ $ ssh <USERNAME>@<RHOST> -oKexAlgorithms=+diffie-hellman-group1-sha1
 SSH>
 ```
 
-### Create dynamic Port / Proxy
+### Port Forward Listener
 
 ```c
-$ ssh -D 1080 <USERNAME>@<RHOST>
-$ ssh -NfD 1080 <USERNAME>@<RHOST>
-```
-
-Then use Proxychains with `socks5` with port `1080/TCP` on localhost.
-
-### Remote Forwarder
-
-```c
-$ ssh -R 8080:<LHOST>:80 <RHOST>
-```
-
-### Forward Listener
-
-```c
-$ ssh -L 8000:127.0.0.1:8000 <USERNAME>@<RHOST>
-$ ssh -N -L 1234:127.0.0.1:1234 <USERNAME>@<RHOST>
+$ ssh -L <LPORT>:127.0.0.1:<RPORT> <USERNAME>@<RHOST>
+$ ssh -N -L <LPORT>:127.0.0.1:<RPORT> <USERNAME>@<RHOST>
 ```
 
 ### Reverse SSH Tunnel
 
 ```c
 $ ssh -L 80:<LHOST>:80 <RHOST>
-$ ssh -L 127.0.0.1:80:<LHOST>:80 <RHOST>
 $ ssh -L 80:localhost:80 <RHOST>
+```
+
+### Dynamic Port Forwarding
+
+```c
+$ ssh -D 1080 <USERNAME>@<RHOST>
+$ ssh -NfD 1080 <USERNAME>@<RHOST>
+$ ssh -N -D 0.0.0.0:9999 <USERNAME>@<RHOST>
+```
+
+Then use Proxychains with `socks5` with port `1080/TCP` or `9999/TCP` on localhost.
+
+### Remote Port Forwarding
+
+```c
+$ ssh -R 8080:<LHOST>:80 <RHOST>
+$ ssh -N -R 127.0.0.1:<LPORT>:<RHOST>:<RPORT> <USERNAME>@<RHOST>
+```
+
+### Remote Dynamic Port Forwarding
+
+```c
+$ ssh -N -R <LHOST> <USERNAME>@<RHOST>
 ```
 
 ## sshpass
