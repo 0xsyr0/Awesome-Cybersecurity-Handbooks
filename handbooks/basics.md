@@ -74,6 +74,7 @@
 - [Perl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#Perl)
 - [PHP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PHP)
 - [pipenv](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#pipenv)
+- [plink](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#plink)
 - [PNG](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PNG)
 - [POP3](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#POP3)
 - [PowerShell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#PowerShell-1)
@@ -4029,16 +4030,26 @@ $ sudo /usr/bin/perl -e 'exec "cat /root/root.txt"'
 $ php -a
 ```
 
+### Perl HTTP Server
+
+Important Note: Every Script there get's executed!
+
+```c
+$ sudo php -S 127.0.0.1:80
+```
+
 ## pipenv
 
 ```c
 $ pipenv shell
 ```
 
-### Perl HTTP Server (Important Note! Every Script there get's executed!)
+## plink
+
+### Remote Port Forwarding
 
 ```c
-$ sudo php -S 127.0.0.1:80
+C:\> plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:<LPORT>:127.0.0.1:3389 <RHOST>
 ```
 
 ## PNG
