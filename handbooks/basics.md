@@ -4049,7 +4049,7 @@ $ pipenv shell
 ### Remote Port Forwarding
 
 ```c
-C:\> plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:<LPORT>:127.0.0.1:3389 <RHOST>
+C:\> plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:<RPORT>:127.0.0.1:3389 <LHOST>
 ```
 
 ## PNG
