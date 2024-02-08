@@ -257,16 +257,10 @@ user@host:/opt/Havoc/Client$ ./Havoc
 ### Installation
 
 ```c
-$ git clone https://github.com/its-a-feature/Mythic
-$ cd Mythic
-$ sudo ./install_docker_ubuntu.sh
+$ sudo apt-get install build-essential ca-certificates curl docker.io docker-compose gnupg gpg mingw-w64 g++-mingw-w64 python3-docker
+$ git clone https://github.com/its-a-feature/Mythic.git
+$ cd Mythic/
 $ sudo make
-```
-
-### Install Apollo
-
-```c
-$ sudo -E ./mythic-cli install github https://github.com/MythicAgents/Apollo.git
 ```
 
 ### Install HTTP C2 Profile
@@ -275,10 +269,26 @@ $ sudo -E ./mythic-cli install github https://github.com/MythicAgents/Apollo.git
 $ sudo ./mythic-cli install github https://github.com/MythicC2Profiles/http
 ```
 
-### Finalize the Installation
+### Install Mythic Agents
 
 ```c
-$ sudo ./mythic-cli start
+$ sudo ./mythic-cli install github https://github.com/MythicAgents/apfell.git
+$ sudo ./mythic-cli install github https://github.com/MythicAgents/Apollo.git
+$ sudo ./mythic-cli install github https://github.com/MythicAgents/arachne.git
+$ sudo ./mythic-cli install github https://github.com/MythicAgents/Athena.git
+$ sudo ./mythic-cli install github https://github.com/MythicAgents/freyja.git
+$ sudo ./mythic-cli install github https://github.com/MythicAgents/hermes.git
+$ sudo ./mythic-cli install github https://github.com/MythicAgents/Medusa.git
+$ sudo ./mythic-cli install github https://github.com/MythicAgents/merlin.git
+$ sudo ./mythic-cli install github https://github.com/MythicAgents/Nimplant.git
+$ sudo ./mythic-cli install github https://github.com/MythicAgents/poseidon.git
+```
+
+### Finalize the Installation
+
+Check the `.env` file to grab the credentials for the `mythic_admin` user.
+
+```c
 $ cat .env
 ```
 
