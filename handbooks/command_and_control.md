@@ -89,7 +89,26 @@ $ ~/Covenant/Covenant > docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name c
 
 > https://github.com/BC-SECURITY/Empire
 
-> https://hackmag.com/security/powershell-empire/
+### Installation
+
+```c
+$ git clone --recursive https://github.com/BC-SECURITY/Empire.git
+$ cd Empire
+$ ./setup/checkout-latest-tag.sh
+$ ./setup/install.sh
+```
+
+```c
+$ ./ps-empire server
+```
+
+```c
+./ps-empire client
+```
+
+### Starkiller
+
+> http://127.0.0.1:1337/index.html
 
 ### Common Commands
 
