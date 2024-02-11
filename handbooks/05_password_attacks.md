@@ -49,6 +49,7 @@
 | Kerbrute | A tool to quickly bruteforce and enumerate valid Active Directory accounts through Kerberos Pre-Authentication. | https://github.com/ropnop/kerbrute |
 | LaZagne | The LaZagne project is an open source application used to retrieve lots of passwords stored on a local computer. | https://github.com/AlessandroZ/LaZagne |
 | mimikatz | Extract plaintexts passwords, hash, PIN code and kerberos tickets from memory. | https://github.com/gentilkiwi/mimikatz |
+| MultiDump | MultiDump is a post-exploitation tool for dumping and extracting LSASS memory discreetly. | https://github.com/Xre0uS/MultiDump |
 | NetExec | The Network Execution Tool | https://github.com/Pennyw0rth/NetExec |
 | Patator | Password Brute Force | https://github.com/lanjelot/patator |
 | pypykatz | Mimikatz implementation in pure Python. | https://github.com/skelsec/pypykatz |
