@@ -5448,6 +5448,12 @@ $ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore /drive:/PATH/TO/F
 $ xfreerdp /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /v:<RHOST> /dynamic-resolution +clipboard
 ```
 
+### Disable TLS Security Level
+
+```c
+$ xfreerdp /v:<RHOST> /dynamic-resolution +clipboard /tls-seclevel:0 -sec-nla
+```
+
 ### Fix Error Message transport_connect_tls:freerdp_set_last_error_ex ERRCONNECT_TLS_CONNECT_FAILED
 
 #### Example
