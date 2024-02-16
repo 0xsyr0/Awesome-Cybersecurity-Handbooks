@@ -94,6 +94,7 @@
 - [rpm2cpio](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#rpm2cpio)
 - [rsh](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#rsh)
 - [rsync](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#rsync)
+- [RunAs](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#RunAs)
 - [sendemail](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#sendemail)
 - [seq](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#seq)
 - [SetUID Bit](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#SetUID-Bit)
@@ -4707,6 +4708,12 @@ $ #list
 
 ```c
 $ rsync -av rsync://<RHOST>/<FILE>/<REMOTE_DIRECTORY> <LOCAL_DIRECTORY>
+```
+
+## RunAs
+
+```c
+C:\> runas /user:"<USERNAME>" cmd.exe
 ```
 
 ## sendemail
