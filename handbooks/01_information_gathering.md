@@ -388,6 +388,22 @@ $ nmap -p 80 <RHOST> --script http-put --script-args http-put.url='<RHOST>',http
 
 >  https://github.com/trailofbits/onesixtyone
 
+### Basic Usage
+
+```c
+$ echo public > <FILE>
+$ echo private >> <FILE>
+$ echo manager >> <FILE>
+```
+
+```c
+$ for ip in $(seq 1 254); do echo <XXX.XXX.XXX>.$ip; done > <FILE>
+```
+
+```c
+$ onesixtyone -c <FILE> -i <FILE>
+```
+
 ### Brute-Force Community Strings
 
 ```c
