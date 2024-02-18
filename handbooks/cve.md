@@ -132,10 +132,10 @@
 | CVE-2023-21817 | Kerberos Unlock LPE PoC | https://gist.github.com/monoxgas/f615514fb51ebb55a7229f3cf79cf95b |
 | CVE-2023-22518 | Atlassian Confluence Server Improper Authorization RCE | https://github.com/sanjai-AK47/CVE-2023-22518 |
 | CVE-2023-22809 | sudoedit LPE | https://github.com/n3m1dotsys/CVE-2023-22809-sudoedit-privesc |
-| CVE-2023-23752 | Joomla Unauthenticated Information Disclosure | https://github.com/Acceis/exploit-CVE-2023-23752 |
 | CVE-2023-23397 | Microsoft Outlook (Click-to-Run) LPE (0-day) | https://github.com/sqrtZeroKnowledge/CVE-2023-23397_EXPLOIT_0DAY |
 | CVE-2023-23397 | Microsoft Outlook (Click-to-Run) LPE (0-day) (PowerShell Implementation) | https://github.com/api0cradle/CVE-2023-23397-POC-Powershell |
 | CVE-2023-23397 | Microsoft Outlook (Click-to-Run) LPE (0-day) (Python Implementation) | https://github.com/Trackflaw/CVE-2023-23397 |
+| CVE-2023-23752 | Joomla Unauthenticated Information Disclosure | https://github.com/Acceis/exploit-CVE-2023-23752 |
 | CVE-2023-25690 | Apache mod_proxy HTTP Request Smuggling PoC | https://github.com/dhmosfunk/CVE-2023-25690-POC |
 | CVE-2023-28252 | Windows Common Log File System Driver LPE | https://github.com/fortra/CVE-2023-28252 |
 | CVE-2023-28879 | Shell in the Ghost: Ghostscript RCE PoC | https://github.com/AlmondOffSec/PoCs/tree/master/Ghostscript_rce |
