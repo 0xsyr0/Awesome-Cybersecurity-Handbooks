@@ -7,6 +7,7 @@
 - [CeWL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#CeWL)
 - [CUPP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#CUPP)
 - [crunch](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#crunch)
+- [Username Anarchy](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#Username-Anarchy)
 
 ## Resources
 
@@ -21,6 +22,7 @@
 | maskprocessor | High-Performance word generator with a per-position configureable charset | https://github.com/hashcat/maskprocessor |
 | pseudohash | Password list generator that focuses on keywords mutated by commonly used password creation patterns | https://github.com/t3l3machus/psudohash |
 | SecLists | A collection of multiple types of lists used during security assessments, collected in one place. | https://github.com/danielmiessler/SecLists |
+| Username Anarchy | Username tools for penetration testing | https://github.com/urbanadventurer/username-anarchy |
 
 ## CeWL
 
@@ -43,4 +45,12 @@ $ ./cupp -i
 
 ```c
 $ crunch 5 5 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ -o <FILE>.txt
+```
+
+## Username Anarchy
+
+> https://github.com/urbanadventurer/username-anarchy
+
+```c
+$ ruby username-anarchy -f first,first.last,last,flast -i <FILE> > <FILE>
 ```
