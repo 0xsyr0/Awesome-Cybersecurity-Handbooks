@@ -5343,6 +5343,15 @@ Especially in hardened environments where basic commands like `ls`, `dir` etc. n
 $ sudo pkill VBoxClient && VBoxClient --clipboard
 ```
 
+### Fix Missing Kernel Driver Error (rc=1908)
+
+```c
+$ sudo apt-get remove virtualbox-dkms
+$ sudo apt-get remove --purge virtualbox-dkms
+$ sudo apt-get install -y linux-headers-amd64 linux-image-amd64
+$ sudo apt-get install -y virtualbox-dkms
+```
+
 ## virtualenv
 
 ### Linux
