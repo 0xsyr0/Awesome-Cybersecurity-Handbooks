@@ -4,6 +4,7 @@
 
 ## Table of Contents
 
+- [.NET](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#NET)
 - [7z](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#7z)
 - [adb (Andoid Debug Bridge)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#adb-Andoid-Debug-Bridge)
 - [ar](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/basics.md#ar)
@@ -154,6 +155,14 @@
 | socat | Mirror of the socat source code with pre-built releases for Linux (x64 and x86), Windows (x64 and x86), and MacOS (x64) | https://github.com/3ndG4me/socat |
 | Swaks | Swiss Army Knife for SMTP | https://github.com/jetmore/swaks |
 | up-http-tool | Simple HTTP listener for security testing | https://github.com/MuirlandOracle/up-http-tool |
+
+## .NET
+
+### List available Versions
+
+```c
+C:\> reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"
+```
 
 ## 7z
 
