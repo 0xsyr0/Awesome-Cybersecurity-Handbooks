@@ -49,11 +49,12 @@
 | --- | --- | --- |
 | charlotte | c++ fully undetected shellcode launcher ;) | https://github.com/9emin1/charlotte |
 | Chimera | Chimera is a PowerShell obfuscation script designed to bypass AMSI and commercial antivirus solutions. | https://github.com/tokyoneon/Chimera |
+| Codecepticon | .NET/PowerShell/VBA Offensive Security Obfuscator | https://github.com/sadreck/Codecepticon |
 | Donut | Generates x86, x64, or AMD64+x86 position-independent shellcode that loads .NET Assemblies, PE files, and other Windows payloads from memory and runs them with parameters. | https://github.com/TheWover/donut |
 | EDRSandBlast | EDRSandBlast is a tool written in C that weaponize a vulnerable signed driver to bypass EDR detections (Notify Routine callbacks, Object Callbacks and ETW TI provider) and LSASS protections. | https://github.com/wavestone-cdt/EDRSandblast |
 | EXE_to_DLL | Converts a EXE into DLL | https://github.com/hasherezade/exe_to_dll |
-| GadgetToJScript | A tool for generating .NET serialized gadgets that can trigger .NET assembly load/execution when deserialized using BinaryFormatter from JS/VBS/VBA based scripts. | https://github.com/med0x2e/GadgetToJScript |
 | Freeze | Freeze is a payload toolkit for bypassing EDRs using suspended processes, direct syscalls, and alternative execution methods | https://github.com/Tylous/Freeze |
+| GadgetToJScript | A tool for generating .NET serialized gadgets that can trigger .NET assembly load/execution when deserialized using BinaryFormatter from JS/VBS/VBA based scripts. | https://github.com/med0x2e/GadgetToJScript |
 | hoaxshell | An unconventional Windows reverse shell, currently undetected by Microsoft Defender and various other AV solutions, solely based on http(s) traffic. | https://github.com/t3l3machus/hoaxshell |
 | Intruder Payloads | A collection of Burpsuite Intruder payloads, BurpBounty payloads, fuzz lists, malicious file uploads and web pentesting methodologies and checklists. | https://github.com/1N3/IntruderPayloads |
 | Invoke-Obfuscation | PowerShell Obfuscator | https://github.com/danielbohannon/Invoke-Obfuscation |
@@ -62,12 +63,14 @@
 | marshalsec | Java Unmarshaller Security | https://github.com/mbechler/marshalsec |
 | mimikatz Obfuscator | This script downloads and slightly obfuscates the mimikatz project. | https://gist.github.com/imaibou/92feba3455bf173f123fbe50bbe80781 |
 | Mortar Loader | Evasion technique to defeat and divert detection and prevention of security products (AV/EDR/XDR) | https://github.com/0xsp-SRD/mortar |
+| NET-Obfuscate | Obfuscate ECMA CIL (.NET IL) assemblies to evade Windows Defender AMSI  | https://github.com/BinaryScary/NET-Obfuscate |
 | NetLoader | Loads any C# binary in mem, patching AMSI + ETW. | https://github.com/Flangvik/NetLoader |
 | NimBlackout | Kill AV/EDR leveraging BYOVD attack | https://github.com/Helixo32/NimBlackout |
 | Nimcrypt2 | .NET, PE, & Raw Shellcode Packer/Loader Written in Nim | https://github.com/icyguider/Nimcrypt2 |
 | NimPackt-v1 | Nim-based assembly packer and shellcode loader for opsec & profit | https://github.com/chvancooten/NimPackt-v1 |
 | Nishang | Offensive PowerShell for red team, penetration testing and offensive security. | https://github.com/samratashok/nishang |
 | ntlm_theft | A tool for generating multiple types of NTLMv2 hash theft files. | https://github.com/Greenwolf/ntlm_theft |
+| Obfuscar | Open source obfuscation tool for .NET assemblies | https://github.com/obfuscar/obfuscar |
 | Obfuscator-LLVM | The aim of this project is to provide an open-source fork of the LLVM compilation suite able to provide increased software security through code obfuscation and tamper-proofing. | https://github.com/obfuscator-llvm/obfuscator |
 | OffensivePipeline | OffensivePipeline allows to download, compile (without Visual Studio) and obfuscate C# tools for Red Team exercises.  | https://github.com/Aetsu/OffensivePipeline |
 | p0wny@shell:~# | Single-file PHP shell | https://github.com/flozz/p0wny-shell |
@@ -91,6 +94,7 @@
 | WebShell | Webshell && Backdoor Collection | https://github.com/xl7dev/WebShell |
 | Weevely | Weaponized web shell | https://github.com/epinna/weevely3 |
 | woodpecker | Log4j jndi injects the Payload generator | https://github.com/woodpecker-appstore/log4j-payload-generator |
+| yetAnotherObfuscator | C# obfuscator that bypass windows defender | https://github.com/0xb11a1/yetAnotherObfuscator |
 | ysoserial | A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization. | https://github.com/frohoff/ysoserial |
 | ysoserial.net | Deserialization payload generator for a variety of .NET formatters | https://github.com/pwntester/ysoserial.net |
 
