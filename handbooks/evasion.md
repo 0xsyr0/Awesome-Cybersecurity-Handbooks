@@ -8,7 +8,6 @@
 - [AntiVirus Evasion](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/evasion.md#AntiVirus-Evasion)
 - [Donut](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/evasion.md#Donut)
 - [ScareCrow](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/evasion.md#ScareCrow)
-- [Windows Scripting Host (WSH)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/evasion.md#Windows-Scripting-Host-WSH)
 
 ## Resources
 
