@@ -368,14 +368,29 @@ sliver > armory install all
 #### Register a new Operator
 
 ```c
+root@c2:~# ./sliver-server operator --name <USERNAME> --lhost 127.0.0.1 --save /home/<USERNAME>/.sliver/configs/<USERNAME>.cfg
+```
+
+```c
+root@c2:~/.sliver/configs$ chown <USERNAME>:<USERNAME> *.cfg
+```
+
+```c
+username@c2:~/.sliver/configs$ sliver import <USERNAME>.cfg
+```
+
+#### Register a new Operator directly on the Sliver Server
+
+```c
 [server] sliver > multiplayer
+```
+
+```c
 [server] sliver > new-operator --name <USERNAME> --lhost <LHOST>
 ```
 
-#### Access with Custom Configuration File
-
 ```c
-$ ./sliver-client import ./<USERNAME>_example.com.cfg
+username@c2:~/.sliver/configs$ sliver import <USERNAME>.cfg
 ```
 
 #### Kick Operator
