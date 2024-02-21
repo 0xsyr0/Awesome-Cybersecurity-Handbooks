@@ -2,18 +2,18 @@
 
 ## Table of Contents
 
-- [Avoid Invoke-Expression (IEX) and Invoke-WebRequest (IWR)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#Avoid-Invoke-Expression-IEX-and-Invoke-WebRequest-IWR)
-- [Bypassing Event Tracing for Windows (ETW)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#Bypassing-Event-Tracing-for-Windows-ETW)
-- [Clear Linux History](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#Clear-Linux-History)
-- [Hiding SSH Sessions](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#Hiding-SSH-Sessions)
-- [Logfile Cleaning](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#Logfile-Cleaning)
-- [LOLBAS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#LOLBAS)
-- [.NET Reflection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#NET-Reflection)
-- [Process Hiding](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#Process-Hiding)
-- [ProxyChains](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#ProxyChains)
-- [Save File Deletion](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#Save-File-Deletion)
-- [Sneaky Directory](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#Sneaky-Directory)
-- [Windows Advanced Threat Protection (ATP)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/operational_security.md#Windows-Advanced-Threat-Protection-ATP)
+- [Avoid Invoke-Expression (IEX) and Invoke-WebRequest (IWR)](#Avoid-Invoke-Expression-IEX-and-Invoke-WebRequest-IWR)
+- [Bypassing Event Tracing for Windows (ETW)](#Bypassing-Event-Tracing-for-Windows-ETW)
+- [Clear Linux History](#Clear-Linux-History)
+- [Hiding SSH Sessions](#Hiding-SSH-Sessions)
+- [Logfile Cleaning](#Logfile-Cleaning)
+- [LOLBAS](#LOLBAS)
+- [.NET Reflection](#NET-Reflection)
+- [Process Hiding](#Process-Hiding)
+- [ProxyChains](#ProxyChains)
+- [Save File Deletion](#Save-File-Deletion)
+- [Sneaky Directory](#Sneaky-Directory)
+- [Windows Advanced Threat Protection (ATP)](#Windows-Advanced-Threat-Protection-ATP)
 
 ## Avoid Invoke-Expression (IEX) and Invoke-WebRequest (IWR)
 
