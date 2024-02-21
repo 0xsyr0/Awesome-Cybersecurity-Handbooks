@@ -1,24 +1,24 @@
 # Blue Teaming
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [Advanced Threat Analytics](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Advanced-Threat-Analytics)
-- [API Security Tasks](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#API-Security-Tasks)
-- [Atomic Red Team](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Atomic-Red-Team)
-- [Event Log Analysis](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Event-Log-Analysis)
-- [Device Guard](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Devoice-Guard)
-- [General Configuration](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#General-Configuration)
-- [LAPS](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#LAPS)
-- [Layered Architecture](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Layered-Architecture)
-- [Mitigate Kerberoast](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Mitigate-Kerberoast)
-- [Mitigate Skeleton Key](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Mitigate-Skeleton-Key)
-- [Mitigate Trust Attack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Mitigate-Trust-Attack)
-- [Privileged Administrative Workstations](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Privileged-Administrative-Workstations)
-- [Protected Users Group](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Protected-Users-Group)
-- [Red Forest](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Red-Forest)
-- [Sniffing SSH Sessions](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/blue_teaming.md#Sniffing-SSH-Sessions)
+- [Advanced Threat Analytics](#Advanced-Threat-Analytics)
+- [API Security Tasks](#API-Security-Tasks)
+- [Atomic Red Team](#Atomic-Red-Team)
+- [Event Log Analysis](#Event-Log-Analysis)
+- [Device Guard](#Devoice-Guard)
+- [General Configuration](#General-Configuration)
+- [LAPS](#LAPS)
+- [Layered Architecture](#Layered-Architecture)
+- [Mitigate Kerberoast](#Mitigate-Kerberoast)
+- [Mitigate Skeleton Key](#Mitigate-Skeleton-Key)
+- [Mitigate Trust Attack](#Mitigate-Trust-Attack)
+- [Privileged Administrative Workstations](#Privileged-Administrative-Workstations)
+- [Protected Users Group](#Protected-Users-Group)
+- [Red Forest](#Red-Forest)
+- [Sniffing SSH Sessions](#Sniffing-SSH-Sessions)
 
 ## Resources
 
