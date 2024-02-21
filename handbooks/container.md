@@ -1,15 +1,15 @@
 # Container
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [Docker](#Docker)
-- [Docker-Compose](#Docker-Compose)
+- [Docker](#docker)
+- [Docker-Compose](#docker-compose)
 - [kubectl](#kubectl)
 - [kubeletctl](#kubeletctl)
-- [Kubernetes](#Kubernetes)
-- [LXD](#LXD)
+- [Kubernetes](#kubernetes)
+- [LXD](#lxd)
 
 ## Resources
 
