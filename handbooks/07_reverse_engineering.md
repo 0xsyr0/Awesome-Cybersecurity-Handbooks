@@ -1,21 +1,21 @@
 # Reverse Engineering
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [Assembly Instructions](#Assembly-Instructions)
-- [AvalonialLSpy](#AvalonialLSpy)
-- [Basic Block in angr](#Basic-Block-in-angr)
-- [Binwalk](#Binwalk)
-- [CFR](#CFR)
+- [Assembly Instructions](#assembly-instructions)
+- [AvalonialLSpy](#avaloniallspy)
+- [Basic Block in angr](#basic-block-in-angr)
+- [Binwalk](#binwalk)
+- [CFR](#cfr)
 - [dumpbin](#dumpbin)
 - [file](#file)
-- [GDB](#GDB)
-- [GEF](#GEF)
-- [Ghidra](#Ghidra)
+- [GDB](#gdb)
+- [GEF](#gef)
+- [Ghidra](#ghidra)
 - [peda](#peda)
-- [Radare2](#Radare2)
+- [Radare2](#radare2)
 - [strings](#strings)
 - [upx](#upx)
 
