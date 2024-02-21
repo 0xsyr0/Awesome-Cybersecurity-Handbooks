@@ -6,7 +6,7 @@
 
 - [2FA Bypass Techniques](#2fa-bypass-techniques)
 - [403 Bypass](#403-bypass)
-- [Asset Discovery](#asset-Discovery)
+- [Asset Discovery](#asset-discovery)
 - [Burp Suite](#burp-suite)
 - [Bypassing File Upload Restrictions](#bypassing-file-upload-restrictions)
 - [cadaver](#cadaver)
