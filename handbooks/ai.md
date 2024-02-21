@@ -1,6 +1,6 @@
 # AI
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/ai.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
