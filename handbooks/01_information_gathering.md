@@ -1,10 +1,10 @@
 # Information Gathering
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [Amass](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Amass)
+- [Amass](#Amass)
 - [Banner Grabbing](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Banner-Grabbing)
 - [Common Ports](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#Common-Ports)
 - [dmitry](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md#dmitry)
