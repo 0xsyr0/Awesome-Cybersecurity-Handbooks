@@ -1,12 +1,12 @@
 # Sniffing & Spoofing
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [FakeDns](#FakeDns)
-- [Responder](#Responder)
-- [SSH-MITM](#SSH-MITM)
+- [FakeDns](#fakedns)
+- [Responder](#responder)
+- [SSH-MITM](#ssh-mitm)
 - [tshark](#tshark)
 
 ## Resources
