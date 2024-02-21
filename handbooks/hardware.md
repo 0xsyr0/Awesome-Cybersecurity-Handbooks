@@ -1,10 +1,10 @@
 # Hardware
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [Signal Decoding](#Signal-Decoding)
+- [Signal Decoding](#signal-decoding)
 
 ## Resources
 
