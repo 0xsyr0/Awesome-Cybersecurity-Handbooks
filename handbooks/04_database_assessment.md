@@ -1,27 +1,27 @@
 # Database Assessment
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [Hibernate Query Language Injection (HQLi)](#Hibernate-Query-Language-Injection-HQLi)
+- [Hibernate Query Language Injection (HQLi)](#hibernate-query-language-injection-hqli)
 - [impacket-mssqlclient](#impacket-mssqlclient)
-- [MongoDB](#MongoDB)
-- [MDB Tools](#MDB-Tools)
-- [MSSQL](#MSSQL)
-- [MySQL](#MySQL)
+- [MongoDB](#mongodb)
+- [MDB Tools](#mdb-tools)
+- [MSSQL](#mssql)
+- [MySQL](#mysql)
 - [mysqldump](#mysqldump)
-- [NoSQL Injection](#NoSQL-Injection)
-- [PostgreSQL](#PostgreSQL)
-- [Redis](#Redis)
-- [SQL](#SQL)
+- [NoSQL Injection](#nosql-injection)
+- [PostgreSQL](#postgresql)
+- [Redis](#redis)
+- [SQL](#sql)
 - [sqlcmd](#sqlcmd)
-- [SQL Injection](#SQL-Injection-SQLi)
+- [SQL Injection](#sql-injection-sqli)
 - [sqlite3](#sqlite3)
 - [sqlmap](#sqlmap)
-- [sqlmap Websocket Proxy](#sqlmap-Websocket-Proxy)
+- [sqlmap Websocket Proxy](#sqlmap-websocket-proxy)
 - [sqsh](#sqsh)
-- [XPATH Injection](#XPATH-Injection)
+- [XPATH Injection](#xpath-injection)
 
 ## Resources
 
