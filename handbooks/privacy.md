@@ -1,10 +1,10 @@
 # Privacy
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [Mozilla Firefox](#Mozilla-Firefox)
+- [Mozilla Firefox](#mozilla-firefox)
 
 ## Resources
 
