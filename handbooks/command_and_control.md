@@ -1,15 +1,15 @@
 # Command and Control
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [Covenant](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Covenant)
-- [Empire](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Empire)
-- [Hak5 Cloud C2](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Hak5-Cloud-C2)
-- [Havoc](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Havoc)
-- [Mythic](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Mythic)
-- [Sliver](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/command_and_control.md#Sliver)
+- [Covenant](#Covenant)
+- [Empire](#Empire)
+- [Hak5 Cloud C2](#Hak5-Cloud-C2)
+- [Havoc](#Havoc)
+- [Mythic](#Mythic)
+- [Sliver](#Sliver)
 
 ## Resources
 
