@@ -1,13 +1,13 @@
 # Wordlists
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [CeWL](#CeWL)
-- [CUPP](#CUPP)
+- [CeWL](#cewl)
+- [CUPP](#cupp)
 - [crunch](#crunch)
-- [Username Anarchy](#Username-Anarchy)
+- [Username Anarchy](#username-anarchy)
 
 ## Resources
 
