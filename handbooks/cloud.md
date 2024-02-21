@@ -1,10 +1,10 @@
 # Cloud
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [AWS](#AWS)
+- [AWS](#aws)
 - [lazys3](#lazys3)
 
 ## Resources
