@@ -1,13 +1,13 @@
 # Social Engineering Tools
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [Evilginx2](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Evilginx2)
-- [Gophish](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Gophish)
-- [Storm Breaker](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#Storm-Breaker)
-- [The Social Engineering Toolkit (SET)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/13_social_engineering_tools.md#The-Social-Engineering-Toolkit-SET)
+- [Evilginx2](#Evilginx2)
+- [Gophish](#Gophish)
+- [Storm Breaker](#Storm-Breaker)
+- [The Social Engineering Toolkit (SET)](#The-Social-Engineering-Toolkit-SET)
 
 ## Resources
 
