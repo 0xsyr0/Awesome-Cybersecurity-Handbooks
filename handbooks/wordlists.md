@@ -1,13 +1,13 @@
 # Wordlists
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [CeWL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#CeWL)
-- [CUPP](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#CUPP)
-- [crunch](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#crunch)
-- [Username Anarchy](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/wordlists.md#Username-Anarchy)
+- [CeWL](#CeWL)
+- [CUPP](#CUPP)
+- [crunch](#crunch)
+- [Username Anarchy](#Username-Anarchy)
 
 ## Resources
 
