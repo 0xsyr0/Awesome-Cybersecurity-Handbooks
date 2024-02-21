@@ -1,15 +1,15 @@
 # OSINT
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [Fast Google Dorks Scan](#Fast-Google-Dorks-Scan)
-- [Google](#Google)
+- [Fast Google Dorks Scan](#fast-google-dorks-scan)
+- [Google](#google)
 - [h8mail](#h8mail)
-- [Photon](#Photon)
-- [Social Analyzer](#Social-Analyzer)
-- [theHarvester](#theHarvester)
+- [Photon](#photon)
+- [Social Analyzer](#social-analyzer)
+- [theHarvester](#theharvester)
 
 ## Resources
 
