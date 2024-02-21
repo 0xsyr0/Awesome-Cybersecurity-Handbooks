@@ -1,15 +1,15 @@
 # Command and Control
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [Covenant](#Covenant)
-- [Empire](#Empire)
-- [Hak5 Cloud C2](#Hak5-Cloud-C2)
-- [Havoc](#Havoc)
-- [Mythic](#Mythic)
-- [Sliver](#Sliver)
+- [Covenant](#covenant)
+- [Empire](#empire)
+- [Hak5 Cloud C2](#hak5-cloud-c2)
+- [Havoc](#havoc)
+- [Mythic](#mythic)
+- [Sliver](#sliver)
 
 ## Resources
 
