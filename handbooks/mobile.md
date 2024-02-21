@@ -1,10 +1,10 @@
 # Mobile
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/mobile.md#Resource)
+- [Resources](#Resource)
 
 ## Table of Contents
 
-- [Apktool](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/mobile.md#Apktool)
+- [Apktool](#Apktool)
 
 ## Resources
 
