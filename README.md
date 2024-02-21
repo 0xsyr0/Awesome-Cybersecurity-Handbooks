@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="700" height="250" src="https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/images/awesome-cybersecurity-handbooks.png">
+  <img width="700" height="250" src="images/awesome-cybersecurity-handbooks.png">
 </p>
 
 # Awesome Cybersecurity Handbooks [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
@@ -38,7 +38,7 @@ Thank you for reading.
 
 ## Table of Contents
 
-- [01 Information Gathering](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/01_information_gathering.md)
+- [01 Information Gathering](handbooks/01_information_gathering.md)
 - [02 Vulnerability Analysis](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/02_vulnerability_analysis.md)
 - [03 Web Application Analysis](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/03_web_application_analysis.md)
 - [04 Database Assessment](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md)
