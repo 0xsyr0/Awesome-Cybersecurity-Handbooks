@@ -1,11 +1,11 @@
 # IoT
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [Mosquitto (MQTT)](#Mosquitto-MQTT)
-- [SirepRAT](#SirepRAT)
+- [Mosquitto (MQTT)](#mosquitto-mqtt)
+- [SirepRAT](#sireprat)
 
 ## Resources
 
