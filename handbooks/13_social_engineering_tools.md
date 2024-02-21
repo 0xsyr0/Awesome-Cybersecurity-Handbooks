@@ -1,13 +1,13 @@
 # Social Engineering Tools
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [Evilginx2](#Evilginx2)
-- [Gophish](#Gophish)
-- [Storm Breaker](#Storm-Breaker)
-- [The Social Engineering Toolkit (SET)](#The-Social-Engineering-Toolkit-SET)
+- [Evilginx2](#evilginx2)
+- [Gophish](#gophish)
+- [Storm Breaker](#storm-breaker)
+- [The Social Engineering Toolkit (SET)](#the-social-engineering-toolkit-set)
 
 ## Resources
 
