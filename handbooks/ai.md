@@ -1,6 +1,6 @@
 # AI
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
