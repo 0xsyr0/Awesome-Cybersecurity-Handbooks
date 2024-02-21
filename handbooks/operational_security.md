@@ -2,18 +2,18 @@
 
 ## Table of Contents
 
-- [Avoid Invoke-Expression (IEX) and Invoke-WebRequest (IWR)](#Avoid-Invoke-Expression-IEX-and-Invoke-WebRequest-IWR)
-- [Bypassing Event Tracing for Windows (ETW)](#Bypassing-Event-Tracing-for-Windows-ETW)
-- [Clear Linux History](#Clear-Linux-History)
-- [Hiding SSH Sessions](#Hiding-SSH-Sessions)
-- [Logfile Cleaning](#Logfile-Cleaning)
-- [LOLBAS](#LOLBAS)
-- [.NET Reflection](#NET-Reflection)
-- [Process Hiding](#Process-Hiding)
-- [ProxyChains](#ProxyChains)
-- [Save File Deletion](#Save-File-Deletion)
-- [Sneaky Directory](#Sneaky-Directory)
-- [Windows Advanced Threat Protection (ATP)](#Windows-Advanced-Threat-Protection-ATP)
+- [Avoid Invoke-Expression (IEX) and Invoke-WebRequest (IWR)](#avoid-invoke-expression-iex-and-invoke-webrequest-iwr)
+- [Bypassing Event Tracing for Windows (ETW)](#bypassing-event-tracing-for-windows-etw)
+- [Clear Linux History](#clear-linux-history)
+- [Hiding SSH Sessions](#hiding-ssh-sessions)
+- [Logfile Cleaning](#logfile-cleaning)
+- [LOLBAS](#lolbas)
+- [.NET Reflection](#net-reflection)
+- [Process Hiding](#process-hiding)
+- [ProxyChains](#proxychains)
+- [Save File Deletion](#save-file-deletion)
+- [Sneaky Directory](#sneaky-directory)
+- [Windows Advanced Threat Protection (ATP)](#windows-advanced-threat-protection-atp)
 
 ## Avoid Invoke-Expression (IEX) and Invoke-WebRequest (IWR)
 
