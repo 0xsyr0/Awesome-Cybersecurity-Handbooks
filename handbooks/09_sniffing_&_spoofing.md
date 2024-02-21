@@ -1,13 +1,13 @@
 # Sniffing & Spoofing
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/09_sniffing_%26_spoofing.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [FakeDns](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/09_sniffing_%26_spoofing.md#FakeDns)
-- [Responder](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/09_sniffing_%26_spoofing.md#Responder)
-- [SSH-MITM](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/09_sniffing_%26_spoofing.md#SSH-MITM)
-- [tshark](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/09_sniffing_%26_spoofing.md#tshark)
+- [FakeDns](#FakeDns)
+- [Responder](#Responder)
+- [SSH-MITM](#SSH-MITM)
+- [tshark](#tshark)
 
 ## Resources
 
