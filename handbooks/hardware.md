@@ -1,10 +1,10 @@
 # Hardware
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/hardware.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [Signal Decoding](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/hardware.md#Signal-Decoding)
+- [Signal Decoding](#Signal-Decoding)
 
 ## Resources
 
