@@ -1,25 +1,25 @@
 # Cryptography
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [Base64](#Base64)
+- [Base64](#base64)
 - [bcrypt](#bcrypt)
-- [Creating Password Hashes](#Creating-Password-Hashes)
-- [EncFS/6](#EncFS6)
-- [Featherduster](#Featherduster)
+- [Creating Password Hashes](#creating-password-hashes)
+- [EncFS/6](#encfs6)
+- [Featherduster](#featherduster)
 - [hash-identifier](#hash-identifier)
-- [hashID](#hashID)
-- [Magic Function](#Magic-Function)
-- [MD5](#MD5)
-- [OpenSSL](#OpenSSL)
-- [PuTTY Tools](#PuTTY-Tools)
-- [Python Pickle](#Python-Pickle)
-- [ROT13](#ROT13)
-- [RSA](#RSA)
-- [SHA256](#SHA256)
-- [XOR](#XOR)
+- [hashID](#hashid)
+- [Magic Function](#magic-function)
+- [MD5](#md5)
+- [OpenSSL](#openssl)
+- [PuTTY Tools](#putty-tools)
+- [Python Pickle](#python-pickle)
+- [ROT13](#rot13)
+- [RSA](#rsa)
+- [SHA256](#sha256)
+- [XOR](#xor)
 
 ## Resources
 
