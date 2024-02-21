@@ -1,10 +1,10 @@
 # Privacy
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/privacy.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [Mozilla Firefox](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/privacy.md#Mozilla-Firefox)
+- [Mozilla Firefox](#Mozilla-Firefox)
 
 ## Resources
 
