@@ -1,14 +1,14 @@
 # Reporting Tools
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [Folder Structure on Operations Server](#Folder-Structure-on-Operations-Server)
-- [Logging](#Logging)
-- [Markdown](#Markdown)
-- [Meetings](#Meetings)
-- [Obsidian](#Obsidian)
+- [Folder Structure on Operations Server](#folder-structure-on-operations-server)
+- [Logging](#logging)
+- [Markdown](#markdown)
+- [Meetings](#meetings)
+- [Obsidian](#obsidian)
 
 ## Resources
 
@@ -195,10 +195,11 @@ msf> spool <file>.log
 ### Useful plugins
 
 * Admonition
-* Obsidian Git
-* Dataview
-* Templater
+* Advanced Tables
 * Better Word Count
-* Copy button for code blocks
+* Code Block Enhancer
 * Editor Syntax Highlight
-* Icon Folder
+* File Explorer Note count
+* Git
+* Iconize
+* Icons
