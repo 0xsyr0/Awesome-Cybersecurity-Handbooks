@@ -1,11 +1,11 @@
 # IoT
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/iot.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [Mosquitto (MQTT)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/iot.md#Mosquitto-MQTT)
-- [SirepRAT](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/iot.md#SirepRAT)
+- [Mosquitto (MQTT)](#Mosquitto-MQTT)
+- [SirepRAT](#SirepRAT)
 
 ## Resources
 
