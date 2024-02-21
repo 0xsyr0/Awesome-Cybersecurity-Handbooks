@@ -1,13 +1,13 @@
 # Evasion Handbook
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [AMSI](#AMSI)
-- [AntiVirus Evasion](#AntiVirus-Evasion)
-- [Donut](#Donut)
-- [ScareCrow](#ScareCrow)
+- [AMSI](#amsi)
+- [AntiVirus Evasion](#antivirus-evasion)
+- [Donut](#donut)
+- [ScareCrow](#scarecrow)
 
 ## Resources
 
