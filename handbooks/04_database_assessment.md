@@ -1,27 +1,27 @@
 # Database Assessment
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [Hibernate Query Language Injection (HQLi)](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#Hibernate-Query-Language-Injection-HQLi)
-- [impacket-mssqlclient](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#impacket-mssqlclient)
-- [MongoDB](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MongoDB)
-- [MDB Tools](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MDB-Tools)
-- [MSSQL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MSSQL)
-- [MySQL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#MySQL)
-- [mysqldump](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#mysqldump)
-- [NoSQL Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#NoSQL-Injection)
-- [PostgreSQL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#PostgreSQL)
-- [Redis](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#Redis)
-- [SQL](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#SQL)
-- [sqlcmd](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#sqlcmd)
-- [SQL Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#SQL-Injection-SQLi)
-- [sqlite3](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#sqlite3)
-- [sqlmap](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#sqlmap)
-- [sqlmap Websocket Proxy](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#sqlmap-Websocket-Proxy)
-- [sqsh](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#sqsh)
-- [XPATH Injection](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/04_database_assessment.md#XPATH-Injection)
+- [Hibernate Query Language Injection (HQLi)](#Hibernate-Query-Language-Injection-HQLi)
+- [impacket-mssqlclient](#impacket-mssqlclient)
+- [MongoDB](#MongoDB)
+- [MDB Tools](#MDB-Tools)
+- [MSSQL](#MSSQL)
+- [MySQL](#MySQL)
+- [mysqldump](#mysqldump)
+- [NoSQL Injection](#NoSQL-Injection)
+- [PostgreSQL](#PostgreSQL)
+- [Redis](#Redis)
+- [SQL](#SQL)
+- [sqlcmd](#sqlcmd)
+- [SQL Injection](#SQL-Injection-SQLi)
+- [sqlite3](#sqlite3)
+- [sqlmap](#sqlmap)
+- [sqlmap Websocket Proxy](#sqlmap-Websocket-Proxy)
+- [sqsh](#sqsh)
+- [XPATH Injection](#XPATH-Injection)
 
 ## Resources
 
