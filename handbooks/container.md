@@ -1,15 +1,15 @@
 # Container
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [Docker](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#Docker)
-- [Docker-Compose](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#Docker-Compose)
-- [kubectl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#kubectl)
-- [kubeletctl](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#kubeletctl)
-- [Kubernetes](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#Kubernetes)
-- [LXD](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/container.md#LXD)
+- [Docker](#Docker)
+- [Docker-Compose](#Docker-Compose)
+- [kubectl](#kubectl)
+- [kubeletctl](#kubeletctl)
+- [Kubernetes](#Kubernetes)
+- [LXD](#LXD)
 
 ## Resources
 
