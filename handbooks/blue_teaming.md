@@ -1,24 +1,24 @@
 # Blue Teaming
 
-- [Resources](#Resources)
+- [Resources](#resources)
 
 ## Table of Contents
 
-- [Advanced Threat Analytics](#Advanced-Threat-Analytics)
-- [API Security Tasks](#API-Security-Tasks)
-- [Atomic Red Team](#Atomic-Red-Team)
-- [Event Log Analysis](#Event-Log-Analysis)
-- [Device Guard](#Devoice-Guard)
-- [General Configuration](#General-Configuration)
-- [LAPS](#LAPS)
-- [Layered Architecture](#Layered-Architecture)
-- [Mitigate Kerberoast](#Mitigate-Kerberoast)
-- [Mitigate Skeleton Key](#Mitigate-Skeleton-Key)
-- [Mitigate Trust Attack](#Mitigate-Trust-Attack)
-- [Privileged Administrative Workstations](#Privileged-Administrative-Workstations)
-- [Protected Users Group](#Protected-Users-Group)
-- [Red Forest](#Red-Forest)
-- [Sniffing SSH Sessions](#Sniffing-SSH-Sessions)
+- [Advanced Threat Analytics](#advanced-threat-analytics)
+- [API Security Tasks](#api-security-tasks)
+- [Atomic Red Team](#atomic-red-team)
+- [Event Log Analysis](#event-log-analysis)
+- [Device Guard](#devoice-guard)
+- [General Configuration](#general-configuration)
+- [LAPS](#laps)
+- [Layered Architecture](#layered-architecture)
+- [Mitigate Kerberoast](#mitigate-kerberoast)
+- [Mitigate Skeleton Key](#mitigate-skeleton-key)
+- [Mitigate Trust Attack](#mitigate-trust-attack)
+- [Privileged Administrative Workstations](#privileged-administrative-workstations)
+- [Protected Users Group](#protected-users-group)
+- [Red Forest](#red-forest)
+- [Sniffing SSH Sessions](#sniffing-ssh-sessions)
 
 ## Resources
 
