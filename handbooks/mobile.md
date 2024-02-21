@@ -1,10 +1,10 @@
 # Mobile
 
-- [Resources](#Resource)
+- [Resources](#resource)
 
 ## Table of Contents
 
-- [Apktool](#Apktool)
+- [Apktool](#apktool)
 
 ## Resources
 
