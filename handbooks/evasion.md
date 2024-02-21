@@ -1,13 +1,13 @@
 # Evasion Handbook
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/evasion.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [AMSI](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/evasion.md#AMSI)
-- [AntiVirus Evasion](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/evasion.md#AntiVirus-Evasion)
-- [Donut](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/evasion.md#Donut)
-- [ScareCrow](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/evasion.md#ScareCrow)
+- [AMSI](#AMSI)
+- [AntiVirus Evasion](#AntiVirus-Evasion)
+- [Donut](#Donut)
+- [ScareCrow](#ScareCrow)
 
 ## Resources
 
