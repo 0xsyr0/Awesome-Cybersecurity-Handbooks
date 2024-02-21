@@ -1,17 +1,17 @@
 # Wireless Attacks
 
-- [Resources](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#Resources)
+- [Resources](#Resources)
 
 ## Table of Contents
 
-- [Aircrack-ng](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#Aircrack-ng)
-- [airodump-ng](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#airodump-ng)
-- [airmon-ng](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#airmon-ng)
-- [ALFA AWUS036ACH](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#ALFA-AWUS036ACH)
-- [Apple Wi-Fi Evil SSID](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#Apple-Wi-Fi-Evil-SSID)
-- [mdk3](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#mdk3)
-- [Microsoft Windows](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#Microsoft-Windows)
-- [Wi-Fi Example Attack](https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/handbooks/06_wireless_attacks.md#Wi-Fi-Example-Attack)
+- [Aircrack-ng](#Aircrack-ng)
+- [airodump-ng](#airodump-ng)
+- [airmon-ng](#airmon-ng)
+- [ALFA AWUS036ACH](#ALFA-AWUS036ACH)
+- [Apple Wi-Fi Evil SSID](#Apple-Wi-Fi-Evil-SSID)
+- [mdk3](#mdk3)
+- [Microsoft Windows](#Microsoft-Windows)
+- [Wi-Fi Example Attack](#Wi-Fi-Example-Attack)
 
 ## Resources
 
