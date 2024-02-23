@@ -151,8 +151,9 @@
 | CVE-2023-51467, CVE-2023-49070 | Apache OFBiz Authentication Bypass | https://github.com/jakabakos/Apache-OFBiz-Authentication-Bypass |
 | CVE-2023-7028 | GitLab Account Takeover | https://github.com/V1lu0/CVE-2023-7028 |
 | CVE-2023-7028 | GitLab Account Takeover | https://github.com/Vozec/CVE-2023-7028 |
-| CVE-2024-21413 | Microsoft Outlook RCE | https://github.com/duy-31/CVE-2024-21413 |
-| CVE-2024-21413 | Microsoft Outlook RCE | https://github.com/xaitax/CVE-2024-21413-Microsoft-Outlook-Remote-Code-Execution-Vulnerability |
+| CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (1) | https://github.com/duy-31/CVE-2024-21413 |
+| CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (2) | https://github.com/CMNatic/CVE-2024-21413 |
+| CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (3) | https://github.com/xaitax/CVE-2024-21413-Microsoft-Outlook-Remote-Code-Execution-Vulnerability |
 | CVE-2024-21626 | Leaky Vessels Container Escape | https://github.com/Wall1e/CVE-2024-21626-POC |
 | CVE-2024-28897 | Jenkins Arbitrary File Read | https://github.com/CKevens/CVE-2024-23897 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
