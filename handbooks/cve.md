@@ -154,7 +154,8 @@
 | CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (1) | https://github.com/duy-31/CVE-2024-21413 |
 | CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (2) | https://github.com/CMNatic/CVE-2024-21413 |
 | CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (3) | https://github.com/xaitax/CVE-2024-21413-Microsoft-Outlook-Remote-Code-Execution-Vulnerability |
-| CVE-2024-21626 | Leaky Vessels Container Escape | https://github.com/Wall1e/CVE-2024-21626-POC |
+| CVE-2024-21626 | Leaky Vessels Container Escape (1) | https://github.com/Wall1e/CVE-2024-21626-POC |
+| CVE-2024-21626 | Leaky Vessels Container Escape (2) | https://github.com/NitroCao/CVE-2024-21626 |
 | CVE-2024-28897 | Jenkins Arbitrary File Read | https://github.com/CKevens/CVE-2024-23897 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
