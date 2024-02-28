@@ -100,14 +100,87 @@ $ sudo update-ca-certificates
 
 ## Gophish
 
-> https://github.com/sdcampbell/Internal-Pentest-Playbook
+> https://github.com/gophish/gophish
 
 > https://www.ired.team/offensive-security/initial-access/phishing-with-gophish-and-digitalocean
+
+### GoPhish Modification
+
+> https://github.com/puzzlepeaches/sneaky_gophish
+
+> https://www.redteam.cafe/phishing/gophish-mods
+
+#### Clone GoPhish
+
+```c
+$ git clone https://github.com/gophish/gophish
+```
+
+#### Get a Custom 404 Page
+
+```c
+$ wget "https://raw.githubusercontent.com/puzzlepeaches/sneaky_gophish/main/files/404.html" -O "404.html"
+```
+
+#### Get a Custom Phish.go
+
+```c
+$ wget "https://raw.githubusercontent.com/puzzlepeaches/sneaky_gophish/main/files/phish.go" -O "phish.go"
+```
+
+#### Copy Custom Phish.go
+
+```c
+$ rm gophish/controllers/phish.go
+$ mv phish.go gophish/controllers/phish.go
+```
+
+#### Copy new 404.html
+
+```c
+$ mv 404.html gophish/templates/404.html
+```
+
+```c
+$ cd gophish
+```
+
+```c
+$ sed -i 's/X-Gophish-Contact/X-Contact/g' models/email_request_test.go
+$ sed -i 's/X-Gophish-Contact/X-Contact/g' models/maillog.go
+$ sed -i 's/X-Gophish-Contact/X-Contact/g' models/maillog_test.go
+$ sed -i 's/X-Gophish-Contact/X-Contact/g' models/email_request.go
+```
+
+#### Stripping X-Gophish-Signature
+
+```c
+$ sed -i 's/X-Gophish-Signature/X-Signature/g' webhook/webhook.go
+```
+
+#### Changing servername
+
+```c
+$ sed -i 's/const ServerName = "gophish"/const ServerName = "IGNORE"/' config/config.go
+```
+
+#### Changing rid value
+
+```c
+$ read -p 'Custom RID Parameter: ' uservar
+$ sed -i 's/const RecipientParameter = "rid"/const RecipientParameter = "'$uservar'"/g' models/campaign.go
+```
+
+#### Build
+
+```c
+$ go build
+```
 
 ### Port Forwarding
 
 ```c
-$ ssh -i ~/.ssh/<SSH_KEY> root@<RHOST> -p <RPORT> -L3333:localhost:3333 -N -f
+$ ssh -i ~/.ssh/<SSH_KEY> root@<RHOST> -p <RPORT> -L 3333:localhost:3333 -N -f
 ```
 
 ## Storm Breaker
