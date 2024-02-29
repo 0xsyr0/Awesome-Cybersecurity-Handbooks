@@ -109,7 +109,7 @@ $ ./ps-empire server
 ```
 
 ```c
-./ps-empire client
+$ ./ps-empire client
 ```
 
 ### Starkiller
