@@ -64,6 +64,12 @@ $ docker build -t covenant .
 $ docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name covenant -v /PATH/TO/Covenant/Covenant/Data:/app/Data covenant
 ```
 
+or
+
+```c
+$ docker run -d -it -p 7443:7443 -p 80:80 -p 443:443 --name covenant -v /PATH/TO/Covenant/Covenant/Data:/app/Data covenant
+```
+
 > https://127.0.0.1:7443/covenantuser/login
 
 ### Stop Covenant
