@@ -69,6 +69,7 @@ $ docker image rm <IMAGE>:<VERSION>    // remove image with specific version
 $ docker run --name <IMAGE>            // use a memorable name
 $ docker run -it <IMAGE> /bin/bash     // interact with image
 $ docker run -it -v /PATH/TO/DIRECTORY:/PATH/TO/DIRECTORY <IMAGE> /bin/bash   // run image and mount specific directory
+$ docker update --restart unless-stopped <CONTAINER>    // auto start container
 $ docker run -d <IMAGE>                // run image in background
 $ docker run -p 80:80 <IMAGE>          // bind port on the host
 $ docker ps                            // list running containers
