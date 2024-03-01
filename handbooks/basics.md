@@ -4776,8 +4776,17 @@ $ simpleproxy -L <LPORT> -R <RHOST>:<RPORT>
 
 ## SMB
 
+### Prerequisistes
+
 ```c
-$ smb:\> allinfo <FILE>
+$ sudo apt-get install libguestfs-tools
+```
+
+### Common Commands
+
+```c
+$ mount.cifs //<RHOST>/<SHARE> /mnt/remote
+$ guestmount --add '/<MOUNTPOINT>/<DIRECTORY/FILE>' --inspector --ro /mnt/<MOUNT> -v
 ```
 
 ## smbcacls
@@ -4792,30 +4801,26 @@ $ for i in $(ls); do echo $i; smbcacls -N "//<RHOST>/<SHARE>" '$i';done >&1 > <F
 
 ## smbclient
 
-```c
-$ sudo apt-get install libguestfs-tools
-```
-
 ### Common Commands
 
 ```c
 $ smbclient -L \\<RHOST>\ -N
 $ smbclient -L //<RHOST>/ -N
 $ smbclient -L ////<RHOST>/ -N
-$ smbclient -U "<USERNAME>" -L \\\\<RHOST>\\
 $ smbclient -L //<RHOST>// -U <USERNAME>%<PASSWORD>
+$ smbclient -U "<USERNAME>" -L \\\\<RHOST>\\
+$ smbclient //<RHOST>/<SHARE> -U <USERNAME>
 $ smbclient //<RHOST>/SYSVOL -U <USERNAME>%<PASSWORD>
 $ smbclient "\\\\<RHOST>\<SHARE>"
 $ smbclient \\\\<RHOST>\\<SHARE> -U '<USERNAME>' --socket-options='TCP_NODELAY IPTOS_LOWDELAY SO_KEEPALIVE SO_RCVBUF=131072 SO_SNDBUF=131072' -t 40000
 $ smbclient --no-pass //<RHOST>/<SHARE>
-$ mount.cifs //<RHOST>/<SHARE> /mnt/remote
-$ guestmount --add '/<MOUNTPOINT>/<DIRECTORY/FILE>' --inspector --ro /mnt/<MOUNT> -v
 ```
 
 ### Usage
 
 ```c
-$ smb: \> get <filename>
+$ smb:\> allinfo <FILE>
+$ smb:\> get <filename>
 ```
 
 ### Anonymous Login
