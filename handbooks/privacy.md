@@ -36,7 +36,7 @@
 | Nitrokey | Open Source IT-Security Hardware Made in Germany | https://www.nitrokey.com |
 | Noisy | Simple random DNS, HTTP/S internet traffic noise generator | https://github.com/1tayH/noisy |
 | OONI | Open Observatory of Network Interference | https://ooni.org |
-| personal-security-checklist | 🔒 A compiled checklist of 300+ tips for protecting digital security and privacy in 2023. | https://github.com/Lissy93/personal-security-checklist |
+| Personal Security Checklist | 🔒 A compiled checklist of 300+ tips for protecting digital security and privacy in 2024 | https://github.com/lissy93/personal-security-checklist |
 | Posteo | Ad-free, no tracking, no user profiling email provider | https://posteo.de/en |
 | privacy.sexy | Open-source tool to enforce privacy & security best-practices on Windows, macOS and Linux, because privacy is sexy 🍑🍆 | https://privacy.sexy |
 | PrivacyGuardian | Protect your information when buying a domain name | https://www.privacyguardian.org |
