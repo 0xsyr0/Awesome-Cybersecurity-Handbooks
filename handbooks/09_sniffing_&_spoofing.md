@@ -83,6 +83,10 @@ $ sudo responder -I <INTERFACE>
 ## SSH-MITM
 
 ```c
+$ ssh-mitm server
+```
+
+```c
 $ ssh-mitm server --remote-host <RHOST>
 $ socat TCP-LISTEN:<RPORT>,fork TCP:127.0.0.1:10022
 ```
