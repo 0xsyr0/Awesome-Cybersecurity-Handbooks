@@ -472,6 +472,7 @@ Upgrade-Insecure-Requests: 1GET /../../../../../../../../etc/passwd HTTP/1.1
 ```c
 -i    // includes specific status codes
 -e    // excludes specific status codes
+-x    // excludes specific status codes
 -m    // specifies HTTP method
 ```
 
