@@ -8,7 +8,7 @@
 - [bkcrack](#bkcrack)
 - [CrackMapExec](#crackmapexec)
 - [fcrack](#fcrack)
-- [GPG](#gpg)
+- [Group Policy Preferences (GPP)](#group-policy-preferences-gpp)
 - [Hash-Buster](#hash-buster)
 - [hashcat](#hashcat)
 - [Hydra](#hydra)
@@ -178,12 +178,15 @@ $ crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/w
 $ fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt <FILE>.zip
 ```
 
-## GPG
+## Group Policy Preferences (GPP)
 
-### Decrypt Domain Policy Passwords
+### gpp-decrypt
+
+> https://github.com/t0thkr1s/gpp-decrypt
 
 ```c
-$ gpp-decrypt edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ
+$ python3 gpp-decrypt.py -f Groups.xml
+$ python3 gpp-decrypt.py -c edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ
 ```
 
 ## Hash-Buster
