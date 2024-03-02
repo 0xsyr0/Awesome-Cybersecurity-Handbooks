@@ -14,16 +14,12 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
-| Atomic Red Team | Atomic Red Team™ is a library of tests mapped to the MITRE ATT&CK® framework. Security teams can use Atomic Red Team to quickly, portably, and reproducibly test their environments. | https://github.com/redcanaryco/atomic-red-team |
 | Awesome Markdown | A collection of awesome markdown goodies (libraries, services, editors, tools, cheatsheets, etc.) | https://github.com/mundimark/awesome-markdown |
-| Caldera | CALDERA™ is a cyber security platform designed to easily automate adversary emulation, assist manual red-teams, and automate incident response. | https://github.com/mitre/caldera |
 | Cervantes | Cervantes is an opensource collaborative platform for pentesters or red teams who want to save time to manage their projects, clients, vulnerabilities and reports in one place. | https://github.com/CervantesSec/cervantes |
 | Ghostwriter | Ghostwriter is a Django-based web application designed to be used by an individual or a team of red team operators. | https://github.com/GhostManager/Ghostwriter |
 | Obsidian | Obsidian is a powerful knowledge base on top of a local folder of plain text Markdown files. | https://obsidian.md |
-| OWASP Threat Dragon | Threat Dragon is a free, open-source, cross-platform threat modeling application including system diagramming and a rule engine to auto-generate threats/mitigations. | https://github.com/mike-goodwin/owasp-threat-dragon-desktop |
 | PwnDoc-ng | Pentest Report Generator  | https://github.com/pwndoc-ng/pwndoc-ng |
 | SysReptor | Pentest Reporting Easy As Pie | https://github.com/Syslifters/sysreptor |
-| VECTR | VECTR is a tool that facilitates tracking of your red and blue team testing activities to measure detection and prevention capabilities across different attack scenarios. | https://github.com/SecurityRiskAdvisors/VECTR |
 | WriteHat | A pentest reporting tool written in Python. Free yourself from Microsoft Word. | https://github.com/blacklanternsecurity/writehat |
 | XMind | Full-featured mind mapping and brainstorming app. | https://www.xmind.net |
 
@@ -203,3 +199,4 @@ msf> spool <file>.log
 * Git
 * Iconize
 * Icons
+* Table of Contents
