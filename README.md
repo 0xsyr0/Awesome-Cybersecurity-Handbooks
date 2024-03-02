@@ -49,6 +49,7 @@ Thank you for reading.
 - [CVE](handbooks/cve.md)
 - [Evasion](handbooks/evasion.md)
 - [Exploitation](handbooks/exploitation.md)
+- [Frameworks](handbooks/frameworks.md)
 - [Hardware](handbooks/hardware.md)
 - [IoT](handbooks/iot.md)
 - [Malware Development](handbooks/malware_development.md)
