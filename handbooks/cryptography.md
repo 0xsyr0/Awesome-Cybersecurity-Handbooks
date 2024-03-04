@@ -161,6 +161,22 @@ $ openssl pkcs12 -in <PFX>.pfx -clcerts -nokeys -out <CERTIFICATE>.crt
 $ openssl pkcs12 -in <PFX>.pfx -nocerts -out <KEY>.key
 ```
 
+### Examples
+
+#### Extracting .pfx Files
+
+```c
+$ openssl pkcs12 -in <CERTIFICATE>.pfx -nocerts -out <KEY>.key
+$ openssl rsa -in <KEY>.key -out <KEY>.key
+$ openssl pkcs12 -in <CERTIFICATE>.pfx -clcerts -nokeys -out <CERTIFICATE>.crt
+```
+
+##### Login using Certificate and Key
+
+```c
+$ evil-winrm -i <RHOST> -S -k <KEY>.key -c <CERTIFICATE>.crt
+```
+
 ## PuTTY Tools
 
 ```c
