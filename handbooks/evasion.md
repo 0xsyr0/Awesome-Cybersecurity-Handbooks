@@ -44,6 +44,7 @@
 | Raikia's Hub | Online repository for Red Teamers | https://raikia.com/tool-powershell-encoder/ |
 | ScareCrow | Payload creation framework designed around EDR bypass. | https://github.com/Tylous/ScareCrow |
 | SharpEvader | This is a python script which automatically generates metepreter tcp or https shellcode encodes it and slaps some Behavioural detection in a c# Project for you to build and run | https://github.com/Xyan1d3/SharpEvader |
+| Shhhloader | Syscall Shellcode Loader (Work in Progress) | https://github.com/icyguider/Shhhloader |
 | ShellcodeEncryptor | A simple shell code encryptor/decryptor/executor to bypass anti virus. | https://github.com/plackyhacker/Shellcode-Encryptor |
 | ShellGhost | A memory-based evasion technique which makes shellcode invisible from process start to end. | https://github.com/lem0nSec/ShellGhost |
 | Shikata Ga Nai | Shikata ga nai (仕方がない) encoder ported into go with several improvements. | https://github.com/EgeBalci/sgn |
