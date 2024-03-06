@@ -207,6 +207,15 @@ $ buster -s 2b6d315337f18617ba18922c0b9597ff
 
 > https://hashcat.net/wiki/doku.php?id=example_hashes
 
+### Hash Example Search
+
+```c
+$ hashcat --example-hashes
+$ hashcat --help | grep -i "ntlm"
+```
+
+### Common Commands
+
 ```c
 $ hashcat -m 0 md5 /usr/share/wordlists/rockyou.txt
 $ hashcat -m 100 sha-1 /usr/share/wordlists/rockyou.txt
