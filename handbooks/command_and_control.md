@@ -648,19 +648,80 @@ sliver (NEARBY_LANGUAGE) > pivots
 
 #### Nginx
 
+##### Basic VHost Configuration
+
 ```c
 server {
     listen 8443 default_server;
-    listen [::]:8443  default_server;
+    listen [::]:8443 default_server;
 
     root /var/www/html;
 
-    index index.html index.htm index.nginx-debian.html;
+    index index.html index.htm;
 
-    server_name *.example.org;
+    server_name <DOMAIN>;
 
     location / {
         try_files $uri $uri/ @c2;
+    }
+
+    location @c2 {
+        proxy_pass http://<RHOST>:8443;
+        proxy_redirect off;
+        proxy_ssl_verify off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+```
+
+##### Cloud Fronting Configuration
+
+```c
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name <DOMAIN>;
+    return 302 https://$server_name$request_uri;
+
+    location / {
+        limit_except GET HEAD POST { deny all; }
+    }
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    server_name <DOMAIN>;
+
+    ssl_certificate /etc/ssl/certs/<DOMAIN>.pem;
+    ssl_certificate_key /etc/ssl/private/<DOMAIN>.pem;
+
+    root /var/www/html/<DOMAIN>;
+    index index.html;
+
+    location / {
+        limit_except GET HEAD POST { deny all; }
+    }
+}
+
+server {
+    listen 8443 ssl;
+    listen [::]:8443 ssl;
+
+    server_name <DOMAIN>;
+
+    root /var/www/html/<DOMAIN>;
+    index index.html;
+
+    ssl_certificate /etc/ssl/certs/<DOMAIN>.pem;
+    ssl_certificate_key /etc/ssl/private/<DOMAIN>.pem;
+
+    location / {
+        try_files $uri $uri/ @c2;
+        limit_except GET HEAD POST { deny all; }
     }
 
     location @c2 {
