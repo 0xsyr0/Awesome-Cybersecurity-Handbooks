@@ -14,7 +14,7 @@
 - [Find Open Redirects](#find-open-redirects)
 - [Find Secrets in JavaScript Files](#find-secrets-in-javascript-files)
 - [Find SQL-Injection (SQLi) at Scale](#find-sql-injection-sqli-at-scale)
-- [Find basic SQL-Injection (SQLi), Cross-Site Scripting (XSS) and Server-Side Template Injection (SSTI) Vulnerabilities with Magic Payload](#find-basic-sql-injection-sqli-sross-site-scripting-xss-and-server-side-template-injection-ssti-vulnerabilities-with-magic-payload)
+- [Find basic SQL-Injection (SQLi), Cross-Site Scripting (XSS) and Server-Side Template Injection (SSTI) Vulnerabilities with Magic Payload](#find-basic-sql-injection-sqli-cross-site-scripting-xss-and-server-side-template-injection-ssti-vulnerabilities-with-magic-payload)
 - [Find Cross-Site Scripting (XSS) at Scale](#find-cross-site-scripting-xss-at-scale)
 - [Fingerprinting with Shodan and Nuclei](#fingerprinting-with-shodan-and-nuclei)
 - [Path Traversal Zero-Day in Apache HTTP Server (CVE-2021-41773)](#path-traversal-zero-day-in-apache-http-server-cve-2021-41773)
