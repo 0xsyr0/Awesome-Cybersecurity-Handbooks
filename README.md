@@ -42,6 +42,7 @@ Thank you for reading.
 - [AI](handbooks/ai.md)
 - [Basics](handbooks/basics.md)
 - [Blue Teaming](handbooks/blue_teaming.md)
+- [Bug Bounty](handbooks/bug_bounty.md)
 - [Cloud](handbooks/cloud.md)
 - [Command and Control](handbooks/command_and_control.md)
 - [Container](handbooks/container.md)
