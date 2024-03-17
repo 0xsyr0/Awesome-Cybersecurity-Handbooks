@@ -24,6 +24,7 @@
 | flipperzero-firmware | Flipper Zero Code-Grabber Firmware | https://github.com/Eng1n33r/flipperzero-firmware |
 | flipperzero-firmware-wPlugins | Flipper Zero FW [ROGUEMASTER] | https://github.com/RogueMaster/flipperzero-firmware-wPlugins |
 | JackIt | JackIt - Exploit Code for Mousejack Resources | https://github.com/insecurityofthings/jackit |
+| OneShot | Run WPS PIN attacks (Pixie Dust, online bruteforce, PIN prediction) without monitor mode with the wpa_supplicant | https://github.com/kimocoder/OneShot |
 | Pwnagotchi | (⌐■_■) - Deep Reinforcement Learning instrumenting bettercap for WiFi pwning. | https://github.com/evilsocket/pwnagotchi |
 | WEF | A fully offensive framework to the 802.11 networks and protocols with different types of attacks for WPA/WPA2 and WEP, automated hash cracking, bluetooth hacking and much more. | https://github.com/D3Ext/WEF |
 | Wifite | This repo is a complete re-write of wifite, a Python script for auditing wireless networks. | https://github.com/derv82/wifite2 |
@@ -59,6 +60,13 @@ $ sudo apt-get install realtek-rtl88xxau-dkms
 
 ```c
 %p%s%s%s%s%n
+```
+
+## iw
+
+```c
+$ iwconfig
+$ iw <INTERFACE> scan
 ```
 
 ## mdk3
@@ -112,4 +120,30 @@ $ aircrack-ng <FILE>.cap -w /usr/share/wordlists/rockyou.txt
 
 ```c
 $ sudo airmon-ng stop wlan0mon
+```
+
+## wpa_supplicant
+
+### wpa_supplicant.conf
+
+```c
+$ echo 'ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="<SSID>"
+    psk="<PSK>"
+}' > /etc/wpa_supplicant.conf
+```
+
+```c
+$ wpa_supplicant -B -D wext -i <INTERFACE> -c /etc/wpa_supplicant.conf
+```
+
+```c
+$ ip link set <INTERFACE> up
+```
+
+```c
+$ dhclient -h
 ```
