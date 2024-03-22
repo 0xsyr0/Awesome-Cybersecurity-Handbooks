@@ -404,7 +404,7 @@ export GOOS=windows GOARCH=amd64;go build -trimpath -ldflags '-s -w -X "main.aut
 ##### Custom Build with customized Parameters
 
 ```c
-$ make windows ADDR="<LHOST>"  DIR="./output" AUTH="opaque" LISTENER="732e296e-7856-4914-961b-b4ba74972b54" KILLDATE="0" RETRY="10" PAD="4096" PROTO="h2" PSK="<PSK>" SKEW="3000" SLEEP="10s" URL="https://<LHOST>:<LPORT>/" USERAGENT="Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.85 Safari/537.36"
+$ make windows ADDR="<LHOST>" DIR="./output" AUTH="opaque" LISTENER="732e296e-7856-4914-961b-b4ba74972b54" KILLDATE="0" RETRY="10" PAD="4096" PROTO="h2" PSK="<PSK>" SKEW="3000" SLEEP="10s" URL="https://<LHOST>:<LPORT>/" USERAGENT="Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.85 Safari/537.36"
 ```
 
 ###### Sample Output
