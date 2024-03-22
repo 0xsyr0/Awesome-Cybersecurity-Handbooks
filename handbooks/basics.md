@@ -3554,7 +3554,7 @@ kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the key
 KRB5_TRACE=/dev/stdout kinit -X X509_user_identity=FILE:admin.cer,admin.key Administrator@<DOMAIN>
 ```
 
-### Fix Error Message ldap3.core.exceptions.LDAPPackageUnavailableError: package gssapi (or winkerberos) missing
+### Fix Error Message: ldap3.core.exceptions.LDAPPackageUnavailableError: package gssapi (or winkerberos) missing
 
 ```c
 $ sudo apt-get install heimdal-dev
@@ -5484,7 +5484,7 @@ $ xfreerdp /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /v:<RHOST> /dynamic-resolutio
 $ xfreerdp /v:<RHOST> /dynamic-resolution +clipboard /tls-seclevel:0 -sec-nla
 ```
 
-### Fix Error Message transport_connect_tls:freerdp_set_last_error_ex ERRCONNECT_TLS_CONNECT_FAILED
+### Fix Error Message: transport_connect_tls:freerdp_set_last_error_ex ERRCONNECT_TLS_CONNECT_FAILED
 
 #### Example
 
