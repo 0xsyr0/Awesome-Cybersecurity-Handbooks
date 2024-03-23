@@ -41,6 +41,7 @@
 - [getfacl](#getfacl)
 - [gin](#gin)
 - [Git](#git)
+- [Gitea](#gitea)
 - [glab](#glab)
 - [Go](#go)
 - [grep](#egrep)
@@ -3311,6 +3312,12 @@ $ ./gin /PATH/TO/REPOSITORY
 $ git show-branch
 $ git log <BRANCH> --oneline
 $ git show <COMMIT>
+```
+
+## Gitea
+
+```c
+$ git push http://<TOKEN>@<RHOST>:3000/<USERNAME>/<REPOSITORY>.git
 ```
 
 ## glab
