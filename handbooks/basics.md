@@ -5027,6 +5027,12 @@ $ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no <USERNAME>
 $ ssh <USERNAME>@<RHOST> -oKexAlgorithms=+diffie-hellman-group1-sha1
 ```
 
+### Error Message: expecting SSH2_MSG_KEX_ECDH_REPLY
+
+```c
+$ sudo ifconfig <INTERFACE> mtu 1200
+```
+
 ### SSH Shell
 
 #### Command
