@@ -128,6 +128,130 @@ $ docker build -t <NAME> .
 $ docker run -d --name <NAME> -p 80:80 <NAME>
 ```
 
+### Capabilities
+
+#### List Capabilities
+
+```c
+$ capsh --print
+```
+
+#### Example
+
+```c
+$ docker run -it --rm --cap-drop=ALL --cap-add=NET_BIND_SERVICE <WEBSERVER>
+```
+
+### AppArmor
+
+```c
+$ aa-status
+```
+
+#### profile.json
+
+- Can read files located in `/var/www/`, `/etc/apache2/mime.types` and `/run/apache2`.
+- Read & write to `/var/log/apache2`.
+- Bind a socket for port `80/TCP` but not other `ports` or `protocols`.
+- `Cannot read` from directories such as `/bin`, `/lib`, `/usr`.
+
+```c
+/usr/sbin/httpd {
+
+  capability setgid,
+  capability setuid,
+
+  /var/www/** r,
+  /var/log/apache2/** rw,
+  /etc/apache2/mime.types r,
+
+  /run/apache2/apache2.pid rw,
+  /run/apache2/*.sock rw,
+
+  # Network access
+  network tcp,
+
+  # System logging
+  /dev/log w,
+
+  # Allow CGI execution
+  /usr/bin/perl ix,
+
+  # Deny access to everything else
+  /** ix,
+  deny /bin/**,
+  deny /lib/**,
+  deny /usr/**,
+  deny /sbin/**
+}
+```
+
+#### Import Profile
+
+```c
+$ apparmor_parser -r -W /PATH/TO/PROFILE/profile.json
+```
+
+#### Apply Profile
+
+```c
+$ docker run --rm -it --security-opt apparmor=/PATH/TO/PROFILE/profile.json <CONTAINER>
+```
+
+### Seccomp
+
+#### profile.json
+
+```c
+{
+  "defaultAction": "SCMP_ACT_ALLOW",
+  "architectures": ["SCMP_ARCH_X86_64"],
+  "syscalls": [
+    {
+      "name": "socket",
+      "action": "SCMP_ACT_ERRNO",
+      "args": []
+    },
+    {
+      "name": "connect",
+      "action": "SCMP_ACT_ERRNO",
+      "args": []
+    },
+    {
+      "name": "bind",
+      "action": "SCMP_ACT_ERRNO",
+      "args": []
+    },
+    {
+      "name": "listen",
+      "action": "SCMP_ACT_ERRNO",
+      "args": []
+    },
+    {
+      "name": "accept",
+      "action": "SCMP_ACT_ERRNO",
+      "args": []
+    }
+    {
+      "name": "read",
+      "action": "SCMP_ACT_ALLOW",
+      "args": []
+    },
+    {
+      "name": "write",
+      "action": "SCMP_ACT_ALLOW",
+      "args": []
+    }
+  ]
+}
+```
+
+#### Apply Profile
+
+```c
+$ docker run --rm -it --security-opt seccomp=/PATH/TO/PROFILE/profile.json <CONTAINER>
+```
+
 ### Control Groups (cgroup) Privilege Escalation
 
 > https://blog.trailofbits.com/2019/07/19/understanding-docker-container-escapes/#:~:text=The%20SYS_ADMIN%20capability%20allows%20a,security%20risks%20of%20doing%20so.
