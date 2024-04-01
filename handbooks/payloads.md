@@ -79,7 +79,18 @@
 
 > https://v3ded.github.io/redteam/abusing-lnk-features-for-initial-access-and-persistence
 
-### Malicious.lnk
+### Quick PowerShell Command Line Example
+
+```c
+PS C:\> $WScript = New-Object -COM WScript.shell
+PS C:\> $SC = $WScript.CreateShortcut('C:\PATH\TO\DIRECTORY\<FILE>.lnk')
+PS C:\> $SC.TargetPath = "C:\temp\<FILE>.exe"
+PS C:\> $SC.Arguments = ""
+PS C:\> $SC.WindowStyle = 7
+PS C:\> $SC.save()
+```
+
+### Advanced PowerShell Example
 
 ```c
 $path                      = "$([Environment]::GetFolderPath('Desktop'))\<FILE>.lnk"
