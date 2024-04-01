@@ -3624,7 +3624,7 @@ $ ./proxy -laddr <LHOST>:443 -selfcert
 $ ./agent -connect <LHOST>:443 -ignore-cert
 ```
 
-### Session
+### Configure Session
 
 ```c
 ligolo-ng » session
@@ -3640,6 +3640,12 @@ $ sudo ip r add 172.16.1.0/24 dev ligolo
 
 ```c
 [Agent : user@target] » start
+```
+
+### Port Forwarding
+
+```c
+[Agent : user@target] » listener_add --addr <RHOST>:<LPORT> --to <LHOST>:<LPORT> --tcp
 ```
 
 ## Linux
