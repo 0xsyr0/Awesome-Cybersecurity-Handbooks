@@ -396,6 +396,8 @@ $ print new java.lang.String(new java.io.BufferedReader(new java.io.InputStreamR
 
 > https://github.com/it-gorillaz/lnk2pwn
 
+> https://github.com/tommelo/lnk2pwn
+
 > https://gist.github.com/tommelo/6852d303498403f80e889f3f7a3e7105#file-config-json
 
 ```c
