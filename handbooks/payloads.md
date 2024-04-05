@@ -55,6 +55,7 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| Building Offensive Malicious Documents | Learn various techniques on how to make malicious documents that can execute our malicious code. | https://fareedfauzi.github.io/2022/11/20/Offensive-maldocs.html |
 | EXE_to_DLL | Converts a EXE into DLL | https://github.com/hasherezade/exe_to_dll |
 | GadgetToJScript | A tool for generating .NET serialized gadgets that can trigger .NET assembly load/execution when deserialized using BinaryFormatter from JS/VBS/VBA based scripts. | https://github.com/med0x2e/GadgetToJScript |
 | hoaxshell | An unconventional Windows reverse shell, currently undetected by Microsoft Defender and various other AV solutions, solely based on http(s) traffic. | https://github.com/t3l3machus/hoaxshell |
