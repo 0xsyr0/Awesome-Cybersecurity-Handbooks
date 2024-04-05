@@ -37,6 +37,8 @@
 | --- | --- | --- |
 | BinDiff | Quickly find differences and similarities in disassembled code | https://github.com/google/bindiff |
 | CAPA | The FLARE team's open-source tool to identify capabilities in executable files. | https://github.com/mandiant/capa |
+| Cheatsheet: Linux Forensics Analysis | Cheat sheet to use during Linux forensics. | https://fareedfauzi.github.io/2024/03/29/Linux-Forensics-cheatsheet.html |
+| Cheatsheet: Windows Forensics Analysis | Cheat sheet to use during Windows forensics. | https://fareedfauzi.github.io/2023/12/22/Windows-Forensics-checklist-cheatsheet.html |
 | FLOSS | FLARE Obfuscated String Solver - Automatically extract obfuscated strings from malware. | https://github.com/mandiant/flare-floss |
 | FOREMOST | Foremost is a console program to recover files based on their headers, footers, and internal data structures. | https://github.com/korczis/foremost |
 | kbd-audio | Acoustic keyboard eavesdropping | https://github.com/ggerganov/kbd-audio |
