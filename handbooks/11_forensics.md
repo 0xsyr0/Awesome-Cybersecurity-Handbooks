@@ -43,8 +43,6 @@
 | FOREMOST | Foremost is a console program to recover files based on their headers, footers, and internal data structures. | https://github.com/korczis/foremost |
 | kbd-audio | Acoustic keyboard eavesdropping | https://github.com/ggerganov/kbd-audio |
 | oletools | python tools to analyze MS OLE2 files (Structured Storage, Compound File Binary Format) and MS Office documents, for malware analysis, forensics and debugging. | https://github.com/decalage2/oletools |
-| PECheck | A tool to verify and create PE Checksums for Portable Executable (PE) files. | https://github.com/Wh1t3Rh1n0/PECheck |
-| PE Tree | Python module for viewing Portable Executable (PE) files in a tree-view using pefile and PyQt5. Can also be used with IDA Pro and Rekall to dump in-memory PE files and reconstruct imports. | https://github.com/blackberry/pe_tree |
 | Process Hacker | A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware. | https://process-hacker.com |
 | Process Monitor | Process Monitor is an advanced monitoring tool for Windows that shows real-time file system, Registry and process/thread activity. | https://learn.microsoft.com/en-us/sysinternals/downloads/procmon |
 | Regshot | Regshot is a small, free and open-source registry compare utility that allows you to quickly take a snapshot of your registry and then compare it with a second one - done after doing system changes or installing a new software product | https://github.com/Seabreg/Regshot |
