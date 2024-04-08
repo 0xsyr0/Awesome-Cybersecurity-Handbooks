@@ -38,8 +38,10 @@
 | ImHex | A Hex Editor for Reverse Engineers, Programmers and people who value their retinas when working at 3 AM. | https://github.com/WerWolv/ImHex |
 | JD-GUI | JD-GUI, a standalone graphical utility that displays Java sources from CLASS files. | https://github.com/java-decompiler/jd-gui |
 | Malcat | Malcat is a feature-rich hexadecimal editor / disassembler for Windows and Linux targeted to IT-security professionals. | https://malcat.fr |
-| PE Tools | Portable executable (PE) manipulation toolkit | https://github.com/petoolse/petools |
 | PE-bear | Portable Executable reversing tool with a friendly GUI | https://github.com/hasherezade/pe-bear |
+| PECheck | A tool to verify and create PE Checksums for Portable Executable (PE) files. | https://github.com/Wh1t3Rh1n0/PECheck |
+| PE Tools | Portable executable (PE) manipulation toolkit | https://github.com/petoolse/petools |
+| PE Tree | Python module for viewing Portable Executable (PE) files in a tree-view using pefile and PyQt5. Can also be used with IDA Pro and Rekall to dump in-memory PE files and reconstruct imports. | https://github.com/blackberry/pe_tree |
 | peda | PEDA - Python Exploit Development Assistance for GDB | https://github.com/longld/peda |
 | pwndbg | pwndbg is a GDB plug-in that makes debugging with GDB suck less, with a focus on features needed by low-level software developers, hardware hackers, reverse-engineers and exploit developers. | https://github.com/pwndbg/pwndbg |
 | Radare2 | Radare2: The Libre Unix-Like Reverse Engineering Framework | https://github.com/radareorg/radare2 |
