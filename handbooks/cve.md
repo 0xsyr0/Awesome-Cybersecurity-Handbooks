@@ -161,6 +161,8 @@
 | CVE-2024-28897 | Jenkins Arbitrary File Read | https://github.com/CKevens/CVE-2024-23897 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
+| n/a | GSM Linux Kernel LPE (1) | https://github.com/jmpe4x/GSM_Linux_Kernel_LPE_Nday_Exploit |
+| n/a | GSM Linux Kernel LPE (2) | https://github.com/YuriiCrimson/ExploitGSM |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
 | n/a | ADCSCoercePotato | https://github.com/decoder-it/ADCSCoercePotato |
 | n/a | CoercedPotato LPE | https://github.com/Prepouce/CoercedPotato |
