@@ -7,6 +7,7 @@
 - [CeWL](#cewl)
 - [CUPP](#cupp)
 - [crunch](#crunch)
+- [JavaScript Quick Wordlist](#javascript-quick-wordlist)
 - [Username Anarchy](#username-anarchy)
 
 ## Resources
@@ -45,6 +46,14 @@ $ ./cupp -i
 
 ```c
 $ crunch 5 5 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ -o <FILE>.txt
+```
+
+## JavaScript Quick Wordlist
+
+> https://twitter.com/renniepak/status/1780916964925345916
+
+```js
+javascript:(function(){const e=document.documentElement.innerText.match(/[a-zA-Z_\-]+/g),n=[...new Set(e)].sort();document.open(),document.write(n.join("<br>")),document.close();})();
 ```
 
 ## Username Anarchy
