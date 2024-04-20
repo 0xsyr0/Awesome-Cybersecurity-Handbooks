@@ -7,6 +7,7 @@
 - [DNSChef](#dnschef)
 - [FakeDns](#fakedns)
 - [fakessh](#fakessh)
+- [Hak5 LAN Turtle](#hak5-lan-turtle)
 - [Responder](#responder)
 - [SSH-MITM](#ssh-mitm)
 - [tshark](#tshark)
@@ -127,6 +128,115 @@ $ go install github.com/fffaraz/fakessh@latest
 $ sudo setcap 'cap_net_bind_service=+ep' ~/go/bin/fakessh
 $ ./fakessh 
 ```
+
+## Hak5 LAN Turtle
+
+> https://github.com/hak5/lanturtle-modules
+
+> http://downloads.openwrt.org/releases/packages-19.07/mips_24kc/packages/gcc_7.4.0-5_mips_24kc.ipk
+
+> https://github.com/lgandx/Responder/archive/refs/heads/master.zip
+
+### FixIt to UseIt
+
+#### Connect
+
+```c
+$ ip a / ifconfig / ipconfig    // have a look for 172.16.84.1
+$ ssh root@172.16.84.1          // default password: sh3llz
+$ Ctrl+c                        // get to root SSH session
+```
+
+#### Network Configuration
+
+```c
+$ vim /etc/network/config
+```
+
+```c
+config interface 'wan'
+		option ifname 'eth1'
+		option proto 'dhcp'
+		option metric '20'
+		option ipv6 '0'
+```
+
+```c
+$ /etc/init.d/network restart
+```
+
+#### SD Card Information
+
+```c
+$ cat /etc/opkg.conf
+```
+
+```c
+dest root /
+dest ram /tmp
+dest sd /sd
+```
+
+#### Responder Installation
+
+##### Prerequisites
+
+The `exports` should go to the `.bashrc` to make it persistent.
+
+```c
+$ opkg install python3 --dest sd
+$ export LD_LIBRARY_PATH="/sd/usr/lib:/usr/lib"
+$ opkg install python3-pip --dest sd
+$ export PATH="/sd/usr/bin:$PATH"
+$ mkdir /sd/python3-modules
+$ export PYTHONHOME="/sd/usr/"
+$ export PYTHONPATH="/sd/python3-modules"
+$ python3 -m pip install setuptools --target=/sd/python3-modules
+$ python3 -m pip install wheel --target=/sd/python3-modules
+$ wget http://downloads.openwrt.org/releases/packages-19.07/mips_24kc/packages/gcc_7.4.0-5_mips_24kc.ipk
+$ scp gcc_7.4.0-5_mips_24kc.ipk root@172.16.84.1:/sd/gcc_7.4.0-5_mips_24kc.ipk
+$ opkg install gcc_7.4.0-5_mips_24kc.ipk --dest sd
+$ opkg install libffi --dest sd
+$ opkg install python3-dev --dest sd
+$ export CFLAGS="-I/sd/usr/include/bits/ -I/sd/usr/include/ -I/sd/usr/include/linux/ -I/sd/usr/lib/gcc/mips-openwrt-linux-musl/7.4.0/install-tools/include/ -I/sd/usr/lib/gcc/mips-openwrt-linux-musl/7.4.0/include-fixed/"
+$ export CFLAGS="-I/sd/usr/include/"
+$ python3 -m pip install netifaces --target=/sd/python3-modules
+```
+
+###### Exports
+
+```c
+$ export LD_LIBRARY_PATH="/sd/usr/lib:/usr/lib"
+$ export PATH="/sd/usr/bin:$PATH"
+$ export PYTHONHOME="/sd/usr/"
+$ export PYTHONPATH="/sd/python3-modules"
+$ export CFLAGS="-I/sd/usr/include/bits/ -I/sd/usr/include/ -I/sd/usr/include/linux/ -I/sd/usr/lib/gcc/mips-openwrt-linux-musl/7.4.0/install-tools/include/ -I/sd/usr/lib/gcc/mips-openwrt-linux-musl/7.4.0/include-fixed/"
+$ export CFLAGS="-I/sd/usr/include/"
+```
+
+##### Download Responder
+
+```c
+$ cd /sd
+$ wget https://github.com/lgandx/Responder/archive/refs/heads/master.zip
+$ opkg install unzip --dest sd
+$ unzip responder.zip
+$ mv Responder-master Responder
+```
+
+##### Certificate Creation
+
+```c
+/sd/Responder/certs
+```
+
+```c
+#!/bin/bash
+openssl genrsa out responder.key 2048
+openssl req -new -x509 -days 3650 -key responder.key -out responder.crt -subj "/"
+```
+
+Create the certificates locally and `copy` it to the `LAN Turtle` before you start `Responder`.
 
 ## Responder
 
