@@ -44,7 +44,7 @@
 - [Gitea](#gitea)
 - [glab](#glab)
 - [Go](#go)
-- [grep](#egrep)
+- [grep](#grep)
 - [grpc](#grpc)
 - [host](#host)
 - [icacls](#icacls)
@@ -3358,6 +3358,7 @@ $ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 ## grep
 
 ```c
+$ grep -rai '<FOOBAR>'           // also grep through binaries
 $ grep -v                        // remove string from output
 $ grep -Hnri <FILE> * | vim -    // pipe output into a new vim buffer
 $ grep "$_" * | grep -v "_SERVER\|_SESSION"    // \| equals "or" in grep
