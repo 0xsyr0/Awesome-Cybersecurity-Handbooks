@@ -977,10 +977,20 @@ l RETURN 0 as _0 //
 $ sqlite3 <FILE>.db
 ```
 
+### Common Commands
+
 ```c
 sqlite> .tables
 sqlite> PRAGMA table_info(<TABLE>);
 sqlite> SELECT * FROM <TABLE>;
+```
+
+### Table Example
+
+```c
+$ sqlite3 <DATABASE>.db ".tables"
+$ sqlite3 <DATABASE>.db ".schema <TABLE>"
+$ sqlite3 <DATABASE>.db "SELECT * FROM <TABLE>;"
 ```
 
 ## sqlmap
