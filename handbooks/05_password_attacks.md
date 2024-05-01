@@ -214,6 +214,20 @@ $ hashcat --example-hashes
 $ hashcat --help | grep -i "ntlm"
 ```
 
+### Mask File Example
+
+> https://hashcat.net/wiki/doku.php?id=mask_attack
+
+#### example.hcmask
+
+```
+FOOBAR?d?d?d?d
+FOOBAR?d?d?d?u
+FOOBAR?d?d?u?u
+FOOBAR?d?u?u?u
+FOOBAR?u?u?u?u
+```
+
 ### Common Commands
 
 ```c
