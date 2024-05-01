@@ -5011,6 +5011,12 @@ $ squidclient -h <RHOST> -w '<PASSWORD>' mgr:fqdncache
 
 ## SSH
 
+### Enumerate Username from Private Key
+
+```c
+$ ssh-keygen -y -f <SSH_KEY>
+```
+
 ### Code Execution
 
 ```c
