@@ -55,7 +55,7 @@
 - [less](#less)
 - [lftp](#lftp)
 - [Ligolo-ng](#ligolo-ng)
-- [Linux](#linux)
+- [Linux](#linux-1)
 - [Logfiles](#logfiles)
 - [Logging](#logging)
 - [Microsoft Windows](#microsoft-windows)
