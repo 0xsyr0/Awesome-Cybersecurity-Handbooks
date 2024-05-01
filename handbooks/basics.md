@@ -3653,14 +3653,13 @@ $ sudo ip r add 172.16.1.0/24 dev ligolo
 
 ### User Management
 
-#### Change Username
+#### Set Password
 
 ```c
-$ passwd root
-$ reboot
+$ passwd <USERNAME>
 ```
 
-##### Login as root
+#### Rename a User
 
 ```c
 $ usermod -l <NEW_USERNAME> -d /home/<NEW_USERNAME> -m <OLD_USERNAME>
@@ -3668,7 +3667,7 @@ $ groupmod -n <NEW_USERNAME> <OLD_USERNAME>
 $ ln -s /home/<NEW_USERNAME> /home/<OLDUSERNAME>
 ```
 
-###### Optional: Change Display Name
+##### Optional: Change Display Name
 
 ```c
 $ chfn -f "GIVENNAME SURNAME" <NEW_USERNAME>
@@ -3682,41 +3681,37 @@ $ chfn -f "GIVENNAME SURNAME" <NEW_USERNAME>
 .bash_profile
 ```
 
-### System Commands
+### Common Commands
 
 ```c
+$ w
 $ last -a
+$ lsof -i
 $ cat /etc/issue
 $ cat /etc/*release*
 $ cat /proc/version
-$ sudo -l    // sudo possibilities
+$ sudo -l    // check sudo permissions
 ```
 
-### Network Commands
+### Network Enumeration
 
 ```c
 $ watch ss -tp
 $ netstat -ant
 $ netstat -tulpn
-$ lsof -i
 $ ss -tupn
 $ ss -tulpn
-$ ping -c 1 <RHOST>
+$ ping -c 3 <RHOST>
 ```
 
 ### Processes
 
 ```c
+$ ps -aux
 $ ps -auxf
-```
-
-or
-
-```c
 $ ps -eaf
 $ ss -anp <PROCESS_ID>
 $ cd /proc/<PROCESS_ID>
-$ ls -la | grep cwd
 ```
 
 ## Logfiles
