@@ -130,6 +130,13 @@ $ echo 85f3980654g59sif | md5sum
 
 ## OpenSSL
 
+### Create Certificate and Key
+
+```c
+$ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 365
+$ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3650 -nodes -subj "/C=XY/ST=<ST>/L=<L>/O=<O>/OU=<OU>/CN=<CN>"
+```
+
 ### Create password for /etc/passwd
 
 ```c
