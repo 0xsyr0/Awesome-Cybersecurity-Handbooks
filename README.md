@@ -45,6 +45,7 @@ Thank you for reading.
 - [Container](handbooks/container.md)
 - [Cryptography](handbooks/cryptography.md)
 - [CVE](handbooks/cve.md)
+- [Decrypter](handbooks/decrypter.md)
 - [Evasion](handbooks/evasion.md)
 - [Exploitation](handbooks/exploitation.md)
 - [Frameworks](handbooks/frameworks.md)
