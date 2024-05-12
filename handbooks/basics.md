@@ -5166,8 +5166,15 @@ $ svn diff -r 2
 
 > https://github.com/jetmore/swaks
 
+### Basic Commands
+
 ```c
-$ sudo nv -lnvp 80
+$ swaks --server <RHOST> --port 587 --auth-user "<EMAIL>" --auth-password "<PASSWORD>" --to "<EMAIL>" --from "<EMAIL>" --header "Subject: <SUBJECT>" --body "\\\<LHOST>\"
+```
+
+### Automation
+
+```c
 $ while read mail; do swaks --to $mail --from <EMAIL> --header "Subject: Test / Test" --body "goto http://<LHOST>/" --server <RHOST>; done < mail.txt
 ```
 
