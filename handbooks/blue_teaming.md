@@ -7,6 +7,8 @@
 - [Advanced Threat Analytics](#advanced-threat-analytics)
 - [API Security Tasks](#api-security-tasks)
 - [Atomic Red Team](#atomic-red-team)
+- [Detection of Computer Domain Joins](#detection-of-computer-domain-joins)
+- [Detection of User Creation / Modification](#detection-of-user-creation--modification)
 - [Event Log Analysis](#event-log-analysis)
 - [Device Guard](#devoice-guard)
 - [General Configuration](#general-configuration)
@@ -137,6 +139,18 @@ PC C:\> Start-AtomicGui
 ```
 
 > http://localhost:8487/home
+
+## Detection of Computer Domain Joins
+
+```c
+PS C:\> Get-ADComputer -filter * -properties whencreated | Select Name,@{n="Owner";e={(Get-acl "ad:\$($_.distinguishedname)").owner}},whencreated 
+```
+
+## Detection of User Creation / Modification
+
+```c
+PS C:\> Get-ADUser -Filter {((Enabled -eq $True) -and (Created -gt "Monday, April 10, 2023 00:00:00 AM"))} -Property Created, LastLogonDate | select SamAccountName, Name, Created | Sort-Object Created
+```
 
 ## Event Log Analysis
 
