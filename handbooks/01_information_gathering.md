@@ -431,8 +431,15 @@ $ export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/
 ## SMTP
 
 ```c
-telnet 10.10.10.77 25
-Connected to 10.10.10.77.
+telnet <RHOST> 25
+Connected to <RHOST>.
+Escape character is '^]'.
+EHLO ALL
+```
+
+```c
+telnet <RHOST> 25
+Connected to <RHOST>.
 Escape character is '^]'.
 220 Mail Service ready
 HELO foobar.com
@@ -447,7 +454,9 @@ RCPT TO: <foobar@contoso.local>
 250 OK
 RCPT TO: <foobar@contoso.localb>
 250 OK
+```
 
+```c
 $ smtp-user-enum -M VRFY -U /usr/share/wordlists/seclists/Usernames/Names/names.txt -t <RHOST>
 $ smtp-user-enum -M RCPT -U /usr/share/wordlists/seclists/Usernames/Names/names.txt -t <RHOST>
 $ smtp-user-enum -M EXPN -U /usr/share/wordlists/seclists/Usernames/Names/names.txt -t <RHOST>
