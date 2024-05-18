@@ -153,10 +153,15 @@ PC C:\> Start-AtomicGui
 | 4670 | Permissions on an object were changed | Helps detect potential tampering with sensitive files or unauthorized privilege escalation (e.g., a low-privileged user modifying permissions on a sensitive file to gain access) | T1222 - File Permissions Modification |
 | 4672 | Administrator privileges assigned to a new Logon | Helps detect privilege escalation and unauthorized admin account usage (e.g., a standard user suddenly granted admin rights without a change request) | T1078 - Valid Accounts |
 | 4698 | A scheduled task was created | Helps detect malicious scheduled task creation and could indicate persistence, privilege escalation, or lateral movement (e.g., an attacker creates a scheduled task that runs a beacon periodically) | T1053 - Scheduled Task/Job |
+| 4719 | Attempt to perform a group policy modification | | |
 | 4720 | New user account created | Monitors for unauthorized account creation or potential insider threats (e.g., a new account created outside of normal business hours without HR approval) | T1136 - Create Account |
 | 4724 | An attempt was made to reset an account's password | Monitors for unauthorized password resets, which could indicate account takeover (e.g., an attacker resetting the password of a high-privileged account) | T1098 - Account Manipulation |
 | 4728 | Member added to a security-enabled global group | Tracks changes to important security groups, which could indicate unauthorized privilege escalation (e.g., an attacker adds a user to the "Domain Admins" group) | T1098 - Account Manipulation |
+| 4729 | Member was removed from a global security group. | | |
 | 4732 | Member added to a security-enabled Local group | Monitors changes to local security groups, which could suggest unauthorized access or privilege escalation (e.g., an attacker adds a user to the "Administrators" local group) | T1098 - Account Manipulation |
+| 4739 | Domain policy change | | |
+| 4756 | Member added to a universal security group. | | |
+| 4757 | Member removed from a universal security group. | | |
 | 4768 | A Kerberos authentication ticket was requested (TGT Request) | Monitors initial authentication requests to track user logons, and helps identify potential abuse of the Kerberos protocol (e.g., an attacker compromises the NTLM hash of a privileged account and performs an overpass-the-hash attack which requests a TGT from an unusual host) | T1558 - Steal or Forge Kerberos Tickets |
 | 4769 | A Kerberos service ticket was requested | Monitors for potential Kerberoasting attacks or other suspicious activities targeting the Kerberos protocol (e.g., a sudden increase in requests for unique services from a single user) | T1558 - Steal or Forge Kerberos Tickets |
 | 4776 | The domain controller attempted to validate the credentials | Helps identify failed or successful attempts to validate credentials against the domain controller, which could indicate unauthorized access or suspicious authentication activity (e.g., an unusual number of failed validations from a single IP address) | T1110 - Brute Force |
