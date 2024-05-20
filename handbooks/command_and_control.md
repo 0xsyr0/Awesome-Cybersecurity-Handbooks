@@ -10,6 +10,7 @@
 - [Havoc](#havoc)
 - [Merlin](#merlin)
 - [Mythic](#mythic)
+- [Redirector](#redirector)
 - [Sliver](#sliver)
 - [Villain](#villain)
 
@@ -587,6 +588,14 @@ $ cat .env
 ```
 
 > https://127.0.0.1:7443
+
+## Redirector
+
+### Socat
+
+```c
+$ socat TCP4-LISTEN:<LPORT>,fork TCP4:<LHOST>:<LPORT>
+```
 
 ## Sliver
 
