@@ -10,6 +10,7 @@
 
 | Service or Tool | Descritpion | URL |
 | --- | --- | --- |
+| 1984 | Safe Hosting in Iceland | https://1984.hosting |
 | addy.io | Anonymous Email Forwarding | https://addy.io |
 | Briar | Secure messaging, anywhere. | https://briarproject.org |
 | Browserleaks | BrowserLeaks is a suite of tools that offers a range of tests to evaluate the security and privacy of your web browser. | https://browserleaks.com |
@@ -33,6 +34,7 @@
 | Mailfence | Secure and private email. | https://mailfence.com |
 | Matrix | An open network for secure, decentralised communication. | https://matrix.org |
 | Mobilizon | Gather, organize and mobilize yourselves with a convivial, ethical, and emancipating tool. | https://mobilizon.org/en/ |
+| Mullvad | Free the Internet | https://mullvad.net | 
 | Nitrokey | Open Source IT-Security Hardware Made in Germany | https://www.nitrokey.com |
 | Noisy | Simple random DNS, HTTP/S internet traffic noise generator | https://github.com/1tayH/noisy |
 | OONI | Open Observatory of Network Interference | https://ooni.org |
@@ -55,6 +57,8 @@
 | Signal | An unexpected focus on privacy, combined with all of the features you expect. | https://www.signal.org |
 | SimpleLogin | Receive and send emails anonymously. | https://simplelogin.io |
 | SSD.EFF.ORG | Surveillance Self-Defense | https://ssd.eff.org |
+| Superbacked | Don’t lose your secrets | https://superbacked.com |
+| Superbacked | Don’t lose your secrets | https://github.com/superbacked |
 | Tails | Tails is a portable operating system that protects against surveillance and censorship. | https://tails.net |
 | Tor | Defend yourself against tracking and surveillance. Circumvent censorship. | https://www.torproject.org |
 | Tox | Tox is easy-to-use software that connects you with friends and family without anyone else listening in. While other big-name services require you to pay for features, Tox is completely free and comes without advertising - forever. | https://tox.chat |
