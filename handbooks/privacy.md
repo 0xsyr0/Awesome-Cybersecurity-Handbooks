@@ -62,6 +62,7 @@
 | Tails | Tails is a portable operating system that protects against surveillance and censorship. | https://tails.net |
 | Tor | Defend yourself against tracking and surveillance. Circumvent censorship. | https://www.torproject.org |
 | Tox | Tox is easy-to-use software that connects you with friends and family without anyone else listening in. While other big-name services require you to pay for features, Tox is completely free and comes without advertising - forever. | https://tox.chat |
+| Tuta Mail | Best email service: end-to-end encrypted and no ads. | https://tuta.com |
 | What every Browser knows about you | This is a demonstration of all the data your browser knows about you. | https://webkay.robinlinus.com |
 | Whonix | Superior Internet Privacy with Whonix | https://www.whonix.org |
 
