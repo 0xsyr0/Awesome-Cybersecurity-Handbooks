@@ -663,6 +663,7 @@ $ netexec ldap <RHOST> -u "" -p "" -M get-desc-users
 $ netexec ldap <RHOST> -u "" -p "" --use-kcache -M whoami
 $ netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --gmsa
 $ netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --gmsa -k
+$ netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M get-network -o ALL=true
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --bloodhound -ns <RHOST> -c all
 $ netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --bloodhound -ns <RHOST> -c all
 $ netexec winrm <SUBNET>/24 -u "<USERNAME>" -p "<PASSWORD>" -d .
