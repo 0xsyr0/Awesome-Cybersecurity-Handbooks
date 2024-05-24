@@ -11,6 +11,7 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| ADOKit | Azure DevOps Services Attack Toolkit | https://github.com/xforcered/ADOKit |
 | AWS Security Checklist | Made by Bour Abdelhadi | https://awscheck.fyi |
 | AzureHound | Azure Data Exporter for BloodHound | https://github.com/BloodHoundAD/AzureHound |
 | BARK | BloodHound Attack Research Kit | https://github.com/BloodHoundAD/BARK |
