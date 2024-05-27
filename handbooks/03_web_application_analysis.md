@@ -3313,6 +3313,10 @@ $ http://<RHOST>/index.php?page=uploads/<FILE>.pdf%00&cmd=whoami
 
 ### PHP Functions
 
+> https://www.php.net/manual/en/funcref.php
+
+> https://www.php.net/manual/en/ref.filesystem.php
+
 ```c
 +----------------+-----------------+----------------+----------------+
 |    Command     | Displays Output | Can Get Output | Gets Exit Code |
