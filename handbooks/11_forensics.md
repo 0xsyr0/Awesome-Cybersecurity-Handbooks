@@ -20,6 +20,7 @@
 - [Jamovi](#jamovi)
 - [ltrace](#ltrace)
 - [memdump](#memdump)
+- [MemProcFS](#memprocfs)
 - [Microsoft Windows](#microsoft-windows)
 - [oletools](#oletools)
 - [pngcheck](#pngcheck)
@@ -43,6 +44,7 @@
 | FOREMOST | Foremost is a console program to recover files based on their headers, footers, and internal data structures. | https://github.com/korczis/foremost |
 | kbd-audio | Acoustic keyboard eavesdropping | https://github.com/ggerganov/kbd-audio |
 | oletools | python tools to analyze MS OLE2 files (Structured Storage, Compound File Binary Format) and MS Office documents, for malware analysis, forensics and debugging. | https://github.com/decalage2/oletools |
+| MemProcFS | MemProcFS is an easy and convenient way of viewing physical memory as files in a virtual file system. | https://github.com/ufrisk/MemProcFS |
 | Process Hacker | A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware. | https://process-hacker.com |
 | Process Monitor | Process Monitor is an advanced monitoring tool for Windows that shows real-time file system, Registry and process/thread activity. | https://learn.microsoft.com/en-us/sysinternals/downloads/procmon |
 | Regshot | Regshot is a small, free and open-source registry compare utility that allows you to quickly take a snapshot of your registry and then compare it with a second one - done after doing system changes or installing a new software product | https://github.com/Seabreg/Regshot |
@@ -229,6 +231,12 @@ cat /proc/$1/maps | grep "rw-p" | awk '{print $1}' | ( IFS="-"
         dd if=/proc/$1/mem bs=$( getconf PAGESIZE ) iflag=skip_bytes,count_bytes \
             skip=$(( 0x$a )) count=$(( 0x$b - 0x$a )) of="$1_mem_$a.bin"
     done )
+```
+
+## MemProcFS
+
+```c
+$ sudo ./memprocfs -device /PATH/TO/FILE/<FILE>.DMP -mount /mnt/ -forensic 1
 ```
 
 ## Microsoft Windows
