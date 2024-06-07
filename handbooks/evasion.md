@@ -8,6 +8,7 @@
 - [AntiVirus Evasion](#antivirus-evasion)
 - [Donut](#donut)
 - [Freeze](#freeze)
+- [Limelighter](#limelighter)
 - [ScareCrow](#scarecrow)
 - [Shhhloader](#shhhloader)
 
@@ -323,6 +324,28 @@ $ ./Freeze -I <FILE>.bin -encrypt -sandbox -O <FILE>.exe
 $ ./Freeze -I <FILE>.exe -encrypt -sandbox -O <FILE>.exe
 $ ./Freeze -I <FILE>.bin -encrypt -sandbox -process "C:\\Windows\\System32\\msedge.exe" -O <FILE>.exe
 $ ./Freeze -I <FILE>.exe -encrypt -sandbox -process "C:\\Windows\\System32\\msedge.exe" -O <FILE>.exe
+```
+
+## LimeLighter
+
+> https://github.com/Tylous/Limelighter
+
+### Installer
+
+```c
+$ sudo apt-get install openssl osslsigncode
+$ git clone github.com/Tylous/Limelighter
+$ cd Limelighter
+$ go mod init github.com/Tylous/Limelighter
+$ go get github.com/fatih/color
+$ go build LimeLighter.go
+```
+
+### Execution
+
+```c
+$ ./Limelighter -I <FILE>.exe -O <FILE>.exe -Domain <DOMAIN>
+$ ./Limelighter -Verify <FILE>.exe
 ```
 
 ## ScareCrow
