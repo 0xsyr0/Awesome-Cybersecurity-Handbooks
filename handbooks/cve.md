@@ -182,6 +182,7 @@
 | n/a | RoguePotato LPE | https://github.com/antonioCoco/RoguePotato |
 | n/a | RottenPotatoNG LPE | https://github.com/breenmachine/RottenPotatoNG |
 | n/a | SharpEfsPotato LPE | https://github.com/bugch3ck/SharpEfsPotato |
+| n/a | SigmaPotato LPE | https://github.com/tylerdotrar/SigmaPotato |
 | n/a | SweetPotato LPE | https://github.com/CCob/SweetPotato |
 | n/a | SweetPotato LPE | https://github.com/uknowsec/SweetPotato |
 | n/a | S4UTomato LPE | https://github.com/wh0amitz/S4UTomato |
