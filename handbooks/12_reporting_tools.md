@@ -193,10 +193,16 @@ msf> spool <file>.log
 * Admonition
 * Advanced Tables
 * Better Word Count
+* Calendar
 * Code Block Enhancer
 * Editor Syntax Highlight
 * File Explorer Note count
+* Full Calendar
 * Git
 * Iconize
 * Icons
+* Kanban
+* Paste URL into selection
 * Table of Contents
+* TagFolder
+* Tag Wrangler
