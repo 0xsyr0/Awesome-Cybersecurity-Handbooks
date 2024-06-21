@@ -194,7 +194,6 @@ msf> spool <file>.log
 * Advanced Tables
 * Better Word Count
 * Calendar
-* Code Block Enhancer
 * File Explorer Note count
 * Full Calendar
 * Git
