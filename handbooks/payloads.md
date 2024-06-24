@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-- [.LNK (Link) Files](#lnk-link-file)
+- [.LNK (Link) Files](#lnk-link-files)
 - [.SCF (Shell Command File) Files](#scf-shell-command-file-files)
 - [.URL (URL) Files](#url-uniform-resource-locator-files)
 - [An HTML Application (HTA)](#an-html-application-hta)
