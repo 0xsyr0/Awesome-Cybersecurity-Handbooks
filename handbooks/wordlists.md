@@ -45,6 +45,7 @@ $ ./cupp -i
 ## crunch
 
 ```c
+$ crunch 6 6 -t foobar%%% > wordlist
 $ crunch 5 5 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ -o <FILE>.txt
 ```
 
