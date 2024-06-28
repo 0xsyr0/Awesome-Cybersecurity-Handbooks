@@ -117,6 +117,8 @@
 - [squid](#squid)
 - [squidclient](#squidclient)
 - [SSH](#ssh)
+- [SSH Shell](#ssh-shell)
+- [sshpass](#sshpass)
 - [stat](#stat)
 - [strace](#strace)
 - [stty](#stty)
@@ -5069,20 +5071,6 @@ $ ssh <USERNAME>@<RHOST> -oKexAlgorithms=+diffie-hellman-group1-sha1
 $ sudo ifconfig <INTERFACE> mtu 1200
 ```
 
-### SSH Shell
-
-#### Command
-
-```c
-~C
-```
-
-##### Example
-
-```c
-SSH>
-```
-
 ### Port Forward Listener
 
 ```c
@@ -5095,6 +5083,7 @@ $ ssh -N -L <LPORT>:127.0.0.1:<RPORT> <USERNAME>@<RHOST>
 ```c
 $ ssh -L 80:<LHOST>:80 <RHOST>
 $ ssh -L 80:localhost:80 <RHOST>
+$ ssh -N -L 0.0.0.0:<LPORT>:<RHOST>:<RPORT> <USERNAME>@<RHOST>
 ```
 
 ### Dynamic Port Forwarding
@@ -5118,6 +5107,20 @@ $ ssh -N -R 127.0.0.1:<LPORT>:<RHOST>:<RPORT> <USERNAME>@<RHOST>
 
 ```c
 $ ssh -N -R <LHOST> <USERNAME>@<RHOST>
+```
+
+## SSH Shell
+
+### Command
+
+```c
+~C
+```
+
+#### Example
+
+```c
+SSH>
 ```
 
 ## sshpass
