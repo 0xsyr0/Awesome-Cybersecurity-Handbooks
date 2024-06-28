@@ -4,6 +4,7 @@
 
 ## Table of Contents
 
+- [Bash](#bash)
 - [CeWL](#cewl)
 - [CUPP](#cupp)
 - [crunch](#crunch)
@@ -24,6 +25,14 @@
 | pseudohash | Password list generator that focuses on keywords mutated by commonly used password creation patterns | https://github.com/t3l3machus/psudohash |
 | SecLists | A collection of multiple types of lists used during security assessments, collected in one place. | https://github.com/danielmiessler/SecLists |
 | Username Anarchy | Username tools for penetration testing | https://github.com/urbanadventurer/username-anarchy |
+
+## Bash
+
+### Add Numbers to Password Segment
+
+```c
+$ for i in {1..100}; do printf "Password@%d\n" $i >> <FILE>; done
+```
 
 ## CeWL
 
