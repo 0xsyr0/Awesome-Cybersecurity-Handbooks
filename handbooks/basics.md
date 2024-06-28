@@ -4916,10 +4916,11 @@ $ smbpasswd -r <RHOST> -U <USERNAME>
 
 ## socat
 
-### Local Proxy
+### Port Forwarding
 
 ```c
 $ socat TCP-LISTEN:<LPORT>,fork TCP:<RHOST>:<RPORT>
+$ socat -ddd TCP-LISTEN:<LPORT>,fork TCP:<RHOST>:<RPORT>
 ```
 
 ### Reverse Shell
@@ -4949,7 +4950,7 @@ $ socat tcp-listen:5986,reuseaddr,fork tcp:<RHOST>:9002
 ##### Remote System
 
 ```c
-$ socat tcp-listen:9002,reuseaddr,fork tcp:192.168.122.228:5968 &
+$ socat tcp-listen:9002,reuseaddr,fork tcp:<RHOST>:5968 &
 ```
 
 ### UDP Shell
