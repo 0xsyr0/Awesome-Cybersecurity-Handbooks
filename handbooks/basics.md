@@ -13,6 +13,7 @@
 - [ASCII](#ascii)
 - [awk](#awk)
 - [Bash](#bash)
+- [Bash Listenning Ports](#bash-listening-ports)
 - [Bash POSIX](#bash-posix)
 - [cadaver](#cadaver)
 - [capsh](#capsh)
@@ -254,6 +255,12 @@ $ awk '{print "http://<LHOST>/documents/" $0;}' ../files.txt | xargs -n 1 -P 16 
 
 ```c
 $ bash -p
+```
+
+## Bash Listening Ports
+
+```c
+$ S=(- ESTABLISHED SYN_SENT SYN_RECV FIN_WAIT1 FIN_WAIT2 TIME_WAIT CLOSE CLOSE_WAIT LAST_ACK LISTEN CLOSING);hex2ipport(){ printf '%d.%d.%d.%d:%d\n' $(echo $1|awk -F: '{print $1}'|sed 's/../0x& /g'|awk '{print $4" "$3" "$2" "$1}') 0x$(echo $1|awk -F: '{print $2}');};cat /proc/net/tcp|tail -n +2|while read L;do echo $(hex2ipport $(echo $L|awk '{print $2}')) $(hex2ipport $(echo $L|awk '{print $3}')) ${S[$(( 0x$(echo $L|awk '{print $4}') ))]};done
 ```
 
 ## Bash POSIX
