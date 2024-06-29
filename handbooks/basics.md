@@ -4230,14 +4230,15 @@ Import-CliXml
 Export-CliXml
 ```
 
-### Start offsec Session
+### Switching Sessions in PowerShell
 
 ```c
-PS /home/<USERNAME>> $offsec_session = New-PSSession -ComputerName <RHOST> -Authentication Negotiate -Credential <USERNAME>
-PS /home/<USERNAME>> Enter-PSSession $offsec_session
+PS C:\> $password = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
+PS C:\> $cred = New-Object System.Management.Automation.PSCredential("<USERNAME>", $password)
+PS C:\> Enter-PSSession -ComputerName <RHOST> -Credential $cred
 ```
 
-### Execute Command as another User
+or
 
 ```c
 PS C:\> $SecurePassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
