@@ -16,7 +16,7 @@
 - [Redis](#redis)
 - [SQL](#sql)
 - [sqlcmd](#sqlcmd)
-- [SQL Injection](#sql-injection-sqli)
+- [SQL Injection (SQLi)](#sql-injection-sqli)
 - [sqlite3](#sqlite3)
 - [sqlmap](#sqlmap)
 - [sqlmap Websocket Proxy](#sqlmap-websocket-proxy)
