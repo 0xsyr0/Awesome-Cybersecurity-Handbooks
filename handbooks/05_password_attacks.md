@@ -228,6 +228,12 @@ $ hashcat --example-hashes
 $ hashcat --help | grep -i "ntlm"
 ```
 
+### Hash Rules
+
+```c
+/usr/share/hashcat/rules/best64.rule
+```
+
 ### Mask File Example
 
 > https://hashcat.net/wiki/doku.php?id=mask_attack
