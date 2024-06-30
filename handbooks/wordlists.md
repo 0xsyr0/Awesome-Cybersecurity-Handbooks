@@ -9,6 +9,7 @@
 - [CUPP](#cupp)
 - [crunch](#crunch)
 - [JavaScript Quick Wordlist](#javascript-quick-wordlist)
+- [Mutate Wordlists](#mutate-wordlists)
 - [Username Anarchy](#username-anarchy)
 
 ## Resources
@@ -64,6 +65,15 @@ $ crunch 5 5 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ -o <FILE>.txt
 
 ```js
 javascript:(function(){const e=document.documentElement.innerText.match(/[a-zA-Z_\-]+/g),n=[...new Set(e)].sort();document.open(),document.write(n.join("<br>")),document.close();})();
+```
+
+## Mutate Wordlists
+
+### Remove all Number Sequences
+
+```c
+$ head /usr/share/wordlists/rockyou.txt > <FILE>.txt
+$ sed -i '/^1/d' <FILE>.txt
 ```
 
 ## Username Anarchy
