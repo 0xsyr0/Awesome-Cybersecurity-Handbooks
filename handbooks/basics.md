@@ -5524,7 +5524,11 @@ $ XAUTHORITY=/home/<USERNAME>/.Xauthority xwd -root -screen -silent -display :0 
 
 ## xfreerdp
 
+### Common Commands
+
 ```c
+$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore
+$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /d:<DOMAIN> /cert-ignore
 $ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +clipboard
 ```
 
