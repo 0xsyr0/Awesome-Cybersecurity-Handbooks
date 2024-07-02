@@ -246,6 +246,7 @@ $ hashcat --help | grep -i "ntlm"
 ### Hash Rules
 
 ```c
+/usr/share/wordlists/fasttrack.txt
 /usr/share/hashcat/rules/best64.rule
 ```
 
