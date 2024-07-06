@@ -397,13 +397,13 @@ $ john <FILE> --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=raw-md5 --mask='<
 ### Cracking .zip-Files
 
 ```c
-$ zip2john <FILE> > output.hash
+$ zip2john <FILE> > <FILE>
 ```
 
 ### Cracking EncFS/6
 
 ```c
-$ /usr/share/john/encfs2john.py directory/ > encfs6.xml.john
+$ encfs2john <DIRECTORY>/ > encfs6.xml.john
 $ john encfs6.xml.john --wordlist=/PATH/TO/WORDLIST/<WORDLIST>
 ```
 
@@ -416,15 +416,14 @@ $ john --format=krb5tgs --wordlist=<FILE> <FILE>
 ### Cracking RSA
 
 ```c
-$ /usr/share/john/ssh2john.py id_rsa > id_rsa.hash
-$ john id_rsa.hash --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=ssh
-$ john <FILE> --wordlist=/PATH/TO/WORDLIST/<WORDLIST>
+$ ssh2john id_rsa > <FILE>
+$ john <FILE> --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=ssh
 ```
 
 ### Cracking yescrypt
 
 ```c
-$ sudo john <FILE> --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=crypt
+$ john <FILE> --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=crypt
 ```
 
 ### Extracting Hash from .kdbx File
