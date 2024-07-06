@@ -3246,6 +3246,7 @@ $ for i in `seq 1 100`; do echo $i; done
 
 ```c
 $ ftp <RHOST>
+$ ftp -A <RHOST>
 ```
 
 ### Common Commands
