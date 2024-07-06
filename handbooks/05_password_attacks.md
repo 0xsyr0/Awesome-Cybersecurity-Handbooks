@@ -429,7 +429,7 @@ $ john <FILE> --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=crypt
 ### Extracting Hash from .kdbx File
 
 ```c
-$ keepass2john <FILE>.kdbx
+$ keepass2john <FILE>
 ```
 
 ## Kerbrute
