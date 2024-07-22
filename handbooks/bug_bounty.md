@@ -17,6 +17,7 @@
 - [Find basic SQL-Injection (SQLi), Cross-Site Scripting (XSS) and Server-Side Template Injection (SSTI) Vulnerabilities with Magic Payload](#find-basic-sql-injection-sqli-cross-site-scripting-xss-and-server-side-template-injection-ssti-vulnerabilities-with-magic-payload)
 - [Find Cross-Site Scripting (XSS) at Scale](#find-cross-site-scripting-xss-at-scale)
 - [Fingerprinting with Shodan and Nuclei](#fingerprinting-with-shodan-and-nuclei)
+- [Hunting Checklist](#hunting-checklist)
 - [Path Traversal Zero-Day in Apache HTTP Server (CVE-2021-41773)](#path-traversal-zero-day-in-apache-http-server-cve-2021-41773)
 - [Server-Side Template Injection (SSTI) at Scale](#server-side-template-injection-ssti-at-scale)
 - [Wayback Machine](#wayback-machine)
@@ -287,6 +288,49 @@ $ subfinder -d <DOMAIN> -all -silent | httpx -silent | katana -silent | Gxss -c 
 ```c
 $ shodan domain <DOMAIN> | awk '{print $3}' | httpx -silent | nuclei -t /PATH/TO/TEMPLATES/nuclei-templates/
 ```
+
+## Hunting Checklist
+
+### Domains
+
+1. Find Subdomains
+2. Check `CNAME Records` of those subdomains and check for `Subdomain Takeover`
+* Use `WaybackUrls` for URLs
+3. Use `MassScan` for `Port Scanning`
+4. Do `Github` recon
+
+### Web Applications
+
+5. Check for `CORS Misconfiguration`
+6. Check for `Email Header Injection` on `Password Reset Function`
+7. Check for `SMTP` and `HOST Header Injection`
+8. Check for `IFRAMEs (Clickjacking)`
+9. Check for `Improper Access Control` and `Paramter Tampering`
+10. Check `Burp History` for finding endpoint
+11. Use `Arjun` for finding hidden endpoints
+12. Check for `Client-Side Request Forgery (CSRF)`
+13. Check for `Server-Side Request Forgery (SSRF) Parameters`
+14. Check for `Cross-Site Scripting (XSS)` and `Server-Side Template Injection (SSTI)`
+15. Check `Cryptography` in `Reset Password Token`
+16. Check for `Unicode Injection` in `Email Parameters`
+17. Check for `Bypassing Rate Limits`
+
+#### Headers
+
+X-Originating-IP:IP
+X-Forwarded-For:IP
+X-Remote-IP:IP
+X-Remote-Addr:IP
+X-Client-IP:IP
+X-Forwarded-Host:IP
+
+18. Perform `Directory Busting`
+19. Check for `HTTP Request Smuggling`
+20. Check for `Open Redirect` through `WaybackUrls`
+21. Check for `Social-Signon Bypass`
+22. Check for `state parameter` in `Social Sign-In` & check whether it's possible to cause `Denial of Service (DoS)` using `Multiple Cookie Injection`
+23. Check for `File Upload`: CSRF, XSS, SSRF, RCE, LFI, XXE
+24. Check for `Buffer Overflow`
 
 ## Path Traversal Zero-Day in Apache HTTP Server (CVE-2021-41773)
 
