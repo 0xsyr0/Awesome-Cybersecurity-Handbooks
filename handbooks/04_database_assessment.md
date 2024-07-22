@@ -33,6 +33,7 @@
 | RedisModules-ExecuteCommand | Tools, utilities and scripts to help you write redis modules! | https://github.com/n0b0dyCN/RedisModules-ExecuteCommand |
 | Redis RCE | Redis 4.x/5.x RCE | https://github.com/Ridter/redis-rce |
 | Redis Rogue Server | Redis(<=5.0.5) RCE | https://github.com/n0b0dyCN/redis-rogue-server |
+| SQL Injection Cheatsheet | Tib3rius | https://tib3rius.com/sqli.html |
 | SQL injection cheat sheet | This SQL injection cheat sheet contains examples of useful syntax that you can use to perform a variety of tasks that often arise when performing SQL injection attacks. | https://portswigger.net/web-security/sql-injection/cheat-sheet |
 | SQL Injection Payload List | SQL Injection Payload List | https://github.com/payloadbox/sql-injection-payload-list |
 | sqlmap | sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database servers. | https://github.com/sqlmapproject/sqlmap |
