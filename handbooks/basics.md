@@ -81,7 +81,7 @@
 - [plink](#plink)
 - [PNG](#png)
 - [POP3](#pop3)
-- [Port Forwarding](#port-forwarding)
+- [Port Forwarding](#port-forwarding-1)
 - [PowerShell](#powershell-1)
 - [printf](#printf)
 - [proc](#proc)
