@@ -4,6 +4,7 @@
 
 ## Table of Contents
 
+- [ATtiny85](#attiny85)
 - [Signal Decoding](#signal-decoding)
 
 ## Resources
