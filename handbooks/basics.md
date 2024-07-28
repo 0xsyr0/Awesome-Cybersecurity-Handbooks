@@ -143,7 +143,7 @@
 - [Writeable Directories](#writeable-directories)
 - [Windows Subsystem for Linux (WSL)](#windows-subsystem-for-linux-wsl)
 - [Wine](#wine)
-- [wsigdav](#wsigdav)
+- [wsgidav](#wsgidav)
 - [X](#x)
 - [xfreerdp](#xfreerdp)
 - [Zip](#zip)
@@ -5914,7 +5914,7 @@ $ sudo apt-get install -y mono-complete wine winetricks
 $ winetricks dotnet48
 ```
 
-## wsigdav
+## wsgidav
 
 ```c
 $ wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /PATH/TO/FOLDER/
