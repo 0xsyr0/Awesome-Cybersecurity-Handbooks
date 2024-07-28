@@ -514,6 +514,7 @@ $ curl https://<RHOST>/sites/favicon/images/favicon.ico | md5sum
 > https://github.com/epi052/feroxbuster
 
 ```c
+$ feroxbuster -u http://<RHOST> -s <STATUS_CODES>
 $ feroxbuster -u http://<RHOST> -x js,bak,txt,png,jpg,jpeg,php,aspx,html --extract-links
 ```
 
