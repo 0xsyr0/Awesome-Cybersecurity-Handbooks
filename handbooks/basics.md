@@ -156,10 +156,9 @@
 | Chisel | A fast TCP/UDP tunnel over HTTP | https://github.com/jpillora/chisel |
 | CyberChef | The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis. | https://gchq.github.io/CyberChef |
 | goshs | A SimpleHTTPServer written in Go, enhanced with features and with a nice design | https://github.com/patrickhener/goshs |
+| Ligolo-ng | An advanced, yet simple, tunneling/pivoting tool that uses a TUN interface. | https://github.com/nicocha30/ligolo-ng |
 | MailHog | Web and API based SMTP testing | https://github.com/mailhog/MailHog |
-| Modlishka | Modlishka. Reverse Proxy. | https://github.com/drk1wi/Modlishka |
 | Reverse SSH | SSH based reverse shell | https://github.com/NHAS/reverse_ssh |
-| searchcode | Search 75 billion lines of code from 40 million projects | https://searchcode.com |
 | socat | Mirror of the socat source code with pre-built releases for Linux (x64 and x86), Windows (x64 and x86), and MacOS (x64) | https://github.com/3ndG4me/socat |
 | Swaks | Swiss Army Knife for SMTP | https://github.com/jetmore/swaks |
 | up-http-tool | Simple HTTP listener for security testing | https://github.com/MuirlandOracle/up-http-tool |
