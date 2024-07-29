@@ -162,7 +162,7 @@ $ hashcat -m 900 md4 /PATH/TO/WORDLIST/<WORDLIST>
 $ hashcat -m 1000 ntlm /PATH/TO/WORDLIST/<WORDLIST>
 $ hashcat -m 1800 sha512 /PATH/TO/WORDLIST/<WORDLIST>
 $ hashcat -m 160 hmac-sha1 /PATH/TO/WORDLIST/<WORDLIST>
-$ hashcat -a 0 -m 0 hash.txt SecLists/Passwords/xato-net-10-million-passwords-1000000.txt -O --force
+$ hashcat -a 0 -m 0 <FILE> /PATH/TO/WORDLIST/<WORDLIST> -O --force
 $ hashcat -O -m 500 -a 3 -1 ?l -2 ?d -3 ?u  --force hash.txt ?3?3?1?1?1?1?2?3
 ```
 
@@ -287,7 +287,7 @@ $ hashcat -m5600 'spotless::WS01:1122334455667788:26872b3197acf1da493228ac1a54c6
 #### Cracking with OneRuleToRuleThemAll.rule
 
 ```c
-$ hashcat -m 3200 hash.txt -r /PATH/TO/FILE.rule
+$ hashcat -m 3200 hash.txt -r /PATH/TO/FILE/<FILE>.rule
 ```
 
 ## Hydra
