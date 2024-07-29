@@ -14,6 +14,7 @@
 - [Magic Function](#magic-function)
 - [MD5](#md5)
 - [OpenSSL](#openssl)
+- [PBKDF2](#pbkdf2)
 - [PuTTY Tools](#putty-tools)
 - [Python Pickle](#python-pickle)
 - [ROT13](#rot13)
@@ -62,8 +63,6 @@ root:$6$YIFGN9pFPOS3EmwO$qwICXAw4bqSjjjFaCT1qYscCV72BjFtx/tehbc7sQTJp09UJj9u83eB
 ### Windows
 
 ### hashdump.exe
-
-> https://0xprashant.github.io/pages/decryption-instruction/
 
 ```c
 $ .\hashdump.exe /samdump
@@ -182,6 +181,60 @@ $ openssl pkcs12 -in <CERTIFICATE>.pfx -clcerts -nokeys -out <CERTIFICATE>.crt
 
 ```c
 $ evil-winrm -i <RHOST> -S -k <KEY>.key -c <CERTIFICATE>.crt
+```
+
+## PBKDF2
+
+### Structure
+
+```c
+sha256:<ITERATION>:<FROM_HEX_TO_BASE64_SALT>:<FROM_HEX_TO_BASE64_HASHED_PASSWORD>
+```
+
+### Formatting One-liner
+
+```c
+$ echo "sha256:50000:$(echo <SALT> | xxd -r -p | base64):$(echo <HASHED_PASSWORD> | xxd -r -p | base64)"
+```
+
+### CyberChef Recipe & Manual Steps
+
+> https://gchq.github.io/CyberChef/#recipe=From_Hex('Auto')To_Base64('A-Za-z0-9%2B/%3D')&oeol=FF
+
+#### Salt
+
+```c
+227d873cca89103cd83a976bdac52486
+```
+
+#### Salt Base64
+
+```c
+In2HPMqJEDzYOpdr2sUkhg==
+```
+
+#### Hashed Password
+
+```c
+97907280dc24fe517c43475bd218bfad56c25d4d11037d8b6da440efd4d691adfead40330b2aa6aaf1f33621d0d73228fc16
+```
+
+#### Hashed Password Base64
+
+```c
+l5BygNwk/lF8Q0db0hi/rVbCXU0RA32LbaRA79TWka3+rUAzCyqmqvHzNiHQ1zIo/BY=
+```
+
+#### Putting all together
+
+```c
+sha256:50000:In2HPMqJEDzYOpdr2sUkhg==:l5BygNwk/lF8Q0db0hi/rVbCXU0RA32LbaRA79TWka3+rUAzCyqmqvHzNiHQ1zIo/BY=
+```
+
+### Cracking with Hashcat
+
+```c
+$ hashcat -a 0 -m 10900 <FILE> /PATH/TO/WORDLIST/<WORDLIST>
 ```
 
 ## PuTTY Tools
