@@ -66,6 +66,12 @@ filetype:txt
 ext:php inurl:? site:<DOMAIN>
 ```
 
+#### Finding .git Directories
+
+```c
+"(intext:"index of /.git") ("parent directory")
+```
+
 #### Juicy Extensions
 
 ```c
