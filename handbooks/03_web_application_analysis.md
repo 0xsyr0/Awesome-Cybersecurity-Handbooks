@@ -285,6 +285,7 @@ $ http_proxy=localhost:8080 https_proxy=localhost:8080 <COMMAND> <RHOST>
 - Backslash Powered Scanner
 - CO2
 - Collaborator Everywhere
+- Content Type Converter
 - Distribute Damage
 - Encode IP
 - GAP
