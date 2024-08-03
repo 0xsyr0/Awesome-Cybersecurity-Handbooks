@@ -202,5 +202,6 @@ msf> spool <file>.log
 * Kanban
 * Paste URL into selection
 * Table of Contents
+	* Automatic Table of Contents (Alternatively)
 * TagFolder
 * Tag Wrangler
