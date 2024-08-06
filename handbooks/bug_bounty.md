@@ -13,6 +13,7 @@
 - [Find JavaScript Files with gau and httpx](#find-javascript-files-with-gau-and-httpx)
 - [Find Open Redirects](#find-open-redirects)
 - [Find Secrets in JavaScript Files](#find-secrets-in-javascript-files)
+- [Find Subdomains based on Certificates](#find-subdomains-based-on-certificates)
 - [Find SQL-Injection (SQLi) at Scale](#find-sql-injection-sqli-at-scale)
 - [Find basic SQL-Injection (SQLi), Cross-Site Scripting (XSS) and Server-Side Template Injection (SSTI) Vulnerabilities with Magic Payload](#find-basic-sql-injection-sqli-cross-site-scripting-xss-and-server-side-template-injection-ssti-vulnerabilities-with-magic-payload)
 - [Find Cross-Site Scripting (XSS) at Scale](#find-cross-site-scripting-xss-at-scale)
@@ -248,6 +249,12 @@ $ echo "http://<RHOST>" | gau | grep =http | php -r "echo urldecode(file_get_con
 
 ```c
 $ subfinder -d <DOMAIN> -silent | /home/<USERNAME>/go/bin/httpx -silent -o <DOMAIN>_httpx.txt; for i in $(cat <DOMAIN>_httpx.txt); do DOMAIN=$(echo $i | /home/<USERNAME>/go/bin/unfurl format %d) | cat <DOMAIN>_httpx.txt | nuclei -t /home/<USERNAME>/opt/03_web_application_analysis/nuclei-templates/exposures/tokens -o token-expose.txt; done
+```
+
+## Find Subdomains based on Certificates
+
+```c
+$ curl -s https://crt.sh/\?q\=<DOMAIN>\&output\=json | jq . | grep 'name_value' | awk '{print $2}' | sed -e 's/"//g'| sed -e 's/,//g' | awk '{gsub(/\\n/,"\n")}1' | sort -u
 ```
 
 ## Find SQL-Injection (SQLi) at Scale
