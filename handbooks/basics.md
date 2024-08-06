@@ -5480,6 +5480,21 @@ $ ssh <USERNAME>@<RHOST> -oKexAlgorithms=+diffie-hellman-group1-sha1
 $ sudo ifconfig <INTERFACE> mtu 1200
 ```
 
+### SSH Key Signing
+
+#### Creating and Signing Keys
+
+```c
+$ ssh-keygen -f <NAME> -C "<DESCRIPTION>" -N "<PASSWORD>"
+$ ssh-keygen -s <SSH_KEY> -I <IDENTITY> -n <USERNAME> -V +52w <SSH_KEY>.pub
+```
+
+#### Authentication
+
+```c
+$ ssh -i <SSH_KEY> -o CertificateFile=<USERNAME>-cert.pub <USERNAME>@<RHOST>
+````
+
 ### Port Forward Listener
 
 ```c
