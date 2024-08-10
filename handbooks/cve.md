@@ -175,6 +175,8 @@
 | CVE-2024-29849 | Veeam Backup Enterprise Manager Authentication Bypass | https://github.com/sinsinology/CVE-2024-29849 |
 | CVE-2024-30088 | Microsoft Windows LPE | https://github.com/tykawaii98/CVE-2024-30088 |
 | CVE-2024-32002 | Git: git clone RCE | https://github.com/amalmurali47/git_rce |
+| CVE-2024-38077 | MadLicense Preauth RCE PoC (1) | https://github.com/CloudCrowSec001/CVE-2024-38077-POC |
+| CVE-2024-38077 | MadLicense Preauth RCE PoC (2) | https://github.com/qi4L/CVE-2024-38077 |
 | CVE-2024-38100 | Leaked Wallpaper LPE | https://github.com/MzHmO/LeakedWallpaper |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
