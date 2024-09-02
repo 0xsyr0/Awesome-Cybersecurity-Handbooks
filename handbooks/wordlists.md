@@ -81,5 +81,5 @@ $ sed -i '/^1/d' <FILE>.txt
 > https://github.com/urbanadventurer/username-anarchy
 
 ```c
-$ ruby username-anarchy -f first,first.last,last,flast -i <FILE> > <FILE>
+$ ruby username-anarchy -f first,first.last,last,flast,f.last -i <FILE>
 ```
