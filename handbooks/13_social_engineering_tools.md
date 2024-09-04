@@ -20,6 +20,8 @@
 | evilgophish | evilginx2 + gophish | https://github.com/fin3ss3g0d/evilgophish |
 | EvilnoVNC | Ready to go Phishing Platform | https://github.com/JoelGMSec/EvilnoVNC |
 | Gophish | Open-Source Phishing Toolkit | https://github.com/gophish/gophish |
+| Modlishka | Modlishka. Reverse Proxy. | https://github.com/drk1wi/Modlishka |
+| Muraena | Muraena is an almost-transparent reverse proxy aimed at automating phishing and post-phishing activities. | https://github.com/muraenateam/muraena |
 | Nexphisher | Advanced Phishing tool for Linux & Termux | https://github.com/htr-tech/nexphisher |
 | SocialFish | Phishing Tool & Information Collector  | https://github.com/UndeadSec/SocialFish |
 | SniperPhish | SniperPhish - The Web-Email Spear Phishing Toolkit | https://github.com/GemGeorge/SniperPhish |
