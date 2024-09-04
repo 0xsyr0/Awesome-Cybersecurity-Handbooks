@@ -50,6 +50,7 @@
 - [Log Poisoning](#log-poisoning)
 - [Magic Bytes](#magic-bytes)
 - [mitmproxy](#mitmproxy)
+- [Next.js](#nextjs)
 - [ngrok](#ngrok)
 - [OpenSSL](#openssl)
 - [PadBuster](#padbuster)
@@ -3267,6 +3268,15 @@ GIF89a;
 
 ```c
 $ mitmproxy
+```
+
+## Next.js
+
+### Path Enumeration
+
+```c
+console.log(__BUILD_MANIFEST.sortedPages)
+console.log(__BUILD_MANIFEST.sortedPages.join('\n'));
 ```
 
 ## ngrok
