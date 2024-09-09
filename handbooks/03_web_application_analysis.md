@@ -3277,6 +3277,7 @@ $ mitmproxy
 ```c
 console.log(__BUILD_MANIFEST.sortedPages)
 console.log(__BUILD_MANIFEST.sortedPages.join('\n'));
+console.log('Pages List:\n' + __BUILD_MANIFEST.sortedPages.map((page, index) => `${index + 1}. ${page}`).join('\n'));
 ```
 
 ## ngrok
