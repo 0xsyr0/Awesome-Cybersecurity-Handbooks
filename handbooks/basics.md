@@ -354,6 +354,8 @@ $ ./chisel client <LHOST>:9002 R:socks
 
 ```c
 $ chmod +s <FILE>
+$ chmod u+s <FILE>
+$ chmod 4777 <FILE>
 ```
 
 ## gcc
