@@ -173,6 +173,12 @@ $ hashcat --example-hashes
 $ hashcat --help | grep -i "ntlm"
 ```
 
+### Identify Hashes
+
+```c
+$ hashcat --identify --user <FILE>
+```
+
 ### Hash Rules
 
 ```c
