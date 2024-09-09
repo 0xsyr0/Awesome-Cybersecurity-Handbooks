@@ -3624,7 +3624,7 @@ $ lftp -u <USERNAME>,<PASSWORD> <RHOST>
 lftp <USERNAME>@<RHOST>:~> user <USERNAME>
 lftp <USERNAME>@<RHOST>:~> dir
 lftp <USERNAME>@<RHOST>:~> get <FILE>
-lftp <USERNAME>@<RHOST>:~> PUT <FILE>
+lftp <USERNAME>@<RHOST>:~> put <FILE>
 ```
 
 ### Force SSL Verification
