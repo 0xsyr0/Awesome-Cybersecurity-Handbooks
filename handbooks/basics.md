@@ -3617,12 +3617,26 @@ $ | less -s
 
 ## lftp
 
+### Common Commands
+
 ```c
-$ lftp <RHOST> 21
-$ set ftp:ssl-force true
-$ set ssl:verify-certificate no
-$ user <USERNAME>
-$ ls
+$ lftp -u <USERNAME>,<PASSWORD> <RHOST>
+lftp <USERNAME>@<RHOST>:~> user <USERNAME>
+lftp <USERNAME>@<RHOST>:~> dir
+lftp <USERNAME>@<RHOST>:~> get <FILE>
+lftp <USERNAME>@<RHOST>:~> PUT <FILE>
+```
+
+### Force SSL Verification
+
+```c
+lftp <USERNAME>@<RHOST>:~> ftp:ssl-force true
+```
+
+### Disable SSL Verification
+
+```c
+lftp <USERNAME>@<RHOST>:~> set ssl:verify-certificate off
 ```
 
 ## Ligolo-ng
