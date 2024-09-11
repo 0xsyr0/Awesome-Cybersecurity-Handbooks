@@ -317,6 +317,13 @@ mysql> SHOW GRANTS FOR '<USERNAME>'@'localhost' \G;
 $ mysql -u root -p -e 'select @@version;'
 ```
 
+### Skip SSL Verification
+
+```c
+$ mysql -h <RHOST> -u <USERNAME> --skip-ssl -p
+$ mysql -h <RHOST> -P <RPORT> -u <USERNAME> --skip-ssl -p
+```
+
 ### Password Reset
 
 ```c
