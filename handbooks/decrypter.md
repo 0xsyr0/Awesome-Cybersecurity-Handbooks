@@ -18,6 +18,7 @@
 | nodered_decrypt.py | Decrypt Node-RED Credentials | https://gist.github.com/Yeeb1/fe9adcd39306e3ced6bdfc7758a43519 |
 | openfire_decrypt | Little java tool to decrypt passwords from Openfire embedded-db | https://github.com/c0rdis/openfire_decrypt |
 | PMP-Decrypter | This is a tool to decrypt the encrypted password strings in Patch My PC settings.xml files. | https://github.com/LuemmelSec/PMP-Decrypter |
+| pswm-decoder | a simple decoder for https://github.com/Julynx/pswm | https://github.com/repo4Chu/pswm-decoder |
 | SharpLansweeperDecrypt | Automatically extract and decrypt all configured scanning credentials of a Lansweeper instance. | https://github.com/Yeeb1/SharpLansweeperDecrypt |
 
 ## openfire_decrypt
