@@ -40,7 +40,7 @@
 - [CVE-2024-23897: Jenkins Arbitrary File Read](#cve-2024-23897-jenkins-arbitrary-file-read)
 - [CVE-2024-24919: Check Point Security Gateway Information Disclosure (0-day)](#cve-2024-24919-check-point-security-gateway-information-disclosure-0-day)
 - [CVE-2024-32002: Git: git clone RCE](#cve-2024-32002-git-git-clone-rce)
-- [Evil-CUPS RCE](#evil-cups-rce)
+- [CVE-2024-47176: EvilCUPS RCE](#cve-2024-47176-evilcups-rce)
 - [GodPotato LPE](#godpotato-lpe)
 - [Juicy Potato LPE](#juicy-potato-lpe)
 - [JuicyPotatoNG LPE](#juicypotatong-lpe)
@@ -1818,7 +1818,7 @@ $ git push
 
 Compile the project for `Remote Code Execution (RCE)`.
 
-## Evil-CUPS RCE
+## CVE-2024-47176: EvilCUPS RCE
 
 > https://github.com/IppSec/evil-cups
 
