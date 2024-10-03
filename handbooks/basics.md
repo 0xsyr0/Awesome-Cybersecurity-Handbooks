@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [.NET](#net)
+- [2to3](2to3)
 - [7z](#7z)
 - [adb (Andoid Debug Bridge)](#adb-andoid-debug-bridge)
 - [ar](#ar)
@@ -169,6 +170,13 @@
 
 ```c
 C:\> reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"
+```
+
+## 2to3
+
+```c
+$ 2to3 <OLD_PYTHON_SCRIPT>.py -w <NEW_PYTHON_SCRIPT>.py
+$ 2to3-2.7 <OLD_PYTHON_SCRIPT>.py -w <NEW_PYTHON_SCRIPT>.py
 ```
 
 ## 7z
@@ -5002,17 +5010,18 @@ $ python3 -m http.server 80
 $ python3 -m smtpd -c DebuggingServer -n <LHOST>:25
 ```
 
+### Virtual Environments
+
+```c
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ deactivate
+```
+
 ### Unzip .zip File
 
 ```c
 $ import zipfile;zipfile.ZipFile('<FILE>.zip','r').extractall('.');
-```
-
-### Script Conversion
-
-```c
-$ 2to3 <OLD_PYTHON_SCRIPT>.py -w <NEW_PYTHON_SCRIPT>.py
-$ 2to3-2.7 <OLD_PYTHON_SCRIPT>.py -w <NEW_PYTHON_SCRIPT>.py
 ```
 
 ### SyntaxError: invalid non-printable character U+200B
