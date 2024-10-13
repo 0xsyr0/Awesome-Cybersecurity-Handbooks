@@ -20,6 +20,7 @@
 | PMP-Decrypter | This is a tool to decrypt the encrypted password strings in Patch My PC settings.xml files. | https://github.com/LuemmelSec/PMP-Decrypter |
 | pswm-decoder | a simple decoder for https://github.com/Julynx/pswm | https://github.com/repo4Chu/pswm-decoder |
 | SharpLansweeperDecrypt | Automatically extract and decrypt all configured scanning credentials of a Lansweeper instance. | https://github.com/Yeeb1/SharpLansweeperDecrypt |
+| SolarPuttyDecrypt | A post-exploitation tool to decrypt SolarPutty's sessions files | https://github.com/VoidSec/SolarPuttyDecrypt |
 
 ## openfire_decrypt
 
