@@ -231,12 +231,6 @@ l5BygNwk/lF8Q0db0hi/rVbCXU0RA32LbaRA79TWka3+rUAzCyqmqvHzNiHQ1zIo/BY=
 sha256:50000:In2HPMqJEDzYOpdr2sUkhg==:l5BygNwk/lF8Q0db0hi/rVbCXU0RA32LbaRA79TWka3+rUAzCyqmqvHzNiHQ1zIo/BY=
 ```
 
-### Cracking with Hashcat
-
-```c
-$ hashcat -a 0 -m 10900 <FILE> /PATH/TO/WORDLIST/<WORDLIST>
-```
-
 ### Formater
 
 ```python
@@ -276,6 +270,12 @@ def format_pbkdf2_hash():
 if __name__ == "__main__":
     format_pbkdf2_hash()
 
+```
+
+### Cracking with Hashcat
+
+```c
+$ hashcat -a 0 -m 10900 <FILE> /PATH/TO/WORDLIST/<WORDLIST>
 ```
 
 ## PuTTY Tools
