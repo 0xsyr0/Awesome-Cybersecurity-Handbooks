@@ -176,6 +176,7 @@
 | CVE-2024-29849 | Veeam Backup Enterprise Manager Authentication Bypass | https://github.com/sinsinology/CVE-2024-29849 |
 | CVE-2024-30088 | Microsoft Windows LPE | https://github.com/tykawaii98/CVE-2024-30088 |
 | CVE-2024-32002 | Git: git clone RCE | https://github.com/amalmurali47/git_rce |
+| CVE-2024-35250 | Untrusted Pointer Dereference in ks.sys Driver LPE | https://github.com/varwara/CVE-2024-35250 |
 | CVE-2024-38063 | Windows TCP/IP RCE | https://github.com/ynwarcs/CVE-2024-38063 |
 | CVE-2024-38077 | MadLicense Preauth RCE PoC (1) | https://github.com/CloudCrowSec001/CVE-2024-38077-POC |
 | CVE-2024-38077 | MadLicense Preauth RCE PoC (2) | https://github.com/qi4L/CVE-2024-38077 |
