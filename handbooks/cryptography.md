@@ -237,6 +237,47 @@ sha256:50000:In2HPMqJEDzYOpdr2sUkhg==:l5BygNwk/lF8Q0db0hi/rVbCXU0RA32LbaRA79TWka
 $ hashcat -a 0 -m 10900 <FILE> /PATH/TO/WORDLIST/<WORDLIST>
 ```
 
+### Formater
+
+```python
+import base64
+import binascii
+
+def format_pbkdf2_hash():
+
+    algo = input("Enter the algorithm (e.g., sha256): ")
+    iterations = input("Enter the iteration count (e.g., 600000): ")
+    
+    salt_input = input("Enter the salt (ASCII string or HEX value): ")
+    salt_format = input("Is the salt ASCII or HEX? (Enter 'ascii' or 'hex'): ").strip().lower()
+    
+    hash_hex = input("Enter the hash (hexadecimal string): ")
+
+    try:
+        if salt_format == "ascii":
+            salt_base64 = base64.b64encode(salt_input.encode()).decode()
+        elif salt_format == "hex":
+            salt_bytes = binascii.unhexlify(salt_input)
+            salt_base64 = base64.b64encode(salt_bytes).decode()
+        else:
+            print("Invalid salt format. Please enter 'ascii' or 'hex'.")
+            return
+
+        hash_bytes = binascii.unhexlify(hash_hex)
+        hash_base64 = base64.b64encode(hash_bytes).decode()
+
+        formatted_hash = f"{algo}:{iterations}:{salt_base64}:{hash_base64}"
+        print("\nFormatted hash for Hashcat:")
+        print(formatted_hash)
+    
+    except (binascii.Error, ValueError) as e:
+        print(f"Error during conversion: {e}")
+
+if __name__ == "__main__":
+    format_pbkdf2_hash()
+
+```
+
 ## PuTTY Tools
 
 ```c
