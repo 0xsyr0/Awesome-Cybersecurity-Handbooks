@@ -390,11 +390,11 @@ $ python3 commix.py --url="http://<RHOST>:5013/graphql" --data='{"query":"query{
 ## Common File Extensions
 
 ```c
-7z,action,ashx,asp,aspx,backup,bak,bz,c,cgi,conf,config,dat,db,dhtml,do,doc,docm,docx,dot,dotm,go,htm,html,ini,jar,java,js,js.map,json,jsp,jsp.source,jspx,jsx,log,old,pdb,pdf,phtm,phtml,pl,py,pyc,pyz,rar,rhtml,shtm,shtml,sql,sqlite3,svc,tar,tar.bz2,tar.gz,tsx,txt,wsdl,xhtm,xhtml,xls,xlsm,xlst,xlsx,xltm,xml,zip
+7z,action,ashx,asp,aspx,backup,bak,bk,bz,c,cgi,conf,config,dat,db,dhtml,do,doc,docm,docx,dot,dotm,go,htm,html,ini,jar,java,js,js.map,json,jsp,jsp.source,jspx,jsx,log,old,pdb,pdf,php,phtm,phtml,pl,py,pyc,pyz,rar,rhtml,shtm,shtml,sql,sqlite3,svc,tar,tar.bz2,tar.gz,tsx,txt,wsdl,xhtm,xhtml,xls,xlsm,xlst,xlsx,xltm,xml,zip
 ```
 
 ```c
-.7z,.action,.ashx,.asp,.aspx,.backup,.bak,.bz,.c,.cgi,.conf,.config,.dat,.db,.dhtml,.do,.doc,.docm,.docx,.dot,.dotm,.go,.htm,.html,.ini,.jar,.java,.js,.js.map,.json,.jsp,.jsp.source,.jspx,.jsx,.log,.old,.pdb,.pdf,.phtm,.phtml,.pl,.py,.pyc,.pyz,.rar,.rhtml,.shtm,.shtml,.sql,.sqlite3,.svc,.tar,.tar.bz2,.tar.gz,.tsx,.txt,.wsdl,.xhtm,.xhtml,.xls,.xlsm,.xlst,.xlsx,.xltm,.xml,.zip
+.7z,.action,.ashx,.asp,.aspx,.backup,.bak,.bk,.bz,.c,.cgi,.conf,.config,.dat,.db,.dhtml,.do,.doc,.docm,.docx,.dot,.dotm,.go,.htm,.html,.ini,.jar,.java,.js,.js.map,.json,.jsp,.jsp.source,.jspx,.jsx,.log,.old,.pdb,.pdf,.php,.phtm,.phtml,.pl,.py,.pyc,.pyz,.rar,.rhtml,.shtm,.shtml,.sql,.sqlite3,.svc,.tar,.tar.bz2,.tar.gz,.tsx,.txt,.wsdl,.xhtm,.xhtml,.xls,.xlsm,.xlst,.xlsx,.xltm,.xml,.zip
 ```
 
 ## curl
