@@ -156,9 +156,10 @@
 | --- | --- | --- |
 | Chisel | A fast TCP/UDP tunnel over HTTP | https://github.com/jpillora/chisel |
 | CyberChef | The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis. | https://gchq.github.io/CyberChef |
-| goshs | A SimpleHTTPServer written in Go, enhanced with features and with a nice design | https://github.com/patrickhener/goshs |
+| graftcp | A flexible tool for redirecting a given program's TCP traffic to SOCKS5 or HTTP proxy. | https://github.com/hmgle/graftcp |
 | Ligolo-ng | An advanced, yet simple, tunneling/pivoting tool that uses a TUN interface. | https://github.com/nicocha30/ligolo-ng |
 | MailHog | Web and API based SMTP testing | https://github.com/mailhog/MailHog |
+| MicroSocks | tiny, portable SOCKS5 server with very moderate resource usage | https://github.com/rofl0r/microsocks |
 | Reverse SSH | SSH based reverse shell | https://github.com/NHAS/reverse_ssh |
 | socat | Mirror of the socat source code with pre-built releases for Linux (x64 and x86), Windows (x64 and x86), and MacOS (x64) | https://github.com/3ndG4me/socat |
 | Swaks | Swiss Army Knife for SMTP | https://github.com/jetmore/swaks |
