@@ -101,6 +101,7 @@
 - [rsh](#rsh)
 - [rsync](#rsync)
 - [RunAs](#runas)
+- [screen](#screen)
 - [sendemail](#sendemail)
 - [seq](#seq)
 - [SetUID Bit](#setuid-bit)
@@ -5199,10 +5200,38 @@ $ rsync -av rsync://<RHOST>/<FILE>/<REMOTE_DIRECTORY> <LOCAL_DIRECTORY>
 C:\> runas /user:"<USERNAME>" cmd.exe
 ```
 
+## screen
+
+### List Sessions
+
+```c
+$ screen -ls
+```
+
+### Attach to Session
+
+```c
+$ screen -x <NAME>
+```
+
+### Window List
+
+```c
+ctrl + a ctrl + w
+```
+
+### Window Handling
+
+```c
+ctrl + a + c new window
+ctrl + a + n next
+ctrl + a +p previous
+```
+
 ## sendemail
 
 ```c
-sendemail -f foobar@<DOMAIN> -t nico@<DOMAIN> -u "Invoice Attached" -m "You are overdue payment" -a invoice.rtf -s 10.10.10.77 -v
+$ sendemail -f foobar@<DOMAIN> -t nico@<DOMAIN> -u "Invoice Attached" -m "You are overdue payment" -a invoice.rtf -s 10.10.10.77 -v
 ```
 
 ## seq
