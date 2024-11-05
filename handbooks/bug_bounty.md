@@ -22,6 +22,7 @@
 - [Path Traversal Zero-Day in Apache HTTP Server (CVE-2021-41773)](#path-traversal-zero-day-in-apache-http-server-cve-2021-41773)
 - [Server-Side Template Injection (SSTI) at Scale](#server-side-template-injection-ssti-at-scale)
 - [Wayback Machine](#wayback-machine)
+- [waybackurls](#waybackurls)
 - [Web Shell / Malicious Images](#web-shell-malicious-images)
 - [Wordpress Configuration Disclosure](#wordpress-configuration-disclosure)
 - [Cross-Site Scripting (XSS)](#cross-site-scripting-xss)
@@ -359,6 +360,14 @@ $ echo "<DOMAIN>" | subfinder -silent | waybackurls | gf ssti | qsreplace "{{''.
 2. Type in the desired domain
 3. Switch to the URL tab https://web.archive.org/web/*/https://<DOMAIN>*
 4. Apply the filter `%40`
+
+## waybackurls
+
+> https://github.com/tomnomnom/waybackurls
+
+```c
+$ waybackurls <DOMAIN> | grep - -color -E "1.xls | \\.tar.gz | \\.bak | \\.xml | \\.xlsx | \\.json | \\.rar | \\.pdf | \\.sql | \\.doc | \\.docx | \\.pptx | \\.txt | \\.zip | \\.tgz | \\.7z"
+```
 
 ## Web Shell / Malicious Images
 
