@@ -19,6 +19,7 @@
 | AMSI Bypass Powershell | This repo contains some Antimalware Scan Interface (AMSI) bypass / avoidance methods i found on different Blog Posts. | https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell |
 | AmsiHook | AmsiHook is a project I created to figure out a bypass to AMSI via function hooking. | https://github.com/tomcarver16/AmsiHook |
 | AMSI.fail | AMSI.fail generates obfuscated PowerShell snippets that break or disable AMSI for the current process. | http://amsi.fail |
+| BOAZ_beta | Multilayered AV/EDR Evasion Framework | https://github.com/thomasxm/BOAZ_beta |
 | charlotte | c++ fully undetected shellcode launcher ;) | https://github.com/9emin1/charlotte |
 | Chimera | Chimera is a PowerShell obfuscation script designed to bypass AMSI and commercial antivirus solutions. | https://github.com/tokyoneon/Chimera |
 | Codecepticon | .NET/PowerShell/VBA Offensive Security Obfuscator | https://github.com/sadreck/Codecepticon |
