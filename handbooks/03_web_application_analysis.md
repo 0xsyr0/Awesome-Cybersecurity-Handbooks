@@ -4058,9 +4058,11 @@ $ go install github.com/tomnomnom/waybackurls@latest
 
 ### Frameworks
 
+```c
 - \x09       // Spring Framework
 - \xA0       // Express Framework
 - \x1C-1F    // Flask
+```
 
 ```c
 GET /wp-login.php\xA0 HTTP/1.1
