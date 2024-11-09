@@ -66,7 +66,7 @@
 - [Upload Filter Bypass](#upload-filter-bypass)
 - [Upload Vulnerabilities](#upload-vulnerabilities)
 - [waybackurls](#waybackurls)
-- [Web Application Firewall (WAF) Bypasses](#web-application-firewall--waf--bypasses)
+- [Web Application Firewall (WAF) Bypasses](#web-application-firewall-waf-bypasses)
 - [Web Log Poisoning](#web-log-poisoning)
 - [Websocket Request Smuggling](#websocket-request-smuggling)
 - [Wfuzz](#wfuzz)
