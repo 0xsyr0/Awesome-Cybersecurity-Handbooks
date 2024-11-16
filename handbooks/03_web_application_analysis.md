@@ -105,6 +105,7 @@
 | Gobuster | Gobuster is a tool used to brute-force URIs, DNS subdomains, Virtual Host names and open Amazon S3 buckets | https://github.com/OJ/gobuster |
 | grayhatwarfare shorteners | Search Shortener Urls | https://shorteners.grayhatwarfare.com |
 | gron | Make JSON greppable! | https://github.com/tomnomnom/gron |
+| Gxss | A tool to check a bunch of URLs that contain reflecting params. | https://github.com/KathanP19/Gxss |
 | Hakrawler | Fast golang web crawler for gathering URLs and JavaScript file locations. | https://github.com/hakluke/hakrawler |
 | haktrails | Golang client for querying SecurityTrails API data. | https://github.com/hakluke/haktrails |
 | httpbin | A simple HTTP Request & Response Service. | https://httpbin.org/#/ |
@@ -119,6 +120,7 @@
 | JSON Web Tokens | JSON Web Token Debugger | https://jwt.io |
 | JWT_Tool | The JSON Web Token Toolkit v2 | https://github.com/ticarpi/jwt_tool |
 | KeyHacks | KeyHacks shows ways in which particular API keys found on a Bug Bounty Program can be used, to check if they are valid. | https://github.com/streaak/keyhacks |
+| kxss | This a adaption of tomnomnom's kxss tool with a different output format | https://github.com/Emoe/kxss |
 | Leaky Paths | A collection of special paths linked to major web CVEs, known misconfigurations, juicy APIs ..etc. It could be used as a part of web content discovery, to scan passively for high-quality endpoints and quick-wins. | https://github.com/ayoubfathi/leaky-paths |
 | Lodash | The Lodash library exported as a UMD module. | https://github.com/lodash/lodash |
 | Modlishka | Modlishka. Reverse Proxy. | https://github.com/drk1wi/Modlishka |
@@ -140,6 +142,7 @@
 | Tplmap | Server-Side Template Injection and Code Injection Detection and Exploitation Tool | https://github.com/epinna/tplmap |
 | truffleHog | Find leaked credentials. | https://github.com/trufflesecurity/truffleHog |
 | unfurl | Pull out bits of URLs provided on stdin | https://github.com/tomnomnom/unfurl |
+| uro | declutters url lists for crawling/pentesting | https://github.com/s0md3v/uro |
 | waybackurls | Fetch all the URLs that the Wayback Machine knows about for a domain | https://github.com/tomnomnom/waybackurls |
 | Webhook.site | Webhook.site lets you easily inspect, test and automate (with the visual Custom Actions builder, or WebhookScript) any incoming HTTP request or e-mail. | https://webhook.site |
 | Weird Proxies | It's a cheat sheet about behaviour of various reverse proxies and related attacks. | https://github.com/GrrrDog/weird_proxies |
