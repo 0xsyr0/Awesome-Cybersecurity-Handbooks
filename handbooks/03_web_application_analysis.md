@@ -30,6 +30,7 @@
 - [GIXY](#gixy)
 - [Gobuster](#gobuster)
 - [gron](#gron)
+- [Gxss](#gxss)
 - [hakcheckurl](#hakcheckurl)
 - [Hakrawler](#hakrawler)
 - [Host Header Regex Bypass](#host-header-regex-bypass)
@@ -43,6 +44,7 @@
 - [Jenkins](#jenkins)
 - [jsleak](#jsleak)
 - [JWT_Tool](#jwt_tool)
+- [kxss](#kxss)
 - [Kyubi](#kyubi)
 - [Leaky Paths](#leaky-paths)
 - [Local File Inclusion (LFI)](#local-file-inclusion-lfi)
@@ -63,6 +65,7 @@
 - [Subdomain Takeover](#subdomain-takeover)
 - [Symfony](#symfony)
 - [unfurl](#unfurl)
+- [uro](#uro)
 - [Upload Filter Bypass](#upload-filter-bypass)
 - [Upload Vulnerabilities](#upload-vulnerabilities)
 - [waybackurls](#waybackurls)
@@ -825,6 +828,14 @@ $ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -
 $ go install github.com/tomnomnom/gron@latest
 ```
 
+## Gxss
+
+> https://github.com/KathanP19/Gxss
+
+```c
+$ go install github.com/KathanP19/Gxss@latest
+```
+
 ## hakcheckurl
 
 > https://github.com/hakluke/hakcheckurl
@@ -1256,6 +1267,14 @@ $ cat <FILE>.txt | jsleak -l -s -c 30        // Read from File
 ```c
 $ python3 jwt_tool.py -b -S hs256 -p 'secretlhfIH&FY*#oysuflkhskjfhefesf' $(echo -n '{"alg":"HS256","typ":"JWT"}' | base64).$(echo -n '{"name": "1", "exp":' `date -d "+7 days" +%s`} | base64 -w0).
 $ python3 jwt_tool.py -S hs256 -pc 'name' -pv 'theadmin' -p 'gXr67TtoQL8TShUc8XYsK2HvsBYfyQSFCFZe4MQp7gRpFuMkKjcM72CNQN4fMfbZEKx4i7YiWuNAkmuTcdEriCMm9vPAYkhpwPTiuVwVhvwE' eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyOWVmOTYzOTMwYjA0NzYzZmU2YzMiLCJuYW1lIjoiZm9vYmFyIiwiZW1haWwiOiJmb29iYXJAc2VjcmV0LmNvbSIsImlhdCI6MTYzNTk1MDQxOX0.nhsLKCvNPBU8EoYVwDDpo8wGrL9VV62vrHVxfsBPCRk
+```
+
+## kxss
+
+> https://github.com/Emoe/kxss
+
+```c
+$ go install github.com/Emoe/kxss@latest
 ```
 
 ## Kyubi
@@ -3960,6 +3979,14 @@ $ python3 secret_fragment_exploit.py 'http://<RHOST>/_fragment' --method 2 --sec
 
 ```c
 $ go install github.com/tomnomnom/unfurl@latest
+```
+
+## uro
+
+> https://github.com/s0md3v/uro
+
+```c
+$ pipx install uro
 ```
 
 ## Upload Filter Bypass
