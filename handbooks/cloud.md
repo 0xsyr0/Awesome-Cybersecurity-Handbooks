@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [AWS](#aws)
+- [GraphRunner](#graphrunner)
 - [lazys3](#lazys3)
 
 ## Resources
@@ -118,6 +119,23 @@ $ aws --endpoint-url http://127.0.0.1:4566 kms decrypt --ciphertext-blob mXMs+8Z
 ```c
 $ aws s3 ls s3://{<BUCKET>} --no-sign-request
 $ aws s3 ls s3://<COMPANY>
+```
+
+## GraphRunner
+
+> https://github.com/dafthack/GraphRunner
+
+```c
+$ pwsh
+PS> . ./GraphRunner.ps1
+PS> List-GraphRunnerModules
+PS> Get-GraphTokens
+PS> Get-SecurityGroups
+PS> Get-SecurityGroups -Tokens $tokens
+PS> Get-UpdatableGroups -Tokens $tokens
+PS> Get-DynamicGrous -Tokens $tokens
+PS> Invoke-InviteGuest -Tokens $tokens
+PS> Invoke-SecurityGroupCloner -Tokens $tokens
 ```
 
 ## lazys3
