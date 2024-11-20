@@ -278,6 +278,24 @@ $ curl -I http://<RHOST> -H "X-Client-Ip: 127.0.0.1"
 .json
 ```
 
+### Reconnaissance
+
+#### Automation using ffuf
+
+```c
+$ ffuf -w /PATH/TO/WORDLIST/<WORDLIST> -u http://<RHOST>/api/v2/FUZZ -H 'Authorization: Bearer <TOKEN>' -mc 401,403,405,415,200
+```
+
+#### Manual Enumeration
+
+```c
+$ curl -ik http://<RHOST>/api/v2/list -X OPTIONS -H 'Authorization: Bearer <TOKEN>'
+$ curl -ik http://<RHOST>/api/v2/list -X POST -H 'Authorization: Bearer <TOKEN>'
+$ curl -ik http://<RHOST>/api/v2/list -X POST -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' -d '{"title":"test123"}'
+$ curl -ik http://<RHOST>/api/v2/list -X POST -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' -d '{"title":"test123","body":"test123"}'
+$ curl -ik http://<RHOST>/api/v2/list -X POST -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' -d '{"title":"test123","body":"<u>test123"}'
+```
+
 ## Arjun
 
 ```c
