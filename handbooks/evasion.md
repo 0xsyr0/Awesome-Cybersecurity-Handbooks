@@ -9,6 +9,7 @@
 - [Chimera](#chimera)
 - [Donut](#donut)
 - [Freeze](#freeze)
+- [Invoke-Obfuscation](#invoke-obfuscation)
 - [Limelighter](#limelighter)
 - [ScareCrow](#scarecrow)
 - [Shhhloader](#shhhloader)
@@ -340,6 +341,19 @@ $ ./Freeze -I <FILE>.bin -encrypt -sandbox -O <FILE>.exe
 $ ./Freeze -I <FILE>.exe -encrypt -sandbox -O <FILE>.exe
 $ ./Freeze -I <FILE>.bin -encrypt -sandbox -process "C:\\Windows\\System32\\msedge.exe" -O <FILE>.exe
 $ ./Freeze -I <FILE>.exe -encrypt -sandbox -process "C:\\Windows\\System32\\msedge.exe" -O <FILE>.exe
+```
+
+## Invoke-Obfuscation
+
+> https://github.com/danielbohannon/Invoke-Obfuscation
+
+```c
+PS C:\> Import-Module .\Invoke-Obfuscation.psd1
+PS C:\> Invoke-Obfuscation
+Invoke-Obfuscation> SET SCRIPTPATH C:\PATH\TO\FILE\<FILE>
+Invoke-Obfuscation> TOKEN
+Invoke-Obfuscation\Token> ALL
+Invoke-Obfuscation\Token\All> 1
 ```
 
 ## LimeLighter
