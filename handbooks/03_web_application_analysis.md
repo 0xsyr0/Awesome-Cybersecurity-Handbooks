@@ -244,6 +244,35 @@ $ curl -I http://<RHOST> -H "X-Client-Ip: 127.0.0.1"
 
 ## Application Programming Interface (API)
 
+### Testing Methodology
+
+*small and not complete list*
+
+- Reconnaissance
+	- API Endpoints
+	- JavaScript Files
+- Testing
+	- HTTP Methods
+		- GET
+		- POST
+		- PUT
+		- HEAD
+		- PATCH
+		- OPTIONS
+		- TRACE
+		- CONNECT
+		- DELETE
+	- Unauthorized Access
+	- Information Disclosure
+	- Object Level Authorization
+		- Session Label Swapping
+	- Broken User Authentication
+	- Excessive Data Exposure
+	- Broken Function Level Authorization
+	- Mass Assignment
+	- SQL and NoSQL Injection
+	- Interchange Data Manipulation
+
 ### Bypass List
 
 > https://<RHOST>/admin/password/edit
