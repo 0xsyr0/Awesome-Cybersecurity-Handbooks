@@ -38,6 +38,7 @@ Thank you for reading.
 - [13 Social Engineering Tools](handbooks/13_social_engineering_tools.md)
 - [AI](handbooks/ai.md)
 - [Basics](handbooks/basics.md)
+- [Blockchain](handbooks/blockchain.md)
 - [Blue Teaming](handbooks/blue_teaming.md)
 - [Bug Bounty](handbooks/bug_bounty.md)
 - [Cloud](handbooks/cloud.md)
