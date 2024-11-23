@@ -37,9 +37,14 @@ else
 fi
 ```
 
-#### Execution
+#### Set Permission
 
 ```c
 $ chmod 777 solc
+```
+
+#### Execution
+
+```c
 $ sudo forge build --use /PATH/TO/FILE/solc
 ```
