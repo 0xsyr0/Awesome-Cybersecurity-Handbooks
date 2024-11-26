@@ -51,6 +51,7 @@
 | mimikatz | Extract plaintexts passwords, hash, PIN code and kerberos tickets from memory. | https://github.com/gentilkiwi/mimikatz |
 | MultiDump | MultiDump is a post-exploitation tool for dumping and extracting LSASS memory discreetly. | https://github.com/Xre0uS/MultiDump |
 | NetExec | The Network Execution Tool | https://github.com/Pennyw0rth/NetExec |
+| NPK | A mostly-serverless distributed hash cracking platform | https://github.com/c6fc/npk |
 | ntlm.pw | This website offers a NTLM to plaintext password "cracking" service, using a custom high performance database with billions of precomputed password hashes. | https://ntlm.pw |
 | Patator | Password Brute Force | https://github.com/lanjelot/patator |
 | pypykatz | Mimikatz implementation in pure Python. | https://github.com/skelsec/pypykatz |
