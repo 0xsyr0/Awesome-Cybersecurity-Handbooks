@@ -5223,9 +5223,23 @@ ctrl + a ctrl + w
 ### Window Handling
 
 ```c
-ctrl + a + c new window
-ctrl + a + n next
-ctrl + a +p previous
+ctrl + a + c    // new window
+ctrl + a + n    // next window
+ctrl + a +p     // previous window
+ctrl + d        // detach from current window
+ctrl + k        // kill current window
+```
+
+### Session Handling
+
+```c
+ctrl +a ctrl +a    // screen within screen
+```
+
+### Copy Mode
+
+```c
+ctrl + esc
 ```
 
 ## sendemail
