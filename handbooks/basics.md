@@ -5564,7 +5564,13 @@ $ ssh-keygen -s <SSH_KEY> -I <IDENTITY> -n <USERNAME> -V +52w <SSH_KEY>.pub
 
 ```c
 $ ssh -i <SSH_KEY> -o CertificateFile=<USERNAME>-cert.pub <USERNAME>@<RHOST>
-````
+```
+
+### Proxyjump / SSH Inception
+
+```c
+$ ssh -j <CONFIG_ENTRY> <USER>@<RHOST> cat /tmp/<File> > <FILE>
+```
 
 ### Port Forward Listener
 
