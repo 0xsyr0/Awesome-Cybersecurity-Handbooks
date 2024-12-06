@@ -5809,7 +5809,7 @@ Interactive mode enabled
 php > while (true){echo date("D M j G:i:s T Y"); echo " = " ; echo md5('$file_hash' . time());echo "\n";sleep(1);}
 ```
 
-## tmux
+## Tmux
 
 ### Options
 
@@ -5861,13 +5861,23 @@ ctrl b
 shift + P    // start / stop
 ```
 
-### Save Output
+#### Save Output
 
 ```c
 ctrl b + :
 capture-pane -S -
 ctrl b + :
 save-buffer <FILE>.txt
+```
+
+#### Enable Automatic Logging
+
+##### .tmux.conf
+
+```c
+set-option -g @log-dir "$HOME/.tmux/logs"
+if-shell "test ! -d $HOME/tmux-session-logs" "run-shell 'mkdir -p $HOME/.tmux/logs'"
+set-hook -g pane-focus-in 'run-shell "tmux pipe-pane -o \"cat >> $HOME/.tmux/logs/pane-#{session_name}_#{window_index}_#{pane_index}.log\""'
 ```
 
 ## TTL
