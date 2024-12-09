@@ -55,6 +55,7 @@
 | TheHive | TheHive: a Scalable, Open Source and Free Security Incident Response Platform | https://github.com/TheHive-Project/TheHive |
 | ThePhish | ThePhish: an automated phishing email analysis tool | https://github.com/emalderson/ThePhish |
 | Thinkst Canary | Canary Tokens | https://canary.tools |
+| ThreatIntel-Reports | Raw data from Threat Intelligence Reports with automatic reports collection and keyword search across thousands of reports | https://github.com/mthcht/ThreatIntel-Reports |
 | Wazuh | Wazuh - The Open Source Security Platform. Unified XDR and SIEM protection for endpoints and cloud workloads. | https://github.com/wazuh/wazuh |
 | YARA | The pattern matching swiss knife | https://github.com/VirusTotal/yara |
 
