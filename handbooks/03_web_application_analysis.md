@@ -1880,6 +1880,7 @@ $ kyubi -v <URL>
 /config.rb
 /config.sh
 /config/
+/config/application.rb
 /config/configuration.yml
 /config/database.yml
 /config/databases.yml
