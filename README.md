@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="700" height="250" src="images/awesome-cybersecurity-handbooks.png">
+  <img width="350" height="350" src="images/awesome-cybersecurity-handbooks.webp">
 </p>
 
 # Awesome Cybersecurity Handbooks [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
