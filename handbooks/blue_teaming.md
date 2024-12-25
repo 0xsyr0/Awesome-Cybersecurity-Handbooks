@@ -21,6 +21,7 @@
 - [Protected Users Group](#protected-users-group)
 - [Red Forest](#red-forest)
 - [Sniffing SSH Sessions](#sniffing-ssh-sessions)
+- [Threat Hunting with Shodan](#threat-hunting-with-shodan)
 - [YARA](#yara)
 - [yarGen](#yarGen)
 
@@ -343,6 +344,16 @@ Use hardened workstation for performing sensitive task.
 
 ```c
 $ strace -e trace=read -p <PID> 2>&1 | while read x; do echo "$x" | grep '^read.*= [1-9]$' | cut -f2 -d\"; done
+```
+
+## Threat Hunting with Shodan
+
+### Abused Visual Studio Code Tunnels
+
+> https://www.sentinelone.com/labs/operation-digital-eye-chinese-apt-compromises-critical-digital-infrastructure-via-visual-studio-code-tunnels/
+
+```c
+HTTP/1.1 404 Not Found Date: GMT Content-Type: text/html Content-Length: 548 Connection: keep-alive X-Served-By:  Strict-Transport-Security: max-age=31536000; includeSubDomains ssl.jarm:"2ad2ad0002ad2ad00042d42d00000023f2ae7180b8a0816654f2296c007d93" ssl:"Kubernetes Ingress Controller Fake Certificate"
 ```
 
 ## YARA
