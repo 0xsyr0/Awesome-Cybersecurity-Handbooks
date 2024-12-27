@@ -17,13 +17,15 @@
 - [Mitigate Kerberoast](#mitigate-kerberoast)
 - [Mitigate Skeleton Key](#mitigate-skeleton-key)
 - [Mitigate Trust Attack](#mitigate-trust-attack)
+- [Named Pipes](#named-pipes)
 - [Privileged Administrative Workstations](#privileged-administrative-workstations)
 - [Protected Users Group](#protected-users-group)
 - [Red Forest](#red-forest)
 - [Sniffing SSH Sessions](#sniffing-ssh-sessions)
 - [Threat Hunting with Shodan](#threat-hunting-with-shodan)
+- [Wireshark](#wireshark)
 - [YARA](#yara)
-- [yarGen](#yarGen)
+- [yarGen](#yargen)
 
 ## Resources
 
@@ -324,6 +326,37 @@ PC C:\> Get-WinEvent -FilterHashtable @{Logname='System';ID=12} | ?{$_.message -
 - Enable SID Filtering
 - Enable Selective Authentication (access between forests not automated)
 
+## Named Pipes
+
+### Common Named Pipes
+
+| Named Pipe | Name | Description |
+| --- | --- | --- |
+| \PIPE\svcctl | Service Control Manager (SCM) | Manages system services remotely, allowing control over starting, stopping, and configuring services. Attackers may use this to manipulate services for persistence or remote command execution. |
+| \PIPE\samr | Security Account Manager (SAM) | Provides access to the SAM database, which stores user credentials. Often used by attackers to enumerate accounts or retrieve password hashes. |
+| \PIPE\netlogon | Netlogon Service | Used for authentication and domain trust operations. Attackers can exploit it to perform pass-the-hash attacks or gain unauthorized domain access. |
+| \PIPE\lsarpc | Local Security Authority Remote Procedure Call (LSARPC) | Grants access to security policies and account privileges. Attackers might use this pipe to gather information on security configurations and user privileges. |
+| \PIPE\atsvc | AT Service / Task Scheduler | Facilitates remote task scheduling, often abused by attackers to execute commands on a remote system at specified times. Commonly used for persistence, lateral movement, and privilege escalation. |
+| \PIPE\eventlog | Event Log Service | Manages event logging. Attackers may interact with this to clear or manipulate event logs to hide their tracks after malicious actions. |
+| \PIPE\spoolss | Print Spooler Service | Manages print jobs. Historically vulnerable (e.g., PrintNightmare), making it a target for remote code execution and lateral movement. |
+| \PIPE\wmi | Windows Management Instrumentation (WMI) | Provides an interface for querying and managing system configurations. Attackers use WMI for remote system management, often for enumeration or remote command execution. |
+| \PIPE\browser | Browser Service | Supports network browsing and domain controller location services. Attackers may use it to identify network hosts and domains. |
+| \PIPE\msrpc | Microsoft RPC Endpoint Mapper | Acts as a gateway for RPC-based services. The pipe provides access to various RPC services, making it a high-value target for attackers to gain access to multiple functions. |
+
+### Hexadecimal Notation
+
+```c
+5c:00:50:00:49:00:50:00:45
+```
+
+```c
+5c:00: The Unicode encoding for the character \ (backslash).
+50:00: The Unicode encoding for the character P.
+49:00: The Unicode encoding for the character I.
+50:00: The Unicode encoding for the character P.
+45:00: The Unicode encoding for the character E.
+```
+
 ## Privileged Administrative Workstations
 
 Use hardened workstation for performing sensitive task.
@@ -355,6 +388,27 @@ $ strace -e trace=read -p <PID> 2>&1 | while read x; do echo "$x" | grep '^read.
 ```c
 HTTP/1.1 404 Not Found Date: GMT Content-Type: text/html Content-Length: 548 Connection: keep-alive X-Served-By:  Strict-Transport-Security: max-age=31536000; includeSubDomains ssl.jarm:"2ad2ad0002ad2ad00042d42d00000023f2ae7180b8a0816654f2296c007d93" ssl:"Kubernetes Ingress Controller Fake Certificate"
 ```
+
+## Wireshark
+
+### Filters
+
+```c
+ip.addr == <RHOST>                           // shows all packets involving the specific IP address
+tcp.port == <RPORT>                          // shows only port XYZ
+dns                                          // isolates DNS traffic
+http.request.uir contains "login"            // find HTTP requests with "login" in the URL
+ntlmssp.auth.username                        // shows used usernames
+dcerpc.opnum == 0                            // shows when the eventlog got cleared
+frame contains 5c:00:50:00:49:00:50:00:45    // shows frames with a named pipes
+smb2.filename contains ".exe"                // smb filtering on .exe files
+```
+
+### Logical Operators
+
+- AND (`&&`): `ip.addr == <RHOST> && tcp.port == <RPORT>`
+- OR (`||`): `HTTP || FTP`
+- NOT (`!`): `!arp`
 
 ## YARA
 
