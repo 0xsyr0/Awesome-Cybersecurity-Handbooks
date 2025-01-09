@@ -52,6 +52,7 @@
 | PlumHound | Bloodhound for Blue and Purple Teams | https://github.com/PlumHound/PlumHound |
 | Purple Knight | #1 Active Directory security assessment community tool | https://www.purple-knight.com |
 | Ransomware Simulator | Ransomware simulator written in Golang | https://github.com/NextronSystems/ransomware-simulator |
+| SaaS Attack Techniques | Offensive security drives defensive security. We're sharing a collection of SaaS attack techniques to help defenders understand the threats they face. #nolockdown | https://github.com/pushsecurity/saas-attacks |
 | SIGMA | Generic Signature Format for SIEM Systems | https://github.com/SigmaHQ/sigma |
 | Simple Email Reputation | EmailRep Alpha Risk API | https://emailrep.io |
 | Slack Watchman | Slack enumeration and exposed secrets detection tool | https://github.com/PaperMtn/slack-watchman |
