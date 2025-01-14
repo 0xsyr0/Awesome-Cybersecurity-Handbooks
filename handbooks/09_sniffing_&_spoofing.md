@@ -264,3 +264,9 @@ $ socat TCP-LISTEN:<RPORT>,fork TCP:127.0.0.1:10022
 ```c
 $ tshark -i <INTERFACE> -Y 'smtp.data.fragments' -T fields -e 'text'
 ```
+
+### Analyzing PCAP File
+
+```c
+$ tshark --Y http.request -T fields -e http.host -e http.user_agent -r <FILE>.pcap
+```
