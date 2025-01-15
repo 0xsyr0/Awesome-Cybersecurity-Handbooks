@@ -181,6 +181,7 @@
 | CVE-2024-38077 | MadLicense Preauth RCE PoC (1) | https://github.com/CloudCrowSec001/CVE-2024-38077-POC |
 | CVE-2024-38077 | MadLicense Preauth RCE PoC (2) | https://github.com/qi4L/CVE-2024-38077 |
 | CVE-2024-38100 | Leaked Wallpaper LPE | https://github.com/MzHmO/LeakedWallpaper |
+| CVE-2024-49138 | Windows Common Log File System Driver LPE | https://github.com/MrAle98/CVE-2024-49138-POC |
 | CVE-2025-0282 | Ivanti Connect Secure RCE | https://github.com/absholi7ly/CVE-2025-0282-Ivanti-exploit |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
