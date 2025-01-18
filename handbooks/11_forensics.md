@@ -259,6 +259,14 @@ $ sudo ./memprocfs -device /PATH/TO/FILE/<FILE>.DMP -mount /mnt/ -forensic 1
 $ sudo -H pip install -U oletools[full]
 ```
 
+### Common Commands
+
+```c
+$ oledump <FILE>                         // first analysis
+$ oledump <FILE> -s 4                    // analysing datastream 4
+$ oledump <FILE> -s 4 --vbadecompress    // decrompress macros
+```
+
 ### Forensic Chain
 
 ```c
