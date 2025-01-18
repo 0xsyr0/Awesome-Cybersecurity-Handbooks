@@ -16,6 +16,7 @@
 - [git-dumper](#git-dumper)
 - [Git](#git)
 - [HEX](#hex)
+- [inetsim](#inetsim)
 - [iOS](#ios)
 - [Jamovi](#jamovi)
 - [ltrace](#ltrace)
@@ -26,6 +27,7 @@
 - [pngcheck](#pngcheck)
 - [steg_brute](#steg_brute)
 - [Steghide](#steghide)
+- [strings](#strings)
 - [Sysinternals](#sysinternals)
 - [usbrip](#usbrip)
 - [Volatility](#volatility)
@@ -198,6 +200,19 @@ hexfile.close()
 file.close()
 ```
 
+## inetsim
+
+```c
+$ cat /etc/inetsim/inetsim.conf | grep dns_default_ip
+# dns_default_ip
+# Syntax: dns_default_ip 
+dns_default_ip	 <LHOST>
+```
+
+```c
+$ sudo inetsim
+```
+
 ## iOS
 
 ### Reading standard File Format "Mach-O" from iOS Applications
@@ -314,6 +329,14 @@ $ steghide extract -sf <FILE>
 $ steghide extract -sf <FILE> -p <PASSWORD>
 ```
 
+## strings
+
+```c
+$ strings <FILE>.mem > <FILE>.strings.ascii.txt
+$ strings -e l <FILE>.mem > <FILE>.strings.unicode_little_endian.txt
+$ strings -e b <FILE>.mem > <FILE>.strings.unicode_big_endian.txt
+```
+
 ## Sysinternals
 
 > https://docs.microsoft.com/en-us/sysinternals/downloads/
@@ -340,6 +363,8 @@ $ sudo usbrip events violations <FILE>.json -f syslog
 
 > https://github.com/volatilityfoundation/volatility
 
+> https://volatility3.readthedocs.io/en/stable/volatility3.plugins.html
+
 ### Common Commands
 
 ```c
@@ -347,11 +372,18 @@ $ volatility -f <FILE> imageinfo
 $ volatility -f <FILE> filescan
 $ volatility -f <FILE> psscan
 $ volatility -f <FILE> dumpfiles
-$ volatility -f <FILE>.vmem <FILE>.info
-$ volatility -f <FILE>.vmem <FILE>.pslist
-$ volatility -f <FILE>.vmem <FILE>.psscan
-$ volatility -f <FILE>.vmem <FILE>.dumpfiles
-$ volatility -f <FILE>.vmem <FILE>.dumpfiles --pid <ID>
+$ volatility -f <FILE> <FILE>.info
+$ volatility -f <FILE> <FILE>.pslist
+$ volatility -f <FILE> <FILE>.psscan
+$ volatility -f <FILE> <FILE>.dumpfiles
+$ volatility -f <FILE> <FILE>.dumpfiles --pid <ID>
+$ volatility  -f <FILE> windows.pstree.PsTree
+$ volatility  -f <FILE> windows.pslist.PsList
+$ volatility  -f <FILE> windows.cmdline.CmdLine
+$ volatility  -f <FILE> windows.filescan.FileScan
+$ volatility  -f <FILE> windows.dlllist.DllList
+$ volatility  -f <FILE> windows.malfind.Malfind
+$ volatility  -f <FILE> windows.psscan.PsScan
 ```
 
 ### Examples
@@ -363,6 +395,12 @@ $ volatility -f <FILE> --profile=Win7SP1x86 truecryptsummary
 $ volatility -f <FILE> --profile=Win7SP1x64 psscan --output=dot --output-file=memdump.dot_
 $ volatility -f <FILE> --profile=Win7SP1x64 dumpfiles -Q 0x000000001e8feb70 -D .
 $ volatility -f <FILE> --profile=Win7SP1x86 dumpfiles -Q 0x000000000bbc7166 --name file -D . -vvv
+```
+
+### Bulk Investigation
+
+```c
+$ for plugin in windows.malfind.Malfind windows.psscan.PsScan windows.pstree.PsTree windows.pslist.PsList windows.cmdline.CmdLine windows.filescan.FileScan windows.dlllist.DllList; do volatility -q -f <FILE> $plugin > <FILE>.$plugin.txt; done
 ```
 
 ## xxd
