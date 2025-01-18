@@ -377,13 +377,13 @@ $ volatility -f <FILE> <FILE>.pslist
 $ volatility -f <FILE> <FILE>.psscan
 $ volatility -f <FILE> <FILE>.dumpfiles
 $ volatility -f <FILE> <FILE>.dumpfiles --pid <ID>
-$ volatility  -f <FILE> windows.pstree.PsTree
-$ volatility  -f <FILE> windows.pslist.PsList
-$ volatility  -f <FILE> windows.cmdline.CmdLine
-$ volatility  -f <FILE> windows.filescan.FileScan
-$ volatility  -f <FILE> windows.dlllist.DllList
-$ volatility  -f <FILE> windows.malfind.Malfind
-$ volatility  -f <FILE> windows.psscan.PsScan
+$ volatility -f <FILE> windows.pstree.PsTree
+$ volatility -f <FILE> windows.pslist.PsList
+$ volatility -f <FILE> windows.cmdline.CmdLine
+$ volatility -f <FILE> windows.filescan.FileScan
+$ volatility -f <FILE> windows.dlllist.DllList
+$ volatility -f <FILE> windows.malfind.Malfind
+$ volatility -f <FILE> windows.psscan.PsScan
 ```
 
 ### Examples
