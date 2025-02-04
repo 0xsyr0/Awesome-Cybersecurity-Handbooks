@@ -5521,6 +5521,18 @@ $ squidclient -h <RHOST> -w '<PASSWORD>' mgr:fqdncache
 
 ## SSH
 
+### Fixing SSH Private Key
+
+```c
+$ dos2unix id_rsa
+$ vim --clean id_rsa
+$ chmod 600 id_rsa
+```
+
+```c
+$ dos2unix id_rsa; vim --clean -c 'wq' id_rsa; chmod 600 id_rsa
+```
+
 ### Enumerate Username from Private Key
 
 ```c
