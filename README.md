@@ -40,7 +40,6 @@ Thank you for reading.
 - [Attack Surface Management](handbooks/attack_surface_management.md)
 - [Basics](handbooks/basics.md)
 - [Blockchain](handbooks/blockchain.md)
-- [Blue Teaming](handbooks/blue_teaming.md)
 - [Bug Bounty](handbooks/bug_bounty.md)
 - [Cloud](handbooks/cloud.md)
 - [Command and Control](handbooks/command_and_control.md)
