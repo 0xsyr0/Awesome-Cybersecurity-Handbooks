@@ -67,11 +67,11 @@ Thank you for reading.
   * [Evasion](handbooks/evasion.md)
   * [Exploitation](handbooks/exploitation.md)
   * [Frameworks](handbooks/frameworks.md)
+  * [Hardware](handbooks/hardware.md)
 
   </td>
   <td>
 
-  * [Hardware](handbooks/hardware.md)
   * [IDS & IPS](handbooks/ids_ips.md)
   * [IoT](handbooks/iot.md)
   * [Malware Development](handbooks/malware_development.md)
