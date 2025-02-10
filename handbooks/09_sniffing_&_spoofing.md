@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [DNSChef](#dnschef)
+- [DNSChef (NG)](#dnschef-ng)
 - [FakeDns](#fakedns)
 - [fakessh](#fakessh)
 - [Hak5 LAN Turtle](#hak5-lan-turtle)
@@ -16,6 +17,8 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| DNSChef | DNSChef - DNS proxy for Penetration Testers and Malware Analysts | https://github.com/iphelix/dnschef |
+| DNSChef (NG) | DNSChef (NG) - DNS proxy for Penetration Testers and Malware Analysts | https://github.com/byt3bl33d3r/dnschef-ng |
 | FakeDns | A regular-expression based python MITM DNS server with support for DNS Rebinding attacks | https://github.com/Crypt0s/FakeDns |
 | FakeSSH | A dockerized fake SSH server honeypot written in Go that logs login attempts. | https://github.com/fffaraz/fakessh |
 | mDNS | A mDNS sniffer and interpreter. | https://github.com/eldraco/Sapito |
@@ -77,6 +80,59 @@ $ dnschef --interface <LHOST> --port 53 --tcp --file dnschef.ini
 
 ```c
 $ proxychains bloodhound-python -c all --disable-pooling -w 1 -u '<USERNAME>@<RHOST>' -p '<PASSWORD>' -d '<DOMAIN>' -dc '<SRV_ENRTY>' -ns '<LHOST>' --dns-tcp --zip --dns-timeout 300
+```
+
+## DNSChef (NG)
+
+> https://github.com/byt3bl33d3r/dnschef-ng
+
+### Installation
+
+```c
+$ pipx install dnschef-ng
+```
+
+### Common Commands
+
+```c
+$ dnschef-ng -6
+$ dnschef-ng --fakeip 127.0.0.1 -q
+$ dnschef-ng --fakeip 127.0.0.1 --fakeipv6 ::1 -q
+$ dnschef-ng --fakeip 127.0.0.1 --fakeipv6 ::1 --fakemail mail.<DOMAIN> --fakealias www.<DOMAIN> --fakens ns.<DOMAIN> -q
+```
+
+### Definitions File
+
+#### dnschef.toml
+
+```c
+[A]
+"<RHOST>"="<IP_ADDRESS>"
+
+[NS]
+"*.<DOMAIN>"="<RHOST>"
+
+[PTR]
+"*.1.1.192.in-addr.arpa"="<DOMAIN>"
+```
+
+#### Start using Definitions File
+
+```c
+$ dnschef-ng --file dnschef.toml -q
+```
+
+### File Staging
+
+```c
+[A]
+"*.<DOMAIN>" = { file = "/PATH/TO/FILE/<FILE>", chunk_size = 4 }
+
+[AAAA]
+"*.<DOMAIN>" = { file = "/PATH/TO/FILE/<FILE>", chunk_size = 16 }
+
+[TXT]
+"ns*.<DOMAIN>" = { file = "/PATH/TO/FILE/<FILE>", chunk_size = 189, response_format = "{prefix}test-{chunk}", response_prefix_pool = ["atlassian-domain-verification=", "onetrust-domain-verification=", "docusign=" ] }
 ```
 
 ## FakeDns
