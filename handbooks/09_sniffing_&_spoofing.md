@@ -31,6 +31,10 @@
 
 > https://github.com/iphelix/dnschef
 
+### Configuration File Example
+
+#### dnschef.ini
+
 ```c
 [A]     # Queries for IPv4 address records
 *.thesprawl.org=192.0.2.1
@@ -74,12 +78,23 @@
 *.thesprawl.org=A 5 3 86400 20030322173103 20030220173103 2642 thesprawl.org. oJB1W6WNGv+ldvQ3WDG0MQkg5IEhjRip8WTrPYGv07h108dUKGMeDPKijVCHX3DDKdfb+v6oB9wfuh3DTJXUAfI/M0zmO/zz8bW0Rznl8O3tGNazPwQKkRN20XPXV6nwwfoXmJQbsLNrLfkGJ5D6fwFm8nN+6pBzeDQfsS3Ap3o=
 ```
 
+#### Start DNSChef using the Configuration File
+
+```c
+$ sudo dnschef --file dnschef.ini
+```
+
+or
+
 ```c
 $ dnschef --interface <LHOST> --port 53 --tcp --file dnschef.ini
 ```
 
+### Using bloodhound-python with DNSChef
+
 ```c
-$ proxychains bloodhound-python -c all --disable-pooling -w 1 -u '<USERNAME>@<RHOST>' -p '<PASSWORD>' -d '<DOMAIN>' -dc '<SRV_ENRTY>' -ns '<LHOST>' --dns-tcp --zip --dns-timeout 300
+$ proxychains bloodhound-python -u '<USERNAME>' -p '<PASSWORD>' -d '<DOMAIN>' -dc '<RHOST>' -ns '<LHOST>' -c all --zip --dns-tcp --dns-timeout 30
+$ proxychains bloodhound-python -u '<USERNAME>' -p '<PASSWORD>' -d '<DOMAIN>' -dc '<RHOST>' -ns '<LHOST>' -c all --zip --dns-tcp --dns-timeout 300 --disable-pooling -w 1
 ```
 
 ## DNSChef (NG)
@@ -116,7 +131,7 @@ $ dnschef-ng --fakeip 127.0.0.1 --fakeipv6 ::1 --fakemail mail.<DOMAIN> --fakeal
 "*.1.1.192.in-addr.arpa"="<DOMAIN>"
 ```
 
-#### Start using Definitions File
+#### Start DNSChef (NG) using Definitions File
 
 ```c
 $ dnschef-ng --file dnschef.toml -q
