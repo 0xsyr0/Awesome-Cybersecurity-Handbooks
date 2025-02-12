@@ -28,6 +28,7 @@
 | ROADtools | A collection of Azure AD tools for offensive and defensive security purposes | https://github.com/dirkjanm/ROADtools |
 | S3cret Scanner | Hunting For Secrets Uploaded To Public S3 Buckets | https://github.com/Eilonh/s3crets_scanner |
 | ScubaGear | Automation to assess the state of your M365 tenant against CISA's baselines | https://github.com/cisagov/ScubaGear |
+| SeamlessPass | A tool leveraging Kerberos tickets to get Microsoft 365 access tokens using Seamless SSO | https://github.com/Malcrove/SeamlessPass |
 | TeamFiltration | TeamFiltration is a cross-platform framework for enumerating, spraying, exfiltrating, and backdooring O365 AAD accounts | https://github.com/Flangvik/TeamFiltration |
 | TokenTactics v2 | A fork of the great TokenTactics with support for CAE and token endpoint v2 | https://github.com/f-bader/TokenTacticsV2 |
 
