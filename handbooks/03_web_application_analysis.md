@@ -125,6 +125,7 @@
 | JSFuck []()!+ | Write any JavaScript with 6 Characters: []()!+ | https://github.com/aemkei/jsfuck |
 | jsleak | jsleak is a tool to find secret , paths or links in the source code during the recon. | https://github.com/channyein1337/jsleak |
 | JSON Web Tokens | JSON Web Token Debugger | https://jwt.io |
+| JSON Web Tokens | JSON Web Token Debugger | https://jwt.ms |
 | JWT_Tool | The JSON Web Token Toolkit v2 | https://github.com/ticarpi/jwt_tool |
 | KeyHacks | KeyHacks shows ways in which particular API keys found on a Bug Bounty Program can be used, to check if they are valid. | https://github.com/streaak/keyhacks |
 | kxss | This a adaption of tomnomnom's kxss tool with a different output format | https://github.com/Emoe/kxss |
