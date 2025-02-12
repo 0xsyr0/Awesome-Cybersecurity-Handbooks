@@ -3723,6 +3723,7 @@ $ sudo ip r add 172.16.1.0/24 dev ligolo
 ### Port Forwarding
 
 ```c
+[Agent : user@target] » listener_add --addr 0.0.0.0:<LPORT> --to <LHOST>:80 --tcp 
 [Agent : user@target] » listener_add --addr <RHOST>:<LPORT> --to <LHOST>:<LPORT> --tcp
 ```
 
