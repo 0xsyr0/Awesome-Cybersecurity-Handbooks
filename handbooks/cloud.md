@@ -15,6 +15,7 @@
 | --- | --- | --- |
 | ADOKit | Azure DevOps Services Attack Toolkit | https://github.com/xforcered/ADOKit |
 | AWS Security Checklist | Made by Bour Abdelhadi | https://awscheck.fyi |
+| AWeSomeUserFinder | AWS IAM Username Enumerator and Password Spraying Tool in Python3 | https://github.com/dievus/AWeSomeUserFinder |
 | AzureHound | Azure Data Exporter for BloodHound | https://github.com/BloodHoundAD/AzureHound |
 | BARK | BloodHound Attack Research Kit | https://github.com/BloodHoundAD/BARK |
 | Bobber | Bounces when a fish bites - Evilginx database monitoring with exfiltration automation | https://github.com/Flangvik/Bobber |
