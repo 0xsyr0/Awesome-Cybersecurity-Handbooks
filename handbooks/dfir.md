@@ -15,6 +15,7 @@
 | dnstwist | phishing domain scanner | https://dnstwist.it |
 | Fenrir | Simple Bash IOC Scanner | https://github.com/Neo23x0/Fenrir |
 | FIR | Fast Incident Response | https://github.com/certsocietegenerale/FIR |
+| IRIS | Collaborative Incident Response platform | https://github.com/dfir-iris/iris-web |
 | Loki | Loki - Simple IOC and Incident Response Scanner | https://github.com/Neo23x0/Loki |
 | packetSifter | PacketSifter is a tool/script that is designed to aid analysts in sifting through a packet capture (pcap) to find noteworthy traffic. Packetsifter accepts a pcap as an argument and outputs several files. | https://github.com/packetsifter/packetsifterTool |
 | PhishStats | Fighting phishing and cybercrime since 2014 by gathering, enhancing and sharing phishing information with the infosec community. | https://phishstats.info |
