@@ -1,6 +1,16 @@
 # SIEM
 
 - [Resources](#resources)
+	- [Windows Event IDs](#windows-event-ids)
+	- [Detect ACL Scan](#detect-acl-scan)
+	- [Detect DACL Abuse](#detect-dacl-abuse)
+	- [Detect Active Directory Certificate Service (ADCS) Abuse](#detect-active-directory-certificate-service-adcs-abuse)
+	- [Detect Dsrm](#detect-dsrm)
+	- [Detect Golden Ticket](#detect-golden-ticket)
+ 	- [Detect Kerberoast](#detect-kerberoast)
+	- [Detect Malicious SSP](#detect-malicious-ssp)
+	- [Detect Skeleton Key](#detect-skeleton-key)
+ 	- [Detect hidden Windows Services via Access Control Lists (ACLs)](#detect-hidden-windows-services-via-access-control-lists-acls)
 
 ## Table of Contents
 
