@@ -1,6 +1,10 @@
 # SIEM
 
 - [Resources](#resources)
+
+## Table of Contents
+
+- [Event Log Analysis](#event-log-analysis)
 	- [Windows Event IDs](#windows-event-ids)
 	- [Detect ACL Scan](#detect-acl-scan)
 	- [Detect DACL Abuse](#detect-dacl-abuse)
@@ -11,10 +15,6 @@
 	- [Detect Malicious SSP](#detect-malicious-ssp)
 	- [Detect Skeleton Key](#detect-skeleton-key)
  	- [Detect hidden Windows Services via Access Control Lists (ACLs)](#detect-hidden-windows-services-via-access-control-lists-acls)
-
-## Table of Contents
-
-- [Event Log Analysis](#event-log-analysis)
 
 ## Resources
 
