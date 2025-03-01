@@ -54,6 +54,7 @@
 - [icacls](#icacls)
 - [IPython](#ipython)
 - [Java](#java)
+- [jq](#jq)
 - [Kerberos](#kerberos)
 - [ldd](#ldd)
 - [less](#less)
@@ -3576,6 +3577,14 @@ $ sudo update-alternatives --set java /usr/lib/jvm/jre1.8.0_381/bin/javac
 
 ```c
 $ sudo update-alternatives --config java
+```
+
+## jq
+
+### Formatting JSON Files
+
+```c
+for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; done
 ```
 
 ## Kerberos
