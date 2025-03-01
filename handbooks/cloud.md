@@ -130,6 +130,66 @@ $ aws s3 ls s3://{<BUCKET>} --no-sign-request
 $ aws s3 ls s3://<COMPANY>
 ```
 
+### Searching for Usernames in JSON Files
+
+```c
+$ grep -r userName | sort -u
+$ grep -h -A 10 <USERNAME> <FILE>
+```
+
+### Get-Caller-Identity
+
+```c
+$ aws sts get-caller-identity
+```
+
+### Get-User-Policies
+
+```c
+$ aws iam list-user-policies --user-name <USERNAME>
+$ aws iam get-user-policy --user-name <USERNAME> --policy-name <POLICY>
+```
+
+### Assume-Role
+
+```c
+$ aws sts assume-role --role-arn arn:aws:iam::107513503799:role/AdminRole --role-session-name <SESSION>
+```
+
+### Set Session Token
+
+```c
+$ aws configure
+AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+Default region name [None]: us-west-2
+Default output format [None]: json
+```
+
+```c
+$ aws configure set aws_session_token "IQo<--- SNIP --->xY="
+```
+
+### Access S3 Bucket
+
+```c
+$ aws configure
+AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+Default region name [None]: us-west-2
+Default output format [None]: json
+```
+
+```c
+$ aws s3 ls s3://<BUCKET>
+```
+
+### Download from S3 Bucket
+
+```c
+$ aws s3 cp s3://<BUCKET>/<FILE> .
+```
+
 ## Entra
 
 ### Privilege Escalation
