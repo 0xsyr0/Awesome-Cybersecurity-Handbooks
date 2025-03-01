@@ -14,6 +14,7 @@
 | Name | Description | URL |
 | --- | --- | --- |
 | ADOKit | Azure DevOps Services Attack Toolkit | https://github.com/xforcered/ADOKit |
+| aws-enumerator | The AWS Enumerator was created for service enumeration and info dumping for investigations of penetration testers during Black-Box testing. The tool is intended to speed up the process of Cloud review in case the security researcher compromised AWS Account Credentials. | https://github.com/shabarkin/aws-enumerator |
 | AWS Security Checklist | Made by Bour Abdelhadi | https://awscheck.fyi |
 | AWeSomeUserFinder | AWS IAM Username Enumerator and Password Spraying Tool in Python3 | https://github.com/dievus/AWeSomeUserFinder |
 | AzureHound | Azure Data Exporter for BloodHound | https://github.com/BloodHoundAD/AzureHound |
@@ -26,6 +27,7 @@
 | MFASweep | A tool for checking if MFA is enabled on multiple Microsoft Services | https://github.com/dafthack/MFASweep |
 | o365-attack-toolkit | A toolkit to attack Office365 | https://github.com/mdsecactivebreach/o365-attack-toolkit |
 | o365recon | retrieve information via O365 and AzureAD with a valid cred | https://github.com/nyxgeek/o365recon |
+| Pacu | The AWS exploitation framework, designed for testing the security of Amazon Web Services environments. | https://github.com/RhinoSecurityLabs/pacu |
 | Power Pwn | An offensive and defensive security toolset for Microsoft 365 Power Platform | https://github.com/mbrg/power-pwn |
 | ROADtools | A collection of Azure AD tools for offensive and defensive security purposes | https://github.com/dirkjanm/ROADtools |
 | S3cret Scanner | Hunting For Secrets Uploaded To Public S3 Buckets | https://github.com/Eilonh/s3crets_scanner |
