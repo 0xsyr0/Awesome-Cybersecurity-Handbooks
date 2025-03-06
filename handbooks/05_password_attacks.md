@@ -61,6 +61,7 @@
 | Snusbase | Breach Database | https://www.snusbase.com |
 | SprayingToolkit | A set of Python scripts/utilities that tries to make password spraying attacks against Lync/S4B & OWA a lot quicker, less painful and more efficient. | https://github.com/byt3bl33d3r/SprayingToolkit |
 | TheSprayer | TheSprayer is a cross-platform tool designed to help penetration testers spray passwords against an Active Directory domain without locking out accounts. | https://github.com/coj337/TheSprayer |
+| traceback.sh | Harness Latest Breach and Real-time Data and Advanced Investigation tools with Traceback. | https://traceback.sh |
 | TREVORspray | TREVORspray is a modular password sprayer with threading, clever proxying, loot modules, and more! | https://github.com/blacklanternsecurity/TREVORspray |
 
 ## AES
