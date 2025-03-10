@@ -8,6 +8,7 @@
 - [Entra](#entra)
 - [GraphRunner](#graphrunner)
 - [lazys3](#lazys3)
+- [S3 Account Search](#s3-account-search)
 
 ## Resources
 
@@ -296,4 +297,36 @@ PS> Invoke-SecurityGroupCloner -Tokens $tokens
 
 ```c
 $ ruby lazys3.rb <DOMAIN>
+```
+
+## S3 Account Search
+
+### Installation
+
+```c
+$ pipx install s3-account-search
+```
+
+### AWS Configuration
+
+```c
+$ aws configure
+```
+
+### Verify AWS Configuration
+
+```c
+$ aws sts get-caller-identity
+```
+
+### Get Region
+
+```c
+$ curl -I https://<RHOST>.s3.amazonaws.com
+```
+
+### Search S3 Account ID
+
+```c
+$ s3-account-search arn:aws:iam::422645307575:role/<BUCKET> <RHOST>
 ```
