@@ -30,6 +30,7 @@
 | Pacu | The AWS exploitation framework, designed for testing the security of Amazon Web Services environments. | https://github.com/RhinoSecurityLabs/pacu |
 | Power Pwn | An offensive and defensive security toolset for Microsoft 365 Power Platform | https://github.com/mbrg/power-pwn |
 | ROADtools | A collection of Azure AD tools for offensive and defensive security purposes | https://github.com/dirkjanm/ROADtools |
+| S3 Account Search | his tool lets you find the account id an S3 bucket belongs too. | https://github.com/WeAreCloudar/s3-account-search |
 | S3cret Scanner | Hunting For Secrets Uploaded To Public S3 Buckets | https://github.com/Eilonh/s3crets_scanner |
 | ScubaGear | Automation to assess the state of your M365 tenant against CISA's baselines | https://github.com/cisagov/ScubaGear |
 | SeamlessPass | A tool leveraging Kerberos tickets to get Microsoft 365 access tokens using Seamless SSO | https://github.com/Malcrove/SeamlessPass |
