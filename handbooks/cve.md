@@ -183,6 +183,8 @@
 | CVE-2024-38100 | Leaked Wallpaper LPE | https://github.com/MzHmO/LeakedWallpaper |
 | CVE-2024-49138 | Windows Common Log File System Driver LPE | https://github.com/MrAle98/CVE-2024-49138-POC |
 | CVE-2025-0282 | Ivanti Connect Secure RCE | https://github.com/absholi7ly/CVE-2025-0282-Ivanti-exploit |
+| CVE-2025-24813 | Apache Tomcat Deserialization RCE (1) | https://github.com/iSee857/CVE-2025-24813-PoC |
+| CVE-2025-24813 | Apache Tomcat Deserialization RCE (2) | https://github.com/absholi7ly/POC-CVE-2025-24813 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | GSM Linux Kernel LPE (1) | https://github.com/jmpe4x/GSM_Linux_Kernel_LPE_Nday_Exploit |
