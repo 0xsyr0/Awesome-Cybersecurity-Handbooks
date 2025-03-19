@@ -11,6 +11,7 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| Detection Studio | Convert Sigma rules to SIEM queries, directly in your browser. | https://github.com/northsh/detection.studio |
 | Laurel | Transform Linux Audit logs for SIEM usage | https://github.com/threathunters-io/laurel |
 | SIGMA | Generic Signature Format for SIEM Systems | https://github.com/SigmaHQ/sigma |
 | sysmon-config | Sysmon configuration file template with default high-quality event tracing | https://github.com/SwiftOnSecurity/sysmon-config |
