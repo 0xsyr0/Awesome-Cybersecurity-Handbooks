@@ -35,7 +35,7 @@
 
 #### dnschef.ini
 
-```c
+```console
 [A]     # Queries for IPv4 address records
 *.thesprawl.org=192.0.2.1
 
@@ -80,19 +80,19 @@
 
 #### Start DNSChef using the Configuration File
 
-```c
+```console
 $ sudo dnschef --file dnschef.ini
 ```
 
 or
 
-```c
+```console
 $ dnschef --interface <LHOST> --port 53 --tcp --file dnschef.ini
 ```
 
 ### Using bloodhound-python with DNSChef
 
-```c
+```console
 $ proxychains bloodhound-python -u '<USERNAME>' -p '<PASSWORD>' -d '<DOMAIN>' -dc '<RHOST>' -ns '<LHOST>' -c all --zip --dns-tcp --dns-timeout 30
 $ proxychains bloodhound-python -u '<USERNAME>' -p '<PASSWORD>' -d '<DOMAIN>' -dc '<RHOST>' -ns '<LHOST>' -c all --zip --dns-tcp --dns-timeout 300 --disable-pooling -w 1
 ```
@@ -103,13 +103,13 @@ $ proxychains bloodhound-python -u '<USERNAME>' -p '<PASSWORD>' -d '<DOMAIN>' -d
 
 ### Installation
 
-```c
+```console
 $ pipx install dnschef-ng
 ```
 
 ### Common Commands
 
-```c
+```console
 $ dnschef-ng -6
 $ dnschef-ng --fakeip 127.0.0.1 -q
 $ dnschef-ng --fakeip 127.0.0.1 --fakeipv6 ::1 -q
@@ -120,7 +120,7 @@ $ dnschef-ng --fakeip 127.0.0.1 --fakeipv6 ::1 --fakemail mail.<DOMAIN> --fakeal
 
 #### dnschef.toml
 
-```c
+```console
 [A]
 "<RHOST>"="<IP_ADDRESS>"
 
@@ -133,13 +133,13 @@ $ dnschef-ng --fakeip 127.0.0.1 --fakeipv6 ::1 --fakemail mail.<DOMAIN> --fakeal
 
 #### Start DNSChef (NG) using Definitions File
 
-```c
+```console
 $ dnschef-ng --file dnschef.toml -q
 ```
 
 ### File Staging
 
-```c
+```console
 [A]
 "*.<DOMAIN>" = { file = "/PATH/TO/FILE/<FILE>", chunk_size = 4 }
 
@@ -156,20 +156,20 @@ $ dnschef-ng --file dnschef.toml -q
 
 ### DNS Rebind Attack
 
-```c
+```console
 $ cat fake.conf
 A <DOMAIN> 127.0.0.1 1%<LHOST>
 ```
 
 #### Start the Server
 
-```c
+```console
 $ sudo python3 fakedns.py -c fake.conf --rebind
 ```
 
 #### Test
 
-```c
+```console
 nslookup > server <LHOST>
 Default server: <LHOST>
 Address: <LHOST>#53
@@ -194,7 +194,7 @@ Address: <LHOST>
 
 > https://github.com/fffaraz/fakessh
 
-```c
+```console
 $ go install github.com/fffaraz/fakessh@latest
 $ sudo setcap 'cap_net_bind_service=+ep' ~/go/bin/fakessh
 $ ./fakessh 
@@ -212,7 +212,7 @@ $ ./fakessh
 
 #### Connect
 
-```c
+```console
 $ ip a / ifconfig / ipconfig    // have a look for 172.16.84.1
 $ ssh root@172.16.84.1          // default password: sh3llz
 $ Ctrl+c                        // get to root SSH session
@@ -220,11 +220,11 @@ $ Ctrl+c                        // get to root SSH session
 
 #### Network Configuration
 
-```c
+```console
 $ vim /etc/network/config
 ```
 
-```c
+```console
 config interface 'wan'
 		option ifname 'eth1'
 		option proto 'dhcp'
@@ -232,17 +232,17 @@ config interface 'wan'
 		option ipv6 '0'
 ```
 
-```c
+```console
 $ /etc/init.d/network restart
 ```
 
 #### SD Card Information
 
-```c
+```console
 $ cat /etc/opkg.conf
 ```
 
-```c
+```console
 dest root /
 dest ram /tmp
 dest sd /sd
@@ -254,7 +254,7 @@ dest sd /sd
 
 The `exports` should go to the `.bashrc` to make it persistent.
 
-```c
+```console
 $ opkg install python3 --dest sd
 $ export LD_LIBRARY_PATH="/sd/usr/lib:/usr/lib"
 $ opkg install python3-pip --dest sd
@@ -276,7 +276,7 @@ $ python3 -m pip install netifaces --target=/sd/python3-modules
 
 ###### Exports
 
-```c
+```console
 $ export LD_LIBRARY_PATH="/sd/usr/lib:/usr/lib"
 $ export PATH="/sd/usr/bin:$PATH"
 $ export PYTHONHOME="/sd/usr/"
@@ -287,7 +287,7 @@ $ export CFLAGS="-I/sd/usr/include/"
 
 ##### Download Responder
 
-```c
+```console
 $ cd /sd
 $ wget https://github.com/lgandx/Responder/archive/refs/heads/master.zip
 $ opkg install unzip --dest sd
@@ -297,11 +297,11 @@ $ mv Responder-master Responder
 
 ##### Certificate Creation
 
-```c
+```console
 /sd/Responder/certs
 ```
 
-```c
+```console
 #!/bin/bash
 openssl genrsa out responder.key 2048
 openssl req -new -x509 -days 3650 -key responder.key -out responder.crt -subj "/"
@@ -313,17 +313,17 @@ Create the certificates locally and `copy` it to the `LAN Turtle` before you sta
 
 > https://github.com/lgandx/Responder
 
-```c
+```console
 $ sudo responder -I <INTERFACE>
 ```
 
 ## SSH-MITM
 
-```c
+```console
 $ ssh-mitm server
 ```
 
-```c
+```console
 $ ssh-mitm server --remote-host <RHOST>
 $ socat TCP-LISTEN:<RPORT>,fork TCP:127.0.0.1:10022
 ```
@@ -332,12 +332,12 @@ $ socat TCP-LISTEN:<RPORT>,fork TCP:127.0.0.1:10022
 
 ### Capturing SMTP Traffic
 
-```c
+```console
 $ tshark -i <INTERFACE> -Y 'smtp.data.fragments' -T fields -e 'text'
 ```
 
 ### Analyzing PCAP File
 
-```c
+```console
 $ tshark --Y http.request -T fields -e http.host -e http.user_agent -r <FILE>.pcap
 ```

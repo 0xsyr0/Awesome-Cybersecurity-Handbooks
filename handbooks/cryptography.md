@@ -32,21 +32,21 @@
 
 ## Base64
 
-```c
+```console
 $ echo aGVsbG8gd29ybGQh | base64 -d
 $ base64 -d lasjkdfhalsfsaiusfs | base64 -d -    // double decryption
 ```
 
 ## bcrypt
 
-```c
+```console
 $ python -c 'import bcrypt; print(bcrypt.hashpw(b"<PASSWORD>", bcrypt.gensalt(rounds=10)).decode("ascii"))'
 $ python -c "import bcrypt; print(bcrypt.hashpw('<PASSWORD>'.encode(), bcrypt.gensalt(rounds=10)))"
 ```
 
 ### bcrypt-cli
 
-```c
+```console
 $ npm install -g @carsondarling/bcrypt-cli
 $ bcrypt $(echo -n "<PASSWORD>" | sha256sum | cut -d " " -f 1) && echo
 ```
@@ -55,7 +55,7 @@ $ bcrypt $(echo -n "<PASSWORD>" | sha256sum | cut -d " " -f 1) && echo
 
 ### Linux
 
-```c
+```console
 $ cat /etc/shadow
 root:$6$YIFGN9pFPOS3EmwO$qwICXAw4bqSjjjFaCT1qYscCV72BjFtx/tehbc7sQTJp09UJj9u83eBio1cLcaxyGkx2oDhJsXT6LL0FABlc5.:18277:0:99999:7:::
 ```
@@ -64,32 +64,32 @@ root:$6$YIFGN9pFPOS3EmwO$qwICXAw4bqSjjjFaCT1qYscCV72BjFtx/tehbc7sQTJp09UJj9u83eB
 
 ### hashdump.exe
 
-```c
+```console
 $ .\hashdump.exe /samdump
 ```
 
 ### secretsdump.py (Impacket)
 
-```c
+```console
 $ impacket-secretsdump -just-dc-ntlm <DOMAIN>.local/Administrator:"<PASSWORD>"@<RHOST>
 ```
 
 ### Generating Hash
 
-```c
+```console
 $ echo Administrator:500:aad3b435b51404eeaad3b435b51404ee:d9485863c1e9e06543aa40cbb4ab9dff::: | md5sum
 9ec906faff027b1337f9df4955f917b9
 ```
 
 ## EncFS/6
 
-```c
+```console
 $ sudo apt-get install encfs
 ```
 
 ### Decryption
 
-```c
+```console
 $ encfsctl export <SOURCE_FOLDER> <DESTINATION_FOLDER>
 ```
 
@@ -97,7 +97,7 @@ $ encfsctl export <SOURCE_FOLDER> <DESTINATION_FOLDER>
 
 > https://github.com/nccgroup/featherduster
 
-```c
+```console
 $ git clone https://github.com/nccgroup/featherduster.git
 $ cd featherduster
 $ python setup.py install
@@ -105,13 +105,13 @@ $ python setup.py install
 
 ## hash-identifier
 
-```c
+```console
 $ hash-identifier
 ```
 
 ## hashID
 
-```c
+```console
 $ hashid -m -j '48bb6e862e54f2a795ffc4e541caed4d'
 ```
 
@@ -123,7 +123,7 @@ $ hashid -m -j '48bb6e862e54f2a795ffc4e541caed4d'
 
 ## MD5
 
-```c
+```console
 $ echo 85f3980654g59sif | md5sum
 ```
 
@@ -131,39 +131,39 @@ $ echo 85f3980654g59sif | md5sum
 
 ### Create Certificate and Key
 
-```c
+```console
 $ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 365
 $ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3650 -nodes -subj "/C=XY/ST=<ST>/L=<L>/O=<O>/OU=<OU>/CN=<CN>"
 ```
 
 ### Create password for /etc/passwd
 
-```c
+```console
 $ openssl passwd '<PASSWORD>'
 ```
 
 ### Create Password for /etc/shadow
 
-```c
+```console
 $ openssl passwd -6 -salt xyz  <PASSWORD>
 ```
 
 ### Read a Certificate
 
-```c
+```console
 $ openssl req -in <FILE>.txt -noout -text
 $ openssl req -text -noout -verify -in <FILE>.req
 ```
 
 ### Extracting Certificate
 
-```c
+```console
 $ openssl pkcs12 -in <PFX>.pfx -clcerts -nokeys -out <CERTIFICATE>.crt
 ```
 
 ### Extracting Private Key
 
-```c
+```console
 $ openssl pkcs12 -in <PFX>.pfx -nocerts -out <KEY>.key
 ```
 
@@ -171,7 +171,7 @@ $ openssl pkcs12 -in <PFX>.pfx -nocerts -out <KEY>.key
 
 #### Extracting .pfx Files
 
-```c
+```console
 $ openssl pkcs12 -in <CERTIFICATE>.pfx -nocerts -out <KEY>.key
 $ openssl rsa -in <KEY>.key -out <KEY>.key
 $ openssl pkcs12 -in <CERTIFICATE>.pfx -clcerts -nokeys -out <CERTIFICATE>.crt
@@ -179,7 +179,7 @@ $ openssl pkcs12 -in <CERTIFICATE>.pfx -clcerts -nokeys -out <CERTIFICATE>.crt
 
 ##### Login using Certificate and Key
 
-```c
+```console
 $ evil-winrm -i <RHOST> -S -k <KEY>.key -c <CERTIFICATE>.crt
 ```
 
@@ -187,13 +187,13 @@ $ evil-winrm -i <RHOST> -S -k <KEY>.key -c <CERTIFICATE>.crt
 
 ### Structure
 
-```c
+```console
 sha256:<ITERATION>:<FROM_HEX_TO_BASE64_SALT>:<FROM_HEX_TO_BASE64_HASHED_PASSWORD>
 ```
 
 ### Formatting One-liner
 
-```c
+```console
 $ echo "sha256:50000:$(echo <SALT> | xxd -r -p | base64):$(echo <HASHED_PASSWORD> | xxd -r -p | base64)"
 ```
 
@@ -203,31 +203,31 @@ $ echo "sha256:50000:$(echo <SALT> | xxd -r -p | base64):$(echo <HASHED_PASSWORD
 
 #### Salt
 
-```c
+```console
 227d873cca89103cd83a976bdac52486
 ```
 
 #### Salt Base64
 
-```c
+```console
 In2HPMqJEDzYOpdr2sUkhg==
 ```
 
 #### Hashed Password
 
-```c
+```console
 97907280dc24fe517c43475bd218bfad56c25d4d11037d8b6da440efd4d691adfead40330b2aa6aaf1f33621d0d73228fc16
 ```
 
 #### Hashed Password Base64
 
-```c
+```console
 l5BygNwk/lF8Q0db0hi/rVbCXU0RA32LbaRA79TWka3+rUAzCyqmqvHzNiHQ1zIo/BY=
 ```
 
 #### Putting all together
 
-```c
+```console
 sha256:50000:In2HPMqJEDzYOpdr2sUkhg==:l5BygNwk/lF8Q0db0hi/rVbCXU0RA32LbaRA79TWka3+rUAzCyqmqvHzNiHQ1zIo/BY=
 ```
 
@@ -274,17 +274,17 @@ if __name__ == "__main__":
 
 ### Cracking with Hashcat
 
-```c
+```console
 $ hashcat -a 0 -m 10900 <FILE> /PATH/TO/WORDLIST/<WORDLIST>
 ```
 
 ## PuTTY Tools
 
-```c
+```console
 $ sudo apt-get install putty-tools
 ```
 
-```c
+```console
 $ puttygen my_private_key.ppk -O private-openssh -o id_rsa
 ```
 
@@ -315,7 +315,7 @@ for i in mydict:
 
 ### Manually breaking RSA
 
-```c
+```console
 $ python
 Python 2.7.18 (default, Apr 20 2020, 20:30:41)
 [GCC 9.3.0] on linux2
@@ -331,27 +331,27 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ### Notes
 
-```c
+```console
 e = 85161183100445121230463008656121855194098040675901982832345153586114585729131
 n = 65537
 ```
 
 Use `msieve` to get the prime factors which are `e` if multiplied.
 
-```c
+```console
 $ ./msieve n = 85161183100445121230463008656121855194098040675901982832345153586114585729131
 ```
 
 ### Prime factors
 
-```c
+```console
 p = 280651103481631199181053614640888768819
 q = 303441468941236417171803802700358403049
 ```
 
 That means: n = pq
 
-```c
+```console
 280651103481631199181053614640888768819 * 303441468941236417171803802700358403049
 ```
 
@@ -361,7 +361,7 @@ That means: n = pq
 
 ### crypto.py
 
-```c
+```python
 from Crypto.PublicKey import RSA
 
 n = 85161183100445121230463008656121855194098040675901982832345153586114585729131
@@ -389,7 +389,7 @@ key = RSA.construct((n, long(e), d, p, q))
 print key.exportKey()
 ```
 
-```c
+```console
 $ python crypto.py
 -----BEGIN RSA PRIVATE KEY-----
 MIGsAgEAAiEAvEeFgY9UxibHe/Mls88ARrXQ0RNetXeYj3AmLOYUmGsCAwEAAQIg
@@ -403,7 +403,7 @@ Write it into a file named `decoder.priv`
 
 ### Decrypt the File
 
-```c
+```console
 $ openssl rsautl -decrypt -inkey decoder.priv < pass.crypt
 ```
 
@@ -411,24 +411,24 @@ $ openssl rsautl -decrypt -inkey decoder.priv < pass.crypt
 
 ### Proof of Concept
 
-```c
+```console
 $ echo -n fff34363f4d15e958f0fb9a7c2e7cc550a5672321d54b5712cd6e4fa17cd2ac8 | wc -c
 64
 ```
 
-```c
+```console
 $ echo foobar | sha256sum
 aec070645fe53ee3b3763059376134f058cc337247c978add178b6ccdfb0019f  -
 ```
 
-```c
+```console
 $ echo -n aec070645fe53ee3b3763059376134f058cc337247c978add178b6ccdfb0019f | wc -c
 64
 ```
 
 ### Creating SHA256 hashed Password with Python
 
-```c
+```console
 $ python3          
 Python 3.10.6 (main, Aug 10 2022, 11:19:32) [GCC 12.1.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -446,7 +446,7 @@ ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f
 
 ### XOR Table
 
-```c
+```console
 ^ = XOE
 
 1 ^ 1 = 0
@@ -457,6 +457,6 @@ ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f
 
 ### Byte Flip Attack
 
-```c
+```console
 110011 flipped with 111111 = 001100
 ```

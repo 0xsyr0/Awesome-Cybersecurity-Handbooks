@@ -68,7 +68,7 @@
 
 > https://github.com/OWASP/Amass
 
-```c
+```console
 $ amass enum -d <DOMAIN>
 $ amass intel --asn <ASN>
 $ amass intel --asn <ASN> -list
@@ -79,7 +79,7 @@ $ amass enum -active -d <DOMAIN> -p 80,443,8080
 
 > https://book.hacktricks.xyz/pentesting/pentesting-imap#banner-grabbing
 
-```c
+```console
 $ nc -v <RHOST> 80
 $ telnet <RHOST> 80
 $ curl -vX <RHOST>
@@ -114,19 +114,19 @@ $ curl -vX <RHOST>
 
 ## dmitry
 
-```c
+```console
 $ dmitry -p <RHOST>
 ```
 
 ## DMARC
 
-```c
+```console
 $ dig txt _dmarc.<DOMAIN> | grep dmarc
 ```
 
 ## DNS
 
-```c
+```console
 $ whois <DOMAIN>
 $ dig @<RHOST> -x <DOMAIN>
 $ dig {a|txt|ns|mx} <DOMAIN>
@@ -141,14 +141,14 @@ $ for sub in $(cat subDOMAINs.txt);do host $sub.<DOMAIN:|grep "has.address";done
 
 ## dnsenum
 
-```c
+```console
 $ dnsenum <DOMAIN>
 $ dnsenum --threads 64 --dnsserver <RHOST> -f /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt <DOMAIN>
 ```
 
 ## dnsrecon
 
-```c
+```console
 $ sudo vi /etc/hosts
 $ dnsrecon -r 127.0.0.0/24 -n <RHOST>
 $ dnsrecon -r 127.0.1.0/24 -n <RHOST>
@@ -161,7 +161,7 @@ $ dnsrecon -d <DOMAIN> -t axfr @ns2.<DOMAIN>
 
 ### Grabbing IPv6 Address
 
-```c
+```console
 $ python enyx.py 2c public <RHOST>
 ```
 
@@ -169,7 +169,7 @@ $ python enyx.py 2c public <RHOST>
 
 ### finger Port 79/TCP
 
-```c
+```console
 $ finger root@<RHOST>
 $ finger "|/bin/id@<RHOST>"
 
@@ -178,7 +178,7 @@ msf6 > use auxiliary/scanner/finger/finger_users
 
 > https://github.com/pentestmonkey/finger-user-enum
 
-```c
+```console
 $ ./finger-user-enum.pl -U users.txt -t <RHOST>
 ```
 
@@ -186,7 +186,7 @@ $ ./finger-user-enum.pl -U users.txt -t <RHOST>
 
 > https://github.com/robertdavidgraham/masscan
 
-```c
+```console
 $ sudo masscan -e tun0 -p0-65535 --max-rate 500 --interactive <RHOST>
 ```
 
@@ -194,7 +194,7 @@ $ sudo masscan -e tun0 -p0-65535 --max-rate 500 --interactive <RHOST>
 
 >  https://github.com/pd4d10/memcached-cli
 
-```c
+```console
 memcrashed / 11211/UDP
 
 $ npm install -g memcached-cli
@@ -220,26 +220,26 @@ $ get password
 
 ## Naabu
 
-```c
+```console
 $ sudo naabu -p - -l /PATH/TO/FILE/<FILE> -o /PATH/TO/FILE/<FILE>
 ```
 
 ## netdiscover
 
-```c
+```console
 $ sudo netdiscover -i <INTERFACE> -r <RHOST>
 ```
 
 ## NetBIOS
 
-```c
+```console
 $ nbtscan <RHOST>
 $ nmblookup -A <RHOST>
 ```
 
 ## Nmap
 
-```c
+```console
 $ nmap -A -T4 -p- -sS -sV -oN initial --script discovery <RHOST>
 $ nmap -A -T4 -sC -sV --script vuln <RHOST>
 $ nmap -sV --script http-trace <RHOST>
@@ -297,27 +297,27 @@ $ nmap  --script safe -p 445 <RHOST>    // detailed scan on smb
 
 ### Getting Script Locations
 
-```c
+```console
 $ ls -lh /usr/share/nmap/scripts/*ssh*
 $ locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|version\|safe' | grep smb
 ```
 
 ### Converting Report
 
-```c
+```console
 $ xsltproc nmap.xml -o nmap.html
 ```
 
 ### Network Sweep Scan
 
-```c
+```console
 $ sudo nmap -sn <XXX.XXX.XXX>.1-253
 $ sudo nmap -sS <XXX.XXX.XXX>.1-253
 ```
 
 #### Enable Monitoring with iptables
 
-```c
+```console
 $ sudo iptables -I INPUT 1 -s <RHOST> -j ACCEPT
 $ sudo iptables -I OUTPUT 1 -d <RHOST> -j ACCEPT
 $ sudo iptables -Z
@@ -325,62 +325,62 @@ $ sudo iptables -Z
 
 #### Check for Connections
 
-```c
+```console
 $ sudo iptables -vn -L
 ```
 
 ### Generate grepable Output for IP Addresses and Ports
 
-```c
+```console
 $ sudo nmap <XXX.XXX.XXX>.1-253 -oG <FILE>
 $ sudo nmap -p <RPORT> <XXX.XXX.XXX>.1-253 -oG <FILE>
 ```
 
-```c
+```console
 $ grep Up <FILE> | cut -d " " -f 2
 $ grep open <FILE> | cut -d " " -f2
 ```
 
 #### Alternative
 
-```c
+```console
 $ sudo nmap -iL /PATH/TO/FILE/<FILE> -p- -oG /PATH/TO/FILE/<FILE> | awk -v OFS=':' '/open/ {for (i=4;i<=NF;i++) {split($i,a,"/"); if (a[2]=="open") print $2, a[1]}}' | sort | uniq > /PATH/TO/FILE/<FILE>
 ```
 
 ### ASN
 
-```c
+```console
 $ nmap --script targets-asn --script-args targets-asn.asn=<ASN>
 ```
 
 ### SMB
 
-```c
+```console
 $ nmap -sV --script=smb-enum-shares -p 445 <RHOST>
 $ nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount <RHOST>
 ```
 
 ### Port Knocking
 
-```c
+```console
 $ for x in 7000 8000 9000; do nmap -Pn –host_timeout 201 –max-retries 0 -p $x <RHOST>; done
 ```
 
 ### RPC
 
-```c
+```console
 $ nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount <RHOST>
 ```
 
 ### Kerberos
 
-```c
+```console
 $ nmap $TARGET -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='test' <RHOST>
 ```
 
 ### File transfer (PUT)
 
-```c
+```console
 $ nmap -p 80 <RHOST> --script http-put --script-args http-put.url='<RHOST>',http-put.file='<FILE>'
 ```
 
@@ -390,54 +390,54 @@ $ nmap -p 80 <RHOST> --script http-put --script-args http-put.url='<RHOST>',http
 
 ### Basic Usage
 
-```c
+```console
 $ echo public > <FILE>
 $ echo private >> <FILE>
 $ echo manager >> <FILE>
 ```
 
-```c
+```console
 $ for ip in $(seq 1 254); do echo <XXX.XXX.XXX>.$ip; done > <FILE>
 ```
 
-```c
+```console
 $ onesixtyone -c <FILE> -i <FILE>
 ```
 
 ### Brute-Force Community Strings
 
-```c
+```console
 $ onesixtyone -i snmp-ips.txt -c community.txt
 ```
 
 ## Outlook Web Access (OWA)
 
-```c
+```console
 https://<RHOST>/sitemap.xml
 ```
 
 ## Port Scanning
 
-```c
+```console
 $ for p in {1..65535}; do nc -vn <RHOST> $p -w 1 -z & done 2> <FILE>.txt
 ```
 
 > https://github.com/AlexRandomed/One-Liner-Bash-Scanner
 
-```c
+```console
 $ export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/tcp/$ip/$port && echo The port $port is open || echo The Port $port is closed > /dev/null" 2>/dev/null || echo Connection Timeout > /dev/null; done
 ```
 
 ## SMTP
 
-```c
+```console
 telnet <RHOST> 25
 Connected to <RHOST>.
 Escape character is '^]'.
 EHLO ALL
 ```
 
-```c
+```console
 telnet <RHOST> 25
 Connected to <RHOST>.
 Escape character is '^]'.
@@ -456,7 +456,7 @@ RCPT TO: <foobar@contoso.localb>
 250 OK
 ```
 
-```c
+```console
 $ smtp-user-enum -M VRFY -U /usr/share/wordlists/seclists/Usernames/Names/names.txt -t <RHOST>
 $ smtp-user-enum -M RCPT -U /usr/share/wordlists/seclists/Usernames/Names/names.txt -t <RHOST>
 $ smtp-user-enum -M EXPN -U /usr/share/wordlists/seclists/Usernames/Names/names.txt -t <RHOST>
@@ -466,7 +466,7 @@ $ smtp-user-enum -M EXPN -U /usr/share/wordlists/seclists/Usernames/Names/names.
 
 ### SNMP Byte Calculation
 
-```c
+```console
 $ python3
 Python 3.9.7 (default, Sep  3 2021, 06:18:44)
 [GCC 10.3.0] on linux
@@ -479,7 +479,7 @@ b'P@ssw0rd@123!!123\x13\x91q\x81\x92"2Rbs\x03\x133CSs\x83\x94$4\x95\x05\x15Eu\x8
 
 ## snmp-check
 
-```c
+```console
 $ snmp-check <RHOST>
 $ snmp-check -t <RHOST> -c public
 ```
@@ -488,13 +488,13 @@ $ snmp-check -t <RHOST> -c public
 
 >  https://github.com/codergs/SNMP-MIBS-Downloader
 
-```c
+```console
 $ sudo apt-get install snmp-mibs-downloader
 ```
 
 ### Comment out "mibs: line"
 
-```c
+```console
 $ sudo vi /etc/snmp/snmp.conf
 ```
 
@@ -502,7 +502,7 @@ $ sudo vi /etc/snmp/snmp.conf
 
 ### Common Commands
 
-```c
+```console
 $ snmpwalk -c public -v1 <RHOST>
 $ snmpwalk -c internal -v2c <RHOST>
 ```
@@ -511,93 +511,93 @@ $ snmpwalk -c internal -v2c <RHOST>
 
 #### Detailed Output
 
-```c
+```console
 $ snmpwalk -v2c -c public <RHOST> .1
 ```
 
 #### Windows Hostname
 
-```c
+```console
 $ snmpwalk -c public -v1 <RHOST> .1.3.6.1.2.1.1.5
 ```
 
 #### OS / User Details
 
-```c
+```console
 $ snmpwalk -v2c -c public <RHOST> nsExtendObjects
 ```
 
 #### Windows User Enumeration
 
-```c
+```console
 $ snmpwalk -c public -v1 <RHOST> 1.3.6.1.4.1.77.1.2.25
 ```
 
 #### Windows Process Enumeration
 
-```c
+```console
 $ snmpwalk -c public -v1 <RHOST> 1.3.6.1.2.1.25.4.2.1.2
 ```
 
 #### Windows Share Information
 
-```c
+```console
 $ snmpwalk -c public -v1 <RHOST> 1.3.6.1.4.1.77.1.2.27
 $ snmpwalk -c public -v1 <RHOST> 1.3.6.1.4.1.77.1.2.3.1.1
 ```
 
 #### Installed Software
 
-```c
+```console
 $ snmpwalk -c public -v1 <RHOST> 1.3.6.1.2.1.25.6.3.1.2
 ```
 
 #### Network Addresses
 
-```c
+```console
 $ snmpwalk -v2c -c public <RHOST> 1.3.6.1.2.1.4.34.1.3
 ```
 
 #### TCP Ports
 
-```c
+```console
 $ snmpwalk -c public -v1 <RHOST> 1.3.6.1.2.1.6.13.1.3
 ```
 
 ## SPF
 
-```c
+```console
 $ dig txt <DOMAIN> | grep spf
 ```
 
 ## sslscan
 
-```c
+```console
 $ sslscan <RHOST>
 ```
 
 ## sslyze
 
-```c
+```console
 $ sslyze <RHOST>
 ```
 
 ## subfinder
 
-```c
+```console
 $ subfinder -dL /PATH/TO/FILE/<FILE>
 $ subfinder -dL /PATH/TO/FILE/<FILE> -nW -ip -p /PATH/TO/FILE/<FILE>
 ```
 
 ### Scan for Top Routinely Exploited Vulnerabilities according to CISA
 
-```c
+```console
 $ subfinder -d <DOMAIN> -all -silent | httpx -silent | nuclei -rl 50 -c 15 -timeout 10 -tags cisa -vv 
 ```
 
 ## tcpdump
 
-```c
+```console
 $ tcpdump -envi <INTERFACE> host <RHOST> -s0 -w /PATH/TO/FILE/<FILE>.pcap
 ```
 

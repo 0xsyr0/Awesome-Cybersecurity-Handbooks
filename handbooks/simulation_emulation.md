@@ -36,7 +36,7 @@
 
 ### Invoke-AtomicRedTeam
 
-```c
+```console
 PC C:\> PowerShell -ExecutionPolicy bypass
 PC C:\> Import-Module "C:\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
 PC C:\> $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="C:\AtomicRedTeam\atomics"}
@@ -52,7 +52,7 @@ PC C:\> schtasks /tn T1053_005_OnLogon
 
 ### Emulation
 
-```c
+```console
 PC C:\> ls C:\AtomicRedTeam\atomics | Where-Object Name -Match "T1566.001|T1203|T1059.003|T1083|T1082|T1016|T1049|T1007|T1087.001"
 PC C:\> 'T1566.001','T1059.003','T1083','T1082','T1016','T1049','T1007','T1087.001' | ForEach-Object {echo "Enumerating $_"; Invoke-AtomicTest $_ -ShowDetailsBrief }
 PC C:\> 'T1566.001','T1059.003','T1083','T1082','T1016','T1049','T1007','T1087.001' | ForEach-Object {echo "Enumerating $_"; Invoke-AtomicTest $_ -CheckPrereqs }
@@ -61,14 +61,14 @@ PC C:\> Invoke-AtomicTest T1059.003-3
 
 ### Emulation to Detection
 
-```c
+```console
 PC C:\> Invoke-AtomicTest T1547.001 -CheckPrereqs
 PC C:\> Invoke-AtomicTest T1547.001 -TestNumbers 2
 ```
 
 ### Customising
 
-```c
+```console
 PC C:\> cat T1136.001/T1136.001.yaml
 PC C:\> Invoke-AtomicTest T1136.001 -TestNumbers 3
 PC C:\> net user
@@ -79,7 +79,7 @@ PC C:\> Invoke-AtomicTest T1136.001 -TestNumbers 3 -PromptForInputArgs -Cleanup
 
 ### Creating new Atomic Tests by using the GUI
 
-```c
+```console
 PC C:\> Start-AtomicGui
 ```
 

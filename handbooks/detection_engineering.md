@@ -27,39 +27,39 @@
 
 > https://github.com/VirusTotal/yara/releases
 
-```c
+```console
 $ sudo apt-get install automake libtool make gcc pkg-config
 ```
 
-```c
+```console
 $ sudo apt-get install flex bison
 ```
 
-```c
+```console
 $ ./bootstrap.sh
 ```
 
-```c
+```console
 $ ./configure
 ```
 
-```c
+```console
 $ make
 ```
 
-```c
+```console
 $ sudo make install
 ```
 
-```c
+```console
 $ make check
 ```
 
-```c
+```console
 $ ./configure --enable-magic
 ```
 
-```c
+```console
 $ yara /PATH/TO/yarGen/yarGen-0.23.4/yargen_rules.yar /PATH/TO/BINARY/<BINARY> -s <BINARY> /PATH/TO/BINARY/<BINARY>
 ```
 
@@ -67,50 +67,50 @@ $ yara /PATH/TO/yarGen/yarGen-0.23.4/yargen_rules.yar /PATH/TO/BINARY/<BINARY> -
 
 > https://github.com/Neo23x0/yarGen
 
-```c
+```console
 $ mkdir yarGen
 ```
 
-```c
+```console
 $ cd yarGen/
 ```
 
-```c
+```console
 $ wget https://github.com/Neo23x0/yarGen/archive/refs/tags/0.23.4.zip
 ```
 
-```c
+```console
 $ unzip 0.23.4.zip
 ```
 
-```c
+```console
 $ cd yarGen-0.23.4/
 ```
 
-```c
+```console
 $ python3 -m venv venv
 ```
 
-```c
+```console
 $ source venv/bin/activate
 ```
 
-```c
+```console
 $ pip3 install -r requirements.txt
 ```
 
-```c
+```console
 $ python3 yarGen.py --update
 ```
 
-```c
+```console
 $ mkdir sample
 ```
 
-```c
+```console
 $ cp rusty-recon-bot sample/
 ```
 
-```c
+```console
 $ python3 yarGen.py -a "<AUTHOR>" -r "<NAME>" -m sample/
 ```

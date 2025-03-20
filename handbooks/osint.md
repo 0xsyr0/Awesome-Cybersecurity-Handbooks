@@ -36,7 +36,7 @@
 
 > https://github.com/IvanGlinkin/Fast-Google-Dorks-Scan
 
-```c
+```console
 $ ./FGDS.sh <DOMAIN>
 $ proxychains bash ./FGDS.sh <DOMAIN>
 ```
@@ -49,11 +49,11 @@ $ proxychains bash ./FGDS.sh <DOMAIN>
 
 > https://www.searchenginejournal.com/google-search-operators-commands/215331/
 
-```c
+```console
 intitle:index.of <TEXT>    // open directory listings
 ```
 
-```c
+```console
 ext:php
 inurl:%3F
 site:*.*.*.<DOMAIN>
@@ -62,25 +62,25 @@ filetype:txt
 
 ##### Example
 
-```c
+```console
 ext:php inurl:? site:<DOMAIN>
 ```
 
 #### Finding .git Directories
 
-```c
+```console
 "(intext:"index of /.git") ("parent directory")
 ```
 
 #### Juicy Extensions
 
-```c
+```console
 ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess site:<DOMAIN>
 ```
 
 #### Cloud Environments
 
-```c
+```console
 site:http://s3.amazonaws.com "<DOMAIN>"
 site:http://blob.core.windows.net "<DOMAIN>"
 site:http://googleapis.com "<DOMAIN>"
@@ -89,7 +89,7 @@ site:http://drive.google.com "<DOMAIN>"
 
 #### Leaks
 
-```c
+```console
 site:http://jsfiddle.net "<DOMAIN>"
 site:http://codebeautify.org "<DOMAIN>"
 site:http://codepen.io "<DOMAIN>"
@@ -98,20 +98,20 @@ site:http://pastebin.com "<DOMAIN>"
 
 ##### Example
 
-```c
+```console
 site:http://jsfiddle.net | site:http://codebeautify.org | site:http://codepen.io | site:http://pastebin.com "<DOMAIN>"
 site:http://jsfiddle.net | site:http://codebeautify.org | site:http://codepen.io | site:http://pastebin.com "<DOMAIN>" "demo" "test" "api"
 ```
 
 #### Open Redirects
 
-```c
+```console
 inurl:page= | inurl:url= | inurl:return= | inurl:next= | inurl:redir= | inurl:redirect= | inurl:target= | inurl:page= inurl:& inurl:http site:http://<DOMAIN>
 ```
 
 #### Server-Side Request Forgery (SSRF)
 
-```c
+```console
 inurl:http | inurl:proxy= | inurl:html= | inurl:data= | inurl:resource= inurl:& site:<DOMAIN>
 ```
 
@@ -135,7 +135,7 @@ inurl:http | inurl:proxy= | inurl:html= | inurl:data= | inurl:resource= inurl:& 
 
 ##### Example
 
-```c
+```console
 [[["OSOtuf","[\"55fa738b0a752dc5\",\"117395327982835488254\"]",null,"generic"]]]
 ```
 
@@ -149,7 +149,7 @@ The Google ID's are always `21` characters long and starting with `10` or `11`.
 
 > https://github.com/khast3x/h8mail
 
-```c
+```console
 $ h8mail -t <EMAIL>
 ```
 
@@ -157,7 +157,7 @@ $ h8mail -t <EMAIL>
 
 > https://github.com/s0md3v/Photon
 
-```c
+```console
 $ python3 photon.py -u https://<DOMAIN> -l 3 -t 100 --wayback
 ```
 
@@ -165,7 +165,7 @@ $ python3 photon.py -u https://<DOMAIN> -l 3 -t 100 --wayback
 
 ### Common Commands
 
-```c
+```console
 $ recon-ng
 $ recon-ng -w <WORKSPACE>
 [recon-ng][default] > workspaces create <WORKSPACE>
@@ -193,7 +193,7 @@ $ recon-ng -w <WORKSPACE>
 
 > https://github.com/qeeqbox/social-analyzer
 
-```c
+```console
 $ python3 app.py --cli --mode "fast" --username "<GIVENNAME> <SURNAME>" --websites "youtube facebook instagram" --output "pretty" --options "found,title,link,rate"
 ```
 
@@ -201,6 +201,6 @@ $ python3 app.py --cli --mode "fast" --username "<GIVENNAME> <SURNAME>" --websit
 
 > https://github.com/laramies/theHarvester
 
-```c
+```console
 $ theHarvester -d <DOMAIN> -l 500 -b google -f myresults.html
 ```

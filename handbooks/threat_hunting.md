@@ -53,11 +53,11 @@
 
 ### Hexadecimal Notation
 
-```c
+```console
 5c:00:50:00:49:00:50:00:45
 ```
 
-```c
+```console
 5c:00: The Unicode encoding for the character \ (backslash).
 50:00: The Unicode encoding for the character P.
 49:00: The Unicode encoding for the character I.
@@ -71,6 +71,6 @@
 
 > https://www.sentinelone.com/labs/operation-digital-eye-chinese-apt-compromises-critical-digital-infrastructure-via-visual-studio-code-tunnels/
 
-```c
+```console
 HTTP/1.1 404 Not Found Date: GMT Content-Type: text/html Content-Length: 548 Connection: keep-alive X-Served-By:  Strict-Transport-Security: max-age=31536000; includeSubDomains ssl.jarm:"2ad2ad0002ad2ad00042d42d00000023f2ae7180b8a0816654f2296c007d93" ssl:"Kubernetes Ingress Controller Fake Certificate"
 ```

@@ -31,7 +31,7 @@
 
 ### Add Numbers to Password Segment
 
-```c
+```console
 $ for i in {1..100}; do printf "Password@%d\n" $i >> <FILE>; done
 ```
 
@@ -39,7 +39,7 @@ $ for i in {1..100}; do printf "Password@%d\n" $i >> <FILE>; done
 
 > https://github.com/digininja/cewl
 
-```c
+```console
 $ cewl -d 0 -m 5 -w <FILE> http://<RHOST>/index.php --lowercase
 $ cewl -d 5 -m 3 -w <FILE> http://<RHOST>/index.php --with-numbers
 ```
@@ -48,13 +48,13 @@ $ cewl -d 5 -m 3 -w <FILE> http://<RHOST>/index.php --with-numbers
 
 > https://github.com/Mebus/cupp
 
-```c
+```console
 $ ./cupp -i
 ```
 
 ## crunch
 
-```c
+```console
 $ crunch 6 6 -t foobar%%% > wordlist
 $ crunch 5 5 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ -o <FILE>.txt
 ```
@@ -71,7 +71,7 @@ javascript:(function(){const e=document.documentElement.innerText.match(/[a-zA-Z
 
 ### Remove all Number Sequences
 
-```c
+```console
 $ head /usr/share/wordlists/rockyou.txt > <FILE>.txt
 $ sed -i '/^1/d' <FILE>.txt
 ```
@@ -80,6 +80,6 @@ $ sed -i '/^1/d' <FILE>.txt
 
 > https://github.com/urbanadventurer/username-anarchy
 
-```c
+```console
 $ ./username-anarchy -f first,first.last,last,flast,f.last -i <FILE>
 ```

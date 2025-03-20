@@ -62,13 +62,13 @@
 
 ### Extracting Backups
 
-```c
+```console
 $ ( printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" ; tail -c +25 <FILE>.ab ) |  tar xfvz -
 ```
 
 ## bc
 
-```c
+```console
 $ echo "obase=16; ibase=2; 00000000010...00000000000000" | bc | xxd -p -r
 ```
 
@@ -76,14 +76,14 @@ $ echo "obase=16; ibase=2; 00000000010...00000000000000" | bc | xxd -p -r
 
 > https://github.com/ReFirmLabs/binwalk
 
-```c
+```console
 $ binwalk <FILE>
 $ binwalk -e <FILE>
 ```
 
 ## capa
 
-```c
+```console
 C:\> capa <FILE> -vv
 ```
 
@@ -91,13 +91,13 @@ C:\> capa <FILE> -vv
 
 ### Remote Disk Dump
 
-```c
+```console
 $ ssh root@<RHOST> "dd if=/dev/sda1 status=progress" | dd of=sda1.dmp
 ```
 
 ## emlAnalyzer
 
-```c
+```console
 $ emlAnalyzer -i <FILE>\:.eml --header --html -u --text --extract-all
 ```
 
@@ -105,55 +105,55 @@ $ emlAnalyzer -i <FILE>\:.eml --header --html -u --text --extract-all
 
 ### Changes Time and Date
 
-```c
+```console
 $ exiftool -AllDates='JJJJ:MM:TT HH:MM:SS' <FILE>.ext
 ```
 
 ### Extracting Thumbnail
 
-```c
+```console
 $ exiftool -b -ThumbnailImage picture.ext > <FILE>.jpg
 ```
 
 ### File Information
 
-```c
+```console
 $ exiftool -p '$Filename $ImageSize' <FILE>.jpg
 ```
 
 ### Removes all Metadata
 
-```c
+```console
 $ exiftool -all= <FILE>.JPG
 ```
 
 ### Camera Serial Number
 
-```c
+```console
 $ exiftool -SerialNumber <FILE>.ext
 ```
 
 ### Renames all Files along the Time and Date when they were created
 
-```c
+```console
 $ exiftool -P -'Filename<DateTimeOriginal' -d %Y%m%d_%Hh%Mm%Ss_Handy.%%e folder/*
 ```
 
 ### Extracts all Metadata and write it into a File
 
-```c
+```console
 $ exiftool -q -r -t -f -S -n -csv -fileName -GPSPosition -Model -FocalLength -ExposureTime -FNumber -ISO -BrightnessValue -LensID "." > <FILE>.csv
 ```
 
 ### Extract Creators from .pdf-Files
 
-```c
+```console
 $ exiftool *.pdf | grep Creator | awk '{print $3}' | sort -u > users.txt
 ```
 
 ## file
 
-```c
+```console
 $ file <FILE>
 ```
 
@@ -161,7 +161,7 @@ $ file <FILE>
 
 > https://github.com/korczis/foremost
 
-```c
+```console
 $ foremost -i <FILE>
 ```
 
@@ -169,20 +169,20 @@ $ foremost -i <FILE>
 
 > https://github.com/arthaud/git-dumper
 
-```c
+```console
 $ ./git-dumper.py http://<DOMAIN>/<repo>
 ```
 
 ## Git
 
-```c
+```console
 $ git log --pretty=oneline
 $ git log -p
 ```
 
 ## HEX
 
-```c
+```console
 $ hexdump -C <FILE> | less
 ```
 
@@ -190,7 +190,7 @@ $ hexdump -C <FILE> | less
 
 #### convert.py
 
-```c
+```console
 #!/usr/bin/env python3
 file=open('blueshadow.txt','r')
 val=int(file.read(), 2)
@@ -202,14 +202,14 @@ file.close()
 
 ## inetsim
 
-```c
+```console
 $ cat /etc/inetsim/inetsim.conf | grep dns_default_ip
 # dns_default_ip
 # Syntax: dns_default_ip 
 dns_default_ip	 <LHOST>
 ```
 
-```c
+```console
 $ sudo inetsim
 ```
 
@@ -217,7 +217,7 @@ $ sudo inetsim
 
 ### Reading standard File Format "Mach-O" from iOS Applications
 
-```c
+```console
 $ sudo apt-get install libplist-utils
 $ plistutil -i challenge.plist -o challenge.plist.xml
 ```
@@ -226,13 +226,13 @@ $ plistutil -i challenge.plist -o challenge.plist.xml
 
 ### Extracting .omv Files
 
-```c
+```console
 $ unzip <FILE>.omv
 ```
 
 ## ltrace
 
-```c
+```console
 $ ltrace <BINARY>
 ```
 
@@ -240,7 +240,7 @@ $ ltrace <BINARY>
 
 ### Bash Script
 
-```c
+```console
 #!/bin/bash
 cat /proc/$1/maps | grep "rw-p" | awk '{print $1}' | ( IFS="-"
     while reade a b; do
@@ -251,7 +251,7 @@ cat /proc/$1/maps | grep "rw-p" | awk '{print $1}' | ( IFS="-"
 
 ## MemProcFS
 
-```c
+```console
 $ sudo ./memprocfs -device /PATH/TO/FILE/<FILE>.DMP -mount /mnt/ -forensic 1
 ```
 
@@ -259,7 +259,7 @@ $ sudo ./memprocfs -device /PATH/TO/FILE/<FILE>.DMP -mount /mnt/ -forensic 1
 
 ### Shell Bags
 
-```c
+```console
 <USER_PROFILE>\NTUSER.DAT
 <USER_PROFILE>\AppData\Local\Microsoft\Windows\UsrClass.dat
 ```
@@ -270,13 +270,13 @@ $ sudo ./memprocfs -device /PATH/TO/FILE/<FILE>.DMP -mount /mnt/ -forensic 1
 
 ### Installation
 
-```c
+```console
 $ sudo -H pip install -U oletools[full]
 ```
 
 ### Common Commands
 
-```c
+```console
 $ oledump <FILE>                         // first analysis
 $ oledump <FILE> -s 4                    // analysing datastream 4
 $ oledump <FILE> -s 4 --vbadecompress    // decrompress macros
@@ -284,7 +284,7 @@ $ oledump <FILE> -s 4 --vbadecompress    // decrompress macros
 
 ### Forensic Chain
 
-```c
+```console
 $ olevba <FILE>
 $ mraptor <FILE>
 $ msodde -l debug <FILE>
@@ -300,7 +300,7 @@ $ olemap <FILE>
 
 ## pngcheck
 
-```c
+```console
 $ pngcheck -vtp7f <FILE>
 ```
 
@@ -308,13 +308,13 @@ $ pngcheck -vtp7f <FILE>
 
 > http://sandsprite.com/blogs/index.php?uid=7&pid=152
 
-```c
+```console
 PS C:\> .\scdbg.exe -findsc /f \PATH\TO\FILE\<FILE>.sc
 ```
 
 ## steg_brute
 
-```c
+```console
 $ python steg_brute.py -b -d /usr/share/wordlists/rockyou.txt -f <FILE>.wav
 ```
 
@@ -322,7 +322,7 @@ $ python steg_brute.py -b -d /usr/share/wordlists/rockyou.txt -f <FILE>.wav
 
 > https://github.com/Va5c0/Steghide-Brute-Force-Tool
 
-```c
+```console
 $ steghide info <FILE>
 $ steghide info <FILE> -p <PASSWORD>
 $ steghide extract -sf <FILE>
@@ -331,7 +331,7 @@ $ steghide extract -sf <FILE> -p <PASSWORD>
 
 ## strings
 
-```c
+```console
 $ strings <FILE>.mem > <FILE>.strings.ascii.txt
 $ strings -e l <FILE>.mem > <FILE>.strings.unicode_little_endian.txt
 $ strings -e b <FILE>.mem > <FILE>.strings.unicode_big_endian.txt
@@ -345,7 +345,7 @@ $ strings -e b <FILE>.mem > <FILE>.strings.unicode_big_endian.txt
 
 > https://live.sysinternals.com/
 
-```c
+```console
 PS C:\> Download-SysInternalsTools C:\SysinternalsSuite
 ```
 
@@ -353,7 +353,7 @@ PS C:\> Download-SysInternalsTools C:\SysinternalsSuite
 
 > https://github.com/snovvcrash/usbrip
 
-```c
+```console
 $ sudo usbrip events violations <FILE>.json -f syslog
 ```
 
@@ -367,7 +367,7 @@ $ sudo usbrip events violations <FILE>.json -f syslog
 
 ### Common Commands
 
-```c
+```console
 $ volatility -f <FILE> imageinfo
 $ volatility -f <FILE> filescan
 $ volatility -f <FILE> psscan
@@ -388,7 +388,7 @@ $ volatility -f <FILE> windows.psscan.PsScan
 
 ### Examples
 
-```c
+```console
 $ volatility -f <FILE> --profile=Win7SP1x86 filescan
 $ volatility -f <FILE> --profile=Win7SP1x64 filescan | grep <NAME>
 $ volatility -f <FILE> --profile=Win7SP1x86 truecryptsummary
@@ -399,58 +399,58 @@ $ volatility -f <FILE> --profile=Win7SP1x86 dumpfiles -Q 0x000000000bbc7166 --na
 
 ### Bulk Investigation
 
-```c
+```console
 $ for plugin in windows.malfind.Malfind windows.psscan.PsScan windows.pstree.PsTree windows.pslist.PsList windows.cmdline.CmdLine windows.filescan.FileScan windows.dlllist.DllList; do volatility -q -f <FILE> $plugin > <FILE>.$plugin.txt; done
 ```
 
 ## xxd
 
-```c
+```console
 $ xxd <FILE>
 ```
 
 ### Output in HEX
 
-```c
+```console
 $ cat <FILE> | xxd -p
 $ printf <VALUE> | xxd -p
 ```
 
 ### HEX to ASCII
 
-```c
+```console
 $ cat <FILE> | xxd -p -r
 $ curl http://<RHOST/file | xxd -r -p
 ```
 
 ### Convert Output into one Line
 
-```c
+```console
 $ xxd -p -c 10000 <FILE>
 ```
 
 ### kConvert File
 
-```c
+```console
 $ xxd -r -p <FILE>.txt <FILE>.gpg    // gpg is just an example
 ```
 
 ### Format String into Decimal
 
-```c
+```console
 $ echo -n '!AD*G-KaPdSgVkY' | xxd -pu
 ```
 
 ### Cut with xxd
 
-```c
+```console
 $ xxd -p <FILE> | sed 's/../\\x&/g'
 \x23\x21\x2f\x62\x69\x6e\x2f\x70\x79\x74\x68\x6f\x6e\x33\x0a\x69\x6d\x70\x6f\x72\x74\x20\x72\x65\x71\x75\x65\x73\x74\x73
 ```
 
 ### Create ELF File
 
-```c
+```console
 $ xxd -r -ps <HEX_FILE> <FILE>.bin
 ```
 
@@ -458,7 +458,7 @@ $ xxd -r -ps <HEX_FILE> <FILE>.bin
 
 > https://github.com/zed-0xff/zsteg
 
-```c
+```console
 $ zsteg -a <FILE>    // runs all the methods on the given file
 $ zsteg -E <FILE>    // extracts data from the given payload (example : zsteg -E b4,bgr,msb,xy name.png)
 ```

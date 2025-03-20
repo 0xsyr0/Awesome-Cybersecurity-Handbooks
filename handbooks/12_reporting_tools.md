@@ -25,7 +25,7 @@
 
 ## Folder Structure on Operations Server
 
-```c
+```console
 assessment_name
 ├── 0-operations
 ├── 1-osint
@@ -62,26 +62,26 @@ or to the `.zshrc`.
 
 ### Bash local IP address
 
-```c
+```console
 PS1="[`date  +"%Y-%m-%d %H:%M"`]\[\033[01;31m\] `ip a | grep -A 1 eth0 | grep inet | awk '{ print $2 }' | c
 ut -d '/' -f 1`\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] \$ "
 ```
 
 ### Bash external IP address
 
-```c
+```console
 PS1='[`date  +"%Y-%m-%d %H:%M"`]\[\033[01;31m\] `curl -s ifconfig.co`\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] \$ '
 ```
 
 ### ZSH local IP address
 
-```c
+```console
 PS1="[20%D %T] %B%F{red}$(ip a | grep -A 1 eth0 | grep inet | awk '{ print $2 }' | cut -d '/' -f 1)%f%b %B%F{blue}%1~%f%b $ "
 ```
 
 ### ZSH external IP address
 
-```c
+```console
 PS1="[20%D %T] %B%F{red}$(curl -s ifconfig.co)%f%b %B%F{blue}%1~%f%b $ "
 ```
 
@@ -89,7 +89,7 @@ PS1="[20%D %T] %B%F{red}$(curl -s ifconfig.co)%f%b %B%F{blue}%1~%f%b $ "
 
 For `PowerShell` paste it into the open terminal.
 
-```c
+```console
 $IPv4 = Test-Connection -ComputerName (hostname) -Count 1  | Select -ExpandProperty IPV4Address; function prompt{ "PS" + " [$(Get-Date)] $IPv4> $(get-location) " }
 ```
 
@@ -97,37 +97,37 @@ $IPv4 = Test-Connection -ComputerName (hostname) -Count 1  | Select -ExpandPrope
 
 #### Logging using tee
 
-```c
+```console
 command args | tee <FILE>.log
 ```
 
 #### Append to an existing log file
 
-```c
+```console
 command args | tee -a <FILE>.log
 ```
 
 #### All commands logging using script utility
 
-```c
+```console
 script <FILE>.log
 ```
 
 #### Single command logging using script utility
 
-```c
+```console
 script -c 'command args' <FILE>.log
 ```
 
 ### Windows Logging Examples
 
-```c
+```console
 Get-ChildItem -Path D: -File -System -Recurse | Tee-Object -FilePath "C:\temp\<FILE>.txt" -Append | Out-File C:\temp\<FILE>.txt
 ```
 
 ### Metasploit spool command
 
-```c
+```console
 msf> spool <file>.log
 ```
 
@@ -135,8 +135,8 @@ msf> spool <file>.log
 
 ### Basic Formatting
 
-```c
-* ```c
+```console
+* ```console
 * ```bash
 * ```python
 * `<TEXT>`
@@ -144,7 +144,7 @@ msf> spool <file>.log
 
 ### Table of Contents
 
-```c
+```console
 1. [Example](#Example)
 2. [Example 2](#Example-2)
 3. [ExampleLink](https://github.com/<USERNAME>/<REPOSITORY>/blob/master/<FOLDER>/<FILE>.md)
@@ -156,13 +156,13 @@ msf> spool <file>.log
 
 ### Tables
 
-```c
+```console
 | Example |
 | --- |
 | Value |
 ```
 
-```c
+```console
 | Example | Example 2
 | --- | --- |
 | Value | Value 2 |
@@ -170,7 +170,7 @@ msf> spool <file>.log
 
 ### Pictures
 
-```c
+```console
 <p align="center">
   <img width="300" height="300" src="https://github.com/<USERNAME>/<REPOSITORY>/blob/main/<FOLDER>/<FILE>.png">
 </p>

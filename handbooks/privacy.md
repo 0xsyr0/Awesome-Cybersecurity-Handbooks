@@ -74,7 +74,7 @@
 
 > https://github.com/K3V1991/Disable-Firefox-Telemetry-and-Data-Collection
 
-```c
+```console
 about:config
 ```
 

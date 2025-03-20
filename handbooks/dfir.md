@@ -27,7 +27,7 @@
 
 ## Sniffing SSH Sessions
 
-```c
+```console
 $ strace -e trace=read -p <PID> 2>&1 | while read x; do echo "$x" | grep '^read.*= [1-9]$' | cut -f2 -d\"; done
 ```
 
@@ -35,7 +35,7 @@ $ strace -e trace=read -p <PID> 2>&1 | while read x; do echo "$x" | grep '^read.
 
 ### Filters
 
-```c
+```console
 ip.addr == <RHOST>                           // shows all packets involving the specific IP address
 tcp.port == <RPORT>                          // shows only port XYZ
 dns                                          // isolates DNS traffic

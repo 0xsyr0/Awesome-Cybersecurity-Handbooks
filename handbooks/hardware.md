@@ -25,11 +25,11 @@
 
 ### udev Rule
 
-```c
+```console
 $ sudo vi /etc/udev/rules.d/49-micronucleus.rules
 ```
 
-```c
+```console
 # UDEV Rules for Micronucleus boards including the Digispark.
 # This file must be placed at:
 #
@@ -50,13 +50,13 @@ KERNEL=="ttyACM*", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0753", MODE:="066
 
 ### Additonal Packages
 
-```c
+```console
 https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json
 ```
 
 ### Board
 
-```c
+```console
 Digispark (Default - 16.5mhz)
 ```
 
@@ -68,6 +68,6 @@ Digispark (Default - 16.5mhz)
 
 > https://triq.org/
 
-```c
+```console
 $ rtl_433 -r <FILE>.cf32 -A
 ```

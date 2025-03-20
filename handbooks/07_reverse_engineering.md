@@ -52,7 +52,7 @@
 
 ## Assembly Instructions
 
-```c
+```console
 jne     # jump equal to
 cmp     # compare
 call    # call function for example
@@ -62,14 +62,14 @@ call    # call function for example
 
 > https://github.com/icsharpcode/AvaloniaILSpy
 
-```c
+```console
 $ chmod a+x ILSpy
 $ ./ILSpy
 ```
 
 ## Basic Block in angr
 
-```c
+```python
 import angr
 import sys
 
@@ -93,7 +93,7 @@ if __name__ == '__main__':
 
 > https://github.com/ReFirmLabs/binwalk
 
-```c
+```console
 $ binwalk <FILE>
 $ binwalk -e <FILE>
 ```
@@ -102,20 +102,20 @@ $ binwalk -e <FILE>
 
 > https://www.benf.org/other/cfr/
 
-```c
+```console
 $ java -jar cfr-0.151.jar --outputpath /PATH/TO/DIRECTORY/ /PATH/TO/FILE/<FILE>.jar
 ```
 
 ## dumpbin
 
-```c
-C:\>dumpbin /headers /PATH/TO/FILE/<FILE>.exe
-C:\>dumpbin /exports /PATH/TO/FILE/<FILE>.dll
+```console
+C:\> dumpbin /headers /PATH/TO/FILE/<FILE>.exe
+C:\> dumpbin /exports /PATH/TO/FILE/<FILE>.dll
 ```
 
 ## file
 
-```c
+```console
 $ file <FILE>
 ```
 
@@ -123,7 +123,7 @@ $ file <FILE>
 
 ### Common Commands
 
-```c
+```console
 (gdb) b main                           // sets breakpoint to main function
 (gdb) b *0x5655792b                    // sets breakpoint on specific address
 (gdb) run                              // starts debugging
@@ -148,13 +148,13 @@ $ file <FILE>
 
 ### Load a File
 
-```c
+```console
 $ gdb -q <FILE>
 ```
 
 ### Load a File with Arguments
 
-```c
+```console
 $ gdb --args ./<FILE> <LPORT>
 ```
 
@@ -162,7 +162,7 @@ $ gdb --args ./<FILE> <LPORT>
 
 > https://github.com/hugsy/gef
 
-```c
+```console
 $ bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 ```
 
@@ -172,7 +172,7 @@ $ bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 
 > https://hackaday.io/course/172292-introduction-to-reverse-engineering-with-ghidra
 
-```c
+```console
 L    // rename variables
 ;    // add a comment
 ```
@@ -183,14 +183,14 @@ L    // rename variables
 
 ### Config File
 
-```c
+```console
 $ vi ~/.gdbinit
 source ~/peda/peda.py
 ```
 
 ### Check File Properties
 
-```c
+```console
 gdb-peda$ checksec
 CANARY    : disabled
 FORTIFY   : disabled
@@ -207,7 +207,7 @@ RELRO     : Partial
 
 ### Shortcuts
 
-```c
+```console
 v + view mode
 V = visual mode
   p = cycle different panes
@@ -217,7 +217,7 @@ V = visual mode
 
 ### Search Function
 
-```c
+```console
 :> s sym.main
 Enter
 Enter
@@ -225,7 +225,7 @@ Enter
 
 ### Common Commands
 
-```c
+```console
 ?                 // help function
 r2 <FILE>         // load a file
 r2 -A ./<FILE>    // load a file
@@ -241,13 +241,13 @@ wx 9090           // replace s with nops
 wa nop            // write replaced nops
 ```
 
-```c
+```console
 $ r2 supershell
 ```
 
 ### Analyze Everything
 
-```c
+```console
 [0x004006e0]> aaa
 [x] Analyze all flags starting with sym. and entry0 (aa)
 [x] Analyze function calls (aac)
@@ -261,7 +261,7 @@ $ r2 supershell
 
 ### Show Functions
 
-```c
+```console
 [0x004006e0]> afl
 0x004006e0    1 41           entry0
 0x004006a0    1 6            sym.imp.__libc_start_main
@@ -289,7 +289,7 @@ $ r2 supershell
 
 ### Example
 
-```c
+```console
 $ r2 -d -A <FILE>                // -d run, -A analysis
 [0x080491ab]> s main; pdf          // disassemble main, pdf = Print Disassembly Function
 [0x080491ab]> db 0x080491bb        // db = debug breakpoint
@@ -302,7 +302,7 @@ $ r2 -d -A <FILE>                // -d run, -A analysis
 
 ## strings
 
-```c
+```console
 $ strings <FILE>
 $ strings -o <FILE>
 $ strings -n 1 <FILE>
@@ -310,12 +310,12 @@ $ strings -n 1 <FILE>
 
 ### Printing Memory Location
 
-```c
+```console
 $ strings -a -t x /lib/i386-linux-gnu/libc.so.6
 ```
 
 ## upx
 
-```c
+```console
 $ upx -d <FILE>
 ```
