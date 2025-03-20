@@ -506,7 +506,7 @@ admin'||''==='
 
 ### Bruteforce Values
 
-```console
+```python
 import requests
 import re
 import string

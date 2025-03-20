@@ -108,7 +108,7 @@ $ java -jar cfr-0.151.jar --outputpath /PATH/TO/DIRECTORY/ /PATH/TO/FILE/<FILE>.
 
 ## dumpbin
 
-```console
+```cmd
 C:\> dumpbin /headers /PATH/TO/FILE/<FILE>.exe
 C:\> dumpbin /exports /PATH/TO/FILE/<FILE>.dll
 ```

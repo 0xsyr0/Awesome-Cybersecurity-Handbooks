@@ -58,6 +58,32 @@
 | Sysinternals Utilities | Sysinternals Utilities Index | https://docs.microsoft.com/en-us/sysinternals/downloads |
 | Volatility | An advanced memory forensics framework | https://github.com/volatilityfoundation/volatility |
 
+# Forensics Handbook
+
+## Resources
+
+| Name | Description | URL |
+| --- | --- | --- |
+| BinDiff | Quickly find differences and similarities in disassembled code | https://github.com/google/bindiff |
+| CAPA | The FLARE team's open-source tool to identify capabilities in executable files. | https://github.com/mandiant/capa |
+| Cheatsheet: Linux Forensics Analysis | Cheat sheet to use during Linux forensics. | https://fareedfauzi.github.io/2024/03/29/Linux-Forensics-cheatsheet.html |
+| Cheatsheet: Windows Forensics Analysis | Cheat sheet to use during Windows forensics. | https://fareedfauzi.github.io/2023/12/22/Windows-Forensics-checklist-cheatsheet.html |
+| Depix | Recovers passwords from pixelized screenshots | https://github.com/spipm/Depix |
+| FLOSS | FLARE Obfuscated String Solver - Automatically extract obfuscated strings from malware. | https://github.com/mandiant/flare-floss |
+| FOREMOST | Foremost is a console program to recover files based on their headers, footers, and internal data structures. | https://github.com/korczis/foremost |
+| kbd-audio | Acoustic keyboard eavesdropping | https://github.com/ggerganov/kbd-audio |
+| MemProcFS | MemProcFS is an easy and convenient way of viewing physical memory as files in a virtual file system. | https://github.com/ufrisk/MemProcFS |
+| oletools | python tools to analyze MS OLE2 files (Structured Storage, Compound File Binary Format) and MS Office documents, for malware analysis, forensics and debugging. | https://github.com/decalage2/oletools |
+| Process Hacker | A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware. | https://process-hacker.com |
+| Process Monitor | Process Monitor is an advanced monitoring tool for Windows that shows real-time file system, Registry and process/thread activity. | https://learn.microsoft.com/en-us/sysinternals/downloads/procmon |
+| Regshot | Regshot is a small, free and open-source registry compare utility that allows you to quickly take a snapshot of your registry and then compare it with a second one - done after doing system changes or installing a new software product | https://github.com/Seabreg/Regshot |
+| scdbg | Visual Studio 2008 port of the libemu library that includes scdbg.exe, a modification of the sctest project, that includes more hooks, interactive debugging, reporting features, and ability to work with file format exploit shellcode. Will run under WINE | https://github.com/dzzie/VS_LIBEMU |
+| Steghide | Execute a brute force attack with Steghide to file with hide information and password established. | https://github.com/Va5c0/Steghide-Brute-Force-Tool |
+| Sysinternals Live | live.sysinternals.com - / | https://live.sysinternals.com |
+| Sysinternals Suite | The Sysinternals Troubleshooting Utilities have been rolled up into a single Suite of tools. | https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite |
+| Sysinternals Utilities | Sysinternals Utilities Index | https://docs.microsoft.com/en-us/sysinternals/downloads |
+| Volatility | An advanced memory forensics framework | https://github.com/volatilityfoundation/volatility |
+
 ## Android
 
 ### Extracting Backups
@@ -83,7 +109,7 @@ $ binwalk -e <FILE>
 
 ## capa
 
-```console
+```cmd
 C:\> capa <FILE> -vv
 ```
 
@@ -206,7 +232,7 @@ file.close()
 $ cat /etc/inetsim/inetsim.conf | grep dns_default_ip
 # dns_default_ip
 # Syntax: dns_default_ip 
-dns_default_ip	 <LHOST>
+dns_default_ip   <LHOST>
 ```
 
 ```console
@@ -308,7 +334,7 @@ $ pngcheck -vtp7f <FILE>
 
 > http://sandsprite.com/blogs/index.php?uid=7&pid=152
 
-```console
+```cmd
 PS C:\> .\scdbg.exe -findsc /f \PATH\TO\FILE\<FILE>.sc
 ```
 
@@ -345,7 +371,7 @@ $ strings -e b <FILE>.mem > <FILE>.strings.unicode_big_endian.txt
 
 > https://live.sysinternals.com/
 
-```console
+```cmd
 PS C:\> Download-SysInternalsTools C:\SysinternalsSuite
 ```
 

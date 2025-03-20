@@ -85,19 +85,19 @@ $ sudo mdk3 <INTERFACE>mon b <BSSID>
 
 #### List Profiles
 
-```console
+```cmd
 PS C:\> netsh wlan show profiles
 ```
 
 #### Extract Passwords
 
-```console
+```cmd
 PS C:\> netsh wlan show profile name="<PROFILE>" key=clear
 ```
 
 #### Export Profiles
 
-```console
+```cmd
 PS C:\> netsh wlan export profile name="<PROFILE>" folder=C:\temp
 ```
 

