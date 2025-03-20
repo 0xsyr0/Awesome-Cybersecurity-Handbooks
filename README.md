@@ -15,7 +15,7 @@ A huge chunk of my personal notes since I started playing CTFs and working as a 
 If you like the project, give it a :star: or share it on various platforms. My goal is to create and to gather resources for people to help them on their career.
 
 > [!NOTE]
-> As always, it is pretty hard to point out every source for different tools or payloads. If I used your payload anywhere in my notes and you wanted to be mentioned, feel free to reach out to me on [X](https://twitter.com/syr0_) and I will add you asap.
+> As always, it is pretty hard to point out every source for different tools or payloads. If I used your payload anywhere in my notes and you wanted to be mentioned, feel free to reach out to me on [X](https://twitter.com/syr0_) — or preferably [Bluesky](https://bsky.app/profile/0xsyr0.bsky.social) — and I will add you asap.
 
 Thank you for reading.
 
