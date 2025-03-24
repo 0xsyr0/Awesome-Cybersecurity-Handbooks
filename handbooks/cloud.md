@@ -21,6 +21,7 @@
 | AzureHound | Azure Data Exporter for BloodHound | https://github.com/BloodHoundAD/AzureHound |
 | BARK | BloodHound Attack Research Kit | https://github.com/BloodHoundAD/BARK |
 | Bobber | Bounces when a fish bites - Evilginx database monitoring with exfiltration automation | https://github.com/Flangvik/Bobber |
+| CloudPEASS | Cloud Privilege Escalation Awesome Script Suite | https://github.com/carlospolop/CloudPEASS |
 | FindMeAccess | FindMeAccess is a tool useful for finding gaps in Azure/M365 MFA requirements for different resources, client ids, and user agents. | https://github.com/absolomb/FindMeAccess |
 | GraphRunner | A Post-exploitation Toolset for Interacting with the Microsoft Graph API | https://github.com/dafthack/GraphRunner |
 | HacktricksCloud | Welcome to the page where you will find each hacking trick/technique/whatever related to Infrastructure. | https://github.com/carlospolop/hacktricks-cloud |
