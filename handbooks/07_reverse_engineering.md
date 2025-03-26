@@ -34,7 +34,9 @@
 | Exeinfo PE | exeinfo PE for Windows by A.S.L | https://github.com/ExeinfoASL/Exeinfo |
 | GEF | GEF is a set of commands for x86/64, ARM, MIPS, PowerPC and SPARC to assist exploit developers and reverse-engineers when using old school GDB. | https://github.com/hugsy/gef |
 | Ghidra | Ghidra is a software reverse engineering (SRE) framework created and maintained by the National Security Agency Research Directorate. | https://github.com/NationalSecurityAgency/ghidra |
+| ghidraMCP | MCP Server for Ghidra | https://github.com/LaurieWired/GhidraMCP |
 | HxD | HxD is a carefully designed and fast hex editor which, additionally to raw disk editing and modifying of main memory (RAM), handles files of any size. | https://mh-nexus.de/en/hxd |
+| IDA MCP Server | A Model Context Protocol server for IDA | https://github.com/MxIris-Reverse-Engineering/ida-mcp-server |
 | ImHex | A Hex Editor for Reverse Engineers, Programmers and people who value their retinas when working at 3 AM. | https://github.com/WerWolv/ImHex |
 | JD-GUI | JD-GUI, a standalone graphical utility that displays Java sources from CLASS files. | https://github.com/java-decompiler/jd-gui |
 | Malcat | Malcat is a feature-rich hexadecimal editor / disassembler for Windows and Linux targeted to IT-security professionals. | https://malcat.fr |
