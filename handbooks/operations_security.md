@@ -1,4 +1,6 @@
-# Operational Security
+# Operations Security
+
+- [Resources](#resources)
 
 ## Table of Contents
 
@@ -14,6 +16,13 @@
 - [Save File Deletion](#save-file-deletion)
 - [Sneaky Directory](#sneaky-directory)
 - [Windows Advanced Threat Protection (ATP)](#windows-advanced-threat-protection-atp)
+
+## Resources
+
+| Name | Description | URL |
+| --- | --- | --- |
+| OPSEC Pocket Guide | Your Pocket Guide to OPSEC in Adversary Emulation | https://ristbs.github.io/2023/02/08/your-pocket-guide-to-opsec-in-adversary-emulation.html?s=09 |
+| OPSEC Tradecraft | Collection of OPSEC Tradecraft and TTPs for Red Team Operations | https://github.com/WesleyWong420/OPSEC-Tradecraft |
 
 ## .NET Reflection
 

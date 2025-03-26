@@ -35,7 +35,7 @@ Thank you for reading.
 | [08 Exploitation Tools](handbooks/08_exploitation_tools.md) | [Container](handbooks/container.md) | [IoT](handbooks/iot.md) | [Threat Hunting](handbooks/threat_hunting.md) |
 | [09 Sniffing & Spoofing](handbooks/09_sniffing_%26_spoofing.md) | [Cryptography](handbooks/cryptography.md) | [Malware Development](handbooks/malware_development.md) | [Threat Modeling](handbooks/threat_modeling.md) |
 | [10 Post Exploitation](handbooks/10_post_exploitation.md) | [CVE](handbooks/cve.md) | [Mobile](handbooks/mobile.md) | [Wordlists](handbooks/wordlists.md) |
-| [11 Forensics](handbooks/11_forensics.md) | [Cyber Threat Intelligence](handbooks/cyber_threat_intelligence.md) | [Operational Security](handbooks/operational_security.md) |
+| [11 Forensics](handbooks/11_forensics.md) | [Cyber Threat Intelligence](handbooks/cyber_threat_intelligence.md) | [Operations Security](handbooks/operations_security.md) |
 | [12 Reporting Tools](handbooks/12_reporting_tools.md) | [Decrypter](handbooks/decrypter.md) | [OSINT](handbooks/osint.md) |
 | [13 Social Engineering Tools](handbooks/13_social_engineering_tools.md) | [Detection Engineering](handbooks/detection_engineering.md) | [Payloads](handbooks/payloads.md) |
 
