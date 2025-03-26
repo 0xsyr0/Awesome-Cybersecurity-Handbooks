@@ -1,5 +1,9 @@
 # SOAR & SecOps
 
+- [Resources](#resources)
+
+## Table of Contents
+
 ## Resources
 
 | Name | Description | URL |
