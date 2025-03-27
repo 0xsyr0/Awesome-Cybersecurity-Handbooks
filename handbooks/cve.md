@@ -184,6 +184,7 @@
 | CVE-2024-38100 | Leaked Wallpaper LPE | https://github.com/MzHmO/LeakedWallpaper |
 | CVE-2024-49138 | Windows Common Log File System Driver LPE | https://github.com/MrAle98/CVE-2024-49138-POC |
 | CVE-2025-0282 | Ivanti Connect Secure RCE | https://github.com/absholi7ly/CVE-2025-0282-Ivanti-exploit |
+| CVE-2025-1907, CVE-2025-1974 | IngressNightmare RCE | https://github.com/Esonhugh/ingressNightmare-CVE-2025-1974-exps |
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (1) | https://github.com/iSee857/CVE-2025-24813-PoC |
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (2) | https://github.com/absholi7ly/POC-CVE-2025-24813 |
 | CVE-2025-29927 | Next.js Authentication Bypass | https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware |
