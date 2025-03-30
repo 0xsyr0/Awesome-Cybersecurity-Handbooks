@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [openfire_decrypt](#openfire_decrypt)
+- [splunksecrets](#splunksecrets)
 
 ## Resources
 
@@ -21,6 +22,7 @@
 | pswm-decoder | a simple decoder for https://github.com/Julynx/pswm | https://github.com/repo4Chu/pswm-decoder |
 | SharpLansweeperDecrypt | Automatically extract and decrypt all configured scanning credentials of a Lansweeper instance. | https://github.com/Yeeb1/SharpLansweeperDecrypt |
 | SolarPuttyDecrypt | A post-exploitation tool to decrypt SolarPutty's sessions files | https://github.com/VoidSec/SolarPuttyDecrypt |
+| splunksecrets | splunksecrets is a tool for working with Splunk secrets offline | https://github.com/HurricaneLabs/splunksecrets |
 
 ## openfire_decrypt
 
@@ -32,4 +34,19 @@ $ javac OpenFireDecryptPass.java
 
 ```console
 $ java OpenFireDecryptPass 08f62fb6091259a2be869ae0ace90f600ec3729a9d5d4683 UaNTQtUV6S7kwm9
+```
+
+## splunksecrets
+
+### splunk.secret
+
+```console
+pMfObv4r7t09OLdUkYoNqal0IUST4SRsvehOpf0BDaAUXZT7AhNnz3T6pSpo9uYzbqDuXahUllXO7PEeFNg6s9QumAlUZxnbFDhZGN63qjuZbTw1sthPCLAfXb1GIDKNM2pyiL8scN0XJkLVC32w2GEervDNGjlm9XB2bAdp7D2HmYYFAzVHJTzeZ0uiYbzUU93LA24BdAZh6tk7RfVmpkA508Gip026vm2iCCVZoeqz0Uwmd3c4WGPpodQELU
+```
+
+### Execution
+
+```console
+$ splunksecrets splunk-decrypt -S splunk.secret
+Ciphertext: $7$lPCemQk01ejJvI8nwCjXjx7PJclrQJ+SfC3/ST+K0s+1LsdlNuXwlA==
 ```
