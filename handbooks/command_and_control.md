@@ -272,25 +272,25 @@ user@host:/opt/Havoc/Client$ ./Havoc
 #### Create a Storage Account
 
 1. Go to the Azure Portal.
-2. Navigate to Storage accounts and click Create.
+2. Navigate to Storage accounts and click `Create`.
 3. Configure the following:
 	- Subscription: Select your subscription.
-    - Resource Group: Click Create new or select an existing one.
+    - Resource Group: Click `Create new` or select an `existing one`.
     - Storage Account Name: Enter a unique name (e.g., 7200727c985343598e3646).
-    - Redundancy: Locally Redundant Storage (LRS).
-4. Click Review + Create, then Create.
+    - Redundancy: `Locally Redundant Storage (LRS)``.
+4. Click `Review + Create`, then `Create`.
 
 #### Generate a SAS Token
 
 1. Go to Storage accounts in the Azure Portal.
 2. Click on your storage account (mystorageaccount12345).
-3. In the left menu, select Shared Access Signature.
+3. In the left menu, select `Shared Access Signature`.
 4. Configure:
-	- Permissions: Check all (Read, Write, Delete, List, Add, Create, Update, Process).
-    - Allowed Services: Select Blob, Queue, Table.
-    - Allowed Resource Types: Select Service, Container, Object.
+	- Permissions: Check all (`Read`, `Write`, `Delete`, `List`, `Add`, `Create`, `Update`, `Process`).
+    - Allowed Services: Select `Blob`, `Queue`, `Table`.
+    - Allowed Resource Types: Select `Service`, `Container`, `Object`.
     - Expiry Date: Set to 3 months from today.
-    - Protocol: Choose HTTPS only.
+    - Protocol: Choose `HTTPS only`.
 5. Click Generate SAS and connection string.
 6. Copy the SAS Token and Blob Service SAS URL.
 
@@ -321,17 +321,17 @@ agent.js  assembly.html  assembly.js  assembly.node  browser.html  browser.js  c
 
 ### Backdoor Electron Application
 
-- Your obfuscated Loki payload is output to ./app/
-- Change directory to the {ELECTRONAPP}/resources/
-- Delete everything
-- Copy the Loki ./app/ folder to {ELECTRONAPP}/resources/app/
-- Click the Electron PE file and make sure Loki works
+- Your obfuscated Loki payload is output to `./app/`.
+- Change directory to the `{<ELECTRON_APP>}/resources/`.
+- Delete everything.
+- Copy the Loki `./app/` folder to `{<ELECTRON_APP>}/resources/app/`.
+- Click the Electron PE file and make sure Loki works.
 
 ### Configure Loki Client
 
-- Launch the Loki GUI client
-- From the menubar click Loki Client > Configuration to open the Settings window
-- Enter in your Storage Account details and click Save
+- Launch the Loki GUI client.
+- From the menubar click `Loki Client > Configuration` to open the `Settings window`.
+- Enter in your `Storage Account details` and click `Save`.
 
 ## Merlin
 
