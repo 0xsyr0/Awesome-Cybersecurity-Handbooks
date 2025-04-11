@@ -275,7 +275,7 @@ user@host:/opt/Havoc/Client$ ./Havoc
 	- Subscription: Select your subscription.
     - Resource Group: Click `Create new` or select an `existing one`.
     - Storage Account Name: Enter a unique name (e.g., 7200727c985343598e3646).
-    - Redundancy: `Locally Redundant Storage (LRS)``.
+    - Redundancy: `Locally Redundant Storage (LRS)`.
 4. Click `Review + Create`, then `Create`.
 
 #### Generate a SAS Token
