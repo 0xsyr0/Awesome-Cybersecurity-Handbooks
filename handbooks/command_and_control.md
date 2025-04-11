@@ -19,8 +19,6 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
-| Name | Description | URL |
-| --- | --- | --- |
 | AzureC2Relay | AzureC2Relay is an Azure Function that validates and relays Cobalt Strike beacon traffic by verifying the incoming requests based on a Cobalt Strike Malleable C2 profile. | https://github.com/Flangvik/AzureC2Relay |
 | Brute Ratel | A Customized Command and Control Center for Red Team and Adversary Simulation | https://bruteratel.com/ |
 | Cobalt Strike | Adversary Simulation and Red Team Operations | https://www.cobaltstrike.com/ |
