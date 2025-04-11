@@ -289,8 +289,8 @@ user@host:/opt/Havoc/Client$ ./Havoc
     - Allowed Resource Types: Select `Service`, `Container`, `Object`.
     - Expiry Date: Set to 3 months from today.
     - Protocol: Choose `HTTPS only`.
-5. Click Generate SAS and connection string.
-6. Copy the SAS Token and Blob Service SAS URL.
+5. Click `Generate SAS and connection string`.
+6. Copy the `SAS Token` and `Blob Service SAS URL`.
 
 ### Create Obfuscated Loki Payload
 
