@@ -25,7 +25,7 @@ Thank you for reading.
 
 |     |     |     |     |
 | --- | --- | --- | --- |
-| [01 Information Gathering](handbooks/01_information_gathering.md) | [AI](handbooks/ai.md) | [DFIR](handbooks/dfir.md) | [Privacy](handbooks/privacy.md) |
+| [01 Information Gathering](handbooks/01_information_gathering.md) | [AI & ML](handbooks/ai_%26_ml.md) | [DFIR](handbooks/dfir.md) | [Privacy](handbooks/privacy.md) |
 | [02 Vulnerability Analysis](handbooks/02_vulnerability_analysis.md) | [Attack Surface Management](handbooks/attack_surface_management.md) | [EDR & XDR](handbooks/edr_xdr.md) | [Secure Architecture](handbooks/secure_architecture.md) |
 | [03 Web Application Analysis](handbooks/03_web_application_analysis.md) | [Basics](handbooks/basics.md) | [Evasion](handbooks/evasion.md) | [Security Operations Center](handbooks/security_operations_center.md) |
 | [04 Database Assessment](handbooks/04_database_assessment.md) | [Blockchain](handbooks/blockchain.md) | [Exploitation](handbooks/exploitation.md) | [SIEM](handbooks/siem.md) |
