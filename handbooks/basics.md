@@ -65,6 +65,7 @@
 - [Logging](#logging)
 - [Microsoft Windows](#microsoft-windows)
 - [mkpasswd](#mkpasswd)
+- [mount](#mount)
 - [mp64](#mp64)
 - [msg](#msg)
 - [Nano](#nano)
@@ -3900,6 +3901,12 @@ $ sed -i -e "s/^M//" <FILE>
 
 ```console
 $ mkpasswd -m sha-512 <PASSWORD>
+```
+
+## mount
+
+```console
+$ sudo mount -t nfs -o vers=4,nolock <RHOST>:/<FOLDER> /PATH/TO/FOLDER/<FOLDER>
 ```
 
 ## mp64
