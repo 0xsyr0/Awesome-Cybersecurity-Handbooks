@@ -5789,6 +5789,7 @@ $ pipx install uro
 .pgif
 .phtml
 .phtm
+.php.
 .php%00.jpeg
 ```
 
