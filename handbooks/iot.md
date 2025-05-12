@@ -23,7 +23,7 @@
 
 ### Execution using a custom Wordlist
 
-```shell
+```console
 $ sudo docker run -t -v /PATH/TO/WORDLIST:/FOLDER/ ullaakut/cameradar -c "/FOLDER/<WORDLIST>.json" -t <RHOST>
 $ sudo docker run -t -v /PATH/TO/WORDLIST:/FOLDER/ ullaakut/cameradar -c "/FOLDER/<WORDLIST>.json" -t <RHOST> -p <RPORT>
 ```
