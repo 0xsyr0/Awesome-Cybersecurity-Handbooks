@@ -4,6 +4,7 @@
 
 ## Table of Contents
 
+- [Cameradar](#cameradar)
 - [Mosquitto (MQTT)](#mosquitto-mqtt)
 - [SirepRAT](#sireprat)
 
@@ -11,9 +12,37 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| Cameradar | Cameradar hacks its way into RTSP videosurveillance cameras | https://github.com/Ullaakut/cameradar |
 | MQTT-PWN | MQTT-PWN intends to be a one-stop-shop for IoT Broker penetration-testing and security assessment operations. | https://github.com/akamai-threat-research/mqtt-pwn |
 | Python-based MQTT Client Shell | Python-based MQTT client command shell | https://github.com/bapowell/python-mqtt-client-shell |
 | SirepRAT | Remote Command Execution as SYSTEM on Windows IoT Core (releases available for Python2.7 & Python3)  | https://github.com/SafeBreach-Labs/SirepRAT |
+
+## Cameradar
+
+> https://github.com/Ullaakut/cameradar
+
+### Execution using a custom Wordlist
+
+```shell
+$ sudo docker run -t -v /PATH/TO/WORDLIST:/FOLDER/ ullaakut/cameradar -c "/FOLDER/<WORDLIST>.json" -t <RHOST>
+$ sudo docker run -t -v /PATH/TO/WORDLIST:/FOLDER/ ullaakut/cameradar -c "/FOLDER/<WORDLIST>.json" -t <RHOST> -p <RPORT>
+```
+
+### Vendor List
+
+- Robert Bosch GmbH
+- Panasonic Corporation
+- Honeywell International Inc.
+- Cisco Systems, Inc.
+- Sony Group Corporation
+- LG Electionics Inc.
+- Hikvision
+- Dahua Technology
+- Axis Communications AB
+- Teledyne Technologies Incorporated
+- Hanwha Group
+- Motorola Solutions (Avigilon)
+- Uniview
 
 ## Mosquitto (MQTT)
 
