@@ -41,10 +41,18 @@
 
 ## AWS
 
+### Installation
+
 ```console
-$ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+$ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+   && unzip awscliv2.zip"
+```
+
+```console
 $ sudo ./aws/install
 ```
+
+### Configuration
 
 ```console
 $ aws configure
