@@ -228,7 +228,7 @@ $ aws iam list-users
 
 #### Get User Permissions
 
-##### List attached managed policies
+##### List attached Managed Policies
 
 ```console
 $ aws iam list-attached-user-policies --user-name <USERNAME>
@@ -301,7 +301,7 @@ $ aws iam get-role-policy --role-name <Role> --policy-name <POLICY>
 
 #### Get and decode Policy Documents
 
-##### Get a managed Policy Document (by ARN or Name)
+##### Get a Managed Policy Document (by ARN or Name)
 
 ```console
 $ aws iam get-policy --policy-arn <POLICY>
