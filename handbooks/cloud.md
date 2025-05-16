@@ -278,25 +278,25 @@ $ aws iam list-roles
 ##### Get Role Details (Trust Policy)
 
 ```console
-$ aws iam get-role --role-name <Role>
+$ aws iam get-role --role-name <ROLE>
 ```
 
 ##### List attached Policies
 
 ```console
-$ aws iam list-attached-role-policies --role-name <Role>
+$ aws iam list-attached-role-policies --role-name <ROLE>
 ```
 
 ##### List Inline Policies
 
 ```console
-$ aws iam list-role-policies --role-name <Role>
+$ aws iam list-role-policies --role-name <ROLE>
 ```
 
 ##### Get Inline Role Policy Details
 
 ```console
-$ aws iam get-role-policy --role-name <Role> --policy-name <POLICY>
+$ aws iam get-role-policy --role-name <ROLE> --policy-name <POLICY>
 ```
 
 #### Get and decode Policy Documents
