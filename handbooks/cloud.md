@@ -218,6 +218,106 @@ $ aws s3 ls s3://<BUCKET>
 $ aws s3 cp s3://<BUCKET>/<FILE> .
 ```
 
+### Identity and Access Management (IAM) Enumeration
+
+#### List IAM Users
+
+```console
+$ aws iam list-users
+```
+
+#### Get User Permissions
+
+##### List attached managed policies
+
+```console
+$ aws iam list-attached-user-policies --user-name <USERNAME>
+```
+
+##### List Inline Policies
+
+```console
+$ aws iam list-user-policies --user-name <USERNAME>
+```
+
+##### Get Inline Policy Details
+
+```console
+$ aws iam get-user-policy --user-name <USERNAME> --policy-name <POLICY>
+```
+
+#### List IAM Groups and Permissions
+
+##### List Groups for a User
+
+```console
+$ aws iam list-groups-for-user --user-name <USERNAME>
+```
+
+##### List Group Policies
+
+```console
+$ aws iam list-attached-group-policies --group-name <GROUP>
+$ aws iam list-group-policies --group-name <GROUP>
+```
+
+##### Get Inline Group Policy Details
+
+```console
+$ aws iam get-group-policy --group-name <GROUP> --policy-name <POLICY>
+```
+
+#### List IAM Roles and Permissions
+
+##### List all Roles
+
+```console
+$ aws iam list-roles
+```
+
+##### Get Role Details (Trust Policy)
+
+```console
+$ aws iam get-role --role-name <Role>
+```
+
+##### List attached Policies
+
+```console
+$ aws iam list-attached-role-policies --role-name <Role>
+```
+
+##### List Inline Policies
+
+```console
+$ aws iam list-role-policies --role-name <Role>
+```
+
+##### Get Inline Role Policy Details
+
+```console
+$ aws iam get-role-policy --role-name <Role> --policy-name <POLICY>
+```
+
+#### Get and decode Policy Documents
+
+##### Get a managed Policy Document (by ARN or Name)
+
+```console
+$ aws iam get-policy --policy-arn <POLICY>
+$ aws iam get-policy-version --policy-arn <POLICY> --version-id <ID>
+```
+
+#### View Full IAM Snapshot
+
+##### Dump all IAM Permissions (Users, Roles, Groups, Policies)
+
+```console
+$ aws iam get-account-authorization-details
+```
+
+Use this to build a full IAM permissions map. Add `--filter` to target `roles`, `users`, `groups` specifically.
+
 ## Entra
 
 ### Privilege Escalation
