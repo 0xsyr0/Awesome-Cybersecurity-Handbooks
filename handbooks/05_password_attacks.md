@@ -13,7 +13,7 @@
 - [Hash-Buster](#hash-buster)
 - [hashcat](#hashcat)
 - [Hydra](#hydra)
-- [John](#john)
+- [John the Ripper](#john-the-ripper)
 - [Kerbrute](#kerbrute)
 - [LaZagne](#lazagne)
 - [LUKS](#luks)
@@ -46,7 +46,7 @@
 | hashcat | Password Cracking | https://hashcat.net/hashcat |
 | Hob0Rules | Password cracking rules for Hashcat based on statistics and industry patterns | https://github.com/praetorian-inc/Hob0Rules |
 | Hydra | Password Brute Force | https://github.com/vanhauser-thc/thc-hydra |
-| John | Password Cracking | https://github.com/openwall/john |
+| John the Ripper | Password Cracking | https://github.com/openwall/john |
 | keepass-dump-masterkey | Script to retrieve the master password of a keepass database <= 2.53.1 | https://github.com/CMEPW/keepass-dump-masterkey |
 | keepass4brute | Bruteforce Keepass databases (KDBX 4.x format) | https://github.com/r3nt0n/keepass4brute |
 | KeePwn | A python tool to automate KeePass discovery and secret extraction. | https://github.com/Orange-Cyberdefense/KeePwn |
@@ -439,7 +439,7 @@ $ hydra <RHOST> -l root@localhost -P otrs-cewl.txt http-form-post "/otrs/index.p
 $ hydra <RHOST> -l admin -P /PATH/TO/WORDLIST/<FILE> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
 ```
 
-## John
+## John the Ripper
 
 > https://github.com/openwall/john
 
