@@ -475,7 +475,28 @@ What would you like to name this new session? <SESSION>
 ### Common Commands
 
 ```console
-Pacu (lab:No Keys Set) > search <MODULE>
+Pacu (<SESSION>:No Keys Set) > search <MODULE>
+Pacu (<SESSION>:No Keys Set) > help <MODULE>
+Pacu (<SESSION>:No Keys Set) > sessions
+Pacu (<SESSION>:No Keys Set) > swap_session
+```
+
+### Configuration
+
+```console
+Pacu (<SESSION>:No Keys Set) > set_keys
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > regions
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > set_regions <REGION>
+```
+
+### Enumeration
+
+```console
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > whoami                                       // get information about current user
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run aws__enum_account                        // enumerate current user account
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__enum_permissions                    // enumerate current users permissions + run whoami again afterwards
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__enum_users_roles_policies_groups    // enumerate users, roles, policies and groups
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data iam                                     // access enumerated data
 ```
 
 ## S3 Account Search
