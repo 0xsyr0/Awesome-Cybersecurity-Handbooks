@@ -287,34 +287,83 @@ Use this to build a full IAM permissions map. Add `--filter` to target `roles`, 
 
 ### S3 Bucket Enumeration
 
-#### List Buckets
+#### Check if a Bucket Exists (Unauthenticated)
 
 ```console
-$ aws --endpoint-url=http://s3.<RHOST> s3api list-buckets
+$ aws s3 ls s3://<BUCKET> --no-sign-request
 ```
 
-#### Access S3 Bucket
+#### List Contents of a public or accessible Bucket
 
 ```console
-$ aws s3 ls s3://<BUCKET>
+$ aws s3 ls s3://<BUCKET>/ --no-sign-request
 ```
 
-#### Download from S3 Bucket
+#### Download an Object
 
 ```console
-$ aws s3 cp s3://<BUCKET>/<FILE> .
+$ aws s3 cp s3://<BUCKET>/<FILE> . --no-sign-request
 ```
 
-#### Upload Files
+```console
+$ aws s3 cp s3://<BUCKET>/FILE> <FILE> --no-sign-request
+```
+
+#### Upload a File
+
+```console
+$ aws s3 cp <FILE> s3://<BUCKET>/<FILE>
+```
+
+##### Examples
 
 ```console
 $ aws s3api put-object --endpoint-url http://s3.<RHOST>/ --bucket adserver --key <FILE>.php --body /PATH/TO/FILE/<FILE>.php
 ```
 
-#### Alternativ Upload Technique
+or
 
 ```console
 $ aws --endpoint-url=http://s3.<RHOST> s3 cp /PATH/TO/FILE/<FILE>.php s3://adserver
+```
+
+#### List Buckets in the authenticated Account
+
+```console
+$ aws s3 ls
+```
+
+#### List All Buckets & Objects
+
+```console
+$ aws s3api list-buckets
+$ aws s3api list-objects --bucket <BUCKET> --output table
+```
+
+#### Enumerate Bucket Permissions (Authenticated)
+
+##### Get Bucket Policy
+
+```console
+$ aws s3api get-bucket-policy --bucket <BUCKET>
+```
+
+##### Get Bucket Access Control List (ACL)
+
+```console
+$ aws s3api get-bucket-acl --bucket <BUCKET>
+```
+
+##### Get Public Access Block Settings
+
+```console
+$ aws s3api get-bucket-public-access-block --bucket <BUCKET>
+```
+
+##### Get CORS Configuration
+
+```console
+$ aws s3api get-bucket-cors --bucket <BUCKET>
 ```
 
 ### DynamoDB Enumeration
