@@ -366,6 +366,92 @@ $ aws s3api get-bucket-public-access-block --bucket <BUCKET>
 $ aws s3api get-bucket-cors --bucket <BUCKET>
 ```
 
+### Lambda Enumeration
+
+#### List Lambda Functions
+
+```console
+$ aws lambda list-functions --region <REGION>
+```
+
+#### Get Function Information
+
+##### Get Function Config
+
+```console
+$ aws lambda get-function-configuration --function-name <FUNCTION>
+```
+
+##### Get Code Download URL and Deployment Details
+
+```console
+$ aws lambda get-function --function-name <FUNCTION>
+```
+
+#### Check Invocation Access
+
+```console
+$ aws lambda get-policy --function-name <FUNCTION>
+```
+
+Look for `"Principal": "*"` or `cross-account` permissions.
+
+#### Identify Triggers and Event Sources
+
+##### Async Event Sources (SQS, DynamoDB, Kinesis)
+
+```console
+$ aws lambda list-event-source-mappings --function-name <FUNCTION>
+```
+
+##### Function URLs (HTTP Endpoints)
+
+```console
+$ aws lambda get-function-url-config --function-name <FUNCTION>
+```
+
+If `AuthType` is `NONE`, it may be publicly invokable!
+
+#### Invoke Function
+
+```console
+$ aws lambda invoke --function-name <FUNCTION> <FILE>.json
+```
+
+Add `--payload` if the function expects input:
+
+```console
+--payload '{"key": "value"}'
+```
+
+#### Investigate attached IAM Role
+
+```console
+$ aws lambda get-function-configuration --function-name <FUNCTION>
+```
+
+```console
+$ aws iam get-role --role-name <ROLE>
+$ aws iam list-attached-role-policies --role-name <ROLE>
+$ aws iam list-role-policies --role-name <ROLE>
+```
+
+Look for overly permissive actions (`*`, `PassRole`, `SecretsManager`, etc.)
+
+#### Modify or Replace Functions
+
+##### Update Function Code
+
+```console
+$ aws lambda update-function-code --function-name <FUNCTION> --zip-file fileb://<FILE>.zip
+```
+
+##### Update Configuration
+
+```console
+$ aws lambda update-function-configuration --function-name <FUNCTION> --environment "Variables={VAR=value}"
+```
+
 ### DynamoDB Enumeration
 
 
