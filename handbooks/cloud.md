@@ -692,7 +692,10 @@ Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > whoami                                  
 Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run aws__enum_account                        // enumerate current user account
 Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__enum_permissions                    // enumerate current users permissions + run whoami again afterwards
 Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__enum_users_roles_policies_groups    // enumerate users, roles, policies and groups
-Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data iam                                     // access enumerated data
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data iam                                     // access enumerated iam data
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run lambda__enum                             // enumerate all lambda functions on the account
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run lambda__enum --region <REGION>           // enumerate lambda functions for a specific reagion
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data lambda                                  // access enumerated data for lambda
 ```
 
 ## S3 Account Search
