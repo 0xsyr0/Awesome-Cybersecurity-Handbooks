@@ -672,6 +672,9 @@ Pacu (<SESSION>:No Keys Set) > search <MODULE>
 Pacu (<SESSION>:No Keys Set) > help <MODULE>
 Pacu (<SESSION>:No Keys Set) > sessions
 Pacu (<SESSION>:No Keys Set) > swap_session
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > import_keys
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > swap_keys
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > delete_keys
 ```
 
 ### Configuration
