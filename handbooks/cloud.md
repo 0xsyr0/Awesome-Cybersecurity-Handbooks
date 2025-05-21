@@ -823,6 +823,8 @@ Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data iam                                
 Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run lambda__enum                             // enumerate all lambda functions on the account
 Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run lambda__enum --region <REGION>           // enumerate lambda functions for a specific reagion
 Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data lambda                                  // access enumerated data for lambda
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run ec2__enum                                // enumerate all ec2 instances
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data ec2                                     // access enumerate data for all ec2 instances
 ```
 
 ## S3 Account Search
