@@ -35,6 +35,8 @@
 | GEF | GEF is a set of commands for x86/64, ARM, MIPS, PowerPC and SPARC to assist exploit developers and reverse-engineers when using old school GDB. | https://github.com/hugsy/gef |
 | Ghidra | Ghidra is a software reverse engineering (SRE) framework created and maintained by the National Security Agency Research Directorate. | https://github.com/NationalSecurityAgency/ghidra |
 | ghidraMCP | MCP Server for Ghidra | https://github.com/LaurieWired/GhidraMCP |
+| GoReSym | Go symbol recovery tool | https://github.com/mandiant/GoReSym |
+| GoStringUngarbler | Python tool to resolve all strings in Go binaries obfuscated by garble | https://github.com/mandiant/gostringungarbler |
 | HxD | HxD is a carefully designed and fast hex editor which, additionally to raw disk editing and modifying of main memory (RAM), handles files of any size. | https://mh-nexus.de/en/hxd |
 | IDA MCP Server | A Model Context Protocol server for IDA | https://github.com/MxIris-Reverse-Engineering/ida-mcp-server |
 | ImHex | A Hex Editor for Reverse Engineers, Programmers and people who value their retinas when working at 3 AM. | https://github.com/WerWolv/ImHex |
@@ -47,6 +49,8 @@
 | peda | PEDA - Python Exploit Development Assistance for GDB | https://github.com/longld/peda |
 | pwndbg | pwndbg is a GDB plug-in that makes debugging with GDB suck less, with a focus on features needed by low-level software developers, hardware hackers, reverse-engineers and exploit developers. | https://github.com/pwndbg/pwndbg |
 | Radare2 | Radare2: The Libre Unix-Like Reverse Engineering Framework | https://github.com/radareorg/radare2 |
+| Redress | Redress - A tool for analyzing stripped Go binaries | https://github.com/goretk/redress |
+| resym | Cross-platform tool that allows browsing and extracting C and C++ type declarations from PDB files. | https://github.com/ergrelet/resym |
 | Rizin | UNIX-like reverse engineering framework and command-line toolset. | https://github.com/rizinorg/rizin |
 | rz-ghidra | Deep ghidra decompiler and sleigh disassembler integration for rizin | https://github.com/rizinorg/rz-ghidra |
 | WinDbgX | An attempt to create a friendly version of WinDbg | https://github.com/zodiacon/WinDbgX |
