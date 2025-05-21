@@ -5995,6 +5995,14 @@ $ sudo apt-get install -y virtualbox-dkms
 
 ```console
 $ sudo apt-get install virtualenv
+$ python3 -m virtualenv venv
+$ . venv/bin/activate
+```
+
+#### Python 2.7
+
+```console
+$ sudo apt-get install virtualenv
 $ virtualenv -p python2.7 venv
 $ . venv/bin/activate
 ```
