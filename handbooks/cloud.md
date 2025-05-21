@@ -452,8 +452,88 @@ $ aws lambda update-function-code --function-name <FUNCTION> --zip-file fileb://
 $ aws lambda update-function-configuration --function-name <FUNCTION> --environment "Variables={VAR=value}"
 ```
 
-### DynamoDB Enumeration
+### EC2 Instance Enumeration
 
+#### List EC2 Instances
+
+```console
+$ aws ec2 describe-instances --region <REGION>
+```
+
+##### Use JMESPath Filter
+
+```console
+$ aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId,PublicIpAddress,State.Name,KeyName,IamInstanceProfile.Arn]"
+```
+
+#### Get EC2 Instance Details
+
+```console
+$ aws ec2 describe-instances --instance-ids <ID>
+```
+
+#### Identify IAM Role Attached to the Instance
+
+```console
+$ aws ec2 describe-instances --query "Reservations[*].Instances[*].IamInstanceProfile.Arn"
+```
+
+##### Enumerate Role Permissions
+
+```console
+$ aws iam get-instance-profile --instance-profile-name <PROFILE>
+```
+
+#### List EC2 Security Groups
+
+```console
+$ aws ec2 describe-security-groups
+```
+
+##### Check for overly permissive Inbound Rules
+
+```console
+$ aws ec2 describe-security-groups --query "SecurityGroups[*].IpPermissions[*].{From:FromPort,To:ToPort,CIDR:IpRanges}"
+```
+
+#### Describe Network Interfaces
+
+```console
+$ aws ec2 describe-network-interfaces
+```
+
+#### List Amazon Machine Images (AMI)
+
+```console
+$ aws ec2 describe-images --owners self
+```
+
+#### Check EBS Volume Info
+
+```console
+$ aws ec2 describe-volumes
+```
+
+##### Snapshot Enumeration
+
+```console
+$ aws ec2 describe-snapshots --owner-ids self
+```
+
+#### Enumerate Key Pairs
+
+```console
+$ aws ec2 describe-key-pairs
+```
+
+#### Describe Regions & Availability Zones
+
+```console
+$ aws ec2 describe-regions
+$ aws ec2 describe-availability-zones
+```
+
+### DynamoDB Enumeration
 
 #### List Tables
 
