@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [Mozilla Firefox](#mozilla-firefox)
+- [oniux](#oniux)
 
 ## Resources
 
@@ -102,3 +103,17 @@ about:config
 | toolkit.telemetry.unified | false |
 | toolkit.telemetry.unifiedIsOptIn | false |
 | toolkit.telemetry.updatePing.enabled | false |
+
+## oniux
+
+### Installation
+
+```console
+$ cargo install --git https://gitlab.torproject.org/tpo/core/oniux oniux@0.4.0
+```
+
+### Usage
+
+```console
+$ oniux <APPLICATION>
+```
