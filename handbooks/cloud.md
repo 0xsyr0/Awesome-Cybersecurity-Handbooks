@@ -19,7 +19,7 @@
 | aws-enumerator | The AWS Enumerator was created for service enumeration and info dumping for investigations of penetration testers during Black-Box testing. The tool is intended to speed up the process of Cloud review in case the security researcher compromised AWS Account Credentials. | https://github.com/shabarkin/aws-enumerator |
 | AWS Security Checklist | Made by Bour Abdelhadi | https://awscheck.fyi |
 | AWeSomeUserFinder | AWS IAM Username Enumerator and Password Spraying Tool in Python3 | https://github.com/dievus/AWeSomeUserFinder |
-| AzureHound | Azure Data Exporter for BloodHound | https://github.com/BloodHoundAD/AzureHound |
+| AzureHound | Azure Data Exporter for BloodHound | https://github.com/SpecterOps/AzureHound |
 | BARK | BloodHound Attack Research Kit | https://github.com/BloodHoundAD/BARK |
 | Bobber | Bounces when a fish bites - Evilginx database monitoring with exfiltration automation | https://github.com/Flangvik/Bobber |
 | CloudPEASS | Cloud Privilege Escalation Awesome Script Suite | https://github.com/carlospolop/CloudPEASS |
