@@ -366,7 +366,7 @@ $ aws s3api get-bucket-public-access-block --bucket <BUCKET>
 $ aws s3api get-bucket-cors --bucket <BUCKET>
 ```
 
-### Lambda Enumeration
+### Lambda Functions Enumeration
 
 #### List Lambda Functions
 
