@@ -562,6 +562,27 @@ $ aws ec2 describe-regions
 $ aws ec2 describe-availability-zones
 ```
 
+### Amazon Simple Notification Service (SNS) Enumeration
+
+```console
+$ aws apigateway get-rest-apis --profile <PROFILE> --region <REGION>
+```
+
+```console
+$ aws apigateway get-stages --rest-api-id <ID> --profile <PROFILE> --region <REGION>
+$ aws apigateway get-resources --rest-api-id <ID> --profile <PROFILE> --region <REGION>
+```
+
+```console
+https://<ID>.execute-api.<REGION>.amazonaws.com/<STAGE>/<PATH>
+```
+
+```console
+$ curl -X GET \
+  'https://<ID>.execute-api.<REGION>.amazonaws.com//<STAGE>/<PATH>' \
+  -H 'x-api-key: <KEY>'
+```
+
 ### DynamoDB Enumeration
 
 #### List Tables
