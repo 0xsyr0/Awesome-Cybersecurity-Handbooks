@@ -770,6 +770,23 @@ $ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<
 $ netexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/<USERNAMES> -p /PATH/TO/WORDLIST/<WORDLIST> -x 'net user Administrator /domain' --exec-method smbexec
 ```
 
+### Generate TGT
+
+```console
+$ netexec smb <RHOST> -u <USERNAME> -p <PASSWORD> --generate-tgt /PATH/TO/FILE/<FILE>.ccache
+$ export KRB5CCNAME=<FILE>.ccache
+$ netexec smb <RHOST> -u <USERNAME> -k --use-kcache
+```
+
+### Generate krb5.conf
+
+```console
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --generate-krb5-file /tmp/krb5conf2
+$ export KRB5_CONFIG=/tmp/krb5conf2
+$ echo '<PASSWORD>' | kinit <USERNAME>@<DOMAIN>
+$ klist
+```
+
 ## Patator
 
 > https://github.com/lanjelot/patator
