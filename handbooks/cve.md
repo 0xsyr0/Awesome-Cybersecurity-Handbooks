@@ -191,6 +191,7 @@
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (2) | https://github.com/absholi7ly/POC-CVE-2025-24813 |
 | CVE-2025-29927 | Next.js Authentication Bypass | https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware |
 | CVE-2025-3155 | Yelp File Read | https://gist.github.com/parrot409/e970b155358d45b298d7024edd9b17f2 |
+| CVE-2025-30397 | Windows Server 2025 Use-After-Free in JScript.dll (RCE) | https://github.com/mbanyamer/CVE-2025-30397---Windows-Server-2025-JScript-RCE-Use-After-Free- |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | GSM Linux Kernel LPE (1) | https://github.com/jmpe4x/GSM_Linux_Kernel_LPE_Nday_Exploit |
