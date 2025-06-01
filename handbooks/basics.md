@@ -312,7 +312,7 @@ PS C:\> certutil -store My
 ### Export Certificate
 
 ```cmd
-PS C:\> certutil -exportPFX My 75b2f4bbd71f108945247b466161bdph .\<FILE>.pfx
+PS C:\> certutil -exportPFX My 75b2f4bbd71f108945247b466161bdph <FILE>.pfx
 ```
 
 ### Copy Files
