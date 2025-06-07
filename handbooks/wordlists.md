@@ -63,7 +63,7 @@ $ crunch 5 5 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ -o <FILE>.txt
 
 > https://twitter.com/renniepak/status/1780916964925345916
 
-```js
+```javascript
 javascript:(function(){const e=document.documentElement.innerText.match(/[a-zA-Z_\-]+/g),n=[...new Set(e)].sort();document.open(),document.write(n.join("<br>")),document.close();})();
 ```
 
