@@ -186,12 +186,14 @@
 | CVE-2024-49138 | Windows Common Log File System Driver LPE | https://github.com/MrAle98/CVE-2024-49138-POC |
 | CVE-2025-0282 | Ivanti Connect Secure RCE | https://github.com/absholi7ly/CVE-2025-0282-Ivanti-exploit |
 | CVE-2025-1907, CVE-2025-1974 | IngressNightmare RCE | https://github.com/Esonhugh/ingressNightmare-CVE-2025-1974-exps |
+| CVE-2025-24016 | Wazuh Server Unsafe Deserialization (RCE) | https://github.com/MuhammadWaseem29/CVE-2025-24016 |
 | CVE-2025-24071 | Windows File Explorer Spoofing Vulnerability | https://github.com/ThemeHackers/CVE-2025-24071 |
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (1) | https://github.com/iSee857/CVE-2025-24813-PoC |
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (2) | https://github.com/absholi7ly/POC-CVE-2025-24813 |
 | CVE-2025-29927 | Next.js Authentication Bypass | https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware |
 | CVE-2025-3155 | Yelp File Read | https://gist.github.com/parrot409/e970b155358d45b298d7024edd9b17f2 |
 | CVE-2025-30397 | Windows Server 2025 Use-After-Free in JScript.dll (RCE) | https://github.com/mbanyamer/CVE-2025-30397---Windows-Server-2025-JScript-RCE-Use-After-Free- |
+| CVE-2025-32756 | Multiple Fortinet Products Vunerability (RCE) | https://github.com/kn0x0x/CVE-2025-32756-POC |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | GSM Linux Kernel LPE (1) | https://github.com/jmpe4x/GSM_Linux_Kernel_LPE_Nday_Exploit |
