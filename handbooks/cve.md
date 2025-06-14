@@ -194,6 +194,7 @@
 | CVE-2025-3155 | Yelp File Read | https://gist.github.com/parrot409/e970b155358d45b298d7024edd9b17f2 |
 | CVE-2025-30397 | Windows Server 2025 Use-After-Free in JScript.dll (RCE) | https://github.com/mbanyamer/CVE-2025-30397---Windows-Server-2025-JScript-RCE-Use-After-Free- |
 | CVE-2025-32756 | Multiple Fortinet Products Vunerability (RCE) | https://github.com/kn0x0x/CVE-2025-32756-POC |
+| CVE-2025-33073 | Windows SMB NTLM Reflection | https://github.com/mverschu/CVE-2025-33073 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | GSM Linux Kernel LPE (1) | https://github.com/jmpe4x/GSM_Linux_Kernel_LPE_Nday_Exploit |
