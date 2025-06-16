@@ -3351,10 +3351,18 @@ $ ./gin /PATH/TO/REPOSITORY
 
 ## Git
 
+### Common Commands
+
 ```console
 $ git show-branch
 $ git log <BRANCH> --oneline
 $ git show <COMMIT>
+```
+
+### Clone Repository without SSL Verification
+
+```console
+$ GIT_SSL_NO_VERIFY=true git clone https://<RHOST>/PATH/TO/REPOSITORY/<REPOSITORY>.git
 ```
 
 ## Gitea
