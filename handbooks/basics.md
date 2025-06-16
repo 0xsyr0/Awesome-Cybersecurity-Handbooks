@@ -151,6 +151,7 @@
 - [wsgidav](#wsgidav)
 - [X](#x)
 - [xfreerdp](#xfreerdp)
+- [xvfb](#xvfb)
 - [Zip](#zip)
 - [zipgrep](#zipgrep)
 
@@ -6166,6 +6167,32 @@ Add `/tls-seclevel:0 /timeout:80000` to the command.
 
 ```console
 FIX: $ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:<RHOST> /tls-seclevel:0 /timeout:80000 +clipboard
+```
+
+## xvfb
+
+```console
+$ ls -l /xorg/xvfb
+```
+
+```console
+$ cp /xorg/xvfb/Xvfb_screen0 /tmp/<FILE>.raw
+```
+
+```console
+$ stat -c %s /xorg/xvfb/Xvfb_screen0
+```
+
+```console
+$ stat -c %s <FILE>.raw  
+```
+
+```console
+$ truncate -s 524288 <FILE>.raw
+```
+
+```console
+$ convert -depth 8 -size 512x256 rgba:<FILE>.raw <FILE>.png
 ```
 
 ## Zip
