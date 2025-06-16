@@ -9,6 +9,7 @@
 - [FakeDns](#fakedns)
 - [fakessh](#fakessh)
 - [Hak5 LAN Turtle](#hak5-lan-turtle)
+- [mitmproxy](#mitmproxy)
 - [Responder](#responder)
 - [SSH-MITM](#ssh-mitm)
 - [tshark](#tshark)
@@ -308,6 +309,34 @@ openssl req -new -x509 -days 3650 -key responder.key -out responder.crt -subj "/
 ```
 
 Create the certificates locally and `copy` it to the `LAN Turtle` before you start `Responder`.
+
+## mitmproxy
+
+### SSL Certificate Configuration
+
+#### Prepare SSL Certificate
+
+```console
+$ openssl genrsa -out <FILE>.key 2048
+```
+
+```console
+$ openssl req -new -key <FILE>.key -out <FILE>.csr -subj "/CN=<DOMAIN>"
+```
+
+```console
+$ openssl x509 -req -in <FILE>.csr -CA RootCA.crt -CAkey RootCA.key -CAcreateserial -out <FILE>.crt -days 365
+```
+
+```console
+$ cat <FILE>.key <FILE>.crt > <FILE>.pem
+```
+
+#### Execution
+
+```console
+$ mitmproxy --mode reverse:https://<RHOST> --certs <FILE>.pem --save-stream-file <FILE>.raw -k -p 443
+```
 
 ## Responder
 
