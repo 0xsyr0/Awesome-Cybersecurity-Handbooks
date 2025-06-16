@@ -3616,6 +3616,14 @@ for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; don
 $ sudo apt-get install krb5-kdc
 ```
 
+#### General Information
+
+```console
+/etc/krb5.conf                   // kerberos configuration file location
+krb5.keytab                      // "key table" file for one or more principals
+.k5login                         // resides kerberos principals for login (place in home directory)
+```
+
 #### Request Ticket with Impacket
 
 ```console
@@ -3629,20 +3637,19 @@ $ export KRB5CCNAME=<FILE>.ccache
 $ export KRB5CCNAME='realpath <FILE>.ccache'
 ```
 
-#### Common Information & Commands
+#### Common Commands
 
 ```console
-/etc/krb5.conf                   // kerberos configuration file location
-kinit <USERNAME>                 // creating ticket request
-klist                            // show available kerberos tickets
-kdestroy                         // delete cached kerberos tickets
-.k5login                         // resides kerberos principals for login (place in home directory)
-krb5.keytab                      // "key table" file for one or more principals
-kadmin                           // kerberos administration console
-add_principal <EMAIL>            // add a new user to a keytab file
-ksu                              // executes a command with kerberos authentication
-klist -k /etc/krb5.keytab        // lists keytab file
-kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the keytab file
+$ kinit <USERNAME>                 // creating ticket request
+$ klist                            // show available kerberos tickets
+$ klist -e                         // list encryption types
+$ klist -A                         // display all tickets in ticket cache
+$ klist -k /etc/krb5.keytab        // lists keytab file
+$ ksu                              // executes a command with kerberos authentication
+$ add_principal <EMAIL>            // add a new user to a keytab file
+$ kdestroy                         // delete cached kerberos tickets
+$ kadmin                           // kerberos administration console
+$ kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the keytab file
 ```
 
 ### Debug
