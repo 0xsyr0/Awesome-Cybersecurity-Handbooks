@@ -3617,36 +3617,21 @@ for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; don
 
 ## Kerberos
 
-### Ticket Handling with krb5
-
-#### Installation
+### Installation
 
 ```console
 $ sudo apt-get install krb5-kdc
 ```
 
-#### General Information
+### General Information
 
 ```console
-/etc/krb5.conf                   // kerberos configuration file location
-krb5.keytab                      // "key table" file for one or more principals
-.k5login                         // resides kerberos principals for login (place in home directory)
+/etc/krb5.conf    // kerberos configuration file location
+krb5.keytab       // "key table" file for one or more principals
+.k5login          // resides kerberos principals for login (place in home directory)
 ```
 
-#### Request Ticket with Impacket
-
-```console
-$ impacket-getTGT <DOMAIN>/<USERNAME>:'<PASSWORD>'
-```
-
-#### Ticket Export
-
-```console
-$ export KRB5CCNAME=<FILE>.ccache
-$ export KRB5CCNAME='realpath <FILE>.ccache'
-```
-
-#### Common Commands
+### Common Commands
 
 ```console
 $ kinit <USERNAME>                 // creating ticket request
@@ -3659,6 +3644,46 @@ $ add_principal <EMAIL>            // add a new user to a keytab file
 $ kdestroy                         // delete cached kerberos tickets
 $ kadmin                           // kerberos administration console
 $ kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the keytab file
+```
+
+### Custom krb5.conf
+
+```console
+[libdefaults]
+    default_realm = EXAMPLE.COM
+    dns_lookup_realm = true
+    dns_lookup_kdc = true
+    ticket_lifetime = 24h
+    forwardable = true
+
+[realms]
+    EXAMPLE.COM = {
+        kdc = dc.example.com
+        admin_server = dc.example.com
+    }
+
+[domain_realm]
+    .example.com = EXAMPLE.COM
+    example.com = EXAMPLE.COM
+```
+
+```console
+$ export KRB5_CONFIG="krb5.config"
+```
+
+### Ticket Handling with krb5
+
+#### Request Ticket with Impacket
+
+```console
+$ impacket-getTGT <DOMAIN>/<USERNAME>:'<PASSWORD>'
+```
+
+#### Ticket Export
+
+```console
+$ export KRB5CCNAME=<FILE>.ccache
+$ export KRB5CCNAME='realpath <FILE>.ccache'
 ```
 
 ### Debug
