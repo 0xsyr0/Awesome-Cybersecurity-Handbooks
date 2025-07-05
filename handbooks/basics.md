@@ -150,7 +150,7 @@
 - [Wine](#wine)
 - [wsgidav](#wsgidav)
 - [X](#x)
-- [xfreerdp](#xfreerdp)
+- [xfreerdp3](#xfreerdp3)
 - [xvfb](#xvfb)
 - [Zip](#zip)
 - [zipgrep](#zipgrep)
@@ -4535,7 +4535,7 @@ $ smbclient -L //172.16.50.10/ -U <USERNAME> --password=<PASSWORD>
 
 ```console
 $ sudo systemctl start ssh
-$ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
+$ xfreerdp3 /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
 ```
 
 ##### WINDOWS JUMP SERVER
@@ -4584,7 +4584,7 @@ C:\> plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:9833:127.0.0.1:338
 
 ```console
 $ ss -tulpn
-$ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:127.0.0.1:9833
+$ xfreerdp3 /u:<USERNAME> /p:<PASSWORD> /v:127.0.0.1:9833
 ```
 
 ### Netsh
@@ -4602,7 +4602,7 @@ $ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:127.0.0.1:9833
 ##### LHOST
 
 ```console
-$ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
+$ xfreerdp3 /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
 ```
 
 ##### WINDOWS JUMP SERVER
@@ -6143,39 +6143,39 @@ $ XAUTHORITY=/home/<USERNAME>/.Xauthority xdpyinfo -display :0
 $ XAUTHORITY=/home/<USERNAME>/.Xauthority xwd -root -screen -silent -display :0 > /tmp/screenshot.xwd
 ```
 
-## xfreerdp
+## xfreerdp3
 
 ### Common Commands
 
 ```console
-$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore
-$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /d:<DOMAIN> /cert-ignore
-$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +clipboard
+$ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore
+$ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /d:<DOMAIN> /cert-ignore
+$ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +clipboard
 ```
 
 ### Resolution Handling
 
 ```console
-$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /h:1010 /w:1920 +clipboard
-$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /dynamic-resolution +clipboard
+$ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /h:1010 /w:1920 +clipboard
+$ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /dynamic-resolution +clipboard
 ```
 
 ### Folder Sharing
 
 ```console
-$ xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore /drive:/PATH/TO/FOLDER,shared
+$ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore /drive:/PATH/TO/FOLDER,shared
 ```
 
 ### Pass-the-Hash
 
 ```console
-$ xfreerdp /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /v:<RHOST> /dynamic-resolution +clipboard
+$ xfreerdp3 /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /v:<RHOST> /dynamic-resolution +clipboard
 ```
 
 ### Disable TLS Security Level
 
 ```console
-$ xfreerdp /v:<RHOST> /dynamic-resolution +clipboard /tls-seclevel:0 -sec-nla
+$ xfreerdp3 /v:<RHOST> /dynamic-resolution +clipboard /tls-seclevel:0 -sec-nla
 ```
 
 ### Fix Error Message: transport_connect_tls:freerdp_set_last_error_ex ERRCONNECT_TLS_CONNECT_FAILED
@@ -6191,7 +6191,7 @@ $ xfreerdp /v:<RHOST> /dynamic-resolution +clipboard /tls-seclevel:0 -sec-nla
 Add `/tls-seclevel:0 /timeout:80000` to the command.
 
 ```console
-FIX: $ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:<RHOST> /tls-seclevel:0 /timeout:80000 +clipboard
+FIX: $ xfreerdp3 /u:<USERNAME> /p:<PASSWORD> /v:<RHOST> /tls-seclevel:0 /timeout:80000 +clipboard
 ```
 
 ## xvfb
