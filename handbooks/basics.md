@@ -5158,6 +5158,13 @@ $ sudo pip3 install pyotp
 $ python3 -c 'import pyotp; totp = pyotp.TOTP("orxxi4c7orxwwzlo"); print(totp.now())'
 ```
 
+## rdate
+
+```console
+$ sudo rdate -n <RHOST>
+$ sudo rdate -s <RHOST>
+```
+
 ## rdesktop
 
 ```console
@@ -5866,13 +5873,32 @@ $ sudo systemctl stop systemd-timesyncd
 
 ### Options to set the Date and Time
 
-```console
+#### net time
+
+```shell
 $ sudo net time -c <RHOST>
 $ sudo net time set -S <RHOST>
 $ sudo net time \\<RHOST> /set /y
+```
+
+#### ntpdate
+
+```shell
 $ sudo ntpdate <RHOST>
 $ sudo ntpdate -s <RHOST>
 $ sudo ntpdate -b -u <RHOST>
+```
+
+#### rdate
+
+```shell
+$ sudo rdate -n <RHOST>
+$ sudo rdate -s <RHOST>
+```
+
+#### timedatectl
+
+```shell
 $ sudo timedatectl set-timezone UTC
 $ sudo timedatectl list-timezones
 $ sudo timedatectl set-timezone '<COUNTRY>/<CITY>'
