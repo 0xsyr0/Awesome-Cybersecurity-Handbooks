@@ -3959,8 +3959,16 @@ $ mkpasswd -m sha-512 <PASSWORD>
 
 ## mount
 
+### Mount a NFS Share
+
 ```console
 $ sudo mount -t nfs -o vers=4,nolock <RHOST>:/<FOLDER> /PATH/TO/FOLDER/<FOLDER>
+```
+
+### Mount a SMB Share using Kerberos
+
+```console
+$ sudo mount -t cifs -o user=<USERNAME>,cruid=<USERNAME>,sec=krb5 //<RHOST>/<FOLDER> /PATH/TO/FOLDER/<FOLDER>
 ```
 
 ## mp64
