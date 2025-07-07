@@ -3500,8 +3500,8 @@ $ curl http://<DOMAIN>/js/chunk-vendors~03631906.67e21e66.js | grep -oP '/api/[^
 ## grpc
 
 ```console
-$ pip3 install grpc
-$ pip3 install grpc-tools
+$ pip install grpc
+$ pip install grpc-tools
 ```
 
 ### Skeleton File Structure
@@ -5156,7 +5156,7 @@ $ python3 -m websockets ws://<DOMAIN>
 ### Fixing Crypto Error
 
 ```console
-$ pip3 install pycryptodome
+$ pip install pycryptodome
 ```
 
 ### Running Binaries without touching Disk
@@ -5168,7 +5168,7 @@ $ python3 -c 'import os; import urllib.request; d = urllib.request.urlopen("http
 ## Python TOTP
 
 ```console
-$ sudo pip3 install pyotp
+$ sudo pip install pyotp
 $ python3 -c 'import pyotp; totp = pyotp.TOTP("orxxi4c7orxwwzlo"); print(totp.now())'
 ```
 
@@ -6034,7 +6034,7 @@ Windows systems usually use `128`.
 ## utf8cleaner
 
 ```console
-$ pip3 install utf8cleaner
+$ pip install utf8cleaner
 $ utf8cleaner --input <FILE>
 ```
 
