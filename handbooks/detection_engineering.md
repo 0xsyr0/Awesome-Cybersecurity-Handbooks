@@ -96,7 +96,7 @@ $ source venv/bin/activate
 ```
 
 ```console
-$ pip3 install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 ```console
