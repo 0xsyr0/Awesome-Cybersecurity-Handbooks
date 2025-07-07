@@ -3687,6 +3687,12 @@ $ export KRB5CCNAME=<FILE>.ccache
 $ export KRB5CCNAME='realpath <FILE>.ccache'
 ```
 
+#### No KRB5CCAME Export Example
+
+```console
+$ KRB5CCNAME=<FILE>.ccache <APPLICATION>
+```
+
 ### Debug
 
 ```console
