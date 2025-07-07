@@ -1349,11 +1349,11 @@ Try to install potentially missing modules first.
 
 ```console
 $ pip install websocket-client
-$ pip3 install websocket-client
+$ pip install websocket-client
 $ pip install websocket-client-py3
-$ pip3 install websocket-client-py3
+$ pip install websocket-client-py3
 $ pip install sqlmap-websocket-proxy
-$ pip3 install sqlmap-websocket-proxy
+$ pip install sqlmap-websocket-proxy
 ```
 
 If this does not help, uninstall the modules manually
@@ -1361,7 +1361,7 @@ and re-install them afterwards.
 
 ```console
 $ pip install websocket-client
-$ pip3 install websocket-client
+$ pip install websocket-client
 $ pip uninstall websocket-client-py3
 $ pip3 uninstall websocket-client-py3
 ```
