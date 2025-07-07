@@ -4,6 +4,7 @@
 
 ## Table of Contents
 
+- [AdaptixC2](#adaptixc2)
 - [Covenant](#covenant)
 - [Empire](#empire)
 - [Hak5 Cloud C2](#hak5-cloud-c2)
@@ -19,6 +20,7 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| AdaptixC2 | Adaptix is an extensible post-exploitation and adversarial emulation framework made for penetration testers. | https://github.com/Adaptix-Framework/AdaptixC2 |
 | AzureC2Relay | AzureC2Relay is an Azure Function that validates and relays Cobalt Strike beacon traffic by verifying the incoming requests based on a Cobalt Strike Malleable C2 profile. | https://github.com/Flangvik/AzureC2Relay |
 | Brute Ratel | A Customized Command and Control Center for Red Team and Adversary Simulation | https://bruteratel.com/ |
 | Cobalt Strike | Adversary Simulation and Red Team Operations | https://www.cobaltstrike.com/ |
@@ -48,6 +50,107 @@
 | SPAWN | Cobalt Strike BOF that spawns a sacrificial process, injects it with shellcode, and executes payload. Built to evade EDR/UserLand hooks by spawning sacrificial process with Arbitrary Code Guard (ACG), BlockDll, and PPID spoofing. | https://github.com/boku7/SPAWN |
 | Tempest | A command and control framework written in rust. | https://github.com/Teach2Breach/Tempest |
 | Villain | Villain is a C2 framework that can handle multiple TCP socket & HoaxShell-based reverse shells, enhance their functionality with additional features (commands, utilities etc) and share them among connected sibling servers (Villain instances running on different machines). | https://github.com/t3l3machus/Villain |
+
+## AdaptixC2
+
+> https://github.com/Adaptix-Framework/AdaptixC2
+
+> https://adaptix-framework.gitbook.io/adaptix-framework
+
+> https://github.com/Adaptix-Framework/Extension-Kit
+
+### Prerequisites
+
+#### Server
+
+```console
+$ sudo apt install mingw-w64 make
+
+$ wget https://go.dev/dl/go1.24.4.linux-amd64.tar.gz -O /tmp/go1.24.4.linux-amd64.tar.gz
+$ sudo rm -rf /usr/local/go /usr/local/bin/go
+$ sudo tar -C /usr/local -xzf /tmp/go1.24.4.linux-amd64.tar.gz
+$ sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
+
+# for windows 7 support by gopher agent
+$git clone https://github.com/Adaptix-Framework/go-win7 /tmp/go-win7
+$ sudo mv /tmp/go-win7 /usr/lib/
+```
+
+#### Client
+
+```console
+$ sudo apt install gcc g++ build-essential make cmake libssl-dev qt6-base-dev qt6-websockets-dev qt6-declarative-dev
+```
+
+#### Build Binaries
+
+```console
+$ make server
+$ make extenders
+$ make client
+```
+
+### Configuration
+
+#### Certificate
+
+```console
+$ openssl req -x509 -nodes -newkey rsa:2048 -keyout server.rsa.key -out server.rsa.crt -days 3650
+```
+
+#### profile.json
+
+```json
+{
+  "Teamserver": {
+    "port": 4321,
+    "endpoint": "/endpoint",
+    "password": "pass",
+    "cert": "server.rsa.crt",
+    "key": "server.rsa.key",
+    "extenders": [
+      "extenders/listener_beacon_http/config.json",
+      "extenders/listener_beacon_smb/config.json",
+      "extenders/listener_beacon_tcp/config.json",
+      "extenders/agent_beacon/config.json",
+      "extenders/listener_gopher_tcp/config.json",
+      "extenders/agent_gopher/config.json"
+    ],
+    "access_token_live_hours": 12,
+    "refresh_token_live_hours": 168
+  },
+
+  "ServerResponse": {
+    "status": 404,
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8",
+      "Server": "AdaptixC2",
+      "Adaptix Version": "v0.6"
+    },
+    "page": "404page.html"
+  },
+  
+  "EventCallback": {
+    "Telegram": {
+      "token": "",
+      "chats_id": []
+    },
+    "new_agent_message": "New agent: %type% (%id%)\n\n%user% @ %computer% (%internalip%)\nelevated: %elevated%\nfrom: %externalip%\ndomain: %domain%"
+  }
+}
+```
+
+#### Start Teamserver
+
+```console
+$ ./adaptixserver -profile profile.json
+```
+
+#### Start Client
+
+```console
+$ ./AdaptixClient
+```
 
 ## Covenant
 
