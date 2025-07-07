@@ -825,7 +825,7 @@ $ ffuf -w /opt/seclists/Discovery/Web-Content/directory-list-1.0.txt -u http://<
 > https://github.com/Paradoxis/Flask-Unsign
 
 ```console
-$ pip3 install flask-unsign
+$ pip install flask-unsign
 ```
 
 ### Decode Cookie
