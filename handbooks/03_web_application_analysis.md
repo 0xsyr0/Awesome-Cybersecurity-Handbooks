@@ -128,6 +128,7 @@
 | JSON Web Tokens | JSON Web Token Debugger | https://jwt.io |
 | JSON Web Tokens | JSON Web Token Debugger | https://jwt.ms |
 | JWT_Tool | The JSON Web Token Toolkit v2 | https://github.com/ticarpi/jwt_tool |
+| JWTLens | Advanced JWT Security Analysis & Vulnerability Detection | https://jwtlens.netlify.app |
 | KeyHacks | KeyHacks shows ways in which particular API keys found on a Bug Bounty Program can be used, to check if they are valid. | https://github.com/streaak/keyhacks |
 | kxss | This a adaption of tomnomnom's kxss tool with a different output format | https://github.com/Emoe/kxss |
 | Leaky Paths | A collection of special paths linked to major web CVEs, known misconfigurations, juicy APIs ..etc. It could be used as a part of web content discovery, to scan passively for high-quality endpoints and quick-wins. | https://github.com/ayoubfathi/leaky-paths |
