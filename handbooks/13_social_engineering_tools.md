@@ -193,7 +193,7 @@ $ ssh -i ~/.ssh/<SSH_KEY> root@<RHOST> -p <RPORT> -L 3333:localhost:3333 -N -f
 ### Installation of wsgidav
 
 ```console
-$ pip3 install wsgidav
+$ pip install wsgidav
 ```
 
 ### Start wsgidav
