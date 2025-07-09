@@ -6198,25 +6198,25 @@ $ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +clipboard
 
 ```console
 $ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /h:1010 /w:1920 +clipboard
-$ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /dynamic-resolution +clipboard
+$ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +dynamic-resolution +clipboard
 ```
 
 ### Folder Sharing
 
 ```console
-$ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore /drive:/PATH/TO/FOLDER,shared
+$ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore /drive:shared,/PATH/TO/FOLDER
 ```
 
 ### Pass-the-Hash
 
 ```console
-$ xfreerdp3 /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /v:<RHOST> /dynamic-resolution +clipboard
+$ xfreerdp3 /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /v:<RHOST> +dynamic-resolution +clipboard
 ```
 
 ### Disable TLS Security Level
 
 ```console
-$ xfreerdp3 /v:<RHOST> /dynamic-resolution +clipboard /tls-seclevel:0 -sec-nla
+$ xfreerdp3 /v:<RHOST> +dynamic-resolution +clipboard /tls:seclevel:0 /sec:nla:off
 ```
 
 ### Fix Error Message: transport_connect_tls:freerdp_set_last_error_ex ERRCONNECT_TLS_CONNECT_FAILED
@@ -6232,7 +6232,7 @@ $ xfreerdp3 /v:<RHOST> /dynamic-resolution +clipboard /tls-seclevel:0 -sec-nla
 Add `/tls-seclevel:0 /timeout:80000` to the command.
 
 ```console
-FIX: $ xfreerdp3 /u:<USERNAME> /p:<PASSWORD> /v:<RHOST> /tls-seclevel:0 /timeout:80000 +clipboard
+$ xfreerdp3 /u:<USERNAME> /p:<PASSWORD> /v:<RHOST> /tls-seclevel:0 /timeout:80000 +clipboard
 ```
 
 ## xvfb
