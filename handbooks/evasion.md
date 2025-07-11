@@ -11,6 +11,7 @@
 - [Freeze](#freeze)
 - [Invoke-Obfuscation](#invoke-obfuscation)
 - [Limelighter](#limelighter)
+- [Mangle](#mangle)
 - [ScareCrow](#scarecrow)
 - [Shhhloader](#shhhloader)
 
@@ -34,6 +35,7 @@
 | Invoke-Obfuscation | PowerShell Obfuscator | https://github.com/danielbohannon/Invoke-Obfuscation |
 | LimeLighter | A tool for generating fake code signing certificates or signing real ones | https://github.com/Tylous/Limelighter |
 | macro_pack | macro_pack is a tool by @EmericNasi used to automatize obfuscation and generation of Office documents, VB scripts, shortcuts, and other formats for pentest, demo, and social engineering assessments. | https://github.com/sevagas/macro_pack |
+| Mangle | Mangle is a tool that manipulates aspects of compiled executables (.exe or DLL) to avoid detection from EDRs | https://github.com/Tylous/Mangle |
 | mimikatz Obfuscator | This script downloads and slightly obfuscates the mimikatz project. | https://gist.github.com/imaibou/92feba3455bf173f123fbe50bbe80781 |
 | Mortar Loader | Evasion technique to defeat and divert detection and prevention of security products (AV/EDR/XDR) | https://github.com/0xsp-SRD/mortar |
 | neo-ConfuserEx | Updated ConfuserEX, an open-source, free obfuscator for .NET applications | https://github.com/XenocodeRCE/neo-ConfuserEx |
@@ -382,6 +384,14 @@ $ go build LimeLighter.go
 ```console
 $ ./Limelighter -I <FILE>.exe -O <FILE>.exe -Domain <DOMAIN>
 $ ./Limelighter -Verify <FILE>.exe
+```
+
+## Mangle
+
+> https://github.com/Tylous/Mangle
+
+```console
+$ ./Mangle -I <FILE>.exe -M -S 106 -O <FILE>.exe
 ```
 
 ## ScareCrow
