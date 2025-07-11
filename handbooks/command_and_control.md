@@ -786,7 +786,181 @@ ALLOWED_IP_BLOCKS="127.0.0.0/16,192.168.10.0/24,172.16.0.0/12,10.0.0.0/8"
 NGINX_BIND_LOCALHOST_ONLY="true"
 ```
 
+### Redirector
+
+#### Nginx
+
+##### Domain Fronting Configuration
+
+```console
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name <DOMAIN>;
+    return 302 https://$server_name$request_uri;
+
+    location / {
+        limit_except GET HEAD POST { deny all; }
+    }
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    server_name <DOMAIN>;
+
+    ssl_certificate /etc/ssl/certs/<DOMAIN>.pem;
+    ssl_certificate_key /etc/ssl/private/<DOMAIN>.pem;
+
+    root /var/www/html/<DOMAIN>;
+    index index.html;
+
+    location / {
+        limit_except GET HEAD POST { deny all;
+    }
+
+    location /<RANDOM_VALUE> {
+        proxy_pass http://<RHOST>:<RPORT>;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+        location /<RANDOM_VALUE> {
+        set $C2 "";
+
+        if ($http_user_agent ~ "<RANDOM_VALUE>") {
+            set $C2 A;
+        }
+
+        if ($C2 = 'A') {
+            proxy_pass http://<RHOST>:<RPORT>;
+        }
+
+        try_files $uri $uri/ =404;
+    }
+}
+```
+
+#### Mythic Server Configuration
+
+##### iptables
+
+The `iptables` rules should only accept traffic for port `22/TCP` and from the `redirector`.
+
+```console
+$ /sbin/iptables -F
+$ /sbin/iptables -P INPUT DROP
+$ /sbin/iptables -P OUTPUT ACCEPT
+$ /sbin/iptables -I INPUT -i lo -j ACCEPT
+$ /sbin/iptables -A INPUT -p tcp --match multiport --dports 22 -j ACCEPT
+$ /sbin/iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+$ /sbin/iptables -A INPUT -s <RHOST> -j ACCEPT
+$ /sbin/iptables -A INPUT -j DROP
+$ /usr/sbin/netfilter-persistent save
+$ /usr/sbin/iptables-save > /root/custom-ip-tables-rules
+```
+
+#### HTTP Profile Configuration
+
+| Profile | Option | Value |
+| --- | --- | --- |
+| callback_host | | https://\<DOMAIN> |
+| callback_port | | 443 |
+| get_uri | | index |
+| headers | User-Agent | <RANDOM_VALUE> |
+| query_path_name | | <RANDOM_VALUE> |
+| post_uri | | <RANDOM_VALUE> |
+
 ## Redirector
+
+### Nginx
+
+#### Multi C2 Domain Fronting Configuration
+
+```console
+# Default Setup
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name <DOMAIN>;
+    return 302 https://$server_name$request_uri;
+
+    location / {
+        limit_except GET HEAD POST { deny all; }
+    }
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    server_name <DOMAIN>;
+
+    ssl_certificate /etc/ssl/certs/<DOMAIN>.pem;
+    ssl_certificate_key /etc/ssl/private/<DOMAIN>.pem;
+
+    root /var/www/html/<DOMAIN>;
+    index index.html;
+
+    location / {
+        limit_except GET HEAD POST { deny all;
+    }
+
+    location /<RANDOM_VALUE> {
+        proxy_pass http://<RHOST>:<RPORT>;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+        location /<RANDOM_VALUE> {
+        set $C2 "";
+
+        if ($http_user_agent ~ "<RANDOM_VALUE>") {
+            set $C2 A;
+        }
+
+        if ($C2 = 'A') {
+            proxy_pass http://<RHOST>:<RPORT>;
+        }
+
+        try_files $uri $uri/ =404;
+    }
+}
+
+# Sliver Traffic Redirect
+server {
+    listen 8443 ssl;
+    listen [::]:8443 ssl;
+
+    server_name <DOMAIN>;
+
+    root /var/www/html/<DOMAIN>;
+    index index.html;
+
+    ssl_certificate /etc/ssl/certs/<DOMAIN>.pem;
+    ssl_certificate_key /etc/ssl/private/<DOMAIN>.pem;
+
+    location / {
+        try_files $uri $uri/ @c2;
+        limit_except GET HEAD POST { deny all; }
+    }
+
+    location @c2 {
+        proxy_pass http://<RHOST>:8443;
+        proxy_redirect off;
+        proxy_ssl_verify off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+```
 
 ### Socat
 
