@@ -18,6 +18,7 @@
 | BlackPhish | Super lightweight with many features and blazing fast speeds. | https://github.com/iinc0gnit0/BlackPhish |
 | Evilginx2 Phishlets | Evilginx2 Phishlets version (0.2.3) Only For Testing/Learning Purposes | https://github.com/An0nUD4Y/Evilginx2-Phishlets |
 | evilginx2 | Standalone man-in-the-middle attack framework used for phishing login credentials along with session cookies, allowing for the bypass of 2-factor authentication | https://github.com/kgretzky/evilginx2 |
+| Evilginx 3 PHISHLET | EvilGinx Modify / Custom PHISHLETs / JS | https://github.com/EvilWhales/EvilGinx-PHISHLETs-Custom |
 | evilgophish | evilginx2 + gophish | https://github.com/fin3ss3g0d/evilgophish |
 | EvilnoVNC | Ready to go Phishing Platform | https://github.com/JoelGMSec/EvilnoVNC |
 | Gophish | Open-Source Phishing Toolkit | https://github.com/gophish/gophish |
