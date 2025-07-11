@@ -982,6 +982,17 @@ $ sudo socat tcp-listen:8443,reuseaddr,fork,bind=<LHOST> tcp:127.0.0.1:1234
 $ ssh -N -R 1234:localhost:8443 -i <SSH_KEY> root@<RHOST>
 ```
 
+### Relaying
+
+#### Prerequisistes
+
+```console
+sleep 0       // optional of course
+socks 7002    // start SOCKS5 proxy
+rpfwd         // open menu for remote port forwarding
+172.17.0.1    // Docker gateway
+```
+
 ## Sliver
 
 > https://github.com/BishopFox/sliver
