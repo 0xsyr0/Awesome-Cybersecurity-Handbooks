@@ -25,6 +25,7 @@
 | Modlishka | Modlishka. Reverse Proxy. | https://github.com/drk1wi/Modlishka |
 | Muraena | Muraena is an almost-transparent reverse proxy aimed at automating phishing and post-phishing activities. | https://github.com/muraenateam/muraena |
 | Nexphisher | Advanced Phishing tool for Linux & Termux | https://github.com/htr-tech/nexphisher |
+| QRucible | Python utility that generates "imageless" QR codes in various formats | https://github.com/Flangvik/QRucible |
 | Seeker | Accurately Locate Smartphones using Social Engineering | https://github.com/thewhiteh4t/seeker |
 | SocialFish | Phishing Tool & Information Collector  | https://github.com/UndeadSec/SocialFish |
 | SniperPhish | SniperPhish - The Web-Email Spear Phishing Toolkit | https://github.com/GemGeorge/SniperPhish |
