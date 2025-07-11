@@ -704,7 +704,7 @@ Merlin[agent][2711ef1d-0b53-490d-add9-7ae3c0878b07]» info
 Merlin[agent][2711ef1d-0b53-490d-add9-7ae3c0878b07]» rev2self
 ```
 
-#### Cloud Fronting
+#### Domain Fronting
 
 ```console
 $ make linux URL=http://<>DOMAIN/ HOST=<LHOST> PROTO=http PSK=<PSK>
@@ -773,6 +773,18 @@ $ cat .env
 ```
 
 > https://127.0.0.1:7443
+
+### OPSEC Considerations
+
+To not expose any unwanted service rather than accessing them via SSH, double check the settings in the `.env` file.
+
+```console
+ALLOWED_IP_BLOCKS="127.0.0.0/16,192.168.10.0/24,172.16.0.0/12,10.0.0.0/8"
+```
+
+```console
+NGINX_BIND_LOCALHOST_ONLY="true"
+```
 
 ## Redirector
 
@@ -901,6 +913,14 @@ username@c2:~/.sliver/configs$ sliver import <USERNAME>.cfg
 
 ```console
 [server] sliver > kick-operator -n <USERNAME>
+```
+
+### OPSEC Considerations
+
+To not expose Sliver to everyone consider binding it only to `localhost` in the `server.json`
+
+```console
+"host": "127.0.0.1",
 ```
 
 ### Implant and Beacon Creation 
@@ -1172,7 +1192,7 @@ server {
 }
 ```
 
-##### Cloud Fronting Configuration
+##### Domain Fronting Configuration
 
 ```console
 server {
