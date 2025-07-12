@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [Evilginx2](#evilginx2)
+- [evilgophish](#evilgophish)
 - [Gophish](#gophish)
 - [Microsoft Windows Library Files](#microsoft-windows-library-files)
 - [Modlishka](#modlishka)
@@ -105,6 +106,61 @@ $ sudo update-ca-certificates
 : sessions <ID>
 ```
 
+## evilgophish
+
+> github.com/fin3ss3g0d/evilgophish
+
+### Installation
+
+```console
+$ git clone https://github.com/fin3ss3g0d/evilgophish
+$ chmod +x setup.sh
+$ ./setup.sh <DOMAIN> <SUB_DOMAIN> <SUB_DOMAIN> <SUB_DOMAIN>
+```
+
+### Prerequisites
+
+#### Port Forwarding
+
+```console
+$ ssh -L 3333:localhost:3333 <USERNAME>@<RHOST>
+```
+
+#### Tmux
+
+```console
+$ tmux
+```
+
+##### Tmux Pane Gophish
+
+```console
+$ ./gophish
+```
+
+##### Tmux Pane evilginx3
+
+```console
+$ sudo ./evilginx3 -g /PATH/TO/evilgophish/gophish/gophish.db -p /PATH/TO/evilgophish/evilginx3/legacy_phishlets
+```
+
+#### Gophish
+
+- Import Users & Groups
+- Create New Email/SMS Template
+- Create New Email Sending Profiles
+
+#### evilginx3
+
+```console
+: config domain <DOMAIN>
+: config ipv4 <LHOST>
+: phishlets hostname <PHISHLET> <DOMAIN>
+: phishlets enable <PHISHLET>
+: lures create <PHISHLET>
+: lures get-url <ID>
+```
+
 ## Gophish
 
 > https://github.com/gophish/gophish
@@ -182,6 +238,37 @@ $ sed -i 's/const RecipientParameter = "rid"/const RecipientParameter = "'$userv
 
 ```console
 $ go build
+```
+
+### Create Gophish Service
+
+```console
+$ sudo vi /etc/systemd/system/gophish.service
+```
+
+```console
+[Unit]
+Description=GoPhish Phishing Framework
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/PATH/TO/gophish/gophish
+WorkingDirectory=/PATH/TO/gophish
+Restart=always
+RestartSec=5
+User=<USERNAME>
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```console
+$ sudo systemctl daemon-reexec
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable gophish
+$ sudo systemctl start gophish
+$ sudo systemctl status gophish
 ```
 
 ### Port Forwarding
