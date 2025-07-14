@@ -20,6 +20,7 @@
 | openfire_decrypt | Little java tool to decrypt passwords from Openfire embedded-db | https://github.com/c0rdis/openfire_decrypt |
 | PMP-Decrypter | This is a tool to decrypt the encrypted password strings in Patch My PC settings.xml files. | https://github.com/LuemmelSec/PMP-Decrypter |
 | pswm-decoder | a simple decoder for https://github.com/Julynx/pswm | https://github.com/repo4Chu/pswm-decoder |
+| Roundcube | PHP script to decrypt Roundcube IMAP passwords that were encrypted with the des_key defined in the configuration. | https://github.com/TaddlM/roundcube |
 | SharpLansweeperDecrypt | Automatically extract and decrypt all configured scanning credentials of a Lansweeper instance. | https://github.com/Yeeb1/SharpLansweeperDecrypt |
 | SolarPuttyDecrypt | A post-exploitation tool to decrypt SolarPutty's sessions files | https://github.com/VoidSec/SolarPuttyDecrypt |
 | splunksecrets | splunksecrets is a tool for working with Splunk secrets offline | https://github.com/HurricaneLabs/splunksecrets |
