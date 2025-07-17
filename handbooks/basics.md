@@ -55,6 +55,7 @@
 - [IPython](#ipython)
 - [Java](#java)
 - [jq](#jq)
+- [KeePassXC](#keepassxc)
 - [Kerberos](#kerberos)
 - [ldd](#ldd)
 - [less](#less)
@@ -3614,6 +3615,14 @@ $ sudo update-alternatives --config java
 
 ```console
 for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; done
+```
+
+## KeePassXC
+
+### Username and Password Export
+
+```console
+$ keepassxc-cli export <FILE>.kdbx --format csv | awk -F',' '{print $3 ":" $4}' | sed 's/"//g'
 ```
 
 ## Kerberos
