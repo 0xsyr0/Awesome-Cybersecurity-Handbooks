@@ -14,6 +14,16 @@
 
 ## Foundry
 
+### Common Commands
+
+```console
+$ cast storage <TARGET_ADDRESS> 0 --rpc-url <RHOST>/rpc
+$ cast call --rpc-url <RHOST>/rpc <TARGET_ADDRESS> "balanceOf(address)(uint256)" <ADDRESS>
+$ cast send <TARGET_ADDRESS> "balanceOf(address)(uint256)" <ADDRESS> <VALUE> --private-key <PRIVATE_KEY> --rpc-url <RHOST>/rpc
+$ cast call --rpc-url <RHOST>/rpc <TARGET_ADDRESS> "balanceOf(address)(uint256)" <ADDRESS>
+$ cast call --rpc-url <RHOST>/rpc <TARGET_ADDRESS> "allowance(address,address)(uint256)" <ADDRESS> <ADDRESS>
+```
+
 ### Malicious Forge Project
 
 #### Create Project
