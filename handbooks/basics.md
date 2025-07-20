@@ -4141,6 +4141,17 @@ $ npx asar extract <FILE>.asar /PATH/TO/FOLDER/
 ### Zone Update
 
 ```console
+$ nsupdate
+> server <RHOST>
+> zone <DOMAIN>
+> update add <DOMAIN> 3600 A <LHOST>
+> send
+> quit
+```
+
+or
+
+```console
 $ nsupdate -k key
 > server <RHOST>
 > zone <DOMAIN>
