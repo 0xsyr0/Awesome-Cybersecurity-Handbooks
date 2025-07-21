@@ -5909,7 +5909,7 @@ $ sudo systemctl stop systemd-timesyncd
 
 #### net time
 
-```shell
+```console
 $ sudo net time -c <RHOST>
 $ sudo net time set -S <RHOST>
 $ sudo net time \\<RHOST> /set /y
@@ -5917,7 +5917,7 @@ $ sudo net time \\<RHOST> /set /y
 
 #### ntpdate
 
-```shell
+```console
 $ sudo ntpdate <RHOST>
 $ sudo ntpdate -s <RHOST>
 $ sudo ntpdate -b -u <RHOST>
@@ -5925,14 +5925,14 @@ $ sudo ntpdate -b -u <RHOST>
 
 #### rdate
 
-```shell
+```console
 $ sudo rdate -n <RHOST>
 $ sudo rdate -s <RHOST>
 ```
 
 #### timedatectl
 
-```shell
+```console
 $ sudo timedatectl set-timezone UTC
 $ sudo timedatectl list-timezones
 $ sudo timedatectl set-timezone '<COUNTRY>/<CITY>'
