@@ -657,9 +657,22 @@ done
 
 > https://github.com/epi052/feroxbuster
 
+> https://epi052.github.io/feroxbuster-docs/
+
+### Common Commands
+
 ```console
-$ feroxbuster -u http://<RHOST> -s <STATUS_CODES>
-$ feroxbuster -u http://<RHOST> -x js,bak,txt,png,jpg,jpeg,php,aspx,html --extract-links
+$ feroxbuster -u http://<RHOST>/
+$ feroxbuster -u http://<RHOST>/ --extract-links
+$ feroxbuster -u http://<RHOST>/ --filter-status 301
+$ feroxbuster -u http://<RHOST>/ -s <STATUS_CODES>
+$ feroxbuster -u http://<RHOST>/ --scan-dir-listings
+$ feroxbuster -u http://<RHOST>/ -x php
+$ feroxbuster -u http://<RHOST>/ -x js,bak,txt,png,jpg,jpeg,php,aspx,html --extract-links
+$ feroxbuster -u http://<RHOST>/ -b sessionId=<ID>
+$ feroxbuster -u http://<RHOST>/ --rate-limit 100
+$ feroxbuster -u http://<RHOST>/ --filter-regex '[aA]ccess [dD]enied.?' --output <FILE> --json
+$ feroxbuster -u http://<RHOST>/ --replay-proxy http://localhost:8080 --replay-codes 200 302 --insecure
 ```
 
 ## ffuf
