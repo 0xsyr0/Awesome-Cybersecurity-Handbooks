@@ -101,6 +101,7 @@
 - [regedit](#regedit)
 - [rev](#rev)
 - [Reverse SSH](#reverse-ssh)
+- [rlogin](#rlogin)
 - [rlwrap](#rlwrap)
 - [rpm2cpio](#rpm2cpio)
 - [rsh](#rsh)
@@ -5288,6 +5289,23 @@ $ ssh <LHOST> -p 3232 ls -t
 
 ```console
 $ ssh -J <LHOST>:3232 1fe03478b2775060f6643adaac57a0f5b99989b3
+```
+
+## rlogin
+
+### Installation
+
+```console
+$ sudo apt-get install rsh-redone-client
+```
+
+### Local User Remote Login
+
+```console
+$ sudo useradd <USERNAME>
+$ sudo passwd <USERNAME>
+$ sudo su - <USERNAME>
+$ rlogin <RHOST>
 ```
 
 ## rlwrap
