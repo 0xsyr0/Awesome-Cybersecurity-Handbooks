@@ -2085,7 +2085,7 @@ if __name__ == "__main__":
 X-Middleware-Subrequest: middleware
 ```
 
-```shell
+```console
 $ curl -H "X-Middleware-Subrequest: middleware" https://<RHOST>/admin
 ```
 
