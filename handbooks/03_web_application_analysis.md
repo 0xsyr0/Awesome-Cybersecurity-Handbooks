@@ -687,6 +687,7 @@ $ feroxbuster -u http://<RHOST>/ --replay-proxy http://localhost:8080 --replay-c
 $ ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ --fs <NUMBER> -mc all
 $ ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ --fw <NUMBER> -mc all
 $ ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ -mc 200,204,301,302,307,401 -o results.txt
+$ ffuf -c -w /usr/share/seclists/Discovery/DNS/namelist.txt -H "Host: FUZZ.<RHOST>" -u http://<RHOST>/ -ac
 $ ffuf -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H "Host: FUZZ.<RHOST>" -u http://<RHOST>/ -fs 185
 $ ffuf -c -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt -u http://<RHOST>/backups/backup_2020070416FUZZ.zip
 ```
@@ -824,6 +825,7 @@ $ seq 1 1000 | /usr/local/bin/hashit md5 | ffuf -w - -u http://ffuf.me/cd/pipes/
 #### Virtual Host Discovery
 
 ```console
+$ ffuf -c -w /usr/share/seclists/Discovery/DNS/namelist.txt -H "Host: FUZZ.ffuf.me" -u http://FUZZ.ffuf.me -ac
 $ ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt -H "Host: FUZZ.ffuf.me" -u http://ffuf.me -fs 1495
 ```
 
