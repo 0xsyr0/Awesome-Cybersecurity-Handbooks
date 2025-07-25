@@ -239,15 +239,12 @@ $ nmblookup -A <RHOST>
 
 ## Nmap
 
+### Common Commands
+
 ```console
-$ nmap -A -T4 -p- -sS -sV -oN initial --script discovery <RHOST>
-$ nmap -A -T4 -sC -sV --script vuln <RHOST>
-$ nmap -sV --script http-trace <RHOST>
-$ nmap -sV --script ssl-cert -p 443 <RHOST>
-$ nmap -sV --script ssl-enum-ciphers -p 443 <RHOST>
-$ nmap -A -T4 -p- <RHOST>
-$ nmap -A -T4 -sS -sU -v <RHOST>
-$ nmap -sC -sV -oN initial --script discovery <RHOST>
+$ nmap -p- <RHOST> --min-rate 10000 -vvv
+$ nmap -sC -sV -p- <RHOST>
+$ nmap -sV -sU <RHOST>
 $ nmap -sC -sV -oA nmap <RHOST>
 $ nmap -sS -sV <RHOST>
 $ nmap -p- <RHOST>                      // full port scan
@@ -261,10 +258,22 @@ $ nmap -PE -sn <RHOST>                  // ICMP echo discovery
 $ nmap -PU -sn <RHOST>                  // UDP ping discovery
 $ nmap -PS <RPORT> <RHOST>              // TCP SYN ping discovery
 $ nmap -PA <RPORT> <RHOST>              // TCP ACK ping discovery
-$ sudo nmap -sS -f -p <RPORT> <RHOST>   // fragment packets for stealth
-$ sudo nmap -sS -ff -p <RPORT> <RHOST>  // fragmets packets double times for stealth
-$ nmap  --script safe -p 445 <RHOST>    // detailed scan on smb
+$ nmap -sS -f -p <RPORT> <RHOST>   // fragment packets for stealth
+$ nmap -sS -ff -p <RPORT> <RHOST>  // fragmets packets double times for stealth
+$ nmap -A -T4 -p- <RHOST>
+$ nmap -A -T4 -sS -sU -v <RHOST>
+$ nmap -A -T4 -sC -sV --script vuln <RHOST>
+$ nmap -sC -sV -oN initial --script discovery <RHOST>
+$ nmap -A -T4 -p- -sS -sV -oN initial --script discovery <RHOST>
+$ nmap --script safe -p 445 <RHOST>
+$ nmap -sV --script http-trace <RHOST>
+$ nmap -sV --script ssl-cert -p 443 <RHOST>
+$ nmap -sV --script ssl-enum-ciphers -p 443 <RHOST>
+```
 
+### Options
+
+```console
 -p1-65535               // ports
 -p-                     // all ports
 -sV                     // version detection
