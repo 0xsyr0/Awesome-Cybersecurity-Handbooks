@@ -17,6 +17,7 @@
 - [Find SQL-Injection (SQLi) at Scale](#find-sql-injection-sqli-at-scale)
 - [Find basic SQL-Injection (SQLi), Cross-Site Scripting (XSS) and Server-Side Template Injection (SSTI) Vulnerabilities with Magic Payload](#find-basic-sql-injection-sqli-cross-site-scripting-xss-and-server-side-template-injection-ssti-vulnerabilities-with-magic-payload)
 - [Find Cross-Site Scripting (XSS) at Scale](#find-cross-site-scripting-xss-at-scale)
+- [Find various Vulnerabilities all at ones](#find-various-vulnerabilities-all-at-ones)
 - [Fingerprinting with Shodan and Nuclei](#fingerprinting-with-shodan-and-nuclei)
 - [Hunting Checklist](#hunting-checklist)
 - [Path Traversal Zero-Day in Apache HTTP Server (CVE-2021-41773)](#path-traversal-zero-day-in-apache-http-server-cve-2021-41773)
@@ -290,6 +291,38 @@ $ echo <DOMAIN> | katana | while read url; do python3 xsstrike.py -u $url --craw
 
 ```console
 $ subfinder -d <DOMAIN> -all -silent | httpx -silent | katana -silent | Gxss -c 100 | dalfox pipe --skip-bav --skip-mining-all --skip-grepping
+```
+
+## Find various Vulnerabilities all at ones
+
+### Prerequisistes
+
+#### Install waybackurls
+
+```console
+$ go install github.com/tomnomnom/waybackurls@latest
+```
+
+#### Install uro
+
+```console
+$ pipx install uro
+```
+
+### Execution
+
+First perform `Google Dorking` on your target.
+
+```console
+site:*.<DOMAIN> ext:php
+```
+
+```console
+$ echo <SUBDOMAIN>.<DOMAIN> | waybackurls | grep "\?" | uro | httpx -silent > parameters.txt
+```
+
+```console
+$ nuclei -l parameters.txt -t /PATH/TO/TEMPLATES/nuclei-templates/
 ```
 
 ## Fingerprinting with Shodan and Nuclei
