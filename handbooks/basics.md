@@ -3998,8 +3998,8 @@ about:config
 
 | Option | Value |
 | --- | --- |
-| network.negotiate-auth.trusted-uris | <RHOST> |
-| network.negotiate-auth.delegation-uris | <RHOST> |
+| network.negotiate-auth.trusted-uris | \<RHOST> |
+| network.negotiate-auth.delegation-uris | \<RHOST> |
 | network.negotiate-auth.using-native-gsslib | True |
 
 ```console
