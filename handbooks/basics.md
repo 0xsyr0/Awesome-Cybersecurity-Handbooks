@@ -67,6 +67,7 @@
 - [Microsoft Windows](#microsoft-windows)
 - [mkpasswd](#mkpasswd)
 - [mount](#mount)
+- [Mozilla Firefox](#mozilla-firefox)
 - [mp64](#mp64)
 - [msg](#msg)
 - [Nano](#nano)
@@ -3985,6 +3986,28 @@ $ sudo mount -t nfs -o vers=4,nolock <RHOST>:/<FOLDER> /PATH/TO/FOLDER/<FOLDER>
 
 ```console
 $ sudo mount -t cifs -o user=<USERNAME>,cruid=<USERNAME>,sec=krb5 //<RHOST>/<FOLDER> /PATH/TO/FOLDER/<FOLDER>
+```
+
+## Mozilla Firefox
+
+### Kerberos Authentication
+
+```console
+about:config
+```
+
+| Option | Value |
+| --- | --- |
+| network.negotiate-auth.trusted-uris | <RHOST> |
+| network.negotiate-auth.delegation-uris | <RHOST> |
+| network.negotiate-auth.using-native-gsslib | True |
+
+```console
+$ export KRB5CCNAME=<FILE>.ccache
+```
+
+```console
+$ firefox
 ```
 
 ## mp64
