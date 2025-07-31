@@ -6,6 +6,7 @@
 
 - [Advanced Threat Analytics](#advanced-yhreat-analytics)
 - [Named Pipes](#named-pipes)
+- [Sysmon Event Codes](#sysmon-event-codes)
 - [Threat Hunting with Shodan](#threat-hunting-with-shodan)
 
 ## Resources
@@ -64,6 +65,16 @@
 50:00: The Unicode encoding for the character P.
 45:00: The Unicode encoding for the character E.
 ```
+
+## Sysmon Event Codes
+
+| Code | Info |
+| --- | --- |
+| 1 | Process Create |
+| 3 | Network Connection |
+| 11 | File Create Activity |
+| 13 | Registry Key Modification |
+| 22 | DNS Query |
 
 ## Threat Hunting with Shodan
 
