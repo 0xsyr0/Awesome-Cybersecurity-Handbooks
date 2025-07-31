@@ -26,6 +26,7 @@
 | AvalonialLSpy | This is cross-platform version of ILSpy built with Avalonia. | https://github.com/icsharpcode/AvaloniaILSpy |
 | binwalk | Binwalk is a fast, easy to use tool for analyzing, reverse engineering, and extracting firmware images. | https://github.com/ReFirmLabs/binwalk |
 | CFF Explorer | Created by Erik Pistelli, a freeware suite of tools including a PE editor called CFF Explorer and a process viewer. | https://ntcore.com/?page_id=388 |
+| CodemerxDecompile | The first standalone .NET decompiler for Mac, Linux and Windows | https://github.com/codemerx/CodemerxDecompile |
 | cutter | Cutter is a free and open-source reverse engineering platform powered by rizin. | https://github.com/rizinorg/cutter |
 | CyberChef | The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis | https://github.com/gchq/CyberChef |
 | Decompiler Explorer | Interactive online decompiler which shows equivalent C-like output of decompiled programs from many popular decompilers. | https://dogbolt.org |
