@@ -7,6 +7,7 @@
 - [.NET Reflection](#net-reflection)
 - [Avoid Invoke-Expression (IEX) and Invoke-WebRequest (IWR)](#avoid-invoke-expression-iex-and-invoke-webrequest-iwr)
 - [Bypassing Event Tracing for Windows (ETW)](#bypassing-event-tracing-for-windows-etw)
+- [certbot](#certbot)
 - [Clear Linux History](#clear-linux-history)
 - [Hiding SSH Sessions](#hiding-ssh-sessions)
 - [Logfile Cleaning](#logfile-cleaning)
@@ -15,6 +16,7 @@
 - [ProxyChains](#proxychains)
 - [Save File Deletion](#save-file-deletion)
 - [Sneaky Directory](#sneaky-directory)
+- [User Agent](#user-agent)
 - [Windows Advanced Threat Protection (ATP)](#windows-advanced-threat-protection-atp)
 
 ## Resources
@@ -72,6 +74,12 @@ PS C:\> powershell . (-Join (Resolve-DnsName -Type txt https://<DOMAIN>).Strings
 
 ```console
 C:\> set COMPlus_ETWEnabled=0
+```
+
+## certbot
+
+```console
+$ certbot --apache --register-unsafely-without-email
 ```
 
 ## Clear Linux History
@@ -178,6 +186,39 @@ $ FN=<FILE>; dd bs=1k count="`du -sk \"${FN}\" | cut -f1`" if=/dev/urandom >"${F
 
 ```console
 $ sudo mkdir -p /mnt/.../<DIRECTORY>
+```
+
+## User Agent
+
+### Alias
+
+- .bashrc
+- .zshrc
+
+```console
+export AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KTHML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+
+alias curl="curl -A '$AGENT'"
+alias wget="wget -U '$AGENT'"
+alias nmap="nmap --script-args=\"http.useragent='$AGENT'\""
+```
+
+### Applications
+
+#### Firefox
+
+```console
+about:config
+```
+
+| Option | Value | String |
+| --- | --- | --- |
+| general.useragent.override | String | Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KTHML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 |
+
+#### WPScan
+
+```console
+$ wpscan --ua "$AGENT" --url 127.0.0.1
 ```
 
 ## Windows Advanced Threat Protection (ATP)
