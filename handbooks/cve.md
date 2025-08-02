@@ -198,7 +198,8 @@
 | CVE-2025-32463 | chwoot sudo LPE | https://github.com/pr0v3rbs/CVE-2025-32463_chwoot |
 | CVE-2025-32756 | Multiple Fortinet Products Vunerability (RCE) | https://github.com/kn0x0x/CVE-2025-32756-POC |
 | CVE-2025-33073 | Windows SMB NTLM Reflection | https://github.com/mverschu/CVE-2025-33073 |
-| CVE-2025-53770 | ToolShell SharePoint RCE (0-day) | https://github.com/soltanali0/CVE-2025-53770-Exploit |
+| CVE-2025-53770 | ToolShell SharePoint RCE (0-day) (1) | https://github.com/soltanali0/CVE-2025-53770-Exploit |
+| CVE-2025-53770 | ToolShell SharePoint RCE (0-day) (2) | https://github.com/MuhammadWaseem29/CVE-2025-53770 |
 | CVE-2025-5777 | Citrix Bleed 2 | https://github.com/bughuntar/CVE-2025-5777 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
