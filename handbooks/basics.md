@@ -5360,8 +5360,16 @@ $ rsh -l <USERNAME> <RHOST>
 $ nc -vn remote_ip 873
 ```
 
+### List Content
+
 ```console
 $ #list
+```
+
+or
+
+```console
+$ rsync --list-only -a rsync://<RHOST>/
 ```
 
 ### Download
