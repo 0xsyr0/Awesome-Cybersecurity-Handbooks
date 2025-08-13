@@ -82,6 +82,7 @@
 - [Outlook](#outlook)
 - [paste](#paste)
 - [Perl](#perl)
+- [pgrep](#pgrep)
 - [PHP](#php)
 - [pipenv](#pipenv)
 - [plink](#plink)
@@ -4253,6 +4254,12 @@ user3,text3
 $ sudo /usr/bin/perl -e 'exec "cat /root/root.txt"'
 ```
 
+## pgrep
+
+```console
+$ pgrep -lfa <PROCESS>
+```
+
 ## PHP
 
 ### Interactive Shell
@@ -5825,6 +5832,8 @@ SSH>
 ```console
 $ sshpass -p "<PASSWORD>" ssh <USERNAME>@<RHOST>
 $ sshpass -p "<PASSWORD>" ssh <USERNAME>@<RHOST> "<COMMAND>"
+$ sshpass -p "<PASSWORD>" ssh <USERNAME>@<RHOST> -t bash
+$ sshpass -p "<PASSWORD>" sftp <USERNAME>@<RHOST>
 ```
 
 ## stat
