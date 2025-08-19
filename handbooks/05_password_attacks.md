@@ -1200,9 +1200,17 @@ $ pdfcrack -f file.pdf -w /PATH/TO/WORDLIST/<WORDLIST>
 
 > https://github.com/skelsec/pypykatz
 
+### Common Commands
+
 ```console
 $ pypykatz lsa minidump lsass.dmp
 $ pypykatz registry --sam sam system
+```
+
+### Create RC4 Hash from Password
+
+```console
+$ pypykatz crypto nt 'P@ssw0rd123!'
 ```
 
 ## RsaCtfTool
