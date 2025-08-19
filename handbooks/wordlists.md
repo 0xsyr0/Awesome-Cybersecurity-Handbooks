@@ -54,9 +54,20 @@ $ ./cupp -i
 
 ## crunch
 
+### Common Commands
+
 ```console
-$ crunch 6 6 -t foobar%%% > wordlist
+$ crunch 9 9 -t foobar%%% > wordlist.txt
 $ crunch 5 5 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ -o <FILE>.txt
+```
+
+### Special Character Example
+
+```console
+$ crunch 1 1 '!@#$%^&*' -o specials1.txt
+$ crunch 2 2 '!@#$%^&*' -o specials2.txt
+$ sed 's/^/foob4r!/' specials1.txt > wordlist1.txt
+$ sed 's/^/f00b4r!/' specials2.txt > wordlist2.txt
 ```
 
 ## JavaScript Quick Wordlist
