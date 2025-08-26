@@ -201,6 +201,7 @@
 | CVE-2025-53770 | ToolShell SharePoint RCE (0-day) (1) | https://github.com/soltanali0/CVE-2025-53770-Exploit |
 | CVE-2025-53770 | ToolShell SharePoint RCE (0-day) (2) | https://github.com/MuhammadWaseem29/CVE-2025-53770 |
 | CVE-2025-5777 | Citrix Bleed 2 | https://github.com/bughuntar/CVE-2025-5777 |
+| CVE-2025-9074 | Docker Desktop (Windows) Container Escape - Host Write via Exposed Engine API | https://github.com/zenzue/CVE-2025-9074 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | GSM Linux Kernel LPE (1) | https://github.com/jmpe4x/GSM_Linux_Kernel_LPE_Nday_Exploit |
