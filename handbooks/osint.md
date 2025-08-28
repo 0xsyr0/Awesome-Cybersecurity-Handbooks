@@ -115,6 +115,12 @@ inurl:page= | inurl:url= | inurl:return= | inurl:next= | inurl:redir= | inurl:re
 inurl:http | inurl:proxy= | inurl:html= | inurl:data= | inurl:resource= inurl:& site:<DOMAIN>
 ```
 
+### Gmail Address Verification
+
+```console
+https://calendar.google.com/calendar/u/0/embed?src=<EMAIL>
+```
+
 ### Google ID
 
 > https://medium.com/week-in-osint/getting-a-grasp-on-googleids-77a8ab707e43
