@@ -23,6 +23,7 @@
 - [memdump](#memdump)
 - [MemProcFS](#memprocfs)
 - [Microsoft Windows](#microsoft-windows)
+- [Monitor Filesystem Changes](#monitor-filesystem-changes)
 - [oletools](#oletools)
 - [pngcheck](#pngcheck)
 - [steg_brute](#steg_brute)
@@ -288,6 +289,57 @@ $ sudo ./memprocfs -device /PATH/TO/FILE/<FILE>.DMP -mount /mnt/ -forensic 1
 ```console
 <USER_PROFILE>\NTUSER.DAT
 <USER_PROFILE>\AppData\Local\Microsoft\Windows\UsrClass.dat
+```
+
+## Monitor Filesystem Changes
+
+### Tooling
+
+#### Linux
+
+- Sleuth Kit
+- FTK Imager
+
+#### Microsoft Windows
+
+- FTK Imager
+- EnCase Forensic
+- X1 Social Discovery
+
+### Hashing Filesystem
+
+#### Linux
+
+```console
+$ mount /dev/sda1 /mnt
+```
+
+```console
+$ find /mnt -type f -exec sha256sum {} \; > full_filesystem_hashes.txt
+```
+
+or
+
+```console
+$ sha256deep -r /mnt > filesystem_hashes.txt
+```
+
+##### Monitor Changes
+
+```console
+#!/bin/bash
+find /mnt -type f -exec sha256sum {} \; > current_hashes.txt
+diff full_filesystem_hashes.txt current_hashes.txt > changes_detected.txt
+```
+
+#### Microsoft Windows
+
+```cmd
+PS C:\> Get-ChildItem C:\ -Recurse -File | Get-FileHash -Algorithm SHA256 | Export-Csv -Path C:\filesystem_hashes.csv
+```
+
+```cmd
+PS C:\> certutil -hashfile C:\path\to\file SHA256
 ```
 
 ## oletools
