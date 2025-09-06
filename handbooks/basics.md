@@ -3969,6 +3969,27 @@ $ iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
 $ sed -i -e "s/^M//" <FILE>
 ```
 
+### mklink
+
+#### Create Symbolic Link
+
+```cmd
+C:\> mklink C:\PATH\TO\FILE\<FILE> C:\PATH\TO\FILE\<FILE>
+C:\> mklink /D C:\PATH\TO\DIRECTORY C:\PATH\TO\DIRECTORY
+```
+
+#### Create Hard Link
+
+```cmd
+C:\> mklink C:\PATH\TO\FILE\<FILE> C:\PATH\TO\FILE\<FILE>
+```
+
+#### Junction Creation
+
+```cmd
+C:\> mklink /H C:\PATH\TO\DIRECTORY C:\PATH\TO\DIRECTORY
+```
+
 ## mkpasswd
 
 ```console
