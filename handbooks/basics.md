@@ -52,6 +52,8 @@
 - [grpc](#grpc)
 - [host](#host)
 - [icacls](#icacls)
+- [IMAP](#imap)
+- [inotifywait](#inotifywait)
 - [IPython](#ipython)
 - [Java](#java)
 - [jq](#jq)
@@ -3547,6 +3549,12 @@ $ icacls <FILE>
 ```console
 c1 LOGIN <USERNAME> <PASSWORD>
 c2 LIST
+```
+
+## inotifywait
+
+```console
+$ inotifywait -m /PATH/TO/FOLDER/ -e create,modify,move
 ```
 
 ## IPython
