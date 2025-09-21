@@ -23,6 +23,7 @@
 - [NetExec](#netexec)
 - [Patator](#patator)
 - [PDFCrack](#pdfcrack)
+- [psk-crack](#psk-crack)
 - [pypykatz](#pypykatz)
 - [RsaCtfTool](#rsactftool)
 - [Spray-Passwords](#spray-passwords)
@@ -1194,6 +1195,12 @@ $ patator ssh_login host=<RHOST> port=<RPORT> user=<USERNAME> password=FILE0 0=/
 
 ```console
 $ pdfcrack -f file.pdf -w /PATH/TO/WORDLIST/<WORDLIST>
+```
+
+## psk-crack
+
+```console
+$ psk-crack <FILE> -d /PATH/TO/WORDLIST/<WORDLIST>
 ```
 
 ## pypykatz
