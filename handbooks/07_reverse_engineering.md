@@ -621,92 +621,158 @@ RELRO     : Partial
 
 > https://r2wiki.readthedocs.io/en/latest/
 
+### Example Configuration File
+
+#### .radare2rc 
+
+```console
+# Show comments at right of disassembly if they fit in screen
+e asm.cmt.right=true
+
+# Shows pseudocode in disassembly. Eg mov eax, str.ok = > eax = str.ok
+#e asm.pseudo = true
+
+# Display stack and register values on top of disassembly view (visual mode)
+e cmd.stack = true
+
+# Solarized theme
+eco solarized
+
+# Use UTF-8 to show arrows
+e scr.utf8 = true
+```
+
+### Configuration related Commands
+
+```console
+[0x004006e0]> e                // print current configuration
+[0x004006e0]> e scr.nkey =?    // shows command specific help
+```
+
 ### Shortcuts
 
 ```console
-v + view mode
+v = view mode
 V = visual mode
-  p = cycle different panes
+```
+
+### Visual Mode
+
+#### Common Commands
+
+```console
+V = visual mode
+  p = cycle different views
   v = function graph
     V = enter function in graph view
+  ? = help menu
+  p = debug view
+  V = enter block graph
+  S = step over
+  : = execute normal radare2 commands
+  :> px 4@bp+0x8 = find out ebp + 8 > print out 4 bytes of memory address
 ```
 
-### Search Function
+### View Mode
+
+#### Common Commands
 
 ```console
-:> s sym.main
-Enter
-Enter
-```
-
-### Common Commands
-
-```console
-?                 // help function
-r2 <FILE>         // load a file
-r2 -A ./<FILE>    // load a file
-aaa               // analyze it
-afl               // list all functions
-s main            // set breakpoint on main
-pdf               // start viewer
-pdf@main          // start viewer on main
-pdf@<function>    // start viewer on specific function
-00+               // enable read function
-s 0x00400968      // set replace function
-wx 9090           // replace s with nops
-wa nop            // write replaced nops
+$ r2 <FILE>       // load a binary
+$ r2 -A <FILE>    // analysis
+$ r2 -d <FILE>    // run a binary
+$ r2 -w <FILE>    // write to a binary (patching)
 ```
 
 ```console
-$ r2 supershell
+[0x004006e0]> ?                           // help
+[0x004006e0]> i?                          // available commands
+[0x004006e0]> ? 0x16+6                    // perform quick calculation
+[0x004006e0]> CC <COMMENT> @0x08048bcf    // set or remove a comment a specific address
+[0x004006e0]> ?                           // help function
+[0x004006e0]> aaa                         // analyze it
+[0x004006e0]> afl                         // list all functions
+[0x004006e0]> db <FUNCTION>               // set and list breakpoints
+[0x004006e0]> dc                          // start and stop program
+[0x004006e0]> do                          // restart program
+[0x004006e0]> s main                      // set breakpoint on main
+[0x004006e0]> pdf                         // start viewer
+[0x004006e0]> pdf@main                    // start viewer on main
+[0x004006e0]> pdf@<FUNCTION>              // start viewer on specific function
+[0x004006e0]> pd 2@$$                     // print 2 lines of the current position in the code
+[0x004006e0]> px 5@[ebp+0x8]              // print 5 bytes out of memory of ebp+0x8
+[0x004006e0]> 00+                         // enable read function
+[0x004006e0]> s 0x00400968                // set replace function
+[0x004006e0]> wx 9090                     // replace s with nops
+[0x004006e0]> wa nop                      // overwrite with nops
+[0x004006e0]> wao nop                     // overwrite with nops
+[0x004006e0]> q                           // exit
 ```
 
-### Analyze Everything
+### Disassembling Workflow
+
+```console
+$ r2 <FILE>
+```
+
+```console
+[0x004006e0]> aaa                     // analyse the binary
+[0x004006e0]> i                       // show information about the binary
+[0x004006e0]> iA                      // take a look at the architecture
+[0x004006e0]> ii                      // show imported libraries
+[0x004006e0]> i~canary                // use grep-similar function to search within the output of the i command
+[0x004006e0]> i~stripped              // check if the binary is stripped
+[0x004006e0]> iz                      // shows strings in data section (when the application is running)
+[0x004006e0]> afl                     // analyze function list
+[0x004006e0]> s sym.main              // jump to main (alternatively: s main)
+[0x004006e0]> s sym.authenticate      // jump to authenticate function
+[0x004006e0]> pdf                     // show opcode disassemble function (alternatively: pdf @sym.authenticate)
+[0x004006e0]> s sym.check_username    // jump to username check
+[0x004006e0]> ? 0x6262616a            // calculate the value 0x6262616a
+```
+
+### Cross References
+
+```console
+$ r2 <FILE>
+```
 
 ```console
 [0x004006e0]> aaa
-[x] Analyze all flags starting with sym. and entry0 (aa)
-[x] Analyze function calls (aac)
-[x] Analyze len bytes of instructions for references (aar)
-[x] Check for objc references
-[x] Check for vtables
-[x] Type matching analysis for all functions (aaft)
-[x] Propagate noreturn information
-[x] Use -AA or aaaa to perform additional experimental analysis.
+[0x004006e0]> iz
+[0x004006e0]> iz~sername        // ignores lower or capital letters
+[0x004006e0]> axt 0x0804955d    // search for cross reference in memory address
 ```
 
-### Show Functions
+or
 
 ```console
+[0x004006e0]> s 0x0804955d    // jump to memory address
+[0x004006e0]> pd 10$$         // disassemble and print 10 lines from here (alternatively: pd 10@0x0804955d)
+```
+
+### Runtime Debugging
+
+```console
+$ r2 -d <FILE>
+```
+
+```console
+[0x004006e0]> aaa
 [0x004006e0]> afl
-0x004006e0    1 41           entry0
-0x004006a0    1 6            sym.imp.__libc_start_main
-0x00400710    4 50   -> 41   sym.deregister_tm_clones
-0x00400750    4 58   -> 55   sym.register_tm_clones
-0x00400790    3 28           entry.fini0
-0x004007b0    4 38   -> 35   entry.init0
-0x004009b0    1 2            sym.__libc_csu_fini
-0x004009b4    1 9            sym._fini
-0x004007d6    6 89           sym.tonto_chi_legge
-0x00400940    4 101          sym.__libc_csu_init
-0x0040082f    9 260          main
-0x00400640    1 6            sym.imp.puts
-0x004006b0    1 6            sym.imp.exit
-0x00400620    1 6            sym.imp.strncpy
-0x00400630    1 6            sym.imp.strncmp
-0x00400680    1 6            sym.imp.printf
-0x004006c0    1 6            sym.imp.setuid
-0x00400670    1 6            sym.imp.system
-0x00400660    1 6            sym.imp.__stack_chk_fail
-0x004005f0    3 26           sym._init
-0x00400650    1 6            sym.imp.strlen
-0x00400690    1 6            sym.imp.strcspn
+[0x004006e0]> axt sym.secret
+[0x004006e0]> db sym.check_username    // set breakpoint
+[0x004006e0]> dc                       // start program
+[0x004006e0]> V                        // enter visual mode as alternative
+S                                      // step over
+:                                      // execute normal radare2 commands
+:> px 4@bp+0x8                         // find out ebp + 8 > print out 4 bytes of memory address
 ```
 
-### Example
+#### Runtime Example
 
 ```console
-$ r2 -d -A <FILE>                // -d run, -A analysis
+$ r2 -d -A <FILE>                  // -d run, -A analysis
 [0x080491ab]> s main; pdf          // disassemble main, pdf = Print Disassembly Function
 [0x080491ab]> db 0x080491bb        // db = debug breakpoint
 [0x080491ab]> dc                   // dc = debug continue
@@ -714,6 +780,46 @@ $ r2 -d -A <FILE>                // -d run, -A analysis
 [0x08049172]> ds                   // ds = debug step
 [0x080491aa]> pxw @ 0xff984aec     // read a specific value
 [0x41414141]> dr eip               // dr = debug register
+```
+
+### Patching
+
+#### Binary Analysis
+
+```console
+$ r2 -d <FILE>
+```
+
+```console
+[0x004006e0]> aaa
+[0x004006e0]> pdf @sym.check_username
+[0x004006e0]> db 0x08048c2a
+[0x004006e0]> dc
+[0x004006e0]> V
+p                                        // enter debug view
+pd 2@$$                                  // print current code position
+wao nop                                  // overwrite with nops
+pd 4@$$                                  // verify how many nops are required
+S                                        // step over
+V                                        // enter block graph
+:> px 5@[ebp+0x8]                        // print 5 bytes out of memory of ebp+0x8
+q
+```
+
+#### Patching Process
+
+```console
+$ r2 -w <FILE>
+```
+
+```console
+[0x004006e0]> aaa
+[0x004006e0]> pdf @sym.check_username
+[0x004006e0]> s 0x08048c2a
+[0x004006e0]> pd 4@$$
+[0x004006e0]> wao nop
+[0x004006e0]> pd 4@$$
+[0x004006e0]> q
 ```
 
 ## strings
