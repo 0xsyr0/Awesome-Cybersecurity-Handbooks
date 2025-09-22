@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-- [Assembly Instructions](#assembly-instructions)
+- [Assembly](#assembly)
 - [AvalonialLSpy](#avaloniallspy)
 - [Basic Block in angr](#basic-block-in-angr)
 - [Binwalk](#binwalk)
@@ -57,13 +57,422 @@
 | WinDbgX | An attempt to create a friendly version of WinDbg | https://github.com/zodiacon/WinDbgX |
 | x64dbg | An open-source user mode debugger for Windows. Optimized for reverse engineering and malware analysis. | https://github.com/x64dbg/x64dbg |
 
-## Assembly Instructions
+## Assembly
 
-```console
-jne     # jump equal to
-cmp     # compare
-call    # call function for example
+### x86
+
+#### General Purpose Registers
+
+- EAX – Accumulator (used for arithmetic, return values)  
+- EBX – Base register (data, addressing)  
+- ECX – Counter (loops, shifts)  
+- EDX – Data register (I/O, multiply/divide)  
+- ESI – Source index (string ops, memory copy)  
+- EDI – Destination index (string ops, memory copy)  
+- EBP – Base pointer (stack frames)  
+- ESP – Stack pointer (current stack top)  
+
+#### Data Movement
+
+```asm
+; NASM (Intel)                  ; GAS (AT&T)
+mov eax, ebx                    movl %ebx, %eax        ; eax = ebx
+mov eax, [ebx]                  movl (%ebx), %eax      ; eax = value at memory[ebx]
+mov [ebx], eax                  movl %eax, (%ebx)      ; memory[ebx] = eax
+lea eax, [ebx+4]                leal 4(%ebx), %eax     ; load effective address (eax = ebx+4)
+xchg eax, ebx                   xchgl %eax, %ebx       ; swap values
 ```
+
+#### Arithmetic
+
+```asm
+; NASM (Intel)                  ; GAS (AT&T)
+add eax, 5                      addl $5, %eax          ; eax = eax + 5
+sub eax, ebx                    subl %ebx, %eax        ; eax = eax - ebx
+inc eax                         incl %eax              ; eax = eax + 1
+dec ebx                         decl %ebx              ; ebx = ebx - 1
+imul eax, ebx                   imull %ebx, %eax       ; signed multiply
+idiv ecx                        idivl %ecx             ; signed divide (EAX/ECX, remainder in EDX)
+neg eax                         negl %eax              ; two's complement negate
+adc eax, ebx                    adcl %ebx, %eax        ; add with carry
+sbb eax, ebx                    sbbl %ebx, %eax        ; sub with borrow
+```
+
+#### Logic / Bitwise
+
+```asm
+; NASM (Intel)                  ; GAS (AT&T)
+and eax, ebx                    andl %ebx, %eax        ; bitwise AND
+or eax, 1                       orl $1, %eax           ; bitwise OR
+xor eax, eax                    xorl %eax, %eax        ; clear register (eax = 0)
+not eax                         notl %eax              ; bitwise NOT
+shl eax, 1                      shll $1, %eax          ; shift left
+shr eax, 1                      shrl $1, %eax          ; shift right (logical)
+sar eax, 1                      sarl $1, %eax          ; shift right (arithmetic)
+rol eax, 1                      roll $1, %eax          ; rotate left
+ror eax, 1                      rorl $1, %eax          ; rotate right
+bt eax, 5                       btl $5, %eax           ; bit test -> CF
+```
+
+#### Comparison & Jumps
+
+```asm
+; NASM (Intel)                  ; GAS (AT&T)
+cmp eax, ebx                    cmpl %ebx, %eax        ; compare (sets flags)
+test eax, eax                   testl %eax, %eax       ; logical AND for flags (check zero)
+je label                        je label               ; jump if equal
+jne label                       jne label              ; jump if not equal
+jg label                        jg label               ; jump if greater (signed)
+jl label                        jl label               ; jump if less (signed)
+jge label                       jge label              ; jump if greater/equal (signed)
+jle label                       jle label              ; jump if less/equal (signed)
+ja label                        ja label               ; jump if above (unsigned)
+jb label                        jb label               ; jump if below (unsigned)
+jmp label                       jmp label              ; unconditional jump
+```
+
+#### Stack Operations
+
+```asm
+; NASM (Intel)                  ; GAS (AT&T)
+push eax                        pushl %eax             ; push eax onto stack
+pop ebx                         popl %ebx              ; pop stack into ebx
+pushad                          pushal                 ; push all general registers
+popad                           popal                  ; pop all general registers
+enter 8,0                       enter $8, $0           ; setup stack frame (like function prologue)
+leave                           leave                  ; restore stack frame (function epilogue)
+```
+
+#### Loops
+
+```asm
+; NASM (Intel)                  ; GAS (AT&T)
+loop label                      loop label             ; decrement ecx, jump if ecx != 0
+jecxz label                     jecxz label            ; jump if ecx == 0
+```
+
+#### Procedure Calls
+
+```asm
+; NASM (Intel)                  ; GAS (AT&T)
+call func                       call func              ; push return addr, jump to func
+ret                             ret                    ; return from procedure
+```
+
+#### Flags (EFLAGS register)
+
+- ZF – Zero flag  
+- SF – Sign flag  
+- CF – Carry flag  
+- OF – Overflow flag  
+- PF – Parity flag  
+
+#### Example Function
+
+```asm
+; NASM (Intel)                          ; GAS (AT&T)
+function:                               function:
+    push ebp                            pushl %ebp
+    mov ebp, esp                        movl %esp, %ebp
+    sub esp, 16                         subl $16, %esp       ; allocate local space
+    mov eax, [ebp+8]                    movl 8(%ebp), %eax   ; load first argument
+    add eax, [ebp+12]                   addl 12(%ebp), %eax  ; add second argument
+    leave                               leave
+    ret                                 ret
+```
+
+### x86-64
+
+#### General-purpose Registers (64/32/16/8-bit)
+
+- RAX/EAX/AX/AL – accumulator, return values  
+- RBX/EBX/BX/BL – base  
+- RCX/ECX/CX/CL – counter, arg #1 (Win64)  
+- RDX/EDX/DX/DL – data, arg #2 (Win64)  
+- RSI/ESI/SI/SIL – src index, arg #2 (SysV), arg #3 (Win64)  
+- RDI/EDI/DI/DIL – dst index, arg #1 (SysV), arg #4 (Win64)  
+- RBP/EBP/BP/BPL – base/frame ptr  
+- RSP/ESP/SP/SPL – stack ptr  
+- R8–R15 (and lower sizes R8D/R8W/R8B …) – extra args/temps  
+
+#### Flags (RFLAGS)
+
+- CF, PF, AF, ZF, SF, OF, DF, IF (used by Jcc/SETcc/CMOVcc)  
+
+##### Data Movement
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+mov rax, rbx                           movq %rbx, %rax             ; copy
+mov rax, [rbx]                         movq (%rbx), %rax           ; load qword
+mov [rbx], rax                         movq %rax, (%rbx)           ; store qword
+movzx eax, byte [rcx]                  movzbl (%rcx), %eax         ; zero-extend 8->32
+movsx rax, word [rcx]                  movswq (%rcx), %rax         ; sign-extend 16->64
+mov rax, 0x1122334455667788            movabsq $0x1122334455667788, %rax
+lea rdx, [rcx+rax*4+8]                 leaq 8(%rcx,%rax,4), %rdx   ; address calc (no mem touch)
+xchg rax, rbx                          xchgq %rax, %rbx            ; swap
+```
+
+##### Zero-extension Rule
+
+- Any write to a 32-bit register (e.g., `EAX`) zeroes the upper 32 bits of its 64-bit parent (`RAX`).
+
+#### Arithmetic
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+add rax, rbx                           addq %rbx, %rax
+sub rax, 8                             subq $8, %rax
+inc rax                                incq %rax                   ; (does not affect CF)
+dec rbx                                decq %rbx
+imul rax, rbx                          imulq %rbx, %rax            ; signed multiply low in rax
+imul rax, rbx, 10                      imulq $10, %rbx, %rax       ; rax = rbx*10
+mul rbx                                mulq %rbx                   ; unsigned: RDX:RAX = RAX*RBX
+idiv rcx                               idivq %rcx                  ; signed: (RDX:RAX)/RCX -> RAX,RDX
+neg rax                                negq %rax
+adc rax, rbx                           adcq %rbx, %rax
+sbb rax, rbx                           sbbq %rbx, %rax
+```
+
+#### Logic / Bitwise / Shifts
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+and rax, rbx                           andq %rbx, %rax
+or rax, 1                              orq $1, %rax
+xor rax, rax                           xorq %rax, %rax             ; clear register
+not rax                                notq %rax
+shl rax, 1                             shlq $1, %rax
+shr rax, 1                             shrq $1, %rax
+sar rax, 1                             sarq $1, %rax
+rol rax, 1                             rolq $1, %rax
+ror rax, 1                             rorq $1, %rax
+bt rax, 5                              btq $5, %rax                ; bit test -> CF
+```
+
+#### Compare / Test / Conditional Moves & Sets
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+cmp rax, rbx                           cmpq %rbx, %rax
+test rax, rax                          testq %rax, %rax
+cmovz rax, rbx                         cmovzq %rbx, %rax           ; aka cmove
+cmovnz rax, rcx                        cmovnzq %rcx, %rax
+setl al                                setl %al                    ; less (signed)
+seta al                                seta %al                    ; above (unsigned)
+```
+
+#### Jumps (Jcc)
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+je label                               je label
+jne label                              jne label
+jg label                               jg label
+jge label                              jge label
+jl label                               jl label
+jle label                              jle label
+ja label                               ja label
+jb label                               jb label
+jmp label                              jmp label
+```
+
+#### Calls / Returns
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+call func                              call func
+ret                                    ret
+```
+
+#### Stack Operations (64-bit)
+
+- **pushad**/**popad** are removed in x86-64.
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+push rax                               pushq %rax
+pop rbx                                popq %rbx
+pushfq                                 pushfq
+popfq                                  popfq
+; (Note: pushad/popad removed in x86-64)
+```
+
+#### Function Prologue / Epilogue
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+push rbp                               pushq %rbp
+mov rbp, rsp                           movq %rsp, %rbp
+sub rsp, 32                            subq $32, %rsp              ; keep 16B alignment
+; ... body ...
+leave                                  leave
+ret                                    ret
+```
+
+##### Stack Alignment Rule
+
+- Before a `call`, **RSP must be 16-byte aligned** (SysV). Align by reserving an extra `8` bytes if needed.
+
+#### RIP-relative Addressing (x86-64 only)
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+lea rax, [rel msg]                     leaq msg(%rip), %rax
+mov edx, dword [rel var]               movl var(%rip), %edx
+```
+
+#### Sign-Extension / Zero-extension Helpers
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+cdqe                                   cltq                         ; EAX -> RAX sign-extend
+cqo                                    cqto                         ; RDX:RAX sign-extend from RAX
+movsxd rax, ecx                        movslq %ecx, %rax
+```
+
+#### String / Memory Ops
+
+- **REP** prefixes use **RCX** count, **RSI**/**DI** pointers.
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+movsb                                   movsb
+movsw                                   movsw
+movsd                                   movsd
+movsq                                   movsq
+stosb                                   stosb
+stosq                                   stosq
+lodsb                                   lodsb
+lodsq                                   lodsq
+cmpsb                                   cmpsb
+cmpsq                                   cmpsq
+scasb                                   scasb
+scasq                                   scasq
+rep movsq                               rep movsq                  ; memcpy 8-byte chunks
+rep stosb                               rep stosb                  ; memset
+```
+
+##### System V ADM64 (Linux / macOS / \*nix) Calling Convention
+
+- Integer/pointer args: **RDI, RSI, RDX, RCX, R8, R9**, then stack.  
+- Return: **RAX** (and **RDX** for 128-bit).  
+- Callee-saved: **RBX, RBP, R12–R15** (must preserve).  
+- Red zone: 128 bytes below RSP usable (Linux/macOS; not on Windows/interrupts).  
+
+#### Minimal SysV Function
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+global add2                            .globl add2
+add2:                                  add2:
+    lea rax, [rdi + rsi]               leaq (%rdi,%rsi), %rax
+    ret                                ret
+```
+
+#### Windows x64 Calling Convention (summary)
+
+- Integer/pointer args: **RCX, RDX, R8, R9**, then stack.  
+- Return: **RAX**.  
+- Callee-saved: **RBX, RBP, RDI, RSI, R12–R15**.  
+- Caller reserves **32 bytes of shadow space** on stack for callees.  
+- No red zone.  
+
+#### Minimal Win64 Function (with shadow space)
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+global add2                            .globl add2
+add2:                                  add2:
+    push rbp                           pushq %rbp
+    mov rbp, rsp                       movq %rsp, %rbp
+    sub rsp, 32                        subq $32, %rsp              ; shadow space
+    lea rax, [rcx + rdx]               leaq (%rcx,%rdx), %rax
+    add rsp, 32                        addq $32, %rsp
+    pop rbp                            popq %rbp
+    ret                                ret
+```
+
+#### Linux syscall (x86-64)
+
+- **RAX** = syscall number  
+- Args: **RDI, RSI, RDX, R10, R8, R9**  
+- Ret: **RAX** (negated errno on error)  
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+; write(1, msg, len)
+mov rax, 1                             movq $1, %rax        ; SYS_write
+mov rdi, 1                             movq $1, %rdi        ; fd = stdout
+lea rsi, [rel msg]                     leaq msg(%rip), %rsi
+mov rdx, msg_len                       movq $msg_len, %rdx
+syscall                                syscall
+```
+
+#### Control-flow Miscellany
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+call rax                               call *%rax           ; indirect call
+jmp  rax                               jmp *%rax            ; tailcall/jump table
+cmp  rax, 0                            cmpq $0, %rax
+setz al                                setz %al
+test rax, rax                          testq %rax, %rax
+jz   zero_path                         jz zero_path
+```
+
+#### SIMD
+
+- Registers: **XMM0–XMM15** (SSE/AVX), **YMM0–YMM15** (AVX), **ZMM** (AVX-512 where available).  
+- Moves: `movdqa/movdqu` (int aligned/unaligned), `movaps/movups` (fp aligned/unaligned).  
+- Scalars: `addss/addsd` (float/double). Vectors: `addps/addpd`, etc.
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+movdqa xmm0, [rdi]                     movdqa (%rdi), %xmm0
+movdqu xmm1, [rsi]                     movdqu (%rsi), %xmm1
+paddd xmm0, xmm1                       paddd %xmm1, %xmm0
+movdqu [rdx], xmm0                     movdqu %xmm0, (%rdx)
+
+movaps xmm2, [rdi]                     movaps (%rdi), %xmm2
+addps xmm2, [rsi]                      addps (%rsi), %xmm2
+movaps [rdx], xmm2                     movaps %xmm2, (%rdx)
+```
+
+#### Common Patterns
+
+```asm
+; NASM (Intel)                         ; GAS (AT&T)
+; Compare & branch
+cmp rdi, rsi                           cmpq %rsi, %rdi
+jl  less                               jl less
+
+; Max without branch (unsigned) via cmov
+mov  rax, rdi                          movq %rdi, %rax
+cmp  rax, rsi                          cmpq %rsi, %rax
+cmova rax, rsi                         cmovaq %rsi, %rax
+
+; Clear and set
+xor eax, eax                           xorl %eax, %eax
+or  rax, 1                             orq $1, %rax
+
+; Save / restore callee-saved (SysV)
+push rbx                               pushq %rbx
+push r12                               pushq %r12
+; ... body ...
+pop  r12                               popq %r12
+pop  rbx                               popq %rbx
+ret                                     ret
+```
+
+#### Notes / Gotchas
+
+- No `pushad`/`popad` in x86-64.  
+- `enter`/`leave` exist; `leave` is common, `enter` is rare.  
+- RIP-relative addressing is default for position-independent code.  
+- Keep stack 16-byte aligned at call sites (SysV); reserve 32-byte shadow space (Win64).  
+- Writing to 8/16-bit registers does **not** zero-extend; use `movzx/movsx` if needed.  
+- Any write to a 32-bit register zero-extends to its 64-bit parent.  
 
 ## AvaloniaILSpy
 
