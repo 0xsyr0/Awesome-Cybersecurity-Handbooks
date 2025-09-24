@@ -678,20 +678,22 @@ V = visual mode
 #### Common Commands
 
 ```console
-$ r2 <FILE>       // load a binary
-$ r2 -A <FILE>    // analysis
-$ r2 -d <FILE>    // run a binary
-$ r2 -w <FILE>    // write to a binary (patching)
+$ r2 <FILE>           // load a binary
+$ r2 -A <FILE>        // analysis
+$ r2 -d <FILE>        // run a binary
+$ r2 -w <FILE>        // write to a binary (patching)
+$ r2 -B 0x0 <FILE>    // set base address to 0x0
 ```
 
 ```console
 [0x004006e0]> ?                           // help
 [0x004006e0]> i?                          // available commands
 [0x004006e0]> ? 0x16+6                    // perform quick calculation
+[0x004006e0]> ob 0x0                      // set base address to 0x0
 [0x004006e0]> CC <COMMENT> @0x08048bcf    // set or remove a comment a specific address
-[0x004006e0]> ?                           // help function
-[0x004006e0]> aaa                         // analyze it
+[0x004006e0]> aaa                         // analyze the binary
 [0x004006e0]> afl                         // list all functions
+[0x004006e0]> axt                         // list cross reference
 [0x004006e0]> db <FUNCTION>               // set and list breakpoints
 [0x004006e0]> dc                          // start and stop program
 [0x004006e0]> do                          // restart program
@@ -701,11 +703,28 @@ $ r2 -w <FILE>    // write to a binary (patching)
 [0x004006e0]> pdf@<FUNCTION>              // start viewer on specific function
 [0x004006e0]> pd 2@$$                     // print 2 lines of the current position in the code
 [0x004006e0]> px 5@[ebp+0x8]              // print 5 bytes out of memory of ebp+0x8
+[0x004006e0]> iz                          // strings in data sections
+[0x004006e0]> izz                         // all strings in binary
+[0x004006e0]> iz~<STRING>                 // search for a specific string
+[0x004006e0]> / <STRING>                  // find a specific string
+[0x004006e0]> s hit0_0                    // check cross-references
 [0x004006e0]> 00+                         // enable read function
 [0x004006e0]> s 0x00400968                // set replace function
 [0x004006e0]> wx 9090                     // replace s with nops
 [0x004006e0]> wa nop                      // overwrite with nops
 [0x004006e0]> wao nop                     // overwrite with nops
+[0x004006e0]> afl | grep -i net           // search for function that handles network connections
+[0x004006e0]> afl | grep -i sock          // search for function that handles network connections
+[0x004006e0]> afl | grep -i recv          // search for function that handles network connections
+[0x004006e0]> afl | grep -i main          // search for function that handles network connections
+[0x004006e0]> / 0x000904c4                // search for references to a string address
+[0x004006e0]> /x c4049000                 // earch for the bytes in little-endian format
+[0x004006e0]> /R                          // search for ROP gadgets
+[0x004006e0]> "/R pop eax"                // search for specific gadgets
+[0x004006e0]> "/R ret"                    // find ret instructions
+[0x004006e0]> /x 58c3                     // search for "pop eax; ret" (58 = pop eax, c3 = ret)
+[0x004006e0]> /x c3                       // find all ret instructions
+[0x004006e0]> "/R add esp"                // find stack pivot gadgets
 [0x004006e0]> q                           // exit
 ```
 
