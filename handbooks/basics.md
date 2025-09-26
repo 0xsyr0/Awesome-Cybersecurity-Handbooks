@@ -146,6 +146,7 @@
 - [Tmux](#tmux)
 - [TTL](#ttl)
 - [utf8cleaner](#utf8cleaner)
+- [uv](#uv)
 - [VDH](#vdh)
 - [vim](#vim)
 - [VirtualBox](#virtualbox)
@@ -6143,6 +6144,15 @@ Windows systems usually use `128`.
 ```console
 $ pip install utf8cleaner
 $ utf8cleaner --input <FILE>
+```
+
+## uv
+
+> https://github.com/astral-sh/uv
+
+```console
+$ uv add --script <SCRIPT> -r requirements.txt
+$ uv run --script <SCRIPT>
 ```
 
 ## VDH
