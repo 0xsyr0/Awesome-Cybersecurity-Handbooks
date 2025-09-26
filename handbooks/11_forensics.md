@@ -19,6 +19,7 @@
 - [inetsim](#inetsim)
 - [iOS](#ios)
 - [Jamovi](#jamovi)
+- [lnkparse](#lnkparse)
 - [ltrace](#ltrace)
 - [memdump](#memdump)
 - [MemProcFS](#memprocfs)
@@ -255,6 +256,12 @@ $ plistutil -i challenge.plist -o challenge.plist.xml
 
 ```console
 $ unzip <FILE>.omv
+```
+
+## lnkparse3
+
+```console
+$ lnkparse (FILE)
 ```
 
 ## ltrace
