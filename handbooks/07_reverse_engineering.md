@@ -621,25 +621,56 @@ RELRO     : Partial
 
 > https://r2wiki.readthedocs.io/en/latest/
 
-### Example Configuration File
+> https://monosource.gitbooks.io/radare2-explorations/content/
 
-#### .radare2rc 
+> https://gist.github.com/werew/cad8f30bc930bfca385554b443eec2a7
+
+### Customization
+
+#### Themes
 
 ```console
-# Show comments at right of disassembly if they fit in screen
-e asm.cmt.right=true
+[0x004006e0]> eco
+[0x004006e0]> eco consonance
+```
 
-# Shows pseudocode in disassembly. Eg mov eax, str.ok = > eax = str.ok
-#e asm.pseudo = true
+#### Example Configuration File
 
-# Display stack and register values on top of disassembly view (visual mode)
-e cmd.stack = true
+##### .radare2rc 
 
-# Solarized theme
-eco solarized
+```console
+# ---- UI / readability
+e scr.color = true            # enable colored output
+e scr.utf8 = true             # use UTF-8 box-drawing for graphs/UI
+e asm.syntax = intel          # disassembly in Intel syntax
+e asm.lines = true            # draw ASCII flow lines in disasm
+e asm.bytes = false           # hide raw instruction bytes (cleaner view)
+e asm.cmt.right = true        # show comments at right if they fit
+# e asm.pseudo = true          # optional: pseudocode in disasm
+e cmd.stack = true            # show stack + regs in visual mode
+eco consonance                # apply the "consonance" color theme
+# ec prompt red               # example: change prompt color (optional)
 
-# Use UTF-8 to show arrows
-e scr.utf8 = true
+# ---- symbols / demangling / strings
+e asm.demangle = true         # demangle C++/Swift symbols
+e bin.str.purge = true        # filter out junk strings (false positives)
+
+# ---- analysis behavior
+e anal.esil = true            # enable ESIL VM emulation in analysis
+e anal.hasnext = true         # continue analysis past last known func
+e anal.strings = true         # consider only referenced strings
+e anal.vars = true            # auto-analyze function local variables
+
+# ---- IO / performance (safe caching)
+e io.cache = true             # enable R/W caching layer
+e io.cache.read = true        # cache reads for speed
+e io.cache.write = true       # cache writes (not applied until wq/wf)
+e io.pcache = true            # enable page-level IO caching
+e io.pcache.read = true       # cache reads at page granularity
+
+# ---- debugging defaults
+e dbg.bep = entry             # break on entrypoint when debugging
+e dbg.follow = false          # don't auto-follow fork/exec children
 ```
 
 ### Configuration related Commands
@@ -654,6 +685,27 @@ e scr.utf8 = true
 ```console
 v = view mode
 V = visual mode
+```
+
+### Project Management
+
+```console
+[0x004006e0]> Po <PROJECT>    // open/create a project
+[0x004006e0]> Ps <PROJECT>    // save current session to a project
+[0x004006e0]> PS              // list all projects
+[0x004006e0]> P- <PROJECT>    // delete a project
+[0x004006e0]> Pj              // list projects in JSON
+[0x004006e0]> PS*             // list projects in radare2 commands format
+[0x004006e0]> Ps              // save current session (overwrites if exists)
+[0x004006e0]> Pn <PROJECT>    // rename current project
+[0x004006e0]> Pq              // close project
+```
+
+### Preliminary Analysis
+
+```console
+$ rabin2 -I <FILE>
+$ rabin2 -MRsSz <FILE>    // -M -> classes, methods and symbols; -R -> relocations; -s -> symbols; -S -> sections; -z -> strings
 ```
 
 ### Visual Mode
@@ -686,46 +738,94 @@ $ r2 -B 0x0 <FILE>    // set base address to 0x0
 ```
 
 ```console
-[0x004006e0]> ?                           // help
-[0x004006e0]> i?                          // available commands
-[0x004006e0]> ? 0x16+6                    // perform quick calculation
-[0x004006e0]> ob 0x0                      // set base address to 0x0
-[0x004006e0]> CC <COMMENT> @0x08048bcf    // set or remove a comment a specific address
-[0x004006e0]> aaa                         // analyze the binary
-[0x004006e0]> afl                         // list all functions
-[0x004006e0]> axt                         // list cross reference
-[0x004006e0]> db <FUNCTION>               // set and list breakpoints
-[0x004006e0]> dc                          // start and stop program
-[0x004006e0]> do                          // restart program
-[0x004006e0]> s main                      // set breakpoint on main
-[0x004006e0]> pdf                         // start viewer
-[0x004006e0]> pdf@main                    // start viewer on main
-[0x004006e0]> pdf@<FUNCTION>              // start viewer on specific function
-[0x004006e0]> pd 2@$$                     // print 2 lines of the current position in the code
-[0x004006e0]> px 5@[ebp+0x8]              // print 5 bytes out of memory of ebp+0x8
-[0x004006e0]> iz                          // strings in data sections
-[0x004006e0]> izz                         // all strings in binary
-[0x004006e0]> iz~<STRING>                 // search for a specific string
-[0x004006e0]> / <STRING>                  // find a specific string
-[0x004006e0]> s hit0_0                    // check cross-references
-[0x004006e0]> 00+                         // enable read function
-[0x004006e0]> s 0x00400968                // set replace function
-[0x004006e0]> wx 9090                     // replace s with nops
-[0x004006e0]> wa nop                      // overwrite with nops
-[0x004006e0]> wao nop                     // overwrite with nops
-[0x004006e0]> afl | grep -i net           // search for function that handles network connections
-[0x004006e0]> afl | grep -i sock          // search for function that handles network connections
-[0x004006e0]> afl | grep -i recv          // search for function that handles network connections
-[0x004006e0]> afl | grep -i main          // search for function that handles network connections
-[0x004006e0]> / 0x000904c4                // search for references to a string address
-[0x004006e0]> /x c4049000                 // earch for the bytes in little-endian format
-[0x004006e0]> /R                          // search for ROP gadgets
-[0x004006e0]> "/R pop eax"                // search for specific gadgets
-[0x004006e0]> "/R ret"                    // find ret instructions
-[0x004006e0]> /x 58c3                     // search for "pop eax; ret" (58 = pop eax, c3 = ret)
-[0x004006e0]> /x c3                       // find all ret instructions
-[0x004006e0]> "/R add esp"                // find stack pivot gadgets
-[0x004006e0]> q                           // exit
+[0x004006e0]> ?           // help
+[0x004006e0]> i?          // list info commands
+[0x004006e0]> ? 0x16+6    // quick calculation
+[0x004006e0]> ob 0x0      // set base address
+[0x004006e0]> q           // quit
+```
+
+#### Basic Controls
+
+```console
+;     // command chaining
+|     // pipe with shell commands
+~     // grep
+..    // repeats last commands
+$$    // current position
+@     // absolute offsets
+@@    // used for iterations
+```
+
+```console
+[0x004006e0]> wx ff @@10 20 30        // write ff at offsets 10, 20 and 30
+[0x004006e0]> wx ff @@`?s  1 10 2`    // write ff at offsets 1, 2 and 3
+[0x004006e0]> wx 90 @@ sym.*          // write a nop on every symbol
+```
+
+#### Analysis & Navigation
+
+```console
+[0x004006e0]> aaa                   // analyze the binary
+[0x004006e0]> afl                   // list all functions
+[0x004006e0]> afl | grep -i net     // search for functions by keyword
+[0x004006e0]> afl | grep -i sock
+[0x004006e0]> afl | grep -i recv
+[0x004006e0]> afl | grep -i main
+[0x004006e0]> axt                   // list cross references
+```
+
+#### Positioning
+
+```console
+[0x004006e0]> s <address|symbol>    // move cursor
+  s-5                               // 5 bytes backwards
+  s-                                // undo seek
+  s+                                // redo seek
+[0x004006e0]> s main                // seek to main
+[0x004006e0]> s 0x00400968          // seek to specific address
+[0x004006e0]> s hit0_0              // seek to cross-reference
+```
+
+#### Disassembly & Views
+
+```console
+[0x004006e0]> pdf               // print disassembly of function
+[0x004006e0]> pdf@main          // disassemble main
+[0x004006e0]> pdf@<FUNCTION>    // disassemble specific function
+[0x004006e0]> pd 2@$$           // print 2 instructions at current position
+[0x004006e0]> px 5@[ebp+0x8]    // dump 5 bytes from memory at ebp+0x8
+```
+
+#### Strings & Data
+
+```console
+[0x004006e0]> iz              // list strings in data sections
+[0x004006e0]> izz             // list all strings in binary
+[0x004006e0]> iz~<STRING>     // search for specific string
+[0x004006e0]> / <STRING>      // search for specific string
+[0x004006e0]> / 0x000904c4    // search for references to a string address
+```
+
+#### Seraching & ROP
+
+```console
+[0x004006e0]> /x c4049000     // search for raw bytes (little endian)
+[0x004006e0]> /x 58c3         // search for "pop eax; ret"
+[0x004006e0]> /x c3           // search for all rets
+[0x004006e0]> /R              // search for ROP gadgets
+[0x004006e0]> "/R pop eax"    // search for specific gadget
+[0x004006e0]> "/R ret"        // search for rets
+[0x004006e0]> "/R add esp"    // search for stack pivot gadgets
+```
+
+#### Patching
+
+```console
+[0x004006e0]> wx 9090                 // write NOPs (hex)
+[0x004006e0]> wa nop                  // assemble to NOP
+[0x004006e0]> wao nop                 // overwrite with NOP
+[0x004006e0]> CC <COMMENT> @0xADDR    // add/remove comment
 ```
 
 ### Disassembling Workflow
@@ -750,7 +850,9 @@ $ r2 <FILE>
 [0x004006e0]> ? 0x6262616a            // calculate the value 0x6262616a
 ```
 
-### Cross References
+### Examples
+
+#### Cross References
 
 ```console
 $ r2 <FILE>
@@ -770,7 +872,7 @@ or
 [0x004006e0]> pd 10$$         // disassemble and print 10 lines from here (alternatively: pd 10@0x0804955d)
 ```
 
-### Runtime Debugging
+#### Runtime Debugging
 
 ```console
 $ r2 -d <FILE>
@@ -788,22 +890,22 @@ S                                      // step over
 :> px 4@bp+0x8                         // find out ebp + 8 > print out 4 bytes of memory address
 ```
 
-#### Runtime Example
+##### Runtime Example
 
 ```console
-$ r2 -d -A <FILE>                  // -d run, -A analysis
-[0x080491ab]> s main; pdf          // disassemble main, pdf = Print Disassembly Function
-[0x080491ab]> db 0x080491bb        // db = debug breakpoint
-[0x080491ab]> dc                   // dc = debug continue
-[0x08049172]> pxw @ esp            // analyze top of the stack
-[0x08049172]> ds                   // ds = debug step
-[0x080491aa]> pxw @ 0xff984aec     // read a specific value
-[0x41414141]> dr eip               // dr = debug register
+$ r2 -d -A <FILE>                 // -d run, -A analysis
+[0x080491ab]> s main; pdf         // disassemble main, pdf = Print Disassembly Function
+[0x080491ab]> db 0x080491bb       // db = debug breakpoint
+[0x080491ab]> dc                  // dc = debug continue
+[0x08049172]> pxw @ esp           // analyze top of the stack
+[0x08049172]> ds                  // ds = debug step
+[0x080491aa]> pxw @ 0xff984aec    // read a specific value
+[0x41414141]> dr eip              // dr = debug register
 ```
 
-### Patching
+#### Patching
 
-#### Binary Analysis
+##### Binary Analysis
 
 ```console
 $ r2 -d <FILE>
@@ -825,7 +927,7 @@ V                                        // enter block graph
 q
 ```
 
-#### Patching Process
+##### Patching Process
 
 ```console
 $ r2 -w <FILE>
