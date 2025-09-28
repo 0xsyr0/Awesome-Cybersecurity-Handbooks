@@ -12,6 +12,7 @@
 | Name | Description | URL |
 | --- | --- | --- |
 | Decrypt mRemoteNG passwords | Decrypt mRemoteNG passwords | https://github.com/gquere/mRemoteNG_password_decrypt |
+| dpyAesDecrypt | dAescrypt.py is a multithreaded brute-force tool to crack .aes files encrypted using the pyAesCrypt library. It supports password length filtering, progress display with ETA, and optional decryption after cracking. | https://github.com/Nabeelcn25/dpyAesCrypt.py |
 | firefox_decrypt | Firefox Decrypt is a tool to extract passwords from Mozilla (Firefox™, Waterfox™, Thunderbird®, SeaMonkey®) profiles | https://github.com/unode/firefox_decrypt |
 | gpp-decrypt | Tool to parse the Group Policy Preferences XML file which extracts the username and decrypts the cpassword attribute. | https://github.com/t0thkr1s/gpp-decrypt |
 | Jenkins Credentials Decryptor | Command line tool for dumping Jenkins credentials. | https://github.com/hoto/jenkins-credentials-decryptor |
