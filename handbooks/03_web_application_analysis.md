@@ -2298,7 +2298,16 @@ https://github.com/search?q=%2F%22sk-%5Ba-zA-Z0-9%5D%7B20%2C50%7D%22%2F&ref=simp
 
 ### GitHub Dorks
 
+> https://cs.github.com
+
 > https://github.com/search?type=code
+
+```console
+/ssh:\/\/.*:.*@.*target\.com/
+/ftp:\/\/.*:.*@.*target\.com/
+/ssh:\/\/.*:.*@.*target\.com/ NOT "git"
+/ftp:\/\/.*:.*@.*target\.com/ NOT "git"
+```
 
 ```console
 /ftp:\/\/.*:.*@.*target\.com/
