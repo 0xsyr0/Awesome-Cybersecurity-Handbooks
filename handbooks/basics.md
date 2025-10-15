@@ -6150,9 +6150,35 @@ $ utf8cleaner --input <FILE>
 
 > https://github.com/astral-sh/uv
 
+> https://0xdf.gitlab.io/cheatsheets/uv#
+
+## Tooling Installation
+
 ```console
-$ uv add --script <SCRIPT> -r requirements.txt
+$ uv tool install .
+$ uv tool install <PACKAGE>
+$ uv tool install git+https://github.com/<ACCOUNT>/<REPOSITORY>
+$ uv tool install git+https://github.com/<ACCOUNT>/<FILE>.py.git@<PROJECT>
+```
+
+### Injection
+
+```console
+$ uv tool install --with setuptools <PACKAGE>
+```
+
+### Updating
+
+```console
+$ uv tool list
+$ uv tool upgrade --all
+$ uv tool upgrade <PACKAGE>
+```
+
+```console
 $ uv run --script <SCRIPT>
+$ uv add --script <SCRIPT> -r requirements.txt
+$ uv add --script <FILE>.py <PACKAGE>
 ```
 
 ## VDH
