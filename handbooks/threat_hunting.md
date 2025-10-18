@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [Advanced Threat Analytics](#advanced-yhreat-analytics)
+- [Kusto Query Language (KQL)](#kusto-query-language-kql)
 - [Named Pipes](#named-pipes)
 - [Sysmon Event Codes](#sysmon-event-codes)
 - [Threat Hunting with Shodan](#threat-hunting-with-shodan)
@@ -34,6 +35,42 @@
 - Detects: account enumeration, netsession enumeration, Brute Force, exposed cleartext credentials, honey tokens, unusual protocols, credential attacks (pth,ptt,ticket replay)
 - Will NOT detect non existent users for golden ticket
 - Detects DCSync, but not DCShadow
+
+## Kusto Query Language (KQL)
+
+### Detect Credential Dumping via Suspicious Modules
+
+```console
+DeviceImageLoadEvents
+| where InitiatingProcessFileName in~ ("mimikatz.exe", "procdump.exe")
+| where FileName in~ ("dbgcore.dll", "comsvcs.dll")
+```
+
+### Detect LSASS Memory Access
+
+```console
+DeviceProcessEvents
+| where FileName in~ ("procdump.exe", "mimikatz.exe", "taskmgr.exe")
+| where ProcessCommandLine contains "lsass"
+```
+
+### Unusual Access to SAM/SECURITY/NTDS Files
+
+```console
+DeviceFileEvents
+| where FileName in~ ("SAM", "SECURITY", "SYSTEM", "ntds.dit")
+| where FolderPath has_any ("\\Windows\\System32\\config", "C:\\Windows\\NTDS")
+| where ActionType == "FileRead"
+```
+
+### PowerShell Commands Related to Credential Dumping
+
+```console
+DeviceProcessEvents
+| where FileName =~ "powershell.exe"
+| where ProcessCommandLine has_any ("Get-Credential", "Invoke-Mimikatz", "DumpCreds", "lsass")
+| project Timestamp, DeviceName, ProcessCommandLine, InitiatingProcessAccountName
+```
 
 ## Named Pipes
 
