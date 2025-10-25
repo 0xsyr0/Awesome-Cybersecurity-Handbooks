@@ -2994,6 +2994,7 @@ $ kyubi -v <URL>
 /.chef/config.rb
 /.circleci/config.yml
 /.circleci/ssh-config
+/.config.php
 /.composer-auth.json
 /.composer/composer.json
 /.config/gcloud/access_tokens.db
@@ -3103,6 +3104,7 @@ $ kyubi -v <URL>
 /.wgetrc
 /.wp-config.php.swp
 /////evil.com
+////../../data/config/microsrv.cfg
 ///evil.com/%2F..
 //admin/
 //anything/admin/
@@ -3117,6 +3119,8 @@ $ kyubi -v <URL>
 /___graphql
 /__clockwork/app
 /__swagger__/
+/Cassini.exe.config
+/ccnet.config
 /_cat/health
 /_cat/indices
 /_cluster/health
@@ -3200,6 +3204,7 @@ $ kyubi -v <URL>
 /admin/../admin
 /admin//phpmyadmin/
 /admin/adminer.php
+/admin/config.php
 /admin/configs/application.ini
 /admin/data/autosuggest
 /admin/error.log
@@ -3223,6 +3228,7 @@ $ kyubi -v <URL>
 /adminer/
 /adminer/adminer.php
 /adminer/index.php
+/administrator/webconfig.txt.php
 /ADSearch.cc?methodToCall=search
 /aims/ps/
 /airflow.cfg
@@ -3315,6 +3321,7 @@ $ kyubi -v <URL>
 /apis
 /apis/apps/v1/namespaces/default/deployments
 /aplicacao/application/configs/application.ini
+/app.config
 /app/config/parameters.yml
 /app/config/parameters.yml.dist
 /app/config/pimcore/google-api-private-key.json
@@ -3345,6 +3352,7 @@ $ kyubi -v <URL>
 /assets/file
 /assets/other/service-account-credentials.json
 /asynchPeople/
+/audit.config
 /auditevents
 /aura
 /auth.html
@@ -3392,6 +3400,7 @@ $ kyubi -v <URL>
 /CFIDE/administrator/images/mx_login.gif
 /cfide/administrator/images/mx_login.gif
 /cgi
+/cgi-bin/config.exp
 /cgi-bin/nagios3/status.cgi
 /cgi-bin/nagios4/status.cgi
 /cgi-bin/printenv.pl
@@ -3419,6 +3428,9 @@ $ kyubi -v <URL>
 /config.php.bak
 /config.rb
 /config.sh
+/config
+/config.inc
+/config.inc.php
 /config/
 /config/application.rb
 /config/configuration.yml
@@ -3442,6 +3454,7 @@ $ kyubi -v <URL>
 /configurations/config_default
 /configure/app/landing/welcome-srm-va.html
 /confluence
+/conceptual.config
 /conn.php.bak
 /console
 /console/login/LoginForm.jsp
@@ -3817,11 +3830,18 @@ $ kyubi -v <URL>
 /nextcloud/index.php/login
 /nginx.conf
 /nginx_status
+/NHibernate.Caches.SysCache.Tests.dll.config
+/NHibernate.config
+/NLog.config
 /ngrok2/ngrok.yml
 /nifi-api/access/config
 /node/1?_format=hal_json
 /npm-debug.log
 /npm-shrinkwrap.json
+/nunit-agent.exe.config
+/nunit-gui.exe.config
+/nunit-x86.exe.config
+/nunit.exe.config
 /nuxeo/login.jsp/pwn${31333333330+7}.xhtml
 /OA_HTML/bin/sqlnet.log
 /OA_HTML/jtfwrepo.xml
@@ -3997,6 +4017,7 @@ $ kyubi -v <URL>
 /rest/tinymce/1/macro/preview
 /rgs/
 /rgsclients/
+/Rhino.Commons.NHibernete.dll.config
 /robomongo.json
 /robots.txt%2e%2e%3B/
 /robots.txt..%3B/
@@ -4014,6 +4035,7 @@ $ kyubi -v <URL>
 /ruby/config/storage.yml
 /run
 /run.sh
+/runFile.exe.config
 /runningpods/
 /s/sfsites/aura
 /s3cmd.ini
@@ -4023,6 +4045,7 @@ $ kyubi -v <URL>
 /sap/wdisp/admin/public/default.html
 /sapi/debug/default/view
 /scheduler/
+/sconfig.php
 /schema
 /schema.rb
 /script
@@ -4050,6 +4073,7 @@ $ kyubi -v <URL>
 /service-account-credentials.json
 /service/rest/swagger.json
 /service?Wsdl
+/services.config
 /servicedesk/customer/user/login
 /servicedesk/customer/user/signup
 /services/Version
@@ -4112,6 +4136,7 @@ $ kyubi -v <URL>
 /static/api/swagger.yaml
 /static/emq.ico
 /stats/summary
+/StateNameServer.exe.config
 /status%3E%3Cscript%3Ealert(31337)%3C%2Fscript%3E
 /status.php
 /status/selfDiscovered/status
@@ -4145,8 +4170,10 @@ $ kyubi -v <URL>
 /swagger/v2/swagger.json
 /swagger/v2/swagger.yaml
 /sysmgmt/2015/bmc/info"  # Firmware Version and other info (iDRAC9
+/Sysindex.config
 /system
 /system-diagnostics
+/System.config
 /systemstatus.xml
 /Telerik.Web.UI.DialogHandler.aspx
 /Telerik.Web.UI.DialogHandler.aspx?dp=1
@@ -4298,6 +4325,7 @@ $ kyubi -v <URL>
 /vpn/index.html
 /wavemaker/studioService.download?method=getContent&inUrl=file///etc/passwd
 /WEB-INF/web.xml
+/Web.config
 /web.config
 /web/adminer.php
 /web/debug/default/view
@@ -4313,6 +4341,8 @@ $ kyubi -v <URL>
 /webadmin/tools/systemstatus_remote.php
 /webadmin/tools/unixlogin.php?login=admin&password=g%27%2C%27%27%29%3Bimport%20os%3Bos.system%28%276563686f2022626d39755a5868706333526c626e513d22207c20626173653634202d64203e202f7573722f6c6f63616c2f6e6574737765657065722f77656261646d696e2f6f7574%27.decode%28%27hex%27%29%29%23&timeout=5
 /webadminer.php
+/webconfig.php
+/webconfig.txt.php
 /webalizer/
 /webapi/v1/system/accountmanage/account
 /webapp/?fccc0\><script>alert(1)</script>5f43d=1
@@ -4334,18 +4364,24 @@ $ kyubi -v <URL>
 /whoAmI/
 /wiki
 /wp
+/wp-config.php
+/wp-includes/css/wp-config.php
+/wp-includes/fonts/wp-config.php
+/wp-includes/modules/wp-config.php
 /ws2020/
 /ws2021/
 /ws_ftp.ini
 /www.key
 /www/delivery/afr.php?refresh=10000&\),10000000);alert(1337);setTimeout(alert(\
 /xampp/phpmyadmin/
+/xamlSyntax.config
 /xmldata?item=all
 /xmldata?item=CpqKey
 /XmlPeek.aspx?dt=\\\\..\\\\..\\\\..\\\\..\\\\..\\\\..\\\\Windows\\\\win.ini&x=/validate.ashx?requri
 /xmlpserver/servlet/adfresource?format=aaaaaaaaaaaaaaa&documentId=..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5CWindows%5Cwin.ini
 /xmlrpc.php
 /xprober.php
+/xunit.console.exe.config
 /yarn.lock
 /yii/vendor/phpunit/phpunit/phpunit
 /zabbix.php?action=dashboard.view&dashboardid=1
