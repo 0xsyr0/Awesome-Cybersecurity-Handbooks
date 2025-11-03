@@ -25,6 +25,7 @@
 | AzureC2Relay | AzureC2Relay is an Azure Function that validates and relays Cobalt Strike beacon traffic by verifying the incoming requests based on a Cobalt Strike Malleable C2 profile. | https://github.com/Flangvik/AzureC2Relay |
 | Brute Ratel | A Customized Command and Control Center for Red Team and Adversary Simulation | https://bruteratel.com/ |
 | Cobalt Strike | Adversary Simulation and Red Team Operations | https://www.cobaltstrike.com/ |
+| Conquest | Conquest is a feature-rich and malleable command & control/post-exploitation framework developed in Nim. | https://github.com/jakobfriedl/conquest |
 | convoC2 | C2 infrastructure that allows Red Teamers to execute system commands on compromised hosts through Microsoft Teams. | https://github.com/cxnturi0n/convoC2 |
 | Covenant | Covenant is a .NET command and control framework that aims to highlight the attack surface of .NET, make the use of offensive .NET tradecraft easier, and serve as a collaborative command and control platform for red teamers. | https://github.com/cobbr/Covenant |
 | DeathStar | DeathStar is a Python script that uses Empire's RESTful API to automate gaining Domain and/or Enterprise Admin rights in Active Directory environments using some of the most common offensive TTPs. | https://github.com/byt3bl33d3r/DeathStar |
@@ -39,6 +40,7 @@
 | MoveKit | Cobalt Strike kit for Lateral Movement | https://github.com/0xthirteen/MoveKit |
 | Mythic | A cross-platform, post-exploit, red teaming framework built with python3, docker, docker-compose, and a web browser UI. It's designed to provide a collaborative and user friendly interface for operators, managers, and reporting throughout red teaming. | https://github.com/its-a-feature/Mythic |
 | Nightmangle | Nightmangle is post-exploitation Telegram Command and Control (C2/C&C) Agent, created by @1N73LL1G3NC3. | https://github.com/1N73LL1G3NC3x/Nightmangle |
+| Nimhawk | A powerful, modular, lightweight and efficient command & control framework written in Nim. | https://github.com/hdbreaker/Nimhawk |
 | NimPlant | A light-weight first-stage C2 implant written in Nim. | https://github.com/chvancooten/NimPlant |
 | Nuages | A modular C2 framework | https://github.com/p3nt4/Nuages |
 | PoshC2 | A proxy aware C2 framework used to aid red teamers with post-exploitation and lateral movement. | https://github.com/nettitude/PoshC2 |
