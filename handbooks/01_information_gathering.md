@@ -23,7 +23,7 @@
 - [onesixtyone](#onesixtyone)
 - [Outlook Web Access (OWA)](#outlook-web-access-owa)
 - [Port Scanning](#port-scanning)
-- [SMTP](#stmp)
+- [SMTP](#smtp)
 - [SNMP](#snmp)
 - [snmp-check](#snmp-check)
 - [SNMP-MIBS-Downloader](#snmp-mibs-downloader)
