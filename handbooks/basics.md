@@ -5466,7 +5466,7 @@ ctrl + esc
 ## sendemail
 
 ```console
-$ sendemail -f foobar@<DOMAIN> -t nico@<DOMAIN> -u "Invoice Attached" -m "You are overdue payment" -a invoice.rtf -s 10.10.10.77 -v
+$ sendemail -f '<USERNAME>@<DOMAIN>' -t '<USERNAME>@<DOMAIN>' -u 'Invoice Attached' -m 'You are overdue payment' -a 'invoice.rtf' -s <RHOST> -v
 ```
 
 ## seq
