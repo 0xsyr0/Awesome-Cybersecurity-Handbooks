@@ -219,7 +219,7 @@
 | n/a | GodPotato LPE | https://github.com/BeichenDream/GodPotato |
 | n/a | JuicyPotato LPE | https://github.com/ohpe/juicy-potato |
 | n/a | Juice-PotatoNG LPE | https://github.com/antonioCoco/JuicyPotatoNG |
-| n/a | Microsoft ms-photos URI NTLM Leak | https://github.com/rubenformation/ms-photos_NTLM_Leak |
+| n/a | Microsoft ms-photos URI NTLM Leak (0-day) | https://github.com/rubenformation/ms-photos_NTLM_Leak |
 | n/a | MultiPotato LPE | https://github.com/S3cur3Th1sSh1t/MultiPotato |
 | n/a | RemotePotato0 LPE | https://github.com/antonioCoco/RemotePotato0 |
 | n/a | RoguePotato LPE | https://github.com/antonioCoco/RoguePotato |
