@@ -185,7 +185,7 @@ $ ./finger-user-enum.pl -U users.txt -t <RHOST>
 
 ## Fscan
 
-```shell
+```console
 $ ./fscan -h <SUBNET> -np
 ```
 
