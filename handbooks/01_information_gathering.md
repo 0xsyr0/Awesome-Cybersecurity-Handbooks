@@ -14,6 +14,7 @@
 - [dnsrecon](#dnsrecon)
 - [Enyx](#enyx)
 - [finger](#finger)
+- [Fscan](Fscan)
 - [MASSCAN](#masscan)
 - [memcached](#memcached)
 - [Naabu](#naabu)
@@ -180,6 +181,12 @@ msf6 > use auxiliary/scanner/finger/finger_users
 
 ```console
 $ ./finger-user-enum.pl -U users.txt -t <RHOST>
+```
+
+## Fscan
+
+```shell
+$ ./fscan -h <SUBNET> -np
 ```
 
 ## MASSCAN
