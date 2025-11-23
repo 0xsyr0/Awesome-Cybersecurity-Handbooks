@@ -77,6 +77,7 @@
 - [Network File System (NFS)](#network-file-system-nfs)
 - [NetworkManager](#networkmanager)
 - [nfsshell](#nfsshell)
+- [NFS Security Tools](#nfs-security-tools)
 - [npx](#npx)
 - [nsupdate](#nsupdate)
 - [objectdump](#objectdump)
@@ -4187,6 +4188,26 @@ nfs> uid 1000
 nfs> gid 1000
 nfs> cd <USERNAME>
 nfs> ls
+```
+
+## NFS Security Tools
+
+### Installation
+
+```console
+# pipx install git+https://github.com/hvs-consulting/nfs-security-tooling.git
+```
+
+### Execution
+
+```console
+# nfs_analyze <RHOST>
+```
+
+### Mount
+
+```console
+# fuse_nfs /PATH/TO/FOLDER/<FOLDER> <RHOST> --fake-uid --allow-write --manual-fh 0100070001000a00000000008a01da17c19a400cbc9c37e3567d3fba
 ```
 
 ## npx
