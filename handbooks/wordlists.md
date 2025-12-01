@@ -80,6 +80,12 @@ javascript:(function(){const e=document.documentElement.innerText.match(/[a-zA-Z
 
 ## Mutate Wordlists
 
+### Find empty Passwords
+
+```console
+$ grep -n '^$' /PATH/TO/WORDLIST/<WORDLIST>
+```
+
 ### Remove all Number Sequences
 
 ```console
