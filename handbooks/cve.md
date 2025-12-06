@@ -202,6 +202,7 @@
 | CVE-2025-33073 | Windows SMB NTLM Reflection | https://github.com/mverschu/CVE-2025-33073 |
 | CVE-2025-53770 | ToolShell SharePoint RCE (0-day) (1) | https://github.com/soltanali0/CVE-2025-53770-Exploit |
 | CVE-2025-53770 | ToolShell SharePoint RCE (0-day) (2) | https://github.com/MuhammadWaseem29/CVE-2025-53770 |
+| CVE-2025-55182 | React2Shell RCE | https://github.com/msanft/CVE-2025-55182 |
 | CVE-2025-5777 | Citrix Bleed 2 | https://github.com/bughuntar/CVE-2025-5777 |
 | CVE-2025-62215 | Windows Kernel LPE | https://github.com/dexterm300/CVE-2025-62215-exploit-poc |
 | CVE-2025-9074 | Docker Desktop (Windows) Container Escape - Host Write via Exposed Engine API | https://github.com/zenzue/CVE-2025-9074 |
