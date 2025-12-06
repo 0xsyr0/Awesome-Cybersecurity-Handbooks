@@ -22,6 +22,7 @@
 | DNSChef (NG) | DNSChef (NG) - DNS proxy for Penetration Testers and Malware Analysts | https://github.com/byt3bl33d3r/dnschef-ng |
 | FakeDns | A regular-expression based python MITM DNS server with support for DNS Rebinding attacks | https://github.com/Crypt0s/FakeDns |
 | FakeSSH | A dockerized fake SSH server honeypot written in Go that logs login attempts. | https://github.com/fffaraz/fakessh |
+| InterceptSuite | MITM proxy for TCP/TLS/DTLS/UDP traffic, with support for TLS upgrades like STARTTLS, PostgreSQL, and more. | https://github.com/InterceptSuite/InterceptSuite |
 | mDNS | A mDNS sniffer and interpreter. | https://github.com/eldraco/Sapito |
 | mitm6 | mitm6 is a pentesting tool that exploits the default configuration of Windows to take over the default DNS server. | https://github.com/dirkjanm/mitm6 |
 | mitmproxy | mitmproxy is an interactive, SSL/TLS-capable intercepting proxy with a console interface for HTTP/1, HTTP/2, and WebSockets. | https://github.com/mitmproxy/mitmproxy |
