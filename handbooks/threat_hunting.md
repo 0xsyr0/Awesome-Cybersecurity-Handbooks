@@ -56,24 +56,24 @@ summarize
 
 | Operator / Function Name | Description | Example |
 | --- | --- | --- |
-| search | Searches the specified table for matching value or pattern | `search "failed"` | `where | Filters the specified table based on specified conditions | SigninLogs | where EventID == "4624"` |
-| take | Used to limit the number of returned rows in the result set | `SigninLogs | take 5` |
-| sort | Sort records in ascending or descending order based on the specified column | `SigninLogs | sort by TimeGenerated, Identity desc | take 5` |
+| search | Searches the specified table for matching value or pattern | `search "failed" \| where \| Filters the specified table based on specified conditions \| SigninLogs \| where EventID == "4624"` |
+| take | Used to limit the number of returned rows in the result set | `SigninLogs \| take 5` |
+| sort | Sort records in ascending or descending order based on the specified column \| `SigninLogs \| sort by TimeGenerated, Identity desc \| take 5` |
 | ago | Returns the time offset relative to the time the query executes | `ago(1h)` |
 | print | Outputs a single row with one or more scalar expressions | `print bin(4.5, 1)` |
-| project | Selects specific columns from a table | `Perf | project ObjectName, CounterValue, CounterName` |
-| extend | Used to create a new calculated column and add it to the result set | `Perf | extend AlertThreshold = 80` |
-| count | Calculates the number of records in a table | `SecurityAlert | count()` |
-| join | Combines data from multiple tables based on common columns | `LeftTable | join [JoinParameters] ( RightTable ) on Attributes` |
-| union | Combines two or more tables and returns all their rows | `OfficeActivity | union SecurityEvent` |
+| project | Selects specific columns from a table | `Perf \| project ObjectName, CounterValue, CounterName` |
+| extend | Used to create a new calculated column and add it to the result set | `Perf \| extend AlertThreshold = 80` |
+| count | Calculates the number of records in a table | `SecurityAlert \| count()` |
+| join | Combines data from multiple tables based on common columns | `LeftTable \| join [JoinParameters] ( RightTable ) on Attributes` |
+| union | Combines two or more tables and returns all their rows | `OfficeActivity \| union SecurityEvent` |
 | range | Specifies a time range for your query | `range LastWeek from ago(7d) to now() step 1d` |
-| summarize | Aggregates data based on specified columns and aggregation functions | `Perf | summarize count() by CounterName` |
-| top | Returns the top N records based on a specified column (optional) | `SigninLogs | top 5 by TimeGenerated desc` |
+| summarize | Aggregates data based on specified columns and aggregation functions | `Perf \| summarize count() by CounterName` |
+| top | Returns the top N records based on a specified column (optional) | `SigninLogs \| top 5 by TimeGenerated desc` |
 | parse | Evaluates a string expression and parses its value into one or more calculated columns using regular expressions. And used for structuring unstructured data | `parse kind=regex Col with * var1:string var2:long` |
 | render | Renders results as a graphical output | `SecurityEvent | render timechart` |
-| distinct | Removes duplicate records from the table and returns a table with a distinct combination of the provided columns | `SecurityEvent | distinct Account , Activity` |
+| distinct | Removes duplicate records from the table and returns a table with a distinct combination of the provided columns | `SecurityEvent \| distinct Account , Activity` |
 | bin | Rounds all values in a timeframe and groups them | `bin(StartTime, 1d)` |
-| let | Allows you to create and set a variable or assign a name to an expression | `let aWeekAgo = ago(7d);SigninLogs | where TimeGenerated >= aWeekAgo` |
+| let | Allows you to create and set a variable or assign a name to an expression | `let aWeekAgo = ago(7d);SigninLogs \| where TimeGenerated >= aWeekAgo` |
 
 ### Detect Credential Dumping via Suspicious Modules
 
