@@ -38,8 +38,6 @@
 
 ## Kusto Query Language (KQL)
 
-> https://tryhackme.com/room/kqlkustointroduction
-
 > https://learn.microsoft.com/en-us/kusto/query/kql-quick-reference?view=azure-data-explorer&preserve-view=true
 
 ### Functions and Operators
