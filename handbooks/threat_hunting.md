@@ -58,7 +58,7 @@ summarize
 | --- | --- | --- |
 | search | Searches the specified table for matching value or pattern | `search "failed" \| where \| Filters the specified table based on specified conditions \| SigninLogs \| where EventID == "4624"` |
 | take | Used to limit the number of returned rows in the result set | `SigninLogs \| take 5` |
-| sort | Sort records in ascending or descending order based on the specified column \| `SigninLogs \| sort by TimeGenerated, Identity desc \| take 5` |
+| sort | Sort records in ascending or descending order based on the specified column | `SigninLogs \| sort by TimeGenerated, Identity desc \| take 5` |
 | ago | Returns the time offset relative to the time the query executes | `ago(1h)` |
 | print | Outputs a single row with one or more scalar expressions | `print bin(4.5, 1)` |
 | project | Selects specific columns from a table | `Perf \| project ObjectName, CounterValue, CounterName` |
