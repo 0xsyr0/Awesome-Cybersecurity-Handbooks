@@ -35,6 +35,7 @@
 - [subfinder](#subfinder)
 - [tcpdump](#tcpdump)
 - [Time To Live (TTL) and TCP Window Size Values](#time-to-live-ttl-and-tcp-window-size-values)
+- [UDPz](#udpz)
 
 ## Resources
 
@@ -63,6 +64,7 @@
 | reconFTW | Reconnaissance Automation | https://github.com/six2dez/reconftw |
 | Spoofy | Spoofy is a program that checks if a list of domains can be spoofed based on SPF and DMARC records. | https://github.com/MattKeeley/Spoofy |
 | subfinder | Fast passive subdomain enumeration tool. | https://github.com/projectdiscovery/subfinder |
+| UDPz | Speedy probe-based UDP service scanner | https://github.com/FalconOpsLLC/udpz |
 | wtfis | Passive hostname, domain and IP lookup tool for non-robots | https://github.com/pirxthepilot/wtfis |
 
 ## Amass
@@ -631,3 +633,17 @@ $ tcpdump -envi <INTERFACE> host <RHOST> -s0 -w /PATH/TO/FILE/<FILE>.pcap
 | Windows 98, Vista and 7 (Server 2008) | 128 | 8192 |
 | iOS 12.4 (Cisco Routers) | 255 | 8760 |
 | AIX 4.3 | 64 | 16384 |
+
+## UDPz
+
+### Installation
+
+```console
+$ go install -ldflags="-s -w" github.com/FalconOpsLLC/udpz@latest
+```
+
+### Common Commands
+
+```console
+$ udpz <RHOST>
+```
