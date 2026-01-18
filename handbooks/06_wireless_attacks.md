@@ -420,7 +420,7 @@ $ iwconfig <INTERFACE>mon channel <CHANNEL>
 ```
 
 ```console
-$ aireplay-ng -0 10 -a <MAC_ADDRESS> <INTERFACE>mon
+$ aireplay-ng -0 <CHANNEL> -a <MAC_ADDRESS> <INTERFACE>mon
 ```
 
 ```console
