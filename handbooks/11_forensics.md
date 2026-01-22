@@ -8,6 +8,7 @@
 - [bc](#bc)
 - [binwalk](#binwalk)
 - [capa](#capa)
+- [cabextract](#cabextract)
 - [dd](#dd)
 - [emlAnalyzer](#emlanalyzer)
 - [exiftool](#exiftool)
@@ -25,6 +26,7 @@
 - [MemProcFS](#memprocfs)
 - [Microsoft Windows](#microsoft-windows)
 - [Monitor Filesystem Changes](#monitor-filesystem-changes)
+- [msiinfo](#msiinfo)
 - [oletools](#oletools)
 - [pngcheck](#pngcheck)
 - [steg_brute](#steg_brute)
@@ -113,6 +115,12 @@ $ binwalk -e <FILE>
 
 ```cmd
 C:\> capa <FILE> -vv
+```
+
+## cabextract
+
+```console
+$ cabextract
 ```
 
 ## dd
@@ -347,6 +355,12 @@ PS C:\> Get-ChildItem C:\ -Recurse -File | Get-FileHash -Algorithm SHA256 | Expo
 
 ```cmd
 PS C:\> certutil -hashfile C:\path\to\file SHA256
+```
+
+## msiinfo
+
+```console
+$ msiinfo <FILE>
 ```
 
 ## oletools
