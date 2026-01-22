@@ -120,7 +120,7 @@ C:\> capa <FILE> -vv
 ## cabextract
 
 ```console
-$ cabextract
+$ cabextract <FILE>
 ```
 
 ## dd
