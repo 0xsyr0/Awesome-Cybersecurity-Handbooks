@@ -107,6 +107,83 @@ DeviceProcessEvents
 | project Timestamp, DeviceName, ProcessCommandLine, InitiatingProcessAccountName
 ```
 
+### File Creations and Modifications
+
+```console
+DeviceFileEvents
+| where DeviceName contains "<RHOST>"
+| where ActionType has_any("FileCreated", "FileModified")
+| project Timestamp, ActionType, FileName, FolderPath, InitiatingProcessFileName
+| sort by Timestamp desc
+```
+
+### Successful Sign-Ins
+
+```console
+SigninLogs
+| where UserPrincipalName contains "<USERNAME>@<DOMAIN>"
+| where ResultSignature contains "SUCCESS"
+| project TimeGenerated, IPAddress, Location, AppDisplayName, UserAgent
+| sort by TimeGenerated desc
+```
+
+### Blast Radius Assessment (Lateral Movement)
+
+```console
+let lookback = 2h;
+DeviceProcessEvents
+| where Timestamp > ago(lookback)
+| summarize hosts=make_set(DeviceName), executions=count()
+      by FileName, FolderPath
+| where FileName contains "<FILE>"
+| where array_length(hosts) > 1
+| order by executions desc
+```
+
+### High-Value Asset Discovery (Account-Based Lateral Movement)
+
+```console
+DeviceLogonEvents
+| where AccountName containss "<USERNAME>"
+| where ActionType == "LogonSuccess"
+| summarize LastLogon = max(Timestamp), LogonCount = count() by DeviceName, LogonType
+| sort by LastLogon desc
+```
+
+### Identifying Outbound C2 "Heartbeats"
+
+```console
+DeviceNetworkEvents
+| where DeviceName contains "<RHOST>"
+| where RemoteIPType == "Public"
+| summarize ConnectionCount = count(), UniquePorts = dcount(RemotePort), 
+    FirstSeen = min(Timestamp), LastSeen = max(Timestamp) 
+    by RemoteIP, RemoteUrl
+| where ConnectionCount > 5
+| sort by ConnectionCount desc
+```
+
+### Common Persistence Mechanisms
+
+```console
+DeviceRegistryEvents
+| where DeviceName contains "<RHOST>"
+| where RegistryKey contains @"\\Microsoft\\Windows\\CurrentVersion\\Run" 
+    or RegistryKey contains @"\\Microsoft\\Windows\\CurrentVersion\\RunOnce"
+| where ActionType == "RegistryValueSet"
+| project Timestamp, DeviceName, RegistryKey, RegistryValueData, InitiatingProcessFileName
+| sort by Timestamp desc
+```
+
+```console
+DeviceProcessEvents
+| where DeviceName contains "<RHOST>"
+| where FileName =~ "schtasks.exe"
+| where ProcessCommandLine has_any("/create", "/change", "/run")
+| project Timestamp, DeviceName, AccountName, ProcessCommandLine, InitiatingProcessFileName
+| sort by Timestamp desc
+```
+
 ## Named Pipes
 
 ### Common Named Pipes
