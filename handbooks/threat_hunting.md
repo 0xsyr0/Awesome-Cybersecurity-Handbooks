@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [Advanced Threat Analytics](#advanced-yhreat-analytics)
+- [Hunting Process Injection by Windows API Calls](#hunting-process-injection-by-windows-api-calls)
 - [Kusto Query Language (KQL)](#kusto-query-language-kql)
 - [Named Pipes](#named-pipes)
 - [Sysmon Event Codes](#sysmon-event-codes)
@@ -35,6 +36,19 @@
 - Detects: account enumeration, netsession enumeration, Brute Force, exposed cleartext credentials, honey tokens, unusual protocols, credential attacks (pth,ptt,ticket replay)
 - Will NOT detect non existent users for golden ticket
 - Detects DCSync, but not DCShadow
+
+## Hunting Process Injection by Windows API Calls
+
+| Technique | Windows API Call |
+| --- | --- |
+| Classic DLL Injection | OpenProcess, VirtualAllocEx, WriteProcessMemory, CreateRemoteThread | 
+| Dll Injection using SetWindowsHookEx | LoadLibrary / LoadLibraryEx, GetProcAddress, SetWindowsHookEx |
+| APC Injection | CreateToolhelp32Snapshot, Process32First, Thread32First, Thread32Next, Process32Next, OpenProcess, VirtualAllocEx, WriteProcessMemory, QueueUserAPC / NtQueueApcThread, VirtualFreeEx, CloseHandle |
+| Atom Bombing | CreateToolhelp32Snapshot, Thread32First, Thread32Next, OpenThread, CreateEvent, DuplicateHandle, NtQueueApcThread, QueueUserAPC, GetModuleHandle, GetProcAddress, SetEvent, GetCurrentProcess, SleepEx, WaitForMultipleObjectsEx, MsgWaitForMultipleObjectsEx, CloseHandle |
+| ALPC Injection | NtQuerySystemInformation, NtDuplicateObject / ZwDuplicateObject, GetCurrentProcess, NtQueryObject, NtClose, RtlInitUnicodeString, NtConnectPort, VirtualAllocEx, WriteProcessMemory, CopyMemory, ReadProcessMemory, VirtualFreeEx, VirtualQueryEx, GetMappedFileName, OpenProcess, CloseHandle, GetSystemInfo |
+| Lockpos | CreateFileMappingW, MapViewOfFile, RtlAllocateHeap, NtCreateSection, NtMapViewOfSection, NtCreateThreadEx |
+| Process Hollowing | CreateProcess("CREATE_SUSPENDED"), NtQueryInformationProcess, ReadProcessMemory, GetModuleHandle, GetProcAddress, ZwUnmapViewOfSection / NtUnmapViewOfSection, VirtualAllocEx, WriteProcessMemory, VirtualProtectEx, SetThreadContext, ResumeThread |
+| Process Doppelgänging | CreateFileTransacted, WriteFile, NtCreateSection, RollbackTransaction, NtCreateProcessEx, RtlCreateProcessParametersEx, VirtualAllocEx, WriteProcessMemory, NtCreateThreadEx, NtResumeThread |
 
 ## Kusto Query Language (KQL)
 
