@@ -29,6 +29,10 @@ C:\> type C:\Windows\System32\calc.exe > <FILE>:Calculator
 PS C:\> Write-Output '<CONTENT>' | Set-Content .\<FILE> -Stream '<NAME>'
 ```
 
+<p align="center">
+  <img src="https://github.com/0xsyr0/Awesome-Security-Handbooks/blob/master/images/ads1.png">
+</p>
+
 ### Listing ADS Files & Read File Content
 
 ```cmd
@@ -75,7 +79,7 @@ C:\> .\streams64.exe -d C:\PATH\TO\FOLDER\
 ```
 
 <p align="center">
-  <img src="https://github.com/0xsyr0/Red-Team-Playbooks/blob/master/5-Installation/files/ads2.png">
+  <img src="https://github.com/0xsyr0/Awesome-Security-Handbooks/blob/master/images/ads2.png">
 </p>
 
 ## Backdoor Services
