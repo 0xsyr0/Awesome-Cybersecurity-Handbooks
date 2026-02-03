@@ -436,6 +436,8 @@ https://<RHOST>/sitemap.xml
 
 ## Port Scanning
 
+### Linux
+
 ```console
 $ for p in {1..65535}; do nc -vn <RHOST> $p -w 1 -z & done 2> <FILE>.txt
 ```
@@ -444,6 +446,15 @@ $ for p in {1..65535}; do nc -vn <RHOST> $p -w 1 -z & done 2> <FILE>.txt
 
 ```console
 $ export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/tcp/$ip/$port && echo The port $port is open || echo The Port $port is closed > /dev/null" 2>/dev/null || echo Connection Timeout > /dev/null; done
+```
+
+### Microsoft Windpws
+
+#### PowerShell TestConnection
+
+```cmd
+PS C:\> Test-NetConnection -ComputerName <RHOST> -Port <RPORT>
+PS C:\> Test-NetConnection -ComputerName <RHOST> -Port <RPORT> -InformationLevel Detailed
 ```
 
 ## SMTP
