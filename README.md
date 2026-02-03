@@ -37,7 +37,7 @@ Thank you for reading.
 | [10 Post Exploitation](handbooks/10_post_exploitation.md) | [CVE](handbooks/cve.md) | [IoT](handbooks/iot.md) | [Wordlists](handbooks/wordlists.md) |
 | [11 Forensics](handbooks/11_forensics.md) | [Cyber Threat Intelligence](handbooks/cyber_threat_intelligence.md) | [Malware Development](handbooks/malware_development.md) |
 | [12 Reporting Tools](handbooks/12_reporting_tools.md) | [Decrypter](handbooks/decrypter.md) | [Mobile](handbooks/mobile.md) |
-| [13 Social Engineering Tools](handbooks/13_social_engineering_tools.md) | [DFIR](handbooks/dfir.md) | [Operations Security](handbooks/operations_security.md) |
-|     |     | [OSINT](handbooks/osint.md) |
-|     |     | [Payloads](handbooks/payloads.md) |
-|     |     | [Persistence](handbooks/persistence.md) |
+| [13 Social Engineering Tools](handbooks/13_social_engineering_tools.md) | [Detection Engineering](handbooks/detection_engineering.md) | [Operations Security](handbooks/operations_security.md) |
+|     |     | [OSINT](handbooks/osint.md) | [OSINT](handbooks/osint.md) |
+|     |     | [Payloads](handbooks/payloads.md) | [Payloads](handbooks/payloads.md) |
+|     |     | [Persistence](handbooks/persistence.md) | [Persistence](handbooks/persistence.md) |
