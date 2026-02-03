@@ -30,7 +30,7 @@ PS C:\> Write-Output '<CONTENT>' | Set-Content .\<FILE> -Stream '<NAME>'
 ```
 
 <p align="center">
-  <img src="https://github.com/0xsyr0/Awesome-Security-Handbooks/blob/master/images/ads1.png">
+  <img src="https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/images/ads1.png">
 </p>
 
 ### Listing ADS Files & Read File Content
@@ -79,7 +79,7 @@ C:\> .\streams64.exe -d C:\PATH\TO\FOLDER\
 ```
 
 <p align="center">
-  <img src="https://github.com/0xsyr0/Awesome-Security-Handbooks/blob/master/images/ads2.png">
+  <img src="https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks/blob/main/images/ads2.png">
 </p>
 
 ## Backdoor Services
