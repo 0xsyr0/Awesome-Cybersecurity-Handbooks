@@ -30,9 +30,9 @@ Thank you for reading.
 | [03 Web Application Analysis](handbooks/03_web_application_analysis.md) | [Blockchain](handbooks/blockchain.md) | [Exploitation](handbooks/exploitation.md) | [SIEM](handbooks/siem.md) |
 | [04 Database Assessment](handbooks/04_database_assessment.md) | [Bug Bounty](handbooks/bug_bounty.md) | [Frameworks](handbooks/frameworks.md) | [Simulation & Emulation](handbooks/simulation_emulation.md) |
 | [05 Password Attacks](handbooks/05_password_attacks.md) | [Cloud](handbooks/cloud.md) | [Hardware](handbooks/hardware.md) | [SOAR & SecOps](handbooks/soar_%26_secops.md) |
-| [06 Wireless Attacks](handbooks/06_wireless_attacks.md) | [Command and Control](handbooks/command_and_control.md) | [IDS & IPS](handbooks/ids_ips.md) | [Threat Hunting](handbooks/threat_hunting.md) |
-| [07 Reverse Engineering](handbooks/07_reverse_engineering.md) | [Container](handbooks/container.md) | [IoT](handbooks/iot.md) | [Threat Modeling](handbooks/threat_modeling.md) |
-| [08 Exploitation Tools](handbooks/08_exploitation_tools.md) | [Cryptography](handbooks/cryptography.md) | [Malware Development](handbooks/malware_development.md) | [Templates](handbooks/templates.md) |
+| [06 Wireless Attacks](handbooks/06_wireless_attacks.md) | [Command and Control](handbooks/command_and_control.md) | [IDS & IPS](handbooks/ids_ips.md) | [Templates](handbooks/templates.md) |
+| [07 Reverse Engineering](handbooks/07_reverse_engineering.md) | [Container](handbooks/container.md) | [IoT](handbooks/iot.md) | [Threat Hunting](handbooks/threat_hunting.md) |
+| [08 Exploitation Tools](handbooks/08_exploitation_tools.md) | [Cryptography](handbooks/cryptography.md) | [Malware Development](handbooks/malware_development.md) | [Threat Modeling](handbooks/threat_modeling.md) |
 | [09 Sniffing & Spoofing](handbooks/09_sniffing_%26_spoofing.md) | [CVE](handbooks/cve.md) | [Mobile](handbooks/mobile.md) | [Wordlists](handbooks/wordlists.md) |
 | [10 Post Exploitation](handbooks/10_post_exploitation.md) | [Cyber Threat Intelligence](handbooks/cyber_threat_intelligence.md) | [Operations Security](handbooks/operations_security.md) |  |
 | [11 Forensics](handbooks/11_forensics.md) | [Decrypter](handbooks/decrypter.md) | [OSINT](handbooks/osint.md) |  |
