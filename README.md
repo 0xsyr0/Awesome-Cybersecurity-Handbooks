@@ -25,17 +25,17 @@ Thank you for reading.
 
 |     |     |     |     |
 | --- | --- | --- | --- |
-| [01 Information Gathering](handbooks/01_information_gathering.md) | [AI & ML](handbooks/ai_%26_ml.md) | [Decrypter](handbooks/decrypter.md) | [Operations Security](handbooks/operations_security.md) |
-| [02 Vulnerability Analysis](handbooks/02_vulnerability_analysis.md) | [Attack Surface Management](handbooks/attack_surface_management.md) | [Delivery](handbooks/delivery.md) | [OSINT](handbooks/osint.md) |
-| [03 Web Application Analysis](handbooks/03_web_application_analysis.md) | [Basics](handbooks/basics.md) | [Detection Engineering](handbooks/detection_engineering.md) | [Payloads](handbooks/payloads.md) |
-| [04 Database Assessment](handbooks/04_database_assessment.md) | [Blockchain](handbooks/blockchain.md) | [DFIR](handbooks/dfir.md) | [Persistence](handbooks/persistence.md) |
-| [05 Password Attacks](handbooks/05_password_attacks.md) | [Bug Bounty](handbooks/bug_bounty.md) | [EDR & XDR](handbooks/edr_xdr.md) | [Privacy](handbooks/privacy.md) |
-| [06 Wireless Attacks](handbooks/06_wireless_attacks.md) | [Cloud](handbooks/cloud.md) | [Evasion](handbooks/evasion.md) | [Secure Architecture](handbooks/secure_architecture.md) |
-| [07 Reverse Engineering](handbooks/07_reverse_engineering.md) | [Command and Control](handbooks/command_and_control.md) | [Exploitation](handbooks/exploitation.md) | [Security Operations Center](handbooks/security_operations_center.md) |
-| [08 Exploitation Tools](handbooks/08_exploitation_tools.md) | [Container](handbooks/container.md) | [Frameworks](handbooks/frameworks.md) | [SIEM](handbooks/siem.md) |
-| [09 Sniffing & Spoofing](handbooks/09_sniffing_%26_spoofing.md) | [Cryptography](handbooks/cryptography.md) | [Hardware](handbooks/hardware.md) | [Simulation & Emulation](handbooks/simulation_emulation.md) |
-| [10 Post Exploitation](handbooks/10_post_exploitation.md) | [CVE](handbooks/cve.md) | [IDS & IPS](handbooks/ids_ips.md) | [SOAR & SecOps](handbooks/soar_%26_secops.md) |
-| [11 Forensics](handbooks/11_forensics.md) | [Cyber Threat Intelligence](handbooks/cyber_threat_intelligence.md) | [IoT](handbooks/iot.md) | [Templates](handbooks/templates.md) |
-| [12 Reporting Tools](handbooks/12_reporting_tools.md) | [Database Assessment](handbooks/database_assessment.md) | [Malware Development](handbooks/malware_development.md) | [Threat Hunting](handbooks/threat_hunting.md) |
-| [13 Social Engineering Tools](handbooks/13_social_engineering_tools.md) | [Databases](handbooks/databases.md) | [Mobile](handbooks/mobile.md) | [Threat Modeling](handbooks/threat_modeling.md) |
-|     |     |     | [Wordlists](handbooks/wordlists.md) |
+| [01 Information Gathering](handbooks/01_information_gathering.md) | [Attack Surface Management](handbooks/attack_surface_management.md) | [EDR & XDR](handbooks/edr_xdr.md) | [Secure Architecture](handbooks/secure_architecture.md) |
+| [02 Vulnerability Analysis](handbooks/02_vulnerability_analysis.md) | [Basics](handbooks/basics.md) | [Evasion](handbooks/evasion.md) | [Security Operations Center](handbooks/security_operations_center.md) |
+| [03 Web Application Analysis](handbooks/03_web_application_analysis.md) | [Blockchain](handbooks/blockchain.md) | [Exploitation](handbooks/exploitation.md) | [SIEM](handbooks/siem.md) |
+| [04 Database Assessment](handbooks/04_database_assessment.md) | [Bug Bounty](handbooks/bug_bounty.md) | [Frameworks](handbooks/frameworks.md) | [Simulation & Emulation](handbooks/simulation_emulation.md) |
+| [05 Password Attacks](handbooks/05_password_attacks.md) | [Cloud](handbooks/cloud.md) | [Hardware](handbooks/hardware.md) | [SOAR & SecOps](handbooks/soar_%26_secops.md) |
+| [06 Wireless Attacks](handbooks/06_wireless_attacks.md) | [Command and Control](handbooks/command_and_control.md) | [IDS & IPS](handbooks/ids_ips.md) | [Threat Hunting](handbooks/threat_hunting.md) |
+| [07 Reverse Engineering](handbooks/07_reverse_engineering.md) | [Container](handbooks/container.md) | [IoT](handbooks/iot.md) | [Templates](handbooks/templates.md) |
+| [08 Exploitation Tools](handbooks/08_exploitation_tools.md) | [Cryptography](handbooks/cryptography.md) | [Malware Development](handbooks/malware_development.md) | [Threat Modeling](handbooks/threat_modeling.md) |
+| [09 Sniffing & Spoofing](handbooks/09_sniffing_%26_spoofing.md) | [CVE](handbooks/cve.md) | [Mobile](handbooks/mobile.md) | [Wordlists](handbooks/wordlists.md) |
+| [10 Post Exploitation](handbooks/10_post_exploitation.md) | [Cyber Threat Intelligence](handbooks/cyber_threat_intelligence.md) | [Operations Security](handbooks/operations_security.md) |  |
+| [11 Forensics](handbooks/11_forensics.md) | [Decrypter](handbooks/decrypter.md) | [OSINT](handbooks/osint.md) |  |
+| [12 Reporting Tools](handbooks/12_reporting_tools.md) | [Delivery](handbooks/delivery.md) | [Payloads](handbooks/payloads.md) |  |
+| [13 Social Engineering Tools](handbooks/13_social_engineering_tools.md) | [Detection Engineering](handbooks/detection_engineering.md) | [Persistence](handbooks/persistence.md) |  |
+| [AI & ML](handbooks/ai_%26_ml.md) | [DFIR](handbooks/dfir.md) | [Privacy](handbooks/privacy.md) | |
