@@ -278,6 +278,36 @@ if __name__ == "__main__":
 $ hashcat -a 0 -m 10900 <FILE> /PATH/TO/WORDLIST/<WORDLIST>
 ```
 
+### Another Python Solution
+
+```python
+$ python3 -c "
+import base64
+data = base64.b64decode('<HASH')
+print(f'Length: {len(data)} bytes')
+print(f'Hex: {data.hex()}')
+# First 8 bytes = salt, rest = hash
+salt = data[:8]
+hash_part = data[8:]
+print(f'Salt ({len(salt)}b): {salt.hex()}')
+print(f'Hash ({len(hash_part)}b): {hash_part.hex()}')
+"
+```
+
+```python
+$ python3 -c "
+import base64
+data = base64.b64decode('<HASH>')
+salt = data[:8]
+hash_part = data[8:]
+print(f'sha256:600000:{base64.b64encode(salt).decode()}:{base64.b64encode(hash_part).decode()}')
+"
+```
+
+```console
+$ hashcat -m 10900 sha256:600000:u9wLBBOUnac=:YshQbDDqCAzy4AEdK5OfZBJDLNe4rXa1VgP5NzLd3Ps= /usr/share/wordlists/rockyou.txt
+```
+
 ## PuTTY Tools
 
 ```console
