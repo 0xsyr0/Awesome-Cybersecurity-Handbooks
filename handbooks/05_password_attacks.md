@@ -766,8 +766,8 @@ $ netexec smb <RHOST> -u <USERNAME> -k --use-kcache
 ##### Generate krb5.conf
 
 ```console
-$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --generate-krb5-file /tmp/krb5conf2
-$ export KRB5_CONFIG=/tmp/krb5conf2
+$ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --generate-krb5-file ./krb5.conf
+$ export KRB5_CONFIG=./krb5.conf
 $ echo '<PASSWORD>' | kinit <USERNAME>@<DOMAIN>
 $ klist
 ```
@@ -977,8 +977,10 @@ $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --groups "<GROUP>"
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --admin-count
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --query "(adminCount=1)" "sAMAccountName"
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --dc-list
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --find-delegation
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M get-desc-users
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M adcs
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M pre2k
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M maq
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M enum_trusts
 $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M ldap-checker
