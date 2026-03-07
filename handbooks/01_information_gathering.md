@@ -191,6 +191,10 @@ $ ./finger-user-enum.pl -U users.txt -t <RHOST>
 $ ./fscan -h <SUBNET> -np
 ```
 
+```cmd
+PS C:\> .\fscan.exe -h <SUBNET> -nobr -nopoc
+```
+
 ## MASSCAN
 
 > https://github.com/robertdavidgraham/masscan
