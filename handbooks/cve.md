@@ -210,6 +210,7 @@
 | CVE-2025-5777 | Citrix Bleed 2 | https://github.com/bughuntar/CVE-2025-5777 |
 | CVE-2025-62215 | Windows Kernel LPE | https://github.com/dexterm300/CVE-2025-62215-exploit-poc |
 | CVE-2025-9074 | Docker Desktop (Windows) Container Escape - Host Write via Exposed Engine API | https://github.com/zenzue/CVE-2025-9074 |
+| CVE-2026-20817 | Windows Error Reporting ALPC LPE | https://github.com/oxfemale/CVE-2026-20817 |
 | CVE-2026-24061 | GNU Inetutils telnetd RCE | https://github.com/SafeBreach-Labs/CVE-2026-24061 |
 | n/a | BadSuccessor LPE | https://github.com/ibaiC/BadSuccessor |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
