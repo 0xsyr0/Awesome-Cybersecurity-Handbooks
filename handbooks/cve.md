@@ -48,7 +48,7 @@
 - [CVE-2025-55182: React2Shell RCE](#cve-2025-55182-react2shell-rce)
 - [CVE-2025-9074: Docker API Unauthorized Access RCE](#cve-2025-9074-docker-api-unauthorized-access-rce)
 - [CVE-2026-24061: GNU Inetutils telnetd RCE](#cve-2026-24061-gnu-inetutils-telnetd-rce)
-- [CVE-2026-29000: Authentication Bypass in pac4j-jwt 6.0.3 JwtAuthenticator](CVE-2026-29000-authentication-bypass-in-pac4j-jwt-603-jwtauthenticator)
+- [CVE-2026-29000: Authentication Bypass in pac4j-jwt 6.0.3 JwtAuthenticator](#cve-2026-29000-authentication-bypass-in-pac4j-jwt-603-jwtauthenticator)
 - [BadSuccessor Delegated Managed Service Account (dMSA) LPE](#badsuccessor-delegated-managed-service-account-dmsa-lpe)
 - [GodPotato LPE](#godpotato-lpe)
 - [Juicy Potato LPE](#juicy-potato-lpe)
