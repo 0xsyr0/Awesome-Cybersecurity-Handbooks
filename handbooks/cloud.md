@@ -25,6 +25,7 @@
 | CloudPEASS | Cloud Privilege Escalation Awesome Script Suite | https://github.com/carlospolop/CloudPEASS |
 | FindMeAccess | FindMeAccess is a tool useful for finding gaps in Azure/M365 MFA requirements for different resources, client ids, and user agents. | https://github.com/absolomb/FindMeAccess |
 | GraphRunner | A Post-exploitation Toolset for Interacting with the Microsoft Graph API | https://github.com/dafthack/GraphRunner |
+| GraphSpy | Initial Access and Post-Exploitation Tool for AAD and O365 with a browser-based GUI | https://github.com/RedByte1337/GraphSpy |
 | HacktricksCloud | Welcome to the page where you will find each hacking trick/technique/whatever related to Infrastructure. | https://github.com/carlospolop/hacktricks-cloud |
 | lazys3 | A Ruby script to bruteforce for AWS s3 buckets using different permutations. | https://github.com/nahamsec/lazys3 |
 | MFASweep | A tool for checking if MFA is enabled on multiple Microsoft Services | https://github.com/dafthack/MFASweep |
