@@ -11,6 +11,8 @@
 - [kubeletctl](#kubeletctl)
 - [Kubernetes](#kubernetes)
 - [LXD](#lxd)
+- [Shadow Group Membership](#shadow-group-membership)
+- [Telnet Shell](#telnet-shell)
 
 ## Resources
 
