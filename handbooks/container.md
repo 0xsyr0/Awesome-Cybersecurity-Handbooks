@@ -736,7 +736,7 @@ docker:::alice,bob
 ### Execution
 
 ```console
-$ newgrp <GROUP>
+$ newgrp docker
 $ sg docker -c "id"
 ```
 
