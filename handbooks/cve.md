@@ -214,6 +214,8 @@
 | CVE-2026-20817 | Windows Error Reporting ALPC LPE | https://github.com/oxfemale/CVE-2026-20817 |
 | CVE-2026-24061 | GNU Inetutils telnetd RCE | https://github.com/SafeBreach-Labs/CVE-2026-24061 |
 | n/a | BadSuccessor LPE | https://github.com/ibaiC/BadSuccessor |
+| n/a | Blue Hammer LPE (1) | https://github.com/Nightmare-Eclipse/BlueHammer |
+| n/a | Blue Hammer LPE (2) | https://github.com/0xjustBen/BlueHammer |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | GSM Linux Kernel LPE (1) | https://github.com/jmpe4x/GSM_Linux_Kernel_LPE_Nday_Exploit |
