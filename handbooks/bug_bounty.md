@@ -33,6 +33,7 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
+| AI Agents for Offensive Security | Book | https://www.manning.com/books/ai-agents-for-offensive-security |
 | Bug Crowd | Bug Bounty Platform | https://www.bugcrowd.com |
 | CrowdStream | CrowdStream is a showcase of accepted and disclosed submissions on participating programs. | https://bugcrowd.com/crowdstream?filter=disclosures |
 | disclose.io | We're here to make vulnerability disclosure safe, simple, and standardized for everyone. | https://disclose.io |
