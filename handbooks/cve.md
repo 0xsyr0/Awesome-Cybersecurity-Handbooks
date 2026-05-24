@@ -68,6 +68,7 @@
 | Sploitus | https://sploitus.com |
 | Packet Storm | https://packetstormsecurity.com |
 | 0day.today Exploit Database | https://0day.today |
+| CVE PoC Search | https://labs.jamessawyer.co.uk/cves/ |
 
 ## Resources
 
