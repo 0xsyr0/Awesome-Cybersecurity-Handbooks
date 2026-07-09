@@ -28,6 +28,11 @@ Thank you for reading.
 - [Violin](https://github.com/Strategic-Automation/violin) - AI-native pentest framework and Hermes agent profile/plugin for autonomous, human-in-the-loop offensive security (IDOR/SSRF/XSS triage, multi-stage agentic testing).
 
 
+## Offensive Security & AI Red Team Frameworks
+
+- [Violin](https://github.com/Strategic-Automation/violin) - AI-native pentest framework and Hermes agent profile/plugin for autonomous, human-in-the-loop offensive security (IDOR/SSRF/XSS triage, multi-stage agentic testing).
+
+
 |     |     |     |     |
 | --- | --- | --- | --- |
 | [01 Information Gathering](handbooks/01_information_gathering.md) | [Attack Surface Management](handbooks/attack_surface_management.md) | [EDR & XDR](handbooks/edr_xdr.md) | [Secure Architecture](handbooks/secure_architecture.md) |
