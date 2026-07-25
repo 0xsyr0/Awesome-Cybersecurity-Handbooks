@@ -221,6 +221,7 @@
 | CVE-2026-41096 | Windows DNS Client RCE | https://github.com/satchfunky/CVE-2026-41096-POC |
 | CVE-2026-42945 | NGINX Rift RCE | https://github.com/DepthFirstDisclosures/Nginx-Rift |
 | CVE-2026-46300 | Fragnesia Universal Linux LPE | https://github.com/v12-security/pocs/blob/main/fragnesia%2FREADME.md |
+| CVE-2026-54121 | Certighost | https://github.com/aniqfakhrul/CVE-2026-54121 |
 | CVE-2026-63030, CVE-2026-6013 | wp2shell RCE | https://github.com/Icex0/wp2shell-poc |
 
 ### Miscellaneous Exploits
