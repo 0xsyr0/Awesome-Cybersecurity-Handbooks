@@ -997,11 +997,32 @@ $ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --bloodhound --dns-tcp --
 $ netexec ldap <RHOST> -u '<USERNAME>' -k --get-sid
 ```
 
+#### Forest Trust Enumeration
+
+```console
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -d <DOMAIN> --query '(&(objectClass=trustedDomain)(trustPartner=<DOMAIN>))' 'distinguishedName trustPartner trustDirection trustType trustAttributes securityIdentifier'
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -d <DOMAIN> --query '(&(objectClass=trustedDomain)(trustPartner=<DOMAIN>))' 'distinguishedName trustPartner trustDirection trustType trustAttributes securityIdentifier'
+```
+
+```python
+$ python3 -c 'v=72; print(f"{v} = {v:#x}"); print([name for bit,name in [(0x1,"NON_TRANSITIVE"),(0x2,"UPLEVEL_ONLY"),(0x4,"QUARANTINED"),(0x8,"FOREST_TRANSITIVE"),(0x10,"CROSS_ORGANIZATION"),(0x20,"WITHIN_FOREST"),(0x40,"TREAT_AS_EXTERNAL"),(0x400,"PIM_TRUST")] if v & bit])'
+```
+
+```console
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -d <DOMAIN> --query '(&(objectClass=group)(objectSid=*))' 'sAMAccountName objectSid memberOf'
+```
+
 #### LDAP Queries
 
 ```console
-$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --query "(sAMAccountName=Administrator)" ""
-$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --query "(sAMAccountName=Administrator)" "sAMAccountName objectClass pwdLastSet"
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --query '(sAMAccountName=Administrator)' ''
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --query '(sAMAccountName=Administrator)' 'sAMAccountName objectClass pwdLastSet'
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --dns-server <RHOST> --query '(&(objectClass=organizationalUnit)(ou=<OU>))' 'distinguishedName objectGUID'
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --dns-server <RHOST> --query '(sAMAccountName=<GROUP>)' 'distinguishedName objectSid member'
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --dns-server <RHOST> --query '(sAMAccountName=<USERNAME>)' 'distinguishedName objectSid memberOf'
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M daclread -o TARGET_DN='OU=<OU>,DC=<DOMAIN>,DC=<DOMAIN>' ACTION=read PRINCIPAL=<GROUP>
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M daclread -o TARGET_DN='OU=<OU>,DC=<DOMAIN>,DC=<DOMAIN>' ACTION=read PRINCIPAL=<USERNAME>
+$ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --query '(&(objectClass=user)(sAMAccountName=<USERNAME>))' 'distinguishedName sAMAccountName userPrincipalName userAccountControl pwdLastSet'
 ```
 
 #### Domain Access Control List (DACL) Enumeration
