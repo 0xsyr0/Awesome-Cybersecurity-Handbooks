@@ -9,6 +9,7 @@
 | Name | Description | URL |
 | --- | --- | --- |
 | Atomic Red Team | Atomic Red Team™ is a library of tests mapped to the MITRE ATT&CK® framework. Security teams can use Atomic Red Team to quickly, portably, and reproducibly test their environments. | https://github.com/redcanaryco/atomic-red-team |
+| Dark-Moon | Open source (GPL 3.0) autonomous AI penetration testing platform that covers web, API, Active Directory and Kubernetes with proof of exploitation. | https://github.com/ASCIT31/Dark-Moon |
 | Caldera | CALDERA™ is a cyber security platform designed to easily automate adversary emulation, assist manual red-teams, and automate incident response. | https://github.com/mitre/caldera |
 | Lockheed Martin Cyber Kill Chain | Developed by Lockheed Martin, the Cyber Kill Chain® framework is part of the Intelligence Driven Defense® model for identification and prevention of cyber intrusions activity. | https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html |
 | MITRE D3FEND™ | A knowledge graph of cybersecurity countermeasures | https://d3fend.mitre.org |
