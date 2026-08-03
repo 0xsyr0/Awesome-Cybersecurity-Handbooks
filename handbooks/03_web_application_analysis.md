@@ -5508,6 +5508,8 @@ The payload ending in `&x=` is being used to stop the remaining path from being 
 ### 0-Cut Bypass
 
 ```console
+http://127.0/       // http://127.1.1
+http://0/           // http://0.0.0.0
 http://1.1          // http://1.0.0.1
 http://127.0.0.1    // http://127.1.1
 http://192.168.1    // http://192.168.0.1
