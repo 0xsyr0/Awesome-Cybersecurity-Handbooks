@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-- [Advanced Threat Analytics](#advanced-yhreat-analytics)
+- [Advanced Threat Analytics](#advanced-threat-analytics)
 - [Hunting Process Injection by Windows API Calls](#hunting-process-injection-by-windows-api-calls)
 - [Kusto Query Language (KQL)](#kusto-query-language-kql)
 - [Named Pipes](#named-pipes)

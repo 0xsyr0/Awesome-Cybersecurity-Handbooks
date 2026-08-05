@@ -12,7 +12,7 @@
 - [Normal.dotm](#normaldotm)
 - [Quick Persistence](#quick-persistence)
 - [Registry Writes Without Registry Callbacks](#registry-writes-without-registry-callbacks)
-- [Relative ID (RID) Hijacking](#relative-id-rid-hjacking)
+- [Relative ID (RID) Hijacking](#relative-id-rid-hijacking)
 - [Security Descriptor Modification](#security-descriptor-modification)
 - [Special Privileges and Security Descriptors](#special-privileges-and-security-descriptors)
 - [SSH Public Key Backdoor](#ssh-public-key-backdoor)
