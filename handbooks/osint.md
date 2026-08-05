@@ -25,6 +25,7 @@
 | hunter | Hunter lets you find professional email addresses in seconds and connect with the people that matter for your business. | https://hunter.io |
 | Intelligence X | OSINT Search Engine | https://intelx.io |
 | linkedin2username | Generate username lists from companies on LinkedIn. | https://github.com/initstring/linkedin2username |
+| Lullar | Free people search by email, username or name across 175+ social networks | https://com.lullar.com/ |
 | NerdyData | Get a list of websites that use certain technologies, plus their company and spend data. | https://www.nerdydata.com |
 | Osintgram | Osintgram is a OSINT tool on Instagram. It offers an interactive shell to perform analysis on Instagram account of any users by its nickname. | https://github.com/Datalux/Osintgram |
 | OSINT Recon Tool | OSINT Mindmap Tool | https://recontool.org/#mindmap |
