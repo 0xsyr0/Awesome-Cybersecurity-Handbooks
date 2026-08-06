@@ -1,6 +1,6 @@
 # Mobile
 
-- [Resources](#resource)
+- [Resources](#resources)
 
 ## Table of Contents
 
