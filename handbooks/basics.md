@@ -675,6 +675,9 @@ $ export PATH=`pwd`:$PATH
 ## faketime
 
 ```console
+$ faketime "$(ntpdate -q <DOMAIN> | grep -oP '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}')" <COMMAND>
+$ faketime "$(ntpdate -q <DOMAIN> | grep -oP '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}')" <COMMAND> -timeout 60
+$ faketime '+25554 seconds' <COMMAND>
 $ faketime 'last friday 5 pm' /bin/date
 $ faketime '2008-12-24 08:15:42' /bin/date
 $ faketime -f '+2,5y x10,0' /bin/bash -c 'date; while true; do echo $SECONDS ; sleep 1 ; done'
