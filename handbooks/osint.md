@@ -154,7 +154,7 @@ https://calendar.google.com/calendar/u/0/embed?src=<EMAIL>
 
 #### Setup
 
-1. Add a new contact to you google account (email address required)
+1. Add a new contact to your Google account (email address required)
 2. Open developer tools and select the network tab
 3. Reload the page
 4. Set the right pane to request
