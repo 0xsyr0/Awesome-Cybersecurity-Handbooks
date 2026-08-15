@@ -33,6 +33,7 @@
 | Recon-ng | Open Source Intelligence gathering tool aimed at reducing the time spent harvesting information from open sources. | https://github.com/lanmaster53/recon-ng |
 | Sherlock | Hunt down social media accounts by username across social networks. | https://github.com/sherlock-project/sherlock |
 | tweets_analyzer | Tweets metadata scraper & activity analyzer | https://github.com/x0rz/tweets_analyzer |
+| Xquik | Independent X (Twitter) data API for search, follower export, monitors, and MCP. Not affiliated with X Corp. | https://github.com/Xquik-dev/x-twitter-scraper |
 
 ## Fast Google Dorks Scan
 
@@ -154,7 +155,7 @@ https://calendar.google.com/calendar/u/0/embed?src=<EMAIL>
 
 #### Setup
 
-1. Add a new contact to you google account (email address required)
+1. Add a new contact to your Google account (email address required)
 2. Open developer tools and select the network tab
 3. Reload the page
 4. Set the right pane to request
