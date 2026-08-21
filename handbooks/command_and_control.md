@@ -1243,6 +1243,8 @@ $ cat .env
 
 ### OPSEC Considerations
 
+#### .env
+
 To not expose any unwanted service rather than accessing them via SSH, double check the settings in the `.env` file.
 
 ```console
@@ -1250,7 +1252,81 @@ ALLOWED_IP_BLOCKS="127.0.0.0/16,192.168.10.0/24,172.16.0.0/12,10.0.0.0/8"
 ```
 
 ```console
-NGINX_BIND_LOCALHOST_ONLY="true"
+MYTHIC_SERVER_DYNAMIC_PORTS_BIND_LOCALHOST_ONLY="true"
+MYTHIC_SERVER_BIND_LOCALHOST_ONLY="true"
+```
+
+#### C2 Profiles
+
+```console
+InstalledServices/http/http/c2_code/config.json
+```
+
+- add `"bind_ip": "127.0.0.1",`
+
+```go
+{
+    "instances": [
+        {
+            "port": 8444,
+            "bind_ip": "127.0.0.1",
+            "key_path": "privkey.pem",
+            "cert_path": "fullchain.pem",
+            "debug": true,
+            "use_ssl": false,
+            "ServerHeaders": {
+                "Cache-Control": "max-age=0, no-cache",
+                "Connection": "keep-alive",
+                "Content-Type": "application/javascript; charset=utf-8",
+                "Pragma": "no-cache",
+                "Server": "NetDNA-cache/2.2"
+            },
+            "error_file_path": "",
+            "error_status_code": 404,
+            "payloads": {}
+        }
+    ]
+}
+```
+
+Change `0.0.0.0` to `127.0.0.1`.
+
+```console
+InstalledServices/http/http/c2_code/webserver/initialize.go
+```
+
+```go
+if configInstance.BindIP != "" {
+    go backgroundRunTLS(
+        r,
+        fmt.Sprintf("%s:%d", configInstance.BindIP, configInstance.Port),
+        configInstance.CertPath,
+        configInstance.KeyPath,
+    )
+} else {
+    go backgroundRunTLS(
+        r,
+        fmt.Sprintf("%s:%d", "127.0.0.1", configInstance.Port),
+        configInstance.CertPath,
+        configInstance.KeyPath,
+    )
+}
+```
+
+And for non-TLS:
+
+```go
+if configInstance.BindIP != "" {
+    go backgroundRun(
+        r,
+        fmt.Sprintf("%s:%d", configInstance.BindIP, configInstance.Port),
+    )
+} else {
+    go backgroundRun(
+        r,
+        fmt.Sprintf("%s:%d", "127.0.0.1", configInstance.Port),
+    )
+}
 ```
 
 ### Redirector
