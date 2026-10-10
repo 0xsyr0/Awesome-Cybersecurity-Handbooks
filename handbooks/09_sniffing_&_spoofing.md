@@ -431,6 +431,12 @@ $ socat TCP-LISTEN:<RPORT>,fork TCP:127.0.0.1:10022
 $ tshark -i <INTERFACE> -Y 'smtp.data.fragments' -T fields -e 'text'
 ```
 
+### Plaintext Credential Sniffing
+
+```console
+$ tshark -i <INTERFACE> -Y 'http' -T fields -e frame.time -e wlan.sa -e ip.src -e http.request.method -e http.request.full_uri
+```
+
 ### Analyzing PCAP File
 
 ```console
