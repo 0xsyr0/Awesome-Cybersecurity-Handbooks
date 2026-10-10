@@ -10,7 +10,7 @@
 - [Port Forwarding](#port-forwarding-1)
 - [Reverse SSH](#reverse-ssh)
 - [simpleproxy](#simpleproxy)
-- [socat](#socat)
+- [socat](#socat-1)
 
 ## Resources
 
