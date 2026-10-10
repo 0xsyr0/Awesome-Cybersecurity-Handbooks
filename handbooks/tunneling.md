@@ -9,8 +9,8 @@
 - [plink](#plink)
 - [Port Forwarding](#port-forwarding-1)
 - [Reverse SSH](#reverse-ssh)
-- [socat](#socat)
 - [simpleproxy](#simpleproxy)
+- [socat](#socat)
 
 ## Resources
 
