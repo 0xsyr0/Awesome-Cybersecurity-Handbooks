@@ -3486,13 +3486,6 @@ $ host -l <DOMAIN> <RHOST>
 $ icacls <FILE>
 ```
 
-## IMAP
-
-```console
-c1 LOGIN <USERNAME> <PASSWORD>
-c2 LIST
-```
-
 ## inotifywait
 
 ```console

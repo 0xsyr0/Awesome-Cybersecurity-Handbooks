@@ -18,6 +18,13 @@
 | MailHog | Web and API based SMTP testing | https://github.com/mailhog/MailHog |
 | Swaks | Swiss Army Knife for SMTP | https://github.com/jetmore/swaks |
 
+## IMAP
+
+```console
+c1 LOGIN <USERNAME> <PASSWORD>
+c2 LIST
+```
+
 ## msg
 
 ### Converting .msg-Files to .eml-Files
