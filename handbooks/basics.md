@@ -88,7 +88,6 @@
 - [printf](#printf)
 - [proc](#proc)
 - [ProFTP](#proftp)
-- [ProFTPD](#proftpd)
 - [Python2](#python2)
 - [Python](#python)
 - [Python TOTP](#python-totp)
@@ -4644,12 +4643,12 @@ $ cat /proc/self/fd/10
 
 ## ProFTP
 
+### Common Commands
+
 ```console
 $ SITE CPFR /home/<USERNAME>/.ssh/id_rsa
 $ SITE CPTO /var/tmp/id_rsa
 ```
-
-## ProFTPD
 
 ### Add User to Database
 
