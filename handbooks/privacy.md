@@ -34,7 +34,7 @@
 | mailbox.org | Secure e-mail provider from Germany. | https://mailbox.org/en/ |
 | Mailfence | Secure and private email. | https://mailfence.com |
 | Matrix | An open network for secure, decentralised communication. | https://matrix.org |
-| Mobilizon | Gather, organize and mobilize yourselves with a convivial, ethical, and emancipating tool. | https://mobilizon.org/en/ |
+| Mobilizon | Gather, organize and mobilize yourselves with a convivial, ethical, and emancipating tool. | https://mobilizon.org/ |
 | Mullvad | Free the Internet | https://mullvad.net | 
 | Nitrokey | Open Source IT-Security Hardware Made in Germany | https://www.nitrokey.com |
 | Noisy | Simple random DNS, HTTP/S internet traffic noise generator | https://github.com/1tayH/noisy |

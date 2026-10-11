@@ -235,8 +235,8 @@ $ ./chisel client 192.168.50.10:9002 R:socks
 > https://github.com/nicocha30/ligolo-ng/releases
 
 ```console
-$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.2/ligolo-ng_agent_0.6.2_Linux_64bit.tar.gz
-$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.6.2/ligolo-ng_proxy_0.6.2_Linux_64bit.tar.gz
+$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.9.2/ligolo-ng_agent_0.9.2_linux_amd64.tar.gz
+$ wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.9.2/ligolo-ng_proxy_0.9.2_linux_amd64.tar.gz
 ```
 
 #### Prepare Tunnel Interface
