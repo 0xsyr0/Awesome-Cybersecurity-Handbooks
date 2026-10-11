@@ -382,7 +382,7 @@ $ nsenter --target 1 --mount --uts --ipc --net /bin/bash
 
 > https://blog.pentesteracademy.com/abusing-sys-module-capability-to-perform-docker-container-breakout-cf5c29956edd
 
-> https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities
+> https://hacktricks.wiki/en/linux-hardening/privilege-escalation/linux-capabilities.html
 
 ##### Kernel Module
 
