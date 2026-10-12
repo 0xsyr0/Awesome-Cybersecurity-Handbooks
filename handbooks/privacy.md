@@ -40,7 +40,6 @@
 | Noisy | Simple random DNS, HTTP/S internet traffic noise generator | https://github.com/1tayH/noisy |
 | OONI | Open Observatory of Network Interference | https://ooni.org |
 | OPSEC Guide | "Arguing that you don't care about the right to privacy because you have nothing to hide is no different than saying you don't care about free speech because you have nothing to say" | https://whos-zycher.github.io/opsec-guide |
-| personal-security-checklist | 🔒 A compiled checklist of 300+ tips for protecting digital security and privacy in 2023. | https://github.com/Lissy93/personal-security-checklist |
 | Personal Security Checklist | 🔒 A compiled checklist of 300+ tips for protecting digital security and privacy in 2024 | https://github.com/lissy93/personal-security-checklist |
 | Posteo | Ad-free, no tracking, no user profiling email provider | https://posteo.de |
 | privacy.sexy | Open-source tool to enforce privacy & security best-practices on Windows, macOS and Linux, because privacy is sexy 🍑🍆 | https://privacy.sexy |
