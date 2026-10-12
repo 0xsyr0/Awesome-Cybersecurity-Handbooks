@@ -72,8 +72,6 @@ extension:sql
 
 ### Google Dorks
 
-> https://cheatsheet.haax.fr/open-source-intelligence-osint/
-
 > https://www.searchenginejournal.com/google-search-operators-commands/215331/
 
 ```console
