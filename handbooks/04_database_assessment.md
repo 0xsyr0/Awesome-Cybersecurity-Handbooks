@@ -840,9 +840,9 @@ $ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 
 ## SQL Injection (SQLi)
 
-> https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection
-
 > https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet
+
+> https://swisskyrepo.github.io/PayloadsAllTheThings/SQL%20Injection/
 
 ### Comments
 
