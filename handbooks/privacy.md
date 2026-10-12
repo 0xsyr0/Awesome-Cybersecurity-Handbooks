@@ -27,21 +27,22 @@
 | hackint | hackint is a communication network for the hacker community, but anyone is welcome to use its services. | https://www.hackint.org |
 | Have I Been Pwned | Check if your email address is in a data breach | https://haveibeenpwned.com |
 | How to disable Firefox Telemetry and Data Collection | How to disable Firefox Telemetry and Data Collection | https://github.com/K3V1991/Disable-Firefox-Telemetry-and-Data-Collection |
-| I2P | The Invisible Internet is a privacy by design, people-powered network. It is a truly free and anonymizing Internet alternative. | https://geti2p.net/en |
+| I2P | The Invisible Internet is a privacy by design, people-powered network. It is a truly free and anonymizing Internet alternative. | https://geti2p.net |
 | K-9 Mail | K-9 Mail is an open source email client focused on making it easy to chew through large volumes of email. | https://k9mail.app |
 | Keybase | End-to-end encryption for things that matter. | https://keybase.io |
 | Lokinet | Anonymous Internet Access. | https://lokinet.org/?s=09 |
-| mailbox.org | Secure e-mail provider from Germany. | https://mailbox.org/en/ |
+| mailbox.org | Secure e-mail provider from Germany. | https://mailbox.org |
 | Mailfence | Secure and private email. | https://mailfence.com |
 | Matrix | An open network for secure, decentralised communication. | https://matrix.org |
-| Mobilizon | Gather, organize and mobilize yourselves with a convivial, ethical, and emancipating tool. | https://mobilizon.org/ |
+| Mobilizon | Gather, organize and mobilize yourselves with a convivial, ethical, and emancipating tool. | https://mobilizon.org |
 | Mullvad | Free the Internet | https://mullvad.net | 
 | Nitrokey | Open Source IT-Security Hardware Made in Germany | https://www.nitrokey.com |
 | Noisy | Simple random DNS, HTTP/S internet traffic noise generator | https://github.com/1tayH/noisy |
 | OONI | Open Observatory of Network Interference | https://ooni.org |
 | OPSEC Guide | "Arguing that you don't care about the right to privacy because you have nothing to hide is no different than saying you don't care about free speech because you have nothing to say" | https://whos-zycher.github.io/opsec-guide |
+| personal-security-checklist | 🔒 A compiled checklist of 300+ tips for protecting digital security and privacy in 2023. | https://github.com/Lissy93/personal-security-checklist |
 | Personal Security Checklist | 🔒 A compiled checklist of 300+ tips for protecting digital security and privacy in 2024 | https://github.com/lissy93/personal-security-checklist |
-| Posteo | Ad-free, no tracking, no user profiling email provider | https://posteo.de/en |
+| Posteo | Ad-free, no tracking, no user profiling email provider | https://posteo.de |
 | privacy.sexy | Open-source tool to enforce privacy & security best-practices on Windows, macOS and Linux, because privacy is sexy 🍑🍆 | https://privacy.sexy |
 | PrivacyGuardian | Protect your information when buying a domain name | https://www.privacyguardian.org |
 | PrivacyTests.org | Open-source tests of web browser privacy. | https://privacytests.org |
