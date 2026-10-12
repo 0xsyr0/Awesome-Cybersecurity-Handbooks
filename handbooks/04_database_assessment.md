@@ -37,7 +37,7 @@
 | Redis Rogue Server | Redis(<=5.0.5) RCE | https://github.com/n0b0dyCN/redis-rogue-server |
 | SQL Injection Cheatsheet | Tib3rius | https://tib3rius.com/sqli.html |
 | SQL injection cheat sheet | This SQL injection cheat sheet contains examples of useful syntax that you can use to perform a variety of tasks that often arise when performing SQL injection attacks. | https://portswigger.net/web-security/sql-injection/cheat-sheet |
-| SQL Injection Payload List | SQL Injection Payload List | https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection |
+| SQL Injection Payload List | SQL Injection Payload List | https://swisskyrepo.github.io/PayloadsAllTheThings/SQL%20Injection/ |
 | sqlmap | sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database servers. | https://github.com/sqlmapproject/sqlmap |
 | sqlmap Websocket Proxy | Tool to enable blind sql injection attacks against websockets using sqlmap | https://github.com/BKreisel/sqlmap-websocket-proxy |
 
