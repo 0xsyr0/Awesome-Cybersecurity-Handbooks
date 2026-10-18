@@ -16,6 +16,7 @@
 | CloudSEK | Security Threat Intelligence Platform | https://www.cloudsek.com |
 | CrowdSec | Open-source and participative IPS able to analyze visitor behavior & provide an adapted response to all kinds of attacks. | https://github.com/crowdsecurity/crowdsec |
 | Cyber Threat Intelligence | Real-Time Threat Monitoring. | https://start.me/p/wMrA5z/cyber-threat-intelligence |
+| Internet Cyber Health Index (ICHI) | Free source-transparent daily barometer of internet cyber health, aggregating 20+ named public sources into one dashboard. | https://ichi.global |
 | MISP | Open Source Threat Intelligence Platform | https://www.misp-project.org |
 | OpenCTI | Open Cyber Threat Intelligence Platform | https://github.com/OpenCTI-Platform/opencti |
 | Pulsefive | Threat Intelligence | https://pulsedive.com |
