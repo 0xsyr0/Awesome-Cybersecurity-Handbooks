@@ -36,11 +36,11 @@
 
 ## Evilginx2
 
-> https://help.evilginx.com/docs/getting-started/building
+> https://help.evilginx.com/community/getting-started/building
 
-> https://help.evilginx.com/docs/getting-started/quick-start
+> https://help.evilginx.com/community/getting-started/quickstart
 
-> https://help.evilginx.com/docs/guides/phishlets
+> https://help.evilginx.com/community/guides/phishlets
 
 ### Installation
 
@@ -82,7 +82,7 @@ $ sudo update-ca-certificates
 
 ### Phishlets
 
-> https://help.evilginx.com/docs/guides/phishlets
+> https://help.evilginx.com/community/guides/phishlets
 
 > https://github.com/An0nUD4Y/Evilginx2-Phishlets
 
@@ -93,7 +93,7 @@ $ sudo update-ca-certificates
 
 ### Lures
 
-> https://help.evilginx.com/docs/guides/lures
+> https://help.evilginx.com/community/guides/lures
 
 ```console
 : lures create <PHISHLET>
