@@ -254,6 +254,7 @@
 | n/a | RedSun LPE | https://git.projectnightcrawler.dev/NightmareEclipse/RedSun |
 | n/a | RoquePlanet LPE | https://git.projectnightcrawler.dev/NightmareEclipse/RoguePlanet |
 | n/a | SharpSuccessor LPE | https://github.com/logangoins/SharpSuccessor |
+| n/a | SignDrop LPE (0-day) | https://git.projectnightcrawler.dev/NightmareEclipse/SignDrop |
 | n/a | ShieldBreak LPE (0-day) | https://git.projectnightcrawler.dev/NightmareEclipse/ShieldBreak |
 | n/a | ShieldCrash LPE | https://git.projectnightcrawler.dev/NightmareEclipse/ShieldCrash |
 | n/a | Shocker Container Escape | https://github.com/gabrtv/shocker |
